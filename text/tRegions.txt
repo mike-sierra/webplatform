@@ -1,6 +1,18 @@
 == Regions Tutorial ==
 
+http://docs.webplatform.org/wiki/css/properties/region-fragment
+http://docs.webplatform.org/wiki/css/properties/flow-from
+http://docs.webplatform.org/wiki/css/properties/flow-into
+http://docs.webplatform.org/wiki/css/properties/break-inside
+http://docs.webplatform.org/wiki/css/properties/break-before
+http://docs.webplatform.org/wiki/css/properties/break-after
+http://docs.webplatform.org/wiki/css/atrules/@region
+http://docs.webplatform.org/wiki/css/cssom/NamedFlow
+http://docs.webplatform.org/wiki/css/cssom/Region
+
 http://www.adobe.com/devnet/html5/articles/css3-regions.html
+
+
 
 Note: The proposed syntax for CSS Regions and CSS Exclusions has
 changed since this article was written, though the concepts remain the
@@ -135,13 +147,11 @@ CSS
 .circle{
         /* shape the element as a circle */
         shape-inside: polygon(0px, 150px /* ...more points */);
-
 }
 
 .heart{
         /* shape the element as a heart */
         shape-inside: polygon(150px, 32px /* ...more points */);
-
 }
 
 HTML

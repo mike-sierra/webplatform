@@ -2,6 +2,8 @@
 
 == 6.1. The NamedFlow interface ==
 
+Contains content used to flow text among various block region elements
+
 A named flow is created when it becomes referenced by the ‘flow-into’
 and/or ‘flow-from’ computed values. The following APIs allow scripts
 to reference a NamedFlow object representation of a named flow.
@@ -9,9 +11,9 @@ to reference a NamedFlow object representation of a named flow.
 An additional method on the Document interface provide access to named
 flows.
 
-partial interface Document {
-  NamedFlowCollection getNamedFlows();
-};
+ partial interface Document {
+   NamedFlowCollection getNamedFlows();
+ };
 
 The getNamedFlows() method on the Document interface returns a static
 snapshot of all the current named flows in the document.
@@ -63,7 +65,6 @@ interface NamedFlow : EventTarget {
   readonly attribute integer firstEmptyRegionIndex;
   NodeList getContent();
   sequence<Region> getRegionsByContent(Node node);
-
 };
 
 The name attribute returns the name of the NamedFlow instance.

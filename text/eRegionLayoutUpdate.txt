@@ -1,1 +1,32 @@
 == RegionLayoutUpdate ==
+
+== 6.4. Region flow layout events ==
+
+NamedFlow objects are EventTargets which dispatch regionlayoutupdate
+events when there is a possible layout change in their region
+chain. The event is asynchronous, and fires in the same step of the
+event loop [HTML5] as when MutationObservers [DOM] are invoked.
+
+If region chain nesting occurs (the contents of a NamedFlow contains
+regions for a different NamedFlow) then the regionlayoutupdate event
+for the nested flow(s) must be dispatched before the
+regionlayoutupdate event for the containing flow is dispatched.
+
+Type regionlayoutupdate
+
+Interface UIEvent (see [DOM-LEVEL-3-EVENTS])
+
+Sync / Async Async
+
+Bubbles No
+
+Target NamedFlow
+
+Cancelable Yes
+
+Default action none
+
+Context info
+
+Event.target: NamedFlow whose layout may have changed
+

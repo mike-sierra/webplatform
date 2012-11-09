@@ -49,14 +49,12 @@ The following code sample illustrates the usage of the
 
 article {
   flow-into: "article";
-
 }
 
 #region_1, #region_2 {
   flow-from: article;
   region-fragment: break; /* or auto */
   overflow: visible; /* or hidden */
-
 }
 
 </style>

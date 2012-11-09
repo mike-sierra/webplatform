@@ -15,7 +15,6 @@ interface Region {
   CSSStyleDeclaration getComputedRegionStyle(Element elt);
   CSSStyleDeclaration getComputedRegionStyle(Element elt, DOMString
   pseudoElt);
-
 };
 
 Element implements Region;
