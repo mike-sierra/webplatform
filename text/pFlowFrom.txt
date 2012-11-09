@@ -1,0 +1,146 @@
+== FlowFrom ==
+
+== 3.2. The ‘flow-from’ property ==
+
+!TERM: would like to use "threaded"
+
+Marks a block element as a region into which content can be flowed
+
+The ‘flow-from’ property makes a block container a region and
+associates it with a named flow.
+
+Name: flow-from
+
+Value: <ident> | none | inherit
+
+Initial: none
+
+Applies to: Non-replaced block containers.
+
+This might be expanded in future versions of the specification to
+allow other types of containers to receive flow content.
+
+Inherited: no
+
+Percentages: N/A
+
+Media: visual
+
+Computed value: as specified
+
+none
+
+The block container is not a region.
+
+<ident>
+
+If the ‘content’ property computes to something else than ‘normal’ (or
+‘none’ for a pseudo-element), the block container does not become a
+CSS Region. If the ‘content’ property computes to ‘normal’ (or ‘none’
+for a pseudo-element), then the block container becomes a CSS Region
+and is ordered in a region chain according to its document order. The
+content from the flow with the <ident> name will be broken into
+fragments and visually formatted in the principal boxes of the regions
+in the region chain.
+
+If there is no flow with name <ident>, then the block container does
+not format any content visually.
+
+A CSS Region’s document children are not visually formatted unless
+they are directed to a named flow with an associated region chain.
+
+Block container pseudo-elements where the value of ‘flow-from’
+computes to an <ident> and the value of ‘content’ computes to ‘none’
+are generated as CSS Regions, which is an update to the behavior
+described in [CSS21].
+
+Note
+
+A block container becomes a CSS Region when its ‘flow-from’ property
+is set to a valid <ident> value, even if there is no content
+contributing to the referenced flow. For example:
+
+<style>
+  .article{
+    flow-into: thread;
+  }
+  .region{
+    flow-from: thread;
+  }
+</style>
+
+<html>
+  <body>
+    <div class=region>div content</div>
+  </body>
+</html>
+
+There is no element matching the .article selector and therefore no
+content in the thread flow. However, the block container matching the
+.region selector is still associated with that empty named flow and,
+consequently, its children are not formatted visually.
+
+Note
+
+At the time of this note-writing, the display values that always
+result in a non-replaced block container include block, inline-block,
+table-cell, table-caption, and list-item. All of these display values
+work as regions with non-replaced elements.
+
+Issue-15827
+
+Specify behavior of stacking contexts that are split between regions
+
+CSS Regions create a new stacking context. CSS Regions establish a new
+block formatting Context.
+
+Note
+
+With region chains, an element may be split across multiple boxes and
+these boxes may overlap (for example if they are absolutely
+positioned). So fragments of the same element can overlap each
+other. Since each element has a single z-index, it would be required
+to find another mechanism to decide in which order the fragments are
+rendered. Since each CSS Region creates a new stacking context, it is
+clear that each fragment is rendered separately and their rendering
+order follows the regular CSS rendering model.
+
+Floats or other exclusions (see [CSS3-EXCLUSIONS]) potentially impact
+the content laid out in region chains, just as for non-regions.
+
+See the regions visual formatting details section for a description of
+how ‘width’ and ‘height’ values are resolved for CSS Region boxes.
+
+== 3.2.1. Cycle Detection ==
+
+Named flows containing elements where the value of ‘flow-from’
+computes to an <ident> can produce nonsensical circular relationships,
+such as a named flow containing CSS Regions in its own region
+chain. These relationships can be easily and reliably detected and
+resolved, however, by keeping track of a dependency graph and using
+common cycle-detection algorithms.
+
+The dependency graph consists of edges such that:
+
+Every named flow depends on its elements where the value of
+‘flow-from’ computes to an <ident> .
+
+Every element in a named flow where the value of ‘flow-from’ computes
+to an <ident> depends on the named flow with the <ident> name.
+
+If the graph contains a cycle, any elements where the value of
+‘flow-from’ computes to an <ident> participating in the cycle do not
+become CSS Regions.
+
+== 3.2.2. Nested fragmentation contexts ==
+
+A CSS Region that contains a fragment of a named flow can itself be
+fragmented if it is nested within a fragmentation context
+[CSS3-BREAK], such as when a layout using a region chain is
+printed. In these cases break opportunities in the named flow fragment
+contained by the CSS Region are determined using the standard
+fragmentation rules. In other words, each region box and its
+associated fragment should break as if it were a simple div containing
+the fragment contents. This can be controlled by using an avoid break
+value on the CSS Region, if that is desired.
+

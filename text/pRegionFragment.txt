@@ -1,0 +1,90 @@
+== RegionFragment ==
+
+== 3.4. The region-fragment property ==
+
+Name: region-fragment
+
+Value: auto | break
+
+Initial: auto
+
+Applies to: CSS Regions
+
+Inherited: no
+
+Percentages: N/A
+
+Media: visual
+
+Computed value: specified value
+
+The ‘region-fragment’ property controls the behavior of the last
+region associated with a named flow.
+
+auto
+
+Content flows as it would in a regular content box. If the content
+exceeds the container box, it is subject to the overflow property's
+computed value on the CSS Region. Region breaks must be ignored on the
+last region.
+
+break
+
+If the content fits within the CSS Region, then this property has no
+effect. If the content does not fit within the CSS Region, the content
+breaks as if flow was going to continue in a subsequent region. See
+the breaking rules section. A forced region break takes precedence
+over a natural break point.
+
+Flow content that follows the last break in the last region is not
+rendered.
+
+The ‘region-fragment’ property does not influence the size of the
+region it applies to.
+
+The following code sample illustrates the usage of the
+‘region-fragment’ property.
+
+<style>
+
+article {
+  flow-into: "article";
+
+}
+
+#region_1, #region_2 {
+  flow-from: article;
+  region-fragment: break; /* or auto */
+  overflow: visible; /* or hidden */
+
+}
+
+</style>
+
+<article>...</article>
+
+<div id="region_1"></div>
+
+<div id="region_2"></div>
+
+‘flow-into: "article"’ region_1 and region_2 ‘region-fragment: auto’
+
+‘overflow:visible’
+
+‘region-fragment: break’ ‘region-fragment: auto’
+
+‘overflow:hidden’
+
+Different values for the region-fragment property
+
+Note
+
+The ‘overflow’ property is honored on a region: if region content
+overflows, such as the borders of elements on the last line, the
+‘overflow’ property controls the visibility of the overflowing
+content. See the ‘overflow’ property definition ([CSS21]).
+
+1 Test
+
+Gecko Presto Trident WebKit
+

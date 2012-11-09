@@ -1,0 +1,139 @@
+== FlowInto ==
+
+== 3.1. The ‘flow-into’ property ==
+
+Issue-16527
+
+[Shadow]: getFlowByName and shadow DOM
+
+The ‘flow-into’ property can place an element into a named
+flow. Elements that belong to the same flow are laid out in the region
+chain associated with that flow.
+
+Name: flow-into
+
+Value: <ident> | none | inherit
+
+Initial: none
+
+Applies to: any element.
+
+The ‘flow-into’ property does not apply to any pseudo-element such as
+::first-line, ::first-letter, ::before or ::after.
+
+Inherited: no
+
+Percentages: N/A
+
+Media: visual
+
+Computed value: as specified
+
+none
+
+The element is not moved to a named flow and normal CSS processing
+takes place.
+
+<ident>
+
+The element is taken out of its parent's flow and placed into the flow
+with the name ‘<ident>’. The element is said to have a specified
+flow. The values ‘none’, ‘inherit’, ‘default’, ‘auto’ and ‘initial’
+are invalid flow names.
+
+A named flow needs to be associated with a region chain (one or more
+CSS regions) for its elements to be visually formatted. If no region
+chain is associated with a given named flow, the elements in the named
+flow are not rendered: they do not generate boxes and are not
+displayed.
+
+The children of an element with a specified flow may themselves have a
+specified flow.
+
+If an element has the same specified flow as one of its ancestors, it
+becomes a sibling of its ancestor for the purpose of layout in the
+region chain laying out content from that flow.
+
+The ‘flow-into’ property does not affect the CSS cascade and
+inheritance for the elements on which it is specified. The ‘flow-into’
+property affects the visual formatting of elements placed into a named
+flow and of the region chain laying out content from a named flow.
+
+The edges of the first CSS region in a region chain associated with a
+named flow establish the rectangle that is the containing block used
+for absolutely positioned elements in the named flow which do not have
+an ancestor with a ‘position’ of ‘absolute’, ‘relative’ or ‘fixed’
+(see [CSS21]). That first CSS region rectangle is used as the
+containing block instead of the initial containing block. This does
+not affect fixed position elements in the named flow - they are still
+positioned relative to the viewport or page area even if they have
+been redirected to a named flow.
+
+The first region defines the writing mode for the entire flow. The
+writing mode on subsequent regions is ignored.
+
+Elements in a named flow are sequenced in document order. The
+structure of a named flow is equivalent to the result of moving the
+elements to a common parent. The visual formatting model uses the
+relationships between elements in the named flow structure as input,
+rather than the elements’ original positions.
+
+Note
+
+The ‘flow-into’ property moves an element into the flow and the
+interplay with selectors should be considered carefully.
+
+For example,
+
+table {flow-into: table-content}
+
+will move all tables in the ‘table-content’ named flow. However, the
+
+table > * {flow-into: table-content} ...
+
+selector will move all immediate children of all table elements into
+the ‘table-content’ named flow (which may be useful as it will usually
+result, if the immediate children are rows, in merging rows of
+multiple tables), but the
+
+table * {flow-into: table-content}
+
+selector will move all descendants of table elements into the
+‘table-content’ named flow, transforming the element tree into a flat
+list in order of opening tags (which is probably not
+intentional). This will make all the descendants of table elements
+siblings in the named flow. Having the descendants become siblings in
+the named flow results in a different processing (see CSS 2.1‘s
+anonymous table objects). This note illustrates how authors must
+exercise caution when choosing a particular selector for setting the
+’flow-into' property to avoid unintended results.
+
+Note
+
+Another consequence of moving elements into named flows is that
+surrounding whitespace is not moved into the named flow. If you have
+code like this:
+
+span {flow-into: span-content}
+
+<span>one</span>
+
+<span>two</span>
+
+Then the ‘span-content’ named flow contents will contain this:
+
+<span>one</span><span>two</span>
+
+Which will change the display from "one two" to "onetwo". If
+whitespace is significant, then moving the parent that contains the
+whitespace to the named flow is required.
+
+Note
+
+A future CSS Regions module level will define a mechanism for creating
+a named flow from an external resource.
+
+5 Tests
+
+Gecko Presto Trident 3
+

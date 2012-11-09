@@ -1,0 +1,145 @@
+== 3.5. The @region rule ==
+
+An ‘@region’ rule contains style declarations specific to particular
+regions.
+
+ @region <selector> {
+     ... CSS styling rules ...
+ }
+
+The ‘@region’ rule consists of the keyword ‘@region’ followed by a
+selector and a block of style rules. The ‘@region’ rule and the
+selector constitute the region's ‘flow fragment’ selector. The
+region's flow fragment selector specifies which range of elements in
+the flow are subject to the style rules in the following block: it
+applies to the range (see [DOM]) from the region's flow that flows in
+the selected region(s).
+
+Issue-15713
+
+Model for styling element fragments
+
+Elements that are fully or partially in the ‘flow fragment’ may match
+any of the selectors found in the style rule. However, the style rules
+only apply to the portion of the element that falls into the
+corresponding region.
+
+Only a limited list of properties can be set in a region style rule:
+
+font properties
+
+color property
+
+opacity property
+
+background property
+
+‘word-spacing’
+
+‘letter-spacing’
+
+‘text-decoration’
+
+‘text-transform’
+
+‘line-height’
+
+alignment and justification properties
+
+border properties
+
+rounded corner properties
+
+border images properties
+
+margin properties
+
+padding properties
+
+‘text-shadow’ property
+
+‘box-shadow’ property
+
+‘box-decoration-break’ property
+
+‘width’ property
+
+In the following example, the named flow ‘article_flow’ flows through
+‘region_1’ and ‘region_2’.
+
+<style>
+    #div_1 {
+        flow-into: article_flow;
+    }
+
+    #region_1, #region_2 {
+        flow-from: article_flow;
+    }
+    /* region style "RSA" */
+    @region #region_1, #region_2 {
+        div {...}
+        p {...}
+    }
+
+    /* region style "RSB" */
+    @region #region_1 {
+        p {...}
+    }
+
+</style>
+
+<div id="div_1">
+    <p id="p_1">...</p>
+    <p id="p_2">...</p>
+
+</div>
+
+<div id="region_1"></div>
+
+<div id="region_2"></div>
+
+ div div_1
+ paragraph p_1
+ paragraph p_2
+ range of flow that fits into region_1
+ range of flow that fits into region_2
+
+The region style ‘RSA’ applies to flow content that is laid out in
+either ‘region_1’ or ‘region_2’.
+
+The first rule set ‘div {...}’ applies to all <div> elements that fit
+partially or fully into ‘region_1’ or ‘region_2’. div_1 is split
+between ‘region_1’ and ‘region_2’ and gets the style from this style
+rule.
+
+The second rule set ‘p {...}’ applies to all <p> elements that fit
+into ‘region_1’ or ‘region_2’. In our example, both p_1 and p_2 are
+selected.
+
+The region style ‘RSB’ applies to flow content that fits in
+‘region_1’.
+
+The first rule set ‘p {...}’ matches p_1 and p_2 because these
+paragraphs flow into ‘region_1’. Only the fragment of p_2 that flows
+into region_1 is styled with this rule.
+
+Issue-15734
+
+@region and specificity
+
+The specificity of the selectors in a ‘@region’ rule is calculated as
+defined in the CSS Selectors module (see [SELECT]). In other words,
+the ‘@region’ rule adds an extra condition to the selector's matching,
+but does not change the selector's specificity. This is the same
+behavior as selectors appearing in ‘@media’ rules declaration blocks
+(see [MEDIAQ]), where the rule does not influence the selectors'
+specificity.
+
+Consequently, selectors that match a given element (as describe
+above), participate in the CSS Cascading order as defined in [CSS21].
+
+Region styling does not apply to nested regions. For example, if a
+region ‘A’ receives content from a flow that contains region ‘B’, the
+content that flows into ‘B’ does not receive the region styling
+specified for region ‘A’.
+

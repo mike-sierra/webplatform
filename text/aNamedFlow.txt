@@ -1,0 +1,126 @@
+== NamedFlow ==
+
+== 6.1. The NamedFlow interface ==
+
+A named flow is created when it becomes referenced by the ‘flow-into’
+and/or ‘flow-from’ computed values. The following APIs allow scripts
+to reference a NamedFlow object representation of a named flow.
+
+An additional method on the Document interface provide access to named
+flows.
+
+partial interface Document {
+  NamedFlowCollection getNamedFlows();
+};
+
+The getNamedFlows() method on the Document interface returns a static
+snapshot of all the current named flows in the document.
+
+The namedFlows collection must include all named flows that are
+currently in the CREATED state. The list must not include named flows
+that are in the NULL state.
+
+NULL: the user agent must return null.
+
+CREATED: the user agent must return a valid NamedFlow instance.
+
+The NamedFlowCollection interface provides a list of current NamedFlow
+instances in the document. The collection is a snapshot of the data.
+
+interface NamedFlowCollection {
+  readonly attribute unsigned long length;
+  [IndexGetter] NamedFlow? item (unsigned long index);
+  [NameGetter] NamedFlow? namedItem (DOMString name);
+};
+
+The length attribute returns the number of items in the collection.
+
+The item(index) method returns the NamedFlow instance at index index
+in the collection or undefined if index is out of range. An object
+collection implementing NamedFlowCollection supports indices in the
+range 0 ≤ index < collection.length.
+
+The namedItem(name) method returns the NamedFlow instance in the
+collection whose name attribute matches the supplied name, or
+undefined if there is no match.
+
+The NamedFlow interface offers a representation of a named flow
+instance.
+
+The NamedFlow interface can be used for different purposes. For
+example, the getRegionsByContent() method can help navigate by
+bookmark: a script can find the regions that display a particular
+anchor and bring them to view.
+
+Likewise, the interface allows authors to check if all content has
+been fitted into existing regions. If it has, the overset attribute
+would be false.
+
+interface NamedFlow : EventTarget {
+  readonly attribute DOMString name;
+  readonly attribute boolean overset;
+  sequence<Region> getRegions();
+  readonly attribute integer firstEmptyRegionIndex;
+  NodeList getContent();
+  sequence<Region> getRegionsByContent(Node node);
+
+};
+
+The name attribute returns the name of the NamedFlow instance.
+
+The overset attribute returns true if there are named flow fragments
+that do not fit in the associated region chain. The attribute also
+returns true if there is no associated region chain. Otherwise, it
+returns false.
+
+The getRegions() method returns the sequence of regions in the region
+chain associated with the named flow. Note that the returned values is
+a static sequence in document order.
+
+The firstEmptyRegionIndex is the index of the first region in the
+region chain with the regionOverset attribute set to empty. If all
+regions have the regionOverset attribute set to fit or overset, the
+value for firstEmptyRegionIndex is -1. If there are no regions in the
+region chain, the value is -1 as well.
+
+The getContent() method returns an ordered collection of nodes that
+constitute the named flow. The returned list is a static snapshot of
+the named flow content at the time the method is invoked. This list
+contains the elements that were moved to the named flow by their
+flow-into property but not their descendants (unless the descendants
+are themselves moved to the named flow).
+
+The getRegionsByContent() method returns the sequence of regions that
+contain at least part of the target content node if it belongs to the
+named flow directly (i.e., its ‘flow-into’ computed value is the named
+flow) or one of its ancestors belongs to the named flow. Otherwise,
+the method returns an empty sequence. The returned value is a static
+sequence in document order.
+
+The named flow states are :
+
+NULL: the named flow is not referenced by any ‘flow-into’ or
+‘flow-from’ computed value.
+
+CREATED: the named flow is referenced by at least one ‘flow-into’ or
+‘flow-from’ computed value.
+
+A NamedFlow object is live: it always represents the named flow with
+the corresponding name even if that named flow has transitioned to the
+NULL state.
+
+If a script holds a reference to a NamedFlow instance that has entered
+the NULL state, its attributes and methods should behave as follows:
+
+the name attribute returns its value as normal.
+
+the overset attribute returns false.
+
+the getRegions method returns an empty sequence.
+
+the firstEmptyRegionIndex attribute returns -1.
+
+the getContent() method returns an empty NodeList instance.
+
+the getRegionsByContent() method retuns an empty sequence.
+
