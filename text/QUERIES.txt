@@ -138,3 +138,16 @@ save me some time setting up test cases?  Thanks.
   wondered if anyone can offer any feedback about the best way to
   implement it.  Granted, real-world page layout requirements are
   awfully complex.
+
+
+Sorry for the follow-up, but I have another question to pass along
+about CSS Regions.  I tried to prevent a heading element from
+appearing at the bottom of a region. I tried the break-after property
+from the spec & its -webkit-break-after variant, but Canary didn't
+recognize them.  I tried using the apparently out-of-date
+-webkit-region-break-after property as in the existing "Region breaks"
+example on adobe.github.com. I was able to affect rendering by
+specifying "always" as a value, but not "avoid." The upshot, relating
+to my concern over lack of widow/orphan control, is that designers
+can't apply a keep-with-next formatting that's typical in any robust
+page layout system.

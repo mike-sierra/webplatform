@@ -1,1 +1,6 @@
-== NamedFlow_getRegions ==
+~== NamedFlow_getRegions ==
+
+~The getRegions() method returns the sequence of regions in the region
+~chain associated with the named flow. Note that the returned values is
+~a static sequence in document order.
+

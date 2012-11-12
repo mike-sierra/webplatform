@@ -1,1 +1,9 @@
-== NamedFlow_getRegionsByContent ==
+~== NamedFlow_getRegionsByContent ==
+
+~The getRegionsByContent() method returns the sequence of regions that
+~contain at least part of the target content node if it belongs to the
+~named flow directly (i.e., its ‘flow-into’ computed value is the named
+~flow) or one of its ancestors belongs to the named flow. Otherwise,
+~the method returns an empty sequence. The returned value is a static
+~sequence in document order.
+

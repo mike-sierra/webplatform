@@ -1,1 +1,18 @@
-== BreakInside ==
+~== BreakInside ==
+
+~Name: break-inside
+
+~Value: auto | avoid | avoid-page | avoid-column | avoid-region
+
+~Initial: auto
+
+~Applies to: block-level elements
+
+~Inherited: no
+
+~Percentages: N/A
+
+~Media: visual
+
+~Computed value: specified value
+

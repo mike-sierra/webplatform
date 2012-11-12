@@ -1,1 +1,7 @@
-== NamedFlow_overset ==
+~== NamedFlow_overset ==
+
+~The overset attribute returns true if there are named flow fragments
+~that do not fit in the associated region chain. The attribute also
+~returns true if there is no associated region chain. Otherwise, it
+~returns false.
+

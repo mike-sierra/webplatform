@@ -1,1 +1,8 @@
-== NamedFlow_firstEmptyRegionIndex ==
+~== NamedFlow_firstEmptyRegionIndex ==
+
+~The firstEmptyRegionIndex is the index of the first region in the
+~region chain with the regionOverset attribute set to empty. If all
+~regions have the regionOverset attribute set to fit or overset, the
+~value for firstEmptyRegionIndex is -1. If there are no regions in the
+~region chain, the value is -1 as well.
+

@@ -1,86 +1,55 @@
-== BreakBefore ==
+~== BreakBefore ==
 
-== 3. Region flow break properties: ‘break-before’, ‘break-after’,
-‘break-inside’ ==
+~== 3. Region flow break properties: ‘break-before’, ‘break-after’,
+~‘break-inside’ ==
 
-User agents laying out content in multiple regions must determine
-where content breaks occur. The problem of breaking content into
-fragments fitting in regions is similar to breaking content into pages
-or columns.
+~User agents laying out content in multiple regions must determine
+~where content breaks occur. The problem of breaking content into
+~fragments fitting in regions is similar to breaking content into pages
+~or columns.
 
-Each break ends layout in the current region and causes remaining
-pieces of content from the named flow to be visually formatted in the
-following region in the region chain, if there is one.
+~Each break ends layout in the current region and causes remaining
+~pieces of content from the named flow to be visually formatted in the
+~following region in the region chain, if there is one.
 
-The following extends the ‘break-before’, ‘break-after’ and
-‘break-inside’ properties from the [CSS3COL] specification to account
-for regions. The additional values are described below.
+~The following extends the ‘break-before’, ‘break-after’ and
+~‘break-inside’ properties from the [CSS3COL] specification to account
+~for regions. The additional values are described below.
 
-Name: break-before
+~Name: break-before
 
-Value: auto | always | avoid | left | right | page | column | region |
-avoid-page | avoid-column | avoid-region
+~Value: auto | always | avoid | left | right | page | column | region |
+~avoid-page | avoid-column | avoid-region
 
-Initial: auto
+~Initial: auto
 
-Applies to: block-level elements
+~Applies to: block-level elements
 
-Inherited: no
+~Inherited: no
 
-Percentages: N/A
+~Percentages: N/A
 
-Media: visual
+~Media: visual
 
-Computed value: specified value
+~Computed value: specified value
 
-Name: break-after
+~...
 
-Value: auto | always | avoid | left | right | page | column | region |
-avoid-page | avoid-column | avoid-region
+~These properties describe page, column and region break behavior
+~before/after/inside the generated box. These values are normatively
+~defined in [CSS3COL]:
 
-Initial: auto
+~This specification adds the following new values:
 
-Applies to: block-level elements
+~region
 
-Inherited: no
+~Always force a region break before (after) the generated box.
 
-Percentages: N/A
+~avoid-region
 
-Media: visual
+~Avoid a region break before (after, inside) the generated box.
 
-Computed value: specified value
-
-Name: break-inside
-
-Value: auto | avoid | avoid-page | avoid-column | avoid-region
-
-Initial: auto
-
-Applies to: block-level elements
-
-Inherited: no
-
-Percentages: N/A
-
-Media: visual
-
-Computed value: specified value
-
-These properties describe page, column and region break behavior
-before/after/inside the generated box. These values are normatively
-defined in [CSS3COL]:
-
-This specification adds the following new values:
-
-region
-
-Always force a region break before (after) the generated box.
-
-avoid-region
-
-Avoid a region break before (after, inside) the generated box.
-
-The behavior of region breaks with regards to regions is identical to
-the behavior of page breaks with regards to pages, as defined in the
-[CSS21].
+~The behavior of region breaks with regards to regions is identical to
+~the behavior of page breaks with regards to pages, as defined in the
+~[CSS21].
 

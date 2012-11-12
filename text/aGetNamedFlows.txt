@@ -1,0 +1,41 @@
+== document_getNamedFlows ==
+
+An additional method on the Document interface provide access to named
+flows.
+
+ partial interface Document {
+   NamedFlowCollection getNamedFlows();
+ };
+
+The getNamedFlows() method on the Document interface returns a static
+snapshot of all the current named flows in the document.
+
+The namedFlows collection must include all named flows that are
+currently in the CREATED state. The list must not include named flows
+that are in the NULL state.
+
+NULL: the user agent must return null.
+
+CREATED: the user agent must return a valid NamedFlow instance.
+
+The NamedFlowCollection interface provides a list of current NamedFlow
+instances in the document. The collection is a snapshot of the data.
+
+interface NamedFlowCollection {
+  readonly attribute unsigned long length;
+  [IndexGetter] NamedFlow? item (unsigned long index);
+  [NameGetter] NamedFlow? namedItem (DOMString name);
+};
+
+The length attribute returns the number of items in the collection.
+
+The item(index) method returns the NamedFlow instance at index index
+in the collection or undefined if index is out of range. An object
+collection implementing NamedFlowCollection supports indices in the
+range 0 ≤ index < collection.length.
+
+The namedItem(name) method returns the NamedFlow instance in the
+collection whose name attribute matches the supplied name, or
+undefined if there is no match.
+
+~~~ separate page for NamedFlowCollection? Parallel with NodeList?

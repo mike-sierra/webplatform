@@ -1,265 +1,265 @@
-== Regions Tutorial ==
+~== Regions Tutorial ==
 
-http://docs.webplatform.org/wiki/css/properties/flow-from
-http://docs.webplatform.org/wiki/css/properties/flow-into
-http://docs.webplatform.org/wiki/css/properties/region-fragment
-http://docs.webplatform.org/wiki/css/properties/break-inside
-http://docs.webplatform.org/wiki/css/properties/break-before
-http://docs.webplatform.org/wiki/css/properties/break-after
-http://docs.webplatform.org/wiki/css/atrules/@region
-http://docs.webplatform.org/wiki/css/cssom/NamedFlow
-http://docs.webplatform.org/wiki/css/cssom/Region
+~http://docs.webplatform.org/wiki/css/properties/flow-from
+~http://docs.webplatform.org/wiki/css/properties/flow-into
+~http://docs.webplatform.org/wiki/css/properties/region-fragment
+~http://docs.webplatform.org/wiki/css/properties/break-inside
+~http://docs.webplatform.org/wiki/css/properties/break-before
+~http://docs.webplatform.org/wiki/css/properties/break-after
+~http://docs.webplatform.org/wiki/css/atrules/@region
+~http://docs.webplatform.org/wiki/css/cssom/NamedFlow
+~http://docs.webplatform.org/wiki/css/cssom/Region
 
-http://www.adobe.com/devnet/html5/articles/css3-regions.html
+~http://www.adobe.com/devnet/html5/articles/css3-regions.html
 
 
 
-Note: The proposed syntax for CSS Regions and CSS Exclusions has
-changed since this article was written, though the concepts remain the
-same. Please check the CSS Regions W3C Working Draft and the CSS
-Exclusions and Shapes W3C Working Draft for up-to-date details.
+~Note: The proposed syntax for CSS Regions and CSS Exclusions has
+~changed since this article was written, though the concepts remain the
+~same. Please check the CSS Regions W3C Working Draft and the CSS
+~Exclusions and Shapes W3C Working Draft for up-to-date details.
 
-The web has become a rich repository of content for reference and
-educational materials, news, articles, and interactive apps. However,
-some of the capabilities that are taken for granted when designing
-content for print are still impossible or very difficult to implement
-using web standards.
+~The web has become a rich repository of content for reference and
+~educational materials, news, articles, and interactive apps. However,
+~some of the capabilities that are taken for granted when designing
+~content for print are still impossible or very difficult to implement
+~using web standards.
 
-Print publications are exploring better ways of translating and
-adapting their content to a rich digital format. We see this as an
-opportunity to make the web more expressive and to support more
-sophisticated layouts.
+~Print publications are exploring better ways of translating and
+~adapting their content to a rich digital format. We see this as an
+~opportunity to make the web more expressive and to support more
+~sophisticated layouts.
 
-Adobe has been experimenting with some improvements to CSS to express
-the kind of complex layouts used by traditional magazines. We have
-submitted some proposals to the W3C CSS Working Group, and last year
-built a prototype implementation of these proposals using WebKit. We
-made the prototype available from Adobe Labs for people to try out.
+~Adobe has been experimenting with some improvements to CSS to express
+~the kind of complex layouts used by traditional magazines. We have
+~submitted some proposals to the W3C CSS Working Group, and last year
+~built a prototype implementation of these proposals using WebKit. We
+~made the prototype available from Adobe Labs for people to try out.
 
-Since then, we have started to contribute the CSS Regions feature to
-the WebKit project mainline. The features are starting to be available
-in nightly builds of WebKit and Chromium, as described on the
-html.adobe.com web site for regions. The CSS Exclusions features are
-in progress, but not available yet in production WebKit browsers.
+~Since then, we have started to contribute the CSS Regions feature to
+~the WebKit project mainline. The features are starting to be available
+~in nightly builds of WebKit and Chromium, as described on the
+~html.adobe.com web site for regions. The CSS Exclusions features are
+~in progress, but not available yet in production WebKit browsers.
 
-You can find the W3C Editor's drafts on the CSS Regions Module and the
-CSS Exclusions Module pages on the W3C website. Discussions on these
-proposals take place on the W3C CSS mailing list. You are welcome to
-send comments to this public mailing list. Please include
-"[css3-regions]" or "[css3-exclusions]" in your message's subject.
+~You can find the W3C Editor's drafts on the CSS Regions Module and the
+~CSS Exclusions Module pages on the W3C website. Discussions on these
+~proposals take place on the W3C CSS mailing list. You are welcome to
+~send comments to this public mailing list. Please include
+~"[css3-regions]" or "[css3-exclusions]" in your message's subject.
 
-A few caveats: This is a work in progress. As we continue the
-discussion with the broader community, we will be making some
-changes. The syntax used in this article reflects the state of the
-current W3C Working Drafts, but as it did in the past year it may
-continue to evolve as the discussions in the W3C CSS working group and
-with the broader community proceed. Note also that, in accordance with
-common practice, all the new proposed properties are prefixed with
-"-webkit-" in the WebKit prototype and main line implementation. For
-the sake of simplicity, I have omitted this prefix in the rest of the
-article.
+~A few caveats: This is a work in progress. As we continue the
+~discussion with the broader community, we will be making some
+~changes. The syntax used in this article reflects the state of the
+~current W3C Working Drafts, but as it did in the past year it may
+~continue to evolve as the discussions in the W3C CSS working group and
+~with the broader community proceed. Note also that, in accordance with
+~common practice, all the new proposed properties are prefixed with
+~"-webkit-" in the WebKit prototype and main line implementation. For
+~the sake of simplicity, I have omitted this prefix in the rest of the
+~article.
 
-Now, let's dive into the proposed extensions. They can be divided into
-four categories:
+~Now, let's dive into the proposed extensions. They can be divided into
+~four categories:
 
-Threading content: Content that flows from one area to another.
+~Threading content: Content that flows from one area to another.
 
-Arbitrarily shaped containers: Text displayed in non-rectangular
-areas.
+~Arbitrarily shaped containers: Text displayed in non-rectangular
+~areas.
 
-Arbitrarily shaped exclusions: Text can wrap around arbitrary shapes.
+~Arbitrarily shaped exclusions: Text can wrap around arbitrary shapes.
 
-Region styling: Styling content depending on the area in which it
-flows.
+~Region styling: Styling content depending on the area in which it
+~flows.
 
-Below are some simple examples of each.
+~Below are some simple examples of each.
 
-Content flow
+~Content flow
 
-In a typical HTML document, text can be displayed in multiple regions,
-but the text in each of those regions is independent (see Figure
-1). If you wanted to display text across multiple columns or use
-other, more complex, arrangements of areas, you would need to fit the
-text in each region manually. This would not work very well when users
-magnify the text, or even if they have different fonts on their
-systems than the ones you specified. This approach also makes it
-impossible to have fluid layouts that adapt when the window is
-resized, or, when displaying content on a tablet, adapt to portrait
-and landscape orientations.
+~In a typical HTML document, text can be displayed in multiple regions,
+~but the text in each of those regions is independent (see Figure
+~1). If you wanted to display text across multiple columns or use
+~other, more complex, arrangements of areas, you would need to fit the
+~text in each region manually. This would not work very well when users
+~magnify the text, or even if they have different fonts on their
+~systems than the ones you specified. This approach also makes it
+~impossible to have fluid layouts that adapt when the window is
+~resized, or, when displaying content on a tablet, adapt to portrait
+~and landscape orientations.
 
-Figure 1. Text displayed across three columns of different widths.
+~Figure 1. Text displayed across three columns of different widths.
 
-What if you could specify separately a thread of content (like text
-and images), and how that thread should flow across a chain of
-regions? This is what content flow does.
+~What if you could specify separately a thread of content (like text
+~and images), and how that thread should flow across a chain of
+~regions? This is what content flow does.
 
-To use it, give a name to a thread by using the proposed flow-into CSS
-property to the region that contains the content. Doing so will remove
-the content from the normal CSS layout flow. You can then insert this
-thread into one or more other regions by using the flow-from property.
+~To use it, give a name to a thread by using the proposed flow-into CSS
+~property to the region that contains the content. Doing so will remove
+~the content from the normal CSS layout flow. You can then insert this
+~thread into one or more other regions by using the flow-from property.
 
-The markup for the three-column example above would look something
-like this:
+~The markup for the three-column example above would look something
+~like this:
 
-CSS
-    #source {
-       flow-into: main-thread;
-    }
+~CSS
+~    #source {
+~       flow-into: main-thread;
+~    }
 
-    .region {
-        flow-from: main-thread;
-        background: #C5DFF0;
-    }
+~    .region {
+~        flow-from: main-thread;
+~        background: #C5DFF0;
+~    }
 
-HTML
-    <div id="source">
-        <p>Lorem ipsum dolor [...]</p>
-    </div>
-    <div id="region1" class="region"></div>
-    <div id="region2" class="region"></div>
-    <div id="region3" class="region"></div>
+~HTML
+~    <div id="source">
+~        <p>Lorem ipsum dolor [...]</p>
+~    </div>
+~    <div id="region1" class="region"></div>
+~    <div id="region2" class="region"></div>
+~    <div id="region3" class="region"></div>
 
-You can combine multiple named flows on a single page.
+~You can combine multiple named flows on a single page.
 
-With this simple building block, you can represent more complex
-layouts, including multiple columns of text, columns of different
-width and height, and regions that span multiple columns (see Figure
-2).
+~With this simple building block, you can represent more complex
+~layouts, including multiple columns of text, columns of different
+~width and height, and regions that span multiple columns (see Figure
+~2).
 
-Figure 2. Text flowing across stacked regions and columns.
+~Figure 2. Text flowing across stacked regions and columns.
 
-Wrap shape
+~Wrap shape
 
-With wrap shape, you can control the shape of the region into which
-text is flowed (see Figure 3). You can use this property in
-conjunction with, or independently from, content flow to create more
-interesting designs.
+~With wrap shape, you can control the shape of the region into which
+~text is flowed (see Figure 3). You can use this property in
+~conjunction with, or independently from, content flow to create more
+~interesting designs.
 
-Figure 3. Text content flowing inside custom shapes.
+~Figure 3. Text content flowing inside custom shapes.
 
-To use this feature, you need to set the shape-inside property to the
-desired value.
+~To use this feature, you need to set the shape-inside property to the
+~desired value.
 
-The markup to display the heart-shape text above would look like this:
+~The markup to display the heart-shape text above would look like this:
 
-CSS
+~CSS
 
-.circle{
-        /* shape the element as a circle */
-        shape-inside: polygon(0px, 150px /* ...more points */);
-}
+~.circle{
+~        /* shape the element as a circle */
+~        shape-inside: polygon(0px, 150px /* ...more points */);
+~}
 
-.heart{
-        /* shape the element as a heart */
-        shape-inside: polygon(150px, 32px /* ...more points */);
-}
+~.heart{
+~        /* shape the element as a heart */
+~        shape-inside: polygon(150px, 32px /* ...more points */);
+~}
 
-HTML
+~HTML
 
-<div class="circle"></div>
+~<div class="circle"></div>
 
-<div class="heart"></div>
+~<div class="heart"></div>
 
-The specification allows supports specifying a shape using a simple
-polygon, rectangles, circles and ellipses, but you can also reference
-arbitrary SVG shapes.
+~The specification allows supports specifying a shape using a simple
+~polygon, rectangles, circles and ellipses, but you can also reference
+~arbitrary SVG shapes.
 
-Exclusions
+~Exclusions
 
-By using the shape-outside property, you can specify the shape that
-should be interpreted as an area to be avoided altogether (see Figure
-4).
+~By using the shape-outside property, you can specify the shape that
+~should be interpreted as an area to be avoided altogether (see Figure
+~4).
 
-Figure 4. Text flowing around custom shapes.
+~Figure 4. Text flowing around custom shapes.
 
-CSS
-    .exclusion{
-        /* flow text around this element */
-        shape-outside: polygon(…);
-    }
+~CSS
+~    .exclusion{
+~        /* flow text around this element */
+~        shape-outside: polygon(…);
+~    }
 
-HTML
-    <div class="exclusion circle">
-        <p>Lorem ipsum dolor [...]</p>
-    </div>
+~HTML
+~    <div class="exclusion circle">
+~        <p>Lorem ipsum dolor [...]</p>
+~    </div>
 
-Region styling
+~Region styling
 
-It is common in magazine articles to assign a different style to
-content flowing through a particular area of the design. We are
-calling this region styling. The example shows that text flowing in
-the first region (which includes the "Introduction" header) is made
-dark blue, whereas the rest of the text is gray (see Figure 5).
+~It is common in magazine articles to assign a different style to
+~content flowing through a particular area of the design. We are
+~calling this region styling. The example shows that text flowing in
+~the first region (which includes the "Introduction" header) is made
+~dark blue, whereas the rest of the text is gray (see Figure 5).
 
-Figure 5. Text style depends on the region it flows into.
+~Figure 5. Text style depends on the region it flows into.
 
-CSS
-   p {
-       color: gray:
-   }
-   @region-style #region_1 {
-       p {
-           color: #0C3D5F;
-       }
-   }
+~CSS
+~   p {
+~       color: gray:
+~   }
+~   @region-style #region_1 {
+~       p {
+~           color: #0C3D5F;
+~       }
+~   }
 
-HTML
-    <div id="article">
-        <h1>Introduction</h1>
-        <p>This is an example [...]</p>
-    </div>
-    <div id="region_1"></div>
-    <div id="region_2"></div>
-    <div id="region_3"></div>
-    <div id="region_4"></div>
+~HTML
+~    <div id="article">
+~        <h1>Introduction</h1>
+~        <p>This is an example [...]</p>
+~    </div>
+~    <div id="region_1"></div>
+~    <div id="region_2"></div>
+~    <div id="region_3"></div>
+~    <div id="region_4"></div>
 
-Region styling is now implemented in the WebKit nightly builds for the
-background and color properties.
+~Region styling is now implemented in the WebKit nightly builds for the
+~background and color properties.
 
-Additional details on the features described so far are available on
-the CSS Regions page of html.adobe.com, and you can experiment with
-them using nightly builds of WebKit or Chromium.
+~Additional details on the features described so far are available on
+~the CSS Regions page of html.adobe.com, and you can experiment with
+~them using nightly builds of WebKit or Chromium.
 
-CSS3 regions and media queries
+~CSS3 regions and media queries
 
-Those basic building blocks can be combined to create more interesting
-and complex layouts, similar to what you are used to seeing in a print
-publication. You can also combine these with other web standards. For
-example, by using these features in combination with CSS media
-queries, you can build layouts that can adapt to different device
-orientations, portrait and landscape.
+~Those basic building blocks can be combined to create more interesting
+~and complex layouts, similar to what you are used to seeing in a print
+~publication. You can also combine these with other web standards. For
+~example, by using these features in combination with CSS media
+~queries, you can build layouts that can adapt to different device
+~orientations, portrait and landscape.
 
-Figure 6 shows using the shape-inside property in combination with
-CSS3 media queries to have a layout that adapts to different
-orientations.
+~Figure 6 shows using the shape-inside property in combination with
+~CSS3 media queries to have a layout that adapts to different
+~orientations.
 
-Figure 6. Using the shape-inside property in combination with CSS3
-media queries to have a layout that adapts to different orientations
+~Figure 6. Using the shape-inside property in combination with CSS3
+~media queries to have a layout that adapts to different orientations
 
-Figure 7 shows how the same content can be authored to adapt to
-different orientations, including varying the number of columns.
+~Figure 7 shows how the same content can be authored to adapt to
+~different orientations, including varying the number of columns.
 
-Figure 7. Content authored to adapt to different orientations,
-including varying the number of columns.
+~Figure 7. Content authored to adapt to different orientations,
+~including varying the number of columns.
 
-CSS3 regions and JavaScript
+~CSS3 regions and JavaScript
 
-You can also combine these capabilities with JavaScript to create
-interactive content. In the example shown in Figure 8, you can slide
-the double arrow to pan around and reveal more of the image. As you do
-this, the text reflows around the shape of the mountains and the car.
+~You can also combine these capabilities with JavaScript to create
+~interactive content. In the example shown in Figure 8, you can slide
+~the double arrow to pan around and reveal more of the image. As you do
+~this, the text reflows around the shape of the mountains and the car.
 
-Figure 8. You can slide the double arrow to pan around and reveal more
-of the image. The text reflows around the shape of the mountains and
-the car.
+~Figure 8. You can slide the double arrow to pan around and reveal more
+~of the image. The text reflows around the shape of the mountains and
+~the car.
 
-The three examples above are included in the prototype you can
-download from the CSS Exclusions page on html.adobe.com but note that
-the examples use an older syntax from previous drafts of the CSS
-Regions and CSS Exclusions modules. Once these particular examples run
-in WebKit we will release them with updated syntax. I invite you to
-download it to try it out for yourself. I'm really looking forward to
-see the creative ideas you will be inspired to build with our
-proposal, and I'm looking forward to working with you to build a
-better web.
+~The three examples above are included in the prototype you can
+~download from the CSS Exclusions page on html.adobe.com but note that
+~the examples use an older syntax from previous drafts of the CSS
+~Regions and CSS Exclusions modules. Once these particular examples run
+~in WebKit we will release them with updated syntax. I invite you to
+~download it to try it out for yourself. I'm really looking forward to
+~see the creative ideas you will be inspired to build with our
+~proposal, and I'm looking forward to working with you to build a
+~better web.
 

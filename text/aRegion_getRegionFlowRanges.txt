@@ -1,1 +1,16 @@
-== Region_getRegionFlowRanges ==
+~== Region_getRegionFlowRanges ==
+
+~The getRegionFlowRanges method returns an array of Range instances
+~corresponding to fragment from the named flow that is laid out in the
+~region. If the region has not received a fragment because it is too
+~small to accommodate any, the method returns a single Range where the
+~startContainer and startOffset have the same values as the
+~endContainer and endOffset and therefore the collapsed attribute on
+~the Range is true. In that situation, if the region is the first in
+~the region chain, the startContainer is the first Node in the named
+~flow and the startOffset is zero. If the region is the last region in
+~the region chain (but not the first and only one), the startContainer
+~and startOffset are the same values as the endContainer and endOffset
+~on the previous region in the region chain. The method returns null if
+~the region object is not (or no longer) a region.
+
