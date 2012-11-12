@@ -1,0 +1,141 @@
+Divya,
+
+As I mentioned, I collected a few fairly technical questions about the
+Regions feature.  I expect most of this will exceed the level of
+detail I'll include in the doc, but it helps me to better understand
+it.  Perhaps someone who's closest to the code can respond?  Thanks.
+
+* Typically, you have flow-into and flow-from working together:
+
+  <style>
+      article { -webkit-flow-into: myFlow }
+      section { -webkit-flow-from: myFlow; background: lightgreen }
+  </style>
+  <article>foo</article>
+  <section>bar</section>
+
+  The 'foo' content appears in the green block, replacing 'bar.'  But
+  you can also set the two CSS properties separately. Enabling only
+  the 'section' selector above makes 'bar' disappear. Enabling only
+  the 'article' selector makes 'foo' disappear. Is this expected
+  behavior, and if so is there a use case associated with it?
+
+* In the example above, document.querySelector('section').innerHTML
+  still yields 'bar' even though it displays 'foo'. Is this expected
+  behavior? It's very unusual and takes some time to get used to.
+
+* The spec's abstract says: "The regions are not necessarily
+  contiguous in the document order." I think that's incorrect, and
+  please confirm.  Section 2.2 contradicts that: "CSS Regions are
+  organized into a region chain according to the document order." That
+  is, in the following there's no way to order content differently
+  than #r1, #r2, #r3:
+
+    <div id="r1"></div>
+    <div id="r2"></div>
+    <div id="r3"></div>
+
+* A flow-from region chain can receive content from more than one
+  flow-into source element, effectively concatenating them. Is this
+  expected, and if so, is there a use case associated with it?
+
+* Along those lines, if you have more than one <article> defined as
+  flow-into, would shuffling the order of those DOM nodes dynamically
+  reflect in the regions that display them?
+
+* Granted this is not implemented yet, but what is the use case for
+  making ::before and ::after areas into separate regions? It seems
+  clear the spec's author has something in mind, but it's not obvious
+  to me what.
+
+* There appears to be no way to get widows/orphans properties to work
+  within regions, which I believe would be a serious drawback for
+  serious designers implementing fluid layouts for tablets. (They
+  appear to work only within the paged media context.)
+
+* 
+
+I couldn't get the @region rule to work in Canary or WebKit nightly.
+  I also tried @-webkit-region as a variant with no luck. Regardless,
+  I'd translate the following...
+
+    @region #intro {
+        p { font-weight: bold; }
+    }
+
+  ...as the portion of any <p> content that flows into an #intro
+  region.  It would not ordinarily apply to <p> content nested
+  conventionally within the #intro element.
+
+* Please confirm: no apparent way to prevent content nested within a
+  flow-into element from being moved into a flow. E.g.,
+
+  <section style="-webkit-flow-into: myFlow;">
+    Flow this content...
+    <blockquote style="-webkit-flow-into: none;">
+      ...but keep this from flowing? (NO)
+    </blockquote>
+  </section>
+
+  A workaround would be to direct the blockquote into a different flow.
+
+* There's a note about elements with the same specified flow as an
+  ancestor being rendered as a sibling in the resulting region. I take
+  this to mean that in the following, "link text" would appear after
+  "bar" and on a new line following the <p/> block element:
+
+    <article>foo
+      <p>
+        <a href="#">link text</a>
+        bar
+      </p>
+    </article>
+
+  Again, is there any use case for this, or is it simply to get the
+  implementation to work?
+
+* Is there a use case for maintaining a reference to a NamedFlow
+  object after it becomes NULL?
+
+* Does the regionlayoutupdate event fire when one of the NamedFlow's
+  regions changes its overset/fit/empty state, or more frequently when
+  there's a less significant change in how lines break across regions?
+
+* To be clear, does the behavior noted in the spec regarding
+  getClientRects(), getBoundingClientRects(), offsetTop, offsetLeft,
+  offsetWidth, and offsetHeight, take place when you call them from
+  the NamedFlow object?
+
+* I have a fairly advanced but seemingly obvious use case in mind of
+  an an adaptive page layout system, and I wonder if anyone has tried
+  anything like it.  Suppose you have a long <article> that you
+  flow-into a mainFlow, while diverting <figure> content to a figFlow
+  and <aside> to a pullquoteFlow.  Perhaps a script would generate
+  successive DOM nodes to flow the main content into "pages" that are
+  swipeable in tablet browsers:
+
+    <section class="page" ontouchmove="app.swipe()">
+      <div class="mainFlowRegion multicol">mainFlow</div>
+    </section>
+
+  To detect whether that page would have otherwise displayed any
+  figure/aside content, I assume you would check the <div>'s
+  getRegionFlowRanges().  If it contains more than one range, that
+  means there's other content that would have flowed onto the page, in
+  which case the script would would respond by applying elements to
+  accomodate the missing content.
+
+    <section class="page" ontouchmove="app.swipe()">
+      <div class="figFlowRegion">figFlow</div>
+      <div class="mainFlowRegion multicol">mainFlow</div>
+    </section>
+
+  The part I'm trying to understand is how to identify the missing
+  content as a figure or a pullquote so as to apply the appropriate
+  layout elements. I'm unfamiliar with DOM ranges, but it appears the
+  way to do it is to run compareBoundaryPoints() over the two ranges,
+  set a new range between those points, then run extractContents() on
+  that & evaluate the markup.  This is all rather speculative, but I
+  wondered if anyone can offer any feedback about the best way to
+  implement it.  Granted, real-world page layout requirements are
+  awfully complex.

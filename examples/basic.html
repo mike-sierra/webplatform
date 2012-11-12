@@ -1,9 +1,28 @@
 <html>
-  <head>
+<head>
 <title>basic</title>
+
+<style>
+
+section {
+    -webkit-flow-from: main_content;
+    float: right;
+}
+
+article {
+    -webkit-flow-into: main_content;
+}
+
+</style>
+
 </head>
 <body>
 
+<article>foo</article>
+
+<article>bar</article>
+
+<section>barfu</section>
 
 </body>
 </html>

@@ -1,6 +1,40 @@
+DESCRIPTION
+
 NOUNS
 
-ASSERTIONS
+* "flow" as a verb : to weave content through a layout
 
-QUERIES
+* "chain"/"chaining" : weaving content through layout elements; instead of thread/flow/weave
+
+* region : block element into which content flows
+
+* "region chain"
+
+* named flow : intermediary object
+
+ASSERTIONS/QUERIES
+
+* USE CASE: complex magazine-style layout
+
+* For basic feature to work, a content element specifies flow-into:ID,
+  and a layout element specifies flow-from:ID.
+
+* setting content element's flow-into:ID suppresses ordinary display
+
+* setting layout element's flow-from:ID suppresses its display
+
+* USE CASE: separate CONTENT from LAYOUT elements
+
+* You can fork content into different flows:
+
+  article { flow-into: main_flow }
+  article aside { flow-into: pull_quote }
+
+  <article>
+  <p>All work and no play makes Jack a dull boy.</p>
+  <aside>What Jack Says</aside>
+  <p>All work and no play makes Jack a dull boy.</p>
+  <article>
+
+* USE CASE: dynamic pagination system
 
