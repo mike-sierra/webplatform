@@ -1,9 +1,10 @@
 Divya,
 
 As I mentioned, I collected a few fairly technical questions about the
-Regions feature.  I expect most of this will exceed the level of
+CSS Regions feature.  I expect most of this will exceed the level of
 detail I'll include in the doc, but it helps me to better understand
-it.  Perhaps someone who's closest to the code can respond?  Thanks.
+it overall.  Perhaps someone who's closest to the code can respond, to
+save me some time setting up test cases?  Thanks.
 
 * Typically, you have flow-into and flow-from working together:
 
@@ -22,7 +23,7 @@ it.  Perhaps someone who's closest to the code can respond?  Thanks.
 
 * In the example above, document.querySelector('section').innerHTML
   still yields 'bar' even though it displays 'foo'. Is this expected
-  behavior? It's very unusual and takes some time to get used to.
+  behavior? It's very unusual and takes a bit of getting used to.
 
 * The spec's abstract says: "The regions are not necessarily
   contiguous in the document order." I think that's incorrect, and
@@ -41,7 +42,7 @@ it.  Perhaps someone who's closest to the code can respond?  Thanks.
 
 * Along those lines, if you have more than one <article> defined as
   flow-into, would shuffling the order of those DOM nodes dynamically
-  reflect in the regions that display them?
+  reflect in the regions that flow-from them?
 
 * Granted this is not implemented yet, but what is the use case for
   making ::before and ::after areas into separate regions? It seems
@@ -50,22 +51,15 @@ it.  Perhaps someone who's closest to the code can respond?  Thanks.
 
 * There appears to be no way to get widows/orphans properties to work
   within regions, which I believe would be a serious drawback for
-  serious designers implementing fluid layouts for tablets. (They
-  appear to work only within the paged media context.)
+  serious designers implementing fluid layouts for tablets. (Widows &
+  orphans appear to work only within the paged media context.)
 
-* 
-
-I couldn't get the @region rule to work in Canary or WebKit nightly.
-  I also tried @-webkit-region as a variant with no luck. Regardless,
-  I'd translate the following...
-
-    @region #intro {
-        p { font-weight: bold; }
-    }
-
-  ...as the portion of any <p> content that flows into an #intro
-  region.  It would not ordinarily apply to <p> content nested
-  conventionally within the #intro element.
+* I couldn't get the @-webkit-region rule to work as in this example
+  http://adobe.github.com/web-platform/samples/css-regions/basic/region-styling.html
+  ...and wonder if anyone can check why not. My test file is here:
+  https://github.com/mike-sierra/webplatform/blob/master/examples/styled.html
+  I'm simply trying to make the contents of the top-most region bold.
+  I'm sure there's a foolish error that I simply can't see.
 
 * Please confirm: no apparent way to prevent content nested within a
   flow-into element from being moved into a flow. E.g.,
@@ -77,13 +71,18 @@ I couldn't get the @region rule to work in Canary or WebKit nightly.
     </blockquote>
   </section>
 
-  A workaround would be to direct the blockquote into a different flow.
+  I don't have any use case in mind, but a workaround would be to
+  direct the blockquote into a different flow.
 
-* There's a note about elements with the same specified flow as an
-  ancestor being rendered as a sibling in the resulting region. I take
-  this to mean that in the following, "link text" would appear after
-  "bar" and on a new line following the <p/> block element:
+* There's a note in the spec about elements with the same specified
+  flow as an ancestor being rendered as a sibling in the resulting
+  region. I take this to mean that in the following, "link text" would
+  appear after "bar" and on a new line following the <article/> block
+  element:
 
+    <style>
+      article, a { -webkit-flow-into: theSameFlow }
+    </style>
     <article>foo
       <p>
         <a href="#">link text</a>
@@ -95,16 +94,16 @@ I couldn't get the @region rule to work in Canary or WebKit nightly.
   implementation to work?
 
 * Is there a use case for maintaining a reference to a NamedFlow
-  object after it becomes NULL?
+  object after it goes NULL?
 
 * Does the regionlayoutupdate event fire when one of the NamedFlow's
   regions changes its overset/fit/empty state, or more frequently when
   there's a less significant change in how lines break across regions?
 
-* To be clear, does the behavior noted in the spec regarding
+* To be clear, does the special behavior noted in the spec regarding
   getClientRects(), getBoundingClientRects(), offsetTop, offsetLeft,
-  offsetWidth, and offsetHeight, take place when you call them from
-  the NamedFlow object?
+  offsetWidth, and offsetHeight, take place when you call them
+  directly from the NamedFlow object?
 
 * I have a fairly advanced but seemingly obvious use case in mind of
   an an adaptive page layout system, and I wonder if anyone has tried
