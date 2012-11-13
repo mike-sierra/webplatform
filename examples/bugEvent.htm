@@ -122,10 +122,8 @@ var app = new Function();
 
 window.onload = function() {
     app.flow = document.webkitGetNamedFlows()['main'];
-    app.regions = app.flow.getRegions();
-    app.section = document.querySelector('section');
-    app.debug = document.querySelector('#debug');
     app.flow.addEventListener('webkitregionlayoutupdate', app.modify);
+    app.debug = document.querySelector('#debug');
     app.i = 1;
 };
 
@@ -135,18 +133,6 @@ app.d = function(s) {
 
 app.modify = function() {
     app.d(app.i++);
-    var region;
-    if (app.flow.firstEmptyRegionIndex !== -1) {
-        region = app.regions[app.flow.firstEmptyRegionIndex];
-        app.section.removeChild(region);
-        app.regions = app.flow.getRegions();
-    }
-    else if (app.flow.overset) {
-        app.section.appendChild(document.createElement('div'));
-    }
-    else {
-        return(false);
-    }
 }
 
 </script>

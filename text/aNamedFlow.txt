@@ -1,26 +1,20 @@
-Represents content to flow among various block ''region'' elements.
+Represents content to flow among various block ''region''
+elements. The '''NamedFlow''' interface allows access to both the
+content of the flow and the series of regions in which it displays,
+and helps determine if the content exceeds or falls short of the
+number of regions necessary to display it.
 
-A '''NamedFlow''' object is created when any element specifies the
-[[css/properties/flow-into|'''flow-into''']] CSS property, which
-diverts its source content to the specified '''NamedFlow''', or the
-[[css/properties/flow-from|'''flow-from''']] property, which displays
-it dynamically within a series of region elements.  (The null object
-is still available if those properties are later removed.)
+Specifying an identifier for any element's
+[[css/properties/flow-into|'''flow-into''']] CSS property diverts its
+content to a corresponding '''NamedFlow''' object. Other elements that
+specify the same identifier as their
+[[css/properties/flow-from|'''flow-from''']] property serve as a chain
+of ''regions'' that dynamically display the content.  (The
+'''NamedFlow''' object is still available with NULL content if those
+properties are later removed.)
 
 Use the [[dom/apis/document/getNamedFlows|'''getNamedFlows''']] method
-to gather all named flows from a document.
-
-Together, the [[css/cssom/NamedFlow/overset|'''overset''']] and
-[[css/cssom/NamedFlow/firstEmptyRegionIndex|'''firstEmptyRegionIndex''']]
-properties determine if the flow's source content corresponds to the
-number of available regions that display it.
-
-Use [[css/cssom/NamedFlow/getContent|'''getContent''']] to access the
-source, 
-[[css/cssom/NamedFlow/getRegions|'''getRegions''']] 
-[[css/cssom/NamedFlow/getRegionsByContent|'''getRegionsByContent''']] 
-
-
+to gather named flows from a document.
 
 [[css/cssom/NamedFlow/firstEmptyRegionIndex|'''firstEmptyRegionIndex''']]
 Returns the index of the first empty element within a region chain
@@ -36,63 +30,34 @@ corresponding to value specified by
 
 NAME
 
-~== NamedFlow ==
+== NamedFlow ==
 
-~== 6.1. The NamedFlow interface ==
+== 6.1. The NamedFlow interface ==
 
-~Contains content used to flow text among various block region elements
+Contains content used to flow text among various block region elements
 
-~A named flow is created when it becomes referenced by the ‘flow-into’
-~and/or ‘flow-from’ computed values. The following APIs allow scripts
-~to reference a NamedFlow object representation of a named flow.
+A named flow is created when it becomes referenced by the ‘flow-into’
+and/or ‘flow-from’ computed values. The following APIs allow scripts
+to reference a NamedFlow object representation of a named flow.
 
-~The NamedFlow interface offers a representation of a named flow
-~instance.
+The NamedFlow interface offers a representation of a named flow
+instance.
 
-~The NamedFlow interface can be used for different purposes. For
-~example, the getRegionsByContent() method can help navigate by
-~bookmark: a script can find the regions that display a particular
-~anchor and bring them to view.
+The NamedFlow interface can be used for different purposes. For
+example, the getRegionsByContent() method can help navigate by
+bookmark: a script can find the regions that display a particular
+anchor and bring them to view.
 
-~Likewise, the interface allows authors to check if all content has
-~been fitted into existing regions. If it has, the overset attribute
-~would be false.
+Likewise, the interface allows authors to check if all content has
+been fitted into existing regions. If it has, the overset attribute
+would be false.
 
-~interface NamedFlow : EventTarget {
-~  readonly attribute DOMString name;
-~  readonly attribute boolean overset;
-~  sequence<Region> getRegions();
-~  readonly attribute integer firstEmptyRegionIndex;
-~  NodeList getContent();
-~  sequence<Region> getRegionsByContent(Node node);
-~};
-
-~~~
-
-~The named flow states are :
-
-~NULL: the named flow is not referenced by any ‘flow-into’ or
-~‘flow-from’ computed value.
-
-~CREATED: the named flow is referenced by at least one ‘flow-into’ or
-~‘flow-from’ computed value.
-
-~A NamedFlow object is live: it always represents the named flow with
-~the corresponding name even if that named flow has transitioned to the
-~NULL state.
-
-~If a script holds a reference to a NamedFlow instance that has entered
-~the NULL state, its attributes and methods should behave as follows:
-
-~the name attribute returns its value as normal.
-
-~the overset attribute returns false.
-
-~the getRegions method returns an empty sequence.
-
-~the firstEmptyRegionIndex attribute returns -1.
-
-~the getContent() method returns an empty NodeList instance.
-
-~the getRegionsByContent() method retuns an empty sequence.
+interface NamedFlow : EventTarget {
+  readonly attribute DOMString name;
+  readonly attribute boolean overset;
+  sequence<Region> getRegions();
+  readonly attribute integer firstEmptyRegionIndex;
+  NodeList getContent();
+  sequence<Region> getRegionsByContent(Node node);
+};
 
