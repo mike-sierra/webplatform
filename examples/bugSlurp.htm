@@ -15,21 +15,28 @@ p {
 section > div {
     -webkit-flow-from: main;
     margin: 0.5em;
-    padding: 1.0em;
-    border-radius: 1.0em;
     border: thick plum solid;
     min-height: 2em;
     max-height: 6em;
 }
 
-@-webkit-region #intro {
-    p { font-weight: bold; }
-}
-
 </style>
 
+<style id="tmp"></style>
+
 </head>
+
 <body>
+
+<aside>
+Example of content threading through several CSS regions, each of
+which is thresholded with a min-/max-height. Resize the window and you
+see many cases in which text jumps to the next region before it has
+filled the max-height of the previous region. In some cases, reloading
+the page causes regions to break differently. Also, try <a href="#"
+onclick="toggle(this)">removing the min-height</a> and resizing.  With
+min-height:0, content often skips regions, leaving them empty.
+</aside>
 
 <article>
 
@@ -112,30 +119,20 @@ nunce come to a setdown secular phoenish.
 <div>20</div>
 </section>
 
-<script type="text/javascript">
-
-var app = new Function();
-
-window.onload = function() {
-    app.flow = document.webkitGetNamedFlows()['main'];
-    app.regions = app.flow.getRegions();
-    app.flow.addEventListener('webkitregionlayoutupdate', app.modify);
-};
-
-app.modify = function() {
-    var region;
-    if (app.flow.firstEmptyRegionIndex !== -1) {
-        region = app.regions[app.flow.firstEmptyRegionIndex]
-        region.parentNode.removeChild(region);
-        app.regions = app.flow.getRegions();
-        app.modify();
+<script>
+function toggle(t) {
+    var s = document.querySelector('#tmp');
+    if (t.dataset.toggle == 'y') {
+        s.innerHTML = '';
+        t.dataset.toggle = 'n';
+        t.innerHTML = 'removing the min-height';
     }
-    if (app.flow.overset) {
-        console.log(app.flow.overset);
+    else {
+        s.innerHTML = 'section > div { min-height: 0 }';
+        t.dataset.toggle = 'y';
+        t.innerHTML = 'reapplying the min-height';
     }
 }
-
 </script>
-
 </body>
 </html>
