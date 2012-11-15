@@ -123,7 +123,6 @@
 /apis/webaudio/AudioContext/audioData/createAnalyser
 /apis/webaudio/AudioContext/audioData/createBiquadFilter
 /apis/webaudio/AudioContext/audioData/createBuffer
-/apis/webaudio/AudioContext/audioData/createBuffer
 /apis/webaudio/AudioContext/audioData/createBufferSource
 /apis/webaudio/AudioContext/audioData/createChannelMerger
 /apis/webaudio/AudioContext/audioData/createChannelSplitter
@@ -153,7 +152,6 @@
 /apis/webaudio/AudioListener/speedOfSound
 /apis/webaudio/AudioNode/
 /apis/webaudio/AudioNode/AudioContext
-/apis/webaudio/AudioNode/connect
 /apis/webaudio/AudioNode/connect
 /apis/webaudio/AudioNode/disconnect
 /apis/webaudio/AudioNode/numberOfInputs
@@ -294,7 +292,7 @@
 /apis/webrtc/RTCPeerConnection/addStream
 /apis/webrtc/RTCPeerConnection/close
 /apis/webrtc/RTCPeerConnection/createAnswer
-/apis/webrtc/RTCPeerConnection/createDataChannel 
+/apis/webrtc/RTCPeerConnection/createDataChannel
 /apis/webrtc/RTCPeerConnection/createOffer
 /apis/webrtc/RTCPeerConnection/iceState
 /apis/webrtc/RTCPeerConnection/localDescription
