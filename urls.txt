@@ -7,11 +7,11 @@
 /apis/battery/BatteryManager/onchargingtimechange
 /apis/battery/BatteryManager/ondischargingtimechange
 /apis/battery/BatteryManager/onlevelchange
-/apis/deviceorientation/         # how to handle such window events?
+/apis/deviceorientation/                # how to handle such window events?
 /apis/deviceorientation/?/compassneedscalibration
 /apis/deviceorientation/?/devicemotion
 /apis/deviceorientation/?/deviceorientation
-/apis/file/                      # how to handle blob url scheme defined in spec?
+/apis/file/                             # how to handle blob url scheme defined in spec?
 /apis/file/Blob/close
 /apis/file/Blob/lastModifiedDate
 /apis/file/Blob/name
@@ -50,14 +50,14 @@
 /apis/geolocation/Coordinates/longitude
 /apis/geolocation/Coordinates/speed
 /apis/geolocation/Coordinates/verticalSpeed
-/apis/geolocation/Geolocation/   # how to handle callbacks?
+/apis/geolocation/Geolocation/          # how to handle callbacks?
 /apis/geolocation/Geolocation/clearWatch
 /apis/geolocation/Geolocation/getCurrentPosition
 /apis/geolocation/Geolocation/watchPosition
 /apis/geolocation/Position/address
 /apis/geolocation/Position/coords
 /apis/geolocation/Position/timestamp
-/apis/geolocation/PositionError/ # PERMISSION_DENIED, POSITION_UNAVAILABLE, TIMEOUT?
+/apis/geolocation/PositionError/        # PERMISSION_DENIED, POSITION_UNAVAILABLE, TIMEOUT?
 /apis/geolocation/PositionOptions/enableHighAccuracy
 /apis/geolocation/PositionOptions/maximumAge
 /apis/geolocation/PositionOptions/requestAddress
@@ -104,7 +104,7 @@
 /apis/push/PushService/serverProtocols
 /apis/push/PushService/serviceUrl
 /apis/push/PushService/wakeup
-/apis/quota-management/          # many callbacks: StorageUsageCallback, StorageQuotaCallback, StorageErrorCallback
+/apis/quota-management/                 # many callbacks: StorageUsageCallback, StorageQuotaCallback, StorageErrorCallback
 /apis/quota-management/StorageQuota/queryUsageAndQuota
 /apis/quota-management/StorageQuota/requestQuota
 /apis/vibration/Vibration/vibrate
@@ -236,7 +236,7 @@
 /apis/webcrypto/CryptoOperation/complete
 /apis/webcrypto/CryptoOperation/init
 /apis/webcrypto/CryptoOperation/key
-/apis/webcrypto/CryptoOperation/onabort
+/apis/webcrypto/CryptoOperation/onabort # collision w/abort method unless events are prefixed 'on'?
 /apis/webcrypto/CryptoOperation/oncomplete
 /apis/webcrypto/CryptoOperation/onerror
 /apis/webcrypto/CryptoOperation/oninit
@@ -257,7 +257,7 @@
 /apis/webcrypto/KeyStorage/length
 /apis/webcrypto/KeyStorage/removeKey
 /apis/webcrypto/KeyStorage/removeKeyById
-/apis/webmidi/                   # accessed via navigator.getMIDIAccess?
+/apis/webmidi/                          # accessed via navigator.getMIDIAccess?
 /apis/webmidi/MIDIAccess/enumerateInputs
 /apis/webmidi/MIDIAccess/enumerateOutputs
 /apis/webmidi/MIDIAccess/getInput
