@@ -7,3 +7,120 @@
 ~the method returns an empty sequence. The returned value is a static
 ~sequence in document order.
 
+var flow = document.getNamedFlows()['main'];
+var content
+
+
+flow
+WebKitNamedFlow {firstEmptyRegionIndex: 6, overset: false, name: "main", getRegions: function, getContent: function…}
+flow.firstEmptyRegionIndex
+6
+flow.name
+"main"
+flow.getRegions()
+[<div id=​"intro">​1​</div>​, <div>​2​</div>​, <div>​3​</div>​,
+<div>​4​</div>​, <div>​5​</div>​, <div>​6​</div>​, <div>​7​</div>​ ,
+<div>​8​</div>​ , <div>​9​</div>​ , <div>​10​</div>​ ,
+<div>​11​</div>​ , <div>​12​</div>​ , <div>​13​</div>​ ,
+<div>​14​</div>​ , <div>​15​</div>​ , <div>​16​</div>​ ,
+<div>​17​</div>​ , <div>​18​</div>​ , <div>​19​</div>​ ,
+<div>​20​</div>​ ]
+flow.getRegions().type
+undefined
+var rs = flow.getRegions()
+undefined
+rs
+[ <div id=​"intro">​1​</div>​ , <div>​2​</div>​ , <div>​3​</div>​ ,
+<div>​4​</div>​ , <div>​5​</div>​ , <div>​6​</div>​ , <div>​7​</div>​
+, <div>​8​</div>​ , <div>​9​</div>​ , <div>​10​</div>​ ,
+<div>​11​</div>​ , <div>​12​</div>​ , <div>​13​</div>​ ,
+<div>​14​</div>​ , <div>​15​</div>​ , <div>​16​</div>​ ,
+<div>​17​</div>​ , <div>​18​</div>​ , <div>​19​</div>​ ,
+<div>​20​</div>​ ]
+rs.length
+20
+typeof(rs)
+"object"
+flow
+WebKitNamedFlow {firstEmptyRegionIndex: 6, overset: false, name: "main", getRegions: function, getContent: function…}
+var c = flow.getContent()
+undefined
+c
+[
+<article>​
+<p>​…​</p>​
+<p>​…​</p>​
+<p>​…​</p>​
+<p>​
+"What clashes here of wills gen wonts, oystrygods gaggin fishygods!
+Brékkek Kékkek Kékkek Kékkek!  Kóax
+Kóax Kóax!  Ualu Ualu Ualu!  Quaouauh!  Where the
+Baddelaries partisans are still out to mathmaster Malachus Micgranes
+and the Verdons catapelting the camibalistics out of the Whoyteboyce
+of Hoodie Head.  Assiegates and boomeringstroms.  Sod's brood, be me
+fear!  Sanglorians, save!  Arms apeal with larms, appalling.
+Killykillkilly: a toll, a toll.  What chance cuddleys, what cashels
+aired and ventilated!  What bidimetoloves sinduced by what
+tegotetabsolvers!  What true feeling for their's hayair with what
+strawng voice of false jiccup!  O here here how hoth sprowled met the
+duskt the father of fornicationists but, (O my shining stars and
+body!)  how hath fanespanned most high heaven the skysign of soft
+advertisement!  But was iz?  Iseut?  Ere were sewers?  The oaks of ald
+now they lie in peat yet elms leap where askes lay.  Phall if you but
+will, rise you must: and none so soon either shall the pharce for the
+nunce come to a setdown secular phoenish."
+</p>​
+</article>​
+]
+snip = c.querySelector('p:last-of-type')
+TypeError: Object #<NodeList> has no method 'querySelector'
+snip = c[0].querySelector('p:last-of-type')
+<p>​
+"What clashes here of wills gen wonts, oystrygods gaggin fishygods!
+Brékkek Kékkek Kékkek Kékkek!  Kóax Kóax Kóax!  Ualu Ualu Ualu!
+Quaouauh!  Where the Baddelaries partisans are still out to mathmaster
+Malachus Micgranes and the Verdons catapelting the camibalistics out
+of the Whoyteboyce of Hoodie Head.  Assiegates and boomeringstroms.
+Sod's brood, be me fear!  Sanglorians, save!  Arms apeal with larms,
+appalling.  Killykillkilly: a toll, a toll.  What chance cuddleys,
+what cashels aired and ventilated!  What bidimetoloves sinduced by
+what tegotetabsolvers!  What true feeling for their's hayair with what
+strawng voice of false jiccup!  O here here how hoth sprowled met the
+duskt the father of fornicationists but, (O my shining stars and
+body!)  how hath fanespanned most high heaven the skysign of soft
+advertisement!  But was iz?  Iseut?  Ere were sewers?  The oaks of ald
+now they lie in peat yet elms leap where askes lay.  Phall if you but
+will, rise you must: and none so soon either shall the pharce for the
+nunce come to a setdown secular phoenish.  "
+</p>​
+var where = flow.getRegionsByContent(snip)
+undefined
+where
+[ <div>​3​</div>​ , <div>​4​</div>​ , <div>​5​</div>​ ]
+
+
+
+
+all = flow.getRegions()
+
+[ <div id= "intro"> 1</div>, <div>2</div>, <div>3</div>, <div>4</div>,
+<div>5</div>, <div>6</div>, <div>7</div>, <div>8</div>, <div>9</div>,
+<div>10</div>, <div>11</div>, <div>12</div>, <div>13</div>,
+<div>14</div>, <div>15</div>, <div>16</div>, <div>17</div>,
+<div>18</div>, <div>19</div>, <div>20</div> ]
+
+all[0].webkitRegionOverset
+"fit"
+all[1].webkitRegionOverset
+"fit"
+all[2].webkitRegionOverset
+"fit"
+all[3].webkitRegionOverset
+"fit"
+all[4].webkitRegionOverset
+"fit"
+all[5].webkitRegionOverset
+"fit"
+all[6].webkitRegionOverset
+"empty"
+

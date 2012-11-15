@@ -30,3 +30,24 @@
 
 ~Event.target: NamedFlow whose layout may have changed
 
+
+window.
+
+document.getNamedFlows()['main'].addEventListener('regionlayoutupdate', modifyFlow);
+
+// dispatches functions to add/delete regions based on changes to how
+// content flows through a region chain:
+
+function modifyFlow(e) {
+    var flow = e.target;
+    if (flow.overset) {
+        appendRegion(flow.name);
+    }
+    else if (flow.firstEmptyRegionIndex !== -1) {
+        deleteEmptyRegions(flow.name);
+    }
+}
+
+    app.regions = app.flow.getRegions();
+    app.section = document.querySelector('section');
+    app.debug = document.querySelector('#debug');

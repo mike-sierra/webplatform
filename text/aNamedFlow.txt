@@ -27,37 +27,3 @@ corresponding to value specified by
 [[css/properties/flow-from|'''flow-from''']] or
 [[css/properties/flow-into|'''flow-into''']] CSS properties.
 
-
-NAME
-
-== NamedFlow ==
-
-== 6.1. The NamedFlow interface ==
-
-Contains content used to flow text among various block region elements
-
-A named flow is created when it becomes referenced by the ‘flow-into’
-and/or ‘flow-from’ computed values. The following APIs allow scripts
-to reference a NamedFlow object representation of a named flow.
-
-The NamedFlow interface offers a representation of a named flow
-instance.
-
-The NamedFlow interface can be used for different purposes. For
-example, the getRegionsByContent() method can help navigate by
-bookmark: a script can find the regions that display a particular
-anchor and bring them to view.
-
-Likewise, the interface allows authors to check if all content has
-been fitted into existing regions. If it has, the overset attribute
-would be false.
-
-interface NamedFlow : EventTarget {
-  readonly attribute DOMString name;
-  readonly attribute boolean overset;
-  sequence<Region> getRegions();
-  readonly attribute integer firstEmptyRegionIndex;
-  NodeList getContent();
-  sequence<Region> getRegionsByContent(Node node);
-};
-
