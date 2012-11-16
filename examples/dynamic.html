@@ -37,7 +37,7 @@ aside {
     color: #fff;
     top: 1em;
     right: 1em;
-    min-width: 12em;
+    width: 12em;
 }
 
 section {
@@ -56,9 +56,8 @@ p:first-of-type {
 </style>
 
 <style id="tmp">
-article { -webkit-flow-into: none }
-
-div { -webkit-flow-from: none }
+article { -webkit-flow-into: main }
+div { -webkit-flow-from: main }
 </style>
 
 </head>
@@ -144,17 +143,19 @@ nunce come to a setdown secular phoenish.
 <label>flow-into (source content)</label>
 <br/><select data-sel="article">
   <option>none
-  <option selected>main_content
+  <option selected>main
 </select>
 
 <br/><label>flow-from (layout elements)</label>
 <br/><select data-sel="div">
   <option>none
-  <option selected>main_content
+  <option selected>main
 </select>
 
-<pre>
-</pre>
+<hr/>
+<span id="d" onclick="app.dbg()">what does regionOverset return?</span>
+
+
 
 </aside>
 
@@ -177,6 +178,19 @@ app.mod = function(e) {
 
     app.s.innerHTML = "article { -webkit-flow-into: " + app.p['article'] + " }\n\n";
     app.s.innerHTML += "div { -webkit-flow-from: " + app.p['div'] + " }";
+}
+
+app.dbg = function() {
+    app.flow = document.webkitGetNamedFlows()['main'];
+    app.region = app.flow.getRegions()[0];
+    try {
+        app.over = app.region.webkitRegionOverset;
+        document.querySelector('#d').textContent = app.over;
+    }
+    catch(e) {
+        document.querySelector('#d').textContent = e;
+    }
+
 }
 
 </script>

@@ -1,0 +1,10 @@
+        Programmatic interface to content that flows through a series
+        of chained region elements, as specified by 
+
+CSS Regions are defined by flow-into and flow-from CSS properties.
+The flow-into property diverts content into a ''named flow'', while
+the flow-from property pours that flow's content dynamically through a
+series of ''region'' elements. Here's how you 
+
+* The NamedFlow interface
+
