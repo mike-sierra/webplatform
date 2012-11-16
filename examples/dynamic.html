@@ -170,6 +170,11 @@ window.onload = function() {
         app.p[app.inputs[i].dataset.sel] = app.inputs[i].value;
         app.inputs[i].addEventListener('change', app.mod);
     }
+
+                        // debug:
+    app.flow = document.webkitGetNamedFlows()['main'];
+    app.region = app.flow.getRegions()[0];
+
 };
 
 app.mod = function(e) {
@@ -181,8 +186,6 @@ app.mod = function(e) {
 }
 
 app.dbg = function() {
-    app.flow = document.webkitGetNamedFlows()['main'];
-    app.region = app.flow.getRegions()[0];
     try {
         app.over = app.region.webkitRegionOverset;
         document.querySelector('#d').textContent = app.over;
@@ -190,7 +193,6 @@ app.dbg = function() {
     catch(e) {
         document.querySelector('#d').textContent = e;
     }
-
 }
 
 </script>
