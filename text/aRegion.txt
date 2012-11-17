@@ -1,3 +1,9 @@
+The '''Region''' interface is available for any element that serves as a region whose [[css/properties/flow-from|'''flow-from''']] CSS specifies it displays content from a ''named flow''.  Use the '''Region''' interface to determine whether any content flows through the region, what content currently displays, and any special CSS styling that applies.
+
+The interface is still available for elements that change back to non-region elements, when their [[css/properties/flow-from|'''flow-from''']] property becomes '''none'''.
+
+
+
 ~== Region ==
 
 ~== 6.2. The Region interface ==
@@ -6,8 +12,6 @@
 ~implemented by all objects ( Elements, pseudo-elements or other CSS
 ~constructs such as slots) in an implementation which can be CSS
 ~Regions.
-
-~[NoInterfaceObject]
 
 ~interface Region {
 ~  readonly attribute DOMString regionOverset;
@@ -25,4 +29,3 @@
 ~region. This may happen for example if the ‘flow-from’ property on the
 ~corresponding pseudo-element, element or other construct becomes
 ~‘none’ but a script is still holding a reference to the Region object.
-

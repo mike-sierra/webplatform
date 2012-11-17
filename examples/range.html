@@ -8,14 +8,30 @@ article {
     -webkit-flow-into: main;
 }
 
+article aside.pullquote {
+    -webkit-flow-into: pull;
+}
+
+p {
+    margin-top: 0;
+}
+
+section > div, section > aside {
+    width: 30%;
+}
+
 section > div {
     -webkit-flow-from: main;
-    margin: 0.5em;
-    padding: 0.5em;
-    border-radius: 0.5em;
     border: thick plum solid;
-    min-height: 2em;
-    max-height: 6em;
+}
+
+section > aside {
+    -webkit-flow-from: pull;
+    border: thick lightgreen solid;
+}
+
+@-webkit-region #intro {
+    p { color: blue; }
 }
 
 </style>
@@ -29,10 +45,7 @@ section > div {
 riverrun, past Eve and Adam's, from swerve of shore to bend of bay,
 brings us by a commodius vicus of recirculation back to Howth Castle
 and Environs.
-
 </p>
-
-</article><article>
 
 <p>
 Sir Tristram, violer d'amores, fr'over the short sea, had passencore
@@ -46,10 +59,7 @@ yet, though all's fair in vanessy, were sosie sesthers wroth with
 twone nathandjoe.  Rot a peck of pa's malt had Jhem or Shen brewed by
 arclight and rory end to the regginbrow was to be seen ringsome on the
 aquaface.
-
 </p>
-
-</article><article>
 
 <p>
 The fall...  of a once wallstrait oldparr is retaled early in bed and
@@ -60,10 +70,10 @@ sends an unquiring one well to the west in quest of his tumptytumtoes:
 and their upturnpikepointandplace is at the knock out in the park
 where oranges have been laid to rust upon the green since devlinsfirst
 loved livvy.
-
 </p>
 
-</article><article>
+<aside class="pullquote">The oaks of ald now they lie in peat yet elms
+leap where askes lay.</aside>
 
 <p>
 What clashes here of wills gen wonts, oystrygods gaggin fishygods!
@@ -90,6 +100,7 @@ nunce come to a setdown secular phoenish.
 <section>
 <div id="intro">1</div>
 <div>2</div>
+<aside></aside>
 <div>3</div>
 <div>4</div>
 <div>5</div>
@@ -110,42 +121,24 @@ nunce come to a setdown secular phoenish.
 <div>20</div>
 </section>
 
-<pre>
-// get flow:
-var flow = document.webkitGetNamedFlows()['main'];
-var elements = flow.getContent();
-// get last element:
-var lastElement = elements[elements.length-1];
-// from last element, get last <p> element;
-var lastPara = lastElement.querySelector('p:last-of-type');
-// get regions in which last paragraph displays:
-var regions = flow.getRegionsByContent(lastPara);
-// check if last paragraph splits across regions:
-if (regions.length > 1) {
-    // do something?
-}
+<script type="text/javascript">
 
+var app = new Function();
 
-</pre>
+window.onload = function() {
+    app.main = document.webkitGetNamedFlows()['main'];
+    app.regions = app.main.getRegions();
+    for (var i = 1; i < app.regions.length; i++) {
+        var ranges = app.regions[i].webkitGetRegionFlowRanges();
+        if (ranges.length > 1) {            
+//            console.log( ranges[1].extractContents() );
 
-<script>
-// get flow
-var flow = document.webkitGetNamedFlows()['main'];
+// var insertedElement = parentElement.insertBefore(newElement, referenceElement);
 
-// get all top-level flow-into elements that contribute to flow:
-var elements = flow.getContent();
+        }
+    }
+};
 
-// get first element's first paragraph...
-var firstPara = elements[0].querySelector('p:first-of-type');
-
-// ...and the regions in which it appears:
-var regions = flow.getRegionsByContent(firstPara);
-
-// If the element splits across two regions, do something to modify
-// the layout or the content:
-if (regions.length > 1) {
-    adjustLayout(regions[0], firstPara);
-}
 </script>
 
 </body>

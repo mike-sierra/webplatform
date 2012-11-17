@@ -4,24 +4,103 @@
 
 <style>
 
+body {
+    padding-bottom: 12em;
+}
+
 article {
     -webkit-flow-into: main;
 }
 
+article aside.pullquote {
+    -webkit-flow-into: pull;
+}
+
+p {
+    margin-top: 0;
+}
+
+section > div, section > aside {
+    max-width: 50%;
+    margin-top: 0.5em;
+    min-height: 2em;
+    overflow: visible;
+}
+
 section > div {
     -webkit-flow-from: main;
-    margin: 0.5em;
-    padding: 0.5em;
-    border-radius: 0.5em;
     border: thick plum solid;
-    min-height: 2em;
+    max-height: 50%;
+}
+
+section > aside {
+    -webkit-flow-from: pull;
+    border: thick lightgreen solid;
+}
+
+#intro {
     max-height: 6em;
+}
+
+@-webkit-region #intro {
+    p { color: green }
+}
+
+span {
+    font-weight: bold;
+    border: medium solid pink;
+    padding: 2px;
+    border-radius: 0.5em;
+    cursor: pointer;
 }
 
 </style>
 
+<style id="tog">section > div { -webkit-region-overflow: break}</style>
+
+<script type="text/javascript">
+
+var app = new Function();
+
+window.onload = function() {
+    app.flow = document.webkitGetNamedFlows()['main'];
+    app.regions = app.flow.getRegions();
+    app.region = app.regions[app.regions.length-1];
+    app.showRanges();
+};
+
+app.showRanges = function() {
+    app.ranges = app.region.webkitGetRegionFlowRanges();
+    for (var i = 0; i < app.ranges.length; i++ ) {
+        console.log("Range #" + (i+1));
+        console.log(app.ranges[i].toString() );
+    }
+}
+
+app.toggle = function(event) {
+    s = event.target.textContent;
+    if (s == 'auto') {
+        s = 'break';
+    }
+    else {
+        s = 'auto';
+    }
+    event.target.textContent = s;
+    document.querySelector('#tog').textContent = 'section > div { -webkit-region-overflow: ' + s + '}';
+    console.log("changed region-overflow to:" + s);
+    app.showRanges();
+}
+
+</script>
+
 </head>
 <body>
+
+<h4>
+Size page so that content overflows final purple region. Toggle
+its <code>-webkit-region-overflow</code> value:
+<span onclick="app.toggle(event)">break</span>
+</h4>
 
 <article>
 
@@ -29,10 +108,7 @@ section > div {
 riverrun, past Eve and Adam's, from swerve of shore to bend of bay,
 brings us by a commodius vicus of recirculation back to Howth Castle
 and Environs.
-
 </p>
-
-</article><article>
 
 <p>
 Sir Tristram, violer d'amores, fr'over the short sea, had passencore
@@ -46,10 +122,7 @@ yet, though all's fair in vanessy, were sosie sesthers wroth with
 twone nathandjoe.  Rot a peck of pa's malt had Jhem or Shen brewed by
 arclight and rory end to the regginbrow was to be seen ringsome on the
 aquaface.
-
 </p>
-
-</article><article>
 
 <p>
 The fall...  of a once wallstrait oldparr is retaled early in bed and
@@ -60,10 +133,10 @@ sends an unquiring one well to the west in quest of his tumptytumtoes:
 and their upturnpikepointandplace is at the knock out in the park
 where oranges have been laid to rust upon the green since devlinsfirst
 loved livvy.
-
 </p>
 
-</article><article>
+<aside class="pullquote">The oaks of ald now they lie in peat yet elms
+leap where askes lay.</aside>
 
 <p>
 What clashes here of wills gen wonts, oystrygods gaggin fishygods!
@@ -90,63 +163,10 @@ nunce come to a setdown secular phoenish.
 <section>
 <div id="intro">1</div>
 <div>2</div>
+<aside></aside>
 <div>3</div>
 <div>4</div>
-<div>5</div>
-<div>6</div>
-<div>7</div>
-<div>8</div>
-<div>9</div>
-<div>10</div>
-<div>11</div>
-<div>12</div>
-<div>13</div>
-<div>14</div>
-<div>15</div>
-<div>16</div>
-<div>17</div>
-<div>18</div>
-<div>19</div>
-<div>20</div>
 </section>
-
-<pre>
-// get flow:
-var flow = document.webkitGetNamedFlows()['main'];
-var elements = flow.getContent();
-// get last element:
-var lastElement = elements[elements.length-1];
-// from last element, get last <p> element;
-var lastPara = lastElement.querySelector('p:last-of-type');
-// get regions in which last paragraph displays:
-var regions = flow.getRegionsByContent(lastPara);
-// check if last paragraph splits across regions:
-if (regions.length > 1) {
-    // do something?
-}
-
-
-</pre>
-
-<script>
-// get flow
-var flow = document.webkitGetNamedFlows()['main'];
-
-// get all top-level flow-into elements that contribute to flow:
-var elements = flow.getContent();
-
-// get first element's first paragraph...
-var firstPara = elements[0].querySelector('p:first-of-type');
-
-// ...and the regions in which it appears:
-var regions = flow.getRegionsByContent(firstPara);
-
-// If the element splits across two regions, do something to modify
-// the layout or the content:
-if (regions.length > 1) {
-    adjustLayout(regions[0], firstPara);
-}
-</script>
 
 </body>
 </html>
