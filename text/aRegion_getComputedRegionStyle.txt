@@ -14,3 +14,18 @@
 ~contained in the CSS Region (following how getComputedStyle works with
 ~elements not contained in the window's document).
 
+var mismatches = 0;
+
+
+
+for (var i = 1; i < regions.length; )
+
+
+    var index = flow.firstEmptyRegionIndex;
+    var regions = flow.getRegions();
+    if (index == -1) return(false); // no empty regions
+    for (var i = index; i < regions.length; i++) {
+        regions[i].parentNode.removeChild(regions[i]);
+    }
+
+

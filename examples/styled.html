@@ -5,20 +5,26 @@
 <style>
 
 article {
-    -webkit-flow-into: myFlow;
+    -webkit-flow-into: main;
 }
 
 section > div {
-    -webkit-flow-from: myFlow;
+    -webkit-flow-from: main;
     margin: 0.5em;
     padding: 0.5em;
     border-radius: 0.5em;
     border: thin plum solid;
     max-height: 6em;
+    min-height: 2em;
 }
 
 @-webkit-region #intro {
-    p { font-weight: bold; }
+    p { color: red }
+}
+
+#intro {
+    font-weight: bold;
+    color: blue;
 }
 
 </style>
@@ -107,5 +113,38 @@ nunce come to a setdown secular phoenish.
 <div>20</div>
 </section>
 
+
+<script>
+
+var varies = '???';
+
+window.onload = function() {
+    var flow = document.webkitGetNamedFlows()['main'];
+    var regions = flow.getRegions();
+    var contents = flow.getContent();
+
+    // get a sample of pull-quote content
+    var pull = contents[0].querySelector('aside.pullquote')
+
+    // are there discrepancies in how text would be colored
+    // throughout the chain?
+    varies = regionsVaryCSS(regions, pull, 'color');
+}
+
+function regionsVaryCSS(regs, elem, prop) {
+    var values = {};
+    var value, style;
+    var count = 0;
+    for (var i = 0; i < regs.length; i++) {
+        value = regs[i].getComputedRegionStyle(elem).getPropertyValue(prop);
+        values[value] || values[value] = 0;
+        values[value]++;
+    }
+    for (key in values) if (values.hasOwnProperty(key)) count++;
+    return count;
+}
+
+</script>
 </body>
 </html>
+
