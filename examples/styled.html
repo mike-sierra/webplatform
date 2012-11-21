@@ -16,7 +16,10 @@ article > p {
 }
 
 @-webkit-region section > div:first-of-type {
-    article > p { color: #fff }
+    article > p {
+        color: #fff;
+        background-color: #000;
+    }
 }
 
 section > div:first-of-type {
@@ -141,11 +144,35 @@ nunce come to a setdown secular phoenish.
 
 <script>
 
+var rule;
+
 var varies = '???';
+
+function dbgStyle() {
+    rule = document.styleSheets[0].cssRules[2]; // a @region rule
+    console.log(rule);
+    console.log(rule.type + ' == ' + rule.WEBKIT_REGION_RULE + '?');
+    console.log(rule.cssRules);
+    console.log(rule.cssRules[0]);
+    // selector
+    console.log(rule.cssRules[0].selectorText);
+    rule.cssRules[0].selectorText = 'article > p:first-of-type';
+    console.log(rule.cssRules[0].selectorText);
+
+    // style
+    console.log(rule.cssRules[0].style);
+    rule.cssRules[0].style.backgroundColor = '#777';
+    console.log(rule.cssRules[0].style);
+
+    console.log(rule.cssRules[0].cssText);
+    console.log(rule.cssText);
+}
 
 window.onload = function() {
 //    var flow = document.webkitGetNamedFlows()['main'];
 //    var flow = document.webkitGetNamedFlows().item(0);
+    dbgStyle();
+    return(1);
     var flow = document.webkitGetNamedFlows()[0];
     console.log(flow);
     var regions = flow.getRegions();

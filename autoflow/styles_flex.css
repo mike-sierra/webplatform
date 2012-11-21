@@ -1,0 +1,65 @@
+div.page, div.column, div.row {
+	display            : -webkit-box;
+	-webkit-box-pack   : justify;
+	-webkit-box-align  : stretch;
+	-webkit-box-flex   : 0;
+	border             : thin solid #777;
+	padding            : 0.25em;
+}
+
+/* within "pages", child "rows" flow vertically as a column  */
+div.page {
+	-webkit-box-orient : vertical;
+	box-orient         : vertical;
+	background         : #ddd;
+	width: 8.5in;
+	height: 11in;
+}
+
+/* within "rows", child "columns" flow horizontally as a row */
+div.row {
+	-webkit-box-orient : horizontal;
+	box-orient         : horizontal;
+	background         : pink;
+}
+
+div.row:first-of-type {
+	-webkit-box-flex   : 1;
+}
+
+/* within "columns", children flow vertically */
+div.column {
+        max-width          : 48%;
+	-webkit-box-orient : vertical;
+	box-orient         : vertical;
+	max-height         : 50%;
+}
+
+div.mainFlow {
+	-webkit-box-flex   : 2;
+}
+
+/* DEBUG */
+
+/*
+
+div::before {
+	font-weight: bold;
+	text-transform: uppercase;
+	display: block;
+}
+
+div.page::before {
+	content: '(page) ';
+}
+div.row::before {
+	content: '(row) ';
+}
+div.column::before {
+	content: '(column) ';
+}
+div.mainFlow::before {
+	content: '(flow) ';
+}
+
+*/

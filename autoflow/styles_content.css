@@ -1,0 +1,41 @@
+/* CONTENT */
+
+* {
+	font-family : Trebuchet MS;
+}
+
+article > p:first-of-type {
+	margin-top  : 0;
+}
+
+h1 {
+	font-size   : 20px;
+	text-align  : center;
+}
+
+pre {
+	background: lightgreen;
+}
+
+table {
+	background: lightblue;
+}
+
+img {
+	max-width: 100%;
+}
+
+figure.narrow {
+	background: orange;
+}
+figure.wide {
+	background: coral;
+}
+
+div {
+	border-radius: 0.5em;
+}
+
+div.page {
+	margin-bottom: 3em;
+}
