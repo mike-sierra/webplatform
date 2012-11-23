@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>autoflow</title>
+
+<style>
+/* FLEX */
+
+div {
+	display                 : -webkit-inline-flex;
+	-webkit-justify-content : space-between;
+	-webkit-align-items     : stretch;
+	border                  : thin solid #777;
+	padding                 : 0.25em;
+	background              : #ddd;
+}
+
+div.page {
+	-webkit-flex-direction  : column-reverse;
+	margin                  : 1em;
+	width                   : 8.5in;
+	height                  : 11in;
+	background              : gold;
+}
+
+div.row {
+	-webkit-flex-direction  : row;
+}
+
+div.row:first-of-type {
+	min-height              : auto;
+	-webkit-flex-basis      : 100%;
+}
+
+div.row:last-of-type {
+}
+
+div.column {
+	-webkit-flex-direction  : column;
+	-webkit-flex-basis      : 100%;
+	max-width               : 48%;
+	max-height              : 50%;
+	background              : lightblue;
+}
+
+div.mainFlow {
+	background              : lightgreen;
+}
+
+div.excl {
+	background              : plum;
+}
+
+/* FLOW */
+
+/* main content */
+
+article {
+	-webkit-flow-into           : main_flow;
+}
+div.mainFlow {
+	-webkit-flow-from       : main_flow;
+	-webkit-region-overflow : break;
+	max-height              : 90%;;
+	margin-bottom           : 0.5em;
+	background: yellow;
+}
+
+/* headings */
+
+article > h1 {
+	-webkit-flow-into       : title_flow;
+}
+div.page:first-of-type > div.row:last-of-type {
+	-webkit-flow-from       : title_flow;
+	background              : pink;
+}
+
+/* exclusions */
+
+article > aside {
+	-webkit-flow-into       : exclusion_flow;
+}
+div.excl {
+	-webkit-flow-from       : exclusion_flow;
+	background: coral;
+}
+
+</style>
+
+</head>
+<body>
+
+<!-- CONTENT -->
+
+<article>
+
+<h1>Experiment: Regions + Flexbox</h1>
+
+<p>
+Features:
+</p>
+
+<ol>
+<li>
+Layout relies on
+<a href="https://developer.mozilla.org/en-US/docs/CSS/Using_CSS_flexible_boxes">
+latest flexbox spec</a>
+</li>
+<li>
+yellow col1/col2 text should display default ARTICLE content, threaded
+through layout
+</li>
+<li>
+first full-width exclusion (pink) should display article's H1 title
+content
+</li>
+<li>
+partial-width exclusion should display article's ASIDE content
+</li>
+<li>
+___
+</li>
+<li>
+___
+</li>
+<li>
+___
+</li>
+<li>
+___
+</li>
+</ol>
+
+<aside>
+Best viewed in latest Chrome Canary.
+</aside>
+
+<p>
+All work and no play makes Jack a dull boy.
+All work and no play makes Jack a dull boy.
+All work and no play makes Jack a dull boy.
+All work and no play makes Jack a dull boy.
+All work and no play makes Jack a dull boy.
+All work and no play makes Jack a dull boy.
+All work and no play makes Jack a dull boy.
+All work and no play makes Jack a dull boy.
+</p>
+
+<p>
+All work and no play makes Jack a dull boy.
+All work and no play makes Jack a dull boy.
+All work and no play makes Jack a dull boy.
+All work and no play makes Jack a dull boy.
+All work and no play makes Jack a dull boy.
+All work and no play makes Jack a dull boy.
+All work and no play makes Jack a dull boy.
+All work and no play makes Jack a dull boy.
+</p>
+
+<p>
+All work and no play makes Jack a dull boy.
+All work and no play makes Jack a dull boy.
+All work and no play makes Jack a dull boy.
+All work and no play makes Jack a dull boy.
+All work and no play makes Jack a dull boy.
+All work and no play makes Jack a dull boy.
+All work and no play makes Jack a dull boy.
+All work and no play makes Jack a dull boy.
+</p>
+
+<p>
+All work and no play makes Jack a dull boy.
+All work and no play makes Jack a dull boy.
+All work and no play makes Jack a dull boy.
+All work and no play makes Jack a dull boy.
+All work and no play makes Jack a dull boy.
+All work and no play makes Jack a dull boy.
+All work and no play makes Jack a dull boy.
+All work and no play makes Jack a dull boy.
+</p>
+
+</article>
+
+<!-- LAYOUT -->
+
+<div class="page" id="page1">
+  <div class="row">
+    <div class="column">
+      <div class="mainFlow">col1 text
+      </div>
+    </div>
+    <div class="column">
+      <div class="mainFlow">col2 text
+      </div>
+      <div class="excl">partial-width exclusion
+      </div>
+    </div>
+  </div>
+  <div class="row">full-width exclusion
+  </div>
+</div>
+
+<div class="page" id="page2">
+  <div class="row">
+    <div class="column">
+      <div class="mainFlow">col1 text
+      </div>
+    </div>
+    <div class="column">
+      <div class="mainFlow">col2 text
+      </div>
+      <div class="excl">partial-width exclusion
+      </div>
+    </div>
+  </div>
+  <div class="row">full-width exclusion
+  </div>
+</div>
+
+</body>
+</html>

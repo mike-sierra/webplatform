@@ -1,4 +1,14 @@
+
+
 /* CONTENT */
+
+body {
+	background: #aaa;
+}
+
+div {
+	background: #fff;
+}
 
 * {
 	font-family : Trebuchet MS;
@@ -8,28 +18,29 @@ article > p:first-of-type {
 	margin-top  : 0;
 }
 
-h1 {
+h1, h2 {
 	font-size   : 20px;
 	text-align  : center;
-}
-
-pre {
-	background: lightgreen;
+	padding-left: 2em;
+	padding-right: 2em;
 }
 
 table {
-	background: lightblue;
+	background: #ddd;
+	border: thin solid #777;
+	padding: 0.5em;
+}
+
+table td, table tr {
+	vertical-align: top;
+}
+
+td {
+	padding-top: 0.5em;
 }
 
 img {
 	max-width: 100%;
-}
-
-figure.narrow {
-	background: orange;
-}
-figure.wide {
-	background: coral;
 }
 
 div {
@@ -38,4 +49,24 @@ div {
 
 div.page {
 	margin-bottom: 3em;
+}
+
+aside {
+	background: #444;
+	text-shadow: #000 3px 3px;
+	color: #fff;
+	padding: 1.0em;
+	font-size: 24px;
+	font-weight: bold;
+}
+
+pre {
+	overflow-x: scroll;
+	font-family : monospace;
+	padding: 0.5em;
+	background-color: #ddd;
+}
+
+pre.wide {
+	background-image: -webkit-linear-gradient(left, #ddd 0%, #888 100%);
 }

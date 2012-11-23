@@ -1,5 +1,7 @@
 /* FLOWS & REGIONS */
 
+/* MAIN */
+
 article {
 	-webkit-flow-into       : main_flow;
 }
@@ -9,15 +11,16 @@ div.mainFlow {
 	-webkit-region-overflow : break;
 	max-height              : 90%;;
 	margin-bottom           : 0.5em;
-	background              : gold;;
-        /* ^^^ gold indicates flow-from should work */
 }
 
-/*
-div.row:last-of-type() {
-	-webkit-flow-from       : excl;
+/* FULL-COLUMN */
+
+article > h1 {
+	-webkit-flow-into       : title_flow;
 }
-pre, table {
-	-webkit-flow-into       : excl;
+
+div.page:first-of-type > div.row:last-of-type {
+	-webkit-flow-from       : title_flow;
+	background              : pink;
 }
-*/
+

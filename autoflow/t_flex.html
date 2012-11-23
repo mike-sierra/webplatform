@@ -2,14 +2,86 @@
 <html>
 <head>
 <title>autoflow</title>
-<!--
--->
-<link rel="stylesheet" type="text/css" href="styles_content.css" />
-<link rel="stylesheet" type="text/css" href="styles_flex.css" />
-<link rel="stylesheet" type="text/css" href="styles_flow.css" />
-<script defer src="app.js"></script>
 
-<style id="local_styles"></style>
+<style>
+/* FLEX */
+
+div.page, div.column, div.row {
+	display                 : -webkit-box;
+	-webkit-box-pack        : justify;
+	-webkit-box-align       : stretch;
+	-webkit-box-flex        : 0;
+	border                  : thin solid #777;
+	padding                 : 0.25em;
+}
+
+/* within "pages", child "rows" flow vertically as a column  */
+div.page {
+	-webkit-box-orient      : vertical;
+	-webkit-box-direction   : reverse;
+	width                   : 8.5in;
+	height                  : 11in;
+}
+
+/* within "rows", child "columns" flow horizontally as a row */
+div.row {
+	-webkit-box-direction   : normal;
+	-webkit-box-orient      : horizontal;
+}
+
+div.row:first-of-type {
+	-webkit-box-flex        : 1;
+}
+
+div.row:last-of-type {
+	-webkit-box-pack        : center;
+	-webkit-box-align       : stretch;
+}
+
+/* within "columns", children flow vertically */
+div.column {
+	max-width               : 48%;
+	-webkit-box-direction   : normal;
+	-webkit-box-orient      : vertical;
+	max-height              : 50%;
+}
+
+div.mainFlow {
+	-webkit-box-flex        : 2;
+}
+
+/* DEBUG FLEX */
+
+
+div {	background              : #ddd; }
+div.page {	background      : gold; }
+/* div.row {	background      : coral; } */
+div.column {	background      : lightblue; }
+div.mainFlow {	background      : lightgreen; }
+div.alt {	background      : plum; }
+
+/* FLOW */
+
+article > h1 {
+	-webkit-flow-into       : title_flow;
+}
+
+div.page:first-of-type > div.row:last-of-type {
+	-webkit-flow-from       : title_flow;
+	background              : pink;
+}
+
+article {
+	-webkit-flow-into           : main_flow;
+}
+div.mainFlow {
+	-webkit-flow-from       : main_flow;
+	-webkit-region-overflow : break;
+	max-height              : 90%;;
+	margin-bottom           : 0.5em;
+}
+
+</style>
 
 </head>
 <body>

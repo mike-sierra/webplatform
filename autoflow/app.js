@@ -1,9 +1,6 @@
 var app = new Function();
 
-NodeList.prototype.toArray = function() {
-    for(var arr=new Array(),i=0,l=this.length;i<l;i++){arr.push(this[i])}
-    return(arr);
-};
+app.debug = 0;
 
 app.init = function() {
     app.flowName = 'main_flow';
@@ -17,16 +14,27 @@ app.init = function() {
     app.dbgPageThreshold = 10;
 };
 
+app.fixPage = function() {
+    if (!app.debug) return(false);
+};
+
+app.pageNeedsFix = function() {
+    if (!app.debug) return(false);
+    if (! app.exclusions.length) return(false);
+    app.regions = app.flow.getRegionsByContent( app.exclusions[0] )
+    if (! app.regions.length) return(false)
+    return(true);
+};
+
 app.run = function() {
-    //    if (! app.flow ) return(false);
-    //    app.exclude(); ;;;
 
+    while (app.pageNeedsFix()) app.fixPage();
 
+    if (app.debug)    return(1);
     //    for (var i = 0; i < app.dbgPageThreshold; i++) {
     while (app.flow.overset) {
         app.page = app.addNewPage();
         app.page.id = 'page' + (++app.pageCount);
-        //        console.log('added ' + app.page.id);
     }
 };
 
@@ -62,9 +70,13 @@ app.exclude = function() {
 
 }
 
+NodeList.prototype.toArray = function() {
+    for(var arr=new Array(),i=0,l=this.length;i<l;i++){arr.push(this[i])}
+    return(arr);
+};
+
 window.onload = function() {
     app.init();
     app.run();
 };
-
 
