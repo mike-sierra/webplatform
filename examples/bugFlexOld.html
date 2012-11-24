@@ -6,6 +6,10 @@
 <style>
 /* FLEX */
 
+div {
+	background              : #ddd; 
+}
+
 div.page, div.column, div.row {
 	display                 : -webkit-box;
 	-webkit-box-pack        : justify;
@@ -22,6 +26,7 @@ div.page {
 	width                   : 8.5in;
 	height                  : 11in;
 	margin                  : 1em;
+	background              : gold; 
 }
 
 /* within "rows", child "columns" flow horizontally as a row */
@@ -45,21 +50,18 @@ div.column {
 	-webkit-box-direction   : normal;
 	-webkit-box-orient      : vertical;
 	max-height              : 50%;
+	background              : lightblue; 
 }
 
 div.mainFlow {
 	-webkit-box-flex        : 2;
+	background              : lightgreen; 
 }
 
-/* DEBUG FLEX */
+div.excl {
+	background              : plum; 
+}
 
-
-div {	background              : #ddd; }
-div.page {	background      : gold; }
-/* div.row {	background      : coral; } */
-div.column {	background      : lightblue; }
-div.mainFlow {	background      : lightgreen; }
-div.excl {	background      : plum; }
 
 /* MAIN FLOW */
 
