@@ -76,13 +76,13 @@ div.page:first-of-type > div.row:last-of-type {
 	background              : pink;
 }
 
-/* exclusions */
+/* pulls */
 
 article > aside {
-	-webkit-flow-into       : exclusion_flow;
+	-webkit-flow-into       : pull_flow;
 }
 div.excl {
-	-webkit-flow-from       : exclusion_flow;
+	-webkit-flow-from       : pull_flow;
 	background: coral;
 }
 
@@ -112,23 +112,11 @@ yellow col1/col2 text should display default ARTICLE content, threaded
 through layout
 </li>
 <li>
-first full-width exclusion (pink) should display article's H1 title
+first full-width pull (pink) should display article's H1 title
 content
 </li>
 <li>
-partial-width exclusion should display article's ASIDE content
-</li>
-<li>
-___
-</li>
-<li>
-___
-</li>
-<li>
-___
-</li>
-<li>
-___
+partial-width pull should display article's ASIDE content
 </li>
 </ol>
 
@@ -193,11 +181,11 @@ All work and no play makes Jack a dull boy.
     <div class="column">
       <div class="mainFlow">col2 text
       </div>
-      <div class="excl">partial-width exclusion
+      <div class="excl">partial-width pull
       </div>
     </div>
   </div>
-  <div class="row">full-width exclusion
+  <div class="row">full-width pull
   </div>
 </div>
 
@@ -210,13 +198,20 @@ All work and no play makes Jack a dull boy.
     <div class="column">
       <div class="mainFlow">col2 text
       </div>
-      <div class="excl">partial-width exclusion
+      <div class="excl">partial-width pull
       </div>
     </div>
   </div>
-  <div class="row">full-width exclusion
+  <div class="row">full-width pull
   </div>
 </div>
+
+<span onclick="
+    var s = 'FLOWS: ';
+    var flows = document.webkitGetNamedFlows()
+    for (var i = 0, l = flows.length; i < l; i++) s += flows[i].name + ' ';
+    alert(s);
+">DEBUG</span>
 
 </body>
 </html>

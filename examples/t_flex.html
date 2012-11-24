@@ -21,6 +21,7 @@ div.page {
 	-webkit-box-direction   : reverse;
 	width                   : 8.5in;
 	height                  : 11in;
+	margin                  : 1em;
 }
 
 /* within "rows", child "columns" flow horizontally as a row */
@@ -58,9 +59,21 @@ div.page {	background      : gold; }
 /* div.row {	background      : coral; } */
 div.column {	background      : lightblue; }
 div.mainFlow {	background      : lightgreen; }
-div.alt {	background      : plum; }
+div.excl {	background      : plum; }
 
-/* FLOW */
+/* MAIN FLOW */
+
+article {
+	-webkit-flow-into       : main_flow;
+}
+div.mainFlow {
+	-webkit-flow-from       : main_flow;
+	-webkit-region-overflow : break;
+	max-height              : 90%;;
+	margin-bottom           : 0.5em;
+}
+
+/* TITLE FLOW */
 
 article > h1 {
 	-webkit-flow-into       : title_flow;
@@ -71,14 +84,15 @@ div.page:first-of-type > div.row:last-of-type {
 	background              : pink;
 }
 
-article {
-	-webkit-flow-into           : main_flow;
+/* TEST EXCLUSION FLOW */
+
+article > figure:first-of-type {
+	-webkit-flow-into       : excl_flow;
 }
-div.mainFlow {
-	-webkit-flow-from       : main_flow;
-	-webkit-region-overflow : break;
-	max-height              : 90%;;
-	margin-bottom           : 0.5em;
+
+div.page:first-of-type div.excl {
+	-webkit-flow-from       : excl_flow;
+	background              : coral;
 }
 
 </style>
@@ -91,39 +105,6 @@ div.mainFlow {
 <article>
 
 <h1>Experiment: Adaptive Page Layout</h1>
-
-<p>
-Demo of adaptive page layout system that relies on CSS Regions to
-thread content and uses Flexbox for layout. Features:
-</p>
-
-<ol>
-
-<li>Main content flows through 2-column layout. (Y)
-
-<li>Title appears in separate 1-column layout element. (N)
-
-<li>New pages are added to flow overset content as needed. (Y)</li>
-
-<li>Identifies figures, tables, code blocks, and asides as
-"exclusions", to be placed on same page but not interrupting main
-flow. (n)</li>
-
-<li>Exclusions classed "narrow" share column with main text
-flow. (n)</li>
-
-<li>Exclusions classed "wide" are placed in a separate full-page
-column. (n)</li>
-
-<li>Exclusions appear alternately at top/bottom of
-page/column. (n)</li>
-
-</ol>
-
-<p>
-Best viewed in latest Chrome Canary. The remainder of this text is
-from <i>Finnegans Wake</i>.
-</p>
 
 <h2>Introduction</h2>
 
@@ -1226,19 +1207,43 @@ hubbub caused in Edenborough.</p>
 <div class="page" id="page1">
   <div class="row">
     <div class="column">
-      <div class="mainFlow">
+      <div class="mainFlow">col1 text
       </div>
     </div>
     <div class="column">
-      <div class="mainFlow">
+      <div class="mainFlow">col2 text
       </div>
-      <div class="alt">
+      <div class="excl">pull
       </div>
     </div>
   </div>
-  <div class="row" id="title"><h1>Title needs to replace this content on the first page.</h1>
+  <div class="row"><h2>Title needs to replace this content on the first page.</h2>
   </div>
 </div>
+
+<div class="page" id="page2">
+  <div class="row">
+    <div class="column">
+      <div class="mainFlow">col1 text
+      </div>
+    </div>
+    <div class="column">
+      <div class="mainFlow">col2 text
+      </div>
+      <div class="excl">pull
+      </div>
+    </div>
+  </div>
+  <div class="row"><h2>Title needs to replace this content on the first page.</h2>
+  </div>
+</div>
+
+<span onclick="
+    var s = 'FLOWS: ';
+    var flows = document.webkitGetNamedFlows()
+    for (var i = 0, l = flows.length; i < l; i++) s += flows[i].name + ' ';
+    alert(s);
+">DEBUG</span>
 
 </body>
 </html>
