@@ -1,6 +1,6 @@
 var app = new Function();
 
-kill; // rather than wait for it to die...
+// kill; // rather than wait for it to die...
 
 app.debug = 0;
 
@@ -30,7 +30,7 @@ app.pageNeedsFix = function() {
 };
 
 app.run = function() {
-    while (app.pageNeedsFix()) app.fixPage();
+    // while (app.pageNeedsFix()) app.fixPage();
     if (app.debug)    return(1);
     //    for (var i = 0; i < app.dbgPageThreshold; i++) {
     while (app.flow.overset) {

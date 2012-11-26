@@ -1,3 +1,15 @@
+Flows content from a named flow (specified by a corresponding
+[[css/properties/flow-into|'''flow-into''']]) through selected
+elements to form a chain of layout ''regions''.
+
+Diverts the selected element's content into a named flow, used to
+thread content through different layout regions .
+
+
+
+
+IE supports [[css/properties/flow-into|'''flow-into''']]  and [[css/properties/flow-from|'''flow-from''']] properties, but no other features from the W3C's CSS Regions specification.
+
 The CSS Regions feature provides a way to implement complex magazine-style designs in which content flows through freely positioned layout elements. It offers you a way to dynamically flow content from one layout element to another, but does not specify how those elements are positioned. For that, use whatever CSS technique is most appropriate: floats, flexible boxes, grid layout, or absolute positioning. The following provides a guide for how to flow text, with no discussion of these various layout techniques.
 
 
