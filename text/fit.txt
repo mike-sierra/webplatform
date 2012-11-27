@@ -13,3 +13,4 @@ A region's display state within a region chain:
 ** for regions that are too small to display the next available item of content, such as an image, which gets pushed into a subsequent region
 
 ** for elements that no longer behave as a region, which occurs when their [[css/properties/flow-into|'''flow-into''']] property reverts to '''none'''
+

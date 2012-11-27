@@ -6,7 +6,6 @@
 
 /* LAYOUT */
  
- 
 body {
     background         : #444;
     padding            : 1em;
@@ -14,7 +13,7 @@ body {
     -webkit-hyphens: auto;
 }
  
-section, div {
+section.page, div {
     padding            : 0.5em;
     border-radius      : 0.5em;
     background         : #ddd;
@@ -22,67 +21,21 @@ section, div {
     -webkit-region-overflow: break;
 }
  
-section {
+section.page {
     width              : 8.5in;
     height             : 10.6in;
     position           : absolute;
 }
  
-div {
+section.page > div {
     border             : #777 medium solid;
     margin-bottom      : 0.5em;
+    max-height: 30%;
+    -webkit-column-width: auto;
 }
  
-#intro, #col1, #col2a, #col2b, #pull {
-    width              : 45%;
-    position           : absolute;
-}
- 
-#title {
-    height             : 2.5em;
-}
- 
-#intro, #col2a {
-    top                : 5em;
-    height             : 3em;
-}
- 
-#col1 {
-    top                : 10em;
-    height             : 52em;
-}
- 
-#col2a, #col2b, #pull {
-    left               : 51%;
-}
- 
-#col2a {
-    top                : 5em;
-    height             : 23em;
-}
- 
-#col2b {
-    top                : 40em;
-    height             : 22em;
-}
- 
-#pull {
-    top                : 30em;
-    height             : 8em;
-}
- 
-/* FLOW */
- 
-/* article { display: none } */
- 
-/*
-*/
- 
- 
- 
- 
- 
- 
+article { -webkit-column-count: 2; }
+
 /* CONTENT */
  
 h1 {
@@ -90,6 +43,9 @@ h1 {
     text-align         : center;
 }
  
+h1, p:first-of-type { display: none; }
+
+
 #drop {
     float              : left;
     font-size          : 36px;
@@ -109,25 +65,33 @@ aside {
     text-shadow        : 4px 4px 4px #444;
 }
  
-     #intro {
-         background         : #777;
-         border             : medium solid #777;
-     }
+ @-webkit-region #intro {
+      p:first-of-type { color : #fff; }
+ } 
+
+ #intro {
+     background         : #777;
+     border             : medium solid #777;
+ }
+/*
+*/
+
+/* article { display: none } */
 
  @media screen and (min-width: 480px){
 
      /* pour article into section */
      article { -webkit-flow-into : main; }
      section > div:not(#pull) { -webkit-flow-from : main; }
+/*
+*/
 
      /* custom flow for pull quotes */
      aside { -webkit-flow-into : pull; }
      div#pull { -webkit-flow-from : pull; }
+/*
+*/
 
-     /* @region rules can be nested within @media rules */
-     @-webkit-region #intro {
-         p:first-of-type { color : #fff; }
-     } 
  }
  
  @media screen and (max-width: 480px){
@@ -156,12 +120,9 @@ aside {
 <body>
 
 <section class="page">
-    <div id="title"><h1>Region #1</h1></div>
-    <div id="intro"><h1>Region #2</h1></div>
-    <div id="col1"><h1>Region #3</h1></div>
-    <div id="col2a"><h1>Region #4</h1></div>
-    <div id="pull"><h1>(Separate Region)</h1></div>
-    <div id="col2b"><h1>Region #5</h1></div>
+    <div id="r1"><h1>Region #1</h1></div>
+    <div id="r2"><h1>Region #2</h1></div>
+    <div id="r3"><h1>Region #3</h1></div>
 </section>
 
 <article>

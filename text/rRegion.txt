@@ -1,0 +1,8 @@
+While it's possible to style this region as a block element, CSS that
+is ordinarily inherited by child elements does not apply to content
+that flows within the region from elsewhere in the document.  So
+this CSS would not work:
+
+#intro {
+    color : #fff;
+}

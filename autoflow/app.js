@@ -18,66 +18,48 @@ app.init = function() {
 
 app.fixPage = function() {
     if (!app.debug) return(false);
-    // 2do
+    return(false);
+    if (content.classList.contains('wide')) {
+        // 2do
+    else if (content.classList.contains('narrow')) {
+        // 2do
+    }
 };
 
 app.pageNeedsFix = function() {
+    // AKA exclusions appear on page's main flow & need to be diverted
     if (!app.debug) return(false);
     if (! app.pulls.length) return(false);
-    app.regions = app.flow.getRegionsByContent( app.pulls[0] )
-    if (! app.regions.length) return(false)
+    app.regions = app.flow.getRegionsByContent( app.pulls[0] );
+    if (! app.regions.length) return(false);
     return(true);
 };
 
 app.run = function() {
-    // while (app.pageNeedsFix()) app.fixPage();
+    //    while (app.pageNeedsFix()) app.fixPage();
     if (app.debug)    return(1);
     //    for (var i = 0; i < app.dbgPageThreshold; i++) {
     while (app.flow.overset) {
         app.page = app.addNewPage();
-        app.page.id = 'page' + (++app.pageCount);
     }
 };
 
-app.addNewPage = function() {
+app.addNewPage = function(id) {
     var sect = document.createElement('div');
+    sect.id = 'page' + (++app.pageCount);
     sect.classList.add('page');
     sect.innerHTML = app.template;
     app.body.appendChild(sect);
     return(sect);
 };
 
-app._exclude = function() {
-    // 1st try
-    var content = app.pulls[0];
-    var region;
-    var target;
-    var regions = app.flow.getRegionsByContent(content);
-    if (! regions) return(false);
-    app.pullCount++;
-
-    console.log(regions);
-    if (content.classList.contains('wide')) {
-        target = app.page.querySelector('div.row:last-of-type');
-        target.style.WebkitFlowFrom = 'excl_' + app.pullCount;
-        content.style.WebkitFlowInto = 'excl_' + app.pullCount;
-        console.log(target);
-        console.log(content);
-    }
-    else if (content.classList.contains('narrow')) {
-        console.log('2DO');
-        //        target = document.createElement('')
-        //app.page.querySelector('div.row:last-of-type');
-    }
-}
-
 NodeList.prototype.toArray = function() {
     for( var arr=new Array(), i=0, l=this.length; i < l; i++) { arr.push(this[i]) }
     return(arr);
 };
 
-window.onload = function() {
+window.onreadystate = function() {
+    // window.onload = function() {
     app.init();
     app.run();
 };
-
