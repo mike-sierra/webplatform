@@ -6,21 +6,17 @@
 <style>
 
 @-webkit-keyframes poly {
-
    0% { -webkit-shape-inside: polygon(50% -3%, 102% 50%, 50% 102%, -3% 50%); }
    15% { -webkit-shape-inside: polygon(102% -3%, 102% 50%, 50% 102%, -3% 50%); }
    30% { -webkit-shape-inside: polygon(102% -3%, 102% 102%, 50% 102%, -3% 50%); }
    45% { -webkit-shape-inside: polygon(102% -3%, 102% 102%, -3% 102%, -3% 50%); }
    60% { -webkit-shape-inside: polygon(102% -3%, 102% 102%, -3% 102%, -3% -3%); }
-/*   80% { -webkit-shape-inside: polygon(90% 10%, 90% 90%, 10% 90%, 10% 10%); } */
+   80% { -webkit-shape-inside: polygon(102% 60%, 40% 102%, -3% 40%, 60% -3%); }
    100% { -webkit-shape-inside: polygon(102% 50%, 50% 102%, -3% 50%, 50% -3%); }
-
 }
 
 article {
-/*    -webkit-column-count: 1; */
-    -webkit-animation: poly 5s 1s both;
-    -webkit-transition: all 3s;
+    -webkit-shape-inside: polygon(50% -3%, 102% 50%, 50% 102%, -3% 50%);
     text-align: justify;
     -webkit-user-select: none;
     position: absolute;
@@ -31,6 +27,13 @@ article {
     background: #fff;
     overflow: scroll;
     cursor: pointer;
+    -webkit-animation: poly 5s 0.5s both;
+}
+
+article.repeat {
+    -webkit-animation-name: '';
+    background: #000;
+    color: #fff;
 }
 
 body {
@@ -247,7 +250,6 @@ var app = new Function();
 
 app.threshold = 20;
 
-
 app.init = function(e) {
    app.points = 0;
    app.art = document.querySelector('article, a');
@@ -259,10 +261,12 @@ app.init = function(e) {
 
 app.up = function(e) {
    app.mode = false;
-   if (!app.xp) return(false);
+//   if (!app.xp) return(false);
    app.css += app.xp + '% ' + app.yp + '%)';
    app.style.textContent = '-webkit-shape-inside: ' + app.css + ';';
    console.log(app.style.textContent);
+   app.art.classList.remove('repeat');
+
 };
 
 app.down = function(e) {
@@ -273,6 +277,9 @@ app.down = function(e) {
    app.h = app.art.clientHeight;
    app.xs = e.clientX;
    app.ys = e.clientY;
+
+   app.art.classList.add('repeat');
+
 };
 
 app.move = function(e) {
@@ -288,7 +295,6 @@ app.move = function(e) {
 
 window.onload = function() {
     app.init();
-    app.art.classList.add('tog');
 }
 
 </script>
