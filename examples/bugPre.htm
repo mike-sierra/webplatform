@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>autoflow</title>
+
+<style>
+
+body {
+    background: #aaa;
+}
+
+article {
+    -webkit-flow-into: main;
+    -webkit-region-overflow: auto;
+    overflow: scroll;
+}
+
+div {
+    margin: 1em;
+    -webkit-flow-from: main;
+    background: #fff;
+    width: 20em;
+}
+
+aside {
+    cursor: pointer;
+    margin: 0.5em;
+    border-radius: 0.5em;
+    padding: 0.5em;
+    background: #fff;
+    float: right;
+}
+
+aside:before {
+    font-weight: normal;
+}
+
+</style>
+
+<style id="custom">
+</style>
+
+</head>
+<body>
+
+<!-- LAYOUT -->
+
+<aside id="regionBreak">
+
+article overflow:
+<select id="ova" data-prop="overflow">
+<option>auto</option>
+<option>hidden</option>
+<option selected>visible</option>
+<option>scroll</option>
+</select>
+<br/>
+div overflow:
+<select id="ovd" data-prop="overflow">
+<option>auto</option>
+<option>hidden</option>
+<option selected>visible</option>
+<option>scroll</option>
+</select>
+<br/>
+div -webkit-region-overflow::
+<select id="rb" data-prop="-webkit-region-overflow">
+<option selected>auto</option>
+<option>break</option>
+</select>
+
+<br/>
+div height:
+<input id="ht" type="range" min="1" step="0.1" max="20" value="8.1" data-prop="height"/>
+
+</aside>
+
+<div>
+</div>
+<div>
+</div>
+<div>
+</div>
+
+<!-- CONTENT -->
+
+<article>
+
+<p>
+riverrun, past Eve and Adam's, from swerve of shore to bend of bay,
+brings us by a commodius vicus of recirculation back to Howth Castle
+and Environs.
+</p>
+
+<p>
+Sir Tristram, violer d'amores, fr'over the short sea, had passencore
+rearrived from North Armorica on this side the scraggy isthmus of
+Europe Minor to wielderfight his penisolate war:
+</p>
+
+<pre>
+nor had topsawyer's rocks by the stream Oconee exaggerated themselse
+to Laurens County's gorgios while they went doublin their mumper all
+the time:
+</pre>
+
+<p>
+nor avoice
+from afire bellowsed mishe mishe to tauftauf thuartpeatrick:
+</p>
+
+<pre>
+not yet, though venissoon after, had a kidscad buttended a bland old isaac:
+</pre>
+
+<p>
+not yet, though all's fair in vanessy, were sosie sesthers wroth with
+twone nathandjoe.  Rot a peck of pa's malt had Jhem or Shen brewed by
+arclight and rory end to the regginbrow was to be seen ringsome on the
+aquaface.
+</p>
+
+</article>
+
+<script>
+var app = new Function();
+
+window.onload = function() {
+    app.rb = document.querySelector('#rb');
+    app.ht = document.querySelector('#ht');
+    app.ova = document.querySelector('#ova');
+    app.ovd = document.querySelector('#ovd');
+    app.css = document.querySelector('#custom');
+    app.rb.addEventListener('change', function() { app.refreshCSS() });
+    app.ova.addEventListener('change', function() { app.refreshCSS() });
+    app.ovd.addEventListener('change', function() { app.refreshCSS() });
+    app.ht.addEventListener('change', function() { app.refreshCSS() });
+    app.refreshCSS();
+}
+
+app.refreshCSS = function() {
+    app.css.textContent = 'article {';
+    app.css.textContent += app.ova.dataset.prop + ": " + app.ova.value + ";";
+    app.css.textContent += '}';
+    app.css.textContent += 'div {';
+    app.css.textContent += app.ovd.dataset.prop + ": " + app.ovd.value + ";";
+    app.css.textContent += app.rb.dataset.prop + ": " + app.rb.value + ";";
+    app.css.textContent += app.ht.dataset.prop + ": " + app.ht.value + "em;";
+    app.css.textContent += '}';
+};
+
+</script>
+
+</body>
+</html>
