@@ -17,7 +17,7 @@ body {
 section, div {
     padding            : 0.5em;
     border-radius      : 0.5em;
-    background         : #ddd;
+    background         : #eee;
     min-height         : 2em;
     -webkit-region-overflow: break;
 }
@@ -75,7 +75,18 @@ div {
  
 h1 {
     margin             : 0.25em;
-    text-align         : center;
+    text-align         : center;    
+}
+
+h1, h2, h3, h4 {
+    -webkit-hyphens    : none;
+    break-after  : avoid;
+    break-inside : avoid;
+    -webkit-break-after  : avoid-region;
+    -webkit-break-inside : avoid-region;
+    -webkit-region-break-after  : avoid;
+    -webkit-region-break-inside : avoid;
+
 }
  
 #drop {
@@ -105,8 +116,6 @@ aside {
      background         : #777;
      border             : medium solid #777;
  }
-/*
-*/
 
 /* article { display: none } */
 
@@ -115,15 +124,10 @@ aside {
      /* pour article into section */
      article { -webkit-flow-into : main; }
      section > div:not(#pull) { -webkit-flow-from : main; }
-/*
-*/
 
      /* custom flow for pull quotes */
      aside { -webkit-flow-into : pull; }
      div#pull { -webkit-flow-from : pull; }
-/*
-*/
-
  }
  
  @media screen and (max-width: 480px){
