@@ -58,8 +58,7 @@ NodeList.prototype.toArray = function() {
     return(arr);
 };
 
-window.onreadystate = function() {
-    // window.onload = function() {
+window.onload = function() {
     app.init();
     app.run();
 };
