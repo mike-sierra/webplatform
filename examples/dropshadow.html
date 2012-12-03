@@ -4,16 +4,23 @@
 
 <style>
 
-img {
+div {
+    border: solid #000 medium;
     margin: 1em;
+    padding: 1em;
 }
 
-img:first-of-type {
-    -webkit-box-shadow: 1em 1em 1em black;
+div:first-of-type {
+    -webkit-box-shadow: 4px 4px 2px green;
 }
 
-img:last-of-type {
-    -webkit-filter: drop-shadow(1em 1em 1em black);
+div:nth-of-type(2) {
+    -webkit-filter: drop-shadow(4px 4px 2px green);
+}
+
+div:last-of-type {
+    text-shadow: 0px 0px 4px red;
+    -webkit-filter: drop-shadow(6px 6px 0px green);
 }
 
 </style>
@@ -21,11 +28,11 @@ img:last-of-type {
 </head>
 <body>
 
-<img src="img/mandrill.jpg"/>
+<div> <img src="img/opaque.png"/> <img src="img/transparent.png"/> TEXT </div>
 
+<div> <img src="img/opaque.png"/> <img src="img/transparent.png"/> TEXT </div>
 
-
-<img src="img/mandrill.jpg"/>
+<div> <img src="img/opaque.png"/> <img src="img/transparent.png"/> TEXT </div>
 
 </body>
 </html>

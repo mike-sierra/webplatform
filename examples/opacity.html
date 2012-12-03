@@ -1,0 +1,41 @@
+<html>
+<head>
+<title>opacity</title>
+
+<style>
+
+body {
+/*    background-image: url(img/mandrill.jpg); */
+    background-size: cover;
+
+}
+
+div {
+    margin: 0.25em;
+    max-width: 1in;
+    border-radius: 0.25em;
+    -webkit-box-shadow: 6px 6px 0px #000;
+}
+
+div::after {
+    content: "TEXT";
+}
+
+div:first-of-type {
+    opacity: 0.2;
+}
+
+div:last-of-type {
+    -webkit-filter: opacity(0.2);
+}
+
+</style>
+
+</head>
+<body>
+
+<div> <img src="img/textColor.png"/> </div>
+<div> <img src="img/textColor.png"/> </div>
+
+</body>
+</html>

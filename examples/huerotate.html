@@ -1,0 +1,31 @@
+<html>
+<head>
+<title>hue-rotate</title>
+
+<style>
+
+@-webkit-keyframes color_spin {
+    from { -webkit-filter: hue-rotate(0deg) }
+    to { -webkit-filter: hue-rotate(360deg) }
+    to { -webkit-filter: hue-rotate(360deg) }
+
+}
+
+img {
+    -webkit-animation-name: color_spin;
+    -webkit-animation-duration: 1000ms;
+    -webkit-animation-timing-function: cubic-bezier(0, 0, 1, 1);
+    -webkit-animation-delay: 0ms;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-fill-mode: both;
+}
+
+</style>
+
+</head>
+<body>
+
+<img src="img/textColor.png"/>
+
+</body>
+</html>
