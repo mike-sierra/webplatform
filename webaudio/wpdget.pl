@@ -27,11 +27,11 @@ my $re_valid_commands = qr~^(get|check)$~;
 ($command, $stub) = @ARGV;
 die $syntax if ($command !~ m~$re_valid_commands~ );;
 
-if (! -s $store_file) {
+if (-s $store_file) {
+    $store = retrieve($store_file);
+} else {
     $store->{_} = 1;
     store $store, $store_file;
-} else {
-    $store = retrieve($store_file);
 }
 
 $bot = WWW::Mechanize->new();
