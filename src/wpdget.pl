@@ -8,13 +8,22 @@ $0 =~ s~.+/~~;
 
 my $syntax = qq~
 $0 (get|check) stub
+
 Grab a wiki source file from webplatform.org, printing to STDOUT
+
   EXAMPLES:
+
 * Get raw source for a page:
     $0 get css/properties/opacity > opacity.txt
-* Warns if page has changed on server since last 'get' command:
+
+* Warn if page has changed on server since last 'get' command:
     $0 check css/properties/opacity
+
 Croaks on stubs for non-existent pages
+
+Use Boris Smus's wpd utility to push source back to server:
+https://github.com/borismus/webplatform-tools
+
 ~;
 
 my $store_file = q~.wpd_store~;
@@ -48,5 +57,5 @@ if ($command eq q~get~) {
     store $store, $store_file;
     print $wiki_text;
 } elsif ($command eq q~check~) {
-    die qq~DIFFERS: $stub~ if ($digest ne $store->{$stub});
+    die qq~PAGE HAS CHANGED: $stub~ if ($digest ne $store->{$stub});
 }

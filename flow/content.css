@@ -1,34 +1,75 @@
 body {
-    font-family: Trebuchet MS;
+    font-family     : Trebuchet MS;
 }
 
 aside.pullquote {
-    font-weight: bold;
-    font-size: 20px;
+    font-size       : 18px;
+    border          : solid thin #777;
+    box-sizing      : border-box;
+    padding         : 0.5em;
+    border-radius   : 0.5em;
+    margin          : 1em 0 1em 0;
+    padding         : 0.5em;
+    background      : #777;
+    color           : #fff;
 }
 
 .wide, .intro, figure {
-    background: pink;
+    background      : transparent;
 }
 
 .authorbio {
-    background: plum;
+    background      : transparent;
 }
 
 p {
-    text-align: justify;
-    -webkit-hyphens: auto;
-}
-
-h1, h2, h3 {
-    -webkit-break-after: avoid;
-    -webkit-break-inside: avoid;
-    -webkit-region-break-after: avoid;
-    -webkit-region-break-inside: avoid;
-    background: plum;
+    text-align      : justify;
+    -webkit-hyphens : auto;
 }
 
 blockquote {
-    margin: 0 0 0 1em;
-    text-align: justify;
+    margin          : 0;
+    padding         : 1em;
+    border-radius   : 1em;
+    text-align      : justify;
 }
+
+img {
+    width           : 200px;
+}
+
+aside.endnote {
+    margin-bottom   : 0.5em;
+}
+
+table {
+    width           : 100%;
+    border          : thin solid #777;
+}
+
+td, th {
+    padding         : 0.25em;
+}
+
+tr:nth-of-type(odd) {
+    background      : #ddd;
+}
+
+tr:first-of-type {
+    background      : #777;
+    color           : #fff;
+}
+
+.intro {
+    text-align      : center;
+}
+
+blockquote.wide {
+    border          : solid thin #777;
+}
+
+/*
+h1, h2, h3, h4 {
+    margin          : 0;
+}
+*/

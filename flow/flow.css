@@ -1,25 +1,42 @@
 article, aside.endnote {
-    -webkit-flow-into: main_flow;
+    -webkit-flow-into           : main_flow;
 }
 
 
 section.columns div {
-    -webkit-flow-from: main_flow;
+    -webkit-flow-from           : main_flow;
 }
 
 section.page div {
-    -webkit-region-overflow : break;
+    -webkit-region-overflow     : break;
 }
 
+/* FIRST PAGE HEADER */
 
-/*
-*/
+.intro {
+    -webkit-flow-into           : intro_flow;
+}
 
-.intro { -webkit-flow-into: intro_flow; }
+section.page:first-of-type section.exclusion:first-of-type div {
+    -webkit-flow-from           : intro_flow;
+}
 
-section.exclusion:first-of-type div { -webkit-flow-from: intro_flow; }
+/* FIRST PAGE FOOTER */
 
+.authorbio {
+    -webkit-flow-into           : author_flow;
+}
 
-.authorbio { -webkit-flow-into: author_flow; }
+section.page:first-of-type section.exclusion:last-of-type div {
+    -webkit-flow-from           : author_flow;
+}
 
-section.exclusion:last-of-type div { -webkit-flow-from: author_flow; }
+/* REGION BREAKs */
+
+h1, h2, h3 {
+    -webkit-break-after         : avoid;
+    -webkit-break-inside        : avoid;
+    -webkit-region-break-after  : avoid;
+    -webkit-region-break-inside : avoid;
+}
+

@@ -1,7 +1,5 @@
 var app = new Function();
 
-app.debug = true;
-
 app.init = function() {
     app.flowName = 'main_flow';
     app.flow = document.webkitGetNamedFlows()[app.flowName];
@@ -55,11 +53,13 @@ app.placePull = function() {
     content.style.WebkitFlowInto   = 'pull' + app.pullCount;
     container.style.WebkitFlowFrom = 'pull' + app.pullCount;
 
+    app.pulls = [];;;;; // STOP APP FROM RUNNING AWAY
+
     //    console.log(container);
 
 };
 
-app.pullNeedPlacement = function() {
+app.pullNeedsPlacement = function() {
     // AKA exclusions appear on page's main flow & need to be diverted
     if (! app.pulls.length) return(false);
     app.regions = app.flow.getRegionsByContent( app.pulls[0] );
@@ -68,11 +68,11 @@ app.pullNeedPlacement = function() {
 };
 
 app.run = function() {
-    //    while (app.pullNeedPlacement()) app.placePull();
+    while (app.pullNeedsPlacement()) app.placePull();
     // for (var i = 0; i < app.dbgPageThreshold; i++) {
     while (app.flow.overset) {
         app.page = app.addPage();
-        // while (app.pullNeedPlacement()) app.placePull();
+        // while (app.pullNeedsPlacement()) app.placePull();
     }
 };
 
@@ -90,25 +90,8 @@ NodeList.prototype.toArray = function() {
     return(arr);
 };
 
-app.wtf = function() {
-    var node, nodes, regions;
-
-    nodes = document.querySelectorAll('.pullquote');
-    node = nodes[nodes.length - 1];
-    node = nodes[0];
-
-    regions = app.flow.getRegionsByContent( node );
-
-    console.log(node.textContent);
-    console.log(regions.length);
-    console.log(regions[0]);
-    console.log(regions[0].regionOverset);
-    console.log(regions[0].getRegionFlowRanges());
-};
-
 window.onload = function() {
     app.init();
     app.initPulls();
-    //    app.run();
-    app.wtf();
+    app.run();
 };
