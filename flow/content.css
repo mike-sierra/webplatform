@@ -1,0 +1,34 @@
+body {
+    font-family: Trebuchet MS;
+}
+
+aside.pullquote {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.wide, .intro, figure {
+    background: pink;
+}
+
+.authorbio {
+    background: plum;
+}
+
+p {
+    text-align: justify;
+    -webkit-hyphens: auto;
+}
+
+h1, h2, h3 {
+    -webkit-break-after: avoid;
+    -webkit-break-inside: avoid;
+    -webkit-region-break-after: avoid;
+    -webkit-region-break-inside: avoid;
+    background: plum;
+}
+
+blockquote {
+    margin: 0 0 0 1em;
+    text-align: justify;
+}

@@ -1,0 +1,25 @@
+article, aside.endnote {
+    -webkit-flow-into: main_flow;
+}
+
+
+section.columns div {
+    -webkit-flow-from: main_flow;
+}
+
+section.page div {
+    -webkit-region-overflow : break;
+}
+
+
+/*
+*/
+
+.intro { -webkit-flow-into: intro_flow; }
+
+section.exclusion:first-of-type div { -webkit-flow-from: intro_flow; }
+
+
+.authorbio { -webkit-flow-into: author_flow; }
+
+section.exclusion:last-of-type div { -webkit-flow-from: author_flow; }

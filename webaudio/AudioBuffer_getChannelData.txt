@@ -2,7 +2,7 @@
 {{Flags}}
 {{Standardization_Status|W3C Editor's Draft}}
 {{API_Name}}
-{{Summary_Section|Returns the [[apis/webaudio/Float32Array|'''Float32Array''']] representing the PCM audio data for the specific channel.}}
+{{Summary_Section|Returns the '''Float32Array''' representing the PCM audio data for the specific channel.}}
 {{API_Object_Method
 |Parameters={{Method Parameter
 |Name=channel

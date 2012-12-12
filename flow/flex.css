@@ -1,0 +1,52 @@
+section {
+    display    : -webkit-inline-flex;
+    -webkit-flex-direction  : row;
+    padding    : 0.0em;
+    border     : solid thin #ddd;
+}
+
+section.page {
+    width      : 8.5in;
+    height     : 11in;
+    margin: 0 2em 2em 0;
+    border     : solid thin #000;
+}
+
+section.sidebar {
+    width: 1.5in;
+}
+
+section.content {
+    -webkit-flex-direction  : column;
+    -webkit-flex: 1;
+}
+
+section.columns {
+    -webkit-flex: 10;
+}
+
+section.col1, section.col2 {
+    -webkit-flex: 2;
+}
+
+section.col1 {
+    padding-right: 0.5em;
+}
+
+section.col2 {
+    padding-left: 0.5em;
+}
+
+section.page div {
+    display: block;
+    background : #fff;;
+}
+
+section.exclusion {
+    -webkit-flex: 1;
+}
+
+/*
+    -webkit-justify-content : space-between;
+    -webkit-align-items     : stretch;
+*/

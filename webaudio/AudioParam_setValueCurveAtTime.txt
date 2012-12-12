@@ -7,7 +7,7 @@
 |Parameters={{Method Parameter
 |Name=values
 |Data type=String
-|Description=A [[apis/webaudio/Float32Array|'''Float32Array''']] representing a parameter value curve. These values will apply starting at the given time and lasting for the given duration.
+|Description=A '''Float32Array''' representing a parameter value curve. These values will apply starting at the given time and lasting for the given duration.
 |Optional=No
 }}{{Method Parameter
 |Name=startTime
