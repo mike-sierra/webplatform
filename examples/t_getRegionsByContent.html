@@ -156,45 +156,29 @@ work and no play makes Jack a dull boy.</aside>
 
 var app = new Function();
 
-app.c = 0;
+app.c     = 0;
 app.delay = 1000;
 
-app.d = function(s) {
-    document.querySelector('h3').textContent = s;
-}
+app.report = function() {
+    document.querySelector('h3').textContent = app.c + ' ; overset:' + app.flow.overset + ' ; # of regions containing red? ' + app.regions.length + ' ; 1st container is ' + app.regions[0].textContent ;
+};
 
-app.hide = function() {
+app.shiftFlow = function() {
     app.el[app.c].style.display = 'none';
     app.c++;
-
     app.regions = app.flow.getRegionsByContent( app.aside );
-    app.update();
-
+    app.report();
     if (app.c == app.el.length) return(false);
-    setTimeout(app.hide, app.delay);
+    setTimeout(app.shiftFlow, app.delay);
 }
 
 window.onload = function() {
     app.el = document.querySelectorAll('p');
-
     app.flow = document.webkitGetNamedFlows()['main'];
     app.aside = document.querySelector('aside');
-
     app.regions = app.flow.getRegionsByContent( app.aside );
-
-    app.update();
-
-    console.log(app.regions[0]);
-
-    setTimeout(app.hide, app.delay);
-};
-
-app.update = function() {
-    app.d(app.c 
-       + ' ; overset:' + app.flow.overset 
-       + ' ; # of regions containing red? ' + app.regions.length 
-       + ' ; 1st container is ' + app.regions[0].textContent
-    );
+    app.report();
+    setTimeout(app.shiftFlow, app.delay);
 };
 
 </script>
