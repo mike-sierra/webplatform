@@ -1,0 +1,208 @@
+<html>
+<head>
+<title>regions & flex test</title>
+<style>
+
+article {
+    -webkit-flow-into : main;
+}
+
+p, aside {
+    padding           : 1em;
+    border-radius     : 1em;
+}
+
+p {
+    background        : lightgreen;
+}
+
+aside {
+    background        : pink;
+}
+
+h3 {
+    margin: 1em;
+}
+
+section {
+    -webkit-region-overflow     : break;
+    -webkit-flow-from : main;
+    display           : inline-block;
+    border            : medium solid #777;
+    width             : 40%;
+    height            : 35%;
+    margin            : 1em;
+    padding           : 1em;
+    border-radius     : 1em;
+}
+
+
+</style>
+</head>
+
+<body>
+
+<article>
+
+<p>Paragraph #1: All work and no play makes Jack a dull boy.  All work
+and no play makes Jack a dull boy.  All work and no play makes Jack a
+dull boy.  All work and no play makes Jack a dull boy.  All work and
+no play makes Jack a dull boy.  All work and no play makes Jack a dull
+boy.  All work and no play makes Jack a dull boy.  All work and no
+play makes Jack a dull boy.  All work and no play makes Jack a dull
+boy.  All work and no play makes Jack a dull boy. All work and no play
+makes Jack a dull boy.</p>
+
+<p>Paragraph #2: All work and no play makes Jack a dull boy.  All work
+and no play makes Jack a dull boy.  All work and no play makes Jack a
+dull boy.  All work and no play makes Jack a dull boy.  All work and
+boy.  All work and no play makes Jack a dull boy.  All work and no
+play makes Jack a dull boy.  All work and no play makes Jack a dull
+boy.  All work and no play makes Jack a dull boy. All work and no play
+makes Jack a dull boy.</p>
+
+<p>Paragraph #3: All work and no play makes Jack a dull boy.  All work
+and no play makes Jack a dull boy.  All work and no play makes Jack a
+dull boy.  All work and no play makes Jack a dull boy.  All work and
+no play makes Jack a dull boy.  All work and no play makes Jack a dull
+boy.  All work and no play makes Jack a dull boy.  All work and no
+play makes Jack a dull boy.  All work and no play makes Jack a dull
+boy.  All work and no play makes Jack a dull boy. All work and no play
+makes Jack a dull boy.</p>
+
+<p>Paragraph #4: All work and no play makes Jack a dull boy.  All work
+and no play makes Jack a dull boy.  All work and no play makes Jack a
+dull boy.  All work and no play makes Jack a dull boy.  All work and
+no play makes Jack a dull boy.  All work and no play makes Jack a dull
+boy.  All work and no play makes Jack a dull boy.  All work and no
+boy.  All work and no play makes Jack a dull boy. All work and no play
+makes Jack a dull boy.</p>
+
+<p>Paragraph #5: All work and no play makes Jack a dull boy.  All work
+and no play makes Jack a dull boy.  All work and no play makes Jack a
+dull boy.  All work and no play makes Jack a dull boy.  All work and
+no play makes Jack a dull boy.  All work and no play makes Jack a dull
+boy.  All work and no play makes Jack a dull boy.  All work and no
+play makes Jack a dull boy.  All work and no play makes Jack a dull
+boy.  All work and no play makes Jack a dull boy. All work and no play
+makes Jack a dull boy.</p>
+
+<p>Paragraph #6: All work and no play makes Jack a dull boy.  All work
+dull boy.  All work and no play makes Jack a dull boy.  All work and
+no play makes Jack a dull boy.  All work and no play makes Jack a dull
+boy.  All work and no play makes Jack a dull boy.  All work and no
+play makes Jack a dull boy.  All work and no play makes Jack a dull
+boy.  All work and no play makes Jack a dull boy. All work and no play
+makes Jack a dull boy.</p>
+
+<p>Paragraph #7: All work and no play makes Jack a dull boy.  All work
+and no play makes Jack a dull boy.  All work and no play makes Jack a
+dull boy.  All work and no play makes Jack a dull boy.  All work and
+no play makes Jack a dull boy.  All work and no play makes Jack a dull
+boy.  All work and no play makes Jack a dull boy.  All work and no
+play makes Jack a dull boy.  All work and no play makes Jack a dull
+boy.  All work and no play makes Jack a dull boy. All work and no play
+makes Jack a dull boy.</p>
+
+<p>Paragraph #8: All work and no play makes Jack a dull boy.  All work
+and no play makes Jack a dull boy.  All work and no play makes Jack a
+dull boy.  All work and no play makes Jack a dull boy.  All work and
+no play makes Jack a dull boy.  All work and no play makes Jack a dull
+boy.  All work and no play makes Jack a dull boy.  All work and no
+play makes Jack a dull boy.  All work and no play makes Jack a dull
+makes Jack a dull boy.</p>
+
+<p>Paragraph #9: All work and no play makes Jack a dull boy.  All work
+and no play makes Jack a dull boy.  All work and no play makes Jack a
+dull boy.  All work and no play makes Jack a dull boy.  All work and
+no play makes Jack a dull boy.  All work and no play makes Jack a dull
+boy.  All work and no play makes Jack a dull boy.  All work and no
+play makes Jack a dull boy.  All work and no play makes Jack a dull
+boy.  All work and no play makes Jack a dull boy. All work and no play
+makes Jack a dull boy.</p>
+
+<p>Paragraph #10: All work and no play makes Jack a dull boy.  All work
+and no play makes Jack a dull boy.  All work and no play makes Jack a
+dull boy.  All work and no play makes Jack a dull boy.  All work and
+no play makes Jack a dull boy.  All work and no play makes Jack a dull
+boy.  All work and no play makes Jack a dull boy.  All work and no
+boy.  All work and no play makes Jack a dull boy. All work and no play
+makes Jack a dull boy.</p>
+
+<aside>Aside: All work and no play makes Jack a dull boy.  All work
+and no play makes Jack a dull boy.  All work and no play makes Jack a
+dull boy.  All work and no play makes Jack a dull boy.  All work and
+no play makes Jack a dull boy.  All work and no play makes Jack a dull
+boy.  All work and no play makes Jack a dull boy.  All work and no
+play makes Jack a dull boy.  All work and no play makes Jack a dull
+boy.  All work and no play makes Jack a dull boy. All work and no play
+makes Jack a dull boy. All work and no play makes Jack a dull boy. All
+work and no play makes Jack a dull boy.</aside>
+
+<p>Paragraph #11: All work and no play makes Jack a dull boy.  All work
+and no play makes Jack a dull boy.  All work and no play makes Jack a
+dull boy.  All work and no play makes Jack a dull boy.  All work and
+no play makes Jack a dull boy.  All work and no play makes Jack a dull
+boy.  All work and no play makes Jack a dull boy.  All work and no
+boy.  All work and no play makes Jack a dull boy. All work and no play
+makes Jack a dull boy.</p>
+
+</article>
+
+<!-- LAYOUT TEMPLATE -->
+
+<h3></h3>
+
+<section>sect1</section>
+
+<section>sect2</section>
+
+<section>sect3</section>
+
+<script>
+
+var app = new Function();
+
+app.c = 0;
+app.delay = 1000;
+
+app.d = function(s) {
+    document.querySelector('h3').textContent = s;
+}
+
+app.hide = function() {
+    app.el[app.c].style.display = 'none';
+    app.c++;
+
+    app.regions = app.flow.getRegionsByContent( app.aside );
+    app.update();
+
+    if (app.c == app.el.length) return(false);
+    setTimeout(app.hide, app.delay);
+}
+
+window.onload = function() {
+    app.el = document.querySelectorAll('p:not(:last-of-type)');
+
+    app.flow = document.webkitGetNamedFlows()['main'];
+    app.aside = document.querySelector('aside');
+
+    app.regions = app.flow.getRegionsByContent( app.aside );
+
+    app.update();
+
+    console.log(app.regions[0]);
+
+    setTimeout(app.hide, app.delay);
+};
+
+app.update = function() {
+    app.d(app.c + ' ; overset:' + app.flow.overset + ' ; # of regions containing red? ' + app.regions.length);
+};
+
+//     
+
+</script>
+
+</body>
+</html>
