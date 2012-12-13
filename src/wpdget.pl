@@ -22,7 +22,10 @@ Grab a wiki source file from webplatform.org, printing to STDOUT
 Croaks on stubs for non-existent pages
 
 Use Boris Smus's wpd utility to push source back to server:
-https://github.com/borismus/webplatform-tools
+
+    wpd edit css/properties/opacity "`cat opacity.txt`" -u Yourlogin
+
+More info: https://github.com/borismus/webplatform-tools
 
 ~;
 
