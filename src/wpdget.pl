@@ -54,7 +54,7 @@ die qq~Not an existing page: $stub~ if ($wiki_text !~ m~<textarea~i);
 $wiki_text =~ m~<textarea[^>]+?>(.+?)</textarea>~si and ($wiki_text = $1);
 $digest = md5_hex($wiki_text);
 
-warn qq~$stub\n~;
+print STDERR qq~$stub\n~;
 if ($command eq q~get~) {
     $store->{$stub} = $digest;
     store $store, $store_file;
