@@ -1,4 +1,0 @@
-~== NamedFlow_name ==
-
-~The name attribute returns the name of the NamedFlow instance.
-

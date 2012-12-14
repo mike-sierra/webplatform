@@ -1,9 +1,0 @@
-~== NamedFlow_getContent ==
-
-~The getContent() method returns an ordered collection of nodes that
-~constitute the named flow. The returned list is a static snapshot of
-~the named flow content at the time the method is invoked. This list
-~contains the elements that were moved to the named flow by their
-~flow-into property but not their descendants (unless the descendants
-~are themselves moved to the named flow).
-
