@@ -1,0 +1,1213 @@
+
+
+=Data Storage=
+
+Client-side storage is necessary to enable HTML-based applications
+that [[operate offline]], and is
+desirable to reduce the amount of sensitive data transmitted in
+network requests.  The Browser supports simple key/value-based HTML5
+''web storage'' &mdash; '''localStorage''' and '''sessionStorage'''.  For
+more complex storage options, see [[Web SQL]].
+
+==Web Storage==
+
+==Web SQL==
+
+==ZZZ Simple Web Storage==
+
+Web storage has two flavors: '''localStorage''' and '''sessionStorage'''.
+Session data is available for each site and for the duration of each
+browser window. Local data is available for each site indefinitely,
+following termination of the browser application or web app.  Other
+than the scope of their data and access via '''window.localStorage'''
+and '''window.sessionStorage''' objects, the interface for each API is
+identical.
+
+The following illustrates the full set of method calls:
+
+<pre>
+// is client storage available?
+if (window.localStorage) {
+    var db = window.localStorage;
+    // get key (If null, doesn't exist):
+    var value = JSON.parse( db.getItem("key") );
+    try {
+        // set key:
+        db.setItem("key", JSON.stringify("new value") );
+    } catch(err) {
+        if (err.QUOTA_EXCEEDED_ERR) {
+            // not enough storage space
+        }
+    }
+    db.removeItem("key"); // delete key
+    db.clear();           // delete all keys
+}
+else {
+    // store data remotely?
+}
+</pre>
+
+Overall storage space is limited to 5MB, which this example accounts
+for by checking '''QUOTA_EXCEEDED_ERR'''. All data is stored in string
+format, so converting to and from JSON allows you to avoid other
+errors in which data's original ''type'' is lost.
+
+The '''length''' and '''key''' methods allow you to iterate over all keys
+using array indexes.  This example mirrors a set of stored items as a
+JavaScript object:
+
+<pre>
+var obj = {};
+for (var i = 0, l = db.length ; i < l ; i++) {
+    obj[db.key(i)] = JSON.parse(db.getItem(db.key(i)));
+}
+</pre>
+
+Applications can respond to all database changes using '''storage'''
+events, which fire on the '''window''' object.  The '''event.oldValue'''
+and '''event.newValue''' properties provide both strings.  The
+'''event.key''' property returns the name of the key being modified, and
+'''event.storageArea''' returns whichever of the '''window.localStorage'''
+or '''window.sessionStorage''' databases are affected.  This simple
+example presents a visual feedback that data is being stored on the
+device:
+
+<pre>
+window.addEventListener("storage", function(e){
+    var i = document.querySelector("#storage_indicator");
+    (e.storageArea.length)
+        ? (i.classlist.add("write"))
+        : (i.classlist.remove("write"));
+}, false);
+</pre>
+
+In this example, users make corrections to text. If they close the
+application before completing their work, correct answers are
+reflected on the page when they re-open it:
+
+[[Image:editable.png]]
+
+==XXX ???==
+
+===ooo Web SQL===
+
+Use the Web SQL feature for more advanced SQL-driven database
+applications that execute entirely on the client browser, but that
+fall beyond the capabilities of the simple key/value-based Web Storage
+system described above.
+
+Use '''openDatabase''' to create or access a database, supplying
+parameters for unique database name, version number, display name, and
+estimated size:
+
+<pre>
+var db = openDatabase('dbname', '1.0', 'my database', 1024);
+</pre>
+
+You interact with the database using asynchronous SQL transactions.
+The following shows how you might create a table, insert data by
+mapping in JavaScript variables, and traverse existing data:
+
+<pre>
+var x_id, x_value;
+db.transaction(function (tx) {
+    tx.executeSql('CREATE TABLE IF NOT EXISTS tbl (id unique, text)');
+    tx.executeSql('INSERT INTO tbl (id, text) VALUES (?, ?)', [x_id, x_value]);
+    tx.executeSql('SELECT * FROM tbl', [], function(tx, results) {
+        for (var i = 0 , l = results.rows.length; i < l; i++) {
+            // do something with results.rows.item(i).text
+        }
+    });
+});
+</pre>
+
+===ooo Web SQL Databases===
+
+While common local- or session-based databases are capable of storing
+complex data structures,
+
+QtWebKit-based
+
+WebKit-based
+
+browsers can also rely upon the Web SQL standard, which brings
+SQLite-based structured database functionality, typically deployed on
+servers, to client browser applications. Based on SQLite version
+3.6.19, Web SQL is appropriate for data-intensive applications
+requiring complex queries rather than simple key/value access.
+
+The following test confirms support for Web SQL:
+
+<pre>
+if (!!window.openDatabase) {
+    // supports Web SQL
+}
+</pre>
+
+Calls to databases made via the Web SQL API are made asynchronously via
+transactions to avoid the user interface from locking up, as database
+interaction may occur from several windows at a time.
+
+The three core API methods are:
+
+* '''openDatabase()'''
+
+* '''transaction()'''
+
+* '''executeSql()'''
+
+===ooo Creating and Opening a New Database===
+
+To create and open a database, use '''openDatabase()'''on the Window object,
+for example:
+
+<pre>
+var db = openDatabase('mydb', '1.0', 'my first database', 2*1024*1024);
+var db = openDatabase('notes', '', 'The Example Notes App!', 1048576);
+</pre>
+
+The four required arguments are the database name, version, display
+name, and estimated size in bytes. You can supply a function as an
+optional fifth argument to serve as a callback when a database is
+created. It may be used to call the '''changeversion()''' method, in
+which case the callback is invoked with an empty string for the
+database version.
+
+The second example above specifies an empty string for the version. In
+this case the database opens no matter what the database version
+is. (An '''openDatabase()''' call specifying the wrong version for an
+existing database throws an '''INVALID_STATE_ERR''' exception.) You can
+then query the version by examining the database object's version
+property, for example:
+
+<pre>
+var version = db.version;
+</pre>
+
+Note that you don't need to close a client-side Web SQL database when
+you're done working with it.
+
+===ooo Errors===
+
+Asynchronous API errors are reported using callbacks that have a
+'''SQLError''' object as one of their arguments. '''SQLError''' contains a
+code from the table below and a localized message string.
+
+Error codes are:
+
+* 0 '''UNKNOWN_ERROR''' Transaction failed for reasons unrelated to the DB
+
+* 1 '''DATABASE_ERROR''' Statement failed for DB reasons not covered by other
+code
+
+* 2 '''VERSION_ERROR''' DB version doesn't match expected version
+
+* 3 '''TOO_LARGE_ERROR''' Data returned from DB was too large. Try the
+'''SQL LIMIT''' modifier.
+
+* 4 '''QUOTA_ERROR''' Insufficient remaining storage
+
+* 5 '''SYNTAX_ERROR''' Syntax error, argument mismatch, or unallowed
+statement
+
+* 6 '''CONSTRAINT_ERROR''' An '''INSERT''', '''UPDATE''', or '''REPLACE'''
+statement failed due to a constraint error
+
+* 7 '''TIMEOUT_ERROR''' Timeout waiting for transaction lock
+
+'''See Also:'''
+[[HTML5
+Doctor: Introducing Web SQL Databases]]
+
+===ooo Transaction Calls and ExecuteSQL Method===
+
+Performing database transactions is superior to running SQL statements
+directly because transactions are not committed if they fail and you
+can undo them if needed. Transactions also allow you to handle errors
+using a callback. To implement a transaction, specify a callback
+function such as the following:
+
+<pre>
+db.transaction(function (tx) {
+  // SQL details on the tx object go here
+}
+</pre>
+
+The '''transaction()''' method takes one to three arguments:
+
+* a required transaction callback, in which '''executeSQL()''' calls
+belong
+
+* an optional transaction error object
+
+* an optional success callback.
+
+Use the '''executeSQL()''' method to specify SQL statements for read and
+write operations. The method protects against SQL injection and
+provides a callback method to process the results of any SQL queries
+you specify. The '''executeSQL()''' method takes from one to four
+arguments:
+
+* a required SQL statement
+
+* an optional object array of arguments
+
+* an optional SQL statement callback
+
+* an optional SQL statement error callback
+
+The example below creates the database if it doesn't exist, adds a
+two-column table to the database, and adds a row of data to the table:
+
+<pre>
+var db = openDatabase('mydb', '1.0', 'my first database', 2 * 1024 * 1024);
+db.transaction(function (tx) {
+    tx.executeSql('CREATE TABLE IF NOT EXISTS foo (id unique, text)');
+    tx.executeSql('INSERT INTO foo (id, text) VALUES (1, "synergies")');
+});
+</pre>
+
+To capture data from the user or an external source, use '''?'''
+placeholders to map that data into the SQL query. This ensures the
+data doesn't compromise database security, for example from SQL
+injection:
+
+<pre>
+tx.executeSql('INSERT INTO foo (id, text) VALUES (?, ?)', [id, value]);
+</pre>
+
+'''id''' and '''value''' are external variables, and '''executeSql''' maps
+the items in the array to the '''?'''s.
+
+To select values from the table, use a callback to capture the
+results:
+
+<pre>
+tx.executeSql('SELECT * FROM foo', [], function(tx, results) {
+    for (var i = 0 , len = results.rows.length; i < len; i++) {
+        // do something with results.rows.item(i).text
+    }
+});
+</pre>
+
+No fields are mapped in the above query, but to use the third argument
+you need to pass in an empty array as the second argument.
+
+The SQL statement callback for '''executeSQL()''' is called with the
+'''transaction''' object and a SQL statement '''result''' object. The
+'''result''' gives access to the ID of the last inserted row, the number
+of rows affected, and an indexed list representing the rows returned,
+in the order returned.
+
+The '''result''' object contains an array-like '''rows''' object. It has a
+length, but to access individual rows you need to use
+'''results.rows.item(i)''', where '''i''' is the index of the row. This
+returns an object representation of each row. For example, if your
+database has a '''name''' and an '''age''' field, the '''row''' contains a
+'''name''' and an '''age''' property. The value of the '''age''' field can
+be accessed using '''results.rows.item(i).age'''.
+
+===ooo Changing Database Versions===
+
+Each database has one version at a time and multiple versions cannot
+exist at one time. Versions allow you to manage schema changes
+incrementally.
+
+You can change the version of a client-side Web SQL database using the
+'''changeversion()''' method:
+
+<pre>
+if (db.version == "1.0") {
+    try {
+        // comment out for crash recovery.
+        db.changeVersion("1.0", "2.0", cv_1_0_2_0, oops_1_0_2_0, success_1_0_2_0);
+    } catch(e) {
+        alert('changeversion 1.0 -> 2.0 failed');
+        alert('DB Version: '+db.version);
+    }
+}
+</pre>
+
+'''changeversion()''' takes the following arguments: required old and
+new version numbers, optional SQL transaction callback, optional SQL
+transaction error callback, and optional success callback.
+
+* Web SQL
+
+* (indexedDB)
+
+==XXX ???==
+
+===ooo Web Storage===
+
+Browser 8.5 supports HTML5's '''localStorage''' and '''sessionStorage''' APIs,
+which offer a site up to 5MB of combined data storage on the client
+browser. ''Local'' data is indefinitely persistent and available to
+all pages per domain, while ''session'' data is confined for the
+duration of a single window.
+
+Databases are available via '''window.localStorage''' and
+'''window.sessionStorage''' objects. You access these databases the same
+way, via key/value pairs where both are represented as strings. The
+'''setItem()''', '''getItem()''', and '''removeItem()''' methods affect
+individual database keys, while '''clear()''' removes all data. The
+'''length()''' and '''key()''' methods allow you to traverse databases
+using array indexes:
+
+<pre>
+var db = window.localStorage;
+var key, value;
+for (var i = 0, l = db.length ; i < l ; i++) {
+    key = db.key(i);
+    value = db.getItem(key);
+}
+</pre>
+
+Changes to a database can be examined via '''storage''' events that fire
+on the '''window''' object. Call '''event.oldValue''' and
+'''event.newValue''' to access the data. Call '''key''' for the name of
+the modified field, '''url''' for the page modifying the field, or
+'''storageArea''' for either database that is being modified.
+
+===ooo Simple Data Storage===
+
+The '''localStorage''' and '''sessionStorage''' APIs offer applications
+up to 5MB of data storage. They both share the same simple key/value
+interface, but have different namespaces and also differ in the extent
+to which data is available. Local storage persists indefinitely, while
+session storage only lasts for the duration of a window session. Local
+storage is available from any page or window from the same site, while
+session storage is local to each window.
+
+The following set of examples demonstrate the API interface. While
+these use '''localStorage''' as an example, the same set of API calls
+work for '''sessionStorage''', which is also available within the
+'''window''' object.
+
+The following performs an initial check for support of browser-based
+storage and makes the database available within a variable:
+
+<pre>
+if (window.localStorage) {
+    var db = window.localStorage;
+    // storage functionality here
+}
+else {
+    // store data remotely?
+}
+</pre>
+
+The '''getItem()''' method retrieves the value of a database field named
+'''key''':
+
+<pre>
+var value = db.getItem("key");
+</pre>
+
+Both keys and values are represented as strings. If you specify any
+other type of data, it is converted silently to a string. (See
+[[Storing Non-String Data]] for ways around this limitation.)  If
+'''getItem()''' returns '''null''' rather than a string value, it means
+the specified key does not exist.
+
+The '''setItem()''' method establishes a new value. When adding data,
+it is a good idea to check to make sure you haven't exceeded the
+allotted storage space:
+
+<pre>
+try {
+    db.setItem("key", "string");
+}
+catch(err) {
+    if (err.QUOTA_EXCEEDED_ERR) {
+        // not enough storage space
+    }
+}
+</pre>
+
+The '''removeItem()''' method deletes database fields:
+
+<pre>
+db.removeItem("key");
+</pre>
+
+The '''clear()''' method deletes all key/value pairs within the
+database, either for an entire site in the case of '''localStorage''',
+or for an individual window session in the case of '''sessionStorage''':
+
+<pre>
+db.clear();
+</pre>
+
+Databases can be accessed as arrays using index notation, useful in
+cases where you may not know all the field names. The '''length'''
+property returns the number of fields in the database, and the
+'''key()''' method returns the name of the key corresponding to a given
+index. The following reflects the contents of a database in a
+JavaScript object:
+
+<pre>
+var obj = {};
+for ( var i = 0, l = db.length ; i < l ; i++ ) {
+    obj[ db.key(i) ] = db.getItem( db.key(i) );
+}
+</pre>
+
+Since keys correspond to array indexes, you should not add or remove
+keys during any operation that iterates over the full set of key/value
+pairs. Newly introduced keys are introduced randomly into the array's
+sequence.
+
+The following displays simple storage functionality. The application
+prompts for a login and password if they are unavailable. This locally
+stored data is available the next time users open the browser, by
+pressing the icon in the top right of the main window. However, the
+contents of the credit card field is stored only for the duration of
+each browsing session.
+
+[[Image:scr_storage_data.png]]
+
+===ooo Storage Events===
+
+The '''storage''' event allows applications to respond indirectly to
+modified data resulting from calls to '''setItem()''', '''removeItem()''',
+or '''clear()'''. This may be useful in providing users with visual
+feedback notifying them of data that is modified locally, perhaps
+rather than being sent to a remote server:
+
+<pre>
+window.addEventListener("storage", function(event){
+    var icon = document.querySelector("#indicator");
+    if (event.storageArea.length) {
+        icon.className = "writing";
+    }
+    else {
+        icon.className = "empty";
+    }
+}, false);
+</pre>
+
+The '''storage''' event's '''storageArea''' attribute returns the
+'''localStorage''' or '''sessionStorage''' object being modified. The
+'''key''' is the name of the field being modified, and '''oldValue''' and
+'''newValue''' are its values before and after the event. The '''url''' is
+the page that called the method triggering the change.
+
+===ooo Storage Intro===
+
+Traditional mobile web development centered around the limitations of
+client handsets, which had very little storage available for
+applications. As handsets have become more powerful, however, this is
+no longer the case. HTML5's newly introduced Storage, Application
+Cache and Offline features push more functionality out to the client
+browser and allow them to operate more autonomously as loosely
+coupled, independently synchronizing applications.
+
+The Application Cache allows the browser to download applications so
+that they run entirely on the client browser. Navigating to a
+cache-enabled page silently installs its component files onto the
+browser. Users can then run the application locally on the client
+browser, independently of the site that supplied it.
+
+Self-contained applications such as games and calculators run
+seamlessly in the absence of a network connection. Applications that
+rely on network connections can respond to changes in network
+availability with custom '''offline''' capabilities.
+
+In addition to cached ''applications'', standard '''LocalStorage''' and
+'''SessionStorage''' APIs are available to dynamically cache application
+''data''. These boost the amount of storage available to web
+applications and can effectively replace cookies as a means to
+track user preferences and maintain application state.
+
+Both of these ''web storage'' mechanisms access data via simple
+key/value pairs. As an alternative, Web SQL brings SQLite-based
+structured database functionality, typically deployed on servers, to
+client browser applications. Web SQL is appropriate for data-intensive
+applications requiring complex queries rather than simple key/value
+access.
+
+===ooo Storing Non-String Data===
+
+Since local and session storage APIs only support string values, you
+need to be careful not to allow errors that result from passive
+conversions from other data types. The following sample shows how
+such an error might occur:
+
+<pre>
+var db = window.localStorage;
+var saveCardInfo;
+    // user expresses preference NOT to save credit card info:
+saveCardInfo = false;
+    // BUG happens here...
+db.setItem("save_card_info", saveCardInfo);
+    // variable is now a string, not a boolean:
+saveCardInfo = db.getItem("save_card_info");
+    // both "true" and "false" strings evaluate as true...
+if ( saveCardInfo ) {
+    // ...so this code always executes...
+}
+else {
+    // ...and this code never executes.
+}
+</pre>
+
+The user's preference to retain credit card information is expressed
+within the application as a '''true''' or '''false''' boolean value. When
+each value is passed to storage, however, it is passively converted to
+a string. When reassigned to a JavaScript variable, it no longer
+serves as a valid boolean test. The application falsely assumes users
+want to save credit card information, regardless of their expressed
+preference.
+
+The following example fixes the problem. Instead of using '''true''' and
+'''false''' boolean values, it converts '''1''' and '''0''' strings to
+numbers:
+
+<pre>
+var db = window.localStorage;
+var saveCardInfo = 0;
+db.setItem("save_card_info", saveCardInfo);
+// multiplying forces numeric output:
+saveCardInfo = db.getItem("save_card_info") * 1;
+</pre>
+
+For a more reliable alternative, store values as JSON strings and rely
+on automatic type conversion when subsequently parsing them. The
+following sample shows how parsing JSON preserves both boolean and
+numeric data:
+
+<pre>
+var saveCardInfo = true;      // boolean
+var shipMethod = 2;           // number
+var db = window.localStorage;
+
+db.setItem("save_card_info" , JSON.stringify(saveCardInfo));
+db.setItem("ship_method"    , JSON.stringify(shipMethod));
+
+saveCardInfo = JSON.parse(db.getItem("save_card_info")); // boolean
+shipMethod   = JSON.parse(db.getItem("ship_method"));    // number
+</pre>
+
+Note that this simple approach may cause problems of its own. For
+example, perhaps the words '''true''' and '''false''' really should
+be represented as strings. Encapsulating data within objects accounts
+for such variability:
+
+<pre>
+var db = window.localStorage;
+var obj = {
+    bool : true,
+    str  : "true",
+    num  : 1
+};
+db.setItem("appState", JSON.stringify(obj)); // to database...
+// "appState" is "{'bool':true,'num':1,'str':'true'}"
+obj = JSON.parse(db.getItem("appState"));    // ...and back
+// obj is same as initially defined.
+</pre>
+
+The ability to save objects as JSON strings means that you can save an
+application's state within a single database field. For example, you
+might use the following approach to save the entire contents of a
+shopping cart in a single field for later use:
+
+<pre>
+var db = window.localStorage;
+var cart = { items: [] };
+
+cart.message = "From your loving uncle";
+
+cart.items.push({
+    description : "Floor to Ceiling Shoe Rack",
+    id          : 203174676,
+    price       : 99.95,
+    quantity    : 1,
+    weight      : 20,
+});
+
+cart.items.push({
+    description : "Automatic Laser Toy for Cats",
+    id          : 203345371,
+    price       : 19.95,
+    quantity    : 2,
+    weight      : 0.5,
+});
+
+// save all cumulative items:
+db.setItem("cart", JSON.stringify(cart));
+
+// extract items from storage:
+cart = JSON.parse(db.getItem("cart"));
+</pre>
+
+JSON allows you to store data types, but functions are ignored. That
+makes it more difficult to preserve objects representing fully
+functional applications.
+
+* localStorage
+
+* sessionStorage
+
+==XXX ???==
+
+===ooo Web SQL===
+
+Use the Web SQL feature for more advanced SQL-driven database
+applications that execute entirely on the client browser, but that
+fall beyond the capabilities of the simple key/value-based Web Storage
+system described above.
+
+Use '''openDatabase''' to create or access a database, supplying
+parameters for unique database name, version number, display name, and
+estimated size:
+
+<pre>
+var db = openDatabase('dbname', '1.0', 'my database', 1024);
+</pre>
+
+You interact with the database using asynchronous SQL transactions.
+The following shows how you might create a table, insert data by
+mapping in JavaScript variables, and traverse existing data:
+
+<pre>
+var x_id, x_value;
+db.transaction(function (tx) {
+    tx.executeSql('CREATE TABLE IF NOT EXISTS tbl (id unique, text)');
+    tx.executeSql('INSERT INTO tbl (id, text) VALUES (?, ?)', [x_id, x_value]);
+    tx.executeSql('SELECT * FROM tbl', [], function(tx, results) {
+        for (var i = 0 , l = results.rows.length; i < l; i++) {
+            // do something with results.rows.item(i).text
+        }
+    });
+});
+</pre>
+
+===ooo Web SQL Databases===
+
+While common local- or session-based databases are capable of storing
+complex data structures,
+
+QtWebKit-based
+
+WebKit-based
+
+browsers can also rely upon the Web SQL standard, which brings
+SQLite-based structured database functionality, typically deployed on
+servers, to client browser applications. Based on SQLite version
+3.6.19, Web SQL is appropriate for data-intensive applications
+requiring complex queries rather than simple key/value access.
+
+The following test confirms support for Web SQL:
+
+<pre>
+if (!!window.openDatabase) {
+    // supports Web SQL
+}
+</pre>
+
+Calls to databases made via the Web SQL API are made asynchronously via
+transactions to avoid the user interface from locking up, as database
+interaction may occur from several windows at a time.
+
+The three core API methods are:
+
+* '''openDatabase()'''
+
+* '''transaction()'''
+
+* '''executeSql()'''
+
+===ooo Creating and Opening a New Database===
+
+To create and open a database, use '''openDatabase()'''on the Window object,
+for example:
+
+<pre>
+var db = openDatabase('mydb', '1.0', 'my first database', 2*1024*1024);
+var db = openDatabase('notes', '', 'The Example Notes App!', 1048576);
+</pre>
+
+The four required arguments are the database name, version, display
+name, and estimated size in bytes. You can supply a function as an
+optional fifth argument to serve as a callback when a database is
+created. It may be used to call the '''changeversion()''' method, in
+which case the callback is invoked with an empty string for the
+database version.
+
+The second example above specifies an empty string for the version. In
+this case the database opens no matter what the database version
+is. (An '''openDatabase()''' call specifying the wrong version for an
+existing database throws an '''INVALID_STATE_ERR''' exception.) You can
+then query the version by examining the database object's version
+property, for example:
+
+<pre>
+var version = db.version;
+</pre>
+
+Note that you don't need to close a client-side Web SQL database when
+you're done working with it.
+
+===ooo Errors===
+
+Asynchronous API errors are reported using callbacks that have a
+'''SQLError''' object as one of their arguments. '''SQLError''' contains a
+code from the table below and a localized message string.
+
+Error codes are:
+
+* 0 '''UNKNOWN_ERROR''' Transaction failed for reasons unrelated to the DB
+
+* 1 '''DATABASE_ERROR''' Statement failed for DB reasons not covered by other
+code
+
+* 2 '''VERSION_ERROR''' DB version doesn't match expected version
+
+* 3 '''TOO_LARGE_ERROR''' Data returned from DB was too large. Try the
+'''SQL LIMIT''' modifier.
+
+* 4 '''QUOTA_ERROR''' Insufficient remaining storage
+
+* 5 '''SYNTAX_ERROR''' Syntax error, argument mismatch, or unallowed
+statement
+
+* 6 '''CONSTRAINT_ERROR''' An '''INSERT''', '''UPDATE''', or '''REPLACE'''
+statement failed due to a constraint error
+
+* 7 '''TIMEOUT_ERROR''' Timeout waiting for transaction lock
+
+'''See Also:'''
+[[HTML5
+Doctor: Introducing Web SQL Databases]]
+
+===ooo Transaction Calls and ExecuteSQL Method===
+
+Performing database transactions is superior to running SQL statements
+directly because transactions are not committed if they fail and you
+can undo them if needed. Transactions also allow you to handle errors
+using a callback. To implement a transaction, specify a callback
+function such as the following:
+
+<pre>
+db.transaction(function (tx) {
+  // SQL details on the tx object go here
+}
+</pre>
+
+The '''transaction()''' method takes one to three arguments:
+
+* a required transaction callback, in which '''executeSQL()''' calls
+belong
+
+* an optional transaction error object
+
+* an optional success callback.
+
+Use the '''executeSQL()''' method to specify SQL statements for read and
+write operations. The method protects against SQL injection and
+provides a callback method to process the results of any SQL queries
+you specify. The '''executeSQL()''' method takes from one to four
+arguments:
+
+* a required SQL statement
+
+* an optional object array of arguments
+
+* an optional SQL statement callback
+
+* an optional SQL statement error callback
+
+The example below creates the database if it doesn't exist, adds a
+two-column table to the database, and adds a row of data to the table:
+
+<pre>
+var db = openDatabase('mydb', '1.0', 'my first database', 2 * 1024 * 1024);
+db.transaction(function (tx) {
+    tx.executeSql('CREATE TABLE IF NOT EXISTS foo (id unique, text)');
+    tx.executeSql('INSERT INTO foo (id, text) VALUES (1, "synergies")');
+});
+</pre>
+
+To capture data from the user or an external source, use '''?'''
+placeholders to map that data into the SQL query. This ensures the
+data doesn't compromise database security, for example from SQL
+injection:
+
+<pre>
+tx.executeSql('INSERT INTO foo (id, text) VALUES (?, ?)', [id, value]);
+</pre>
+
+'''id''' and '''value''' are external variables, and '''executeSql''' maps
+the items in the array to the '''?'''s.
+
+To select values from the table, use a callback to capture the
+results:
+
+<pre>
+tx.executeSql('SELECT * FROM foo', [], function(tx, results) {
+    for (var i = 0 , len = results.rows.length; i < len; i++) {
+        // do something with results.rows.item(i).text
+    }
+});
+</pre>
+
+No fields are mapped in the above query, but to use the third argument
+you need to pass in an empty array as the second argument.
+
+The SQL statement callback for '''executeSQL()''' is called with the
+'''transaction''' object and a SQL statement '''result''' object. The
+'''result''' gives access to the ID of the last inserted row, the number
+of rows affected, and an indexed list representing the rows returned,
+in the order returned.
+
+The '''result''' object contains an array-like '''rows''' object. It has a
+length, but to access individual rows you need to use
+'''results.rows.item(i)''', where '''i''' is the index of the row. This
+returns an object representation of each row. For example, if your
+database has a '''name''' and an '''age''' field, the '''row''' contains a
+'''name''' and an '''age''' property. The value of the '''age''' field can
+be accessed using '''results.rows.item(i).age'''.
+
+===ooo Changing Database Versions===
+
+Each database has one version at a time and multiple versions cannot
+exist at one time. Versions allow you to manage schema changes
+incrementally.
+
+You can change the version of a client-side Web SQL database using the
+'''changeversion()''' method:
+
+<pre>
+if (db.version == "1.0") {
+    try {
+        // comment out for crash recovery.
+        db.changeVersion("1.0", "2.0", cv_1_0_2_0, oops_1_0_2_0, success_1_0_2_0);
+    } catch(e) {
+        alert('changeversion 1.0 -> 2.0 failed');
+        alert('DB Version: '+db.version);
+    }
+}
+</pre>
+
+'''changeversion()''' takes the following arguments: required old and
+new version numbers, optional SQL transaction callback, optional SQL
+transaction error callback, and optional success callback.
+
+* Web SQL
+
+* (indexedDB)
+
+==XXX ???==
+
+===ooo Web Storage===
+
+Browser 8.5 supports HTML5's '''localStorage''' and '''sessionStorage''' APIs,
+which offer a site up to 5MB of combined data storage on the client
+browser. ''Local'' data is indefinitely persistent and available to
+all pages per domain, while ''session'' data is confined for the
+duration of a single window.
+
+Databases are available via '''window.localStorage''' and
+'''window.sessionStorage''' objects. You access these databases the same
+way, via key/value pairs where both are represented as strings. The
+'''setItem()''', '''getItem()''', and '''removeItem()''' methods affect
+individual database keys, while '''clear()''' removes all data. The
+'''length()''' and '''key()''' methods allow you to traverse databases
+using array indexes:
+
+<pre>
+var db = window.localStorage;
+var key, value;
+for (var i = 0, l = db.length ; i < l ; i++) {
+    key = db.key(i);
+    value = db.getItem(key);
+}
+</pre>
+
+Changes to a database can be examined via '''storage''' events that fire
+on the '''window''' object. Call '''event.oldValue''' and
+'''event.newValue''' to access the data. Call '''key''' for the name of
+the modified field, '''url''' for the page modifying the field, or
+'''storageArea''' for either database that is being modified.
+
+===ooo Simple Data Storage===
+
+The '''localStorage''' and '''sessionStorage''' APIs offer applications
+up to 5MB of data storage. They both share the same simple key/value
+interface, but have different namespaces and also differ in the extent
+to which data is available. Local storage persists indefinitely, while
+session storage only lasts for the duration of a window session. Local
+storage is available from any page or window from the same site, while
+session storage is local to each window.
+
+The following set of examples demonstrate the API interface. While
+these use '''localStorage''' as an example, the same set of API calls
+work for '''sessionStorage''', which is also available within the
+'''window''' object.
+
+The following performs an initial check for support of browser-based
+storage and makes the database available within a variable:
+
+<pre>
+if (window.localStorage) {
+    var db = window.localStorage;
+    // storage functionality here
+}
+else {
+    // store data remotely?
+}
+</pre>
+
+The '''getItem()''' method retrieves the value of a database field named
+'''key''':
+
+<pre>
+var value = db.getItem("key");
+</pre>
+
+Both keys and values are represented as strings. If you specify any
+other type of data, it is converted silently to a string. (See
+[[Storing Non-String Data]] for ways around this limitation.)  If
+'''getItem()''' returns '''null''' rather than a string value, it means
+the specified key does not exist.
+
+The '''setItem()''' method establishes a new value. When adding data,
+it is a good idea to check to make sure you haven't exceeded the
+allotted storage space:
+
+<pre>
+try {
+    db.setItem("key", "string");
+}
+catch(err) {
+    if (err.QUOTA_EXCEEDED_ERR) {
+        // not enough storage space
+    }
+}
+</pre>
+
+The '''removeItem()''' method deletes database fields:
+
+<pre>
+db.removeItem("key");
+</pre>
+
+The '''clear()''' method deletes all key/value pairs within the
+database, either for an entire site in the case of '''localStorage''',
+or for an individual window session in the case of '''sessionStorage''':
+
+<pre>
+db.clear();
+</pre>
+
+Databases can be accessed as arrays using index notation, useful in
+cases where you may not know all the field names. The '''length'''
+property returns the number of fields in the database, and the
+'''key()''' method returns the name of the key corresponding to a given
+index. The following reflects the contents of a database in a
+JavaScript object:
+
+<pre>
+var obj = {};
+for ( var i = 0, l = db.length ; i < l ; i++ ) {
+    obj[ db.key(i) ] = db.getItem( db.key(i) );
+}
+</pre>
+
+Since keys correspond to array indexes, you should not add or remove
+keys during any operation that iterates over the full set of key/value
+pairs. Newly introduced keys are introduced randomly into the array's
+sequence.
+
+The following displays simple storage functionality. The application
+prompts for a login and password if they are unavailable. This locally
+stored data is available the next time users open the browser, by
+pressing the icon in the top right of the main window. However, the
+contents of the credit card field is stored only for the duration of
+each browsing session.
+
+[[Image:scr_storage_data.png]]
+
+===ooo Storage Events===
+
+The '''storage''' event allows applications to respond indirectly to
+modified data resulting from calls to '''setItem()''', '''removeItem()''',
+or '''clear()'''. This may be useful in providing users with visual
+feedback notifying them of data that is modified locally, perhaps
+rather than being sent to a remote server:
+
+<pre>
+window.addEventListener("storage", function(event){
+    var icon = document.querySelector("#indicator");
+    if (event.storageArea.length) {
+        icon.className = "writing";
+    }
+    else {
+        icon.className = "empty";
+    }
+}, false);
+</pre>
+
+The '''storage''' event's '''storageArea''' attribute returns the
+'''localStorage''' or '''sessionStorage''' object being modified. The
+'''key''' is the name of the field being modified, and '''oldValue''' and
+'''newValue''' are its values before and after the event. The '''url''' is
+the page that called the method triggering the change.
+
+===ooo Storage Intro===
+
+Traditional mobile web development centered around the limitations of
+client handsets, which had very little storage available for
+applications. As handsets have become more powerful, however, this is
+no longer the case. HTML5's newly introduced Storage, Application
+Cache and Offline features push more functionality out to the client
+browser and allow them to operate more autonomously as loosely
+coupled, independently synchronizing applications.
+
+The Application Cache allows the browser to download applications so
+that they run entirely on the client browser. Navigating to a
+cache-enabled page silently installs its component files onto the
+browser. Users can then run the application locally on the client
+browser, independently of the site that supplied it.
+
+Self-contained applications such as games and calculators run
+seamlessly in the absence of a network connection. Applications that
+rely on network connections can respond to changes in network
+availability with custom '''offline''' capabilities.
+
+In addition to cached ''applications'', standard '''LocalStorage''' and
+'''SessionStorage''' APIs are available to dynamically cache application
+''data''. These boost the amount of storage available to web
+applications and can effectively replace cookies as a means to
+track user preferences and maintain application state.
+
+Both of these ''web storage'' mechanisms access data via simple
+key/value pairs. As an alternative, Web SQL brings SQLite-based
+structured database functionality, typically deployed on servers, to
+client browser applications. Web SQL is appropriate for data-intensive
+applications requiring complex queries rather than simple key/value
+access.
+
+===ooo Storing Non-String Data===
+
+Since local and session storage APIs only support string values, you
+need to be careful not to allow errors that result from passive
+conversions from other data types. The following sample shows how
+such an error might occur:
+
+<pre>
+var db = window.localStorage;
+var saveCardInfo;
+    // user expresses preference NOT to save credit card info:
+saveCardInfo = false;
+    // BUG happens here...
+db.setItem("save_card_info", saveCardInfo);
+    // variable is now a string, not a boolean:
+saveCardInfo = db.getItem("save_card_info");
+    // both "true" and "false" strings evaluate as true...
+if ( saveCardInfo ) {
+    // ...so this code always executes...
+}
+else {
+    // ...and this code never executes.
+}
+</pre>
+
+The user's preference to retain credit card information is expressed
+within the application as a '''true''' or '''false''' boolean value. When
+each value is passed to storage, however, it is passively converted to
+a string. When reassigned to a JavaScript variable, it no longer
+serves as a valid boolean test. The application falsely assumes users
+want to save credit card information, regardless of their expressed
+preference.
+
+The following example fixes the problem. Instead of using '''true''' and
+'''false''' boolean values, it converts '''1''' and '''0''' strings to
+numbers:
+
+<pre>
+var db = window.localStorage;
+var saveCardInfo = 0;
+db.setItem("save_card_info", saveCardInfo);
+// multiplying forces numeric output:
+saveCardInfo = db.getItem("save_card_info") * 1;
+</pre>
+
+For a more reliable alternative, store values as JSON strings and rely
+on automatic type conversion when subsequently parsing them. The
+following sample shows how parsing JSON preserves both boolean and
+numeric data:
+
+<pre>
+var saveCardInfo = true;      // boolean
+var shipMethod = 2;           // number
+var db = window.localStorage;
+
+db.setItem("save_card_info" , JSON.stringify(saveCardInfo));
+db.setItem("ship_method"    , JSON.stringify(shipMethod));
+
+saveCardInfo = JSON.parse(db.getItem("save_card_info")); // boolean
+shipMethod   = JSON.parse(db.getItem("ship_method"));    // number
+</pre>
+
+Note that this simple approach may cause problems of its own. For
+example, perhaps the words '''true''' and '''false''' really should
+be represented as strings. Encapsulating data within objects accounts
+for such variability:
+
+<pre>
+var db = window.localStorage;
+var obj = {
+    bool : true,
+    str  : "true",
+    num  : 1
+};
+db.setItem("appState", JSON.stringify(obj)); // to database...
+// "appState" is "{'bool':true,'num':1,'str':'true'}"
+obj = JSON.parse(db.getItem("appState"));    // ...and back
+// obj is same as initially defined.
+</pre>
+
+The ability to save objects as JSON strings means that you can save an
+application's state within a single database field. For example, you
+might use the following approach to save the entire contents of a
+shopping cart in a single field for later use:
+
+<pre>
+var db = window.localStorage;
+var cart = { items: [] };
+
+cart.message = "From your loving uncle";
+
+cart.items.push({
+    description : "Floor to Ceiling Shoe Rack",
+    id          : 203174676,
+    price       : 99.95,
+    quantity    : 1,
+    weight      : 20,
+});
+
+cart.items.push({
+    description : "Automatic Laser Toy for Cats",
+    id          : 203345371,
+    price       : 19.95,
+    quantity    : 2,
+    weight      : 0.5,
+});
+
+// save all cumulative items:
+db.setItem("cart", JSON.stringify(cart));
+
+// extract items from storage:
+cart = JSON.parse(db.getItem("cart"));
+</pre>
+
+JSON allows you to store data types, but functions are ignored. That
+makes it more difficult to preserve objects representing fully
+functional applications.
+
+* localStorage
+
+* sessionStorage
+

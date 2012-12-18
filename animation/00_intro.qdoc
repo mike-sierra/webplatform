@@ -1,0 +1,141 @@
+
+
+=Introduction=
+
+This guide helps developers target web content and applications to
+WebKit-based browsing environments. It introduces HTML5 as an
+all-purpose web application framework, and shows how developers can
+deploy applications across a wide range of target browsing
+environments, spanning desktop browsers, mobile browsers, mobile
+web-based applications, and web-based components within natively
+compiled mobile applications.
+
+For those interested in deploying web content to mobile browsers, or
+extending existing mobile web content to WebKit-based mobile browsers,
+it provides basic guidelines to support a wide range of mobile
+browsers. Using a hands-on approach, numerous sample pages demonstrate
+exactly how browser capabilities translate to engaging real-world
+mobile interfaces.
+
+==Who Should Read This?==
+
+This guide assumes that you are familiar with basic web technologies
+such HTML, JavaScript, and CSS. It explains the various ways that
+these technologies can be enhanced with recent HTML5 and CSS3 features
+to deploy vibrant applications, both for web browsers and when
+embedded into native applications.  While it describes the specific
+capabilities of WebKit, it discusses how to target applications across
+the widest possible range of browsers.
+
+This guide will also help if you are relatively unfamiliar with the
+specific requirements and design constraints of mobile web
+development. It discusses strategies to deploy mobile websites or
+hybrid mobile/desktop sites. Alternately, if you are more familiar
+with lower-level mobile browser capabilities prior to the widespread
+adoption of more powerful touch-screen handsets, this guide will
+update you on the latest features. This guide will also be useful if
+you are evaluating Web-based applications as an all-purpose
+development platform spanning the widest range of devices and
+operating systems.
+
+==Introducing HTML5==
+
+The term ''HTML5'' refers to draft specifications by the World Wide
+Web Consortium detailing the more recent state of web-based standards.
+In practice and throughout this guide, the term is used more loosely
+to refer to this specification's latest set of features, to the
+related specification for Level 3 CSS, and to additional new WebKit
+features that fall outside these specifications. Major new HTML5
+features '''Geolocation''':
+
+* '''Multimedia''': Open standards-based audio and video allows
+wider interoperability and less reliance on proprietary formats.
+(See [[Multimedia]].)
+
+* '''Application caching and offline mode''': These standards allow
+application functionality to reside entirely on the client handset and
+to respond to changes in network availability. (See [[Web Apps]] and
+[[Offline Mode]].)
+
+* '''Client-side data storage''': Simplifies session management and
+private data, while encouraging loosely coupled synchronization. (See
+[[Data Storage]].)
+
+* '''CSS3''': Updated CSS properties provide designers with a richer
+palette of visual effects. (See [[CSS3]].)
+
+* '''CSS Animations''': Fosters more engaging, dynamic interfaces.
+(See [[Animations]].)
+
+* '''Form validation''': Simplifies form input, and lessens the need
+for server-side validation. (See [[Input Types]] and
+[[Input Validation]].)
+
+* '''Canvas, SVG''': Powerful graphics/animation frameworks. (See
+[[Canvas]].)
+
+* '''Media queries''': Extends existing CSS ''media types'' to target
+content to specific classes of browser. (See [[Responsive
+Interfaces]].)
+
+==Introducing the Mobile Web==
+
+Modern Web-based technologies offer a powerful standards-based
+development platform with which to deploy applications across a wide
+range of mobile handsets. To get to this level, the Mobile Web has
+passed through several generations:
+
+* The first generation relied upon WAP and WML. These represented a
+separate set of mobile-only standards targeted for handsets that were
+insufficiently powerful to render standard web content.
+
+* The second generation relied upon basic web technologies such as
+HTML, CSS and JavaScript, but were often deployed in a nonstandard way
+by individual browser vendors. Early mobile "web" sites were slow and
+buggy, featuring at best only core web features.
+
+* Third-generation mobile web browsers embed desktop-class web
+engines, such as WebKit, Gecko, Presto, and Trident onto mobile
+handsets. Reliance on these standard software components led to
+greater stability and less variation among browsers.
+
+These web engines are also used to power widget and web runtime
+platforms that allow developers to package and install Web
+applications onto mobile devices. They also enable WebView APIs that
+allow web content to appear within and interact with native
+applications.
+
+* The latest generation of the Mobile Web features emerging HTML5 and
+CSS3 web standards that bring powerful rendering, storage, location,
+and multimedia features to mobile handsets. HTML5 is increasingly
+regarded as a common platform that serves as an attractive alternative
+to device-specific development.
+
+The latest generation mobile web runs on touch-based handsets
+featuring fast processors and ample storage. They are backed by
+high-bandwidth networks whose speeds support distributed network-based
+Ajax applications and rich multimedia content. Their larger screens
+present users with a wider range of options and more engaging
+responsiveness, and allow developers to use the same sort of rich
+graphic interfaces they deploy for desktop browsers.
+
+[[Image:support_android.png]]
+[[Image:support_chrome.jpeg]]
+[[Image:support_ios.jpeg]]
+[[Image:support_mozilla.jpg]]
+[[Image:support_n9.png]]
+[[Image:support_win.jpg]]
+
+==About the Samples==
+
+This guide supplies numerous sample web pages that demonstrate
+specific features available to web developers and designers. In most
+cases, they can be previewed on WebKit-based browsers such as Apple
+Safari and Google Chrome. In a few cases, functionality such as
+multi-point touch may not be able to display within desktop browsers.
+
+These samples are designed to be as clear as possible, with simplified
+functionality intended for adaptation within more comprehensive mobile
+applications. In the interest of clarity, these samples do not rely on
+JavaScript libraries such as jQuery and Prototype.
+

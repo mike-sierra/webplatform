@@ -1,0 +1,522 @@
+
+
+=Transforms=
+
+In this example, the main content panel tips and sways along with the
+device:
+
+[[Image:gesture1.png]]
+[[Image:gesture2.png]]
+
+Readings from the [[3D compass]]
+are translated directly to rotations along the screen element's ''x''
+and ''y'' axes. This is how to represent such a transform as static
+CSS:
+
+<pre>
+.panel {
+    -webkit-transform: rotateX(12deg) rotateY(-4deg);
+    -webkit-transition: all 0.5s;
+    transform: rotateX(12deg) rotateY(-4deg);
+    transition: all 0.5s;
+}
+</pre>
+
+'''Note:''' Many Level 3 CSS properties use ''vendor prefixes'' such as
+'''-webkit-''' to indicate they have not been finalized as a web
+standard. To ensure future coverage, specify the same set of
+properties without the prefix.
+
+The [[transition]] smoothes the transform's appearance when it is
+animated dynamically via JavaScript, as in this alternative example:
+
+<pre>
+var p = document.querySelector('.panel');
+p.style.WebkitTransform = 'rotateX(' + x + 'deg) rotateY(' + y + 'deg)';
+</pre>
+
+For flat elements to assume a 3D appearance, they must be nested within a
+parent element that has ''perspective'' applied to it:
+
+<pre>
+section {
+    -webkit-perspective: 1000;
+    -webkit-perspective-origin: 50% 50%;
+}
+</pre>
+
+The perspective value refers to the number of pixels along the ''z''
+axis between the viewer and the screen. The perspective ''origin''
+refers to the ''x''/''y'' position along the surface of the element
+from which the viewer appears to back away. (Here it reflects the
+default '''center''' value.)
+
+Elements that are transformed in 3D space may align to a plane that is
+different than that of the viewing screen. If that element specifies
+'''preserve-3d''', any children transform within the 3D space it
+defines, rather than appearing '''flat''' by default:
+
+<pre>
+.gesture {
+    -webkit-transform-style: preserve-3d;
+}
+</pre>
+
+In the example above, the cube's ''z''-axis translation makes it
+appear to move towards the viewer:
+
+<pre>
+.gesture > ol {
+    -webkit-transform: translateZ(800px);
+}
+</pre>
+
+As the main panel wobbles slightly, the cube appears to move more
+dramatically in relation to the panel.
+
+The cube itself defines its own nested 3D space. Four of the faces are
+postioned with 90&deg; rotations. By default, transforms ''originate''
+from the '''center''' of the element, but modifying the
+'''-webkit-transform-origin''' allows each face to hinge along the
+'''left''', '''right''', '''top''', or '''bottom''' edges. (These correspond
+to standard ''x''/''y'' measurements, so that '''bottom''' can also be
+represented as '''50% 100%'''.) The back face is rotated 180&deg;
+around a point behind it, so it moves backwards.
+
+<pre>
+.gesture > ol > li:nth-of-type(1) {
+    -webkit-transform: translateZ(0%);
+}
+.gesture > ol > li:nth-of-type(2) {
+    -webkit-transform-origin: left;
+    -webkit-transform: rotateY(90deg);
+}
+.gesture > ol > li:nth-of-type(3) {
+    -webkit-transform-origin: right;
+    -webkit-transform: rotateY(-90deg);
+}
+.gesture > ol > li:nth-of-type(4) {
+    -webkit-transform-origin: top;
+    -webkit-transform: rotateX(-90deg);
+}
+.gesture > ol > li:nth-of-type(5) {
+    -webkit-transform-origin: bottom;
+    -webkit-transform: rotateX(90deg);
+}
+.gesture > ol > li:nth-of-type(6) {
+    -webkit-transform-origin: 50% 50% -18px;
+    -webkit-transform: rotateY(180deg);
+}
+</pre>
+
+To implement flip-panel effects, items that rotate away from view can
+be hidden; otherwise they appear as a mirror image:
+
+<pre>
+ol {
+    -webkit-backface: hidden;
+}
+</pre>
+
+==SIDEBAR CSS3 Selectors==
+
+Browser 8.5 supports all Level 3 CSS Selectors:
+
+* Indirect siblings: '''element ~ successors'''
+
+* Matching attribute values: '''[attr^="prefix"]''',
+'''[attr$="suffix"]''', '''[attr*="substring"]'''
+
+* Positional classes: ''':first-child''', ''':last-child''',
+''':nth-child()''', ''':nth-first-child()''', ''':nth-last-child()''',
+''':only-child'''
+
+* Contextual classes: ''':first-of-type''', ''':last-of-type''',
+''':nth-first-of-type()''', ''':nth-last-of-type()''', ''':nth-of-type()''',
+''':only-of-type'''
+
+* Form input state classes: ''':valid''', ''':invalid''',
+''':focus''', ''':checked''', ''':enabled''',
+''':disabled'''
+
+* Navigational class: ''':target'''
+
+* Other classes: ''':empty''', ''':root''', ''':not()'''
+
+
+
+
+==2D Transforms==
+
+==3D Transforms==
+
+Though they often take on the illusion of three dimensions, 2D
+transforms are strictly superficial, inhabiting the plane of the
+handset's screen. Three dimensional transforms allow content to shift
+onto other planes.
+
+To accomplish this effect, applying a ''perspective'' to an an
+ancestor element indicates the perceived distance from the viewer of
+any transformed descendents. The '''-webkit-perspective''' property
+specifies CSS pixels along the handset's ''z'' axis that leads to the
+viewer, otherwise its default value of c{none} indicates infinite
+perspective, which appears flat.
+
+<pre>
+.parent {
+    -webkit-perspective : 1000;
+    -webkit-perspective-origin : 50% 50%;
+}
+.child {
+    -webkit-transform: rotateY(30deg);
+}
+</pre>
+
+While '''-webkit-perspective''' affects the perceived distance to an
+object along the ''z'' axis, the '''-webkit-perspective-origin'''
+property shift the perceived ''x''/''y'' location from which it is
+viewed. The default value is shown above: the element is viewed
+at its center rather than towards its edges.
+
+Since web content is flat be default, all measurements along the ''z''
+axis must specify absolute units, whose appearance is affected by how
+much perspective is applied. Perspective values less than 1000 appear
+increasingly distorted. Exceptions may include immersive virtual
+reality applications in which the viewer appears to mingle among
+displaying elements.
+
+The following touch-enabled image gallery demonstrates a
+perspective-enabled 3D rotation:
+
+[[Image:scr_event_touch-crop2.png]]
+
+The following set of functions specify three-dimensional transforms:
+
+* '''rotateX()''' and '''rotateY()''' spin elements around their
+horizontal or vertical axis. The '''rotateZ()''' function behaves the
+same as the 2D '''rotate()''' function. An alternative '''rotate3d()'''
+function requires four arguments. The first three measurements specify
+a point defining a 3D vector from the origin of the element. (For
+example, setting the vector to '''0,1,0''' rotates the object entirely
+around its ''y'' axis.) The fourth argument specifies the angle of
+rotation around that vector, using '''deg''' or '''rad''' measurements.
+
+* The '''translate3d()''' function requires three ''x'', ''y'' and
+''z'' measurements. Otherwise, use any combination of
+'''translateX()''', '''translateY()''', and '''translateZ()''' functions.
+Since web content is flat by default, the ''z'' translation must
+specify absolute measurements. The perceived movement towards or away
+from the viewer depends on how much perspective is applied.
+
+* The '''scale3d()''' function accepts three ''x'', ''y'' and ''z''
+measurements, otherwise they can be specified separately with
+'''scaleX()''', '''scaleY()''', and '''scaleZ()'''.  Unlike standard ''x''
+and ''y'' measurements, the ''z'' measurement closes the distance to
+transformed children. (See [[Nested 3D Transforms]] for a
+demonstration.)
+
+The '''-webkit-transform-origin''' property accepts an additional third
+'''z''' measurement to place the transformation point behind or in front
+of where the element displays, in absolute units. (Alternately,
+specify the '''-webkit-transform-origin-z''' property,)
+
+Elements that rotate away from view display as a mirror image by
+default. Changing the '''-webkit-backface-visibility''' property to
+'''hidden''' (from '''visible''') enables flip-panel effects in which
+elements are only visible if they face the viewer.
+
+The following interactive utility shows how these 3D transform
+functions interact with each other:
+
+[[Image:utilTransform3d.png]]
+
+While 2D transforms can be represented as a 6-element '''matrix()'''
+function, 3D transforms correspond to 16-element '''matrix3d()'''
+functions. (Read
+[[The Matrix Revolutions]] and experiment with the utility above to see
+how they work.)
+
+==Targeting 2D and 3D Transforms==
+
+The image gallery [[shown above]] specifies a
+[[CSS media query]] to
+display a different set of visual effects depending on the browser's
+support for 3D transforms. The 2D interface displays a horizontal
+swipe, and the 3D interface displays a rotation:
+
+<pre>
+canvas {
+    -webkit-transform : translateX(150%);
+}
+@media all and (-webkit-transform-3d) {
+    canvas {
+        -webkit-transform             : rotateY(90deg);
+        -webkit-backface-visibility   : hidden;
+    }
+}
+</pre>
+
+The [[utility above]] tests the same [[media query from within JavaScript]] to produce an error
+message on unsupporting browsers.
+
+Browsers that only support 2D transforms ignore 3D-only functions,
+which may allow visual effects to degrade gracefully. The following
+two transforms have the same effect on 3D-enabled browsers: moving the
+element towards the right and pushing it backwards. Browsers that
+only support 2D ignore the first line altogether, but interpret the
+'''translate()''' function from the second line:
+
+<pre>
+-webkit-transform: translate3d(120%, 0, -320px);
+-webkit-transform: translate(120%, 0) translateZ(-320px);
+</pre>
+
+'''Note:''' It is a good idea to always specify 3D transforms for animating
+elements, even if they do not change their appearance in any way.
+Mobile handsets are relatively constrained in their processing power,
+and may assign hardware that performs ''accelerated compositing'' on
+3D elements.  For example, adding '''translateZ(0)''' has no effect on
+2D browsers, but may signal 3D browsers to render more quickly.
+(Availablility of hardware-accelerated rendering cannot be detected
+using media queries.) Such ''z''-axis transforms must be reiterated
+each time the transform is dynamically modified, otherwise elements
+may inefficiently revert to the compositing layer reserved for
+conventional 2D rendering.
+
+==Nested 3D Transforms==
+
+Applying a 3D rotation to an element aligns it to a different plane
+than that of the default viewing screen. Applying translations and
+scale effects also overrides the default coordinate system. Any
+nested content can be independently transformed within that modified
+space.
+
+To position nested content relative to the transformed parent's own 3D
+space, the parent element's '''-webkit-transform-style''' property must
+be set to '''preserve-3d'''. By default, it is '''flat''', making 3D
+effects display on the parent's 2D surface as if it were a viewing
+screen.
+
+The following interactive utility allows you to experiment with nested
+transform effects:
+
+[[Image:utilTransform3dNest.png]]
+
+Rotating the parent element moves the child element along with it, but
+offset in 3D space using a translation along the Z axis. Setting the
+child's ''z'' translation to zero, hiding both back faces, then
+rotating the parent produces a flip-panel effect.
+
+For the sake of simplicity, the utility above shows how a single
+transformed child element may appear relative to its parent. However,
+transform effects can cascade down a deeper tree of elements. The
+following demonstrates how transform effects can be progressively
+magnified within a series of descendent elements:
+
+[[Image:utilTransform3dNest_x8.png]]
+
+The default ''z'' translation makes the images appear expanded like an
+accordion or a deck of cards, but the dynamic effect shown in the
+image above comes from slight manipulations to the descendents' scale
+and rotation transforms.
+
+'''Note:''' This example shows '''perspective()''' used as a transform function.
+Conceptually, perspective is best applied to the parent element when
+potentially many children must inherit the same value. However, this
+example demonstrates that individual children may receive their own
+independent perspectives.
+
+==Example: Spinning Dice==
+
+The following example shows how to build gaming dice with nested 3D
+transforms, so that the entire object can itself be spun using 3D
+transforms:
+
+[[Image:scr_anim_dice.png]]
+
+The underlying HTML markup defines a six-element list:
+
+<pre>
+<ol class="dice">
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+</ol>
+</pre>
+
+The '''ol''' element serves as a wrapper element, whose
+'''preserve-3d''' defines its own transformation space. Transitions are
+enabled in order to allow the dice to render smoothly, and elements of
+the dice that face away from view are hidden:
+
+<pre>
+.dice {
+  -webkit-backface-visibility : hidden;
+  -webkit-transform-origin    : 50px 50px -50px;
+  -webkit-transform-style     : preserve-3d;
+  -webkit-transition          : all 1s ease-in-out;
+  padding                     : 0;
+}
+</pre>
+
+Each side of the dice is a 100-pixel square. Absolute positioning
+forces each side to overlay by default:
+
+<pre>
+.dice > li {
+  position                    : absolute;
+  height                      : 100px;
+  width                       : 100px;
+  background-size             : cover;
+  border                      : #aaa 0.1em solid;
+  border-radius               : 0.5em;
+  list-style-type             : none;
+}
+</pre>
+
+From that default position, various sides of the dice are transformed
+in 3D space.  The first side remains in its default position. Origins
+for sides 2 through 5 are shifted from the center point so their
+90-degree rotations hinge along their '''left''', '''right''' '''bottom'''
+and '''top''' edges. The final face is flipped 180 degrees and moved
+backwards to close off the cube:
+
+<pre>
+.dice > li:nth-of-type(1) {
+    -webkit-transform           : translateZ(0px);
+    background-image            : url(img/die1.jpg);
+}
+.dice > li:nth-of-type(2) {
+    -webkit-transform           : rotateY(90deg) translateZ(0px);
+    -webkit-transform-origin    : left;
+    background-image            : url(img/die2.jpg);
+}
+.dice > li:nth-of-type(3) {
+    -webkit-transform           : rotateY(-90deg) translateZ(0px);
+    -webkit-transform-origin    : right;
+    background-image            : url(img/die3.jpg);
+}
+.dice > li:nth-of-type(4) {
+    -webkit-transform           : rotateX(90deg) translateZ(0px);
+    -webkit-transform-origin    : bottom;
+    background-image            : url(img/die4.jpg);
+}
+.dice > li:nth-of-type(5) {
+    -webkit-transform           : rotateX(-90deg) translateZ(0px);
+    -webkit-transform-origin    : top;
+    background-image            : url(img/die5.jpg);
+}
+.dice > li:nth-of-type(6) {
+    -webkit-transform           : rotateX(180deg) translateZ(-100px);
+    -webkit-transform-origin    : center;
+    background-image            : url(img/die6.jpg);
+}
+</pre>
+
+Once the final shape of the cube is defined, spinning the entire
+object simply requires applying rotation transforms to the outer
+''dice'' element that encapulates its visible faces.  See [[Dynamic Keyframes]] for information on how transforms are assigned randomly in
+this case. Otherwise, transforms can be applied directly to the
+element:
+
+<pre>
+var dice = document.querySelector('ol.dice');
+dice.style.WebkitTransform = "rotateX(20deg) rotateY(40deg) rotateZ(30deg) translateZ(0)";
+</pre>
+
+==Example: Virtual Reality==
+
+The following example shows how 3D transforms can build a rudimentary
+virtual reality scene:
+
+[[Image:scr_gesture_virtual.png]]
+
+'''Note:''' The scene can be rotated by tipping the handset, otherwise desktop
+browsers simulate gestural navigation.
+
+Like the dice above, the object is built much like a cube. Unlike the
+dice, it is pushed forwards to apparently rotate around the viewer.
+The following markup and wireframe diagram help clarify how it is
+built:
+
+<pre>
+<section id="outer">
+<div id="rx" data-x="0">
+  <div id="ry" data-y="0">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+</div>
+</section>
+</pre>
+
+[[Image:scr_gesture_virtual_wireframe.png]]
+
+An ''outer'' element appears in the rear of the scene, and corresponds
+to the screen dimensions:
+
+<pre>
+#outer { width : 480px; height : 320px; }
+</pre>
+
+An ''rx'' element is positioned far in front of the ''outer'' element
+using '''translateZ()''':
+
+<pre>
+#rx { -webkit-transform : translateZ(240px); }
+</pre>
+
+The ''ry'' element matches the initial position of ''ry'', but rotates
+freely around a point far in front of it:
+
+<pre>
+#ry {
+    -webkit-transform-style	: preserve-3d;
+    -webkit-transform-origin-z	: 240px;
+}
+</pre>
+
+To complete the illusion, each face of the inner box references the
+same panoramic image. Each is offset by different amounts using
+[[background positioning and sizing properties]].
+For information on how the box spins in response to tipping gestures,
+see [[Orientation and Motion]].
+
+
+
+
+
+
+==more==
+
+* Move elements horizontally (''x''), vertically (''y''), or
+back-to-front (''z''): '''translate(x,y)''', '''translateX(x)''',
+'''translateY(y)''', '''translateZ(z)''', or '''translate3d(x,y,z)'''.
+Movements along the ''z'' axis must correspond to pixel units.
+
+* Shrink/expand elements, in decimal terms with 1 as normal size.
+The following allow you to scale each axis independently:
+'''scale(x,y)''', '''scaleX(x)''', '''scaleY(y)'''.  Otherwise specifying
+'''scale(n)''' with a single numeric argument maintains the original
+aspect ratio.
+
+* Rotate elements, specifying either degree ('''deg''') or radian
+('''rad''') measurements: '''rotate(z)''', '''rotateZ(z)''', '''rotateX(x)''',
+'''rotateY(y)'''. An additional '''rotate3d()''' function requires three
+numeric arguments that define a 3D vector, followed by a fourth
+argument representing the degree of rotation around that line.
+
+* Two-dimensional ''skew'' transforms, which also accept '''deg''' or
+'''rad''' measurements, distort the element's default right-angle
+corners, changing the rectangle to a parallelogram: '''skewX()''' for
+the sides of the element to wobble, or '''skewY''' for the top or
+bottom to wobble.
+
+Applications can animate transforms dynamically using JavaScript, or
+using [[CSS transitions and keyframes]].
+

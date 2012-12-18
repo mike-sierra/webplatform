@@ -1,0 +1,708 @@
+
+
+=Web Apps=
+
+This section shows the basic techniques to deploy mobile HTML5-based
+web applications:
+
+* The ''application cache'' stores the set of HTML, CSS, Javascript
+and other resources onto the handset. The [[Packaging Web Apps]]
+section shows how to set up a ''manifest'' file that specifies these
+files.
+
+* To ''install'' the web app, users save it to their home screen.
+The [[Home Screen Icons]] section shows how to customize the icon
+by which users access the application.
+
+* Web apps ordinarily display within the browser application, but can
+be converted to ''full-screen'' applications that provide their own
+set of navigation controls. The [[Full-Screen Web Apps]] section
+shows how to remove browser controls altogether.
+
+==Packaging Web Apps==
+
+HTML5-based web apps rely on the ''application cache'' to store a
+common set of web pages onto the client browser. The application
+cache speeds load time and reduces the need for server requests after
+the web app is initially accessed. It also allows self-contained
+applications to operate in ''offline'' mode, without a network
+connection.
+
+Web apps that rely on HTML's application cache do not require a
+''store'' portal or any such dedicated mechanism to download them onto
+the handset. To navigate to a cache-enabled web app is to install it.
+
+Cached applications can only be reasonably implemented as a fixed set
+of files that access dynamic data via Ajax or [[server events]]. More conventional web ''sites'' that access
+data using links to a frequently changing set of URLs are not good
+candidates for deployment using application cache. (See [[Responsive Interfaces]] for more information.)
+
+To enable the application cache, specify a ''manifest'' file
+in the initial '''html''' declaration, like the following:
+
+<pre>
+<!DOCTYPE HTML>
+<html manifest="/cache.manifest">
+</pre>
+
+'''Note:''' Make sure HTML5-based web apps specify the simplified '''DOCTYPE'''
+declaration specified above.
+
+The manifest file is a simple text file that specifies the web app's
+component resources. It needs to be served with the
+'''text/cache-manifest''' MIME type. Specify the simplified
+'''DOCTYPE''' as it appears above, or the application cache of other
+HTML5 features may not be made available.
+
+Here is a sample manifest:
+
+<pre>
+CACHE MANIFEST
+# application version 1.0.0
+index.html
+about.html
+
+CACHE:
+img/icon.png
+img/portrait.png
+
+NETWORK:
+dynamic.php
+
+FALLBACK:
+dynamic.php specific_error.html
+/ server_error.html
+* network_error.html
+
+CACHE:
+css/styles.css
+js/app.js
+js/jquery.js
+js/data.json
+http://img.example.com/logo.png
+</pre>
+
+The file must start with the '''CACHE MANIFEST''' text. Each
+'''CACHE''' label specifies a set of files to install onto the
+handset. By default, unlabeled files (such as ''index.html'' and
+''about.html'' above) are also cached. Cached files can be accessed
+from different servers via ''http'' links, with the URL for the
+manifest serving to identify each application.
+
+'''Note:''' The browser caches the HTML file that specifies the
+manifest, but it is a good idea to specify it redundantly, especially
+if the application may be accessed from a different page.
+
+Files labeled '''NETWORK''' are always fetched dynamically, just like
+ordinary web pages, and cannot be used in offline mode. Any
+'''NETWORK''' page that fails to load redirects the browser to a
+'''FALLBACK''' page. The example above shows a '''FALLBACK''' page
+assigned to a specific '''NETWORK''' page, along with a broader
+'''FALLBACK''' that applies to any other problems loading '''NETWORK'''
+pages on the same server ('''/'''), or local pages unaccounted for
+within the manifest file. Specifying '''*''' as a fallback catches
+remaining network errors not related to the server.
+
+The version number specified in the comment on the second line of the
+manifest is not required, but is useful. Changing the content of the
+manifest file in any way, such as by incrementing the version number,
+leads browsers to re-download the full packaged set of component
+files.
+
+'''Note:''' If users land on a cache-enabled page but do not install
+it onto the handset's home screen as described [[below]], files
+specified within the manifest are still downloaded. To avoid
+unintended mobile network traffic, make sure access to web apps is
+clearly distinguished from access to ordinary web pages. The
+application cache is implemented in much the same way as the browser's
+history cache and its local data storage. If users clear their cache,
+the application is removed, and is only re-downloaded if a network
+connection is available when they try to access it again.
+
+==Home Screen Icons==
+
+While a cached page may be nominally installed on the handset, the
+user needs an easy way to access it. Traditionally, mobile browsers
+have relied on ''bookmarks'' accessed from within the browser
+application, but more recent browsers allow users to saves links to
+''applications'' via icons that appear directly within the home
+screen alongside a handset's native applications.
+
+Application developers need to specify an icon to control how the
+application appears on the home screen, otherwise it appears with an
+image representing the page layout in thumbnail form, or a default
+image supplied by the browser.
+
+To specify a home-screen icon, add an '''apple-touch-icon''' link
+relation such as the following to the HTML's '''head''' region:
+
+<pre>
+<link rel="apple-touch-icon" href="app_icon.png" />
+</pre>
+
+As its name suggests, this feature was first developed for Apple's
+iPhone Safari browser, but is now supported by vendors of other mobile
+browsers.
+
+To avoid scaling the icon in ways that render poorly on various
+handsets, use the '''sizes''' attribute to customize icons for specific
+dimensions. The following shows how to target icons for Apple's iPhone
+Safari and Nokia's N9 Browser.
+
+<pre>
+<link rel="apple-touch-icon" href="app_iphone.png" sizes="114x114" />
+<link rel="apple-touch-icon" href="app_nokiaN9.png" sizes="80x80" />
+<link rel="apple-touch-icon" href="app_ipad.png" sizes="72x72" />
+<link rel="apple-touch-icon" href="app_default.png" />
+</pre>
+
+If the expected dimensions for a particular handset are not supplied,
+the browser scales down the next-largest icon available.
+
+'''Note:''' The example above also specifies an icon for the Apple
+iPad. See [[Responsive Interfaces]] for more information on how to
+deploy web apps for both mobile handsets and larger tablet devices.
+
+The following shows how a logo may be transformed to an application
+icon suitable for display on various handsets, paying special
+attention to padding and choice of background color.
+
+[[Image:html5badge_x128.png]]
+[[Image:html5x128.png]]
+[[Image:icon_iphone.png]]
+[[Image:icon_n9.png]]
+
+As shown above, icons specified with '''apple-touch-icon''' often appear
+with an added gradient that gives them a standard, embossed appearance
+within each home screen. To override this feature, Apple Safari and
+Android browsers allow you to specify an
+'''apple-touch-icon-precomposed''' image, which appears in the home
+screen with no added visual effect other than uniformly rounded
+corners. The following shows how to specify a precomposed image for
+supporting browsers, with the embossing described above as a fallback:
+
+<pre>
+<link rel="apple-touch-icon" href="app_icon.png" />
+<link rel="apple-touch-icon-precomposed" href="app_icon.png" />
+</pre>
+
+Alternately, in the absence of the '''link''' markup shown above,
+browsers also recognize image files found in the server's root
+directory, in much the same way that desktop browsers use
+'''favicon.ico''' images. Filenames may specify icons that are
+precomposed or not, and reference each handset's expected dimensions.
+
+<pre>
+apple-touch-icon-114x114-precomposed.png
+apple-touch-icon-114x114.png
+apple-touch-icon-precomposed.png
+apple-touch-icon.png
+</pre>
+
+Text that accompanies the icon on the home screen is determined by the
+contents of the '''title''' tag, but may be modified by the user.
+Once any of these icons are installed, changing the original file on
+the server has no effect on its appearance on the handset's home
+screen. That only happens if the application is re-installed.
+
+==Full-Screen Web Apps==
+
+For a web page to appear the same as a natively compiled application,
+it can appear without the browser's built-in screen controls. Add the
+following to the HTML's '''head''' region:
+
+<pre>
+<meta name="apple-mobile-web-app-capable" content="yes" />
+</pre>
+
+As its name suggests, the '''apple-mobile-web-app-capable''' meta tag
+was also designed for Apple's iPhone Safari browser. It serves as a
+signal that a web page may be presented in full-screen mode, but only
+if users choose to save it as a home-screen web app. An application
+can determine whether it is running in this full-screen mode by
+checking the value of the '''window.navigator.standalone''' property.
+
+Links behave differently than expected within full-screen web
+apps. When you click a link to a new page, it once again appears with
+the browser controls. This feature prevents users from becoming
+frustrated if they navigate somewhere they didn't intend, with no
+longer any means available to get back. To make links among pages
+within a full-screen web app behave as expected, use Ajax to overload
+the default link mechanism. The following (based on code suggested by
+Jonathan Stark) uses jQuery to load internal links via Ajax, while
+letting external ''http'' links appear with the full set of browser
+controls:
+
+<pre>
+$('a').click(function(e) {
+    var url = e.target.href;
+    if (url.match(/^https*:/)) return(false);
+    e.preventDefault();
+    $(this).load(url);
+});
+</pre>
+
+'''Note:''' Full-screen applications may still present a browser's contextual
+menus when users press and hold links and images. This feature can be
+[[selectively disabled on iPhone Safari]].
+
+==XXX MT icon==
+
+While a cached page may be nominally installed on the device, the user
+needs an easy way to access it. Traditionally, mobile browsers have
+relied on bookmarks accessed from within the browser application, but
+more recent browsers allow users to saves links to applications via
+icons that appear directly within the home screen alongside a device's
+native applications.
+
+Application developers need to specify an icon to control how the
+application appears on the home screen, otherwise it appears with an
+image representing the page layout in thumbnail form, or a default
+image supplied by the browser.
+
+To specify a home-screen icon, add an '''apple-touch-icon''' link
+relation such as the following to the HTML's '''head''' region:
+
+<pre>
+<link rel="apple-touch-icon" href="app_icon.png" />
+</pre>
+
+To avoid scaling the icon in ways that render poorly on various
+devices, use the '''sizes''' attribute to customize icons for specific
+dimensions. The following shows how to target icons for Apple's iPhone
+Safari and Nokia's N9 Browser:
+
+<pre>
+<link rel="apple-touch-icon" href="app_iphone.png" sizes="114x114" />
+<link rel="apple-touch-icon" href="app_nokiaN9.png" sizes="80x80" />
+<link rel="apple-touch-icon" href="app_ipad.png" sizes="72x72" />
+<link rel="apple-touch-icon" href="app_default.png" />
+</pre>
+
+If the expected dimensions for a particular device are not supplied,
+the browser scales down the next-largest icon available.
+
+Here is the original image, and how it appears on various device's
+home screens:
+
+[[Image:html5x128.png]]
+
+[[Image:icon_iphone.png]]
+
+[[Image:icon_n9.png]]
+
+As an alternative to icons specified within the markup, placing
+filenames such as the following in your server's root directory has
+the same effect:
+
+<pre>
+apple-touch-icon-114x114.png
+apple-touch-icon.png
+</pre>
+
+'''Note:''' Once an icon is installed on the home screen, it remains there
+until users remove the application. Changing the specified icon or
+removing the markup altogether has no effect on the interface.
+
+==XXX MT WEBAPP==
+
+Web "applications" are built with standard web-based components
+(HTML/CSS/JavaScript) that render and execute entirely within the
+browser. They may resemble Qt-based applications, or applications
+developed on other "native" platforms, but they rely on open web
+standards so that they are broadly applicable across a wide range of
+mobile platforms.  Web apps may also be customized to appear
+differently on desktop- and tablet-based browsers. For more
+information, see [[Responsive Interfaces]].
+
+Web apps are not that different from web "pages," but are typically
+distinguished by a handful of additional features:
+
+* '''They are available using home screen icons''', like other
+"native" applications, not just via bookmarks within the browser
+application.
+
+* '''They are installed onto the device.''' A web app's set of
+component files may be cached on the device so that it executes
+directly from the client browser, with no connection necessary to the
+server from which it was installed.  Cache-enabled applications do not
+require any special installation procedure, such as downloading a
+package. When you navigate to a cache-enabled web page, it installs by
+default.
+
+For more information, see
+[[The Application Cache]].
+For information how to make a web app operate more independently, see
+[[Data Storage]]. For more general information how a web
+app may operate ''offline'', see [[Offline Mode]].
+
+* '''They take the entire screen to display their content''', and
+appear without familiar browser interface components, such as the
+location bar and '''Back''' button. Screen elements can be positioned
+more freely as part of a self-contained interface.
+
+For more information on how to remove the browser's screen controls,
+see [[Full-Screen Web Apps]]. For information on how to provide
+your own mechanism to manipulate browser history, see [[Session History]].
+
+'''Note:''' The Browser supports HTML5-based web apps. It does not support
+Nokia's
+[[S40-specific web app APIs]] or
+[[Symbian Web Runtime]] widgets.
+
+==XXX MT fullscreen==
+
+For a web application to appear the same as a natively compiled
+application, you can keep the browser's built-in controls from
+appearing on the screen. Add the following line to the HTML's
+'''head''' region:
+
+<pre>
+<meta name="apple-mobile-web-app-capable" content="yes" />
+</pre>
+
+This markup serves as a signal that a web page may be presented in
+full-screen view, at users' discretion if they choose to save it as
+a home-screen web app. Aside from
+the application's content, only the status bar appears, displaying
+time, battery charge, and connection status at the top of the screen.
+
+To display a full-screen image as the application loads after being
+selected from the home screen, add the following '''link''' tag to the
+'''head''' of the page:
+
+<pre>
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<link rel="apple-touch-startup-image" href="app_splash.png" />
+</pre>
+
+An application can determine whether it is running in full-screen mode
+by checking the value of the '''window.standalone''' property.  This
+property is '''true''' for app-capable pages, but only when they are
+accessed using home-screen icons.
+
+'''Note:''' Once the application is installed onto the home screen, removing
+either of the above lines from markup has no effect on the interface.
+Pages still appear in full-screen view, and '''window.standalone'''
+still returns '''true'''.
+
+==Handling Links==
+
+Links behave differently within full-screen web apps.  When you select
+a link to a new page, it opens within the browser application using
+the browser's full set of screen controls.  This feature prevents
+users from becoming frustrated if they navigate somewhere they didn't
+intend, with no longer any means available to get back.
+
+To prevent links from opening separately within the browser, call
+'''preventDefault()''' and load the link into the page via JavaScript.
+In this example, local links appear within the full-screen view, while
+external links are delegated to the browser:
+
+<pre>
+var links = document.querySelectorAll('a[href]');
+for (var i = 0, l = links.length; i < l; i++) {
+    if (! links[i].href.match(/webkit.org/)) continue;
+    links[i].addEventListener('click', function(e) {
+        e.preventDefault();
+        location.href = event.target.href;
+    });
+}
+</pre>
+
+The example below demonstrates this different behavior for remote
+links.
+
+'''Note:''' Make sure each new page that might display within a full-screen
+web app features a consistent set of navigation controls.
+
+The following example shows how an interface may present itself
+differently when running as a full-screen web app. When the page loads
+in full-screen mode, the application repositions the navigation
+element at the bottom of the screen, occupying the space where mobile
+browser controls usually appear. In addition, the application provides
+its own '''back''' button, a standard browser feature otherwise
+unavailable within full-screen applications.
+
+[[Image:fullscreen1.png]]
+[[Image:fullscreen2.png]]
+
+The example uses ''flexible box'' CSS properties to position the
+navigation bar alternately at the top or bottom of the screen. For
+more information, see [[Use Advanced CSS Formatting]].
+
+'''Note:''' When you scroll down the page in this example, the navigation
+bar reappears at the same position. The Browser does not support the
+'''position:fixed''' CSS property that would directly allow you to mix
+scrolling and fixed-screen interface elements, but this example's
+animated '''scroll''' handler produces much the same effect.
+
+==The Application Cache==
+
+HTML5-based web apps can use the ''application cache'' to install
+themselves onto the client browser so that they can operate
+''offline'', either independently of the server that provided them, or
+with no network connection at all.  Cached applications load faster
+and reduce the overall need for server requests.  They do not require
+a store portal or any special download mechanism to install onto the
+handset.
+
+Navigating to a cache-enabled web app automatically installs it onto
+the Browser. Accessing the web app thereafter makes it load directly
+from the handset.
+
+The application ''manifest'' defines the set of components to install
+on the handset, which components to fetch from the network, and what
+to do if they're not available.  Once applications have been
+installed, changing the manifest allows developers to push updated
+versions.
+
+==Enabling the Application Cache==
+
+Web applications are implemented as collections of files: HTML, CSS,
+JavaScript, images, among others. To work together offline, they need
+to be listed in a manifest file.  This simple text file needs to be
+referenced in the initial '''html''' declaration of any page used to
+access the web app. The URL for the manifest serves as a unique
+identifier for each web app, which can share a common set of component
+files.  Total storage space available for each host's set of
+applications is 5MB.
+
+The following specifies a manifest:
+
+<pre>
+<!DOCTYPE HTML>
+<html manifest="myapp.appcache">
+</pre>
+
+'''Warning:''' Specify the simplified HTML5 '''DOCTYPE''' as it appears above,
+or the application cache or other HTML5 features may not be made
+available. The ''.appcache'' file extension is customary, but not
+required.
+
+Manifest files must be served with the '''text/cache-manifest''' MIME
+type. Add this line to an Apache configuration file:
+
+<pre>
+AddType text/cache-manifest .appcache
+</pre>
+
+Alternately, a PHP manifest can modify its own HTTP header:
+
+<pre>
+<?php header('Content-type: text/cache-manifest'); ?>
+</pre>
+
+==The Cache Manifest==
+
+A manifest file must feature the words '''CACHE MANIFEST''' as an
+initial declaration, followed by a list of files to cache, one
+pathname per line:
+
+<pre>
+CACHE MANIFEST
+# above line is required
+
+CACHE:
+index.html
+about.html
+css/styles.css
+js/app.js
+
+NETWORK:
+feed.php
+
+FALLBACK:
+feed.php error_feed.html
+</pre>
+
+The '''CACHE:''' label identifies groups of cached files, but this is
+also the default for unlabeled files. Commented lines starting with
+'''#''' and extra blank lines are ignored.
+
+Each file specified as cached must be available, or the cache does not
+load. See [[the '''error''' event]].
+
+The HTML file that specifies the manifest is cached as part of the
+application, even if it is not listed within the manifest.
+
+'''Note:''' If users navigate to a cache-enabled page but do not save it to
+the home screen or otherwise bookmark it for future use, component
+files specified within the manifest are still downloaded. To avoid
+unintended mobile network traffic, consider distinguishing access to
+cached web apps from access to ordinary web pages.
+
+==Including Networked Content==
+
+Applications can mix cached components with others that it accesses
+over the network, appropriate for any dynamically generated content:
+
+<pre>
+NETWORK:
+feed.php
+</pre>
+
+If the specified file can't be accessed, perhaps if there is no
+network connection, the '''FALLBACK:''' label allows you to assign error
+pages, which are cached along with other application components:
+
+<pre>
+NETWORK:
+feed.php
+
+FALLBACK:
+feed.php error_feed.html
+</pre>
+
+By default, you can't navigate to any page or other resource that's
+not specified in the cache. Adding the following disables this
+restriction, to load it from the network wherever possible.
+
+<pre>
+NETWORK:
+*
+</pre>
+
+The '''FALLBACK:''' section can also use wildcard characters to specify
+all-purpose errors. In this case, one error page is assigned to a
+particular file, while others respond to problems accessing other
+networked files from the same server:
+
+<pre>
+FALLBACK:
+feed.php error_feed.html
+/ error_fallback.html
+</pre>
+
+Fallback pages serve as a client-based substitute for server-generated
+error messages, such as 404 pages.  However, you cannot assign
+fallback pages for files on other servers, for example by specifying
+the '''*''' wildcard. In that case, the browser provides its own
+notification.
+
+==Controlling Web App Distribution==
+
+Once an application has been cached, component HTML files load from
+the cache by default, rather than from the network. If the contents of
+the manifest file specified by the HTML changes in any way, updated
+component files are re-installed into the cache.
+
+Adding or removing filenames triggers an update of the cache,
+otherwise so do changes to version numbers or any other text specified
+as comments within the manifest:
+
+<pre>
+CACHE MANIFEST
+# app version 1.12
+
+index.html
+about.html
+css/styles.css
+js/app.js
+</pre>
+
+Removing the referenced manifest file deletes the application cache,
+and triggers the '''obsolete''' event noted below.  Browser users may
+also delete ''all'' their cached applications through the browser's
+'''Settings''' menu, by choosing '''Clear Browsing Data''', then '''Clear
+Cookies and Data'''.
+
+==The Cache API==
+
+The sections above describe how cached applications work by default.
+The cache provides an API that allows applications to monitor and
+initiate updates. The API is available through the
+'''window.applicationCache''' object.
+
+Various events fire on the cache over the lifetime of an application:
+
+* The '''checking''' event fires when the browser initially evaluates
+a manifest file, either when encountering it for the first time or to
+see if there is an updated version.  This is always the first in any
+sequence of cache events.  If the browser is operating
+[[without a network connection]],
+no other events fire.
+
+* The '''noupdate''' event fires if the manifest is available on the
+network and has been evaluated, but has not changed since it was last
+evaluated.
+
+* The '''downloading''' event fires when the browser starts to
+download the new set of files specified as '''CACHE''' and '''FALLBACK'''.
+
+* The '''progress''' event fires for each successfully downloaded file
+that is specified as '''CACHE''' and '''FALLBACK'''. These events do not
+provide details about each file, and the cache itself does not provide
+information on the total number of files.
+
+* The '''updateready''' event fires after all files have successfully
+downloaded. (See '''swapCache()''' below.)
+
+* The '''cached''' event fires when the new application cache has been
+installed into the browser cache and is directly available within the
+browser. (See '''swapCache()''' below.)
+
+* The '''obsolete''' event fires when the manifest associated with a
+cache can no longer be found. This serves as a one-time signal that
+the application has been withdrawn.
+
+* The '''error''' event fires each time the manifest can't be found
+after firing an '''obsolete''' event, or if the manifest is malformed in
+some way. It also fires if any component file specified within a
+'''CACHE:''' or '''FALLBACK:''' section is unavailable. Errors cause the
+entire cache to be deleted.
+
+Alternately, an application can call the cache's '''status''' property,
+whose numeric values correspond to cache object constants:
+
+* 0 '''UNCACHED''': The current page is not associated with any
+application cache.
+
+* 1 '''IDLE''': The cache is active and valid.
+
+* 2 '''CHECKING''': The cache is currently fetching or evaluating the
+manifest.
+
+* 3 '''DOWNLOADING''': The cache is currently downloading files based
+on changes in the manifest.
+
+* 4 '''UPDATEREADY''': The cache has downloaded a new set of files,
+and can load them into the browser cache. (See '''swapCache()''' below.)
+
+* 5 '''OBSOLETE''': The manifest associated with the page is no longer
+available, so the cache is no longer active.
+
+Applications can update themselves using the following methods:
+
+* The '''update()''' method checks for changes to the manifest and
+initiates a new download, if necessary, much as if the page had been
+reloaded.
+
+* The '''swapCache()''' method immediately installs the latest
+downloaded version of application files into the shorter-term browser
+cache.
+
+Content presented on the screen is stored in the default browser
+cache, which is always active, even when the application cache is not
+enabled.  The application cache serves as an alternate location for
+networked content, where a request for a URL fetches a corresponding
+cached file instead.
+
+If the application runs '''swapCache()''', it is appropriate to do so
+when the '''updateready''' event fires. Once the cache swaps and the
+'''cached''' event fires, reloading the current page immediately
+reflects any changes on the screen. Otherwise, files in the browser
+cache update as they ordinarily would.
+
+==Example==
+
+The following provides access to a variety of pages that demonstrate
+many other HTML5 and CSS3 features supported by the Browser.
+The entire set of files is implemented as a cached application,
+allowing you to view them without a network connection.
+
+[[Image:index.png]]
+
+See the accompanying [[manifest file]] to view the
+cached components.
+

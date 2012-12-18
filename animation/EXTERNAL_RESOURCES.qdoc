@@ -1,0 +1,1296 @@
+
+[[../examples/index.htm]]
+x_index_htm
+
+splash page for sample pages
+
+[[../examples/compass.htm]]
+x_compass_htm
+
+Visually demos compass's coordinate space
+
+[[../examples/canvasCurve.htm]]
+x_canvasCurve_htm
+
+Interactive demo of arcTo(), quadraticCurveTo(), and bezierCurveTo()
+canvas methods
+
+[[../examples/animate.htm]]
+x_animate_htm
+
+several CSS transitions
+
+[[../examples/css/animate.css]]
+x_animate_css
+
+[[../examples/js/animate.js]]
+x_animate_js
+
+[[../examples/keyframe.htm]]
+x_keyframe_htm
+
+UI inserts a banner ad, all w/CSS keyframes
+
+[[../examples/css/keyframe.css]]
+x_keyframe_css
+
+[[../examples/js/keyframe.js]]
+x_keyframe_js
+
+[[../examples/webview.htm]]
+x_webview_htm
+
+[[../examples/css/webview.css]]
+x_webview_css
+
+[[../examples/js/webview.js]]
+x_webview_js
+
+[[../examples/audio.htm]]
+x_audio_htm
+
+[[../examples/css/audio.css]]
+x_audio_css
+
+[[../examples/js/audio.js]]
+x_audio_js
+
+[[../examples/canvas.htm]]
+x_canvas_htm
+
+[[../examples/css/canvas.css]]
+x_canvas_css
+
+[[../examples/js/canvas.js]]
+x_canvas_js
+
+[[../examples/canvasclip.htm]]
+x_canvasclip_htm
+
+[[../examples/css/canvasclip.css]]
+x_canvasclip_css
+
+[[../examples/js/canvasclip.js]]
+x_canvasclip_js
+
+[[../examples/css3.htm]]
+x_css3_htm
+
+[[../examples/css/css3.css]]
+x_css3_css
+
+[[../examples/js/css3.js]]
+x_css3_js
+
+[[../examples/editable.htm]]
+x_editable_htm
+
+[[../examples/css/editable.css]]
+x_editable_css
+
+[[../examples/js/editable.js]]
+x_editable_js
+
+[[../examples/fonts.htm]]
+x_fonts_htm
+
+[[../examples/css/fonts.css]]
+x_fonts_css
+
+[[../examples/js/fonts.js]]
+x_fonts_js
+
+[[../examples/form.htm]]
+x_form_htm
+
+[[../examples/css/form.css]]
+x_form_css
+
+[[../examples/js/form.js]]
+x_form_js
+
+[[../examples/formnum.htm]]
+x_formnum_htm
+
+[[../examples/css/formnum.css]]
+x_formnum_css
+
+[[../examples/js/formnum.js]]
+x_formnum_js
+
+[[../examples/fullscreen.htm]]
+x_fullscreen_htm
+
+[[../examples/css/fullscreen.css]]
+x_fullscreen_css
+
+[[../examples/js/fullscreen.js]]
+x_fullscreen_js
+
+[[../examples/gesture.htm]]
+x_gesture_htm
+
+[[../examples/css/gesture.css]]
+x_gesture_css
+
+[[../examples/js/gesture.js]]
+x_gesture_js
+
+[[../examples/gestureMode.htm]]
+x_gestureMode_htm
+
+[[../examples/css/gestureMode.css]]
+x_gestureMode_css
+
+[[../examples/js/gestureMode.js]]
+x_gestureMode_js
+
+[[../examples/gestureLoc.htm]]
+x_gestureLoc_htm
+
+[[../examples/css/gestureLoc.css]]
+x_gestureLoc_css
+
+[[../examples/js/gestureLoc.js]]
+x_gestureLoc_js
+
+[[../examples/history.htm]]
+x_history_htm
+
+[[../examples/css/history.css]]
+x_history_css
+
+[[../examples/js/history.js]]
+x_history_js
+
+[[../examples/install.htm]]
+x_install_htm
+
+[[../examples/manifest.php]]
+x_manifest_php
+
+[[../examples/css/install.css]]
+x_install_css
+
+[[../examples/js/install.js]]
+x_install_js
+
+[[../examples/location.htm]]
+x_location_htm
+
+relies on Ovi Maps API; also demos offline mode
+
+[[../examples/css/location.css]]
+x_location_css
+
+[[../examples/js/location.js]]
+x_location_js
+
+[[../examples/media.htm]]
+x_media_htm
+
+[[../examples/css/media.css]]
+x_media_css
+
+[[../examples/js/media.js]]
+x_media_js
+
+[[../examples/matchmedia.htm]]
+x_matchmedia_htm
+
+[[../examples/css/matchmedia.css]]
+x_matchmedia_css
+
+[[../examples/js/matchmedia.js]]
+x_matchmedia_js
+
+[[../examples/offline.htm]]
+x_offline_htm
+
+[[../examples/css/offline.css]]
+x_offline_css
+
+[[../examples/js/offline.js]]
+x_offline_js
+
+[[../examples/orient.htm]]
+x_orient_htm
+
+[[../examples/css/orient.css]]
+x_orient_css
+
+[[../examples/js/orient.js]]
+x_orient_js
+
+[[../examples/storage.htm]]
+x_storage_htm
+
+[[../examples/css/storage.css]]
+x_storage_css
+
+[[../examples/js/storage.js]]
+x_storage_js
+
+[[../examples/touch.htm]]
+x_touch_htm
+
+[[../examples/css/touch.css]]
+x_touch_css
+
+[[../examples/js/touch.js]]
+x_touch_js
+
+[[../examples/transform.htm]]
+x_transform_htm
+
+[[../examples/css/transform.css]]
+x_transform_css
+
+[[../examples/js/transform.js]]
+x_transform_js
+
+[[../examples/video.htm]]
+x_video_htm
+
+[[../examples/css/video.css]]
+x_video_css
+
+[[../examples/js/video.js]]
+x_video_js
+
+[[../examples/viewport.htm]]
+x_viewport_htm
+
+[[../examples/worker.htm]]
+x_worker_htm
+
+[[../examples/css/worker.css]]
+x_worker_css
+
+[[../examples/js/worker.js]]
+x_worker_js
+
+[[../examples/sse.htm]]
+x_sse_htm
+
+[[../examples/css/sse.css]]
+x_sse_css
+
+[[../examples/js/sse.js]]
+x_sse_js
+
+[[../examples/websql.htm]]
+x_websql_htm
+
+[[../examples/css/websql.css]]
+x_websql_css
+
+[[../examples/js/websql.js]]
+x_websql_js
+
+[[../examples/socket.htm]]
+x_socket_htm
+
+[[../examples/css/socket.css]]
+x_socket_css
+
+[[../examples/js/socket.js]]
+x_socket_js
+
+This file tabulates external sample HTML files, as well as supporting
+CSS/JS, referenced from source text. Each title corresponds to a
+cross-reference (e.g., [[identifier]]), while the externalpage
+specifies the relative path. Accompanying text describes each page's
+basic functionality and QA criteria.
+
+[[../examples/anim_accord.htm]]
+x_anim_accord
+
+Pressing top-right icon results in (A) 2-state animation: leftwards,
+then downwards expansion. (B) Tapping each top-level head expands
+subheads accordion-style. (C) Tapping anywhere else than top-level
+heads causes entire panel to collapse down to its original icon.
+[transitions; 2D transforms; multiple backgrounds]
+
+[[../examples/css/anim_accord.css]]
+x_anim_accord_css
+
+[[../examples/js/anim_accord.js]]
+x_anim_accord_js
+
+[[../examples/anim_combine.htm]]
+x_anim_combine
+
+Selecting each icon causes green or red border to appear, with
+correspoding nodding gesture. [transitions; 2D transforms; keyframe
+animations]
+
+[[../examples/css/anim_combine.css]]
+x_anim_combine_css
+
+[[../examples/anim_dice.htm]]
+x_anim_dice
+
+Tap to roll the dice. Different animation each time. [3D transforms;
+keyframe animations]
+
+[[../examples/css/anim_dice.css]]
+x_anim_dice_css
+
+[[../examples/js/anim_dice.js]]
+x_anim_dice_js
+
+[[../examples/anim_flip.htm]]
+x_anim_flip
+
+(A) Tapping left/right arrows navigates by hinging images along each
+edge; (B) Tapping center buttons reveals flip panel, rotating around
+center of panel. [transitions; 3D transforms] */
+
+[[../examples/css/anim_flip.css]]
+x_anim_flip_css
+
+[[../examples/js/anim_flip.js]]
+x_anim_flip_js
+
+[[../examples/anim_gallery.htm]]
+x_anim_gallery
+
+(A) Tapping images queued along edges causes them to scale up & move
+to center. (B) Tapping main display image causes it to flip and reveal
+text, a second animation. (C) With text flipped, tapping queued images
+triggers both animations. [transitions; 2D transforms]
+
+[[../examples/css/anim_gallery.css]]
+x_anim_gallery_css
+
+[[../examples/js/anim_gallery.js]]
+x_anim_gallery_js
+
+[[../examples/anim_marquee.htm]]
+x_anim_marquee
+
+Tapping the ellipse at the right edge of long song titles slowly
+scrolls the title leftward out of view, then back into view from the
+right. [keyframe animations]
+
+[[../examples/css/anim_marquee.css]]
+x_anim_marquee_css
+
+[[../examples/js/anim_marquee.js]]
+x_anim_marquee_js
+
+[[../examples/anim_panel.htm]]
+x_anim_panel
+
+(A) Tapping top-right icon expands panel. (B) Tapping any icon changes
+text in bottom panel, and collapses panel. (C) Tapping anywhere else
+also collapses panel. [transitions; 2D transforms]
+
+[[../examples/css/anim_panel.css]]
+x_anim_panel_css
+
+[[../examples/js/anim_panel.js]]
+x_anim_panel_js
+
+[[../examples/anim_present.htm]]
+x_anim_present
+
+Presents a keyframe-animated slideshow presentation using
+skew/translate transforms. [CSS keyframe animations; 2D transforms]
+
+[[../examples/css/anim_present.css]]
+x_anim_present_css
+
+[[../examples/anim_pulse.htm]]
+x_anim_pulse
+
+Selecting icons causes them to pulse 3 times. [CSS keyframe
+animations]
+
+[[../examples/css/anim_pulse.css]]
+x_anim_pulse_css
+
+[[../examples/anim_skew.htm]]
+x_anim_skew
+
+(A) Tapping items causes 2 animations in sequence: wipe right, then
+subsequent items moving up to fill the vacant space. (B) Tapping
+several in a row delays this second animation. (C) Tapping filter
+buttons dismisses many elements at a time. (D) Tapping top-left icon
+causes all to display. [2D transforms; transitions]
+
+[[../examples/css/anim_skew.css]]
+x_anim_skew_css
+
+[[../examples/js/anim_skew.js]]
+x_anim_skew_js
+
+[[../examples/anim_slide1.htm]]
+x_anim_slide1
+
+(A) Tapping icons on right triggers wipe-left animation. (B) Tapping
+icons on right triggers reverse wipe-right effect. [keyframe
+animations; 2D transforms; CSS3 :target selector]
+
+[[../examples/css/anim_slide.css]]
+x_anim_slide_css
+
+[[../examples/anim_timer.htm]]
+x_anim_timer
+
+Tapping within box causes arrows and text to exchange places using
+specified transition function. [transitions]
+
+[[../examples/av_video-default.htm]]
+x_av_video-default
+
+Displays a default desktop-oriented video interface, with controls
+attribute specified. [HTML5 video]
+
+[[../examples/av_video.htm]]
+x_av_video
+
+(A) Video icon with playback hint should appear in top-right, not a
+color image. (B) Tapping icon should open video playback interface.
+[HTML5 video]
+
+[[../examples/av_audio.htm]]
+x_av_audio
+
+(A) pressing any button plays an audio track; button becomes brighter
+(B) pressing another button plays different tracks (C) pressing same
+button, while playing, pauses track & causes button to pulse (D)
+pressing white box area stops track & deselects button (E) reselecting
+this stopped track restarts from beginning. [HTML5 audio; HTML5
+Multimedia API]
+
+[[../examples/css/av_audio.css]]
+x_av_audio_css
+
+[[../examples/js/av_audio.js]]
+x_av_audio_js
+
+[[../examples/css3_backgrounds.htm]]
+x_css3_backgrounds
+
+Tapping tab arrows (A) displays selected tabs with down-facing arrow &
+gradient background, and (B) animates display of interior text using
+scaleY transform. [multiple backgrounds]
+
+[[../examples/css/css3_backgrounds.css]]
+x_css3_backgrounds_css
+
+[[../examples/js/css3_backgrounds.js]]
+x_css3_backgrounds_js
+
+[[../examples/css3_backgrounds-pos.htm]]
+x_css3_backgrounds_pos
+
+Same as [[x_css3_backgrounds]], but lacks a gradient, and icons slide
+in and out from the top or side.
+
+[[../examples/css/css3_backgrounds-pos.css]]
+x_css3_backgrounds_pos_css
+
+[[../examples/css3_borderimg.htm]]
+x_css3_borderimg
+
+Decorative border surrounds 2nd paragraph. [-webkit-border-image]
+
+[[../examples/css/css3_borderimg.css]]
+x_css3_borderimg_css
+
+[[../examples/css3_borderimg_round.htm]]
+x_css3_borderimg_round
+
+Border with (A) black circles in corners and (B) gray circles on
+side. (C) Transitions between sides and corners should appear
+pleasing, with no elements overlapping others or elements cut off.
+[border-image: round]
+
+[[../examples/css/css3_borderimg_round.css]]
+x_css3_borderimg_round_css
+
+[[../examples/css3_borderimg_stretch.htm]]
+x_css3_borderimg_stretch
+
+Border with (A) black circles in corners and (B) thin diamond
+stretched along side edges. [border-image: stretch]
+
+[[../examples/css/css3_borderimg_stretch.css]]
+x_css3_borderimg_stretch_css
+
+[[../examples/css3_borderimg_bottom.htm]]
+x_css3_borderimg_bottom
+
+A decorative stretched diamond element appears after each paragraph.
+[border-image: stretch]
+
+[[../examples/css/css3_borderimg_bottom.css]]
+x_css3_borderimg_bottom_css
+
+[[../examples/css3_flex.htm]]
+x_css3_flex
+
+(A) navbar appears along bottom of screen and (B) main content area on
+top is can be scrolled vertically.
+
+[[../examples/css/css3_flex.css]]
+x_css3_flex_css
+
+[[../examples/css3_grad-radial.htm]]
+x_css3_grad-radial
+
+Colorful many-ringed radial gradient appears at touch point until
+finger lifts. [CSS Webkit Gradients]
+
+[[../examples/css/css3_grad-radial.css]]
+x_css3_grad-radial_css
+
+[[../examples/js/css3_grad-radial.js]]
+x_css3_grad-radial_js
+
+[[../examples/css3_gradientBack.htm]]
+x_css3_gradientBack
+
+Background gradient from light top to darker botttom [CSS Webkit
+Gradients]
+
+[[../examples/css/css3_gradientBack.css]]
+x_css3_gradientBack_css
+
+[[../examples/css3_gradientBackStop.htm]]
+x_css3_gradientBackStop
+
+Background gradient from dark top to lighter middle to darker botttom
+[CSS Webkit Gradients]
+
+[[../examples/css/css3_gradientBackStop.css]]
+x_css3_gradientBackStop_css
+
+[[../examples/css3_gradientButton.htm]]
+x_css3_gradientButton
+
+(A) Buttons styled with gradient: darker top to lighter bottom. (B)
+When touched, background inverts to gradient: light top to dark
+bottom. [CSS Webkit Gradients]
+
+[[../examples/css/css3_gradientButton.css]]
+x_css3_gradientButton_css
+
+[[../examples/css3_marquee.htm]]
+x_css3_marquee
+
+The page should scroll text upwards in the style of the Star Wars
+opening sequence [Webkit marquees; 3D Transforms; text shadows]
+
+[[../examples/css/css3_marquee.css]]
+x_css3_marquee_css
+
+[[../examples/css3_mask-grad.htm]]
+x_css3_mask-grad
+
+(A) Icons fade towards their bottom edges. (B) Selected icons appear
+with light shadow and no fading. [CSS Webkit Masks]
+
+[[../examples/css/css3_mask-grad.css]]
+x_css3_mask-grad_css
+
+[[../examples/js/css3_mask-grad.js]]
+x_css3_mask-grad_js
+
+[[../examples/css3_mask-img.htm]]
+x_css3_mask-img
+
+Main image blurs into black-edged mask image [CSS Webkit Masks]
+
+[[../examples/css/css3_mask-img.css]]
+x_css3_mask-img_css
+
+[[../examples/css3_multicol.htm]]
+x_css3_multicol
+
+Banner animates to scroll through 5 colorful items, then "rewinds" to
+beginning; repeats indefinitely [CSS3 multicolumn formatting; keyframe
+animations; 2D transforms]
+
+[[../examples/css/css3_multicol.css]]
+x_css3_multicol_css
+
+[[../examples/css3_reflect.htm]]
+x_css3_reflect
+
+Reflections appear under image and heading text. [CSS Webkit
+Reflections]
+
+[[../examples/css/css3_reflect.css]]
+x_css3_reflect_css
+
+[[../examples/css3_scroll.htm]]
+x_css3_scroll
+
+B&W scroll icons allow you to access entire block of text. [Webkit CSS
+custom scrollbars]
+
+[[../examples/css/css3_scroll.css]]
+x_css3_scroll_css
+
+[[../examples/css3_sel-nth.htm]]
+x_css3_sel-nth
+
+Displays icon grid: 6 high by 4 wide. [CSS3 :nth-of-type selector]
+
+[[../examples/css/css3_sel-nth.css]]
+x_css3_sel-nth_css
+
+[[../examples/css3_shadow.htm]]
+x_css3_shadow
+
+Navigation item appears offset & with hard edge. [CSS box shadow]
+
+[[../examples/css/css3_shadow.css]]
+x_css3_shadow_css
+
+[[../examples/css3_shadowBlur.htm]]
+x_css3_shadowBlur
+
+Navigation item appears with "backlighting" effect: diffuse blurred
+edge and no shadow offset. [CSS box shadow]
+
+[[../examples/css/css3_shadowBlur.css]]
+x_css3_shadowBlur_css
+
+[[../examples/css3_shadowMulti.htm]]
+x_css3_shadowMulti
+
+Navigation element features blurred shadow. On page load, entire
+element pulses 3 times with pink blurred shadow. [CSS box shadow]
+
+[[../examples/css/css3_shadowMulti.css]]
+x_css3_shadowMulti_css
+
+[[../examples/css3_shadowInset.htm]]
+x_css3_shadowInset
+
+Shadow only appears inside the box. [CSS box shadow]
+
+[[../examples/css/css3_shadowInset.css]]
+x_css3_shadowInset_css
+
+[[../examples/css3_text-overflow.htm]]
+x_css3_text-overflow
+
+(A) Overflowing text appears with an ellipse. (B) Tapping expands
+panel. (C) Tapping (X) icon collapses panel. [CSS text-overflow]
+
+[[../examples/css/css3_text-overflow.css]]
+x_css3_text-overflow_css
+
+[[../examples/js/css3_text-overflow.js]]
+x_css3_text-overflow_js
+
+[[../examples/css3_text-shadow.htm]]
+x_css3_text-shadow
+
+Diffuse shadow is offset from heading text. [CSS text-shadow]
+
+[[../examples/css/css3_text-shadow.css]]
+x_css3_text-shadow_css
+
+[[../examples/css3_text-shadowMulti.htm]]
+x_css3_text-shadowMulti
+
+2 shadows: Light gray directly against text, then dark gray. Should be
+legible against background gradient. [CSS text-shadow]
+
+[[../examples/css/css3_text-shadowMulti.css]]
+x_css3_text-shadowMulti_css
+
+[[../examples/css3_text-stroke.htm]]
+x_css3_text-stroke
+
+Text of top-level heading appears slightly outlined. [CSS text-stroke]
+
+[[../examples/css/css3_text-stroke.css]]
+x_css3_text-stroke_css
+
+[[../examples/css3_twocol.htm]]
+x_css3_twocol
+
+(A) In portrait view, single-column layout with image floating
+right. (B) In landscape view, 2-column layout with image filling
+entire column. (C) When shifting to landscape view, heading should
+center over both columns. [CSS3 multicolumn; CSS3 media queries,
+orientation]
+
+[[../examples/css/css3_twocol.css]]
+x_css3_twocol_css
+
+[[../examples/css3_twocol-straddle.htm]]
+x_css3_twocol_straddle
+
+Same as [[x_css3_twocol]], but should fix bug in which straddled
+headings do not center over more than both columns. [CSS3
+multicolumn; CSS3 media queries, orientation]
+
+[[../examples/css/css3_twocol-straddle.css]]
+x_css3_twocol_straddle_css
+
+[[../examples/css3_wordwrap.htm]]
+x_css3_wordwrap
+
+Very long word either wraps within column, or not, depending on
+toggler.
+
+[[../examples/css/css3_wordwrap.css]]
+x_css3_wordwrap_css
+
+[[../examples/event_orient-gallery.htm]]
+x_event_orient-gallery
+
+(A) Displays 2 different photo galleries based on portrait/landscape
+orientation. (B) Tapping along bar at top of screen navigates among
+images. (C) Images transition using fade + horizontal wipe effect.
+[CSS orientation Media Queries; transitions; transforms]
+
+[[../examples/css/event_orient-gallery.css]]
+x_event_orient-gallery_css
+
+[[../examples/js/event_orient-gallery.js]]
+x_event_orient-gallery_js
+
+[[../examples/event_touch-crop.htm]]
+x_event_touch-crop
+
+(A) Multi-point touch on the image to select a region (B) Touch
+outside selection to deselect (C) Touch inside to prompt to crop image
+(D) New multipoint touch changes dimensions of selection [Touch API]
+
+[[../examples/css/event_touch-crop.css]]
+x_event_touch-crop_css
+
+[[../examples/js/event_touch-crop.js]]
+x_event_touch-crop_js
+
+[[../examples/event_touch-crop-rotate.htm]]
+x_event_touch-crop-rotate
+
+Same as [[x_event_touch-crop]], but pictures rotate around a point
+under the screen.
+
+[[../examples/css/event_touch-crop-rotate.css]]
+x_event_touch-crop-rotate_css
+
+[[../examples/event_touch-crop-scale.htm]]
+x_event_touch-crop-scale
+
+Same as [[x_event_touch-crop]], but pictures scale gently towards the
+edges.
+
+[[../examples/css/event_touch-crop-scale.css]]
+x_event_touch-crop-scale_css
+
+[[../examples/form_editable.htm]]
+x_form_editable
+
+XXX
+
+[[../examples/css/form_editable.css]]
+x_form_editable_css
+
+[[../examples/js/form_editable.js]]
+x_form_editable_js
+
+[[../examples/form_progmeter.htm]]
+x_form_progmeter
+
+XXX
+
+[[../examples/css/form_progmeter.css]]
+x_form_progmeter_css
+
+[[../examples/js/form_progmeter.js]]
+x_form_progmeter_js
+
+[[../examples/form_option.htm]]
+x_form_option
+
+Changing value of first option list alters second set of options. [...]
+
+[[../examples/css/form_option.css]]
+x_form_option_css
+
+[[../examples/js/form_option.js]]
+x_form_option_js
+
+[[../examples/form_range.htm]]
+x_form_range
+
+(A) Changing each range slider results in right-aligned feedback
+text. (B) Third range input appears as tappable star-ratings
+picker. [HTML5 range form input]
+
+[[../examples/css/form_range.css]]
+x_form_range_css
+
+[[../examples/js/form_range.js]]
+x_form_range_js
+
+[[../examples/form_search.htm]]
+x_form_search
+
+(A) When loading page, a virtual keyboard interface should not
+appear. (B) Placeholder field appears with text inside. (C)
+Placeholder and autofocus inputs both appear with search icon along
+right edge. (D) Applying focus to these fields suppresses icon's
+display. [HTML5 search input]
+
+[[../examples/css/form_search.css]]
+x_form_search_css
+
+[[../examples/form_tapper.htm]]
+x_form_tapper
+
+(A) Only one button at a time can be selected within "Radio"
+section. (B) Many buttons can be selected within "checkbox"
+section. (C) Buttons in checkbox section can be returned to original
+state, with none selected. (D) Not so for buttons in "radio"
+section. [CSS3 :checked & :nth-of-type selectors]
+
+[[../examples/css/form_tapper.css]]
+x_form_tapper_css
+
+[[../examples/form_toggler.htm]]
+x_form_toggler
+
+(A) Only 1 grouped "radio" item can be toggled at a time. (B) More
+than one "checkbox" item can be toggled at once. (C) "binary" items at
+bottom appear with alternating 'AM'/'PM', 'MALE'/'FEMALE' text. [CSS3
+:checked selector]
+
+[[../examples/css/form_toggler.css]]
+x_form_toggler_css
+
+[[../examples/form_toggler-anim.htm]]
+x_form_toggler-anim
+
+(A) Form togglers animate. (B) Only 1 grouped "radio" item can be
+toggled at a time. (C) More than one "checkbox" item can be toggled at
+once. [CSS3 :checked selector; CSS3 transitions]
+
+[[../examples/css/form_toggler-anim.css]]
+x_form_toggler-anim_css
+
+[[../examples/form_validBlur.htm]]
+x_form_validBlur
+
+(A) Same as [[x_form_validSimple]], but invalid input is only marked
+after you finish editing each field. (B) For invalid input, error
+message appears below field. [HTML5 form inputs & validation; CSS3
+:valid & :invalid selectors; CSS transitions]
+
+[[../examples/css/form_validBlur.css]]
+x_form_validBlur_css
+
+[[../examples/js/form_validBlur.js]]
+x_form_validBlur_js
+
+[[../examples/form_validCheck.htm]]
+x_form_validCheck
+
+Error differs if there is (A) non-digit input, (B) fewer than 16
+digits, or (C) more than 16. [input.validity]
+
+[[../examples/css/form_validCheck.css]]
+x_form_validCheck_css
+
+[[../examples/js/form_validCheck.js]]
+x_form_validCheck_js
+
+[[../examples/form_validSimple.htm]]
+x_form_validSimple
+
+(A) Typing valid data animates input's background color to
+white. (Phone: 10 digits; zip: 5 digits; login: alphanumeric;
+password: min 8 chars; credit: 16 digits; security code: 3 digits) (B)
+"Color" and "Date" inputs do not work. [HTML5 form inputs &
+validation; CSS3 :valid & :invalid selectors; CSS transitions]
+
+[[../examples/css/form_validSimple.css]]
+x_form_validSimple_css
+
+[[../examples/gesture_virtual.htm]]
+x_gesture_virtual
+
+Landscape mode displays virtual reality scene; Sideways tips spin
+within a panoramic image; Tips along X axis look up and down slightly.
+
+[3D transforms, deviceorientation, orientation media query]
+
+[[../examples/css/gesture_virtual.css]]
+x_gesture_virtual_css
+
+[[../examples/js/gesture_virtual.js]]
+x_gesture_virtual_js
+
+[[../examples/layout_boxsizing.htm]]
+x_layout_boxsizing
+
+Toggling text link makes navigation bar exceed dimensions of the
+screen. [-webkit-box-sizing]
+
+[[../examples/css/layout_boxsizing.css]]
+x_layout_boxsizing_css
+
+[[../examples/layout_link-fmt.htm]]
+x_layout_link-fmt
+
+Icons appear after links, marking link type or file format based on
+filename prefix/suffix. [CSS3 ^= & $= attribute prefix/suffix matching
+selectors; CSS3 last-of-type selector]
+
+[[../examples/css/layout_link-fmt.css]]
+x_layout_link-fmt_css
+
+[[../examples/layout_nav.htm]]
+x_layout_nav
+
+(A) Navigation bar appears with offset shadow featuring light
+blur. (B) Icon at bottom of page after scrolling returns to top of
+page. [CSS box shadows]
+
+[[../examples/css/layout_nav.css]]
+x_layout_nav_css
+
+[[../examples/layout_nav-fixed.htm]]
+x_layout_nav_fixed
+
+Same as [[x_layout_nav]], but appears at bottom of page and does not
+scroll away. [position:fixed]
+
+[[../examples/css/layout_nav-fixed.css]]
+x_layout_nav_fixed_css
+
+[[../examples/layout_nav-flex.htm]]
+x_layout_nav_flex
+
+Appears much the same as [[x_layout_nav_fixed]]. [flexible box
+properties]
+
+[[../examples/css/layout_nav-flex.css]]
+x_layout_nav_flex_css
+
+[[../examples/layout_res.htm]]
+x_layout_res
+
+(A) Low-resolution image on left; (B) high-resolution image in middle;
+(C) Low-res on desktop, mid-res on N9, and high-res on iPhone.
+
+[[../examples/css/layout_res.css]]
+x_layout_res_css
+
+[[../examples/layout_simple.htm]]
+x_layout_simple
+
+(A) Main window offsets from top/left/right edges by 1 em unit. (B)
+Tapping text link reveals additional text accessible via
+scrolling. [...]
+
+[[../examples/css/layout_simple.css]]
+x_layout_simple_css
+
+[[../examples/layout_tbl-keyhole.htm]]
+x_layout_tbl-keyhole
+
+(A) Pressing "view listings" displays panel. (B) Arrow icons navigate
+to other listings. (C) The (X) icon dismisses the panel. [CSS3
+:target, :nth-of-type, :first-of-type, :last-of-type selectors]
+
+[[../examples/css/layout_tbl-keyhole.css]]
+x_layout_tbl-keyhole_css
+
+[[../examples/js/layout_tbl-keyhole.js]]
+x_layout_tbl-keyhole_js
+
+[[../examples/loc_simple.htm]]
+x_loc_simple
+
+(A) Mark current location on map, defaulting to Cambridge in case of
+Geolocation API error. (B) Map is draggable on supporting devices. (C)
+In portrait mode, icons allow you to zoom in and out. (D) In landscape
+mode, map is full-screen, with no icons displaying. [Geoloc API:
+getCurrentLocation method; Ovi Maps API]
+
+[[../examples/css/loc_simple.css]]
+x_loc_simple_css
+
+[[../examples/js/loc_simple.js]]
+x_loc_simple_js
+
+[[../examples/mob_condjs.htm]]
+x_mob_condjs
+
+Guesses what kind of browser you are running. [CSS3 Media Queries;
+StyleMedia API]
+
+[[../examples/css/mob_condjs.css]]
+x_mob_condjs_css
+
+[[../examples/js/mob_condjs.js]]
+x_mob_condjs_js
+
+[[../examples/mob_layout.htm]]
+x_mob_layout
+
+Presents complex layout to desktop browsers; simplified layout
+otherwise. [CSS3 Media Queries]
+
+[[../examples/mob_mediaquery.htm]]
+x_mob_mediaquery
+
+Guesses what kind of browser you are running. [CSS3 Media Queries,
+device-width]
+
+[[../examples/css/mob_mediaquery.css]]
+x_mob_mediaquery_css
+
+[[../examples/css/mq_desktop.css]]
+x_mq_desktop_css
+
+[[../examples/css/mq_mobile.css]]
+x_mq_mobile_css
+
+[[../examples/css/mq_tablet.css]]
+x_mq_tablet_css
+
+[[../examples/css/mq_touch.css]]
+x_mq_touch_css
+
+[[../examples/css/mqlayout_desktop.css]]
+x_mqlayout_desktop_css
+
+[[../examples/css/mqlayout_mobile.css]]
+x_mqlayout_mobile_css
+
+[[../examples/css/mqlayout_touch.css]]
+x_mqlayout_touch_css
+
+[[../examples/storage_data.htm]]
+x_storage_data
+
+(A) First time page is loaded, panel prompts for data (B)
+login/password forms validate as required, turning red if no text is
+entered after input is touched. (C) credit card field validates to 16
+digits; turns red if wrong (D) After dismissing panel to save data,
+pressing (i) icon shows all data. (E) Navigating to other pages, then
+navigating back & choosing (i) shows all data. (F) Closing window or
+browser, then opening new window and navigating back to page and
+choosing (i) shows presence of login/password data, but ''not'' credit
+card. [LocalStorage; SessionStorage]
+
+[[../examples/css/storage_data.css]]
+x_storage_data_css
+
+[[../examples/js/storage_data.js]]
+x_storage_data_js
+
+[[../examples/storage_history.htm]]
+x_storage_history
+
+Make sets of edits to various entries, then press the browser's BACK
+button to progressively undo the changes. [History API;
+ContentEditable; LocalStorage]
+
+[[../examples/css/storage_history.css]]
+x_storage_history_css
+
+[[../examples/js/storage_history.js]]
+x_storage_history_js
+
+[[../examples/storage_offline.htm]]
+x_storage_offline
+
+(A) If connected to network, pressing map icon displays Ovi MAP
+UI. (B) If disconnected, pressing map icon yields 'not online' error.
+(C) If net connection is lost within map UI, map disappears. (D) If
+net connection resumes within initial text UI, user is prompted to
+return to map UI. [online/offline events; window.navigator.onLine
+status]
+
+[[../examples/css/storage_offline.css]]
+x_storage_offline_css
+
+[[../examples/js/storage_offline.js]]
+x_storage_offline_js
+
+[[../examples/storage_appcache.htm]]
+x_storage_appcache
+
+Media player should function same as '''av_audio''' in absence of
+network connection.
+
+[[../examples/storage_appcache.manifest]]
+x_storage_appcache_manifest
+
+[[../examples/utilColor.htm]]
+x_utilColor
+
+'''Not intended for access via mobile browser!''' (A) Manipulating
+RGBA values changes RGBA box. (B) Manipulating HSLA values changes
+HSLA box. (C) CSS code can be copied from top panel. [RGBA/HSLA color
+models]
+
+[[../examples/utilGradientLinear.htm]]
+x_utilGradientLinear
+
+'''Not intended for access via mobile browser!''' (A) Manipulate
+linear gradient's from/to position, color, and opacity. (B)
+Manipulate intermedite position of color-stop, and define separate
+color/opacity. [Webkit Gradients]
+
+[[../examples/utilGradientRadial.htm]]
+x_utilGradientRadial
+
+'''Not intended for access via mobile browser!''' (A) Manipulate
+radial gradient's from/to position, radius, color, and opacity. (B)
+Manipulate intermedite position of color-stop, and define separate
+color/opacity. [Webkit Gradients]
+
+[[../examples/utilShadow.htm]]
+x_utilShadow
+
+'''Not intended for access via mobile browser!''' Manipulate box
+shadow and text shadow properties independently. [Box shadows; Text
+shadows]
+
+[[../examples/utilBackground.htm]]
+x_utilBackground
+
+'''Not intended for access via mobile browser!''' Manipulate various
+background-image properties independently. [Background Images]
+
+[[../examples/utilTransform2D.htm]]
+x_utilTransform2D
+
+'''Not intended for access via mobile browser!''' (A) Manipulating
+range sliders shifts value of corresponding transform function. (B)
+CSS code can be copied from top panel. [2D transforms]
+
+[[../examples/utilTransform3d.htm]]
+x_utilTransform3d
+
+'''Not intended for access via mobile browser!''' (A) Manipulating
+range sliders shifts value of corresponding transform function. (B)
+CSS code can be copied from top panel. [3D transforms]
+
+[[../examples/utilTransform3dNest.htm]]
+x_utilTransform3dNest
+
+'''Not intended for access via mobile browser!''' (A) Manipulating
+range sliders shifts value of corresponding transform function. (B)
+CSS code can be copied from top panel. [3D transforms]
+
+[[../examples/utilTransform3dNest_x8.htm]]
+x_utilTransform3dNest_x8
+
+'''Not intended for access via mobile browser!''' (A) Manipulating
+range sliders shifts value of corresponding transform function. (B)
+CSS code can be copied from top panel. [3D transforms]
+
+[[../examples/utilMatrix2D.htm]]
+x_utilMatrix2D
+
+'''Not intended for access via mobile browser!''' (A) Manipulating
+range sliders shifts value of matrix transform function. (B)
+CSS code can be copied from top panel. [2D transforms]
+
+[[../examples/viewoff.htm]]
+x_viewoff
+
+Grid layout with text and graphics. Page should appear zoomed out.
+Pinch-zoom should work. When zooming in, line length should be
+unmanageably long, forcing horizontal pan gestures to read. [viewport]
+
+[[../examples/viewon.htm]]
+x_viewon
+
+Page should appear zoomed in. Line length should be short and
+readable. Pinch-zoom should work. Orientation should force zoom.
+[viewport width=device-width]
+
+[[../examples/viewon_noscale.htm]]
+x_viewon_noscale
+
+Same as [[x_viewon]], but pinch-zoom should '''not''' work.
+Orientation should modify line length. [viewport width=device-width,
+initial-scale=1, user-scalable=no]
+
+[[../examples/viewon_noscale_noadjust.htm]]
+x_viewon_noscale_noadjust
+
+Same as above, but text size should remain constant when swapping
+between portrait & landscape orientation. [viewport
+width=device-width, initial-scale=1, user-scalable=no;
+-webkit-text-size-adjust:none]
+
+[[../examples/viewon_dpi.htm]]
+x_viewon_dpi
+
+Background image and grid should appear smaller. [viewport
+width=device-width, target-densitydpi=device-dpi]
+
+[[../examples/viewoff_noadjust.htm]]
+x_viewoff_noadjust
+
+Text size should be different. [-webkit-text-size-adjust:none]
+
+[[../examples/viewon_noadjust.htm]]
+x_viewon_noadjust
+
+Text size should be different than [[x_viewon]]. [viewport
+width=device-width; -webkit-text-size-adjust:none]
+
+[[../examples/viewoff_coladjust.htm]]
+x_viewoff_coladjust
+
+[text-size-adjust:auto, multicol]
+
+[[../examples/viewoff_colnoadjust.htm]]
+x_viewoff_colnoadjust
+
+[text-size-adjust:none, multicol]
+
+[[../examples/layout_fixed-top.htm]]
+x_layout_fixed-top
+
+[[../examples/css/layout_fixed-top.css]]
+x_layout_fixed-top_css
+
+[[../examples/js/layout_fixed-top.js]]
+x_layout_fixed-top_js
+
+[[../examples/layout_fixed-bottom.htm]]
+x_layout_fixed-bottom
+
+[[../examples/css/layout_fixed-bottom.css]]
+x_layout_fixed-bottom_css
+
+[[../examples/js/layout_fixed-bottom.js]]
+x_layout_fixed-bottom_js
+
+[[../examples/layout_link-accesskey.htm]]
+x_layout_link-accesskey
+
+[[../examples/css/layout_link-accesskey.css]]
+x_layout_link-accesskey_css
+
+[[../examples/js/layout_link-accesskey.js]]
+x_layout_link-accesskey_js
+
+[[../examples/css3_text-font.htm]]
+x_css3_text-font
+
+[[../examples/css/css3_text-font.css]]
+x_css3_text-font_css
+

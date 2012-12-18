@@ -1,0 +1,217 @@
+
+
+=Input Types=
+
+Entering text is one of the most difficult parts of using a mobile
+handset. Wherever possible, interfaces that solicit users' information
+should make data entry as easy as possible. This section suggests ways
+to modify non-text form elements to make them easier to use on mobile
+handsets.
+
+'''Note:''' Mobile browsers generally prevent access to the handset's file system,
+and do not allow users to upload files, so '''file''' form inputs are
+not supported.
+
+==Option Lists==
+
+Option lists allow users to choose from a known set of alternatives.
+Mobile browsers present options lists with a dedicated interface that
+renders options much larger than the small popup menu of desktop
+browsers. Since users can only see a few options at a time, it is best
+to break sets of options into different categories to limit the number
+available at any point. The following example shows two option lists,
+re-styled to make them easier to touch. The contents of the second
+list depend on what is selected from the first:
+
+[[Image:scr_form_option.png]]
+
+'''Note:''' HTML tags that present special interfaces, such as pop-up lists, can
+often be restyled by disabling their default presentation. Setting
+the '''-webkit-appearance''' property to '''none''' styles the element as
+a plain rectangle, to which other style sheets add a border and
+background image.
+
+==<< Autocompletion Lists (datalist tag)==
+
+==SIDEBAR Form Element State==
+
+The ''':checked''' dynamic class allows you to style radio and checkbox
+inputs based on their selection state. This enables the following
+mobile-friendly interface, which converts small radio and check boxes
+to much more accessible toggle buttons:
+
+[[Image:scr_form_toggler-anim.png]]
+
+In this example, the position of a background image is shifted based
+on whether an '''input''' is ''':checked''' or not:
+
+<pre>
+input[type=radio], input[type=checkbox] {
+  -webkit-appearance  : none;
+  background-color    : #777777;
+  background-image    : url(img/toggle_button.png);
+  background-position : 102% 50%;
+  background-repeat   : no-repeat;
+  background-size     : contain;
+}
+input[type=radio]:checked, input[type=checkbox]:checked {
+  background-position : -2% 50%;
+}
+</pre>
+
+Note that to display button text, dynamic classes can be chained
+together to form more complex expressions:
+'''input[type=radio]:checked:before'''. This example also relies on the
+'''-webkit-appearance''' property, which allows you to override the
+default visual presentation of specialized interface elements such as
+radio and checkbox inputs. In this case, setting their appearance to
+'''none''' presents them as plain blocks. (See [[Radio and Checkbox Togglers]] for alternative form interfaces. See [[Transitions]] for
+information on how the buttons are animated.)
+
+Form elements may also be re-styled based on whether they are
+''':enabled''' or ''':disabled'''. In addition, the ''':focus''' dynamic
+class allows you to style text form inputs or other editable content
+regions that users have currently selected for editing. The following
+example applies a box shadow to any field that is ready to accept
+text:
+
+[[Image:scr_form_search.png]]
+
+==Radio and Checkbox Togglers==
+
+By default, radio buttons and check boxes render very small and
+inaccessible on the mobile screen. CSS3's ''':checked''' dynamic class
+allows them to be re-styled as larger toggle buttons. The following
+shows two different ways to implement toggle inputs entirely with CSS:
+
+* [[Image:scr_form_toggler.png]]
+
+* [[Image:scr_form_toggler-anim.png]]
+
+Tappable buttons offer another way to improve the interface of radio
+buttons and check boxes, which the following example demonstrates:
+
+[[Image:scr_form_tapper.png]]
+
+==<< Date/Time Inputs==
+
+HTML5 also specifies several temporal input types: '''date''',
+'''month''', '''week''', '''time''', '''datetime''', and
+'''datetime-local'''.  These validate to various elements of universal
+time syntax, such as '''0001-01-01T00:00Z'''. However, so far only a
+few browsers support a custom calendar-style input interface that
+would make them practical. Until there is widespread support, it is
+better to rely on date picker interfaces supplied by JavaScript
+frameworks such as jQuery.
+
+==<< Color Inputs==
+
+The '''color''' input validates to web color names such as ''red'',
+or hex values such as ''#00ffff''. However, WebKit-based browsers do
+not yet feature a dedicated color-picker input interface, so you
+should avoid these inputs.
+
+==Range Inputs==
+
+HTML5's new '''number''' form input shown in the [[next section]]
+allows validation of numeric input. In cases when the range of values
+is constrained, however, the '''range''' input prevents users from
+having to enter numeric text. Here is a sample:
+
+<pre>
+<input type="range" min="0" max="5" value="2.5" step="0.5"/>
+</pre>
+
+Specifying numeric '''min''' and '''max''' attributes overrides the
+default range of 0 to 100. Specifying a numeric '''step''' attribute
+overrides the default incremental value of 1.
+
+While range sliders indicate approximately how far users are between
+the minimum and maximum values, they don't provide feedback to
+indicate the selected value. The following example fixes this with
+some added JavaScript enabled by the input's '''change''' event:
+
+[[Image:scr_form_range.png]]
+
+The first example shows how '''range''' inputs may appear by default.
+
+The second example is re-styled to make the slider handle larger and
+more inviting. This component is stylable via a low-level  CSS
+''pseudo-element'' class specific to WebKit:
+
+<pre>
+input[type="range"]{ -webkit-appearance:none }
+input[type="range"]::-webkit-slider-thumb { -webkit-appearance:none }
+</pre>
+
+The second example also substitutes the integer with a corresponding
+text value, indicating a range of a customer's level of satisfaction.
+
+The third example shows a familiar rating-picker interface that
+invites users to tap along the bar rather than drag a slider handle.
+
+==Progress Trackers and Meters==
+
+HTML5's new '''progress''' and '''meter''' tags aren't actually form
+elements. They are both similar to '''range''' inputs because the
+present a range of numeric values graphically. The major difference is
+that they are used for output rather than input.
+
+The '''progress''' tag is designed to give feedback about any operation
+that may involve a noticeable delay, or that requires proceeding
+through a sequence of steps. The '''meter''' tag is similar, but can be
+used to alert users about values that fall outside a preferred range.
+
+The following example shows how the '''progress''' and '''meter''' tags
+appear by default, and by cycling through a series of values each ten
+seconds:
+
+<pre>
+<progress max="10"/>
+<meter min="0" low="4" optimum="5" high="6"  max="10"/>
+</pre>
+
+[[Image:scr_form_progmeter.png]]
+
+The '''progress''' tag requires '''value''' and '''max''' attributes
+to present the relative degree of completion. With no attributes
+specified, the '''progress''' tag displays a continuous animation.
+
+Since HTML5 tags such as '''progress''' and '''meter''' are relatively
+new, some browsers ignore them altogether. In this case, it is a good
+idea to allow the interface to degrade gracefully. The following
+example presents a graphic progress bar to browsers that support it,
+or raw text to those that don't:
+
+<pre>
+<progress id="download" value="245" max="3764">
+    <div id="downloadFallback">15</div>%
+</progress>
+</pre>
+
+The default appearance of the progress tracker or its degree of
+completion can be modified with CSS such as the following:
+
+<pre>
+progress                         { -webkit-appearance: none; }
+progress::-webkit-progress-bar   { background-color: lightblue; }
+progress::-webkit-progress-value { background-color: lightgreen; }
+</pre>
+
+The following CSS specifies a meter's default background and values
+relative to its optimum:
+
+<pre>
+meter                                     { -webkit-appearance: none; }
+meter::-webkit-meter-bar                  { background: lightblue; }
+meter::-webkit-meter-optimum-value        { background: lightgreen; }
+meter::-webkit-meter-suboptimum-value     { background: gold; }
+meter::-webkit-meter-even-less-good-value { background: pink; }
+</pre>
+
+In the following example, JavaScript added to a re-styled progress bar
+changes it to an input element:
+
+[[Image:scr_event_orient-gallery.png]]
+[[Image:scr_event_orient-gallery2.png]]
+
