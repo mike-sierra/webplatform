@@ -1,0 +1,101 @@
+<html>
+<head>
+<title>cards</title>
+<style>
+
+body {
+    background: #ddd;
+    padding-top: 100px;
+    padding-left: 100px;
+    -webkit-perspective: 1200;
+}
+
+div {
+    position: absolute;
+    width: 280;
+    height: 400;
+    border: thin solid #777;
+    border-radius: 0.5em;
+}
+
+.card {
+    left: 0px;
+    -webkit-transform-style: preserve-3d;
+}
+
+.face {
+    background-size: 100% 100%;
+    -webkit-backface-visibility: hidden;
+}
+
+.face:first-of-type {
+    background-image: url(JackHeart.jpeg);
+}
+
+.face:last-of-type {
+    background-image: url(cardBack2.jpeg);
+    -webkit-transform: rotateY(180deg);
+}
+
+.card:nth-of-type(1) { -webkit-transform: rotateY(0deg); }
+.card:nth-of-type(2) { -webkit-transform: rotateY(45deg); }
+.card:nth-of-type(3) { -webkit-transform: rotateY(72deg); }
+.card:nth-of-type(4) { -webkit-transform: rotateY(108deg); }
+.card:nth-of-type(5) { -webkit-transform: rotateY(135deg); }
+.card:nth-of-type(6) { -webkit-transform: rotateY(180deg); }
+
+.card:nth-of-type(1) { left: 50px }
+.card:nth-of-type(2) { left: 390px }
+.card:nth-of-type(3) { left: 690px }
+.card:nth-of-type(4) { left: 910px }
+.card:nth-of-type(5) { left: 1210px }
+.card:nth-of-type(6) { left: 1550px }
+
+</style>
+
+</head>
+<body>
+
+<div class="card">
+  <div class="face"></div>
+  <div class="face"></div>
+</div>
+
+<div class="card">
+  <div class="face"></div>
+  <div class="face"></div>
+</div>
+
+<div class="card">
+  <div class="face"></div>
+  <div class="face"></div>
+</div>
+
+<div class="card">
+  <div class="face"></div>
+  <div class="face"></div>
+</div>
+
+<div class="card">
+  <div class="face"></div>
+  <div class="face"></div>
+</div>
+
+<div class="card">
+  <div class="face"></div>
+  <div class="face"></div>
+</div>
+
+</body>
+</html>
+
+<!--
+<img src="JackClub.jpeg"/>
+<img src="QueenSpade.png"/>
+<img src="AceSpade.jpeg"/>
+<img src="JackHeart.jpeg"/>
+<img src="KingClub.jpeg"/>
+<img src="JackSpade.jpeg"/>
+<img src="cardBack1.jpeg"/>
+<img src="cardBack2.jpeg"/>
+-->

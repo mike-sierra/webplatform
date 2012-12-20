@@ -1,0 +1,60 @@
+<html>
+<head>
+<title>cards</title>
+<style>
+
+body {
+    background		: #ddd;
+}
+
+.parent {
+    position		: absolute;
+    top			: 100px;
+    left		: 100px;
+    border              : thin solid #000;
+}
+.child {
+    border              : thin solid #000;
+    -webkit-transform           : rotateY(45deg);
+}
+
+div:nth-of-type(2) {
+    left		: 450px;
+    -webkit-perspective         : 1000;
+}
+
+div:last-of-type {
+    left		: 800px;
+    -webkit-perspective-origin-x  : 500px;
+    -webkit-perspective         : 1000;
+}
+
+</style>
+
+</head>
+<body>
+
+<div class="parent">
+<img class="child" src="JackSpade.jpeg"/>
+</div>
+
+<div class="parent">
+<img class="child" src="JackSpade.jpeg"/>
+</div>
+
+<div class="parent">
+<img class="child" src="JackSpade.jpeg"/>
+</div>
+
+</body>
+</html>
+
+
+<!--
+<img class="child" src="AceSpade.jpeg"/>
+<img class="child" src="JackClub.jpeg"/>
+<img class="child" src="AceSpade.jpeg"/>
+<img class="child" src="JackHeart.jpeg"/>
+<img class="child" src="KingClub.jpeg"/>
+-->
+

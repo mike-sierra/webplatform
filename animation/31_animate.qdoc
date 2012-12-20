@@ -1,13 +1,212 @@
-=Animations=
+==Transitions==
 
-Animations can help engage users with your application and provide
-rich visual context for its various functions.
+CSS transitions offer the easiest way to animate an interface, by
+specifying graduated shifts from one set of CSS style sheets to
+another. 
 
-Web interfaces are driven by CSS ''style sheets''. Web applications
-can dynamically apply different sets of style sheets, and CSS
-''transitions'' can make those interface shifts animate gradually.
-CSS ''keyframe animations'' offer more flexibility, and are not tied
-to shifts between style CSS.
+[[tutorials/css_animations|keyframe animations]]
+
+Transitions specify 
+
+They help prevent abrupt jumps from one display state to
+another, which can be particularly disorientating in smaller-screen
+mobile interfaces.
+
+Transitions specify properties to animate, the animation's duration,
+the function affecting the animation's progress, and an optional delay
+before the animation starts.
+
+The following example shows a series of transitions of a '''nav'''
+element, from a collapsed icon state to an expanded panel:
+
+[[Image:transitionUI.png]]
+
+Each style sheet specifies a different '''max-width''' value, and the
+transition allows the value to shift over the course of half a second:
+
+<pre>
+nav.expanded  { max-width : 95%; }
+nav.collapsed { max-width : 10%; }
+nav {
+    -webkit-transition    : max-width 0.5s ease-in-out;
+}
+</pre>
+
+The transition shown above appears the same in both directions, but
+specifying properties separately for each style sheet allows them to
+be customized. In this variation, the panel takes twice as long to
+expand than to collapse:
+
+<pre>
+nav.collapsed {
+    max-width          : 10%;
+    -webkit-transition : max-width 0.5s ease-out;
+}
+nav.expanded {
+    max-width          : 95%;
+    -webkit-transition : max-width 1s ease-in;
+}
+</pre>
+
+The combined '''-webkit-transition''' property combines individual
+properties. (See [[Timing Functions]] below for more information on
+the '''-webkit-transition-timing-function''' property.)
+
+<pre>
+nav {
+    -webkit-transition-property        : max-width;
+    -webkit-transition-duration        : 0.5s;
+    -webkit-transition-timing-function : ease-in-out;
+}
+</pre>
+
+When shifting from one interface state to another, transitions can
+shift between more than one pair of style sheets. The example above
+specifies an additional transition that fades and zooms in icons that
+are nested within the navigation panel, providing the overall
+appearance of a single animation effect:
+
+<pre>
+nav > .option {
+    -webkit-transition : all 0.5s linear;
+}
+nav.expanded > .option {
+    opacity            : 1;
+    -webkit-transform  : scale(1.0);
+}
+nav.collapsed > .option {
+    opacity            : 0;
+    -webkit-transform  : scale(0.0);
+}
+</pre>
+
+The fade is specified using '''opacity''', and the zoom effect with
+'''-webkit-transform''', discussed in the [[next section]].
+A transition property of '''all''' applies to any valid property that
+differs between the two states.
+
+Transitions apply not only to predefined style sheets, but more
+flexibly to values that are assigned dynamically, which helps to
+smooth shifts between application states. The example above would also
+display a transition if the '''max-width''' value were assigned directly
+to the element:
+
+<pre>
+icon.style.maxWidth = '95%';
+</pre>
+
+'''Note:''' CSS transitions perform robustly in response to ambiguous user input.
+As the navigation panel expands in the example above, tapping
+elsewhere gracefully interrupts and reverses the transition to its
+collapsed icon state.
+
+==What Can Be Transitioned?==
+
+Most any CSS property expressed as a simple numeric measurement or
+color value can be transitioned between two style sheets. Color names
+correspond internally to numeric values, so they can be transitioned,
+along with keywords such as '''thin''' and '''thick''' that apply to
+'''border-width'''.
+
+Transitions don't affect named values that refer to discrete states,
+such as the '''left''' and '''right''' properties used by '''text-align'''.
+Property values that feature complex syntax, such as for [[gradients]], [[masks]], and [[reflections]],
+also cannot be transitioned.
+
+In the example above, the '''max-width''' property in each style sheet
+specifies measurements as percentage units. Transitions may not work
+properly between fixed and flexible units.
+
+Transitions cannot be applied to dynamically inserted content via
+''':before''' and ''':after''' dynamic class selectors.
+
+Transitions also cannot be applied to dynamically positioned elements.
+The following example shows a list of stacked items that rearrange
+themselves when they are dismissed or filtered away:
+
+[[Image:scr_anim_skew.png]]
+
+Items must be assigned to a grid, and can't be animated by letting the
+browser stack them freely.  However, implicit CSS values may be
+transitoned. For example, a transition to a specific
+'''background-color''' from a set of style sheets that don't specify any
+color assume the default value of '''transparent'''.
+
+==Transition sequences==
+
+As [[shown above]], separate transitions can be applied
+simultaneously to different sets of elements.  Alternately, more than
+one transition can be applied to the same set of elements.
+
+Each transition property can accommodate more than one value, each
+separated with a comma. Applying an accompanying delay allows for
+transitions to appear in sequence. The following example shows how a
+panel may expand in two half-second stages that modify the '''width'''
+followed by the '''height''', then reverse the sequence when collapsing:
+
+<pre>
+nav.expanded {
+  -webkit-transition-property : width, height;
+}
+nav.collapsed {
+  -webkit-transition-property : height, width;
+}
+nav {
+  -webkit-transition-duration : 0.5s, 0.5s;
+  -webkit-transition-delay    : 0.0s, 0.5s;
+}
+</pre>
+
+The following example uses these sequential transitions to slide out
+an embedded a navigation panel:
+
+[[Image:scr_anim_trans_accord1.png]]
+[[Image:scr_anim_trans_accord2.png]]
+[[Image:scr_anim_trans_accord3.png]]
+
+The following example shows a photo gallery interface that uses the
+same technique to flip images to reveal descriptive text. It relies on
+a sequence of simple [[2D '''scale''' transforms]], one that
+narrows the first visible element, followed by another that widens the
+second hidden one:
+
+[[Image:scr_anim_gallery.png]]
+[[Image:scr_anim_gallery2.png]]
+
+This example shows how flexibly transitions may be applied.  When
+users tap on adjacent photos, the panel automatically flips back to
+its original state as it is moved to the side.
+
+==Timing functions==
+
+Timing properties allow the speed at which transitions (and
+[[keyframe animations]]) progress to vary over
+their duration.
+
+If a timing function's value specifies the '''linear''' keyword, the
+transition starts and stops abruptly, and its speed remains
+constant. Otherwise, timing functions specify progress in terms of a
+bezier curve whose control points are expressed as decimals. Various
+keyword values correspond to bezier functions as follows:
+
+* '''linear''':  '''cubic-bezier(0.0, 0.0, 1.0, 1.0)'''
+
+* '''ease''' (default):  '''cubic-bezier(0.25, 0.1, 0.25, 1.0)'''
+
+* '''ease-in''':  '''cubic-bezier(0.42, 0, 1.0, 1.0)'''
+
+* '''ease-out''':  '''cubic-bezier(0, 0, 0.58, 1.0)'''
+
+* '''ease-in-out''':  '''cubic-bezier(0.42, 0, 0.58, 1.0)'''
+
+The following example demonstrates various preset timing functions and
+custom '''cubic-bezier()''' functions:
+
+[[Image:scr_anim_timer.png]]
+
+See [[netzgesta.de]] for an interactive visualization of how preset and
+'''cubic-bezier()''' timing functions appear as a response curve.
+
 
 
 
@@ -20,9 +219,9 @@ This example expands a navigation panel from a small icon:
 [[Image:animate2.png]]
 
 Tapping on the element toggles its '''expanded''' class, which alters
-its '''width''', '''border''', and '''background-position''' properties. The
-'''-webkit-transition''' property animates specified properties, '''all'''
-in this case, over the course of one second:
+its '''width''', '''border''', and '''background-position'''
+properties. The '''-webkit-transition''' property animates specified
+properties, '''all''' in this case, over the course of one second:
 
 <pre>
 #navbar {
@@ -274,208 +473,6 @@ potentially complex but otherwise static visual effects discussed in
 libraries, but CSS animations are most useful when designing an
 overall interface.  CSS-based animation also offers a tangible
 performance boost over animations implemented with JavaScript timers.
-
-==Transitions==
-
-Transitions specify gradual shifts from one set of style sheets to
-another. They help prevent abrupt jumps from one display state to
-another, which can be particularly disorientating in smaller-screen
-mobile interfaces.
-
-Transitions specify properties to animate, the animation's duration,
-the function affecting the animation's progress, and an optional delay
-before the animation starts.
-
-The following example shows a series of transitions of a '''nav'''
-element, from a collapsed icon state to an expanded panel:
-
-[[Image:transitionUI.png]]
-
-Each style sheet specifies a different '''max-width''' value, and the
-transition allows the value to shift over the course of half a second:
-
-<pre>
-nav.expanded  { max-width : 95%; }
-nav.collapsed { max-width : 10%; }
-nav {
-    -webkit-transition    : max-width 0.5s ease-in-out;
-}
-</pre>
-
-The transition shown above appears the same in both directions, but
-specifying properties separately for each style sheet allows them to
-be customized. In this variation, the panel takes twice as long to
-expand than to collapse:
-
-<pre>
-nav.collapsed {
-    max-width          : 10%;
-    -webkit-transition : max-width 0.5s ease-out;
-}
-nav.expanded {
-    max-width          : 95%;
-    -webkit-transition : max-width 1s ease-in;
-}
-</pre>
-
-The combined '''-webkit-transition''' property combines individual
-properties. (See [[Timing Functions]] below for more information on
-the '''-webkit-transition-timing-function''' property.)
-
-<pre>
-nav {
-    -webkit-transition-property        : max-width;
-    -webkit-transition-duration        : 0.5s;
-    -webkit-transition-timing-function : ease-in-out;
-}
-</pre>
-
-When shifting from one interface state to another, transitions can
-shift between more than one pair of style sheets. The example above
-specifies an additional transition that fades and zooms in icons that
-are nested within the navigation panel, providing the overall
-appearance of a single animation effect:
-
-<pre>
-nav > .option {
-    -webkit-transition : all 0.5s linear;
-}
-nav.expanded > .option {
-    opacity            : 1;
-    -webkit-transform  : scale(1.0);
-}
-nav.collapsed > .option {
-    opacity            : 0;
-    -webkit-transform  : scale(0.0);
-}
-</pre>
-
-The fade is specified using '''opacity''', and the zoom effect with
-'''-webkit-transform''', discussed in the [[next section]].
-A transition property of '''all''' applies to any valid property that
-differs between the two states.
-
-Transitions apply not only to predefined style sheets, but more
-flexibly to values that are assigned dynamically, which helps to
-smooth shifts between application states. The example above would also
-display a transition if the '''max-width''' value were assigned directly
-to the element:
-
-<pre>
-icon.style.maxWidth = '95%';
-</pre>
-
-'''Note:''' CSS transitions perform robustly in response to ambiguous user input.
-As the navigation panel expands in the example above, tapping
-elsewhere gracefully interrupts and reverses the transition to its
-collapsed icon state.
-
-==What Can Be Transitioned?==
-
-Most any CSS property expressed as a simple numeric measurement or
-color value can be transitioned between two style sheets. Color names
-correspond internally to numeric values, so they can be transitioned,
-along with keywords such as '''thin''' and '''thick''' that apply to
-'''border-width'''.
-
-Transitions don't affect named values that refer to discrete states,
-such as the '''left''' and '''right''' properties used by '''text-align'''.
-Property values that feature complex syntax, such as for [[gradients]], [[masks]], and [[reflections]],
-also cannot be transitioned.
-
-In the example above, the '''max-width''' property in each style sheet
-specifies measurements as percentage units. Transitions may not work
-properly between fixed and flexible units.
-
-Transitions cannot be applied to dynamically inserted content via
-''':before''' and ''':after''' dynamic class selectors.
-
-Transitions also cannot be applied to dynamically positioned elements.
-The following example shows a list of stacked items that rearrange
-themselves when they are dismissed or filtered away:
-
-[[Image:scr_anim_skew.png]]
-
-Items must be assigned to a grid, and can't be animated by letting the
-browser stack them freely.  However, implicit CSS values may be
-transitoned. For example, a transition to a specific
-'''background-color''' from a set of style sheets that don't specify any
-color assume the default value of '''transparent'''.
-
-==Transitional Sequences==
-
-As [[shown above]], separate transitions can be applied
-simultaneously to different sets of elements.  Alternately, more than
-one transition can be applied to the same set of elements.
-
-Each transition property can accommodate more than one value, each
-separated with a comma. Applying an accompanying delay allows for
-transitions to appear in sequence. The following example shows how a
-panel may expand in two half-second stages that modify the '''width'''
-followed by the '''height''', then reverse the sequence when collapsing:
-
-<pre>
-nav.expanded {
-  -webkit-transition-property : width, height;
-}
-nav.collapsed {
-  -webkit-transition-property : height, width;
-}
-nav {
-  -webkit-transition-duration : 0.5s, 0.5s;
-  -webkit-transition-delay    : 0.0s, 0.5s;
-}
-</pre>
-
-The following example uses these sequential transitions to slide out
-an embedded a navigation panel:
-
-[[Image:scr_anim_trans_accord1.png]]
-[[Image:scr_anim_trans_accord2.png]]
-[[Image:scr_anim_trans_accord3.png]]
-
-The following example shows a photo gallery interface that uses the
-same technique to flip images to reveal descriptive text. It relies on
-a sequence of simple [[2D '''scale''' transforms]], one that
-narrows the first visible element, followed by another that widens the
-second hidden one:
-
-[[Image:scr_anim_gallery.png]]
-[[Image:scr_anim_gallery2.png]]
-
-This example shows how flexibly transitions may be applied.  When
-users tap on adjacent photos, the panel automatically flips back to
-its original state as it is moved to the side.
-
-==Timing Functions==
-
-Timing properties allow the speed at which transitions (and
-[[keyframe animations]]) progress to vary over
-their duration.
-
-If a timing function's value specifies the '''linear''' keyword, the
-transition starts and stops abruptly, and its speed remains
-constant. Otherwise, timing functions specify progress in terms of a
-bezier curve whose control points are expressed as decimals. Various
-keyword values correspond to bezier functions as follows:
-
-* '''linear''':  '''cubic-bezier(0.0, 0.0, 1.0, 1.0)'''
-
-* '''ease''' (default):  '''cubic-bezier(0.25, 0.1, 0.25, 1.0)'''
-
-* '''ease-in''':  '''cubic-bezier(0.42, 0, 1.0, 1.0)'''
-
-* '''ease-out''':  '''cubic-bezier(0, 0, 0.58, 1.0)'''
-
-* '''ease-in-out''':  '''cubic-bezier(0.42, 0, 0.58, 1.0)'''
-
-The following example demonstrates various preset timing functions and
-custom '''cubic-bezier()''' functions:
-
-[[Image:scr_anim_timer.png]]
-
-See [[netzgesta.de]] for an interactive visualization of how preset and
-'''cubic-bezier()''' timing functions appear as a response curve.
 
 ==Keyframe Animations==
 
@@ -782,4 +779,19 @@ to assume the property should transition smoothly between the 0% and
 with the property's last known value, zero, which in this case would
 lead to a long static period followed by an unintentionally abrupt
 transition.
+
+
+=Animations=
+
+Animations can help engage users with your application and provide
+rich visual context for its various functions.
+
+Web interfaces are driven by CSS ''style sheets''. Web applications
+can dynamically apply different sets of style sheets, and CSS
+''transitions'' can make those interface shifts animate gradually.
+CSS ''keyframe animations'' offer more flexibility, and are not tied
+to shifts between style CSS.
+
+
+
 

@@ -4,12 +4,39 @@
 |Editorial notes=[[User:Sierra]] has content intended for this page. See bug [https://www.w3.org/Bugs/Public/show_bug.cgi?id=20410 #20410]
 }}
 {{Byline}}
-{{Summary_Section|__SUMMARY__}}
+{{Summary_Section|__SUMMARY__
+
+}}
 {{Tutorial
 |Content=
 
-__CONTENT__
+[[Image:transit_simple.png]]
 
+<!--
+
+==What are transitions?==
+
+* 
+
+==Timing functions==
+
+==Transitional sequences==
+
+==The transitionend event==
+
+==Swipes==
+
+==Cross-fades, filters, and other image effects==
+
+==What can transitions control?==
+
+* numeric
+* color
+* not discrete values
+* gradients?
+* mismatching
+
+-->
 
 }}
 {{Notes_Section}}

@@ -1,0 +1,53 @@
+<html>
+<head>
+<title>cards</title>
+<style>
+
+body {
+    background: #ddd;
+}
+
+div {
+    border: solid thin #777;
+    background: #aaa;
+    position: absolute;
+    width: 281;
+    height: 400;
+    left: 40%;
+    top: 100px;
+    -webkit-perspective: 10000;
+    -webkit-perspective-origin-y: -3000;
+}
+
+img {
+    border: thin solid #777;
+    border-radius: 0.5em;
+    position: absolute;
+    -webkit-transform-origin-z: -620;
+}
+
+img:nth-of-type(1) { -webkit-transform: rotateY(-50deg); }
+img:nth-of-type(2) { -webkit-transform: rotateY(-30deg); }
+img:nth-of-type(3) { -webkit-transform: rotateY(-10deg); }
+img:nth-of-type(4) { -webkit-transform: rotateY(10deg); }
+img:nth-of-type(5) { -webkit-transform: rotateY(30deg); }
+img:nth-of-type(6) { -webkit-transform: rotateY(50deg); }
+
+</style>
+
+</head>
+<body>
+
+<div>
+
+<img src="JackClub.jpeg"/>
+<img src="QueenSpade.png"/>
+<img src="AceSpade.jpeg"/>
+<img src="JackHeart.jpeg"/>
+<img src="KingClub.jpeg"/>
+<img src="JackSpade.jpeg"/>
+
+</div>
+
+</body>
+</html>
