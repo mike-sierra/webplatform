@@ -1,16 +1,5 @@
 ==Transitions==
 
-CSS transitions offer the easiest way to animate an interface, by
-specifying graduated shifts from one set of CSS style sheets to
-another. 
-
-[[tutorials/css_animations|keyframe animations]]
-
-Transitions specify 
-
-They help prevent abrupt jumps from one display state to
-another, which can be particularly disorientating in smaller-screen
-mobile interfaces.
 
 Transitions specify properties to animate, the animation's duration,
 the function affecting the animation's progress, and an optional delay
@@ -28,7 +17,7 @@ transition allows the value to shift over the course of half a second:
 nav.expanded  { max-width : 95%; }
 nav.collapsed { max-width : 10%; }
 nav {
-    -webkit-transition    : max-width 0.5s ease-in-out;
+    transition    : max-width 0.5s ease-in-out;
 }
 </pre>
 
@@ -40,23 +29,23 @@ expand than to collapse:
 <pre>
 nav.collapsed {
     max-width          : 10%;
-    -webkit-transition : max-width 0.5s ease-out;
+    transition : max-width 0.5s ease-out;
 }
 nav.expanded {
     max-width          : 95%;
-    -webkit-transition : max-width 1s ease-in;
+    transition : max-width 1s ease-in;
 }
 </pre>
 
-The combined '''-webkit-transition''' property combines individual
+The combined '''transition''' property combines individual
 properties. (See [[Timing Functions]] below for more information on
-the '''-webkit-transition-timing-function''' property.)
+the '''transition-timing-function''' property.)
 
 <pre>
 nav {
-    -webkit-transition-property        : max-width;
-    -webkit-transition-duration        : 0.5s;
-    -webkit-transition-timing-function : ease-in-out;
+    transition-property        : max-width;
+    transition-duration        : 0.5s;
+    transition-timing-function : ease-in-out;
 }
 </pre>
 
@@ -68,20 +57,20 @@ appearance of a single animation effect:
 
 <pre>
 nav > .option {
-    -webkit-transition : all 0.5s linear;
+    transition : all 0.5s linear;
 }
 nav.expanded > .option {
     opacity            : 1;
-    -webkit-transform  : scale(1.0);
+    transform  : scale(1.0);
 }
 nav.collapsed > .option {
     opacity            : 0;
-    -webkit-transform  : scale(0.0);
+    transform  : scale(0.0);
 }
 </pre>
 
 The fade is specified using '''opacity''', and the zoom effect with
-'''-webkit-transform''', discussed in the [[next section]].
+'''transform''', discussed in the [[next section]].
 A transition property of '''all''' applies to any valid property that
 differs between the two states.
 
@@ -146,14 +135,14 @@ followed by the '''height''', then reverse the sequence when collapsing:
 
 <pre>
 nav.expanded {
-  -webkit-transition-property : width, height;
+  transition-property : width, height;
 }
 nav.collapsed {
-  -webkit-transition-property : height, width;
+  transition-property : height, width;
 }
 nav {
-  -webkit-transition-duration : 0.5s, 0.5s;
-  -webkit-transition-delay    : 0.0s, 0.5s;
+  transition-duration : 0.5s, 0.5s;
+  transition-delay    : 0.0s, 0.5s;
 }
 </pre>
 
@@ -220,12 +209,12 @@ This example expands a navigation panel from a small icon:
 
 Tapping on the element toggles its '''expanded''' class, which alters
 its '''width''', '''border''', and '''background-position'''
-properties. The '''-webkit-transition''' property animates specified
+properties. The '''transition''' property animates specified
 properties, '''all''' in this case, over the course of one second:
 
 <pre>
 #navbar {
-    -webkit-transition: all 1s;
+    transition: all 1s;
     border: solid #fff 2px;;
     background-image: url(../img/i0.png);
     background-position: 90% 50%;
@@ -244,14 +233,14 @@ property fades them in, and the '''scale''' transform zooms them in:
 
 <pre>
 #navbar > a {
-    -webkit-transition: all 1s;
+    transition: all 1s;
     opacity: 0;
-    -webkit-transform: scale(0);
+    transform: scale(0);
 }
 
 #navbar.expanded > a {
     opacity: 1;
-    -webkit-transform: scale(1);
+    transform: scale(1);
 }
 </pre>
 
@@ -262,14 +251,14 @@ transition that manipulates the element's '''height''' and
 
 <pre>
 #panel {
-    -webkit-transition: height 0.5s 0.0s, -webkit-transform 0.5s 0.5s;
-    -webkit-transform: translateX(-120%);
+    transition: height 0.5s 0.0s, transform 0.5s 0.5s;
+    transform: translateX(-120%);
     height: 10%;
 }
 
 #panel:target {
-    -webkit-transition: -webkit-transform 0.5s 0.0s, height 0.5s 0.5s;
-    -webkit-transform: translateX(0%);
+    transition: transform 0.5s 0.0s, height 0.5s 0.5s;
+    transform: translateX(0%);
     height: 100%;
 }
 </pre>
@@ -290,7 +279,7 @@ div {
     background: #000;
     width: 100px;
     height: 100px;
-    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
 }
 .wider { width: 200px; }
 .higher { height: 200px; }
@@ -333,8 +322,8 @@ document.querySelector('div').addEventListener(
 </pre>
 
 The event's '''propertyName''' corresponds to the value of each
-'''-webkit-transition-property''' that completes its transition.  The
-'''elapsedTime''' correponds to each '''-webkit-transition-duration'''.
+'''transition-property''' that completes its transition.  The
+'''elapsedTime''' correponds to each '''transition-duration'''.
 
 
 
@@ -354,23 +343,23 @@ applied to the main panel, which takes 1 second to execute:
 
 <pre>
 article {
-    -webkit-animation: push_down 1s 4s;
-    -webkit-animation-fill-mode: both;
+    animation: push_down 1s 4s;
+    animation-fill-mode: both;
 }
 </pre>
 
 The animation is defined elsewhere within the CSS region, within a
-'''@-webkit-keyframes''' rule. Each keyframe manipulates CSS properties
+'''@keyframes''' rule. Each keyframe manipulates CSS properties
 over the course of the animation:
 
 <pre>
-@-webkit-keyframes push_down {
+@keyframes push_down {
     from { margin-top: 0em }
     to   { margin-top: 4em }
 }
 </pre>
 
-The '''-webkit-animation-fill-mode''' property avoids abrupt transitions
+The '''animation-fill-mode''' property avoids abrupt transitions
 before and after keyframes execute. It specifies that the keyframe's
 initial value for each manipulated property overrides the element's
 default property, so that the animation's initial appearance precedes
@@ -384,12 +373,12 @@ animation stops:
 
 <pre>
 header {
-    -webkit-animation-name		: slide_down	, scroll;
-    -webkit-animation-duration		: 1s		, 20s;
-    -webkit-animation-delay		: 4s		, 5s;
-    -webkit-animation-iteration-count	: 1		, infinite;
-    -webkit-animation-fill-mode		: backward      , both;
-    -webkit-animation-play-state        : running;
+    animation-name		: slide_down	, scroll;
+    animation-duration		: 1s		, 20s;
+    animation-delay		: 4s		, 5s;
+    animation-iteration-count	: 1		, infinite;
+    animation-fill-mode		: backward      , both;
+    animation-play-state        : running;
 }
 </pre>
 
@@ -397,9 +386,9 @@ The corresponding keyframe drops the element from above the top of the
 screen:
 
 <pre>
-@-webkit-keyframes slide_down {
-    from { -webkit-transform: translateY(-10em) }
-    to { -webkit-transform: translateY(0) }
+@keyframes slide_down {
+    from { transform: translateY(-10em) }
+    to { transform: translateY(0) }
 }
 </pre>
 
@@ -409,18 +398,18 @@ delayed after the initial set of animations execute, with the
 Intermediary keyframe states are represented as percentages:
 
 <pre>
-@-webkit-keyframes scroll {
-    0%   { -webkit-transform: translateX(0) }
-    17%  { -webkit-transform: translateX(0%) }
-    20%  { -webkit-transform: translateX(-20%) }
-    37%  { -webkit-transform: translateX(-20%) }
-    40%  { -webkit-transform: translateX(-40%) }
-    57%  { -webkit-transform: translateX(-40%) }
-    60%  { -webkit-transform: translateX(-60%) }
-    77%  { -webkit-transform: translateX(-60%) }
-    80%  { -webkit-transform: translateX(-80%) }
-    97%  { -webkit-transform: translateX(-80%) }
-    100% { -webkit-transform: translateX(0%) }
+@keyframes scroll {
+    0%   { transform: translateX(0) }
+    17%  { transform: translateX(0%) }
+    20%  { transform: translateX(-20%) }
+    37%  { transform: translateX(-20%) }
+    40%  { transform: translateX(-40%) }
+    57%  { transform: translateX(-40%) }
+    60%  { transform: translateX(-60%) }
+    77%  { transform: translateX(-60%) }
+    80%  { transform: translateX(-80%) }
+    97%  { transform: translateX(-80%) }
+    100% { transform: translateX(0%) }
 }
 </pre>
 
@@ -435,13 +424,13 @@ that makes inner banner elements fade in and out:
 
 <pre>
 .pause {
-    -webkit-animation-play-state: paused;
+    animation-play-state: paused;
 }
 .pause > div {
-    -webkit-animation		: pulse 0.5s infinite;
-    -webkit-animation-direction : alternate;
+    animation		: pulse 0.5s infinite;
+    animation-direction : alternate;
 }
-@-webkit-keyframes pulse {
+@keyframes pulse {
     from { opacity: 1 }
     to { opacity: 0.5 }
 }
@@ -490,12 +479,12 @@ It uses the following CSS, shown here in both abbreviated and long
 form:
 
 <pre>
-nav > a:target { -webkit-animation : pulse 0.5s 3; }
+nav > a:target { animation : pulse 0.5s 3; }
 
 nav > a:target {
-    -webkit-animation-name            : pulse;
-    -webkit-animation-duration        : 0.5s;
-    -webkit-animation-iteration-count : 3;
+    animation-name            : pulse;
+    animation-duration        : 0.5s;
+    animation-iteration-count : 3;
 }
 </pre>
 
@@ -508,7 +497,7 @@ rule detailing the animation's full progression, specified elsewhere
 within the CSS:
 
 <pre>
-@-webkit-keyframes pulse {
+@keyframes pulse {
     0% { opacity   : 1.0 }
     50% { opacity  : 0.5 }
     100% { opacity : 1.0 }
@@ -524,22 +513,22 @@ The following shows a different way to implement this simple
 animation:
 
 <pre>
-@-webkit-keyframes pulse {
+@keyframes pulse {
     from { opacity : 1.0 }
     to   { opacity : 0.5 }
 }
 
 nav > a:target {
-    -webkit-animation : pulse 0.25s 0.5s 6 alternate linear;
+    animation : pulse 0.25s 0.5s 6 alternate linear;
 }
 
 nav > a:target {
-    -webkit-animation-name            : pulse;
-    -webkit-animation-duration        : 0.25s;
-    -webkit-animation-iteration-count : 6;
-    -webkit-animation-direction       : alternate;
-    -webkit-animation-delay           : 0.5s;
-    -webkit-animation-timing-function : linear;
+    animation-name            : pulse;
+    animation-duration        : 0.25s;
+    animation-iteration-count : 6;
+    animation-direction       : alternate;
+    animation-delay           : 0.5s;
+    animation-timing-function : linear;
 }
 </pre>
 
@@ -563,18 +552,18 @@ element]] that is five times the width of the window.)
 [[Image:scr_css3_multicol.png]]
 
 <pre>
-@-webkit-keyframes banner_scroll {
-    0%   { -webkit-transform : translate(0%);   }
-    18%  { -webkit-transform : translate(0%);   }
-    20%  { -webkit-transform : translate(-20%); }
-    38%  { -webkit-transform : translate(-20%); }
-    40%  { -webkit-transform : translate(-40%); }
-    58%  { -webkit-transform : translate(-40%); }
-    60%  { -webkit-transform : translate(-60%); }
-    78%  { -webkit-transform : translate(-60%); }
-    80%  { -webkit-transform : translate(-80%); }
-    95%  { -webkit-transform : translate(-80%); }
-    100% { -webkit-transform : translate(0%);   }
+@keyframes banner_scroll {
+    0%   { transform : translate(0%);   }
+    18%  { transform : translate(0%);   }
+    20%  { transform : translate(-20%); }
+    38%  { transform : translate(-20%); }
+    40%  { transform : translate(-40%); }
+    58%  { transform : translate(-40%); }
+    60%  { transform : translate(-60%); }
+    78%  { transform : translate(-60%); }
+    80%  { transform : translate(-80%); }
+    95%  { transform : translate(-80%); }
+    100% { transform : translate(0%);   }
 }
 </pre>
 
@@ -586,16 +575,16 @@ but contextually based on the target of navigation within the page:
 
 <pre>
 <style>
-#in:target           { -webkit-animation : from_right 0.25s  }
-#out:target + .panel { -webkit-animation : from_left 0.25s }
+#in:target           { animation : from_right 0.25s  }
+#out:target + .panel { animation : from_left 0.25s }
 
-@-webkit-keyframes from_right {
-    from { -webkit-transform : translate(80%); }
-    to   { -webkit-transform : translate(0%); }
+@keyframes from_right {
+    from { transform : translate(80%); }
+    to   { transform : translate(0%); }
 }
-@-webkit-keyframes from_left {
-    from { -webkit-transform : translate(-80%); }
-    to { -webkit-transform   : translate(0%); }
+@keyframes from_left {
+    from { transform : translate(-80%); }
+    to { transform   : translate(0%); }
 }
 </style>
 
@@ -616,19 +605,19 @@ element's duration extended to provide more time to read it:
 
 <pre>
 section {
-    -webkit-animation-name     : slideFrame;
-    -webkit-animation-duration : 5s;
-    -webkit-transform          : translate(-150%);
-    -webkit-transform-origin   : bottom;
+    animation-name     : slideFrame;
+    animation-duration : 5s;
+    transform          : translate(-150%);
+    transform-origin   : bottom;
 }
-section:nth-of-type(1) { -webkit-animation-delay  : 2s; }
-section:nth-of-type(2) { -webkit-animation-delay  : 8s; }
-section:nth-of-type(3) { -webkit-animation-delay  : 14s; }
+section:nth-of-type(1) { animation-delay  : 2s; }
+section:nth-of-type(2) { animation-delay  : 8s; }
+section:nth-of-type(3) { animation-delay  : 14s; }
 section:nth-of-type(4) {
-    -webkit-animation-delay    : 20s;
-    -webkit-animation-duration : 8s;
+    animation-delay    : 20s;
+    animation-duration : 8s;
 }
-section:nth-of-type(5) { -webkit-animation-delay  : 29s; }
+section:nth-of-type(5) { animation-delay  : 29s; }
 </pre>
 
 The animation provides the illusion that the incoming slide hits a
@@ -637,19 +626,19 @@ accomplished by changing the timing function during the course of the
 animation:
 
 <pre>
-@-webkit-keyframes slideFrame {
+@keyframes slideFrame {
   from {
-    -webkit-animation-timing-function : linear;
-    -webkit-transform: translate(-150%) skewX(5deg);
+    animation-timing-function : linear;
+    transform: translate(-150%) skewX(5deg);
   }
-  10% { -webkit-transform : translate(0) skewX(5deg); }
+  10% { transform : translate(0) skewX(5deg); }
   15% {
-    -webkit-animation-timing-function : default;
-    -webkit-transform : translate(0) skewX(-5deg);
+    animation-timing-function : default;
+    transform : translate(0) skewX(-5deg);
   }
-  20% { -webkit-transform : translate(0) skewX(0deg); }
-  90% { -webkit-transform : translate(0) skewX(0deg); }
-  to { -webkit-transform : translate(150%) skewX(10deg); }
+  20% { transform : translate(0) skewX(0deg); }
+  90% { transform : translate(0) skewX(0deg); }
+  to { transform : translate(150%) skewX(10deg); }
 }
 </pre>
 
@@ -657,7 +646,7 @@ As is true for transitions, an element may be assigned more than one
 keyframe animation:
 
 <pre>
-.pair_keyframes { -webkit-animation : anim1 1s 2 alternate, anim2 2s; }
+.pair_keyframes { animation : anim1 1s 2 alternate, anim2 2s; }
 </pre>
 
 Even if one of the animations is delayed, each keyframe rule must
@@ -668,9 +657,9 @@ following example.
 [[Image:scr_anim_combine.png]]
 
 <pre>
-@-webkit-keyframes nod {
+@keyframes nod {
     from {
-        -webkit-box-shadow    : transparent 0 0 0 0;
+        box-shadow    : transparent 0 0 0 0;
         background-position   : 50% 50%;
     }
     20% { background-position : 50% 90% }
@@ -679,14 +668,14 @@ following example.
     80% { background-position : 50% 10% }
     to {
         background-position   : 50% 50%;
-        -webkit-box-shadow    : lightgreen 0em 0em 0.5em 0.25em;
+        box-shadow    : lightgreen 0em 0em 0.5em 0.25em;
     }
 }
 </pre>
 
 The accompanying CSS shows how the two separate visual effects might
 be consolidated within a single keyframe rule, with the '''start''' and
-'''end''' value of the '''-webkit-box-shadow''' property matching the
+'''end''' value of the '''box-shadow''' property matching the
 initial and destination style sheet, to simulate a transition.
 
 ==Dynamic Keyframes==
@@ -713,26 +702,26 @@ matches a keyframe rule:
 
 <pre>
 .dice {
-    -webkit-animation-name            : "";
-    -webkit-animation-duration        : 1s;
-    -webkit-animation-iteration-count : 2;
-    -webkit-animation-direction       : alternate;
-    -webkit-animation-timing-function : linear;
+    animation-name            : "";
+    animation-duration        : 1s;
+    animation-iteration-count : 2;
+    animation-direction       : alternate;
+    animation-timing-function : linear;
 }
 .roll {
-    -webkit-animation-name            : haphazard_spin;
+    animation-name            : haphazard_spin;
 }
-@-webkit-keyframes haphazard_spin {
-  from { -webkit-transform: rotateX(20deg)  rotateY(40deg)  rotateZ(30deg)  }
-  25%  { -webkit-transform: rotateX(190deg) rotateY(220deg) rotateZ(300deg) }
-  50%  { -webkit-transform: rotateX(220deg) rotateY(160deg) rotateZ(80deg)  }
-  75%  { -webkit-transform: rotateX(20deg)  rotateY(40deg)  rotateZ(230deg) }
-  to   { -webkit-transform: rotateX(184deg) rotateY(300deg) rotateZ(150deg) }
+@keyframes haphazard_spin {
+  from { transform: rotateX(20deg)  rotateY(40deg)  rotateZ(30deg)  }
+  25%  { transform: rotateX(190deg) rotateY(220deg) rotateZ(300deg) }
+  50%  { transform: rotateX(220deg) rotateY(160deg) rotateZ(80deg)  }
+  75%  { transform: rotateX(20deg)  rotateY(40deg)  rotateZ(230deg) }
+  to   { transform: rotateX(184deg) rotateY(300deg) rotateZ(150deg) }
 }
 </pre>
 
 Applications may halt animations in progress by setting
-'''-webkit-animation-play-state''' to '''paused''' or back to '''running''':
+'''animation-play-state''' to '''paused''' or back to '''running''':
 
 <pre>
 element.style.WebkitAnimationPlayState = 'paused';
@@ -743,7 +732,7 @@ If there is a difference between an element's conventional set of CSS
 properties, and CSS properties as they are defined at the start and
 end of a keyframe rule, they may become conspicuous if the animation
 is delayed, or if it executes a finite number of times.  Setting
-'''-webkit-animation-fill-mode''' to '''forwards''', '''backwards''', or
+'''animation-fill-mode''' to '''forwards''', '''backwards''', or
 '''both''' determines whether the set of CSS properties that bounds the
 keyframe sequence appears outside the duration of its execution,
 potentially overriding properties ''not'' defined in keyframes.
@@ -760,7 +749,7 @@ scroll it back into view:
 [[Image:scr_anim_marquee.png]]
 
 <pre>
-@-webkit-keyframes custom {
+@keyframes custom {
     0%   { text-indent: 0%    ; color: #000        }
     49%  { text-indent: -125% ; color: #000        }
     50%  { text-indent: -125% ; color: transparent }
