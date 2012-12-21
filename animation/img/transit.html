@@ -4,53 +4,56 @@
 
 <style>
 body {
-    overflow: hidden;
+    overflow                             : hidden;
 }
 
 nav {
-    box-sizing: border-box;
-    position: absolute;
-    right: -260px;
-    top: 10px;
-    background-image: url(html5.png);
-    background-position-x: left;
-    background-position-y: 50%;
-    background-color: #fff;
-    height: 42px;
-    width: 300px;;
-    overflow: hidden;
-    padding: 2px;
-    border: transparent solid medium;
-    border-radius: 4px;
-    -webkit-box-shadow: 0 0 1em transparent;
+    box-sizing                           : border-box;
+    position                             : absolute;
+    right                                : -260px;
+    top                                  : 10px;
+    background-image                     : url(html5.png);
+    background-position-x                : left;
+    background-position-y                : 50%;
+    background-color                     : #fff;
+    height                               : 42px;
+    width                                : 300px;;
+    overflow                             : hidden;
+    padding                              : 2px;
+    border                               : transparent solid medium;
+    border-radius                        : 4px;
+    -webkit-box-shadow                   : 0 0 1em transparent;
 }
 
 nav, nav > div {
-    -webkit-transition : all 0.5s ease-in-out;
-/*    -webkit-transition-timing-function: steps(10, end); */
-    background-size: contain;
-    background-repeat: no-repeat;
+    -webkit-transition                   : all 0.5s;
+/*    -webkit-transition-timing-function : steps(10, end); */
+    background-size                      : contain;
+    background-repeat                    : no-repeat;
 }
 
-nav.selected  {
-    right: 10px;
-    background-position-x: 400px;
-    border: #aaa solid medium; 
-    -webkit-box-shadow: 0 0 1em #777;
+nav.expanded  {
+    right                                : 10px;
+    background-position-x                : 400px;
+    border                               : #aaa solid medium; 
+    -webkit-box-shadow                   : 0 0 1em #777;
 }
 
 nav > div {
-    display: inline-block;
-    background-image: url(html5icon1.png);
-    -webkit-transform : scale(0) translateX(100%);
-    opacity(0);
-    height: 34px;
-    width: 38px;
+    display                              : inline-block;
+    background-image                     : url(html5icon1.png);
+    -webkit-transform                    : scale(0) translateX(100%);
+    opacity                              : 0;
+    height                               : 34px;
+    width                                : 34px;
+
+display : none;
+
 }
 
-nav.selected > div {
-    opacity(1);
-    -webkit-transform : scale(1) translateX(0);
+nav.expanded > div {
+    opacity                              : 1;
+    -webkit-transform                    : scale(1) translateX(0);
 }
 
 nav > div:nth-of-type(1) { background-image: url(html5icon1.png); }
@@ -83,7 +86,7 @@ nav > div:nth-of-type(8) { background-image: url(html5icon8.png); }
 <script>
 window.onload = function() {
     document.querySelector('nav').addEventListener('click', function(e) {
-        e.currentTarget.classList.toggle('selected');
+        e.currentTarget.classList.toggle('expanded');
     });
 };
 </script>

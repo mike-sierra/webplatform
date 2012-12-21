@@ -1,6 +1,5 @@
 ==Transitions==
 
-
 Transitions specify properties to animate, the animation's duration,
 the function affecting the animation's progress, and an optional delay
 before the animation starts.
@@ -84,10 +83,10 @@ to the element:
 icon.style.maxWidth = '95%';
 </pre>
 
-'''Note:''' CSS transitions perform robustly in response to ambiguous user input.
-As the navigation panel expands in the example above, tapping
-elsewhere gracefully interrupts and reverses the transition to its
-collapsed icon state.
+'''Note:''' CSS transitions perform robustly in response to ambiguous
+user input.  As the navigation panel expands in the example above,
+tapping elsewhere gracefully interrupts and reverses the transition to
+its collapsed icon state.
 
 ==What Can Be Transitioned?==
 
@@ -98,9 +97,10 @@ along with keywords such as '''thin''' and '''thick''' that apply to
 '''border-width'''.
 
 Transitions don't affect named values that refer to discrete states,
-such as the '''left''' and '''right''' properties used by '''text-align'''.
-Property values that feature complex syntax, such as for [[gradients]], [[masks]], and [[reflections]],
-also cannot be transitioned.
+such as the '''left''' and '''right''' properties used by
+'''text-align'''.  Property values that feature complex syntax, such
+as for [[gradients]], [[masks]], and [[reflections]], also cannot be
+transitioned.
 
 In the example above, the '''max-width''' property in each style sheet
 specifies measurements as percentage units. Transitions may not work

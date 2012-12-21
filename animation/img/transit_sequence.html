@@ -1,0 +1,64 @@
+<html>
+  <head>
+<title>sequence</title>
+
+<style>
+
+section {
+    position: absolute;
+    width: 320px;
+    height: 480px;
+    border: medium solid #aaa;
+    border-radius: 0.5em;
+}
+
+div {
+    border-radius               : 0.5em;
+    position                    : absolute;
+    right                       : 20px;
+    top                         : 20px;
+    width                       : 56px;
+    height                      : 56px;
+    background                  : #ddd;
+    -webkit-transition-property : height, width;
+    -webkit-transition-duration : 0.5s, 0.5s;
+    -webkit-transition-delay    : 0.0s, 0.5s;
+
+    -webkit-transition-timing-function : cubic-bezier(0.4, 0, 1, 0.4), cubic-bezier(0, 0.4, 0.4, 1);
+
+    -webkit-transition-timing-function : steps(3), steps(4);
+
+
+}
+div.expanded {
+    -webkit-transition-property : width, height;
+    width                       : 280px;
+    height                      : 400px;
+}
+
+div {
+}
+
+div.expanded {
+}
+
+</style>
+
+</head>
+<body>
+
+<section>
+<div class="info">
+</div>
+</section>
+
+<script>
+window.onload = function() {
+    document.querySelector('div').addEventListener('click', function(event) {
+        event.currentTarget.classList.toggle('expanded');
+    });
+};
+
+</script>
+</body>
+</html>
