@@ -46,9 +46,9 @@ p:nth-of-type(2)::after {
 
 <h1>Click within text twice to toggle heading's column span</h1>
 
-<p>Bug: transitioning from span back to non-span yields a different
-layout than the original: 2-column box is segmented into two vertical
-areas, as if interrupted by a span.</p>
+<p>Bug: transitioning from <b>span:all</b> back to <b>span:none</b>
+yields a different layout than the original: 2-column box is segmented
+into two vertical areas, as if still interrupted by a span.</p>
 
 <div onclick="this.classList.toggle('straddle')">
 
