@@ -1,0 +1,130 @@
+<html>
+  <head>
+<title>nested out-of-phase keyframe animations</title>
+
+<style>
+
+body {
+    font-family                       : sans-serif;
+    background                        : #fff;
+}
+
+.level1, .level2, .level3, .level4 {
+    -webkit-animation-direction       : alternate;
+    -webkit-animation-iteration-count : infinite;
+    -webkit-animation-name            : alter;
+    animation-direction               : alternate;
+    animation-iteration-count         : infinite;
+    animation-name                    : alter;
+    border-radius                     : 1em;
+    border-style                      : solid;
+    border-width                      : 0.5em;
+    height                            : 6em;
+    position                          : absolute;
+    width                             : 6em;
+}
+
+.level1 {
+    border-color                      : gold;
+    top                               : 18em;
+    left                              : 18em;
+}
+
+.level2, .level3, .level4 {
+    top                               : 0em;
+    left                              : 0em;
+}
+
+.level2 {
+    border-color                      : lightgreen;
+}
+
+.level3 {
+    border-color                      : pink;
+}
+
+.level4 {
+    border-color                      : lightblue;
+}
+
+@-webkit-keyframes alter {
+    from { -webkit-transform : scale(0.5) rotate(-10deg) }
+    to { -webkit-transform : scale(1.5) rotate(10deg) }
+}
+
+@keyframes alter {
+    from { transform : scale(0.5) rotate(-10deg) }
+    to { transform : scale(1.5) rotate(10deg) }
+}
+
+</style>
+
+</head>
+
+<body>
+
+<form>  
+
+duration, in seconds:<br/>
+<input id="duration" type="range" min="0.1" max="5" step="0.1" value="1.0" onchange="q.value = this.value"/>
+<output name="q">1</output><br/>
+
+random variance, in seconds:<br/>
+<input id="variance" type="range" min="0" max="0.1" step="0.01" value="0.01" onchange="o.value = this.value"/>
+<output name="o">0.01</output>
+
+</form>
+
+<div class="level1">
+<div class="level2">
+<div class="level3">
+<div class="level4">
+</div>
+</div>
+</div>
+</div>
+
+<script>
+var app = new Function();
+
+window.onload = function() {
+    app.divs = document.querySelectorAll('div');
+
+    app.inputVariance = document.querySelector('#variance');
+    app.variance = app.inputVariance.value * 1;
+    app.inputVariance.addEventListener('change', function(e) { app.variance = e.target.value * 1});
+
+    app.inputDuration = document.querySelector('#duration');
+    app.duration = app.inputDuration.value * 1;
+    app.inputDuration.addEventListener('change', function(e) { app.duration = e.target.value * 1});
+
+    for (var i = 0; i < app.divs.length; i++) {
+        app.divs[i].style.WebkitAnimationDuration = nudge(); 
+        app.divs[i].style.animationDuration = nudge(); 
+    }
+    setInterval(function() {
+        for (var i = 0; i < app.divs.length; i++) {
+            app.divs[i].style.WebkitAnimationDuration = nudge(); 
+            app.divs[i].style.animationDuration = nudge(); 
+        }
+    }, 1000);
+};
+
+function nudge() {
+    var n = Math.floor( (Math.random() * 3) - 1);
+    var returnValue = app.duration;
+    if (n < 0) {
+        returnValue -= app.variance;
+    } else if (n > 0) {
+        returnValue += app.variance;
+    }
+    console.log(returnValue + 's');
+    return returnValue + 's';
+}
+
+</script>
+
+
+
+</body>
+</html>

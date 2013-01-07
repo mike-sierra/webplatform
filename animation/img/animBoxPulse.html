@@ -1,0 +1,75 @@
+<html>
+  <head>
+<title>nested out-of-phase keyframe animations</title>
+
+<style>
+
+body {
+    padding: 18em;
+    background: #fff;
+}
+
+.level1, .level2, .level3, .level4 {
+    width: 6em;
+    height: 6em;
+    border-radius: 1em;
+    border-width: 0.5em;
+    border-style: solid;
+    -webkit-animation-direction: alternate; animation-direction: alternate;
+    -webkit-animation-iteration-count: infinite; animation-iteration-count: infinite;
+    -webkit-animation-name: change; animation-name: change;
+}
+
+.level1 {
+    border-color: gold;
+    -webkit-animation-duration: 1s; animation-duration: 1s;
+}
+
+.level2 {
+    border-color: lightgreen;
+    -webkit-animation-duration: 0.97s; animation-duration: 0.97s;
+}
+
+.level3 {
+    -webkit-animation-duration: 0.94s; animation-duration: 0.94s;
+    border-color: pink;
+}
+
+.level4 {
+    border-color: lightblue;
+    -webkit-animation-duration: 0.91s; animation-duration: 0.91s;
+}
+
+@-webkit-keyframes change {
+    from { -webkit-transform: scale(0.5) rotate(-10deg)}
+    to   { -webkit-transform: scale(1.5) rotate(10deg) }
+}
+
+@keyframes change {
+    from { transform: scale(0.5) rotate(-10deg)}
+    to   { transform: scale(1.5) rotate(10deg) }
+}
+
+img {
+    display: none;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="level1">
+<div class="level2">
+<div class="level3">
+<div class="level4">
+</div>
+</div>
+</div>
+</div>
+
+<img src="animBoxPulse.png"/>
+
+</body>
+</html>

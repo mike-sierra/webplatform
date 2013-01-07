@@ -1,0 +1,82 @@
+<html>
+  <head>
+<title>delay</title>
+
+<style>
+
+body {
+    padding                           : 6em;
+    background                        : #aaa;
+    font-family                       : Trebuchet MS;
+    font-weight                       : bold;
+}
+
+section {
+    border-radius                     : 0.5em;
+    background                        : #fff;
+    height                            : 480px;
+    width                             : 320px;
+    padding                           : 1.0em;
+    overflow                          : hidden;
+}
+
+div {
+    box-sizing                        : border-box;
+    padding                           : 0.5em;
+    border-radius                     : 0.5em;
+    border                            : medium solid #aaa;
+    background                        : #ddd;
+    margin-bottom                     : 0.5em;
+    min-height                        : 2.5em;
+    -webkit-animation-duration        : 0.5s;
+    -webkit-animation-fill-mode       : both;
+    -webkit-animation-iteration-count : 1;
+    -webkit-animation-name            : slide;
+    -webkit-animation-timing-function : linear;
+    -webkit-transform-origin          : bottom;
+}
+
+@-webkit-keyframes slide {
+    0%   { -webkit-transform: translate(120%) skewX(-30deg) ; }
+    70%  { -webkit-transform: translate(0%)   skewX(-30deg) ; }
+    80%  { -webkit-transform: translate(0%)   skewX(20deg)  ; }
+    95%  { -webkit-transform: translate(0%)   skewX(-10deg) ; }
+    100% { -webkit-transform: translate(0%)   skewX(0deg)   ; }
+}
+
+</style>
+
+</head>
+<body>
+
+<section>
+
+<div>Bacillariophyceae</div>
+<div>Axodine</div>
+<div>Bolidomonas</div>
+<div>Eustigmatophyceae</div>
+<div>Phaeophyceae</div>
+<div>Chrysophyceae</div>
+<div>Raphidophyceae</div>
+<div>Synurophyceae</div>
+<div>Xanthophyceae</div>
+
+</section>
+
+<script>
+
+ window.onload = function() {
+     var delay, divs = document.querySelectorAll('div');
+     for (var i = 0, l = divs.length; i < l; i++) {
+         // delay between 0 and 1 second:
+         delay  = Math.round(Math.random() * 1000) + 'ms';
+         divs[i].style.animationDelay = delay;
+         divs[i].style.WebkitAnimationDelay = delay;
+     }
+ }
+
+
+</script>
+
+</body>
+</html>

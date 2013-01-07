@@ -1,9 +1,10 @@
 {{Page_Title|Dynamic visual effects with CSS3 transitions}}
 {{Flags
-|High-level issues=Stub
-|Editorial notes=[[User:Sierra]] has content intended for this page. See bug [https://www.w3.org/Bugs/Public/show_bug.cgi?id=20410 #20410]
+|Editorial notes=[[User:Sierra]] has content intended for this page. See bug [https://www.w3.org/Bugs/Public/show_bug.cgi?id=20410 #20410] Still to do: cross-fades and filter effects if appropriate; more details on what can be transitioned.
 }}
-{{Byline}}
+{{Byline
+|Name=Mike Sierra
+}}
 {{Summary_Section|CSS transitions offer the easiest way to animate an
 interface.  CSS is used everywhere to control how web pages appear,
 and shifts from one set of style sheets to another ordinarily occur
@@ -11,9 +12,7 @@ abruptly.  Adding transition properties allows most of those changes
 to occur gradually, for a more vibrant, fluid interface.
 }}
 {{Tutorial
-|Content=
-
-This tutorial introduces CSS's various transition properties and shows
+|Content=This tutorial introduces CSS's various transition properties and shows
 you how to control how smoothly transitions execute. It shows you how
 to create sequences of more than one transition, but increasingly
 complex movements require [[tutorials/css_animations|keyframe
@@ -27,9 +26,29 @@ While transitions allow you to apply hover effects and other
 relatively marginal enhancements to traditional desktop interfaces,
 they are particularly useful for small-screen mobile interfaces in
 which displaying elements need to slide or fade out of view, or else
-collapse into icons.  The examples below introduce broadly useful
-techniques, but focus on opportunities where transitions can drive a
-mobile interface.
+collapse into icons. Abrupt transitions can be particularly
+disorienting on a small screen.
+
+These key points serve as reference:
+
+* Transitions are simple animations that smooth shifts from one style sheet to another.
+
+* Set [[css/properties/transition-property|'''transition-property''']] to specify which CSS property (or '''all''') to animate between style sheets.
+
+* The [[css/properties/transition-duration|'''transition-duration''']] property sets how much time the transition takes to run.
+
+* Use [[css/properties/transition-delay|'''transition-delay''']] to pause before executing a transition.
+
+* Use comma-delimited values to apply more than one transition to an element, useful in building sequences.  Transitions can also execute concurrently when applied to different elements.
+
+* The [[css/properties/transition-timing-function|'''transition-timing-function''']] property allows you to control a transitions's speed of progress.  It accepts keywords: '''ease''', '''ease-in''', '''ease-out''', '''ease-in-out''', '''linear''', or custom '''cubic-bezier()''' response curves.
+
+* The [[css/properties/transition|'''transition''']] shorthand property can represent values from all other transition properties. If two time measurements are included, they are interpreted first as duration then as delay.
+
+* Specify a redundant set of property names prefixed ''-webkit-''.
+
+* The '''transitionend''' event (or '''webkitTransitionEnd''') fires at the end of a transition for each property that animates.
+
 
 ==The transition property==
 
@@ -79,23 +98,24 @@ assigned the ''expanded'' class.
 The ''expanded'' class specifies a handful of CSS properties that
 override those that apply without the class.  Adding the
 [[css/properties/transition|'''transition''']] property makes those
-properties animate when toggling the ''expanded'' class:
+properties animate when toggling the class:
 
- transition         : all 0.5s;
  -moz-transition    : all 0.5s;
  -o-transition      : all 0.5s;
  -webkit-transition : all 0.5s;
+ transition         : all 0.5s;
 
 Changes to the values of the [[css/properties/right|'''right''']] and
 [[css/properties/background-position|'''background-position''']]
 properties makes the element and its displaying icon slide in from the
 right. As it does, the border and shadow appear and get darker.
 
-'''Note:''' Transition properties were implemented recent enough that
-many browser engines only support them with ''vendor prefixes'' such
-as '''-moz-''', '''-o-''', or '''-webkit-''' as shown above. Further
-examples only show un-prefixed transition property names, but for
-widest support you should apply all of them.
+'''Note:''' Though transition properties were implemented recently
+enough, all browser engines but WebKit support them without ''vendor
+prefixes'' such as '''-moz-''', '''-o-''', or '''-webkit-''' as shown
+above. Still, you need prefixes to support older browser versions.
+Further examples only show un-prefixed transition property names, but
+for widest support you should apply all of them.
 
 The [[css/properties/transition|'''transition''']] property specifies
 which properties to animate, '''all''' in this case, and the half
@@ -146,6 +166,17 @@ CSS transforms]] for details.)  Combined, the two sets of transitions
 execute simultaneously:
 
 [[Image:transit_simple.png|280px]]
+
+For an element to be transitioned, it must specify a numeric value or
+percentage, such as a measurement or set of coordinates, or values
+that translate to numeric values, such as colors. Many keyword values
+work as well, such as '''red''' or '''center''' when used as a
+coordinate.  But you cannot transition properties whose values specify
+a different kind of behavior. For example, you cannot transition
+between the [[css/properties/display|'''display''']] property's
+'''block''' and '''none''' values, or use
+[[css/properties/text-align|'''text-align''']] to switch between
+'''left''' and '''right''' justification.
 
 ==Sequential transitions==
 
@@ -208,7 +239,7 @@ sequence takes 1.5 seconds to execute:
  section > div {
      transition: transform 1s;
      transform: translateX(0px);
-     /* ^^^ this transform is optional, otherwise transition assumes default value */
+     /* ^^^ this transform is optional; transition assumes default value */
  }
  section.deal > div {
      transform: translateX(300px); /* move to right */
@@ -261,20 +292,30 @@ animation's elapsed time and progress correspond to ''x'' and ''y''
 axes, so the more the line curves vertically along the way, the faster
 it moves:
 
-* '''ease''': '''cubic-bezier(0.25, 0.1, 0.25, 1.0)'''
-[[Image:transitF_ease.png]]
+<div style="display:inline-block">
+[[Image:transitF_linear.png]] <br/>
+'''linear''' <br/> '''cubic-bezier(0.0, 0.0, 1.0, 1.0)'''
+</div>
 
-* '''ease-in-out''': '''cubic-bezier(0.42, 0, 0.58, 1.0)'''
-[[Image:transitF_easeinout.png]]
+<div style="display:inline-block">
+[[Image:transitF_ease.png]] <br/>
+'''ease''' <br/> '''cubic-bezier(0.25, 0.1, 0.25, 1.0)'''
+</div>
 
-* '''ease-in''': '''cubic-bezier(0.42, 0, 1.0, 1.0)'''
-[[Image:transitF_easein.png]]
+<div style="display:inline-block">
+[[Image:transitF_easeinout.png]] <br/>
+'''ease-in-out''' <br/> '''cubic-bezier(0.42, 0, 0.58, 1.0)'''
+</div>
 
-* '''ease-out''': '''cubic-bezier(0, 0, 0.58, 1.0)'''
-[[Image:transitF_easeout.png]]
+<div style="display:inline-block">
+[[Image:transitF_easein.png]] <br/>
+'''ease-in''' <br/> '''cubic-bezier(0.42, 0, 1.0, 1.0)'''
+</div>
 
-* '''linear''': '''cubic-bezier(0.0, 0.0, 1.0, 1.0)'''
-[[Image:transitF_linear.png]]
+<div style="display:inline-block">
+[[Image:transitF_easeout.png]] <br/>
+'''ease-out''' <br/> '''cubic-bezier(0, 0, 0.58, 1.0)'''
+</div>
 
 This useful [http://cssglue.com/cubic cubic bezier function utility]
 allows you to create your own custom curve and the see the result
@@ -296,31 +337,72 @@ points:
 
  transition-timing-function : steps(5);
 
+==The transitionend event==
+
+The '''transitionend''' event allows an application to respond after a
+transition finishes executing.  The event fires on the element that is
+being transitioned, once for each property, and ''only'' if the
+specified transition actually changes content.
+
+In this example, applying a ''display'' class makes an information
+panel appear:
+
+[[Image:transit_end.png]]
+
+The [[css/properties/opacity|'''opacity''']] property makes the
+element fade in, and is the only noticable change to its appearance. A
+second transition executes over a longer span of time, and makes an
+imperceptible change to the background color. Here is the relevant
+CSS:
+
+ div {
+     background-color : white;
+     opacity          : 0;
+     transition       : opacity 1s, background-color 5s;
+ }
+ div.display {
+     opacity          : 1;
+     background-color : rgba(100%, 100%, 100%, 0.95);
+ }
+
+After 5 seconds, a '''transitionend''' handler removes the ''display''
+class to revert the element back to its original state:
+
+ var panel = document.querySelector('.message');
+ panel.addEventListener('transitionend'       , timeoutDisplay); // Standard: Gecko, IE10, Opera 12.10+
+ panel.addEventListener('otransitionend'      , timeoutDisplay); // Old Opera
+ panel.addEventListener('webkitTransitionEnd' , timeoutDisplay); // WebKit
+ 
+ function timeoutDisplay(e) {
+     // ignore irrelevant transitions:
+     if (e.propertyName != 'background-color') return(false);
+     // execute only after expanding panel:
+     if (! e.currentTarget.classList.contains('display')) return(false);
+     // collapse panel:
+     e.currentTarget.classList.remove('display');
+ }
+
+Note the various provisional names for the event: '''transitionend'''
+(standard: Gecko, Opera 12.10+, Internet Explorer),
+'''otransitionend''' (old Opera), and '''webkitTransitionEnd'''
+(WebKit).
 
 <!--
 NOTE: UNFINISHED. DO NOT EDIT.
-==The transitionend event==
-* example: self-dismissing panel
-* TIP: spurious transitions as alternative to setTimeout
--->
 
-<!--
 ==Cross-fades, filters, and other exotic effects==
 * default cross-fade for background image or cross-fade() function?
-* hue-rotate & other filters
+* hue-rotate and other filters
 * gradients?
--->
 
-<!--
 ==What can be transitioned==
 * numeric
 * color
-* NO generated ::before & ::after
+* NO generated ::before and ::after
 * NO discrete values
 * NO mismatching parameters (polygon, gradient stops)
 * gradients?
 -->
-
 }}
 {{Notes_Section}}
 {{Compatibility_Section
@@ -331,16 +413,16 @@ NOTE: UNFINISHED. DO NOT EDIT.
 |Chrome_version=
 |Chrome_prefixed_supported=Yes
 |Chrome_prefixed_version=4.0
-|Firefox_supported=No
-|Firefox_version=
+|Firefox_supported=Yes
+|Firefox_version=16.0
 |Firefox_prefixed_supported=Yes
 |Firefox_prefixed_version=4.0
 |Internet_explorer_supported=Yes
 |Internet_explorer_version=10
 |Internet_explorer_prefixed_supported=No
 |Internet_explorer_prefixed_version=
-|Opera_supported=No
-|Opera_version=
+|Opera_supported=Yes
+|Opera_version=12.10
 |Opera_prefixed_supported=Yes
 |Opera_prefixed_version=10.5
 |Safari_supported=No
@@ -360,16 +442,15 @@ NOTE: UNFINISHED. DO NOT EDIT.
 |Chrome_mobile_supported=Yes
 |Chrome_mobile_prefixed_supported=Unknown
 |Chrome_mobile_prefixed_version=
-|Firefox_mobile_supported=No
-|Firefox_mobile_version=
+|Firefox_mobile_supported=Yes
+|Firefox_mobile_version=16.0
 |Firefox_mobile_prefixed_supported=Yes
 |Firefox_mobile_prefixed_version=15.0
 |IE_mobile_supported=Unknown
 |IE_mobile_version=
 |IE_mobile_prefixed_supported=Unknown
 |IE_mobile_prefixed_version=
-|Opera_mobile_supported=No
-|Opera_mobile_version=
+|Opera_mobile_supported=Yes
 |Opera_mobile_prefixed_supported=Yes
 |Opera_mobile_prefixed_version=10.0
 |Opera_mini_supported=Unknown

@@ -1,0 +1,141 @@
+<html>
+  <head>
+<title>banner</title>
+
+<style>
+
+body {
+    background                        : #777;
+    font-family                       : Trebuchet MS;
+}
+
+section {
+    overflow-x                        : hidden;
+    background                        : #aaa;
+    width                             : 320;
+    min-height                        : 480;
+    box-sizing                        : border-box;
+    padding-bottom                    : 10em;
+}
+
+section, header {
+    position                          : absolute;
+    top                               : 0;
+    left                              : 0;
+}
+
+header {
+    background                        : #fff;
+    height                            : 3em;
+/*
+    -webkit-animation                 : insertBanner 1s 4s 1 backwards, scrollBanner 20s 5s infinite none;
+*/
+    -webkit-animation-name            : insertBanner , scrollBanner;
+    -webkit-animation-duration        : 1s           , 20s;
+    -webkit-animation-delay           : 4s           , 5s;
+    -webkit-animation-fill-mode           : backwards           , none;
+    -webkit-animation-iteration-count : 1            , infinite;
+    width                             : 500%;
+    -webkit-column-count              : 5;
+    -webkit-column-gap                : 0;
+}
+
+article {
+    border-radius                     : 1em;
+    padding                           : 1em;
+    margin                            : 1em;
+    background                        : #fff;
+    min-height                        : 300px;
+    -webkit-animation-name            : moveContent;
+    -webkit-animation-duration        : 1s;
+    -webkit-animation-delay           : 4s;
+    -webkit-animation-iteration-count : 1;
+    -webkit-animation-fill-mode       : forwards;
+}
+
+/*    -webkit-animation                 : moveContent 1s 4s 1 forwards; */
+
+article h1 {
+    text-align                        : center;
+    margin                            : 0em 1em 0.75em 1em;
+}
+
+header > div {
+    box-sizing                        : border-box;
+    height                            : 3em;
+    width                             : 100%;
+}
+
+header > div:nth-of-type(1) { background: url(banner1.jpg) }
+header > div:nth-of-type(2) { background: url(banner4.jpg) }
+header > div:nth-of-type(3) { background: url(banner3.jpg) }
+header > div:nth-of-type(4) { background: url(banner2.jpg) }
+header > div:nth-of-type(5) { background: url(banner5.png) }
+
+@-webkit-keyframes moveContent {
+    from { -webkit-transform : translateY(0em) } 
+    to   { -webkit-transform : translateY(3em) } 
+}
+
+@-webkit-keyframes insertBanner {
+    from { -webkit-transform : translateY(-6em) } 
+    to   { -webkit-transform : translateY(0em) } 
+}
+
+@-webkit-keyframes scrollBanner {
+    from { -webkit-transform : translateX(0) }
+    17%  { -webkit-transform : translateX(0%) }
+    20%  { -webkit-transform : translateX(-20%) }
+    37%  { -webkit-transform : translateX(-20%) }
+    40%  { -webkit-transform : translateX(-40%) }
+    57%  { -webkit-transform : translateX(-40%) }
+    60%  { -webkit-transform : translateX(-60%) }
+    77%  { -webkit-transform : translateX(-60%) }
+    80%  { -webkit-transform : translateX(-80%) }
+    97%  { -webkit-transform : translateX(-80%) }
+    to   { -webkit-transform : translateX(0%) }
+}
+
+</style>
+
+</head>
+<body>
+
+<section>
+
+<header>
+<div></div><div></div><div></div><div></div><div></div>
+</header>
+
+<article>
+
+<h1>delayed and filled keyframe animations</h1>
+
+<p>
+
+After 4 seconds, a banner displaces content and inserts itself at the
+top of the screen. Both banner and content feature delayed keyframes
+that run concurrently.
+
+</p>
+
+<p>
+
+Starting at 5 seconds, the banner continuously scrolls sideways and
+then rewinds.  The five-column banner is 500% wide. Its second
+keyframe shifts it horizontally at intervals of 20%, 40%, 60% and 80%
+to view each advertisement.
+
+</p>
+
+<p></p>
+
+<p></p>
+
+</article>
+
+</section>
+
+
+</body>
+</html>

@@ -1,6 +1,6 @@
 <html>
 <head>
-<title>transit</title>
+<title>pulse animation</title>
 
 <style>
 body {
@@ -56,6 +56,32 @@ nav.expanded > div {
     -webkit-transform                    : scale(1) translateX(0);
 }
 
+nav.expanded > div.selected {
+    -webkit-animation: pulse 1s infinite;
+
+/*
+    animation-name		: slide_down	, scroll;
+    animation-duration		: 1s		, 20s;
+    animation-delay		: 4s		, 5s;
+    animation-iteration-count	: 1		, infinite;
+    animation-fill-mode		: backward      , both;
+    animation-play-state        : running;
+@keyframes slide_down {
+    from { transform: translateY(-10em) }
+    to { transform: translateY(0) }
+}
+*/
+
+
+}
+
+nav.expanded > div.test {
+/*
+*/
+        -webkit-transform : scale(0.75) translateX(0);
+        opacity           : 0.25;
+}
+
 nav > div:nth-of-type(1) { background-image: url(html5icon1.png); }
 nav > div:nth-of-type(2) { background-image: url(html5icon2.png); }
 nav > div:nth-of-type(3) { background-image: url(html5icon3.png); }
@@ -65,19 +91,32 @@ nav > div:nth-of-type(6) { background-image: url(html5icon6.png); }
 nav > div:nth-of-type(7) { background-image: url(html5icon7.png); }
 nav > div:nth-of-type(8) { background-image: url(html5icon8.png); }
 
-
+@-webkit-keyframes pulse {
+    from { 
+        -webkit-transform : scale(1) translateX(0);
+        opacity           : 1;
+    }
+    50% { 
+        -webkit-transform : scale(0.75) translateX(0);
+        opacity           : 0.25;
+    }
+    to { 
+        -webkit-transform : scale(1) translateX(0);
+        opacity           : 1;
+    }
+}
 
 </style>
 
 </head>
 <body>
 
-<nav>
+<nav class="expanded">
     <div></div>
     <div></div>
     <div></div>
     <div></div>
-    <div></div>
+    <div class="selected"></div>
     <div></div>
     <div></div>
     <div></div>

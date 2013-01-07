@@ -1,0 +1,90 @@
+/* CUSTOM LAYOUT */
+
+section {
+    overflow: hidden;
+}
+
+article {
+    -webkit-animation: push_down 1s 4s;
+    -webkit-animation-fill-mode: both;
+}
+
+header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 500%;
+    height: 3em;
+    column-count: 5;
+    -webkit-transform: translateY(-10em);
+    -webkit-animation-name		: slide_down	, scroll;
+    -webkit-animation-duration		: 1s		, 20s;
+    -webkit-animation-delay		: 4s		, 5s;
+    -webkit-animation-iteration-count	: 1		, infinite;
+    -webkit-animation-fill-mode		: backward	, both;
+    -webkit-animation-play-state: playing;
+}
+
+header > div {
+    padding-top: 0.5em;
+    display: inline-block;
+    text-align: center;
+    width: 20%;
+    height: 3em;
+    background-repeat: no-repeat;
+}
+
+/*
+div:nth-of-type(1) { background: pink; }
+div:nth-of-type(2) { background: lightgreen; }
+div:nth-of-type(3) { background: plum; }
+div:nth-of-type(4) { background: lightblue; }
+div:nth-of-type(5) { background: gold; }
+*/
+
+div:nth-of-type(1) { background-image: url(../img/banner1.jpg); }
+div:nth-of-type(2) { background-image: url(../img/banner2.jpg); }
+div:nth-of-type(3) { background-image: url(../img/banner3.jpg); }
+div:nth-of-type(5) { background-image: url(../img/banner4.jpg); }
+div:nth-of-type(4) { background-image: url(../img/banner5.png); }
+
+
+.pause {
+    -webkit-animation-play-state: paused;
+}
+
+.pause > div {
+    -webkit-animation: pulse 0.5s infinite alternate;
+}
+
+/* KEYFRAMES */
+
+@-webkit-keyframes pulse {
+    from { opacity: 1 }
+    to { opacity: 0.5 }
+}
+
+@-webkit-keyframes push_down {
+    from { margin-top: 0em }
+    to { margin-top: 4em }
+}
+
+@-webkit-keyframes slide_down {
+    from { -webkit-transform: translateY(-10em) }
+    to { -webkit-transform: translateY(0) }
+}
+
+@-webkit-keyframes scroll {
+    from { -webkit-transform: translateX(0) }
+    17% { -webkit-transform: translateX(0%) }
+    20% { -webkit-transform: translateX(-20%) }
+    37% { -webkit-transform: translateX(-20%) }
+    40% { -webkit-transform: translateX(-40%) }
+    57% { -webkit-transform: translateX(-40%) }
+    60% { -webkit-transform: translateX(-60%) }
+    77% {-webkit-transform: translateX(-60%) }
+    80% {-webkit-transform: translateX(-80%) }
+    97% {-webkit-transform: translateX(-80%) }
+    to   { -webkit-transform: translateX(0%) }
+}
+

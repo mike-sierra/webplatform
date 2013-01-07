@@ -1,0 +1,64 @@
+<html>
+  <head>
+<title>transitionend</title>
+
+<style>
+
+body {
+    background: #777;
+}
+
+div {
+    background-color   : rgba(100%, 100%, 100%, 1);
+    margin             : 0.5in;
+    padding            : 0.5em;
+    -webkit-box-shadow : 0 0 2em plum;
+    border-radius      : 0.5em;
+    font-family        : Trebuchet MS;
+    text-align         : left;
+    width              : 260px;
+    opacity            : 0;
+    -webkit-transition  : opacity 1s 1s, background-color 10s 1s;
+}
+
+div.display {
+    opacity            : 1;
+    background-color   : rgba(100%, 100%, 100%, 0.95);
+}
+
+</style>
+
+</head>
+<body>
+
+<div>
+Did you know you can substitute <b>transitionend</b> event handlers for <b>setTimeout()</b> calls?
+</div>
+
+<script>
+
+var div;
+
+ window.onload = function() {
+     div = document.querySelector('div');
+     div.addEventListener('transitionend'       , timeoutPanelDisplay); // Mozilla
+     div.addEventListener('otransitionend'      , timeoutPanelDisplay); // Opera
+     div.addEventListener('webkitTransitionEnd' , timeoutPanelDisplay); // WebKit
+     setTimeout(function() { div.classList.add('display') }, 1000)
+ };
+ 
+ function timeoutPanelDisplay(e) {
+     // ignore irrelevant transitions:
+     if (e.propertyName != 'background-color') return(false);
+     // execute only after expanding panel:
+     if (! e.currentTarget.classList.contains('display')) return(false);
+     // collapse panel:
+     e.currentTarget.classList.remove('display');
+ }
+</script>
+
+</body>
+</html>
+
+
+

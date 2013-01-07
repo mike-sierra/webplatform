@@ -19,21 +19,26 @@ div {
     top                         : 20px;
     width                       : 56px;
     height                      : 56px;
-    background                  : #ddd;
-    -webkit-transition-property : height, width;
-    -webkit-transition-duration : 0.5s, 0.5s;
-    -webkit-transition-delay    : 0.0s, 0.5s;
+    background-color            : #ddd;
+    -webkit-transition-property : height, width, background-color;
+    -webkit-transition-duration : 0.5s, 0.5s, 5s;
+    -webkit-transition-delay    : 0.0s, 0.5s, 0.0s;
+
+/*
 
     -webkit-transition-timing-function : cubic-bezier(0.4, 0, 1, 0.4), cubic-bezier(0, 0.4, 0.4, 1);
 
     -webkit-transition-timing-function : steps(3), steps(4);
 
+*/
 
 }
+
 div.expanded {
-    -webkit-transition-property : width, height;
+    -webkit-transition-property : width, height, background-color;
     width                       : 280px;
     height                      : 400px;
+    background-color            : #eee;
 }
 
 div {
@@ -56,6 +61,12 @@ div.expanded {
 window.onload = function() {
     document.querySelector('div').addEventListener('click', function(event) {
         event.currentTarget.classList.toggle('expanded');
+    });
+    document.querySelector('div').addEventListener('webkitTransitionEnd', function(e) {
+        if (e.propertyName != 'background-color') return(false);
+        if (! e.currentTarget.classList.contains('expanded')) return(false);
+        e.currentTarget.classList.remove('expanded');
+        console.log(e.currentTarget);
     });
 };
 

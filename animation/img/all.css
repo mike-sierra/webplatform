@@ -1,0 +1,38 @@
+/* MAIN LAYOUT */
+
+body {
+    overflow-x: hidden;
+    background: #777;
+    font-family: sans-serif;
+}
+
+section {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: #aaa;
+    padding: 1em 1em 10em 1em;
+    box-sizing: border-box;
+}
+
+article {
+    background: #fff;
+    border-radius: 1em;
+    padding: 1em;
+    min-height: 90%;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 0.5em;
+}
+
+/* emulate mobile screen size on desktop browser */
+@media screen and (min-width: 400px) {
+    section {
+        max-width: 320px;
+        max-height: 480px;
+    }
+}
+

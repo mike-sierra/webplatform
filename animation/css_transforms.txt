@@ -1,21 +1,50 @@
-{{Page_Title|Using CSS3 transforms}}
+{{Page_Title|Manipulating content with CSS3 transforms}}
 {{Flags
-|High-level issues=Stub
-|Editorial notes=[[User:Sierra]] has content intended for this page. See bug [https://www.w3.org/Bugs/Public/show_bug.cgi?id=20410 #20410]. Still to do: conclusion; clarify perspective() and scaleZ() functions; live samples}}
-{{Byline}}
+|Editorial notes=Still to do: conclusion; clarify perspective() and scaleZ() functions; possibly media queries; live samples. Contact [[User:Sierra]] and see bug [https://www.w3.org/Bugs/Public/show_bug.cgi?id=20410 #20410].
+}}
+{{Byline
+|Name=Mike Sierra
+}}
 {{Summary_Section|CSS transforms allow you to dynamically manipulate
 the space in which content elements appear. You can move them around
 on the screen, shrink or expand them, rotate them, or combine all
 these effects to produce complex movements.  By themselves, transforms
-produce static visual effects, but can be easily combined with CSS
-[[tutorials/css_transitions|transitions]] and
+produce static visual effects, but they can be easily combined with
+CSS [[tutorials/css_transitions|transitions]] and
 [[tutorials/css_animations|keyframe animations]] to produce vibrant
-interfaces. This tutorial first introduces two-dimensional transforms,
-then shows you how to extend transforms into three-dimensional space.
-It ends with step-by-step instructions to spin a cube.
+animated interfaces. This tutorial first introduces simple
+two-dimensional transforms, then shows you how to extend transforms
+into three-dimensional space.  It ends with step-by-step instructions
+to spin a cube in space.
 }}
 {{Tutorial
 |Content=
+
+These key points serve as reference:
+
+* The [[css/properties/transform|'''transform''']] property specifies a set of transform functions.
+
+* 2D functions include [[css/functions/translate()|'''translate()''']], [[css/functions/scale()|'''scale()''']], [[css/functions/rotate()|'''rotate()''']], and [[css/functions/skew()|'''skew()''']].
+
+* The [[css/functions/translate()|'''translate()''']] function accepts standard CSS measurements; [[css/functions/scale()|'''scale()''']] accepts a decimal value between 0 and 1; both [[css/functions/rotate()|'''rotate()''']] and [[css/functions/skew()|'''skew()''']] specify radial '''deg''' or '''rad''' measurements. Except for [[css/functions/rotate()|'''rotate()''']], each accepts two ''x''/''y'' parameters.
+
+* Individual ''x''/''y'' functions are available: [[css/functions/translateX()|'''translateX()''']], [[css/functions/translateY()|'''translateY()''']], [[css/functions/scaleX()|'''scaleX()''']], [[css/functions/scaleY()|'''scaleY()''']], [[css/functions/skewX()|'''skewX()''']], and [[css/functions/skewY()|'''skewY()''']]
+
+* Combined 2D transforms can be represented with the [[css/functions/matrix()|'''matrix()''']] function, which uses 6 parameters.
+
+* 3D functions include [[css/functions/rotateX()|'''rotateX()''']], [[css/functions/rotateY()|'''rotateY()''']], [[css/functions/rotate3d()|'''rotate3d()''']], [[css/functions/translateZ()|'''translateZ()''']], [[css/functions/translate3d()|'''translate3d()''']], [[css/functions/scaleZ()|'''scaleZ()''']], and [[css/functions/scale3d()|'''scale3d()''']].
+
+* Combined 3D transforms can be represented with the [[css/functions/matrix3d()|'''matrix3d()''']] function, which uses 16 parameters.
+
+* The [[css/properties/transform-origin|'''transform-origin''']] property controls what point of an element the transform appears to emanate from. Adding a pixel measurement for a third parameter, or for the alternate [[css/properties/transform-origin-z|'''transform-origin-z''']] property, moves the origin point back and forth in 3D space.
+
+* The [[css/properties/perspective|'''perspective''']] property situates a 3D scene relative to the viewer, with distance measured in pixels. To appear correctly, it must be applied to a transformed element's ancestor.
+
+* The [[css/properties/perspective-origin|'''perspective-origin''']] property allows a 3D scene to be viewed from a diagonal vantage point rather than straight at the center.
+
+* The [[css/properties/backface-visibility|'''backface-visibility''']] property hides elements that rotate away from view, rather than rendering them as a mirror image.
+
+* Setting [[css/properties/transform-style|'''transform-style''']] to '''preserve-3d''' on a 3D element renders any nested 3D elements within its own transformed space.
 
 ==The transform property==
 
@@ -152,7 +181,7 @@ only the ''x'' axis.
 
 [[Image:transform_skew.png]]
 
-Note that combining ''x'' and ''y'' skews makes the element appear to
+Note that skewing along both ''x'' and ''y'' makes the element appear to
 move into three-dimensional space, but the transformation actually
 occurs within a flat plane. Skip below for information about 3D
 transforms.
@@ -175,16 +204,13 @@ towards the center, or else you rotate it around its center point.
 The [[css/properties/transform-origin|'''transform-origin''']]
 property allows you to place this origin point elsewhere, even outside
 the element, changing how transforms respond, especially in animations.
-It accepts a pair of ''x''/''y'' measurements, or else you can specify
-'''transform-origin-x''' and '''transform-origin-y''' separately.
+It accepts a pair of ''x''/''y'' measurements.
 
 This shows a series of transforms that rotate around a point near the
 bottom right corner:
 
  div {
-     transform-origin-x : 80%     ;
-     transform-origin-y : 90%     ;
-     transform-origin	: 80% 90% ; /* same as above */
+     transform-origin   : 80% 90% ; 
  }
  div:nth-of-type(1) { transform : rotate(10deg) ; }
  div:nth-of-type(2) { transform : rotate(20deg) ; }
@@ -197,8 +223,6 @@ makes it appear to tip over:
 
  div {
     transform          : skewX(15deg);
-    transform-origin-y : 100%;
-    transform-origin-y : bottom; /* same as 100% */
  }
 
 [[Image:origin_skew.png]]
@@ -215,13 +239,13 @@ with no need for the [[css/functions/translate()|'''translate()''']]
 function:
 
  div:first-of-type {
-    -webkit-transform          : scale(0.35, 1);
-    -webkit-transform-origin-x : 0%;
-    -webkit-transform-origin-x : left; /* same as 0% */
+    transform        : scale(0.35, 1);
+    transform-origin : 0%;
+    transform-origin : left; /* same as 0% */
  }
  div:last-of-type {
-    -webkit-transform-origin   : 210% -20%;
-    -webkit-transform          : scale(0.5);
+    transform-origin : 210% -20%;
+    transform        : scale(0.5);
  }
 
 [[Image:origin_scale.png]]
@@ -337,11 +361,12 @@ is far behind them:
 
  .parent {
     perspective          : 10000;
-    perspective-origin-y : -3000;
+    perspective-origin-y : -3000;  /* view from above */
     background-color     : #aaa;
  }
  .child {
     transform-origin-z   : -620;
+    transform-origin     : 50% 50% -620;  /* same */
  }
  .child:nth-of-type(1) { transform: rotateY(-50deg); }
  .child:nth-of-type(2) { transform: rotateY(-30deg); }
@@ -383,15 +408,12 @@ only one of the child ''face'' elements displays at a time:
  }
  .card {
      left		: 0px;
-         /* vary this to rotate the entire card: */
-     transform		: rotateY(45deg);
-         /* this allows each face to rotate within the card: */
-     transform-style	: preserve-3d;
+     transform		: rotateY(45deg);    /* vary this to rotate the entire card */
+     transform-style	: preserve-3d;    /* this allows each face to rotate within the card */
  }
  .face {
      background-size	: 100% 100%;
-         /* only display when facing viewer: */
-     backface-visibility	: hidden;
+     backface-visibility	: hidden;    /* only display when facing viewer */
  }
  .face:first-of-type {
      transform		: rotateY(0deg);
@@ -423,8 +445,8 @@ allows you to transform nested content independently within that
 already modified space.
 
 To clarify how to use this feature, this extended example builds a
-cube representing playing dice that can spin freely. The entire markup
-appears like this:
+cube representing playing dice that can spin freely. The markup
+is implemented as a series of nested elements:
 
  &lt;div class="scene">
      &lt;div class="dice">
@@ -489,7 +511,8 @@ convenience to drop the cube back to accomodate its full volume:
 
 Various properties define the dice's edges with rounded corners, along
 with the small dot images that will be arranged to form a pattern on
-each face. Only one dot displays in the first face's pattern:
+each face. Only one dot displays in the first face's pattern, and the rest
+are pushed outside the displaying area:
 
  .face {
      border-radius       : 6px;
@@ -507,7 +530,9 @@ each face. Only one dot displays in the first face's pattern:
  
 [[Image:3Dnest_face1.png]]
 
-The next four faces pivot outward along each edge of the first face:
+The next four faces use 
+[[css/properties/transform-origin|'''transform-origin''']]
+to pivot outward at right angles along each edge of the first face:
 
  .face:nth-of-type(2) {
      transform           : rotateY(-90deg);
@@ -536,7 +561,7 @@ The next four faces pivot outward along each edge of the first face:
  
 [[Image:3Dnest_face5.png]]
 
-Note that all the backfaces are visible, and are only hidden because
+Note that all the backfaces are visible, and only become hidden when
 other opaque boxes appear in front of them.
 
 The sixth face simply uses '''translateZ()''' to drop it back to close
@@ -563,14 +588,6 @@ object. Here is how a script can control the spin:
  function spin() { return( Math.floor( Math.random() * 360 ) + 'deg') }
 
 [[Image:3Dnest_spin.png]]
-
-
-
-
-
-
-
-
 }}
 {{Notes_Section}}
 {{Compatibility_Section
