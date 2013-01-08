@@ -1,6 +1,10 @@
-app.func.filter = function() {
+// if (! app.converter)  app.converter = new Object;
+// if (! app.component)  app.component = new Object;
+
+app.converter.filter = function(s) {
     var v = '';
-    v += app.comp['filter_blur'];
+    
+    v += app.component['filter_blur'];
     return v;
 }
 

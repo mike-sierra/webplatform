@@ -1,8 +1,8 @@
 var app = new Function();
 
 window.onload = function() {
-    app.comp = new Object; // cache of values to assemble into complex property values
-    app.func = new Object; // 2doc
+    app.component = new Object; // cache of values to assemble into complex property values
+    app.converter = new Object; // 2doc
 
     setTimeout(function() {
         app.initContent();
@@ -108,7 +108,7 @@ app.modify = function(input) {
 
     // cache the input value in case complex property values need to
     // be built from many components:
-    app.comp[id] = value;
+    app.component[id] = value;
 
     // Is there any need to build a complex 'meta' property?
     metaProp = input.dataset.metaprop || false;
@@ -123,13 +123,17 @@ app.modify = function(input) {
 
     // calculate final property value:
 
-    if (metaProp && app.func[metaProp]) {
+    if (metaProp) {
+        console.log('######################');
+        console.log(metaProp);
+        console.log(app.converter);
+        console.log(app.converter[metaProp]);
         try {
             // pass in value in case it can be used as fallback return value:
-            cssValue = app.func[metaProp](value);
+            cssValue = app.converter[metaProp](value);
         }
         catch(err) {
-            console.log("no metaprop function (app.func." + metaProp + ") defined for ID " + id);
+            console.log("no metaprop function (app.converter." + metaProp + ") defined for ID " + id);
         }
     }
     else {
