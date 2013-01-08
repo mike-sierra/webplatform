@@ -1,17 +1,25 @@
 <!DOCTYPE html>
 <html>
 
+<head>
+
+<!-- place title of TOPIC in here -->
+
+<title>CSS Topic</title>
+
+</head>
+
 <body>
 
 <!-- place EXAMPLE in here -->
 
 <section>
 
-<div>All work and no play makes Jack a dull boy. All work and no play
-makes Jack a dull boy. All work and no play makes Jack a dull boy. All
+<div id="myExample">All work and no play makes Jack a dull boy. All
 work and no play makes Jack a dull boy. All work and no play makes
 Jack a dull boy. All work and no play makes Jack a dull boy. All work
-and no play makes Jack a dull boy.</div>
+and no play makes Jack a dull boy. All work and no play makes Jack a
+dull boy. All work and no play makes Jack a dull boy.</div>
 
 </section>
 
@@ -28,57 +36,97 @@ and no play makes Jack a dull boy.</div>
 <div id="demo_panel0"></div>
 <div id="demo_panel1">
 
-<label>numeric</label>
-<input type="range"/>
+  <label>size</label>
+  <input type="range" id="fontSize" min="6" max="48" value="24" data-unit="px"/>
+  
+  <select id="fontSize_keywords" data-tgtprop="fontSize">
+    <option>xx-small</option>
+    <option>x-small</option>
+    <option>small</option>
+    <option>smaller</option>
+    <option selected>medium</option>
+    <option>larger</option>
+    <option>large</option>
+    <option>x-large</option>
+    <option>xx-large</option>
+  </select>
 
-<br/><label>discrete</label>
-<select>
-    <option>option1</option>
-    <option>option2</option>
-    <option>option3</option>
-    <option>option4</option>
-</select>
-
-<br/><label>toggle</label>
-<input type="checkbox"/>
-
-<br/><label>color</label>
-<input type="color"/>
+  <br/><label>family</label>
+  <select  id="fontFamily">
+      <option>serif</option>
+      <option>sans-serif</option>
+  </select>
+  
+  <br/><label>color</label>
+  <input type="range" id="color" value="black" class="hex" min="0" max="16777216" step="1" value="0" />
 
 </div>
 <div id="demo_panel2">
 
-<label>size</label>
-<input type="range" id="fontSize" min="6" max="48" value="12"/>
+   <input data-vendor="Webkit" data-metaprop="filter" type="range"
+          id="filter_blur" min="0" max="48" value="0" data-unit="px"/>
 
-<br/><label>family</label>
-<select  id="fontFamily">
-    <option>serif</option>
-    <option>sans-serif</option>
-</select>
+   <input data-vendor="Webkit" data-metaprop="filter" type="range"
+          id="filter_brightness" min="0" max="100" value="0" data-unit="%"/>
 
-<br/><label>color</label>
-<input type="color" id="color"/>
+   <input data-vendor="Webkit" data-metaprop="filter" type="range"
+          id="filter_contrast" min="0" max="100" value="100" data-unit="%"/>
 
+   <input data-vendor="Webkit" data-metaprop="filter" type="range"
+          id="filter_grayscale" min="0" max="100" value="0" data-unit="%"/>
+
+   <input data-vendor="Webkit" data-metaprop="filter" type="range"
+          id="filter_invert" min="0" max="100" value="0" data-unit="%"/>
+
+   <input data-vendor="Webkit" data-metaprop="filter" type="range"
+          id="filter_opacity" min="0" max="100" value="0" data-unit="%"/>
+
+   <input data-vendor="Webkit" data-metaprop="filter" type="range"
+          id="filter_sepia" min="0" max="100" value="0" data-unit="%"/>
+
+   <input data-vendor="Webkit" data-metaprop="filter" type="range"
+          id="filter_saturate" min="0" max="1000" value="100" data-unit="%"/>
+
+   <input data-vendor="Webkit" data-metaprop="filter" type="range"
+          id="filter_huerotate" min="0" max="360" value="0" data-unit="deg"/>
+
+-webkit-filter: blur(3.5px) brightness(45%) contrast(64%)
+drop-shadow(35.64px 33.25px 13.09px rgba(64, 112, 125, 0.3))
+grayscale(40%) hue-rotate(233deg) invert(100%) opacity(38%)
+saturate(260%) sepia(48%);
+
+
+controls_2
 </div>
 <div id="demo_panel3">
-content3
+controls_3
 </div>
 <div id="demo_panel4">
-content4
+controls_4
 </div>
 <div id="demo_panel5">
-content5
+controls_5
 </div>
 <div id="demo_panel6">
-content6
+controls_6
 </div>
 
 </form>
 
 <!-- place CODE in here -->
 
-<pre>CODE</pre>
+<pre>
+<span id="c_fontSize"></span>
+<span id="c_fontFamily"></span>
+<span id="c_color"></span>
+<span id="c_filter"></span>
+</pre>
+
+<!-- place explanatory INFO in here -->
+
+<aside>
+All work and no play makes Jack a dull boy.
+</aside>
 
 </body>
 </html>

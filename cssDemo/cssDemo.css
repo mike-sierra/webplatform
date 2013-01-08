@@ -12,38 +12,47 @@ iframe {
     display                    : none;
 }
 
-#code, #controls, #example {
+#demo_topic, #demo_code, #demo_controls, #demo_example {
     background                 : #fff;
     position                   : absolute;
     border                     : thin solid #777;
     padding                    : 1em;
     box-sizing                 : border-box;
     -moz-box-sizing            : border-box;
+    top: 10%;;
     margin                     : 1em;
     border-radius              : 1em;
     width                      : 47%;
-    height                     : 45%;
+    height                     : 40%;
 }
 
-#example {
-    height                     : 95%;
+#demo_topic {
+    width: 95%;
+    height: 7%;
+    top: 0%;;
+    font-size: 24px;
+    padding: 0.5em;
 }
 
-#code, #controls {
+#demo_example {
+    height                     : 85%;
+}
+
+#demo_code, #demo_controls {
     left                       : 50%;
     overflow-y                 : scroll;
 }
 
-#code {
-    top                        : 50%;
+#demo_code {
+    top                        : 55%;
 }
 
 /* CONTROLS */
 
-#controls {
+#demo_controls {
 }
 
-#controls > a {
+#demo_controls > a {
     -webkit-transform          : translate(1px, 2px);
     -moz-transform             : translate(1px, 2px);
     -o-transform               : translate(1px, 2px);
@@ -58,16 +67,16 @@ iframe {
     color                      : inherit;
 }
 
-#controls > a:target {
+#demo_controls > a:target {
     border-bottom              : thin solid #fff;
     background                 : #fff;
 }
 
-#controls > a:visited {
+#demo_controls > a:visited {
     color                      : inherit;
 }
 
-#controls > div {
+#demo_controls > div {
     border                     : thin solid #777;
     height                     : 80%;
     padding                    : 0.5em;
@@ -100,15 +109,16 @@ a:target ~ #demo_panel0 {
 
 /* EXAMPLE */
 
-#example {
-    text-align: center;
-    padding: 6em 3em 0 3em;
+#demo_example {
+    text-align                 : center;
+    padding                    : 6em 3em 0 3em;
 }
 
-#example > * {
-    text-align: left;
-    display: inline-block;
-    padding: 1em;
-    border-radius: 1em;
-    border: thin solid #777;
+#demo_example > * {
+    -webkit-transition         : all 1s;
+    text-align                 : left;
+    display                    : inline-block;
+    padding                    : 1em;
+    border-radius              : 1em;
+    border                     : thin solid #777;
 }
