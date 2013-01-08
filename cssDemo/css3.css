@@ -1,0 +1,155 @@
+body {
+    overflow-x: hidden;
+    font-family: sans-serif;
+}
+
+#dbg {
+    background: pink;
+    width: 100%;
+    position: fixed;
+    top: 90%;
+}
+
+nav {
+    background: gold;
+    background: #fff;
+    min-height: 36px;
+    width: 100%;
+    -webkit-user-select: none;
+    cursor: pointer;
+    line-height: 2;
+}
+
+nav > span {
+    border: thin solid #777;
+    padding: 0.25em;
+    border-radius: 0.25em;
+}
+
+section#code {
+    background: lightblue;
+    background: #fff;
+    padding: 0.5em;
+    border-radius: 1em;
+    margin: 1em;
+    min-height: 25%;
+    border: medium solid #777;
+    -webkit-box-shadow: 0 0 1em 0 #000;
+    overflow-x: scroll;
+}
+
+section#code > pre {
+    padding-right: 2em;
+}
+
+section#info {
+    max-width: 320px;
+    background: lightgreen;
+    background: #fff;
+    border: medium solid #777;
+    margin: 1em;
+    padding: 0.5em;
+    border-radius: 1em;
+    -webkit-box-shadow: 0 0 1em 0 #000;
+    -webkit-box-flex: 0;
+}
+
+section#main {
+    min-height: 480px;
+    max-height: 75%;
+    min-width: 320px;;
+    display: -webkit-box;
+    -webkit-box-direction: reverse;
+    -webkit-box-orient: horizontal;
+    -webkit-box-pack: justify;
+}
+
+section#main> section {
+    overflow-y: scroll;
+}
+
+section#main > section:first-of-type,
+section#main > section:last-of-type {
+    min-width: 320px;
+    -webkit-box-flex: 0;
+}
+
+section#preview {
+    -webkit-box-align: center;
+    -webkit-box-flex: 0;
+    -webkit-box-orient: horizontal;
+    -webkit-box-pack: center;
+    background: #ddd;
+    display: -webkit-box;
+    max-width: 320px;
+    overflow: hidden;
+}
+
+section#preview.toggle {
+    background-image: url(img/Objects001.jpg);
+    background-color: transparent;
+}
+
+section#controls {
+    background: transparent;
+    min-width: 320px;
+    -webkit-box-flex: 10;
+}
+
+/* @media all { } */
+
+/* INPUTS */
+
+input:disabled {
+    opacity: 0.5;
+}
+
+fieldset {
+    max-width: 300px;
+    box-sizing: border-box;
+    min-height: 2em;
+    border-radius: 1em;
+    display: inline-block;
+    margin: 1em 0 0 1em;
+}
+
+fieldset label {
+    min-width: 40%;
+    float: left;
+}
+
+fieldset select,
+fieldset input[type=range] {
+    width: 50%;
+    min-height: 2em;
+}
+
+fieldset > input[type=checkbox] {
+/*    -webkit-appearance: none; */
+    height: 2em;
+    width: 50%;
+    background: #777;
+}
+
+fieldset.wrapper {
+    max-width: 95%;
+}
+
+label.css3:before {
+    color: #67ab5f;
+    content: "\2022\0020";
+    font-size: 20px;
+}
+
+label.apple:before {
+    color: red;
+    content: "\2022\0020";
+    font-size: 20px;
+}
+
+label.css3value:before {
+    color: orange;
+    content: "\2022\0020";
+    font-size: 20px;
+}
+

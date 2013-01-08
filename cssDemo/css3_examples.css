@@ -1,0 +1,113 @@
+#preview > div:not(#x_transition) {
+    width: 200px;
+    padding: 0.5em;
+    height: 300px;
+    -webkit-transition: all 0.25s;
+    overflow: scroll;
+    background: #fff;
+    
+}
+
+#preview.toggle > #x_text
+{
+    background-color: transparent;
+}
+
+#preview > div#x_gradient {
+    background-color: plum;
+    background-image: url(img/Objects002.jpg);
+}
+
+#preview > #x_transition {
+    -webkit-transition: all 1s;
+    background-color: rgba(100%, 0%, 0%, 0.2);
+    width: 250px;
+    height: 300px;
+    padding: 0.5em;
+    border-radius: 0em;
+    font-size: 20px;
+    color: green;
+    font-weight: bold;
+    opacity: 1;
+    -webkit-transform: rotate(10deg) scale(0.8);
+    text-indent: 30px;
+    -webkit-box-shadow: 0.5em 0.5em 0 0 orange;
+    line-height: 1.5;
+    background-image: url(img/check.png);
+    background-repeat: no-repeat;
+    background-position: 0.5em 0.5em;
+}
+
+#preview.toggle > #x_transition {
+    -webkit-box-shadow: 0 0 0.5em 0.5em plum;
+    -webkit-transform: rotate(0deg) scale(1);
+    line-height: 1;
+    text-indent: 0px;
+    color: black;
+    opacity: 0.7;
+    font-size: 16px;
+    -webkit-transition: all 1s;
+    background-color: #fff;
+    width: 200px;
+    height: 350px;
+    padding: 1em;
+    border-radius: 1em;
+    background-position: 0.5em -2em;
+}
+
+@-webkit-keyframes shake {
+    from { -webkit-transform: translate(0em, 2em); }
+    33% { -webkit-transform: translate(2em, 2em); } 
+    66% { -webkit-transform: translate(-2em, 2em); } 
+    to { -webkit-transform: translate(0em, 2em); }
+}
+
+@-webkit-keyframes pulse {
+    from { opacity: 1 }
+    to { opacity: 0.5 }
+}
+
+#x_flexbox {
+    max-width: 240px;
+    display: none;
+}
+
+#x_flexbox.show {
+    display: -webkit-box;
+}
+
+#x_flexbox  > div {
+    -webkit-box-flex: 0;
+    padding: 0.5em;
+    border-radius: 0.5em;
+}
+
+#x_flexbox  > div:before {
+    content: "#";
+}
+
+#x_flexbox > div:first-of-type {
+    background: plum;
+}
+
+#x_flexbox > div:nth-of-type(2) {
+    background: gold;
+    -webkit-box-flex: 2;
+}
+
+#x_flexbox > div:nth-of-type(2) {
+    background: lightblue;
+}
+
+#x_flexbox > div:nth-of-type(3) {
+    background: lightgreen;
+}
+
+#x_flexbox > div:last-of-type {
+    background: pink;
+}
+
+/*
+
+
+*/

@@ -1,0 +1,4022 @@
+
+<html>
+<head>
+<meta charset="UTF-8">
+<title>css properties</title>
+<link href='css3.css' type='text/css' rel='stylesheet'/>
+<link href='css3_mobile.css' type='text/css' rel='stylesheet'/>
+<link href='css3_examples.css' type='text/css' rel='stylesheet'/>
+<link href='mobileForm.css' type='text/css' rel='stylesheet'/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+</head>
+
+<!--
+
+How to configure & extend this app:
+
+== TOPICS
+
+Each displaying panel represents a CSS "topic" that groups related CSS
+properties. Display is controlled by matching each tab's ID to various
+panels, which assumes this system of topic prefixes:
+
+  = t_ navigation tab (inline SPAN)
+  = c_ syntax region (PRE blocks)
+  = n_ control panels
+  = x_ example element on which to reflect CSS property
+  = i_ explanatory text
+
+Commenting out individual navigation tabs hides the corresponding
+topic at runtime.
+
+Input values for each control panel (n_topic) are applied to the
+corresponding x_topic sample element.  (The assignTopicsToInputs()
+routine embeds each input with a "data-topic" attribute.)
+
+== PROPERTIES
+
+By default, the IDs of inputs within control panels match an
+individual CSS property, expressed as a JS propertyName rather than a
+CSS property-name. (Starts lowercase by default; exception is
+vendor-prefixed WebkitPropertyName.)
+
+Each property is reflected in a syntax container (PRE > SPAN) whose ID
+is c_propertyName.  (Note the same c_ prefix used for PRE regions;
+avoid collisions e.g., between 'colors' topic and 'color' property)
+
+== CUSTOMIZATION
+
+A "data-metaprop" attribute specifies a property name for which the
+input value merely serves as a component. There must be a matching
+app.f.METAPROP function defined to assemble these components from
+individual inputs, each available as app.p.ID where ID is the input's
+ID.
+
+While inputs are assumed by default to correspond to property names,
+sometimes they refer to custom property values. E.g., a webkit
+gradient is not an independent property, but a value that's assigned
+to the background-image property.  A "data-tgtprop" attribute specifies
+an alternate property to which to assign the value.
+
+A "data-tgtcode" attribute selects a different syntax container than
+the default. For example, there are two different places to reflect
+CSS transforms, one for 2D and one for 3D.
+
+A "data-tgtexample" attribute specifies a different sample element to
+reflect the change. E.g., most multicolumn properties apply to a
+default block element, but span and column-break properties only apply
+to its child elements.
+
+For range inputs, a "data-unit" attribute specifies any required unit
+suffix for the value to be interpreted properly as CSS. E.g., a #ms
+duration or a #% percentage.
+
+
+http://www.w3schools.com/cssref/default.asp
+
+-webkit-dashboard-region azimuth bookmark-label bookmark-level
+bookmark-target caption-side clear clip counter-increment
+counter-reset crop cue cursor elevation empty-cells fit fit-position
+icon marker-offset marks move-to presentation-level quotes rotation
+rotation-point string-set tab-side target vertical-align
+
+-->
+
+<body>
+
+<nav>
+<span id="t_box">boxes</span>
+<span id="t_text">text</span>
+<span id="t_colors">colors</span>
+<span id="t_gradient">gradients</span>
+<span id="t_mask">masks</span>
+<span id="t_background">backgrounds</span>
+<span id="t_border">borders</span>
+<span id="t_flow">overflow</span>
+<span id="t_column">columns</span>
+<span id="t_transition">transitions</span>
+<span id="t_animation">animations</span>
+<span id="t_transform2d">2d&nbsp;transform</span>
+<span id="t_transform3d">3d&nbsp;transform</span>
+<span id="t_flexbox">flexible&nbsp;boxes</span>
+<span id="t_ui">interface</span>
+<!--
+<span id="t_adv">advanced</span>
+<span id="t_intl">international</span>
+<span id="t_aural">aural</span>
+-->
+</nav>
+
+<section id="main">
+
+<section id="info">
+
+<div id="i_box">
+
+<p>
+
+Simple box dimensions, rounded corners, and shadows.  Try adding a
+blur to a zero-offset shadow. Also, applying a blur to an inset shadow
+simulates the appearance of a gradient.  Tap the example to add or
+remove a background image, to see how transparent shadow colors
+appear.
+
+</p>
+</div>
+
+<div id="i_text">
+
+<p>
+
+Tap the example to see how text effects appear against a background
+image.  Text strokes affect the interior of each letterform, while
+text shadows only affect the exterior. The alternative text
+<i>fill</i> color functions the same as the better-known <i>color</i>
+property.
+
+</p>
+</div>
+
+<div id="i_colors">
+
+<p>
+
+Tap the example to see how transparencies appear against a background
+image.  The opacity (<i>alpha</i>) of a background color can be
+manipulated independently from the opacity of the overall element. HSL
+and HSLA reference a color's <i>hue</i> in degrees, <i>saturation</i>
+(vibrancy) and <i>luminence</i> (brightness) as percentages.
+
+</p>
+</div>
+
+<div id="i_gradient">
+<p>
+
+Gradients specify origin points, starting color, and destination
+color. Radial gradients specify the circle's size along with the
+origin points, which should be placed within the circle.  Optional
+color stops allow for shifts to additional colors along the specified
+path.
+
+</p>
+</div>
+
+<div id="i_mask">
+
+<p>
+
+Masks allow you to use data from one image to modify
+another. Reflections allow you to create mirror effects.
+
+</p>
+
+</div>
+
+<div id="i_background">
+
+<p>
+
+All background properties accept comma-separated arguments to specify
+multiple images. The <i>cover</i> and <i>contain</i> size options
+maintain the image's aspect ratio, while setting both <i>x</i>
+and <i>y</i> to 100% snaps the image to the size of the targeted
+element. The <i>origin</i> specifies what portion of the box against
+which to size the image: the inner <i>content</i>, or any additional
+<i>padding</i> or <i>border</i> area.  The <i>clip</i> property hides
+image content outside the specified area.  The <i>composite</i>
+property allows you to modify the image based on the background color.
+
+</p>
+
+</div>
+
+<div id="i_border">
+
+<p>Border images are used to fill border regions, based on a 3 &times;
+3 grid applied to the image. Specify the image <i>source</i>, then how
+much of the image to <i>slice</i> off each side and place within the
+border region. The slice's <i>fill</i> keyword specifies whether to
+display the center portion of the grid. The <i>repeat</i> property
+specifies how to fill the sides (and filled center) once the corners
+have been sliced off.  The <i>width</i> specifies the dimensions
+within the element's border box in which to extend the image,
+expressed as a multiple of the current border width.
+The <i>outset</i> likewise pushes the image outside the element's
+border box.  The <i>slice</i>, <i>width</i>, and <i>outset</i>
+properties each accept up to four values to customize each side.
+The <i>repeat</i> property can accept two separate values for
+horizontal and vertical edges.</p>
+
+<p>An outline can be styled much like a border, but doesn't affect the
+element's placement.</p>
+
+</div>
+
+<div id="i_flow">
+
+<p>
+
+The <i>text-overflow</i> property allows ellipses to be inserted when
+text overflows the right margin, when <i>white-space</i> is set
+to <i>no-wrap</i>.  The <i>word-wrap</i> property prevents long words
+from running past a column's width.  To enable scrolling marquee
+animations, specify <i>-webkit-marquee</i> as any <i>overflow</i>
+property, and use marquee-specific properties to control their
+presentation. The <i>repetition</i> sets how many times the animation
+executes. The <i>increment</i> controls the distance jumoed in each
+frame.
+
+</p>
+
+</div>
+
+<div id="i_column">
+
+<p>When you change the number of its columns, the block may resize to
+accommodate the new dimensions.  To demonstrate how various column
+break and span options affect the second heading, set the number of
+columns to 3 so that it appears at the bottom of a column by default,
+or 2 so that it appears within a column.</p>
+
+</div>
+
+<div id="i_transition">
+
+<p>
+
+When tapped, the example animates from one set of CSS style sheets to
+another. Choose a specific property to animate, or all of them.
+Transition <i>functions</i> specify the animation's progress as a
+curve or as a sequence of steps.  While this example specifies a
+single transition, each property accepts multiple, comma-separated
+values. Specifying delays for some transitions allows you to build
+sequences.
+
+</p>
+
+</div>
+
+<div id="i_animation">
+<p>
+
+Animations are based on <i>keyframe</i> rules that define potentially
+complex animation sequences.  Setting the <i>direction</i>
+to <i>alternate</i> means even-numbered iterations play back in
+reverse. The <i>fill mode</i> controls whether properties specified at
+the beginning of end of a keyframe sequence appear as defined before
+or after the animation executes. It applies only if there is a delay
+specified or if the iteration count is limited. The <i>play state</i>
+allows you to pause animations while in progress. Animations rely on
+the same set of timing functions as transitions. Some properties may
+not apply dynamically while an animation is running, which occurs when
+you change the animation's name.
+
+</p>
+</div>
+
+<div id="i_transform2d">
+<p>
+
+Transforms specify different <i>functions</i> that displace or distort
+an element's appearance.  The <i>translate()</i> function moves an
+element on the screen; <i>scale()</i> resizes it; <i>skew()</i>
+modifies its default 90&deg; corners; <i>rotate()</i> spins it.
+Modify the transform <i>origin</i> if you want to, for example, rotate
+the element around a point other than the center of the element.
+
+</p>
+</div>
+
+<div id="i_transform3d">
+<p>
+
+Similar to 2D transforms, but rotations, translations, and
+transform <i>origin</i> can extend along the <i>z</i> axis, towards or
+away from view.
+<p>
+A wrapper element requires <i>perspective</i> that specifies the
+number of pixels away from the viewer any transformed child elements
+appear. (Alternately, each transformed element can specify its own
+perspective.)
+<p>
+The main element's transform <i>style</i> specifies whether any
+transformed children render within its own 3D space, rather
+than <i>flat</i> against the element.  With <i>preserve-3d</i>
+enabled, any of the nested child's transforms appear within the space
+defined by its parent's transforms.
+<p>
+The <i>backface</i> of any element that rotates away from view can be
+hidden from view, enabling flip-panel effects.
+
+</p>
+</div>
+
+<div id="i_flexbox">
+<p>
+
+Flexible boxes offer layout options that are not available to standard
+block elements. Boxes can be oriented horizontally or vertically,
+controlling how child elements flow within the available space.
+The <i>pack</i> property allows you to distribute them evenly,
+and <i>align</i> allows you to cluster or <i>stretch</i> them along
+the perpendicular axis.  The <i>direction</i> property allows you to
+reverse their order. The <i>ordinal</i> property allows elements to be
+ordered arbitrarily, grouped independently of their actual sequence in
+the DOM. The <i>box-flex</i> property increases their flexibility
+relative to other flexible elements. (Elements such as #1 and #4
+whose <i>box-flex</i> is zero are inflexible.)
+
+</p>
+</div>
+
+<div id="i_ui">
+<p>
+
+Specify whether elements can be dragged, of if their text can be
+edited or selected. For elements such as form inputs that present a
+custom interface, you can override their <i>appearance</i> and supply
+your own. Use the <i>text-size-adjust</i> property to keep text from
+increasing in size when zooming content, also useful when shifting to
+landscape orientation on mobile browsers.
+
+</p>
+</div>
+
+<div id="i_adv">
+<p>
+
+??? advanced
+
+</p>
+</div>
+
+<div id="i_intl">
+<p>
+
+??? intl
+
+</p>
+</div>
+
+<div id="i_aural">
+<p>
+
+??? aural
+
+</p>
+</div>
+
+</section>
+
+<section id="controls">
+
+<div id="n_box">
+
+<fieldset><legend>dimensions/placement</legend>
+
+<label>width</label>
+<input type="range" min="24" max="400" value="200" id="width"/>
+
+<label>height</label>
+<input type="range" min="24" max="400" value="200" id="height"/>
+
+<label>margin</label>
+<input id="margin" type="range" min="0" max="30" value="30"/>
+
+<label>padding</label>
+<input id="padding" type="range" min="0" max="30" value="30"/>
+
+<label class="css3">border-radius</label>
+<input id="borderRadius" type="range" min="0" max="200" value="30"/>
+
+<label>float</label>
+<select id="float">
+<option selected>none</option>
+<option>left</option>
+<option>right</option>
+</select>
+
+<label>position</label>
+<select id="position">
+<option>absolute</option>
+<option>fixed</option>
+<option>relative</option>
+<option selected>static</option>
+</select>
+
+<label>left</label>
+<input id="left" type="range" min="0" max="200" value="0"/>
+
+<label>top</label>
+<input id="top" type="range" min="0" max="200" value="0"/>
+
+<label class="css3">box-sizing</label>
+<select id="boxSizing">
+<option selected>border-box</option>
+<option>content-box</option>
+</select>
+
+</fieldset>
+
+<fieldset><legend>shadow</legend>
+
+<label class="css3">X</label>
+<input id="WebkitBoxShadow_x" type="range" min="-30" max="30" value="10"
+	data-metaprop="WebkitBoxShadow"
+/>
+
+<label class="css3">Y</label>
+<input id="WebkitBoxShadow_y" type="range" min="-30" max="30" value="10"
+	data-metaprop="WebkitBoxShadow"
+/>
+
+<label class="css3">blur</label>
+<input id="WebkitBoxShadow_blur" type="range" min="0" max="30" value="0"
+	data-metaprop="WebkitBoxShadow"
+/>
+
+<label class="css3">spread</label>
+<input id="WebkitBoxShadow_spread" type="range" min="0" max="30" value="0"
+	data-metaprop="WebkitBoxShadow"
+/>
+
+<label class="css3">inset</label>
+<input id="WebkitBoxShadow_inset" type="checkbox"
+	data-metaprop="WebkitBoxShadow"
+/>
+
+<label class="css3">R</label>
+<input id="WebkitBoxShadow_r" type="range" min="0" max="100" value="0"
+	data-metaprop="WebkitBoxShadow"
+/>
+
+<label class="css3">G</label>
+<input id="WebkitBoxShadow_g" type="range" min="0" max="100" value="0"
+	data-metaprop="WebkitBoxShadow"
+/>
+
+<label class="css3">B</label>
+<input id="WebkitBoxShadow_b" type="range" min="0" max="100" value="0"
+	data-metaprop="WebkitBoxShadow"
+/>
+
+<label class="css3">A</label>
+<input id="WebkitBoxShadow_a" type="range" min="0" max="1" step="0.05" value="1"
+	data-metaprop="WebkitBoxShadow"
+/>
+
+</fieldset>
+
+</div>
+
+<div id="n_text">
+
+<fieldset><legend>font</legend>
+
+<label>family</label>
+
+<select id="fontFamily">
+<optgroup label="font classes">
+<option>serif</option>
+<option selected>sans-serif</option>
+<option>monospace</option>
+<option>fantasy</option>
+<option>script</option>
+</optgroup>
+<optgroup label="font families">
+<option>Arial Black</option>
+<option>Arial</option>
+<option>Book Antiqua</option>
+<option>Calibri</option>
+<option>Charcoal</option>
+<option>Comic Sans MS</option>
+<option>Comic Sans</option>
+<option>Courier New</option>
+<option>Courier</option>
+<option>Garamond</option>
+<option>Geneva</option>
+<option>Georgia</option>
+<option>Helvetica</option>
+<option>Impact</option>
+<option>Lucida Console</option>
+<option>Lucida Sans Unicode</option>
+<option>MS Sans Serif</option>
+<option>Minion</option>
+<option>Monospace</option>
+<option>Palatino Linotype</option>
+<option>Palatino</option>
+<option>Symbol</option>
+<option>Tahoma</option>
+<option>Times New Roman</option>
+<option>Times</option>
+<option>Trebuchet MS</option>
+<option>Verdana</option>
+<option>Webdings</option>
+<option>Wingdings</option>
+</optgroup>
+</select>
+
+<label>size</label>
+<input type="range" min="10" max="60" value="36" id="fontSize"/>
+
+<label>weight</label>
+<select id="fontWeight">
+<option>lighter</option>
+<option selected>normal</option>
+<option>bold</option>
+<option>bolder</option>
+</select>
+
+<label>style</label>
+<select id="fontStyle">
+<option selected>normal</option>
+<option>italic</option>
+<option>oblique</option>
+</select>
+
+<label>variant</label>
+<select id="fontVariant">
+<option selected>normal</option>
+<option>small-caps</option>
+</select>
+
+<label>transform</label>
+<select id="textTransform">
+<option selected>none</option>
+<option>capitalize</option>
+<option>lowercase</option>
+<option>uppercase</option>
+	<option disabled>full-width</option>
+	<option disabled>full-size-kana</option>
+</select>
+
+<label>decoration</label>
+<select id="textDecoration">
+<option selected>none</option>
+<option>underline</option>
+<option>overline</option>
+<option>line-through</option>
+<option>blink</option>
+</select>
+
+</fieldset>
+
+<fieldset><legend>color</legend>
+
+<label class="css3">R</label>
+<input id="color_r" type="range" min="0" max="100" value="50"
+	data-metaprop="color"
+/>
+
+<label class="css3">G</label>
+<input id="color_g" type="range" min="0" max="100" value="50"
+	data-metaprop="color"
+/>
+
+<label class="css3">B</label>
+<input id="color_b" type="range" min="0" max="100" value="100"
+	data-metaprop="color"
+/>
+
+<label class="css3">A</label>
+<input id="color_a" type="range" min="0" max="1" step="0.05" value="1"
+	data-metaprop="color"
+/>
+
+</fieldset>
+
+<fieldset><legend>align/space</legend>
+
+<label>line-height</label>
+<input id="lineHeight" type="range" min="0" step="0.1" max="3" value="1"/>
+
+<label>indent</label>
+<input id="textIndent" type="range" min="0" max="60" value="1"/>
+
+<label>indent method</label>
+<select id="textIndent_named">
+	<option>hanging</option>
+	<option>each-line</option>
+</select>
+
+<label>align</label>
+<select id="textAlign">
+<option selected>left</option>
+<option>right</option>
+<option>justify</option>
+<option>center</option>
+<option>start</option>
+<option>end</option>
+	<option>'a'</option>
+	<option>match-parent</option>
+</select>
+
+<label>align-last</label>
+<select id="textAlignLast">
+	<option>auto</option>
+<option selected>start</option>
+<option>end</option>
+<option>left</option>
+<option>right</option>
+<option>justify</option>
+<option>center</option>
+</select>
+
+
+<label>word-spacing</label>
+<input id="wordSpacing" type="range" value="1"/>
+
+
+
+<label>letter-spacing</label>
+<input id="letterSpacing" type="range" min="-100" max="100" value="0"/>
+
+</fieldset>
+
+<fieldset><legend>shadow</legend>
+
+<label class="css3">X</label>
+<input id="textShadow_x" type="range" min="-30" max="30" value="3"
+	data-metaprop="textShadow"
+/>
+
+<label class="css3">Y</label>
+<input id="textShadow_y" type="range" min="-30" max="30" value="3"
+	data-metaprop="textShadow"
+/>
+
+<label class="css3">blur</label>
+<input id="textShadow_blur" type="range" min="0" max="30" value="0"
+	data-metaprop="textShadow"
+/>
+
+<label class="css3">R</label>
+<input id="textShadow_r" type="range" min="0" max="100" value="50"
+	data-metaprop="textShadow"
+/>
+
+<label class="css3">G</label>
+<input id="textShadow_g" type="range" min="0" max="100" value="50"
+	data-metaprop="textShadow"
+/>
+
+<label class="css3">B</label>
+<input id="textShadow_b" type="range" min="0" max="100" value="50"
+	data-metaprop="textShadow"
+/>
+
+<label class="css3">A</label>
+<input id="textShadow_a" type="range" min="0" max="1" value="1" step="0.05"
+	data-metaprop="textShadow"
+/>
+
+</fieldset>
+
+<fieldset><legend>stroke</legend>
+
+<label class="css3">width</label>
+<input id="WebkitTextStrokeWidth" type="range" min="0" step="0.1" max="6" value="0"/>
+
+<label class="css3">R</label>
+<input id="WebkitTextStrokeColor_r" type="range" min="0" max="100" value="0"
+	data-metaprop="WebkitTextStrokeColor"
+/>
+
+<label class="css3">G</label>
+<input id="WebkitTextStrokeColor_g" type="range" min="0" max="100" value="0"
+	data-metaprop="WebkitTextStrokeColor"
+/>
+
+<label class="css3">B</label>
+<input id="WebkitTextStrokeColor_b" type="range" min="0" max="100" value="0"
+	data-metaprop="WebkitTextStrokeColor"
+/>
+
+<label class="css3">A</label>
+<input id="WebkitTextStrokeColor_a" type="range" min="0" max="1" value="1" step="0.05"
+	data-metaprop="WebkitTextStrokeColor"
+/>
+
+</fieldset>
+
+<fieldset><legend>fill color</legend>
+
+<label>enable</label>
+<input id="WebkitTextFillColor_enable" type="checkbox"
+	data-metaprop="WebkitTextFillColor"
+/>
+
+<label class="css3">R</label>
+<input id="WebkitTextFillColor_r" type="range" min="0" max="100" value="0" disabled
+	data-metaprop="WebkitTextFillColor"
+/>
+
+<label class="css3">G</label>
+<input id="WebkitTextFillColor_g" type="range" min="0" max="100" value="0" disabled
+	data-metaprop="WebkitTextFillColor"
+/>
+
+<label class="css3">B</label>
+<input id="WebkitTextFillColor_b" type="range" min="0" max="100" value="0" disabled
+	data-metaprop="WebkitTextFillColor"
+/>
+
+<label class="css3">A</label>
+<input id="WebkitTextFillColor_a" type="range" min="0" max="1" value="1" step="0.05" disabled
+	data-metaprop="WebkitTextFillColor"
+/>
+
+</fieldset>
+
+</div>
+
+<div id="n_colors">
+<!-- @@@ color -->
+
+<label class="css3">opacity</label>
+<input id="opacity" type="range" min="0" max="1" step="0.05" value="1"/><br/>
+
+<label class="css3">color model</label>
+<input id="backgroundColor_isHSLA" type="checkbox"
+	data-metaprop="backgroundColor"
+/><br/>
+
+<fieldset id="fs_rgb"><legend>RGBA</legend>
+
+<label class="css3">R</label>
+<input id="backgroundColor_rgbar" type="range" min="0" max="100" value="100"
+	data-metaprop="backgroundColor"
+/>
+
+<label class="css3">G</label>
+<input id="backgroundColor_rgbag" type="range" min="0" max="100" value="100"
+	data-metaprop="backgroundColor"
+/>
+
+<label class="css3">B</label>
+<input id="backgroundColor_rgbab" type="range" min="0" max="100" value="100"
+	data-metaprop="backgroundColor"
+/>
+
+<label class="css3">A</label>
+<input id="backgroundColor_rgbaa" type="range" min="0" max="1" step="0.05" value="1"
+	data-metaprop="backgroundColor"
+/>
+
+</fieldset>
+
+<fieldset id="fs_hsl" style="display:none"><legend>HSLA</legend>
+
+<label class="css3">H</label>
+<input id="backgroundColor_hslah" type="range" min="0" max="360" value="180"
+	data-metaprop="backgroundColor"
+/>
+
+<label class="css3">S</label>
+<input id="backgroundColor_hslas" type="range" min="0" max="100" value="50"
+	data-metaprop="backgroundColor"
+/>
+
+<label class="css3">L</label>
+<input id="backgroundColor_hslal" type="range" min="0" max="100" value="50"
+	data-metaprop="backgroundColor"
+/>
+
+<label class="css3">A</label>
+<input id="backgroundColor_hslaa" type="range" min="0" max="1" step="0.05" value="1"
+	data-metaprop="backgroundColor"
+/>
+
+</fieldset>
+
+</div>
+
+<div id="n_gradient">
+<!-- @@@ gradient -->
+
+<fieldset><legend>Linear</legend>
+
+<label>origin</label>
+<select id="WebkitLinearGradient_Origin"
+	data-tgtprop="backgroundImage"
+	data-metaprop="WebkitLinearGradient"
+>
+	<option selected>top</option>
+	<option>bottom</option>
+	<option>left</option>
+	<option>right</option>
+	<option>top left</option>
+	<option>top right</option>
+	<option>bottom left</option>
+	<option>bottom right</option>
+</select>
+
+<label>(degrees)</label>
+<input id="WebkitLinearGradient_OriginDeg" type="range" min="0" max="360" value="0"
+	data-tgtprop="backgroundImage"
+	data-metaprop="WebkitLinearGradient"
+/>
+
+<label>from color</label>
+<input id="WebkitLinearGradient_FromColor" type="range" min="0" max="16777216" step="1" value="16000000" class="hex"
+	data-tgtprop="backgroundImage"
+	data-metaprop="WebkitLinearGradient"
+/>
+
+<label>to color</label>
+<input id="WebkitLinearGradient_ToColor" type="range" min="0" max="16777216" step="1" value="6000000" class="hex"
+	data-tgtprop="backgroundImage"
+	data-metaprop="WebkitLinearGradient"
+/>
+
+<div>
+
+<label>stop?</label>
+<input id="WebkitLinearGradient_StopEnable" type="checkbox"
+	data-tgtprop="backgroundImage"
+	data-metaprop="WebkitLinearGradient"
+/>
+
+<br/><label>color</label>
+<input id="WebkitLinearGradient_StopColor" type="range" min="0" max="16777216" step="1" value="4040404" class="hex"  disabled
+	data-tgtprop="backgroundImage"
+	data-metaprop="WebkitLinearGradient"
+/>
+
+<br/><label>%</label>
+<input id="WebkitLinearGradient_StopPos" type="range" min="0" max="100" step="1" value="50" disabled
+	data-tgtprop="backgroundImage"
+	data-metaprop="WebkitLinearGradient"
+/>
+
+</div>
+
+</fieldset>
+<fieldset><legend>Repeating Linear</legend>
+
+<label>origin</label>
+<select id="WebkitRepeatingLinearGradient_Origin"
+	data-tgtprop="backgroundImage"
+	data-metaprop="WebkitRepeatingLinearGradient"
+>
+	<option selected>top</option>
+	<option>bottom</option>
+	<option>left</option>
+	<option>right</option>
+	<option>top left</option>
+	<option>top right</option>
+	<option>bottom left</option>
+	<option>bottom right</option>
+</select>
+
+<label>(degrees)</label>
+<input id="WebkitRepeatingLinearGradient_OriginDeg" type="range" min="0" max="360" value="0"
+	data-tgtprop="backgroundImage"
+	data-metaprop="WebkitRepeatingLinearGradient"
+/>
+
+<label>from color</label>
+<input id="WebkitRepeatingLinearGradient_FromColor" type="range" min="0" max="16777216" step="1" value="16000000" class="hex"
+	data-tgtprop="backgroundImage"
+	data-metaprop="WebkitRepeatingLinearGradient"
+/>
+
+<label>from %</label>
+<input id="WebkitRepeatingLinearGradient_FromPos" type="range" min="0" max="100" step="1" value="20"
+	data-tgtprop="backgroundImage"
+	data-metaprop="WebkitRepeatingLinearGradient"
+/>
+
+<label>to color</label>
+<input id="WebkitRepeatingLinearGradient_ToColor" type="range" min="0" max="16777216" step="1" value="6000000" class="hex"
+	data-tgtprop="backgroundImage"
+	data-metaprop="WebkitRepeatingLinearGradient"
+/>
+
+<label>to %</label>
+<input id="WebkitRepeatingLinearGradient_ToPos" type="range" min="0" max="100" step="1" value="70"
+	data-tgtprop="backgroundImage"
+	data-metaprop="WebkitRepeatingLinearGradient"
+/>
+
+<div>
+
+<label>stop?</label>
+<input id="WebkitRepeatingLinearGradient_StopEnable" type="checkbox"
+	data-tgtprop="backgroundImage"
+	data-metaprop="WebkitRepeatingLinearGradient"
+/>
+
+<br/><label>color</label>
+<input id="WebkitRepeatingLinearGradient_StopColor" type="range" min="0" max="16777216" step="1" value="4040404" class="hex"  disabled
+	data-tgtprop="backgroundImage"
+	data-metaprop="WebkitRepeatingLinearGradient"
+/>
+
+<br/><label>%</label>
+<input id="WebkitRepeatingLinearGradient_StopPos" type="range" min="0" max="100" step="1" value="50"  disabled
+	data-tgtprop="backgroundImage"
+	data-metaprop="WebkitRepeatingLinearGradient"
+/>
+
+</div>
+
+</fieldset>
+<fieldset><legend>Radial</legend>
+
+
+<label>X</label>
+<input id="WebkitRadialGradient_X" type="range" min="0" max="100" step="1" value="50"
+	data-tgtprop="backgroundImage"
+	data-metaprop="WebkitRadialGradient"
+/>
+
+<label>Y</label>
+<input id="WebkitRadialGradient_Y" type="range" min="0" max="100" step="1" value="50"
+	data-tgtprop="backgroundImage"
+	data-metaprop="WebkitRadialGradient"
+/>
+
+<label>from color</label>
+<input id="WebkitRadialGradient_FromColor" type="range" min="0" max="16777216" step="1" value="16000000" class="hex"
+	data-tgtprop="backgroundImage"
+	data-metaprop="WebkitRadialGradient"
+/>
+
+<label>to color</label>
+<input id="WebkitRadialGradient_ToColor" type="range" min="0" max="16777216" step="1" value="6000000" class="hex"
+	data-tgtprop="backgroundImage"
+	data-metaprop="WebkitRadialGradient"
+/>
+
+
+
+<label>shape</label>
+<select id="WebkitRadialGradient_Shape"
+	data-tgtprop="backgroundImage"
+	data-metaprop="WebkitRadialGradient"
+>
+	<option selected>circle</option>
+	<option>ellipse</option>
+</select>
+
+<label>size</label>
+<select id="WebkitRadialGradient_Size"
+	data-tgtprop="backgroundImage"
+	data-metaprop="WebkitRadialGradient"
+>
+	<option>closest-side</option>
+	<option>closest-corner</option>
+	<option>farthest-side</option>
+	<option>farthest-corner</option>
+	<option selected>contain</option>
+	<option>cover</option>
+</select>
+
+<div>
+
+<label>stop?</label>
+<input id="WebkitRadialGradient_StopEnable" type="checkbox"
+	data-tgtprop="backgroundImage"
+	data-metaprop="WebkitRadialGradient"
+/>
+
+<br/><label>color</label>
+<input id="WebkitRadialGradient_StopColor" type="range" min="0" max="16777216" step="1" value="4040404" class="hex"  disabled
+	data-tgtprop="backgroundImage"
+	data-metaprop="WebkitRadialGradient"
+/>
+
+<br/><label>%</label>
+<input id="WebkitRadialGradient_StopPos" type="range" min="0" max="100" step="1" value="50"  disabled
+	data-tgtprop="backgroundImage"
+	data-metaprop="WebkitRadialGradient"
+/>
+
+</div>
+
+</fieldset>
+<fieldset><legend>Repeating Radial</legend>
+
+<label>X</label>
+<input id="WebkitRepeatingRadialGradient_X" type="range" min="0" max="100" step="1" value="50"
+	data-tgtprop="backgroundImage"
+	data-metaprop="WebkitRepeatingRadialGradient"
+/>
+
+<label>Y</label>
+<input id="WebkitRepeatingRadialGradient_Y" type="range" min="0" max="100" step="1" value="50"
+	data-tgtprop="backgroundImage"
+	data-metaprop="WebkitRepeatingRadialGradient"
+/>
+<label>from color</label>
+<input id="WebkitRepeatingRadialGradient_FromColor" type="range" min="0" max="16777216" step="1" value="15000000" class="hex"
+	data-tgtprop="backgroundImage"
+	data-metaprop="WebkitRepeatingRadialGradient"
+/>
+
+<label>from %</label>
+<input id="WebkitRepeatingRadialGradient_FromPos" type="range" min="0" max="100" step="1" value="20"
+	data-tgtprop="backgroundImage"
+	data-metaprop="WebkitRepeatingRadialGradient"
+/>
+
+<label>to color</label>
+<input id="WebkitRepeatingRadialGradient_ToColor" type="range" min="0" max="16777216" step="1" value="6000000" class="hex"
+	data-tgtprop="backgroundImage"
+	data-metaprop="WebkitRepeatingRadialGradient"
+/>
+
+<label>to %</label>
+<input id="WebkitRepeatingRadialGradient_ToPos" type="range" min="0" max="100" step="1" value="70"
+	data-tgtprop="backgroundImage"
+	data-metaprop="WebkitRepeatingRadialGradient"
+/>
+
+
+
+
+<label>shape</label>
+<select id="WebkitRepeatingRadialGradient_Shape"
+	data-tgtprop="backgroundImage"
+	data-metaprop="WebkitRepeatingRadialGradient"
+>
+	<option selected>circle</option>
+	<option>ellipse</option>
+</select>
+
+<label>size</label>
+<select id="WebkitRepeatingRadialGradient_Size"
+	data-tgtprop="backgroundImage"
+	data-metaprop="WebkitRepeatingRadialGradient"
+>
+	<option>closest-side</option>
+	<option>closest-corner</option>
+	<option>farthest-side</option>
+	<option>farthest-corner</option>
+	<option>contain</option>
+	<option selected>cover</option>
+</select>
+
+<div>
+
+<label>stop?</label>
+<input id="WebkitRepeatingRadialGradient_StopEnable" type="checkbox"
+	data-tgtprop="backgroundImage"
+	data-metaprop="WebkitRepeatingRadialGradient"
+/>
+
+<br/><label>color</label>
+<input id="WebkitRepeatingRadialGradient_StopColor" type="range" min="0" max="16777216" step="1" value="4040404" class="hex"  disabled
+	data-tgtprop="backgroundImage"
+	data-metaprop="WebkitRepeatingRadialGradient"
+/>
+
+<br/><label>%</label>
+<input id="WebkitRepeatingRadialGradient_StopPos" type="range" min="0" max="100" step="1" value="50"  disabled
+	data-tgtprop="backgroundImage"
+	data-metaprop="WebkitRepeatingRadialGradient"
+/>
+
+</div>
+
+</fieldset>
+
+<fieldset><legend>(older WebKit syntax)</legend>
+
+<label>radial</label>
+<input id="WebkitGradient_isRadial" type="checkbox"
+	data-tgtprop="backgroundImage"
+	data-metaprop="WebkitGradient"
+/>
+
+<label class="css3">from X</label>
+<input id="WebkitGradient_fromx" type="range" min="0" max="100" value="50"
+	data-tgtprop="backgroundImage"
+	data-metaprop="WebkitGradient"
+/>
+
+<label class="css3">from Y</label>
+<input id="WebkitGradient_fromy" type="range" min="0" max="100" value="1000"
+	data-tgtprop="backgroundImage"
+	data-metaprop="WebkitGradient"
+/>
+
+<label class="css3">from color</label>
+<input id="WebkitGradient_fromcolor" type="range" min="0" max="16777216" value="16000000" class="hex"
+	data-tgtprop="backgroundImage"
+	data-metaprop="WebkitGradient"
+/>
+
+<label class="css3">radius</label>
+<input id="WebkitGradient_fromrad" type="range" min="0" max="100" value="0" disabled data-tgtprop="backgroundImage"
+	data-metaprop="WebkitGradient"
+/>
+
+
+<label class="css3">to X</label>
+<input id="WebkitGradient_tox" type="range" min="0" max="100" value="50"
+	data-tgtprop="backgroundImage"
+	data-metaprop="WebkitGradient"
+/>
+
+<label class="css3">to Y</label>
+<input id="WebkitGradient_toy" type="range" min="0" max="100" value="0"
+	data-tgtprop="backgroundImage"
+	data-metaprop="WebkitGradient"
+/>
+
+<label class="css3">to color</label>
+<input id="WebkitGradient_tocolor" type="range" min="0" max="16777216" value="6000000" class="hex"
+	data-tgtprop="backgroundImage"
+	data-metaprop="WebkitGradient"
+/>
+
+<label class="css3">to radius</label>
+<input id="WebkitGradient_torad" type="range" min="0" max="100" value="100" disabled
+	data-tgtprop="backgroundImage"
+	data-metaprop="WebkitGradient"
+/>
+
+<label class="css3">stop %</label>
+<input id="WebkitGradient_stoppos" type="range" min="0" max="100" value="50"
+	data-tgtprop="backgroundImage"
+	data-metaprop="WebkitGradient"
+/>
+
+<label class="css3">stop color</label>
+<input id="WebkitGradient_stopcolor" type="range" min="0" max="16777216" value="11000000" class="hex"
+	data-tgtprop="backgroundImage"
+	data-metaprop="WebkitGradient"
+/>
+
+</fieldset>
+
+</div>
+
+<div id="n_mask">
+<!-- @@@ mask -->
+
+<fieldset><legend>mask</legend>
+
+<label class="css3">image</label>
+<select id="WebkitMaskImage">
+<option selected>none</option>
+<option>url( img/mask.png )</option>
+<option>-webkit-gradient(linear, center top, center bottom, from(black), to(transparent))</option>
+<option>-webkit-gradient(linear, center top, center bottom, from(transparent), to(black))</option>
+<option>-webkit-gradient(linear, left center, right center, from(black), to(transparent))</option>
+<option>-webkit-gradient(linear, left center, right center, from(transparent), to(black))</option>
+</select>
+
+<label class="css3">repeat</label>
+<select id="WebkitMaskRepeat">
+<option selected>no-repeat</option>
+<option>repeat</option>
+<option>repeat-x</option>
+<option>repeat-y</option>
+</select>
+
+<label class="css3">origin</label>
+<select id="WebkitMaskOrigin">
+<option selected>border-box</option>
+<option>padding-box</option>
+<option>content-box</option>
+</select>
+
+<label class="css3">clip</label>
+<select id="WebkitMaskClip">
+<option selected>border-box</option>
+<option>padding-box</option>
+<option>content-box</option>
+</select>
+
+<label class="css3">composite</label>
+<select id="WebkitMaskComposite">
+<option>border</option>
+<option>clear</option>
+<option>copy</option>
+<option>destination-atop</option>
+<option>destination-in</option>
+<option>destination-out</option>
+<option>destination-over</option>
+<option>hilight</option>
+<option>padding</option>
+<option>plus-darker</option>
+<option>plus-lighter</option>
+<option>source-atop</option>
+<option>source-in</option>
+<option>source-out</option>
+<option selected>source-over</option>
+<option>xor</option>
+</select>
+
+<label class="css3">attachment</label>
+<select id="WebkitMaskAttachment">
+<option>fixed</option>
+<option selected>scroll</option>
+</select>
+
+</fieldset>
+
+<fieldset><legend>size</legend>
+
+<label class="css3">named</label>
+<select id="WebkitMaskSize">
+<option selected>auto</option>
+<option>contain</option>
+<option>cover</option>
+</select>
+
+<label class="css3">X</label>
+<input id="WebkitMaskSize_x" type="range" min="0" max="100" value="100"
+	data-metaprop="WebkitMaskSize"
+/>
+
+<label class="css3">Y</label>
+<input id="WebkitMaskSize_y" type="range" min="0" max="100" value="100"
+	data-metaprop="WebkitMaskSize"
+/>
+
+</fieldset>
+
+<fieldset><legend>position</legend>
+
+<label class="css3">X</label>
+<input id="WebkitMaskPosition_x" type="range" min="-100" max="100" value="0"
+	data-metaprop="WebkitMaskPosition"
+/>
+
+<label class="css3">Y</label>
+<input id="WebkitMaskPosition_y" type="range" min="-100" max="100" value="0"
+	data-metaprop="WebkitMaskPosition"
+/>
+
+</fieldset>
+
+<!--
+
+<fieldset><legend>reflection</legend>
+
+<label class="css3">direction</label>
+<select id="WebkitBoxReflect_direction"
+	data-metaprop="WebkitBoxReflect">
+<option selected>below</option>
+<option>above</option>
+<option>left</option>
+<option>right</option>
+</select>
+
+<label class="css3">gap</label>
+<input id="WebkitBoxReflect_gap" type="range" min="0" max="100" value="0"
+	data-metaprop="WebkitBoxReflect"
+/>
+
+<label class="css3">image</label>
+<select id="WebkitBoxReflect_image"
+	data-metaprop="WebkitBoxReflect">
+<option selected>none</option>
+<option>url( img/mask.png )</option>
+<option>-webkit-gradient(linear, center top, center bottom, from(black), to(transparent))</option>
+<option>-webkit-gradient(linear, center top, center bottom, from(transparent), to(black))</option>
+<option>-webkit-gradient(linear, left center, right center, from(black), to(transparent))</option>
+<option>-webkit-gradient(linear, left center, right center, from(transparent), to(black))</option>
+</select>
+
+</fieldset>
+
+-->
+
+</div>
+
+<div id="n_background">
+<!-- @@@ background -->
+
+<fieldset><legend>size</legend>
+
+<label class="css3">named</label>
+<select id="backgroundSize">
+<option selected>auto</option>
+<option>contain</option>
+<option>cover</option>
+</select>
+
+<label class="css3">X</label>
+<input id="backgroundSize_x" type="range" min="0" max="100" value="100"
+	data-metaprop="backgroundSize"
+/>
+
+<label class="css3">Y</label>
+<input id="backgroundSize_y" type="range" min="0" max="100" value="100"
+	data-metaprop="backgroundSize"
+/>
+
+</fieldset>
+
+<fieldset><legend>position</legend>
+
+<label class="css3">X</label>
+<input id="backgroundPosition_x" type="range" min="-500" max="500" value="0"
+	data-metaprop="backgroundPosition"
+/>
+
+<label class="css3">Y</label>
+<input id="backgroundPosition_y" type="range" min="-500" max="500" value="0"
+	data-metaprop="backgroundPosition"
+/>
+
+</fieldset>
+
+<fieldset><legend>other</legend>
+
+<label>repeat</label>
+<select id="backgroundRepeat">
+<option selected>no-repeat</option>
+<option>repeat</option>
+<option>repeat-x</option>
+<option>repeat-y</option>
+<option disabled>space</option>
+<option disabled>round</option>
+</select>
+
+<label class="css3">origin</label>
+<select id="backgroundOrigin">
+<option selected>border-box</option>
+<option>padding-box</option>
+<option>content-box</option>
+</select>
+
+<label class="css3">clip</label>
+<select id="backgroundClip">
+<option selected>border-box</option>
+<option>padding-box</option>
+<option>content-box</option>
+</select>
+
+<label class="css3">composite</label>
+<select id="WebkitBackgroundComposite">
+<option>border</option>
+<option>clear</option>
+<option>copy</option>
+<option>destination-atop</option>
+<option>destination-in</option>
+<option>destination-out</option>
+<option>destination-over</option>
+<option>hilight</option>
+<option>padding</option>
+<option>plus-darker</option>
+<option>plus-lighter</option>
+<option>source-atop</option>
+<option>source-in</option>
+<option>source-out</option>
+<option selected>source-over</option>
+<option>xor</option>
+</select>
+
+<label>attachment</label>
+<select id="backgroundAttachment">
+<option>fixed</option>
+<option disabled>local</option>
+<option selected>scroll</option>
+</select>
+
+</fieldset>
+
+</div>
+
+<div id="n_border">
+<!-- @@@ border -->
+
+<fieldset><legend>border</legend>
+
+<label>width</label>
+<input id="borderWidth" type="range" min="0" max="50" value="10"/>
+
+<label>color</label>
+<input id="borderColor" type="range" min="0" max="16777216" step="1" value="16000000" class="hex"/>
+
+<label>style</label>
+<select id="borderStyle">
+<option selected>solid</option>
+<option>dotted</option>
+<option>dashed</option>
+<option>double</option>
+<option>groove</option>
+<option>ridge</option>
+<option>inset</option>
+<option>outset</option>
+</select>
+
+</fieldset>
+
+<fieldset><legend>outline</legend>
+
+<label class="css3">width</label>
+<input id="outlineWidth" type="range" min="0" max="50" value="0"/>
+
+<label class="css3">color</label>
+<input id="outlineColor" type="range" min="0" max="16777216" value="7000000" class="hex"/>
+
+<label class="css3">offset</label>
+<input id="outlineOffset" type="range" min="-50" max="50" value="1"/>
+
+<label class="css3">style</label>
+<select id="outlineStyle">
+<option selected>solid</option>
+<option>dotted</option>
+<option>dashed</option>
+<option>double</option>
+<option>groove</option>
+<option>ridge</option>
+<option>inset</option>
+<option>outset</option>
+</select>
+
+</fieldset>
+
+<fieldset><legend>custom border width</legend>
+
+<label class="css3">left</label>
+<input id="borderLeftWidth" type="range" min="0" max="200" value="30"/>
+
+<label class="css3">right</label>
+<input id="borderRightWidth" type="range" min="0" max="200" value="30"/>
+
+<label class="css3">top</label>
+<input id="borderTopWidth" type="range" min="0" max="200" value="30"/>
+
+<label class="css3">bottom</label>
+<input id="borderBottomWidth" type="range" min="0" max="200" value="30"/>
+
+</fieldset>
+
+<fieldset><legend>custom border radius</legend>
+
+<label class="css3">top-left</label>
+<input id="borderTopLeftRadius" type="range" min="0" max="200" value="30"/>
+
+<label class="css3">top-right</label>
+<input id="borderTopRightRadius" type="range" min="0" max="200" value="30"/>
+
+<label class="css3">bottom-left</label>
+<input id="borderBottomLeftRadius" type="range" min="0" max="200" value="30"/>
+
+<label class="css3">bottom-right</label>
+<input id="borderBottomRightRadius" type="range" min="0" max="200" value="30"/>
+
+</fieldset>
+
+<fieldset><legend>border image</legend>
+
+<label class="css3">source</label>
+<select id="borderImageSource">
+	<option selected>none</option>
+	<option>url(img/border-frame.png)</option>
+	<option>url(img/border-round.png)</option>
+	<option>url(img/Objects001.jpg)</option>
+	<option>url(img/Objects002.jpg)</option>
+	<option>url(img/Objects003.jpg)</option>
+	<option>url(img/Objects004.jpg)</option>
+	<option>url(img/Objects005.jpg)</option>
+	<option>url(img/Objects006.jpg)</option>
+	<option>url(img/Objects007.jpg)</option>
+	<option>url(img/Objects008.jpg)</option>
+	<option>url(img/Objects009.jpg)</option>
+
+
+
+</select>
+
+<label class="css3">slice</label>
+<input id="borderImageSlice_meas" type="range" min="0" max="100" value="30"
+	data-unit="%"
+	data-metaprop="borderImageSlice"
+/>
+
+<label class="css3">fill</label>
+<input id="borderImageSlice_fill" type="checkbox"
+	data-metaprop="borderImageSlice"
+/>
+
+<label class="css3">width</label>
+<input id="borderImageWidth" type="range" min="0" max="5" value="1" 
+/>
+
+<label class="css3">outset</label>
+<input id="borderImageOutset" type="range" min="0" max="5" value="1"
+/>
+
+<label class="css3">repeat</label>
+<select id="borderImageRepeat">
+	<option>stretch</option>
+	<option>repeat</option>
+	<option>round</option>
+	<option>space</option>
+</select>
+
+
+</fieldset>
+
+<fieldset><legend>(older WebKit syntax)</legend>
+
+<label>enable</label>
+<input id="WebkitBorderImage_enable" type="checkbox"
+	data-metaprop="WebkitBorderImage"
+/><br/>
+
+<label class="css3">image</label>
+<select id="WebkitBorderImage_image"
+	data-metaprop="WebkitBorderImage" disabled>
+<option>url(img/border-frame.png)</option>
+<option>url(img/border-round.png)</option>
+<option selected>url(img/border-stretch.png)</option>
+</select>
+
+<label class="css3">top</label>
+<input id="WebkitBorderImage_top" type="range" min="0" max="50" value="33" disabled
+	data-metaprop="WebkitBorderImage"
+/>
+
+<label class="css3">right</label>
+<input id="WebkitBorderImage_right" type="range" min="0" max="50" value="33" disabled
+	data-metaprop="WebkitBorderImage"
+/>
+
+<label class="css3">bottom</label>
+<input id="WebkitBorderImage_bottom" type="range" min="0" max="50" value="33" disabled
+	data-metaprop="WebkitBorderImage"
+/>
+
+<label class="css3">left</label>
+<input id="WebkitBorderImage_left" type="range" min="0" max="50" value="33" disabled
+	data-metaprop="WebkitBorderImage"
+/>
+
+<label class="css3">fill X</label>
+<select id="WebkitBorderImage_repeatX"
+	data-metaprop="WebkitBorderImage" disabled>
+<option>repeat</option>
+<option>round</option>
+<option selected>stretch</option>
+</select>
+
+<label class="css3">fill Y</label>
+<select id="WebkitBorderImage_repeatY"
+	data-metaprop="WebkitBorderImage" disabled>
+<option>repeat</option>
+<option>round</option>
+<option selected>stretch</option>
+</select>
+
+</fieldset>
+
+</div>
+
+<div id="n_flow">
+<!-- @@@ overflow -->
+
+<fieldset><legend>overflow</legend>
+
+<label class="css3value">X</label>
+<select id="overflowX">
+<option selected>hidden</option>
+<option>scroll</option>
+<option>overlay</option>
+<option>visible</option>
+<option>-webkit-marquee</option>
+</select>
+
+<label class="css3value">Y</label>
+<select id="overflowY">
+<option selected>hidden</option>
+<option>scroll</option>
+<option>overlay</option>
+<option>visible</option>
+<option>-webkit-marquee</option>
+</select>
+
+</fieldset>
+
+<fieldset><legend>text</legend>
+
+<label>white-space</label>
+<select id="whiteSpace">
+<option selected>normal</option>
+<option>nowrap</option>
+<option>pre</option>
+<option>pre-line</option>
+<option>pre-wrap</option>
+</select>
+
+<label class="css3">text-overflow</label>
+<select id="textOverflow">
+<option selected>clip</option>
+<option>ellipsis</option>
+<option>"(cont'd)"</option>
+</select>
+
+<label>word-wrap</label>
+<select id="wordWrap">
+<option selected>normal</option>
+<option>break-word</option>
+</select>
+
+<label>nbsp-mode</label>
+<select id="WebkitNbspMode">
+<option selected>normal</option>
+<option>space</option>
+</select>
+
+</fieldset>
+
+<fieldset><legend>marquee</legend>
+
+<label class="css3">direction</label>
+<select id="WebkitMarqueeDirection">
+<option>auto</option>
+<option selected>up</option>
+<option>down</option>
+<option>left</option>
+<option>right</option>
+<option>forwards</option>
+<option>backwards</option>
+<option>ahead</option>
+<option>reverse</option>
+</select>
+
+<label class="css3">style</label>
+<select id="WebkitMarqueeStyle">
+<option selected>scroll</option>
+<option>slide</option>
+<option>alternate</option>
+</select>
+
+<label class="css3">repetition</label>
+<select id="WebkitMarqueeRepetition">
+<option selected>infinite</option>
+<option>1</option>
+<option>2</option>
+<option>3</option>
+<option>4</option>
+</select>
+
+<label class="css3">speed</label>
+<select id="WebkitMarqueeSpeed">
+<option>slow</option>
+<option>normal</option>
+<option selected>fast</option>
+</select>
+
+<label class="css3">increment</label>
+<select id="WebkitMarqueeIncrement">
+<option selected>small</option>
+<option>medium</option>
+<option>large</option>
+</select>
+
+</fieldset>
+
+<!--
+<fieldset><legend>scrollbar</legend>
+
+<label>enable</label>
+<input id="WebkitScrollbar_enable" type="checkbox"/>
+
+<label>width</label>
+<input id="WebkitScrollbar_width" type="range" min="0" max="50" value="1" disabled/>
+
+<label>height</label>
+<input id="WebkitScrollbar_height" type="range" min="0" max="50" value="1" disabled/>
+
+</fieldset>
+-->
+
+</div>
+
+<div id="n_column">
+<!-- @@@ column -->
+
+<fieldset><legend>columns</legend>
+
+<label class="css3"># columns</label>
+<input id="WebkitColumnCount" type="range" min="1" max="4" value="2"/>
+
+<label class="css3">gap</label>
+<input id="WebkitColumnGap" type="range" min="1" max="20" value="1"/>
+
+<label class="css3">width</label>
+<input id="WebkitColumnWidth" type="range" min="1" max="200" value="1"/>
+
+<label class="css3">fill</label>
+<select id="WebkitColumnFill">
+<option selected>auto</option>
+<option>balanced</option>
+</select>
+
+</fieldset>
+
+<fieldset><legend>rules</legend>
+
+<label class="css3">width</label>
+<input id="WebkitColumnRuleWidth" type="range" min="0" max="20" value="1"/>
+
+<label class="css3">style</label>
+<select id="WebkitColumnRuleStyle">
+<option selected>solid</option>
+<option>dotted</option>
+<option>dashed</option>
+<option>double</option>
+<option>groove</option>
+<option>ridge</option>
+<option>inset</option>
+<option>outset</option>
+</select>
+
+<label class="css3">color</label>
+<input id="WebkitColumnRuleColor" type="range" min="0" max="16777216" value="0" class="hex"/>
+
+</fieldset>
+
+<fieldset><legend>breaks and spans</legend>
+
+<label class="css3">before</label>
+<select id="WebkitColumnBreakBefore"
+	data-tgtexample="#x_columnspan">
+<option selected>auto</option>
+<option>always</option>
+<option>avoid</option>
+</select>
+
+<label class="css3">after</label>
+<select id="WebkitColumnBreakAfter"
+	data-tgtexample="#x_columnspan">
+<option selected>auto</option>
+<option>always</option>
+<option>avoid</option>
+</select>
+
+<label class="css3">inside</label>
+<select id="WebkitColumnBreakInside"
+	data-tgtexample="#x_columnspan">
+<option selected>auto</option>
+<option>always</option>
+<option>avoid</option>
+</select>
+
+<label class="css3">span</label>
+<select id="WebkitColumnSpan"
+	data-tgtexample="#x_columnspan">
+<option selected>none</option>
+<option>all</option>
+<option>1</option>
+</select>
+
+<label>box styling</label>
+<select id="boxDecorationBreak">
+	<option>slice</option>
+	<option>clone</option>
+</select>
+
+</fieldset>
+
+</div>
+
+<div id="n_transition">
+<!-- @@@ transition -->
+
+<fieldset><legend>transition</legend>
+
+<label class="css3">property</label>
+<select id="WebkitTransitionProperty">
+<option selected>all</option>
+<option>-webkit-box-shadow</option>
+<option>-webkit-transform</option>
+<option>background-color</option>
+<option>background-position</option>
+<option>border-radius</option>
+<option>color</option>
+<option>font-size</option>
+<option>height</option>
+<option>line-height</option>
+<option>opacity</option>
+<option>padding</option>
+<option>text-indent</option>
+<option>width</option>
+</select>
+
+<label class="css3">duration</label>
+<input id="WebkitTransitionDuration" type="range" min="0" max="5000" value="1000"
+	data-unit="ms"
+/>
+
+<label class="css3">delay</label>
+<input id="WebkitTransitionDelay" type="range" min="0" max="5000" value="0"
+	data-unit="ms"
+/>
+
+</fieldset>
+
+<fieldset><legend>timing</legend>
+
+<label class="css3">function</label>
+<select id="WebkitTransitionTimingFunction_named"
+	data-metaprop="WebkitTransitionTimingFunction">
+<option>linear</option>
+<option selected>ease</option>
+<option>ease-in</option>
+<option>ease-out</option>
+<option>ease-in-out</option>
+<option>steps(3, start)</option>
+<option>steps(5, end)</option>
+<option>step-start</option>
+<option>step-end</option>
+</select>
+
+<label class="css3">x1</label>
+<input id="WebkitTransitionTimingFunction_x1" type="range" min="0" max="1" value="0.5" step="0.05"
+	data-metaprop="WebkitTransitionTimingFunction"
+/>
+
+<label class="css3">y1</label>
+<input id="WebkitTransitionTimingFunction_y1" type="range" min="0" max="1" value="0.5" step="0.05"
+	data-metaprop="WebkitTransitionTimingFunction"
+/>
+
+<label class="css3">x2</label>
+<input id="WebkitTransitionTimingFunction_x2" type="range" min="0" max="1" value="0.5" step="0.05"
+	data-metaprop="WebkitTransitionTimingFunction"
+/>
+
+<label class="css3">y2</label>
+<input id="WebkitTransitionTimingFunction_y2" type="range" min="0" max="1" value="0.5" step="0.05"
+	data-metaprop="WebkitTransitionTimingFunction"
+/>
+
+</fieldset>
+
+</div>
+
+<div id="n_animation">
+<!-- @@@ animation -->
+
+<fieldset><legend>keyframe</legend>
+
+<label class="css3">name</label>
+<select id="WebkitAnimationName">
+<option selected>""</option>
+<option>pulse</option>
+<option>shake</option>
+</select>
+
+<label class="css3">duration</label>
+<input id="WebkitAnimationDuration" type="range" min="0" max="5000" value="1000"
+	data-unit="ms"
+/>
+
+<label class="css3">delay</label>
+<input id="WebkitAnimationDelay" type="range" min="0" max="5000" value="0"
+	data-unit="ms"
+/>
+
+<label class="css3">iterations</label>
+<select id="WebkitAnimationIterationCount">
+<option selected>infinite</option>
+<option>1</option>
+<option>2</option>
+<option>3</option>
+<option>4</option>
+</select>
+
+<label class="css3">direction</label>
+<select id="WebkitAnimationDirection">
+<option selected>normal</option>
+<option>alternate</option>
+</select>
+
+<label class="css3">fill-mode</label>
+<select id="WebkitAnimationFillMode">
+<option selected>none</option>
+<option>forwards</option>
+<option>backwards</option>
+<option>both</option>
+</select>
+
+<label class="css3">play-state</label>
+<select id="WebkitAnimationPlayState">
+<option selected>running</option>
+<option>paused</option>
+</select>
+
+</fieldset>
+
+<fieldset><legend>timing</legend>
+
+<label class="css3">function</label>
+<select id="WebkitAnimationTimingFunction_named"
+	data-metaprop="WebkitAnimationTimingFunction">
+<option>linear</option>
+<option selected>ease</option>
+<option>ease-in</option>
+<option>ease-out</option>
+<option>ease-in-out</option>
+</select>
+
+<label class="css3">x1</label>
+<input id="WebkitAnimationTimingFunction_x1" type="range" min="0" max="1" value="0.5" step="0.05"
+	data-metaprop="WebkitAnimationTimingFunction"
+/>
+
+<label class="css3">y1</label>
+<input id="WebkitAnimationTimingFunction_y1" type="range" min="0" max="1" value="0.5" step="0.05"
+	data-metaprop="WebkitAnimationTimingFunction"
+/>
+
+<label class="css3">x2</label>
+<input id="WebkitAnimationTimingFunction_x2" type="range" min="0" max="1" value="0.5" step="0.05"
+	data-metaprop="WebkitAnimationTimingFunction"
+/>
+
+<label class="css3">y2</label>
+<input id="WebkitAnimationTimingFunction_y2" type="range" min="0" max="1" value="0.5" step="0.05"
+	data-metaprop="WebkitAnimationTimingFunction"
+/>
+
+</fieldset>
+
+</div>
+
+<div id="n_transform2d">
+<!-- @@@ transform2d -->
+
+<fieldset><legend>translate</legend>
+
+<label class="css3">X</label>
+<input id="WebkitTransform_2DtranslateX" type="range" min="-400" max="400" value="0"
+	data-metaprop="WebkitTransform"
+/>
+
+<label class="css3">Y</label>
+<input id="WebkitTransform_2DtranslateY" type="range" min="-400" max="400" value="0"
+	data-metaprop="WebkitTransform"
+/>
+
+</fieldset>
+
+<fieldset><legend>scale</legend>
+
+<label class="css3">X</label>
+<input id="WebkitTransform_2DscaleX" type="range" min="0" max="2" value="1" step="0.1"
+	data-metaprop="WebkitTransform"
+/>
+
+<label class="css3">Y</label>
+<input id="WebkitTransform_2DscaleY" type="range" min="0" max="2" value="1" step="0.1"
+	data-metaprop="WebkitTransform"
+/>
+
+</fieldset>
+
+<fieldset><legend>skew</legend>
+
+<label class="css3">X</label>
+<input id="WebkitTransform_2DskewX" type="range" min="-90" max="90" value="0"
+	data-metaprop="WebkitTransform"
+/>
+
+<label class="css3">Y</label>
+<input id="WebkitTransform_2DskewY" type="range" min="-90" max="90" value="0"
+	data-metaprop="WebkitTransform"
+/>
+
+</fieldset>
+
+<fieldset><legend>rotate</legend>
+
+<label class="css3">Z</label>
+<input id="WebkitTransform_2Drotate" type="range" min="-360" max="360" value="0"
+	data-metaprop="WebkitTransform"
+/><br/>&nbsp;
+
+</fieldset>
+
+<fieldset><legend>origin</legend>
+
+<label class="css3">X</label>
+<input id="WebkitTransformOriginX" type="range" min="-200" max="200" value="50"
+	data-metaprop="WebkitTransformOrigin"
+/>
+
+<label class="css3">Y</label>
+<input id="WebkitTransformOriginY" type="range" min="-200" max="200" value="50"
+	data-metaprop="WebkitTransformOrigin"
+/>
+
+</fieldset>
+</div>
+
+<div id="n_transform3d">
+<!-- @@@ transform3d -->
+
+<label>modify:</label>
+<select id="WebkitTransform_3dLevel" class="exclude">
+<option>ancestor</option>
+<option selected>parent</option>
+<!--
+<option>child</option>
+-->
+</select>
+
+<fieldset id="fs_parent" class="wrapper"><legend>parent</legend>
+
+<fieldset><legend>rotate</legend>
+
+<label class="css3">X</label>
+<input id="WebkitTransform_3dRotateX" type="range" min="-360" max="360" value="0"
+	data-metaprop="WebkitTransform_3dMain"
+	data-tgtprop="WebkitTransform"
+	data-tgtcode="#c_WebkitTransform_3dMain"
+	data-tgtexample="#x_transform3d"
+/>
+
+<label class="css3">Y</label>
+<input id="WebkitTransform_3dRotateY" type="range" min="-360" max="360" value="0"
+	data-metaprop="WebkitTransform_3dMain"
+	data-tgtprop="WebkitTransform"
+	data-tgtcode="#c_WebkitTransform_3dMain"
+	data-tgtexample="#x_transform3d"
+/>
+
+<label class="css3">Z</label>
+<input id="WebkitTransform_3dRotateZ" type="range" min="-360" max="360" value="0"
+	data-metaprop="WebkitTransform_3dMain"
+	data-tgtprop="WebkitTransform"
+	data-tgtcode="#c_WebkitTransform_3dMain"
+	data-tgtexample="#x_transform3d"
+/>
+
+</fieldset>
+
+<fieldset><legend>translate</legend>
+
+<label class="css3">X</label>
+<input id="WebkitTransform_3dTranslateX" type="range" min="-400" max="400" value="0"
+	data-metaprop="WebkitTransform_3dMain"
+	data-tgtprop="WebkitTransform"
+	data-tgtcode="#c_WebkitTransform_3dMain"
+	data-tgtexample="#x_transform3d"
+/>
+
+<label class="css3">Y</label>
+<input id="WebkitTransform_3dTranslateY" type="range" min="-400" max="400" value="0"
+	data-metaprop="WebkitTransform_3dMain"
+	data-tgtprop="WebkitTransform"
+	data-tgtcode="#c_WebkitTransform_3dMain"
+	data-tgtexample="#x_transform3d"
+/>
+
+<label class="css3">Z</label>
+<input id="WebkitTransform_3dTranslateZ" type="range" min="-400" max="400" value="0"
+	data-metaprop="WebkitTransform_3dMain"
+	data-tgtprop="WebkitTransform"
+	data-tgtcode="#c_WebkitTransform_3dMain"
+	data-tgtexample="#x_transform3d"
+/>
+
+</fieldset>
+
+<fieldset><legend>scale</legend>
+
+<label class="css3">X</label>
+<input id="WebkitTransform_3dScaleX" type="range" min="0" max="2" value="1" step="0.1"
+	data-metaprop="WebkitTransform_3dMain"
+	data-tgtprop="WebkitTransform"
+	data-tgtcode="#c_WebkitTransform_3dMain"
+	data-tgtexample="#x_transform3d"
+/>
+
+<label class="css3">Y</label>
+<input id="WebkitTransform_3dScaleY" type="range" min="0" max="2" value="1" step="0.1"
+	data-metaprop="WebkitTransform_3dMain"
+	data-tgtprop="WebkitTransform"
+	data-tgtcode="#c_WebkitTransform_3dMain"
+	data-tgtexample="#x_transform3d"
+/>
+
+<label class="css3">Z</label>
+<input id="WebkitTransform_3dScaleZ" type="range" min="0" max="2" value="1" step="0.1"
+	data-metaprop="WebkitTransform_3dMain"
+	data-tgtprop="WebkitTransform"
+	data-tgtcode="#c_WebkitTransform_3dMain"
+	data-tgtexample="#x_transform3d"
+/>
+
+</fieldset>
+
+
+
+
+<fieldset><legend>origin</legend>
+
+<label class="css3">X</label>
+<input id="WebkitTransformOrigin_3dMainX" type="range" min="-400" max="400" value="50"
+	data-metaprop="WebkitTransformOrigin_3dMain"
+	data-tgtprop="WebkitTransformOrigin"
+	data-tgtcode="#c_WebkitTransformOrigin_3dMain"
+	data-tgtexample="#x_transform3d"
+/>
+
+<label class="css3">Y</label>
+<input id="WebkitTransformOrigin_3dMainY" type="range" min="-400" max="400" value="50"
+	data-metaprop="WebkitTransformOrigin_3dMain"
+	data-tgtprop="WebkitTransformOrigin"
+	data-tgtcode="#c_WebkitTransformOrigin_3dMain"
+	data-tgtexample="#x_transform3d"
+/>
+
+<label class="css3">Z</label>
+<input id="WebkitTransformOrigin_3dMainZ" type="range" min="-400" max="400" value="1"
+	data-metaprop="WebkitTransformOrigin_3dMain"
+	data-tgtprop="WebkitTransformOrigin"
+	data-tgtcode="#c_WebkitTransformOrigin_3dMain"
+	data-tgtexample="#x_transform3d"
+/>
+
+</fieldset>
+
+<fieldset><legend>other</legend>
+
+<label class="css3">style</label>
+<select id="WebkitTransformStyle">
+<option>flat</option>
+<option selected>preserve-3d</option>
+</select>
+
+<label class="css3">backface</label>
+<select id="WebkitBackfaceVisibility">
+<option>hidden</option>
+<option selected>visible</option>
+</select>
+
+<!--
+<label class="css3">independent perspective()?</label>
+<input id="WebkitTransform_enable3dPerspective" type="checkbox"/>
+
+<input id="WebkitTransform_3dPerspective" type="range" min="0" max="2000" value="1000"
+	data-metaprop="WebkitTransform_3dMain"
+	data-tgtprop="WebkitTransform"
+	data-tgtcode="#c_WebkitTransform_3dMain"
+	data-tgtexample="#x_transform3d"
+/>
+-->
+
+</fieldset>
+
+</fieldset>
+
+<fieldset id="fs_child" class="wrapper" style="display:none"><legend>child</legend>
+
+<fieldset><legend>rotate3d</legend>
+
+<label class="css3">deg</label>
+<input id="WebkitTransform_3dNestedRotate" type="range" min="-360" max="360" value="0"
+	data-metaprop="WebkitTransform_3dNested"
+	data-tgtprop="WebkitTransform"
+	data-tgtexample="#x_transform_3dNested"
+	data-tgtcode="#c_WebkitTransform_3dNested"
+/>
+
+<label class="css3">X</label>
+<input id="WebkitTransform_3dNestedRotateX" type="range" min="-1" max="1" value="0" step="0.1"
+	data-metaprop="WebkitTransform_3dNested"
+	data-tgtcode="#c_WebkitTransform_3dNested"
+	data-tgtexample="#x_transform_3dNested"
+	data-tgtprop="WebkitTransform"
+/>
+
+<label class="css3">Y</label>
+<input id="WebkitTransform_3dNestedRotateY" type="range" min="-1" max="1" value="0" step="0.1"
+	data-metaprop="WebkitTransform_3dNested"
+	data-tgtcode="#c_WebkitTransform_3dNested"
+	data-tgtexample="#x_transform_3dNested"
+	data-tgtprop="WebkitTransform"
+/>
+
+<label class="css3">Z</label>
+<input id="WebkitTransform_3dNestedRotateZ" type="range" min="-1" max="1" value="0" step="0.1"
+	data-metaprop="WebkitTransform_3dNested"
+	data-tgtcode="#c_WebkitTransform_3dNested"
+	data-tgtexample="#x_transform_3dNested"
+	data-tgtprop="WebkitTransform"
+/>
+
+</fieldset>
+
+<fieldset><legend>translate</legend>
+
+<label class="css3">X</label>
+<input id="WebkitTransform_3dNestedTranslateX" type="range" min="-400" max="400" value="0"
+	data-metaprop="WebkitTransform_3dNested"
+	data-tgtcode="#c_WebkitTransform_3dNested"
+	data-tgtexample="#x_transform_3dNested"
+	data-tgtprop="WebkitTransform"
+/>
+
+<label class="css3">Y</label>
+<input id="WebkitTransform_3dNestedTranslateY" type="range" min="-400" max="400" value="0"
+	data-metaprop="WebkitTransform_3dNested"
+	data-tgtcode="#c_WebkitTransform_3dNested"
+	data-tgtexample="#x_transform_3dNested"
+	data-tgtprop="WebkitTransform"
+/>
+
+<label class="css3">Z</label>
+<input id="WebkitTransform_3dNestedTranslateZ" type="range" min="-400" max="400" value="0"
+	data-metaprop="WebkitTransform_3dNested"
+	data-tgtcode="#c_WebkitTransform_3dNested"
+	data-tgtexample="#x_transform_3dNested"
+	data-tgtprop="WebkitTransform"
+/>
+
+</fieldset>
+
+<fieldset><legend>scale</legend>
+
+<label class="css3">X</label>
+<input id="WebkitTransform_3dNestedScaleX" type="range" min="0" max="2" value="1" step="0.1"
+	data-metaprop="WebkitTransform_3dNested"
+	data-tgtcode="#c_WebkitTransform_3dNested"
+	data-tgtexample="#x_transform_3dNested"
+	data-tgtprop="WebkitTransform"
+/>
+
+<label class="css3">Y</label>
+<input id="WebkitTransform_3dNestedScaleY" type="range" min="0" max="2" value="1" step="0.1"
+	data-metaprop="WebkitTransform_3dNested"
+	data-tgtcode="#c_WebkitTransform_3dNested"
+	data-tgtexample="#x_transform_3dNested"
+	data-tgtprop="WebkitTransform"
+/>
+
+<label class="css3">Z</label>
+<input id="WebkitTransform_3dNestedScaleZ" type="range" min="0" max="2" value="1" step="0.1"
+	data-metaprop="WebkitTransform_3dNested"
+	data-tgtcode="#c_WebkitTransform_3dNested"
+	data-tgtexample="#x_transform_3dNested"
+	data-tgtprop="WebkitTransform"
+/>
+
+</fieldset>
+
+<fieldset><legend>origin</legend>
+
+<label class="css3">X</label>
+<input id="WebkitTransformOrigin_3dNestedX" type="range" min="-400" max="400" value="50"
+	data-metaprop="WebkitTransformOrigin_3dNested"
+	data-tgtcode="#c_WebkitTransformOrigin_3dNested"
+	data-tgtexample="#x_transform_3dNested"
+	data-tgtprop="WebkitTransformOrigin"
+/>
+
+<label class="css3">Y</label>
+<input id="WebkitTransformOrigin_3dNestedY" type="range" min="-400" max="400" value="50"
+	data-metaprop="WebkitTransformOrigin_3dNested"
+	data-tgtcode="#c_WebkitTransformOrigin_3dNested"
+	data-tgtexample="#x_transform_3dNested"
+	data-tgtprop="WebkitTransformOrigin"
+/>
+
+<label class="css3">Z</label>
+<input id="WebkitTransformOrigin_3dNestedZ" type="range" min="-400" max="400" value="1"
+	data-metaprop="WebkitTransformOrigin_3dNested"
+	data-tgtcode="#c_WebkitTransformOrigin_3dNested"
+	data-tgtexample="#x_transform_3dNested"
+	data-tgtprop="WebkitTransformOrigin"
+/>
+
+</fieldset>
+
+<fieldset><legend>other</legend>
+
+<label class="css3">style</label>
+<select id="WebkitTransformStyle_3dNested"
+	data-metaprop="WebkitTransformStyle_3dNested"
+	data-tgtcode="#c_WebkitTransformStyle_3dNested"
+	data-tgtexample="#x_transform_3dNested"
+	data-tgtprop="WebkitTransformStyle"
+>
+<option>flat</option>
+<option selected>preserve-3d</option>
+</select>
+
+<label class="css3">backface</label>
+<select id="WebkitBackfaceVisibility_3dNested"
+	data-metaprop="WebkitBackfaceVisibility_3dNested"
+	data-tgtcode="#c_WebkitBackfaceVisibility_3dNested"
+	data-tgtexample="#x_transform_3dNested"
+	data-tgtprop="WebkitBackfaceVisibility"
+>
+<option>hidden</option>
+<option selected>visible</option>
+</select>
+
+</fieldset>
+
+</fieldset>
+
+<fieldset id="fs_ancestor" style="display:none"><legend>ancestor</legend>
+
+<label class="css3">Z</label>
+<input id="WebkitPerspective" type="range" min="0" max="2000" value="1000"
+	data-tgtexample="#preview"
+/>
+
+<label class="css3">X</label>
+<input id="WebkitPerspectiveOrigin_X" type="range" min="-1000" max="1000" value="50"
+	data-metaprop="WebkitPerspectiveOrigin"
+	data-tgtexample="#preview"
+/>
+
+<label class="css3">Y</label>
+<input id="WebkitPerspectiveOrigin_Y" type="range" min="-1000" max="1000" value="50"
+	data-metaprop="WebkitPerspectiveOrigin"
+	data-tgtexample="#preview"
+/>
+
+</fieldset>
+
+</div>
+
+<div id="n_flexbox">
+<!-- @@@ flexbox -->
+
+<fieldset><legend>vertical panels</legend>
+
+<label>min-height</label>
+<input id="minHeight" type="range" min="320" max="480" value="320"/>
+
+<label>min-width</label>
+<input id="minWidth" type="range" min="200" max="300" value="200"/>
+
+<label class="css3">orient</label>
+<select id="WebkitBoxOrient">
+<option>horizontal</option>
+<option selected>vertical</option>
+</select>
+
+<label class="css3">pack</label>
+<select id="WebkitBoxPack">
+<option>center</option>
+<option>end</option>
+<option selected>justify</option>
+<option>start</option>
+</select>
+
+<label class="css3">align</label>
+<select id="WebkitBoxAlign">
+<option>center</option>
+<option>end</option>
+<option>start</option>
+<option selected>stretch</option>
+</select>
+
+<label class="css3">direction</label>
+<select id="WebkitBoxDirection">
+<option selected>normal</option>
+<option>reverse</option>
+</select>
+
+</fieldset>
+
+<fieldset><legend>element #2</legend>
+
+<label class="css3">ordinal group</label>
+<select id="WebkitBoxOrdinalGroup"
+	data-tgtexample="#x_flexbox2"
+>
+<option selected>1</option>
+<option>2</option>
+<option>3</option>
+<option>4</option>
+</select>
+
+<label class="css3">flex</label>
+<input id="WebkitBoxFlex" type="range" min="0" max="20" value="0"
+	data-tgtexample="#x_flexbox2"
+/>
+
+
+
+</fieldset>
+
+<fieldset><legend>element #3</legend>
+
+<label class="css3">ordinal group</label>
+<select id="WebkitBoxOrdinalGroup3"
+	data-metaprop="WebkitBoxOrdinalGroup"
+	data-tgtexample="#x_flexbox3"
+	data-tgtcode="#c_WebkitBoxOrdinalGroup3"
+>
+<option selected>1</option>
+<option>2</option>
+<option>3</option>
+<option>4</option>
+</select>
+
+<label class="css3">flex</label>
+<input id="WebkitBoxFlex3" type="range" min="0" max="20" value="0"
+	data-metaprop="WebkitBoxFlex"
+	data-tgtexample="#x_flexbox3"
+	data-tgtcode="#c_WebkitBoxFlex3"
+/>
+
+
+
+</fieldset>
+</div>
+
+<div id="n_adv">
+<!-- @@@ adv -->
+
+<fieldset><legend>block</legend>
+
+<label>float-offset</label>
+<input id="floatOffset" type="range" value="1"/>
+
+<label>inline-box-align</label>
+<select id="inlineBoxAlign">
+<option selected>initial</option>
+<option>last</option>
+</select>
+
+<label>text-height</label>
+<select id="textHeight">
+<option selected>auto</option>
+<option>font-size</option>
+<option>text-size</option>
+<option>max-size</option>
+</select>
+
+<label>grid-columns</label>
+<select id="gridColumns">
+<option>[TBD]</option>
+<option>[TBD2]</option>
+</select>
+
+<label>grid-rows</label>
+<select id="gridRows">
+<option>[TBD]</option>
+<option>[TBD2]</option>
+</select>
+
+</fieldset>
+
+<fieldset><legend>hypehenation</legend>
+
+<label>hyphens</label>
+<select id="hyphens">
+<option selected>none</option>
+<option>manual</option>
+<option>auto</option>
+</select>
+
+<label>after</label>
+<input id="hyphenateAfter" type="range" value="1"/>
+
+<label>before</label>
+<input id="hyphenateBefore" type="range" value="1"/>
+
+<label>character</label>
+<select id="hyphenateCharacter">
+<option selected>""</option>
+<option>\2010</option>
+</select>
+
+<label>lines</label>
+<select id="hyphenateLines">
+<option selected>no-limit</option>
+<option>1</option>
+<option>2</option>
+<option>3</option>
+<option>4</option>
+<option>5</option>
+<option>6</option>
+</select>
+
+<label>resource</label>
+<select id="hyphenateResource">
+<option selected>[URL]</option>
+</select>
+
+</fieldset>
+
+<fieldset><legend>drop-initial</legend>
+
+<label>before-adjust</label>
+<select id="dropInitialBeforeAdjust">
+<option selected>before-edge</option>
+<option>text-before-edge</option>
+<option>central</option>
+<option>middle</option>
+<option>hanging</option>
+<option>mathematical</option>
+</select>
+
+<label>after-adjust</label>
+<select id="dropInitialAfterAdjust">
+<option selected>central</option>
+<option>middle</option>
+<option>after-edge</option>
+<option>text-after-edge</option>
+<option>ideographic</option>
+<option>alphabetical</option>
+<option>mathematical</option>
+</select>
+
+<label>before-align</label>
+<input id="dropInitialBeforeAlign" type="range" value="1"/>
+
+<label>after-align</label>
+<input id="dropInitialAfterAlign" type="range" value="1"/>
+
+<label>size</label>
+<input id="dropInitialSize" type="range" value="1"/>
+
+<label>value</label>
+<input id="dropInitialValue" type="range" value="1"/>
+
+</fieldset>
+
+<fieldset><legend>line-stacking</legend>
+
+<label>ruby</label>
+<select id="lineStackingRuby">
+<option selected>exclude-ruby</option>
+<option>include-ruby</option>
+</select>
+
+<label>shift</label>
+<select id="lineStackingShift">
+<option selected>consider-shifts</option>
+<option>disregard-shifts</option>
+</select>
+
+<label>strategy</label>
+<select id="lineStackingStrategy">
+<option selected>inline-line-height</option>
+<option>block-line-height</option>
+<option>max-height</option>
+<option>grid-height</option>
+</select>
+
+</fieldset>
+
+<fieldset><legend>baseline</legend>
+
+<label>align-adjust</label>
+<select id="alignmentAdjust">
+<option selected>auto</option>
+<option>baseline</option>
+<option>before-edge</option>
+<option>text-before-edge</option>
+<option>middle</option>
+<option>central</option>
+<option>after-edge</option>
+<option>text-after-edge</option>
+<option>ideographic</option>
+<option>alphabetic</option>
+<option>hanging</option>
+<option>mathematical</option>
+</select>
+
+<label>align-baseline</label>
+<select id="alignmentBaseline">
+<option selected>baseline</option>
+<option>use-script</option>
+<option>before-edge</option>
+<option>text-before-edge</option>
+<option>after-edge</option>
+<option>text-after-edge</option>
+<option>central</option>
+<option>middle</option>
+<option>ideographic</option>
+<option>alphabetic</option>
+<option>hanging</option>
+<option>mathematical</option>
+</select>
+
+<label>baseline-shift</label>
+<select id="baselineShift">
+<option selected>baseline</option>
+<option>sub</option>
+<option>super</option>
+<option>%</option>
+<option>#</option>
+</select>
+
+<label>dominant-baseline</label>
+<select id="dominantBaseline">
+<option selected>auto</option>
+<option>use-script</option>
+<option>no-change</option>
+<option>reset-size</option>
+<option>alphabetic</option>
+<option>hanging</option>
+<option>ideographic</option>
+<option>mathematical</option>
+<option>central</option>
+<option>middle</option>
+<option>text-after-edge</option>
+<option>text-before-edge</option>
+</select>
+
+</fieldset>
+
+<fieldset><legend>font</legend>
+<label class="css3">stretch</label>
+<select id="fontStretch">
+<option selected>normal</option>
+<option>wider</option>
+<option>narrower</option>
+<option>ultra-condensed</option>
+<option>extra-condensed</option>
+<option>condensed</option>
+<option>semi-condensed</option>
+<option>semi-expanded</option>
+<option>expanded</option>
+<option>extra-expanded</option>
+<option>ultra-expanded</option>
+</select>
+
+<label>size-adjust</label>
+<input id="fontSizeAdjust" type="range" value="1"/>
+
+<label>synthesis</label>
+<select id="fontSynthesis">
+	<option>none</option>
+	<option>weight</option>
+	<option>style</option>
+	<option>weight style</option>
+	<option>style weight</option>
+</select>
+
+<label>kerning</label>
+<select id="fontKerning">
+	<option>auto</option>
+	<option>normal</option>
+	<option>none</option>
+</select>
+
+</fieldset>
+
+<fieldset><legend>font variant</legend>
+
+<label>position</label>
+<select id="fontVariantPosition">
+	<option>normal</option>
+	<option>sub</option>
+	<option>super</option>
+</select>
+
+<label>ligatures</label>
+<select id="fontVariantLigatures">
+	<option>normal</option>
+	<option>common-ligatures</option>
+	<option>no-common-ligatures</option>
+	<option>discretionary-ligatures</option>
+	<option>no-discretionary-ligatures</option>
+	<option>historical-ligatures</option>
+	<option>no-historical-ligatures</option>
+	<option>common-ligatures discretionary-ligatures historical-ligatures</option>
+</select>
+
+<label>caps</label>
+<select id="fontVariantCaps">
+	<option>normal</option>
+	<option>small-caps</option>
+	<option>all-small-caps</option>
+	<option>petite-caps</option>
+	<option>all-petite-caps</option>
+	<option>titling-caps</option>
+	<option>unicase</option>
+</select>
+
+<label>numeric</label>
+<select id="fontVariantNumeric">
+	<option>normal</option>
+	<option>lining-nums</option>
+	<option>oldstyle-nums</option>
+	<option>proportional-nums</option>
+	<option>tabular-nums</option>
+	<option>diagonal-fractions</option>
+	<option>stacked-fractions</option>
+	<option>ordinal</option>
+	<option>slashed-zero</option>
+	<option>lining-nums proportional-nums diagonal-fractions</option>
+	<option>oldstyle-nums tabular-nums stacked-fractions ordinal slashed-zero</option>
+	<option>slashed-zero ordinal tabular-nums stacked-fractions oldstyle-nums</option>
+</select>
+
+<label>alternates</label>
+<select id="fontVariantAlternates">
+	<option>normal</option>
+	<option>contextual</option>
+	<option>no-contextual</option>
+	<option>historical-forms</option>
+	<option>contextual historical-forms</option>
+</select>
+
+<label>east-asian</label>
+<select id="fontVariantEastAsian">
+	<option>normal</option>
+	<option>jis78</option>
+	<option>jis83</option>
+	<option>jis90</option>
+	<option>jis04</option>
+	<option>simplified</option>
+	<option>traditional</option>
+	<option>full-width</option>
+	<option>proportional-width</option>
+	<option>ruby</option>
+	<option>simplified full-width ruby</option>
+</select>
+
+
+
+</fieldset>
+
+<fieldset><legend>text</legend>
+
+<label>hanging-punc</label>
+<select id="hangingPunctuation">
+<option selected>first</option>
+<option>last</option>
+<option>allow-end</option>
+<option>force-end</option>
+</select>
+
+<label>punc-trim</label>
+<select id="punctuationTrim">
+<option selected>start</option>
+<option>end</option>
+<option>allow-end</option>
+<option>adjacent</option>
+</select>
+
+<label>text-emphasis</label>
+<select id="textEmphasis">
+<option selected>none</option>
+<option>accent</option>
+<option>dot</option>
+<option>circle</option>
+<option>disk [before|after]</option>
+</select>
+
+<label>text-outline</label>
+<select id="textOutline">
+<option selected>_x</option>
+<option>_y</option>
+<option>_colors</option>
+</select>
+
+<label>text-wrap</label>
+<select id="textWrap">
+<option selected>normal</option>
+<option>none</option>
+<option>unrestricted</option>
+<option>suppress</option>
+	<option>avoid</option>
+</select>
+
+
+
+<label>word-break</label>
+<select id="wordBreak">
+<option selected>normal</option>
+<option>break-word</option>
+<option>keep-all</option>
+<option disabled>break-all</option>
+</select>
+
+
+
+</fieldset>
+
+<fieldset><legend>decoration</legend>
+
+<label>line</label>
+<select id="textDecorationLine">
+	<option>none</option>
+	<option>underline</option>
+	<option>overline</option>
+	<option>line-through</option>
+	<option>underline overline</option>
+</select>
+
+<label>color</label>
+<select id="textDecorationColor">
+	<option>white</option>
+	<option>red</option>
+</select>
+
+<label>style</label>
+<select id="textDecorationStyle">
+	<option>solid</option>
+	<option>double</option>
+	<option>dotted</option>
+	<option>dashed</option>
+	<option>wavy</option>
+</select>
+
+<label>skip</label>
+<select id="textDecorationSkip">
+	<option>none</option>
+	<option>objects</option>
+	<option>spaces</option>
+	<option>ink</option>
+	<option>edges</option>
+	<option>objects edges</option>
+</select>
+
+<label>__ pos.</label>
+<select id="textUnderlinePosition">
+	<option>auto</option>
+	<option>alphabetic</option>
+	<option>below</option>
+	<option>left</option>
+	<option>below right</option>
+</select>
+
+</fieldset>
+
+<fieldset><legend>emphasis</legend>
+
+<label>style</label>
+<select id="textEmphasisStyle">
+	<option>none</option>
+	<option>filled</option>
+	<option>open dot</option>
+	<option>circle</option>
+	<option>double-circle</option>
+	<option>triangle</option>
+	<option>sesame</option>
+	<option>'foo'</option>
+</select>
+
+<label>color</label>
+<select id="textEmphasisColor">
+	<option>green</option>
+	<option>red</option>
+</select>
+
+<label>position</label>
+<select id="textEmphasisPosition">
+	<option>above right</option>
+	<option>below left</option>
+</select>
+
+</fieldset>
+
+<fieldset><legend>images/color</legend>
+
+<label>orientation</label>
+<select id="imageOrientation">
+<option selected>90deg</option>
+<option>180deg</option>
+<option>270deg</option>
+</select>
+
+<label>resolution</label>
+<input id="imageResolution" type="range" value="1"
+	data-unit="dpi"
+/>
+
+<label>rendering-intent</label>
+<select id="renderingIntent">
+<option selected>auto</option>
+<option>perceptual</option>
+<option>relative-colorimetric</option>
+<option>saturation</option>
+<option>absolute-colorimetric</option>
+</select>
+
+<label>object-fit</label>
+<select id="object-fit">
+	<option>fill</option>
+	<option>contain</option>
+	<option>cover</option>
+	<option selected>none</option>
+	<option>scale-down</option>
+</select>
+
+<label>object-position</label>
+<select id="object-position">
+	<option>50% 50%</option>
+	<option>center</option>
+	<option>top right</option>
+	<option>bottom 10px right 20px</option>
+</select>
+
+
+<label>content</label>
+<select id="content">
+	<option>icon</option>
+</select>
+
+<label>icon</label>
+<select id="icon">
+	<option>auto</option>
+	<option>url(foo.png)</option>
+	<option>url(foo.png), url(foo.gif)</option>
+</select>
+
+</fieldset>
+
+<fieldset><legend>page</legend>
+
+<label>widows</label>
+<input id="widows" type="range" value="1"/>
+
+<label>orphans</label>
+<input id="orphans" type="range" value="1"/>
+
+<label>break-after</label>
+<select id="pageBreakAfter">
+<option selected>auto</option>
+<option>always</option>
+<option>avoid</option>
+<option>left</option>
+<option>right</option>
+</select>
+
+<label>break-before</label>
+<select id="pageBreakBefore">
+<option selected>auto</option>
+<option>always</option>
+<option>avoid</option>
+<option>left</option>
+<option>right</option>
+</select>
+
+<label>break-inside</label>
+<select id="pageBreakInside">
+<option selected>auto</option>
+<option>avoid</option>
+</select>
+
+<label>policy</label>
+<select id="pagePolicy">
+<option selected>start</option>
+<option>first</option>
+<option>last</option>
+</select>
+
+</fieldset>
+
+<fieldset><legend>more breaking</legend>
+<label>before</label>
+<select id="breakBefore">
+	<option>auto</option>
+	<option>always</option>
+	<option>avoid</option>
+	<option>left</option>
+	<option>right</option>
+	<option>page</option>
+	<option>column</option>
+	<option>avoid-page</option>
+	<option>avoid-column</option>
+</select>
+
+<label>after</label>
+<select id="breakAfter">
+	<option>auto</option>
+	<option>always</option>
+	<option>avoid</option>
+	<option>left</option>
+	<option>right</option>
+	<option>page</option>
+	<option>column</option>
+	<option>avoid-page</option>
+	<option>avoid-column</option>
+</select>
+
+<label>inside</label>
+<select id="breakInside">
+	<option>auto</option>
+	<option>avoid</option>
+	<option>avoid-page</option>
+	<option>avoid-column</option>
+</select>
+
+</fieldset>
+
+<fieldset><legend>margin</legend>
+
+<label>collapse</label>
+<select id="WebkitMarginCollapse">
+<option selected>[TBD]</option>
+<option>[TBD2]</option>
+</select>
+
+<label>bottom</label>
+<select id="WebkitMarginBottomCollapse">
+<option selected>[TBD]</option>
+<option>[TBD2]</option>
+</select>
+
+<label>top</label>
+<select id="WebkitMarginTopCollapse">
+<option selected>[TBD]</option>
+<option>[TBD2]</option>
+</select>
+
+</fieldset>
+
+<fieldset><legend>unsorted</legend>
+
+<label>line-break</label>
+<select id="lineBreak">
+	<option>auto</option>
+	<option>loose</option>
+	<option>normal</option>
+	<option>strict</option>
+</select>
+
+<label>overflow-wrap</label>
+<select id="overflowWrap">
+	<option>normal</option>
+	<option>break-word</option>
+</select>
+
+<label>tab-size</label>
+<select id="tabSize">
+	<option>4</option>
+	<option>1em</option>
+</select>
+
+<label>text-space-collapse</label>
+<select id="textSpaceCollapse">
+	<option>collapse</option>
+	<option>preserve</option>
+	<option>preserve-breaks</option>
+</select>
+
+</fieldset>
+
+</div>
+
+<div id="n_intl">
+<!-- @@@ intl -->
+
+<fieldset><legend>RTL</legend>
+
+<label>line-break</label>
+<select id="WebkitLineBreak">
+<option selected>normal</option>
+<option>after-white-space</option>
+</select>
+
+<label>margin-start</label>
+<input id="WebkitMarginStart" type="range" min="0" max="60" value="0"/>
+
+<label>padding-start</label>
+<input id="WebkitPaddingStart" type="range" min="0" max="60" value="0"/>
+
+<label>direction</label>
+<select id="direction">
+<option selected>ltr</option>
+<option>rtl</option>
+</select>
+
+<label>rtl-ordering</label>
+<select id="WebkitRtlOrdering">
+<option selected>logical</option>
+<option>visual</option>
+</select>
+
+<label>unicode-bidi</label>
+<select id="unicodeBidi">
+<option selected>normal</option>
+<option>embed</option>
+<option>bidi-override</option>
+</select>
+
+</fieldset>
+
+<fieldset><legend>CJK</legend>
+
+<label>text-justify</label>
+<select id="textJustify">
+<option>none</option>
+<option selected>auto</option>
+<option>inter-word</option>
+<option>inter-ideograph</option>
+<option>inter-cluster</option>
+<option>distribute</option>
+<option>kashida</option>
+<option>tibetan</option>
+</select>
+
+<label>ruby-align</label>
+<select id="rubyAlign">
+<option selected>auto</option>
+<option>left</option>
+<option>center</option>
+<option>right</option>
+<option>distribute-letter</option>
+<option>distribute-space</option>
+<option>line-edge</option>
+</select>
+
+<label>ruby-overhang</label>
+<select id="rubyOverhang">
+<option selected>auto</option>
+<option>none</option>
+<option>whitespace</option>
+</select>
+
+<label>ruby-position</label>
+<select id="rubyPosition">
+<option selected>above</option>
+<option>inline</option>
+</select>
+
+<label>ime-mode</label>
+<select id="ime-mode">
+	<option>auto</option>
+	<option>normal</option>
+	<option>active</option>
+	<option>inactive</option>
+	<option>disabled</option>
+</select>
+
+</fieldset>
+
+</div>
+
+<div id="n_ui">
+<!-- @@@ ui -->
+
+<fieldset><legend>edit, touch, drag</legend>
+
+<label class="css3">draggable</label>
+<select id="WebkitUserDrag">
+<option>auto</option>
+<option>element</option>
+<option selected>none</option>
+</select>
+
+<label class="css3">editable</label>
+<select id="WebkitUserModify">
+<option selected>read-only</option>
+<option>read-write</option>
+<option>read-write-plaintext-only</option>
+</select>
+
+<label class="css3">selectable</label>
+<select id="WebkitUserSelect">
+<option selected>auto</option>
+<option>none</option>
+<option>text</option>
+</select>
+
+<label>resize</label>
+<select id="resize">
+<option selected>none</option>
+<option>both</option>
+<option>horizontal</option>
+<option>vertical</option>
+</select>
+
+<label>pointer-events</label>
+<select id="pointerEvents">
+<option selected>auto</option>
+<option>none</option>
+</select>
+
+</fieldset>
+
+<!--
+
+<fieldset><legend>hyperlinks</legend>
+
+<label class="css3">name</label>
+<select id="targetName">
+<option selected>current</option>
+<option>root</option>
+<option>parent</option>
+<option>new</option>
+<option>modal</option>
+</select>
+
+<label class="css3">new</label>
+<select id="targetNew">
+<option selected>window</option>
+<option>tab</option>
+<option>none</option>
+</select>
+
+<label class="css3">position</label>
+<select id="targetPosition">
+<option selected>above</option>
+<option>behind</option>
+<option>front</option>
+<option>back</option>
+</select>
+
+</fieldset>
+
+-->
+
+<!--
+
+<fieldset><legend>tabbing</legend>
+
+<label class="css3">down</label>
+<select id="navDown">
+<option selected>[TBD]</option>
+<option>[TBD2]</option>
+</select>
+
+<label class="css3">index</label>
+<select id="navIndex">
+<option selected>[TBD]</option>
+<option>[TBD2]</option>
+</select>
+
+<label class="css3">left</label>
+<select id="navLeft">
+<option selected>[TBD]</option>
+<option>[TBD2]</option>
+</select>
+
+<label class="css3">right</label>
+<select id="navRight">
+<option selected>[TBD]</option>
+<option>[TBD2]</option>
+</select>
+
+<label class="css3">up</label>
+<select id="navUp">
+<option selected>[TBD]</option>
+<option>[TBD2]</option>
+</select>
+
+<label>nav-index</label>
+<select id="nav-index">
+	<option>auto</option>
+	<option>1</option>
+	<option>10</option>
+</select>
+
+<label>nav-up</label>
+<select id="nav-up">
+	<option>auto</option>
+	<option>#foo</option>
+	<option>#foo current</option>
+	<option>#foo root</option>
+</select>
+
+<label>nav-right</label>
+<select id="nav-right">
+	<option>auto</option>
+	<option>#foo</option>
+	<option>#foo current</option>
+	<option>#foo root</option>
+</select>
+
+<label>nav-down</label>
+<select id="nav-down">
+	<option>auto</option>
+	<option>#foo</option>
+	<option>#foo current</option>
+	<option>#foo root</option>
+</select>
+
+<label>nav-left</label>
+<select id="nav-left">
+	<option>auto</option>
+	<option>#foo</option>
+	<option>#foo current</option>
+	<option>#foo root</option>
+</select>
+
+</fieldset>
+
+-->
+
+<fieldset><legend>appearance</legend>
+
+<label>cursor</label>
+<select id="cursor">
+<option selected>auto</option>
+<option>alias</option>
+<option>all-scroll</option>
+<option>cell</option>
+<option>col-resize</option>
+<option>context-menu</option>
+<option>copy</option>
+<option>crosshair</option>
+<option>default</option>
+<option>e-resize</option>
+<option>ew-resize</option>
+<option>help</option>
+<option>move</option>
+<option>n-resize</option>
+<option>ne-resize</option>
+<option>nesw-resize</option>
+<option>no-drop</option>
+<option>not-allowed</option>
+<option>ns-resize</option>
+<option>nw-resize</option>
+<option>nwse-resize</option>
+<option>pointer</option>
+<option>progress</option>
+<option>row-resize</option>
+<option>s-resize</option>
+<option>se-resize</option>
+<option>sw-resize</option>
+<option>text</option>
+<option>vertical-text</option>
+<option>w-resize</option>
+<option>wait</option>
+<option>zoom-in</option>
+<option>zoom-out</option>
+
+</select>
+
+<label>security</label>
+<select id="WebkitTextSecurity">
+<option>circle</option>
+<option>disc</option>
+<option selected>none</option>
+<option>square</option>
+</select>
+
+<label class="css3">appearance</label>
+<select id="WebkitAppearance">
+<option>caps-lock-indicator</option>
+<option>button</option>
+<option>button-bevel</option>
+<option>caret</option>
+<option>checkbox</option>
+<option>default-button</option>
+<option>listbox</option>
+<option>listitem</option>
+<option>media-fullscreen-button</option>
+<option>media-mute-button</option>
+<option>media-play-button</option>
+<option>media-seek-back-button</option>
+<option>media-seek-forward-button</option>
+<option>media-slider</option>
+<option>media-sliderthumb</option>
+<option>menulist</option>
+<option>menulist-button</option>
+<option>menulist-text</option>
+<option>menulist-textfield</option>
+<option selected>none</option>
+<option>push-button</option>
+<option>radio</option>
+<option>searchfield</option>
+<option>searchfield-cancel-button</option>
+<option>searchfield-decoration</option>
+<option>searchfield-results-button</option>
+<option>searchfield-results-decoration</option>
+<option>slider-horizontal, slider-vertical</option>
+<option>sliderthumb-horizontal</option>
+<option>sliderthumb-vertical</option>
+<option>square-button</option>
+<option>textarea</option>
+<option>textfield</option>
+<option>scrollbarbutton-down</option>
+<option>scrollbarbutton-left</option>
+<option>scrollbarbutton-right</option>
+<option>scrollbarbutton-up</option>
+<option>scrollbargripper-horizontal</option>
+<option>scrollbargripper-vertical</option>
+<option>scrollbarthumb-horizontal</option>
+<option>scrollbarthumb-vertical</option>
+<option>scrollbartrack-horizontal</option>
+<option>scrollbartrack-vertical</option>
+</select>
+
+<label class="css3">text-size-adjust</label>
+<select id="WebkitTextSizeAdjust">
+<option selected>auto</option>
+<option>none</option>
+</select>
+
+<label class="apple">touch-callout</label>
+<select id="WebkitTouchCallout">
+<option selected>default</option>
+<option>none</option>
+</select>
+
+<label class="apple">tap-highlight-color</label>
+<input id="WebkitTapHighlightColor" type="range" min="0" max="16777216" value="16000000" class="hex"/>
+
+</fieldset>
+
+</div>
+
+<div id="n_aural">
+<!-- @@@ aural -->
+
+<fieldset><legend>speech</legend>
+
+<label>speak-header</label>
+<select id="speakHeader">
+<option>[TBD]</option>
+<option>[TBD2]</option>
+</select>
+
+<label>speak-numeral</label>
+<select id="speakNumeral">
+<option>[TBD]</option>
+<option>[TBD2]</option>
+</select>
+
+<label>speak-punctuation</label>
+<select id="speakPunctuation">
+<option>[TBD]</option>
+<option>[TBD2]</option>
+</select>
+
+<label>speech-rate</label>
+<select id="speechRate">
+<option>[TBD]</option>
+<option>[TBD2]</option>
+</select>
+
+</fieldset>
+
+<fieldset><legend>voice</legend>
+
+<label>richness</label>
+<select id="richness">
+<option>[TBD]</option>
+<option>[TBD2]</option>
+</select>
+
+<label>volume</label>
+<select id="volume">
+<option>[TBD]</option>
+<option>[TBD2]</option>
+</select>
+
+<label>speak</label>
+<select id="speak">
+<option>[TBD]</option>
+<option>[TBD2]</option>
+</select>
+
+<label>stress</label>
+<select id="stress">
+<option>[TBD]</option>
+<option>[TBD2]</option>
+</select>
+
+<label>phonemes</label>
+<select id="phonemes">
+<option>[TBD]</option>
+<option>[TBD2]</option>
+</select>
+
+<label>pitch</label>
+<select id="pitch">
+<option>[TBD]</option>
+<option>[TBD2]</option>
+</select>
+
+<label>pitch-range</label>
+<select id="pitchRange">
+<option>[TBD]</option>
+<option>[TBD2]</option>
+</select>
+
+<label>balance</label>
+<select id="Balance">
+<option>[TBD]</option>
+<option>[TBD2]</option>
+</select>
+
+<label>duration</label>
+<select id="voiceDuration">
+<option>[TBD]</option>
+<option>[TBD2]</option>
+</select>
+
+<label>family</label>
+<select id="voiceFamily">
+<option>[TBD]</option>
+<option>[TBD2]</option>
+</select>
+
+<label>pitch</label>
+<select id="voicePitch">
+<option>[TBD]</option>
+<option>[TBD2]</option>
+</select>
+
+<label>pitch-range</label>
+<select id="voicePitchRange">
+<option>[TBD]</option>
+<option>[TBD2]</option>
+</select>
+
+<label>rate</label>
+<select id="voiceRate">
+<option>[TBD]</option>
+<option>[TBD2]</option>
+</select>
+
+<label>stress</label>
+<select id="voiceStress">
+<option>[TBD]</option>
+<option>[TBD2]</option>
+</select>
+
+<label>volume</label>
+<select id="voiceVolume">
+<option>[TBD]</option>
+<option>[TBD2]</option>
+</select>
+
+</fieldset>
+
+<fieldset><legend>timing</legend>
+
+<label>cue-after</label>
+<select id="cueAfter">
+<option>[TBD]</option>
+<option>[TBD2]</option>
+</select>
+
+<label>cue-before</label>
+<select id="cueBefore">
+<option>[TBD]</option>
+<option>[TBD2]</option>
+</select>
+
+<label>mark</label>
+<select id="mark">
+<option>[TBD]</option>
+<option>[TBD2]</option>
+</select>
+
+<label>mark-after</label>
+<select id="markAfter">
+<option>[TBD]</option>
+<option>[TBD2]</option>
+</select>
+
+<label>mark-before</label>
+<select id="markBefore">
+<option>[TBD]</option>
+<option>[TBD2]</option>
+</select>
+
+<label>rest-after</label>
+<select id="restAfter">
+<option>[TBD]</option>
+<option>[TBD2]</option>
+</select>
+
+<label>rest</label>
+<select id="rest">
+<option>[TBD]</option>
+<option>[TBD2]</option>
+</select>
+
+<label>rest-before</label>
+<select id="restBefore">
+<option>[TBD]</option>
+<option>[TBD2]</option>
+</select>
+
+<label>pause-after</label>
+<select id="pauseAfter">
+<option>[TBD]</option>
+<option>[TBD2]</option>
+</select>
+
+<label>pause-before</label>
+<select id="pauseBefore">
+<option>[TBD]</option>
+<option>[TBD2]</option>
+</select>
+
+</fieldset>
+
+<fieldset><legend>sound</legend>
+
+<label>play-during</label>
+<select id="playDuring">
+<option>[TBD]</option>
+<option>[TBD2]</option>
+</select>
+
+</fieldset>
+
+</div>
+
+</section>
+
+<section id="preview" class="toggle">
+
+<div id="x_box">
+The quick brown fox jumped over the lazy dog.
+The quick brown fox jumped over the lazy dog.
+The quick brown fox jumped over the lazy dog.
+The quick brown fox jumped over the lazy dog.
+</div>
+
+<div id="x_text">
+The quick brown fox jumped over the lazy dog.
+The quick brown fox jumped over the lazy dog.
+The quick brown fox jumped over the lazy dog.
+The quick brown fox jumped over the lazy dog.
+</div>
+
+<div id="x_colors">
+The quick brown fox jumped over the lazy dog.
+The quick brown fox jumped over the lazy dog.
+The quick brown fox jumped over the lazy dog.
+The quick brown fox jumped over the lazy dog.
+</div>
+
+<div id="x_gradient">
+The quick brown fox jumped over the lazy dog.
+The quick brown fox jumped over the lazy dog.
+The quick brown fox jumped over the lazy dog.
+The quick brown fox jumped over the lazy dog.
+</div>
+
+<div id="x_mask">
+The quick brown fox jumped over the lazy dog.
+The quick brown fox jumped over the lazy dog.
+The quick brown fox jumped over the lazy dog.
+The quick brown fox jumped over the lazy dog.
+</div>
+
+<div id="x_background"
+style="background-color: plum; background-image: url(img/Objects009.jpg)">
+</div>
+
+<div id="x_border">
+The quick brown fox jumped over the lazy dog.  The quick brown fox
+jumped over the lazy dog.  The quick brown fox jumped over the lazy
+dog.  The quick brown fox jumped over the lazy dog.
+</div>
+
+<div id="x_flow">
+The quick brown fox jumped over the lazy dog.
+The quick brown fox jumped over the lazy dog.
+The quick brown fox jumped over the lazy dog.
+The quick brown fox jumped over the lazy dog.
+The quick brown fox jumped over the lazy dog.
+The quick brown fox jumped over the lazy dog.
+The quick brown fox jumped over the lazy dog.
+The quick brown fox jumped over the lazy dog.
+The quick brown fox jumped over the lazy dog.
+The quick brown fox jumped over the lazy dog.
+The quick brown fox jumped over the lazy dog.
+The quick brown fox jumped over the lazy dog.
+The quick brown fox jumped over the lazy dog.
+The quick brown fox jumped over the lazy dog.
+The quick brown fox jumped over the lazy dog.
+The quick brown fox jumped over the lazy dog.
+The quick brown fox jumped over the lazy dog.
+The quick brown fox jumped over the lazy dog.
+</div>
+
+<div id="x_column">
+<h1>Quick Foxes</h1>
+<p>
+The quick brown fox jumped over the lazy dog.
+The quick brown fox jumped over the lazy dog.
+The quick brown fox jumped over the lazy dog.
+The quick brown fox jumped over the lazy dog.
+</p>
+<h1 id="x_columnspan">Lazy Dogs</h1>
+<p>
+The quick brown fox jumped over the lazy dog.
+The quick brown fox jumped over the lazy dog.
+The quick brown fox jumped over the lazy dog.
+The quick brown fox jumped over the lazy dog.
+</p>
+</div>
+
+<div id="x_transition" class="toggle">
+The quick brown fox jumped over the lazy dog.
+The quick brown fox jumped over the lazy dog.
+The quick brown fox jumped over the lazy dog.
+The quick brown fox jumped over the lazy dog.
+</div>
+
+<div id="x_animation">
+The quick brown fox jumped over the lazy dog.
+The quick brown fox jumped over the lazy dog.
+The quick brown fox jumped over the lazy dog.
+The quick brown fox jumped over the lazy dog.
+</div>
+
+<div id="x_transform2d">
+The quick brown fox jumped over the lazy dog.
+The quick brown fox jumped over the lazy dog.
+The quick brown fox jumped over the lazy dog.
+The quick brown fox jumped over the lazy dog.
+</div>
+
+<div id="x_transform3d">
+The quick brown fox jumped over the lazy dog.
+The quick brown fox jumped over the lazy dog.
+    <div id="x_transform_3dNested" style="-webkit-transform: rotateY(-60deg) rotateX(20deg) rotateZ(45deg) translateZ(50px)">
+    The quick brown fox jumped over the lazy dog.
+    The quick brown fox jumped over the lazy dog.
+    </div>
+</div>
+
+<div id="x_flexbox">
+    <div>1</div>
+    <div id="x_flexbox2">2</div>
+    <div id="x_flexbox3">3</div>
+    <div>4</div>
+</div>
+
+<div id="x_ui">
+The quick brown fox jumped over the lazy dog.
+The quick brown fox jumped over the lazy dog.
+The quick brown fox jumped over the lazy dog.
+The quick brown fox jumped over the lazy dog.
+</div>
+
+<div id="x_intl">
+~~~ intl:
+The quick brown fox jumped over the lazy dog.
+The quick brown fox jumped over the lazy dog.
+The quick brown fox jumped over the lazy dog.
+The quick brown fox jumped over the lazy dog.
+</div>
+
+<div id="x_adv">
+
+The quick brown fox jumped over the lazy dog.
+The quick brown fox jumped over the lazy dog.
+The quick brown fox jumped over the lazy dog.
+The quick brown fox jumped over the lazy dog.
+
+</div>
+
+<div id="x_aural">
+
+~~~ aural:
+The quick brown fox jumped over the lazy dog.
+The quick brown fox jumped over the lazy dog.
+The quick brown fox jumped over the lazy dog.
+The quick brown fox jumped over the lazy dog.
+
+</div>
+
+</section>
+
+</section>
+
+<section id="code">
+
+<pre id="c_box">
+<span id="c_WebkitBoxShadow"></span>
+<span id="c_borderRadius"></span>
+<span id="c_boxSizing"></span>
+<span id="c_float"></span>
+<span id="c_height"></span>
+<span id="c_left"></span>
+<span id="c_margin"></span>
+<span id="c_padding"></span>
+<span id="c_position"></span>
+<span id="c_top"></span>
+<span id="c_width"></span>
+</pre>
+
+<pre id="c_text">
+<span id="c_WebkitTextFillColor"></span>
+<span id="c_WebkitTextStrokeColor"></span>
+<span id="c_WebkitTextStrokeWidth"></span>
+<span id="c_color"></span>
+<span id="c_fontFamily"></span>
+<span id="c_fontSize"></span>
+<span id="c_fontStretch"></span>
+<span id="c_fontStyle"></span>
+<span id="c_fontVariant"></span>
+<span id="c_fontWeight"></span>
+<span id="c_letterSpacing"></span>
+<span id="c_lineHeight"></span>
+<span id="c_textAlign"></span>
+<span id="c_textAlignLast"></span>
+<span id="c_textDecoration"></span>
+<span id="c_textIndent"></span>
+<span id="c_textShadow"></span>
+<span id="c_textTransform"></span>
+<span id="c_wordSpacing"></span>
+</pre>
+
+<pre id="c_colors">
+<span id="c_opacity"></span>
+<span id="c_backgroundColor"></span>
+</pre>
+
+<pre id="c_gradient">
+<span id="c_backgroundImage"></span>
+</pre>
+
+<pre id="c_mask">
+<span id="c_WebkitBoxReflect"></span>
+<span id="c_WebkitMaskAttachment"></span>
+<span id="c_WebkitMaskClip"></span>
+<span id="c_WebkitMaskComposite"></span>
+<span id="c_WebkitMaskImage"></span>
+<span id="c_WebkitMaskOrigin"></span>
+<span id="c_WebkitMaskRepeat"></span>
+<span id="c_WebkitMaskSize"></span>
+</pre>
+
+<pre id="c_background">
+<span id="c_WebkitBackgroundComposite"></span>
+<span id="c_backgroundAttachment"></span>
+<span id="c_backgroundClip"></span>
+<span id="c_backgroundOrigin"></span>
+<span id="c_backgroundPosition"></span>
+<span id="c_backgroundRepeat"></span>
+<span id="c_backgroundSize"></span>
+</pre>
+
+<pre id="c_border">
+<span id="c_WebkitBorderImage"></span>
+<span id="c_borderImageSource"></span>
+<span id="c_borderImageSlice"></span>
+<span id="c_borderImageWidth"></span>
+<span id="c_borderImageOutset"></span>
+<span id="c_borderImageRepeat"></span>
+<span id="c_borderColor"></span>
+<span id="c_borderStyle"></span>
+<span id="c_borderWidth"></span>
+<span id="c_outlineColor"></span>
+<span id="c_outlineOffset"></span>
+<span id="c_outlineStyle"></span>
+<span id="c_outlineWidth"></span>
+<span id="c_borderBottomLeftRadius"></span>
+<span id="c_borderBottomRightRadius"></span>
+<span id="c_borderTopLeftRadius"></span>
+<span id="c_borderTopRightRadius"></span>
+</pre>
+
+<pre id="c_flow">
+<span id="c_WebkitMarqueeDirection"></span>
+<span id="c_WebkitMarqueeIncrement"></span>
+<span id="c_WebkitMarqueeRepetition"></span>
+<span id="c_WebkitMarqueeSpeed"></span>
+<span id="c_WebkitMarqueeStyle"></span>
+<span id="c_WebkitNbspMode"></span>
+<span id="c_overflowX"></span>
+<span id="c_overflowY"></span>
+<span id="c_textOverflow"></span>
+<span id="c_whiteSpace"></span>
+<span id="c_wordWrap"></span>
+</pre>
+
+<pre id="c_column">
+div {
+  <span id="c_WebkitColumnCount"></span>
+  <span id="c_WebkitColumnGap"></span>
+  <span id="c_WebkitColumnWidth"></span>
+  <span id="c_WebkitColumnFill"></span>
+  <span id="c_WebkitColumnRuleWidth"></span>
+  <span id="c_WebkitColumnRuleStyle"></span>
+  <span id="c_WebkitColumnRuleColor"></span>
+}
+h1,h2,h3,h4 {
+  <span id="c_WebkitColumnSpan"></span>
+  <span id="c_WebkitColumnBreakBefore"></span>
+  <span id="c_WebkitColumnBreakAfter"></span>
+  <span id="c_WebkitColumnBreakInside"></span>
+}
+</pre>
+
+<pre id="c_transition">
+<span id="c_WebkitTransitionProperty"></span>
+<span id="c_WebkitTransitionDuration"></span>
+<span id="c_WebkitTransitionDelay"></span>
+<span id="c_WebkitTransitionTimingFunction"></span>
+</pre>
+
+<pre id="c_animation">
+<span id="c_WebkitAnimationName"></span>
+<span id="c_WebkitAnimationDuration"></span>
+<span id="c_WebkitAnimationDelay"></span>
+<span id="c_WebkitAnimationTimingFunction"></span>
+<span id="c_WebkitAnimationIterationCount"></span>
+<span id="c_WebkitAnimationDirection"></span>
+<span id="c_WebkitAnimationFillMode"></span>
+<span id="c_WebkitAnimationPlayState"></span>
+
+@-webkit-keyframes pulse {
+    from { opacity: 1 }
+    to { opacity: 0.5 }
+}
+@-webkit-keyframes shake {
+    from { -webkit-transform: translate(0em, 2em); }
+    33% { -webkit-transform: translate(2em, 2em); } 
+    66% { -webkit-transform: translate(-2em, 2em); } 
+    to { -webkit-transform: translate(0em, 2em); }
+}
+</pre>
+
+<pre id="c_transform2d">
+<span id="c_WebkitTransform"></span>
+<span id="c_WebkitTransformOrigin"></span>
+<span id="c_WebkitTransform2dMatrix"></span>
+/* transform represented as matrix */
+-webkit-transform: <span id="c_WebkitTransform_2dMatrix"></span>;
+</pre>
+
+<pre id="c_transform3d">
+.ancestor {
+  <span id="c_WebkitPerspective"></span>
+  <span id="c_WebkitPerspectiveOrigin"></span>
+}
+.main {
+  <span id="c_WebkitTransform_3dMain"></span>
+  <span id="c_WebkitTransformOrigin_3dMain"></span>
+  <span id="c_WebkitTransformStyle"></span>
+  <span id="c_WebkitBackfaceVisibility"></span>
+  /* transform represented as matrix */
+  -webkit-transform: <span id="c_WebkitTransform_3dMatrix"></span>;
+}
+.child {
+  <span id="c_WebkitTransform_3dNested"></span>
+  <span id="c_WebkitTransformOrigin_3dNested"></span>
+  <span id="c_WebkitTransformStyle_3dNested"></span>
+  <span id="c_WebkitBackfaceVisibility_3dNested"></span>
+}
+</pre>
+
+<pre id="c_flexbox">
+.box {
+  display: -webkit-box;
+  <span id="c_minHeight"></span>
+  <span id="c_minWidth"></span>
+  <span id="c_WebkitBoxOrient"></span>
+  <span id="c_WebkitBoxPack"></span>
+  <span id="c_WebkitBoxAlign"></span>
+  <span id="c_WebkitBoxDirection"></span>
+}  
+#element2 {
+  <span id="c_WebkitBoxFlex"></span>
+  <span id="c_WebkitBoxOrdinalGroup"></span>
+}
+#element3 {
+  <span id="c_WebkitBoxFlex3"></span>
+  <span id="c_WebkitBoxOrdinalGroup3"></span>
+}
+
+</pre>
+
+<pre id="c_adv">
+=== adv
+</pre>
+
+<pre id="c_intl">
+=== intl
+</pre>
+
+<pre id="c_ui">
+<span id="c_WebkitAppearance"></span>
+<span id="c_WebkitTapHighlightColor"></span>
+<span id="c_WebkitTextSecurity"></span>
+<span id="c_WebkitTextSizeAdjust"></span>
+<span id="c_WebkitTouchCallout"></span>
+<span id="c_WebkitUserDrag"></span>
+<span id="c_WebkitUserModify"></span>
+<span id="c_WebkitUserSelect"></span>
+<span id="c_cursor"></span>
+<span id="c_pointerEvents"></span>
+<span id="c_resize"></span>
+</pre>
+
+<pre id="c_aural">
+=== aural
+</pre>
+
+</section>
+
+<script src="css3.js"></script>
+<script src="css3_custom.js"></script>
+
+<div id="dbg"></div>
+
+<script src="all.js"></script>
+</body>
+</html>
+
+<!--
+-->

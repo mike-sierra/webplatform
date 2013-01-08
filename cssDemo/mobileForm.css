@@ -1,0 +1,166 @@
+/* RANGE SLIDERS */
+
+input[type="range"] {
+    -webkit-appearance : none;
+    background         : #aaaaaa;
+    border             : 2px solid #aaa;
+    border-radius      : 1em;
+    display            : inline-block;
+    height             : 2em;
+    margin             : 1.0em;
+    width              : 70%;
+}
+
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance : button;
+    border-radius      : 1em;
+    border             : 2px solid #aaa;
+    width              : 6em;
+    height             : 2em;
+    background         : #ffffff;
+}
+
+/* RADIO/CHECKBOX TOGGLERS */
+
+
+
+
+input[type=radio],
+input[type=checkbox]
+{
+    text-align         : right;
+    padding-top        : 0.1em;
+    text-transform     : uppercase;
+    float              : right;
+    -webkit-appearance : button;
+    border             : 0.25em #aaaaaa solid;
+    background         : #aaaaaa;
+    background         : -webkit-gradient(linear,center top,center bottom,from(#999999),to(#ffffff));
+    border-radius      : 0.5em;
+    min-width          : 8em;
+    height             : 2em;
+    display            : inline-block;
+}
+
+
+
+input[type=radio]:checked,
+input[type=checkbox]:checked
+{
+    text-align         : left;
+}
+
+
+
+input.invert
+{
+    text-align         : left;
+}
+
+input.invert:checked
+{
+    text-align         : right;
+}
+
+
+
+input[type=radio]:before,
+input[type=checkbox]:before
+{
+    color              : #888888;
+    height             : 1.4em;
+    display            : inline-block;
+    background         : pink;
+    background         : -webkit-gradient(linear,center top,center bottom,from(pink),to(#ffffff));
+    background: #fff;
+    min-width          : 50%;
+    content            : "off";
+    text-align         : center;
+    font-weight        : bold;
+    padding-left       : 0.5em;
+    padding-right      : 0.5em;
+    border-radius      : 0.25em;
+}
+
+
+
+input[type=radio]:checked:before,
+input[type=checkbox]:checked:before
+{
+    color              : #777;
+    content            : "on";
+    background         : #00aa00;
+    background         : -webkit-gradient(linear,center top,center bottom,from(green),to(cyan));
+    background: #fff;
+}
+
+
+
+input.yn:before
+{
+    content            : "no";
+}
+
+input.yn:checked:before
+{
+    content            : "yes";
+}
+
+input.tf:before
+{
+    content            : "false";
+}
+
+input.tf:checked:before
+{
+    content            : "true";
+}
+
+
+
+input.binary {
+    display            : inline-block;
+}
+
+input.binary:checked {
+    display            : none;
+}
+
+input.binary:before {
+    background         : #00aa00;
+    background         : -webkit-gradient(linear,center top,center bottom,from(green),to(cyan));
+    color              : #aaa;
+}
+
+input.binary:nth-of-type(odd) {
+    text-align         : left;
+}
+
+input.binary:nth-of-type(even) {
+    text-align         : right;
+}
+
+
+
+input.ampm:nth-of-type(odd):before {
+    content            : "am";
+}
+
+input.ampm:nth-of-type(even):before {
+    content            : "pm";
+}
+
+input.sex:nth-of-type(odd):before {
+    content            : "male";
+}
+
+input.sex:nth-of-type(even):before {
+    content            : "female";
+}
+
+input.sex {
+    width              : 8em;
+}
+
+*/

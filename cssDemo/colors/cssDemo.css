@@ -1,0 +1,34 @@
+iframe {
+    display: none;
+}
+
+body {
+    background: #ddd;
+}
+
+#code, #controls, #example {
+    background: #fff;
+    position: absolute;
+    border: thin solid #777;
+    padding: 1em;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    margin: 1em;
+    border-radius: 1em;
+    width: 47%;
+    height: 45%;
+}
+
+#example {
+    height: 95%;
+}
+
+#code, #controls {
+    left: 50%;
+    overflow-y: scroll;
+}
+
+#code {
+    top: 50%;
+}
+

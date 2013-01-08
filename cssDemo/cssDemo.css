@@ -1,0 +1,114 @@
+body {
+    background                 : #aaa;
+    font-family                : Trebuchet MS;
+    cursor                     : pointer;
+    user-select                : none;
+    -webkit-user-select        : none;
+    -moz-user-select           : none;
+    -o-user-select             : none;
+}
+
+iframe {
+    display                    : none;
+}
+
+#code, #controls, #example {
+    background                 : #fff;
+    position                   : absolute;
+    border                     : thin solid #777;
+    padding                    : 1em;
+    box-sizing                 : border-box;
+    -moz-box-sizing            : border-box;
+    margin                     : 1em;
+    border-radius              : 1em;
+    width                      : 47%;
+    height                     : 45%;
+}
+
+#example {
+    height                     : 95%;
+}
+
+#code, #controls {
+    left                       : 50%;
+    overflow-y                 : scroll;
+}
+
+#code {
+    top                        : 50%;
+}
+
+/* CONTROLS */
+
+#controls {
+}
+
+#controls > a {
+    -webkit-transform          : translate(1px, 2px);
+    -moz-transform             : translate(1px, 2px);
+    -o-transform               : translate(1px, 2px);
+    transform                  : translate(1px, 2px);
+    border                     : thin solid #777;
+    display                    : inline-block;
+    padding                    : 0.5em;
+    background                 : #eee;
+    border-top-left-radius     : 0.5em;
+    border-top-right-radius    : 0.5em;    
+    text-decoration            : none;
+    color                      : inherit;
+}
+
+#controls > a:target {
+    border-bottom              : thin solid #fff;
+    background                 : #fff;
+}
+
+#controls > a:visited {
+    color                      : inherit;
+}
+
+#controls > div {
+    border                     : thin solid #777;
+    height                     : 80%;
+    padding                    : 0.5em;
+    border-bottom-left-radius  : 0.5em;
+    border-bottom-right-radius : 0.5em;
+    padding-top                : 1em;
+}
+
+a ~ div {
+    display                    : none;
+}
+
+a ~ #demo_panel0 {
+    display                    : block;
+}
+
+a:target ~ #demo_panel0 {
+    display                    : none;
+}
+
+#demo_tab1:target ~ #demo_panel1,
+#demo_tab2:target ~ #demo_panel2,
+#demo_tab3:target ~ #demo_panel3,
+#demo_tab4:target ~ #demo_panel4,
+#demo_tab5:target ~ #demo_panel5,
+#demo_tab6:target ~ #demo_panel6 {
+    display                    : block;
+}
+
+
+/* EXAMPLE */
+
+#example {
+    text-align: center;
+    padding: 6em 3em 0 3em;
+}
+
+#example > * {
+    text-align: left;
+    display: inline-block;
+    padding: 1em;
+    border-radius: 1em;
+    border: thin solid #777;
+}

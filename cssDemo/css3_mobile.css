@@ -1,0 +1,40 @@
+@media only screen and (max-width: 320px) {
+    body { background: #fff }
+    section#code { display: none }
+    section#controls { overflow-y: visible }
+}
+
+@media only screen and (max-width: 320px) and (orientation:portrait) {
+    section#preview { display: none }
+    section#info {
+        position: absolute;
+        top: 1em;
+        left: 1em;
+        right: 1em;
+        min-height: 90%;
+        -webkit-transform: translateX(-120%)
+    }
+}
+
+@media only screen and (max-width: 320px) and (orientation:landscape) {
+    section#info { display: none }
+    section#controls { display: none }
+    nav { display: none }
+    section#preview {
+        position: absolute;
+        max-width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        right: 0;
+        top: 0;
+        display: block;
+    }
+    section#preview > div {
+        box-sizing: border-box;
+        margin: 1em;
+        width: 92%;
+        height: 85%;
+    }
+}
+
