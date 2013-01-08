@@ -18,6 +18,7 @@ app.initContent = function() {
 
     try {
         document.querySelector('#demo_topic').innerHTML  = frames[0].document.querySelector('title').innerHTML;
+        document.querySelector('title').innerHTML  = frames[0].document.querySelector('title').innerHTML;
         document.querySelector('#demo_example').innerHTML  = frames[0].document.querySelector('section').innerHTML;
         document.querySelector('#demo_controls').innerHTML = frames[0].document.querySelector('form').innerHTML;
         document.querySelector('#demo_code').innerHTML     = frames[0].document.querySelector('pre').outerHTML;

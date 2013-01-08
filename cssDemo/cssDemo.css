@@ -16,22 +16,22 @@ iframe {
     background                 : #fff;
     position                   : absolute;
     border                     : thin solid #777;
-    padding                    : 1em;
+    padding                    : 12px;
     box-sizing                 : border-box;
     -moz-box-sizing            : border-box;
-    top: 10%;;
-    margin                     : 1em;
-    border-radius              : 1em;
+    top                        : 10%;;
+    margin                     : 12px;
+    border-radius              : 12px;
     width                      : 47%;
     height                     : 40%;
 }
 
 #demo_topic {
-    width: 95%;
-    height: 7%;
-    top: 0%;;
-    font-size: 24px;
-    padding: 0.5em;
+    width                      : 95%;
+    height                     : 7%;
+    top                        : 0%;;
+    font-size                  : 24px;
+    padding                    : 0.5em;
 }
 
 #demo_example {
@@ -45,6 +45,10 @@ iframe {
 
 #demo_code {
     top                        : 55%;
+    -webkit-user-select        : auto;
+    -moz-user-select           : auto;
+    -o-user-select             : auto;
+    user-select                : auto;
 }
 
 /* CONTROLS */
@@ -82,7 +86,7 @@ iframe {
     padding                    : 0.5em;
     border-bottom-left-radius  : 0.5em;
     border-bottom-right-radius : 0.5em;
-    padding-top                : 1em;
+    padding-top                : 12px;
 }
 
 a ~ div {
@@ -118,7 +122,38 @@ a:target ~ #demo_panel0 {
     -webkit-transition         : all 1s;
     text-align                 : left;
     display                    : inline-block;
-    padding                    : 1em;
-    border-radius              : 1em;
+    padding                    : 12px;
+    border-radius              : 12px;
     border                     : thin solid #777;
+}
+
+
+
+
+@media only screen and (max-width: 500px) {
+
+   #demo_code, #demo_topic, #demo_controls, #demo_example {
+       position: absolute;
+       top: 0;
+       left: 0;
+       right: 0;
+       width: auto;
+       height: auto;
+   }
+
+   #demo_code, #demo_topic {
+       display: none;
+   }
+}
+
+@media only screen and (max-width: 500px) and (orientation:portrait) {
+   #demo_controls {
+       display: none;
+   }
+}
+
+@media only screen and (max-width: 500px) and (orientation:landscape) {
+   #demo_example {
+       display: none;
+   }
 }
