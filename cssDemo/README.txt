@@ -1,33 +1,30 @@
 DemoCSS is a simple utility that allows you to set up interactive
-demos of CSS properties. Users manipulate numeric sliders or choose
-keywords from option lists, and see the results both in a live sample
-and in CSS code they can copy off their screens.  Features:
-
-* Use range inputs for numeric inputs, option list inputs for discrete
-  values, and check boxes for two-state values.
+demos of various CSS properties. Users manipulate numeric sliders or
+choose keywords from option lists, and see the results both in a live
+sample and in CSS code they can copy off their screens.  Features:
 
 * Can assign more than 1 control to a property, such as a mix of
   numeric values or keywords for font-size.
 
-* Build complex property values such as for gradients and border
-  images.
+* Build complex property values such as for gradients, transforms, and
+  border images.
 
 * Apply properties to the example by default, or to other elements
-  within the example. E.g., apply multicolumn formatting to a block,
-  but a column span to a heading within the block.
+  within the example. E.g., apply multicolumn formatting to a block
+  element, but a column span to a heading within the block.
 
 * Where appropriate, reflect vendor-specific properties in both the
   code and example
 
-* Transitions indicate properties that can be animated.
+* Smooth transitions indicate properties that can be animated.
 
-* Generate a permalink that present a specific combination of property
-  values.
+* 2DO: Generate a permalink that present a specific combination of
+  property values.
 
-* Slide-in information panel provides cheat-sheet information for the
-  displaying properties.
+* 2DO: Slide-in information panel provides cheat-sheet information for
+  the displaying properties.
 
-* Toggle a background image behind the example to illustrate
+* 2DO: Toggle a background image behind the example to illustrate
   transparency effects.
 
 INSTRUCTIONS:
@@ -127,8 +124,8 @@ INSTRUCTIONS:
       return v;
   }
 
-  By default, the function is supplied with the input's raw value that
-  may provide useful fallback behavior.
+  By default, the function is supplied with the input's raw value,
+  which may provide useful fallback behavior.
 
 * Place explanatory text detailing the set of CSS properties within
   the <aside> element.

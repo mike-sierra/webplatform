@@ -1,0 +1,11 @@
+/Users/sierra/sandbox/webplatform/src/wpdget.pl check css/properties/filter
+/Users/sierra/sandbox/webplatform/src/wpdget.pl check css/functions/blur
+/Users/sierra/sandbox/webplatform/src/wpdget.pl check css/functions/brightness
+/Users/sierra/sandbox/webplatform/src/wpdget.pl check css/functions/contrast
+/Users/sierra/sandbox/webplatform/src/wpdget.pl check css/functions/drop-shadow
+/Users/sierra/sandbox/webplatform/src/wpdget.pl check css/functions/grayscale
+/Users/sierra/sandbox/webplatform/src/wpdget.pl check css/functions/hue-rotate
+/Users/sierra/sandbox/webplatform/src/wpdget.pl check css/functions/invert
+/Users/sierra/sandbox/webplatform/src/wpdget.pl check css/functions/opacity
+/Users/sierra/sandbox/webplatform/src/wpdget.pl check css/functions/saturate
+/Users/sierra/sandbox/webplatform/src/wpdget.pl check css/functions/sepia

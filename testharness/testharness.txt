@@ -1,0 +1,258 @@
+==title==
+
+  Testing with testharness.js
+
+
+==usecase0==
+
+<p class="vcenter">Javascript tests
+
+
+==usecase1==
+
+<p class="vcenter">No manual interaction or rendering
+
+
+==sync_title==
+
+Sync tests
+
+
+==test0==
+
+<h3>Simple Synchronous Test</h3>
+  <textarea type="text/html" class="code" mode="text/html" style="display: none;">
+<!doctype html>
+<title>Simple Test</title>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<div id="log"></div>
+<script>
+
+test(function() {
+  assert_true(true);
+}, "true is true");
+
+test(function() {
+  assert_true("true");
+}, "'true' is true (should fail)");
+
+</script>
+  </textarea>
+  <p><a href="test0.html">Run test</a>
+
+
+==storage0==
+
+  <h3>localStorage Example</h3>
+<div>
+  <p>From the <a href="http://dev.w3.org/html5/webstorage/#storage-0">spec</a>:
+  <blockquote>The getItem(key) method must return the current value associated with the given key. If the given key does not exist in the list associated with the object then this method must return null.</blockquote>
+</div>
+
+
+==test1==
+
+  <h3>localStorage getItem Test</h3>
+  <textarea type="text/html" class="code" mode="text/html" style="display: none;">
+<!doctype html>
+<title>localStorage</title>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<div id="log"></div>
+<script>
+
+test(function() {
+  localStorage.clear();
+  var key = String(Math.random());
+  assert_equals(localStorage.getItem(key), null);
+}, "getItem with unset key");
+
+</script>
+  </textarea>
+  <p><a href="test1.html">Run test</a>
+
+
+==async_title==
+
+Async tests
+
+
+==async_structure==
+
+<h3>Structure of async tests</h3>
+  <textarea type="text/html" class="code" mode="javascript" style="display: none;">
+var t = async_test("Test name");
+
+t.step(function() {/*Test some stuff*/});
+
+t.step(function() {/*Test some more stuff*/});
+
+t.done();
+  </textarea>
+
+
+==async_test0==
+
+<h3>Simple Asynchronous Test</h3>
+  <textarea type="text/html" class="code" mode="text/html" style="display: none;">
+<!doctype html>
+<title>Simple demonstration async test</title>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<div id="log"></div>
+<script>
+
+var t = async_test("true is true in a timeout");
+var t1 = async_test("false is false in a timeout");
+
+setTimeout(
+  function() {
+    t.step(function() {
+      assert_true(true);
+    });
+
+    t.done();
+  }, 0
+);
+
+setTimeout(
+  t1.step_func(function() {
+    assert_false(false);
+    t1.done();
+  }), 0
+);
+
+</script>
+  </textarea>
+  <p><a href="test_async0.html">Run test</a>
+
+
+==storage1==
+
+<h3>Storage Event Example</h3>
+<p>From the <a href="http://dev.w3.org/html5/webstorage/#storage-0">spec</a>:
+<blockquote>When the setItem(), removeItem(), and clear() methods are called on a Storage object x that is associated with a local storage area, if the methods did something, then in every Document object whose Window object's localStorage attribute's Storage object is associated with the same storage area, other than x, a storage event must be fired, as described below.</blockquote>
+
+
+==async_test1==
+
+  <h3>Storage Event Test 1</h3>
+  <textarea type="text/html" class="code" mode="text/html" style="display: none;">
+<!doctype html>
+<title>localStorage storage event</title>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<div id="log"></div>
+<iframe src="filler.html"></iframe>
+<script>
+var t = async_test("Storage event in same-origin iframe on setting key");
+
+t.step(function() {localStorage.clear();});
+
+onload = t.step_func(function() {
+
+  frames[0].onstorage = t.step_func(
+    function(e) {
+      assert_equals(e.key, key);
+      assert_equals(e.oldValue, null);
+      assert_equals(e.newValue, "test");
+      t.done();
+    });
+
+  key = String(Math.random());
+  localStorage.setItem(key, "test");
+});
+</script>
+  </textarea>
+  <p><a href="test_async1.html">Run test</a>
+
+
+==async_test2==
+
+  <h3>Storage Event Test 2</h3>
+  <textarea type="text/html" class="code" mode="text/html" style="display: none;">
+<!doctype html>
+<title>localStorage storage event</title>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<div id="log"></div>
+<script>
+
+var t = async_test("Storage event in window that sets key",
+                   {help:"http://dev.w3.org/html5/webstorage/#dom-localstorage",
+                    timeout:2000});
+
+t.step(function() {localStorage.clear();});
+
+onload = t.step_func(function() {
+
+  window.onstorage = t.step_func(
+    function(e) {
+      //No storage event should fire on the current window
+      assert_unreached();
+    });
+
+  key = String(Math.random());
+  localStorage.setItem(key, "test");
+  setTimeout(t.step_func(function() {t.done()}), 1000);
+});
+
+</script>
+  </textarea>
+  <p><a href="test_async2.html">Run test</a>
+
+
+==other==
+
+Other Features
+
+
+==asserts==
+
+<h3>Asserts</h3>
+<p>Rich set of asserts:
+  <ul>
+    <li>assert_true
+    <li>assert_false
+    <li>assert_equals
+    <li>assert_not_equals
+    <li>assert_array_equals
+    <li>assert_approx_equals
+    <li>assert_unreached
+    <li>assert_throws
+    <li>And some more…
+  </ul>
+</p>
+
+
+==control==
+
+<h3>Control over test discovery and timings</h3>
+<p>It is possible to:
+<ul>
+<li>Set a timeout for the whole test file
+<li>Explicitly control when the harness thinks it is done
+<li>Put output in a different document
+</ul>
+</p>
+
+
+==asserts==
+
+  <h3>Notification API</h3>
+  <p>You can find out:
+    <ul><li>When testing starts
+        <li>When each test finishes
+        <li>When the testsuite finishes
+    </ul>
+</p>
+
+
+==docs==
+
+  <h3>Documentation</h3>
+  <ul>
+    <li><a href="https://github.com/w3c/testharness.js/blob/master/testharness.js">Main reference</a> is in the source
+    <li><a href="http://darobin.github.com/test-harness-tutorial/docs/using-testharness.html">Tutorial</a> on the web
+  </ul>

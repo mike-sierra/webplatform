@@ -24,8 +24,6 @@ body.animate > * {
 /*
 -webkit-filter: grayscale(1);
 -webkit-filter: grayscale(100%);
--webkit-filter: saturate(10);
--webkit-filter: saturate(1000%);
 
 -webkit-filter: hue-rotate(10rad);
 -webkit-filter: invert(100%);
@@ -36,23 +34,22 @@ body.animate > * {
 -webkit-filter: opacity(0.5);
 -webkit-filter: opacity(50%);
 -webkit-filter: brightness(1000%);
--webkit-filter: brightness(1.5);
+
 -webkit-filter: contrast(1.5);
 -webkit-filter: contrast(0%);
 -webkit-filter: blur(10px);
+-webkit-filter: hue-rotate(1980deg);
 -webkit-box-shadow: 10px 10px 20px rgba(100%, 0%, 0%, 1), -10px -10px 0px rgba(0%, 0%, 0%, 1)
 filter: url(filter.htm#myFilter);
--webkit-filter: hue-rotate(1980deg);
 -webkit-filter: drop-shadow(10px 10px 0px rgba(0%, 0%, 0%, 0.5));
+filter: url(filter.htm#myFilter);
 */
 
 
-
+-webkit-filter: brightness(1.5);
 -webkit-filter: url(filter.htm#myFilter);
-filter: url(filter.htm#myFilter);
-
-
-
+-webkit-filter: saturate(1000%);
+-webkit-filter: saturate(1000%);
 
 }
 
@@ -79,7 +76,18 @@ filter: url(filter.htm#myFilter);
 <img src="giraffe.png"/>
 
 <script>
-window.onload = function() { document.querySelector('body').classList.toggle('animate'); };
+
+window.onload = function() {
+document.querySelector('body').classList.toggle('animate');
+
+setTimeout(
+    function() {
+        console.log( window.getComputedStyle(document.querySelector('img')).filter );
+    }, 5000);
+};
+
+
+
 </script>
 
 <svg width="500px" height="500px" version="1.1" xmlns="http://www.w3.org/2000/svg">
