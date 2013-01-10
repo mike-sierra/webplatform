@@ -1,0 +1,108 @@
+<html>
+  <head>
+<title>filter</title>
+
+<style>
+
+body {
+    background-image: url(Objects001.jpg);
+    background-image: none;
+}
+
+
+body > img {
+-webkit-transition: all 2s;
+margin: 2em;
+}
+
+body.animate > img, p {
+
+/*
+-webkit-filter: grayscale(1);
+-webkit-filter: grayscale(100%);
+-webkit-filter: saturate(10);
+-webkit-filter: saturate(1000%);
+-webkit-filter: hue-rotate(180deg);
+-webkit-filter: hue-rotate(10rad);
+-webkit-filter: invert(100%);
+-webkit-filter: invert(1);
+-webkit-filter: invert(0.5);
+-webkit-filter: sepia(1);
+-webkit-filter: sepia(100%);
+-webkit-filter: opacity(0.5);
+-webkit-filter: opacity(50%);
+-webkit-filter: brightness(1000%);
+-webkit-filter: brightness(1.5);
+-webkit-filter: contrast(1.5);
+-webkit-filter: contrast(0%);
+-webkit-filter: blur(10px);
+-webkit-filter: url(filter.htm#myFilter);
+-webkit-box-shadow: 10px 10px 20px rgba(100%, 0%, 0%, 1), -10px -10px 0px rgba(0%, 0%, 0%, 1)
+*/
+-webkit-filter: drop-shadow(10px 10px 20px rgba(100%, 0%, 0%, 1));
+
+}
+
+</style>
+
+
+</head>
+<body>
+
+<img src="Objects001.jpg"/>
+<img src="Objects002.jpg"/>
+<img src="Objects003.jpg"/>
+<img src="Objects004.jpg"/>
+<img src="Objects005.jpg"/>
+<img src="Objects006.jpg"/>
+<img src="Objects007.jpg"/>
+<img src="Objects008.jpg"/>
+<img src="Object.png"/>
+<img src="giraffe.png"/>
+
+
+
+<p>blur not animatable in canary</p>
+
+
+<svg width="100%" height="100%" version="1.1"
+xmlns="http://www.w3.org/2000/svg">
+
+<defs>
+
+
+<!--
+<filter id="MyFilter" filterUnits="userSpaceOnUse"
+x="0" y="0" width="200" height="120">
+
+<feGaussianBlur in="SourceAlpha" stdDeviation="4" result="blur"/>
+
+</filter>
+-->
+
+
+</defs>
+
+<rect x="1" y="1" width="198" height="118" fill="#cccccc" />
+
+<g filter="url(#MyFilter)">
+<path fill="none" stroke="#D90000" stroke-width="10"
+d="M50,90 C0,90 0,30 50,30 L150,30 C200,30 200,90 150,90 z" />
+<text fill="#FFFFFF" stroke="black" font-size="45"
+font-family="Verdana" x="52" y="76">SVG</text>
+</g>
+
+</svg>
+
+
+
+
+
+<script>
+
+window.onload = function() { document.querySelector('body').classList.toggle('animate'); };
+
+</script>
+
+</body>
+</html>

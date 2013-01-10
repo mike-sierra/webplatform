@@ -1,34 +1,159 @@
-iframe {
-    display: none;
-}
-
 body {
-    background: #ddd;
+    background                 : #aaa;
+    font-family                : Trebuchet MS;
+    cursor                     : pointer;
+    user-select                : none;
+    -webkit-user-select        : none;
+    -moz-user-select           : none;
+    -o-user-select             : none;
 }
 
-#code, #controls, #example {
-    background: #fff;
-    position: absolute;
-    border: thin solid #777;
-    padding: 1em;
-    box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    margin: 1em;
-    border-radius: 1em;
-    width: 47%;
-    height: 45%;
+iframe {
+    display                    : none;
 }
 
-#example {
-    height: 95%;
+#demo_topic, #demo_code, #demo_controls, #demo_example {
+    background                 : #fff;
+    position                   : absolute;
+    border                     : thin solid #777;
+    padding                    : 12px;
+    box-sizing                 : border-box;
+    -moz-box-sizing            : border-box;
+    top                        : 10%;;
+    margin                     : 12px;
+    border-radius              : 12px;
+    width                      : 47%;
+    height                     : 40%;
 }
 
-#code, #controls {
-    left: 50%;
-    overflow-y: scroll;
+#demo_topic {
+    width                      : 95%;
+    height                     : 7%;
+    top                        : 0%;;
+    font-size                  : 24px;
+    padding                    : 0.5em;
 }
 
-#code {
-    top: 50%;
+#demo_example {
+    height                     : 85%;
 }
 
+#demo_code, #demo_controls {
+    left                       : 50%;
+    overflow-y                 : scroll;
+}
+
+#demo_code {
+    top                        : 55%;
+    -webkit-user-select        : auto;
+    -moz-user-select           : auto;
+    -o-user-select             : auto;
+    user-select                : auto;
+}
+
+/* CONTROLS */
+
+#demo_controls {
+}
+
+#demo_controls > a {
+    -webkit-transform          : translate(1px, 2px);
+    -moz-transform             : translate(1px, 2px);
+    -o-transform               : translate(1px, 2px);
+    transform                  : translate(1px, 2px);
+    border                     : thin solid #777;
+    display                    : inline-block;
+    padding                    : 0.5em;
+    background                 : #eee;
+    border-top-left-radius     : 0.5em;
+    border-top-right-radius    : 0.5em;    
+    text-decoration            : none;
+    color                      : inherit;
+}
+
+#demo_controls > a:target {
+    border-bottom              : thin solid #fff;
+    background                 : #fff;
+}
+
+#demo_controls > a:visited {
+    color                      : inherit;
+}
+
+#demo_controls > div {
+    border                     : thin solid #777;
+    height                     : 80%;
+    padding                    : 0.5em;
+    border-bottom-left-radius  : 0.5em;
+    border-bottom-right-radius : 0.5em;
+    padding-top                : 12px;
+}
+
+a ~ div {
+    display                    : none;
+}
+
+a ~ #demo_panel0 {
+    display                    : block;
+}
+
+a:target ~ #demo_panel0 {
+    display                    : none;
+}
+
+#demo_tab1:target ~ #demo_panel1,
+#demo_tab2:target ~ #demo_panel2,
+#demo_tab3:target ~ #demo_panel3,
+#demo_tab4:target ~ #demo_panel4,
+#demo_tab5:target ~ #demo_panel5,
+#demo_tab6:target ~ #demo_panel6 {
+    display                    : block;
+}
+
+
+/* EXAMPLE */
+
+#demo_example {
+    text-align                 : center;
+    padding                    : 6em 3em 0 3em;
+}
+
+#demo_example > * {
+    -webkit-transition         : all 1s;
+    text-align                 : left;
+    display                    : inline-block;
+    padding                    : 12px;
+    border-radius              : 12px;
+    border                     : thin solid #777;
+}
+
+
+
+
+@media only screen and (max-width: 500px) {
+
+   #demo_code, #demo_topic, #demo_controls, #demo_example {
+       position: absolute;
+       top: 0;
+       left: 0;
+       right: 0;
+       width: auto;
+       height: auto;
+   }
+
+   #demo_code, #demo_topic {
+       display: none;
+   }
+}
+
+@media only screen and (max-width: 500px) and (orientation:portrait) {
+   #demo_controls {
+       display: none;
+   }
+}
+
+@media only screen and (max-width: 500px) and (orientation:landscape) {
+   #demo_example {
+       display: none;
+   }
+}

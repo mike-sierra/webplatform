@@ -1,101 +1,176 @@
-* panels feature CONTROLS, sample visual EXAMPLE, and css CODE
-* manipulating controls is reflected in both EXAMPLE & css CODE
-* represent modified values in URL
-* additional slide-in INFO panel summarizing CSS features
+DemoCSS is a simple utility that allows you to set up interactive
+demos of CSS properties. Users manipulate numeric sliders or choose
+keywords from option lists, and see the results both in a live sample
+and in CSS code they can copy off their screens.  Features:
 
-CONTROLS:
+* Use range inputs for numeric inputs, option list inputs for discrete
+  values, and check boxes for two-state values.
 
-* choose range slider to alter numeric values
-* choose from option list to alter discrete values
-* choose color input to alter color values
-* fallback if no support for color input?
-* check boxes for boolean or other 2-state values
-* disable controls that depend on alues of others
-* use fieldsets to group related controls
-* reload to revert to original values
+* Can assign more than 1 control to a property, such as a mix of
+  numeric values or keywords for font-size.
 
-* controls don't necessarily correspond directly to property values;
-  can also be components of property values. E.g., individual
-  transform functions.
+* Build complex property values such as for gradients and border
+  images.
 
-CODE:
+* Apply properties to the example by default, or to other elements
+  within the example. E.g., apply multicolumn formatting to a block,
+  but a column span to a heading within the block.
 
-* generate redundant -vendor-prefixed property names where necessary.
+* Where appropriate, reflect vendor-specific properties in both the
+  code and example
 
-EXAMPLE
+* Transitions indicate properties that can be animated.
 
-* in EXAMPLE, apply transitions to clarify which CSS can be animated
-* properties can be targeted to various elements within EXAMPLE
-  (e.g. multicolumn box vs span element within box)
-* toggle background image to demostrate opacity effects
+* Generate a permalink that present a specific combination of property
+  values.
 
+* Slide-in information panel provides cheat-sheet information for the
+  displaying properties.
 
+* Toggle a background image behind the example to illustrate
+  transparency effects.
 
+INSTRUCTIONS:
 
-How to configure & extend this app:
+* Each instance of the script should correspond to a confined topic,
+  such as "Gradients" or "3D Transforms".
 
-== TOPICS
+* Place cssDemo.html, .js, and .css in directory as is. Make sure
+  custom _topic variants (.html/.css/.js) are referenced from
+  cssDemo.html. These contain all custom content that appears within
+  the interface.
 
-Each displaying panel represents a CSS "topic" that groups related CSS
-properties. Display is controlled by matching each tab's ID to various
-panels, which assumes this system of topic prefixes:
+* Within the custom HTML, place various inputs within the <form>
+  element.  The initial values of these inputs reflect in both example
+  and code.
 
-  = t_ navigation tab (inline SPAN)
-  = c_ syntax region (PRE blocks)
-  = n_ control panels
-  = x_ example element on which to reflect CSS property
-  = i_ explanatory text
+* Within the <form>, the various a#demo_tab* and div#demo_panel*
+  elements provide a tabbed interface with which to group related
+  properties.  If you don't want the tabs, remove these elements and
+  place inputs directly within the <form>. (2DO: fix CSS)
 
-Commenting out individual navigation tabs hides the corresponding
-topic at runtime.
+* By default, each input ID must be the CSS property to affect, e.g.
+  'fontFamily', representing the camel-case CSSOM property name,
 
-Input values for each control panel (n_topic) are applied to the
-corresponding x_topic sample element.  (The assignTopicsToInputs()
-routine embeds each input with a "data-topic" attribute.)
+* Use <select> inputs to nest keyword values as <option> elements.
+  Whatever option has a 'selected' attribute reflects in the example.
 
-== PROPERTIES
+* Use <input type="range"/> for numeric inputs. Specify min/max/step
+  attributes and a desired default 'value' attribute to reflect in
+  example and code.
 
-By default, the IDs of inputs within control panels match an
-individual CSS property, expressed as a JS propertyName rather than a
-CSS property-name. (Starts lowercase by default; exception is
-vendor-prefixed WebkitPropertyName.)
+* The custom HTML's <pre> block needs a corresponding element tagged
+  <span id="c_fontFamily"></span>. (2DO: if not, generate one?)
 
-Each property is reflected in a syntax container (PRE > SPAN) whose ID
-is c_propertyName.  (Note the same c_ prefix used for PRE regions;
-avoid collisions e.g., between 'colors' topic and 'color' property)
+* Use the 'data-tgtprop' attribute if you want more than one input to
+  specify alternate numeric and keyword values. Specify the property
+  to change, and make sure the alternate input's ID differs, e.g.:
 
-== CUSTOMIZATION
+  <input type="range" id="fontSize" ... />
+  <select id="fontSize_keywords" data-tgtprop="fontSize" ...>
 
-A "data-metaprop" attribute specifies a property name for which the
-input value merely serves as a component. There must be a matching
-app.f.METAPROP function defined to assemble these components from
-individual inputs, each available as app.p.ID where ID is the input's
-ID.
+* To spawn additional -vendor-prefixed syntax and apply the
+  corresponding CSSOM to the example, apply any combination of
+  'Webkit', 'Moz', 'O', or 'IE' classes to the input. (2DO: fix case
+  sensitivity)
 
-While inputs are assumed by default to correspond to property names,
-sometimes they refer to custom property values. E.g., a webkit
-gradient is not an independent property, but a value that's assigned
-to the background-image property.  A "data-tgtprop" attribute specifies
-an alternate property to which to assign the value.
+* By default, the first element within the <section> serves as the
+  example to style. (Any additional child elements are placed in the
+  interface as is, unstyled by default.)
 
-A "data-tgtcode" attribute selects a different syntax container than
-the default. For example, there are two different places to reflect
-CSS transforms, one for 2D and one for 3D.
+* Use the custom CSS file to provide additional styles for the example
+  element, or its descendants.
 
-A "data-tgtexample" attribute specifies a different sample element to
-reflect the change. E.g., most multicolumn properties apply to a
-default block element, but span and column-break properties only apply
-to its child elements.
+* Use the 'data-unit' attribute to specify any suffix required to
+  interpret a numeric input value as a unit, e.g.:
 
-For range inputs, a "data-unit" attribute specifies any required unit
-suffix for the value to be interpreted properly as CSS. E.g., a #ms
-duration or a #% percentage.
+  <input type="range" id="fontSize" min="6" max="48" value="24"
+    data-unit="px"/>
 
-http://www.w3schools.com/cssref/default.asp
+* If you're specifying your own element within the example in which to
+  reflect the property value, specify a data-tgtexample attribute:
+  <input data-tgtexample="#custom"/> and reflect it in the example as
+  <tag id="custom">...</tag>.
+  
+* If the input provides a value that is a component of a more complex
+  property value, specify a 'data-metaprop' attribute:
 
--webkit-dashboard-region azimuth bookmark-label bookmark-level
-bookmark-target caption-side clear clip counter-increment
-counter-reset crop cue cursor elevation empty-cells fit fit-position
-icon marker-offset marks move-to presentation-level quotes rotation
-rotation-point string-set tab-side target vertical-align
+  <input id="boxShadow_x" type="range" min="-30" max="30"
+    value="10" data-metaprop="boxShadow" data-unit="px"/>
+  
+  By default, the value of 'data-metaprop' becomes the CSS property
+  affected by the input, 'boxShadow' in this case.  (The ID can now be
+  arbitrary, but it's a good idea to reference the targeted property
+  name.)  To apply the generated value to a different property,
+  specify an additional 'data-tgtprop' attribute; e.g., building a
+  'linearGradient', then applying the value to the 'backgroundImage'
+  property.
 
+  Every 'data-metaprop' value must have a corresponding converter
+  function in the custom JS file that returns a complex property value
+  culled from various raw components that correspond to input IDs,
+  e.g.:
+
+  app.converter.boxShadow = function(inputVal) {
+      var v = '';
+      v += app.component.boxShadow_x + 'px ';
+      v += app.component.boxShadow_y + 'px ';
+      v += app.component.boxShadow_blur + 'px ';
+      v += app.component.boxShadow_spread + 'px ';
+      v += 'rgba(';
+      v += app.component.boxShadow_r + '%, ';
+      v += app.component.boxShadow_g + '%, ';
+      v += app.component.boxShadow_b + '%, ';
+      v += app.component.boxShadow_a;
+      v += ')';
+      v += app.component.boxShadow_inset && ' inset';
+      return v;
+  }
+
+  By default, the function is supplied with the input's raw value that
+  may provide useful fallback behavior.
+
+* Place explanatory text detailing the set of CSS properties within
+  the <aside> element.
+
+* 2DO: In some cases you may want different inputs to apply the same
+  property to different example elements and have it reflect in two
+  different places in the code, e.g., different 'flex' property values
+  for child elements within a flexbox. In that case, pair a
+  'data-tgtcode' attribute to the ID of a custom <span> within the
+  code block: 2DO
+
+* 2DO: The 'data-depends' attribute indicates the ID of a check box
+  which, while unselected, disables the input. E.g., you may want to
+  allow for optional color-stop syntax when compiling gradient values.
+
+* 2DO: When the user presses the image button, the entire example area
+  is filled with a background image to clarify how transparency
+  effects appear. To customize the image, ...
+
+* 2DO: reset inputs to initial values
+
+* 2DO: generate permalink
+
+* 2DO: Represent color inputs as either of these sets of four-in-a-row
+  inputs:
+
+  <input class="red"   id="boxShadow_rgbR" data-metaprop="boxShadow"/>
+  <input class="green" id="boxShadow_rgbG" data-metaprop="boxShadow"/>
+  <input class="blue"  id="boxShadow_rgbB" data-metaprop="boxShadow"/>
+  <input class="alpha" id="boxShadow_rgbA" data-metaprop="boxShadow"/>
+
+  <input class="hue"        id="boxShadow_hslH" data-metaprop="boxShadow"/>
+  <input class="luminance"  id="boxShadow_hslL" data-metaprop="boxShadow"/>
+  <input class="saturation" id="boxShadow_hslS" data-metaprop="boxShadow"/>
+  <input class="alpha"      id="boxShadow_hslA" data-metaprop="boxShadow"/>
+
+  No need to specify input type/min/max attributes; they will present
+  a custom UI. Assumes default values for black: 0% for RGB values and
+  1 for alpha channel.
+
+* 2DO: Whatever example element is currently targeted is available as
+  app.example, useful if you want to access its getComputedStyle.
+
+* 2DO: data-shorthand attribute to autogenerate shorthand syntax in
+  code?

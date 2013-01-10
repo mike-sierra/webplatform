@@ -1,0 +1,51 @@
+<html>
+  <head>
+<title>filter blur bug</title>
+
+<style>
+
+div {
+    position: absolute;
+    top: 100px;
+    width: 100px;
+    height: 100px;
+    background: #000;
+    font-family: fantasy;
+    font-size: 200px;
+    -webkit-transition: all 2s;
+}
+
+div:nth-of-type(1) {
+    left: 100px;
+}
+
+body.trans > div:nth-of-type(1) {
+    -webkit-filter: blur(10px);
+}
+
+div:nth-of-type(2) {
+    left: 300px;
+}
+
+body.trans > div:nth-of-type(2) {
+    -webkit-filter: drop-shadow(10px 10px 10px red);
+}
+
+
+</style>
+
+</head>
+<body>
+
+<div></div>
+
+<div></div>
+
+<script>
+
+window.onload = function() { document.querySelector('body').classList.toggle('trans') }
+
+</script>
+
+</body>
+</html>
