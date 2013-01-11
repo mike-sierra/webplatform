@@ -1,0 +1,102 @@
+<html>
+  <head>
+<title>sequence</title>
+
+<style>
+
+img { margin: 2em; -webkit-transition: all 1s }
+
+
+
+</style>
+
+</head>
+<body>
+
+Select a pair of functions. The combination will reflect in different sequences: (1,2) then (2,1)
+
+<select>
+  <option>blur(0px)</option>
+  <option>blur(10px)</option>
+  <option>brightness(-0.5)</option>
+  <option>brightness(1)</option>
+  <option>brightness(0.5)</option>
+  <option>contrast(0.5)</option>
+  <option>contrast(1)</option>
+  <option>contrast(1.5)</option>
+  <option>drop-shadow(0px 0px 20px blue)</option>
+  <option>drop-shadow(20px 20px 0px blue)</option>
+  <option>drop-shadow(20px 20px 20px blue)</option>
+  <option>grayscale(0)</option>
+  <option selected>grayscale(1)</option>
+  <option>hue-rotate(0deg)</option>
+  <option>hue-rotate(180deg)</option>
+  <option>hue-rotate(90deg)</option>
+  <option>invert(0)</option>
+  <option>invert(1)</option>
+  <option>opacity(0.5)</option>
+  <option>opacity(1)</option>
+  <option>saturate(0.5)</option>
+  <option>saturate(1)</option>
+  <option>saturate(2)</option>
+  <option>saturate(10)</option>
+  <option>sepia(0)</option>
+  <option>sepia(1)</option>
+</select>
+
+<select>
+  <option>blur(0px)</option>
+  <option>blur(10px)</option>
+  <option>brightness(-0.5)</option>
+  <option>brightness(1)</option>
+  <option>brightness(0.5)</option>
+  <option>contrast(0.5)</option>
+  <option>contrast(1)</option>
+  <option>contrast(1.5)</option>
+  <option>drop-shadow(0px 0px 20px blue)</option>
+  <option>drop-shadow(20px 20px 0px blue)</option>
+  <option>drop-shadow(20px 20px 20px blue)</option>
+  <option>grayscale(0)</option>
+  <option selected>grayscale(1)</option>
+  <option>hue-rotate(0deg)</option>
+  <option>hue-rotate(180deg)</option>
+  <option>hue-rotate(90deg)</option>
+  <option>invert(0)</option>
+  <option>invert(1)</option>
+  <option>opacity(0.5)</option>
+  <option>opacity(1)</option>
+  <option>saturate(0.5)</option>
+  <option>saturate(1)</option>
+  <option>saturate(2)</option>
+  <option>saturate(10)</option>
+  <option>sepia(0)</option>
+  <option>sepia(1)</option>
+</select>
+
+<hr>
+
+<img src="Objects001.jpg"/>
+<img src="Objects001.jpg"/>
+
+<script>
+
+var app = new Function();
+
+window.onload = function() {
+    app.sel1 = document.querySelector('select:first-of-type');
+    app.sel2 = document.querySelector('select:last-of-type');
+    app.img1 = document.querySelector('img:first-of-type');
+    app.img2 = document.querySelector('img:last-of-type');
+    app.sel1.addEventListener('change', changeHandler);
+    app.sel2.addEventListener('change', changeHandler);
+};
+
+function changeHandler(e) {
+    app.img1.style.WebkitFilter = app.sel1.value + " " + app.sel2.value;
+    app.img2.style.WebkitFilter = app.sel2.value + " " + app.sel1.value;
+}
+
+</script>
+
+</body>
+</html>
