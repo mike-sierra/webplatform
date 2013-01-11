@@ -1,0 +1,76 @@
+<html>
+<head>
+<title>opacity property vs filter function</title>
+
+<style>
+
+ol, p { display: inline-block }
+
+img {
+    margin: 1em;
+    max-height: 500px;
+}
+
+img:nth-of-type(2) {
+    opacity: 0.5;
+}
+
+img:nth-of-type(4) {
+    opacity: 0.5;
+}
+</style>
+
+</head>
+<body>
+
+<p>Choose a filter function:
+
+<select>
+    <option>brightness(0)</option>
+    <option>brightness(0.2)</option>
+    <option>brightness(0.5)</option>
+    <option>brightness(0.8)</option>
+    <option selected>brightness(1)</option>
+    <option>brightness(2)</option>
+    <option>brightness(3)</option>
+    <option>blur(10px)</option>
+    <option>contrast(3)</option>
+    <option>drop-shadow(10px 10px 0px red)</option>
+    <option>grayscale(1)</option>
+    <option>hue-rotate(90deg)</option>
+    <option>invert(1)</option>
+    <option>saturate(10)</option>
+    <option>sepia(1)</option>
+</select>
+
+</p>
+
+
+<ol>
+<li>original image
+<li>opacity:0.5
+<li>selected function + opacity(0.5) function
+<li>selected function + opacity:0.5 property
+</ol>
+
+<br/>
+
+<img src="Objects004.jpg"/>
+<img src="Objects004.jpg"/>
+<img src="Objects004.jpg" style="-webkit-filter: grayscale(0) opacity(0.5)"/>
+<img src="Objects004.jpg" style="-webkit-filter: grayscale(0)"/>
+
+<script>
+
+window.onload = function() {
+    document.querySelector('select').addEventListener('change', function(e) {
+        document.querySelector('img:nth-of-type(3)').style.WebkitFilter = e.target.value + ' opacity(0.5)';
+        document.querySelector('img:nth-of-type(4)').style.WebkitFilter = e.target.value;
+        console.log( window.getComputedStyle(document.querySelector('img:nth-of-type(3)')).WebkitFilter );
+        console.log( window.getComputedStyle(document.querySelector('img:nth-of-type(4)')).WebkitFilter );
+    });
+};
+</script>
+
+</body>
+</html>

@@ -10,9 +10,7 @@ body {
 }
 
 
-img {
-display: block;
-}
+/* img { display: block; } */
 
 body > img, body > h1, body > svg {
 -webkit-transition: all 2s;
@@ -40,16 +38,16 @@ body.animate > * {
 -webkit-filter: blur(10px);
 -webkit-filter: hue-rotate(1980deg);
 -webkit-box-shadow: 10px 10px 20px rgba(100%, 0%, 0%, 1), -10px -10px 0px rgba(0%, 0%, 0%, 1)
-filter: url(filter.htm#myFilter);
 -webkit-filter: drop-shadow(10px 10px 0px rgba(0%, 0%, 0%, 0.5));
 filter: url(filter.htm#myFilter);
+-webkit-filter: brightness(1.5);
+-webkit-filter: saturate(1000%);
+-webkit-filter: saturate(1000%) blur(10px);
 */
 
 
--webkit-filter: brightness(1.5);
--webkit-filter: url(filter.htm#myFilter);
--webkit-filter: saturate(1000%);
--webkit-filter: saturate(1000%);
+filter: url(#myFilter);
+-webkit-filter: url(#myFilter);
 
 }
 
@@ -83,6 +81,7 @@ document.querySelector('body').classList.toggle('animate');
 setTimeout(
     function() {
         console.log( window.getComputedStyle(document.querySelector('img')).filter );
+        console.log( window.getComputedStyle(document.querySelector('img')).WebkitFilter );
     }, 5000);
 };
 

@@ -12,6 +12,17 @@
  filter: hue-rotate(90deg);
 
 [[Image:f11-mandrill.jpg|300px]]&nbsp;[[Image:f12-mandrillhuerotate.jpg|300px]]
+
+Specifying measurements greater than 360&deg; (or 2&pi; '''rad''')
+allows animations to cycle more than once around the color wheel. This
+example cycles colors three times, returning to its original set of
+hues (360 &times; 3):
+
+ @keyframes spinCycle {
+     from { filter: hue-rotate(0deg)    }
+     to   { filter: hue-rotate(1080deg) }
+ }
+
 }}
 {{Examples_Section
 |Not_required=Yes
@@ -89,6 +100,7 @@
 {{See_Also_Section
 |Topic_clusters=Filters
 |External_links=* W3C editor's draft: [https://dvcs.w3.org/hg/FXTF/raw-file/tip/filters/index.html# Filter Effects 1.0]
+* [http://html5-demos.appspot.com/static/css/filters/index.html Interactive demonstration]
 }}
 {{Topics|CSS, Graphics, SVG}}
 {{External_Attribution

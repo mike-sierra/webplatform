@@ -1,5 +1,5 @@
 
-# /Users/sierra/sandbox/webplatform/src/wpdget.pl get css/properties/filter > css_properties_filter.txt
+/Users/sierra/sandbox/webplatform/src/wpdget.pl get css/properties/filter > css_properties_filter.txt
 # /Users/sierra/sandbox/webplatform/src/wpdget.pl get css/functions/blur > css_functions_blur.txt
 # /Users/sierra/sandbox/webplatform/src/wpdget.pl get css/functions/brightness > css_functions_brightness.txt
 # /Users/sierra/sandbox/webplatform/src/wpdget.pl get css/functions/contrast > css_functions_contrast.txt
