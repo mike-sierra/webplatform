@@ -1,0 +1,56 @@
+<html>
+<head>
+<title>opacity property vs filter function</title>
+
+<style>
+
+ol, p { display: inline-block }
+
+img {
+    margin: 1em;
+    max-height: 500px;
+}
+
+</style>
+
+</head>
+<body>
+
+<p>Choose a filter function:
+
+<select>
+    <option>brightness(0)</option>
+    <option>brightness(0.2)</option>
+    <option>brightness(0.5)</option>
+    <option>brightness(0.8)</option>
+    <option>brightness(1)</option>
+    <option>brightness(2)</option>
+    <option>brightness(3)</option>
+    <option>blur(10px)</option>
+    <option>contrast(3)</option>
+    <option>drop-shadow(10px 10px 0px red)</option>
+    <option selected>grayscale(0)</option>
+    <option>grayscale(1)</option>
+    <option>hue-rotate(90deg)</option>
+    <option>invert(1)</option>
+    <option>saturate(10)</option>
+    <option>sepia(1)</option>
+</select>
+
+</p>
+
+<br/>
+
+<img src="Objects004.jpg"/>
+
+<script>
+
+window.onload = function() {
+    document.querySelector('select').addEventListener('change', function(e) {
+        document.querySelector('img').style.WebkitFilter = e.target.value;
+    });
+};
+</script>
+
+</body>
+</html>
