@@ -1,0 +1,47 @@
+<html>
+  <head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+<title>video + filter</title>
+
+<style>
+body {
+    -webkit-perspective: 1000px;
+}
+
+video {
+  filter: hue-rotate(0deg) saturate(1) blur(0);
+  transition: all 30s linear;
+  -webkit-filter: hue-rotate(0deg) saturate(1) blur(0);
+  -webkit-transition: all 30s linear;
+}
+
+video.finished {
+  filter: hue-rotate(-180deg) saturate(10) blur(10px);
+  transform: translate(100px, 50px) rotateX(45deg) rotateY(-30deg) rotateZ(10deg);
+  -webkit-filter: hue-rotate(-180deg) saturate(10) blur(10px);
+  -webkit-transform: translate(100px, 50px) rotateX(45deg) rotateY(-30deg) rotateZ(10deg);
+}
+
+</style>
+
+</head>
+<body>
+
+<video width="640" height="480" src="media/vid_320x240.mp4" controls></video>
+
+<script>
+
+window.onload = function() {
+    var v = document.querySelector('video');
+    var d = Math.round(v.duration);
+    v.style.WebkitTransitionDuration = d + 's';
+    v.addEventListener('play', function() { document.querySelector('video').classList.add('finished'); });
+    v.addEventListener('ended', function() { document.querySelector('video').classList.remove('finished'); });
+}
+
+</script>
+
+
+</body>
+</html>
+

@@ -12,7 +12,7 @@ iframe {
     display                    : none;
 }
 
-#demo_topic, #demo_code, #demo_controls, #demo_example {
+#demo_topic, #demo_code, #demo_controls, #demo_example, nav {
     background                 : #fff;
     position                   : absolute;
     border                     : thin solid #777;
@@ -26,8 +26,15 @@ iframe {
     height                     : 40%;
 }
 
+nav {
+    width: 50px;
+    height: 50px;
+    right: 1em;
+    top: 1em;
+}
+
 #demo_topic {
-    width                      : 95%;
+    width                      : 47%;
     height                     : 7%;
     top                        : 0%;;
     font-size                  : 24px;

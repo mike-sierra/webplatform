@@ -3,6 +3,7 @@ var app = new Function();
 window.onload = function() {
     app.component = new Object; // cache of values to assemble into complex property values
     app.converter = new Object; // 2doc
+    app.touched = new Object; // 2doc 2DO
 
     setTimeout(function() {
         app.initContent();
@@ -91,7 +92,10 @@ app.modify = function(input) {
 
     id = input.id;
 
-    // pre-process value:
+    // cache raw value, if modified from original, for use in URL permalink
+    if (input.value != input.dataset.init) app.touched[id] = input.value;
+
+    // process value:
 
     if (input.classList.contains('hex')) {
         // convert to hex string:
@@ -119,8 +123,8 @@ app.modify = function(input) {
     // background-image)
     tgtProp = input.dataset.tgtprop || '';
 
-    if (input.classList.contains(app.browserEngine))
-        vendor = app.browserEngine;
+    // spawn vendor-prefixed property?
+    if (input.classList.contains(app.browserEngine)) vendor = app.browserEngine;
 
     // calculate final property value:
 
@@ -130,7 +134,7 @@ app.modify = function(input) {
         console.log(app.converter);
         console.log(app.converter[metaProp]);
         try {
-            // pass in value in case it can be used as fallback return value:
+            // pass current value to function in case it's useful as a fallback return value:
             cssValue = app.converter[metaProp](value);
         }
         catch(err) {
@@ -140,23 +144,6 @@ app.modify = function(input) {
     else {
         cssValue = value + unit;
     }
-
-//     if (metaProp) {
-//         try {
-//             ;
-//         }
-//         catch(err) {
-//             app.d('NO CONVERSION FUNCTION ASSOCIATED WITH ' + metaProp + " " + id);
-//         }
-//     } else {
-//         cssValue = value;
-//         app.d('');
-//     }
-
-
-
-
-
 
     // calculate final property names:
     cssomProp = tgtProp || metaProp || id;

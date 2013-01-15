@@ -1,0 +1,34 @@
+<html>
+  <head>
+<title>sequence</title>
+
+<style>
+
+img {
+    margin: 2em;
+    -webkit-transition: all 1s;
+    -webkit-filter: hue-rotate(0deg);
+    -webkit-filter: hue-rotate(0deg) blur(0px);
+}
+
+img.anim {
+    -webkit-filter: hue-rotate(180deg) blur(10px);
+}
+
+</style>
+
+</head>
+<body>
+
+<img src="Objects001.jpg"/>
+
+<script>
+
+window.onload = function() {
+    document.querySelector('img').classList.toggle('anim');
+};
+
+</script>
+
+</body>
+</html>

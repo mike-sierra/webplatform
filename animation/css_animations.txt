@@ -1,7 +1,5 @@
 {{Page_Title|Making things move with CSS3 animations}}
-{{Flags
-|Editorial notes=[[User:Sierra]] has content intended for this page. See bug [https://www.w3.org/Bugs/Public/show_bug.cgi?id=20410 #20410]
-}}
+{{Flags}}
 {{Byline
 |Name=Mike Sierra
 }}
@@ -18,13 +16,17 @@ an interface.
 with [[tutorials/css_transitions|CSS transitions]]. Since they work
 similarly, the term ''CSS animations'' often serves as a shorthand to
 refer to transitions as well, but this tutorial only discusses
-''keyframe animations''. These key points serve as reference:
+''keyframe animations''.
+
+These key points serve as reference:
 
 * The required [[css/properties/animation-name|'''animation-name''']] property specifies the name of a keyframe animation, and must correspond to a [[css/atrules/@keyframes|'''@keyframes''']] rule. Loading the CSS or applying a new name causes the animation to execute.
 
 * Use the required [[css/properties/animation-duration|'''animation-duration''']] property to set the overall amount of time over which the animation executes, either in seconds or millseconds ('''1s''' == '''1000ms''').
 
 * The [[css/atrules/@keyframes|'''@keyframes''']] rule declares the full sequence that corresponds to the [[css/properties/animation-name|'''animation-name''']]. Within the block, keyframes such as 0%, 50%, and 100% behave as selectors that manipulate CSS properties over the duration of the animation.
+
+* Any CSS property that be transitioned can also be animated.
 
 * Use [[css/properties/animation-delay|'''animation-delay''']] to pause before executing an animation, using the same time values as for duration.
 
@@ -118,6 +120,9 @@ span of time defined by the
 [[css/properties/animation-duration|'''animation-duration''']]
 property. Each keyframe within the sequence behaves like a CSS
 selector, manipulating the values of individual properties.
+Shifts from one keyframe to another work the same as transitions,
+and the same set of properties that can be transitioned can also be
+manipulated in keyframes.
 In this case, [[css/properties/opacity|'''opacity''']] dims the icon
 and [[css/properties/transform|'''transform''']] shrinks it. (See the
 [[tutorials/css_transforms|tutorial on transforms]] for details on the
@@ -136,7 +141,9 @@ and Safari. The transform properties below are also prefixed:
  }
 
 This example also substitutes '''0%''' and '''100%''' for their
-synonymous keywords '''from''' and '''to'''.
+synonymous keywords '''from''' and '''to'''. (If you don't specify
+either, values transition from the next available keyframe in
+the series.)
 
 ==Changing Direction==
 
@@ -362,7 +369,7 @@ executes would override whatever the first animation does with the
 
 The same set of timing functions that apply to transitions also apply
 to animations. (For details on these functions, see
-[[tutorials/css_transitions|Timing Functions]].)  The
+[[tutorials/css_transitions#timing|Timing Functions]].)  The
 [[css/properties/animation-timing-function|'''animation-timing-function''']]
 property allows you to control the response curve for each keyframe's
 progress.  It recognizes keyword values '''ease''', '''ease-in''',
@@ -493,9 +500,9 @@ Here is how you might change the initial color to a shade of gray:
      console.log(rule[0].cssText);   // 0% { background-color: rgb(170, 170, 170); }
  }
 
-See [[css/cssom/CSSKeyframesRule|'''CSSKeyframesRule''']],
+See [[css/cssom/CSSKeyframesRule|'''CSSKeyframesRule''']], 
 [[css/cssom/CSSKeyframeRule|'''CSSKeyframeRule''']] and
-[[css/cssom/CSSRule|'''CSSRule''']] for details.
+[[css/cssom/CSSRule|'''CSSRule''']] for details. 
 }}
 {{Notes_Section}}
 {{Compatibility_Section
@@ -507,6 +514,7 @@ See [[css/cssom/CSSKeyframesRule|'''CSSKeyframesRule''']],
 }}
 {{See_Also_Section
 |Topic_clusters=Animation
+|External_links=* [http://www.w3.org/TR/css3-animations/ CSS Animations: W3C Working Draft]
 }}
 {{Topics|CSS}}
 {{External_Attribution
