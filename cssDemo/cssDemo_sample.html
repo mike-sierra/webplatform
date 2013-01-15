@@ -16,11 +16,13 @@
 <section>
 
 <div id="myExample">
-All work and no play makes Jack a dull boy. All work and no play makes
-Jack a dull boy. All work and no play makes Jack a dull boy. All work
-and no play makes Jack a dull boy. All work and no play makes Jack a
-dull boy. All work and no play makes Jack a dull boy. <span>All work
-and no play makes Jack a dull boy.</span>
+
+ <div id="myBox1">Box 1: All work and no play makes Jack a dull boy.</div>
+ <div id="myBox2">Box 2: All work and no play makes Jack a dull boy.</div>
+ <div id="myBox3">Box 3: All work and no play makes Jack a dull boy.</div>
+ <div id="myBox4">Box 4: All work and no play makes Jack a dull boy.</div>
+ <div id="myBox5">Box 5: All work and no play makes Jack a dull boy.</div>
+
 </div>
 
 </section>
@@ -29,96 +31,148 @@ and no play makes Jack a dull boy.</span>
 
 <form>
 
-<a id="demo_tab1" href="#demo_tab1">cat1</a>
-<a id="demo_tab2" href="#demo_tab2">cat2</a>
-<a id="demo_tab3" href="#demo_tab3">cat3</a>
-<a id="demo_tab4" href="#demo_tab4">cat4</a>
+<a id="demo_tab1" href="#demo_tab1">basic display</a>
+<a id="demo_tab2" href="#demo_tab2">sizing & direction</a>
+<a id="demo_tab3" href="#demo_tab3">Box #1</a>
+<a id="demo_tab4" href="#demo_tab4">Box #2</a>
 <a id="demo_tab5" href="#demo_tab5">cat5</a>
 <a id="demo_tab6" href="#demo_tab6">cat6</a>
 <div id="demo_panel0"></div>
 <div id="demo_panel1">
 
-  <label>size</label>
-  <input type="range" id="fontSize" min="6" max="48" value="24" data-unit="px"/>
-  
-  <select id="fontSize_keywords" data-tgtprop="fontSize">
-    <option>xx-small</option>
-    <option>x-small</option>
-    <option>small</option>
-    <option>smaller</option>
-    <option selected>medium</option>
-    <option>larger</option>
-    <option>large</option>
-    <option>x-large</option>
-    <option>xx-large</option>
+  <label>min-height</label>
+  <input type="range" id="minHeight" min="60" max="500" value="300" data-unit="px"/>
+  <br/><label>display</label>
+  <select id="display" class="Webkit">
+    <option selected>-webkit-flex</option>
+    <option>flex</option>
+    <option>block</option>
   </select>
-
-  <br/><label>family</label>
-  <select  id="fontFamily">
-      <option>serif</option>
-      <option>sans-serif</option>
-  </select>
-  
-  <br/><label>color</label>
-  <input type="range" id="color" value="black" class="hex" min="0" max="16777216" step="1" value="0" />
 
 </div>
 <div id="demo_panel2">
 
-   <input class="Webkit" data-metaprop="filter" type="range"
-          id="filter_blur" min="0" max="48" value="0" data-unit="px"/>
+  <label>flex-direction</label>
+  <select id="flexDirection" class="Webkit">
+    <option selected>row</option>
+    <option>row-reverse</option>
+    <option>column</option>
+    <option>column-reverse</option>
+  </select>
 
-   <input class="Webkit" data-metaprop="filter" type="range"
-          id="filter_brightness" min="0" max="100" value="0" data-unit="%"/>
+  <br/><label>justify-content</label>
+  <select id="justifyContent" class="Webkit">
+    <option>flex-start</option>
+    <option>flex-end</option>
+    <option selected>center</option>
+    <option>space-between</option>
+    <option>space-around</option>
+  </select>
+  
+  <br/><label>align-items</label>
+  <select id="alignItems" class="Webkit">
+    <option>flex-start</option>
+    <option>flex-end</option>
+    <option selected>center</option>
+    <option>baseline</option>
+    <option>stretch</option>
+  </select>
 
-   <input class="Webkit" data-metaprop="filter" type="range"
-          id="filter_contrast" min="0" max="100" value="100" data-unit="%"/>
+  <br/><label>flex-wrap</label>
+  <select id="flexWrap" class="Webkit">
+    <option selected>nowrap</option>
+    <option>wrap</option>
+    <option>wrap-reverse</option>
+  </select>
+  
 
-   <input class="Webkit" data-metaprop="filter" type="range"
-          id="filter_grayscale" min="0" max="100" value="0" data-unit="%"/>
 
-   <input class="Webkit" data-metaprop="filter" type="range"
-          id="filter_invert" min="0" max="100" value="0" data-unit="%"/>
-
-   <input class="Webkit" data-metaprop="filter" type="range"
-          id="filter_opacity" min="0" max="100" value="0" data-unit="%"/>
-
-   <input class="Webkit" data-metaprop="filter" type="range"
-          id="filter_sepia" min="0" max="100" value="0" data-unit="%"/>
-
-   <input class="Webkit" data-metaprop="filter" type="range"
-          id="filter_saturate" min="0" max="1000" value="100" data-unit="%"/>
-
-   <input class="Webkit" data-metaprop="filter" type="range"
-          id="filter_huerotate" min="0" max="360" value="0" data-unit="deg"/>
 
 </div>
 <div id="demo_panel3">
 
-   <input class="Webkit" data-metaprop="filter" type="range"
-          id="filter_dropshadowX" min="0" max="20" value="0" data-unit="px"/>
 
-   <input class="Webkit" data-metaprop="filter" type="range"
-          id="filter_dropshadowY" min="0" max="20" value="0" data-unit="px"/>
 
-   <input class="Webkit" data-metaprop="filter" type="range"
-          id="filter_dropshadowBlur" min="0" max="20" value="0" data-unit="px"/>
+  <br/><label>align-self</label>
+  <select id="alignSelf" class="Webkit" data-tgtexample="#myBox1">
+    <option selected>auto</option>
+    <option>flex-start</option>
+    <option>flex-end</option>
+    <option>center</option>
+    <option>baseline</option>
+    <option>stretch</option>
+  </select>
 
-   <input class="Webkit" data-metaprop="filter" type="range"
-          id="filter_dropshadowRed" min="0" max="256" value="0"/>
+  <br/><label>order</label>
+  <select id="order" class="Webkit" data-tgtexample="#myBox1">
+    <option selected>0</option>
+    <option>1</option>
+    <option>2</option>
+    <option>3</option>
+  </select>
 
-   <input class="Webkit" data-metaprop="filter" type="range"
-          id="filter_dropshadowGreen" min="0" max="256" value="0"/>
+  <br/><label>flex-basis</label>
+  <input type="range" id="flexBasis" class="Webkit" min="0" max="500" value="100" data-unit="%" data-tgtexample="#myBox1"/>
 
-   <input class="Webkit" data-metaprop="filter" type="range"
-          id="filter_dropshadowBlue" min="0" max="256" value="0"/>
+  <select id="flexBasis_keywords" data-tgtprop="flexBasis" class="Webkit" data-tgtexample="#myBox1">
+    <option selected>auto</option>
+    <option>min-content</option>
+    <option>max-content</option>
+    <option>fill-available</option>
+    <option>fit-content</option>
+  </select>
 
-   <input class="Webkit" data-metaprop="filter" type="range"
-          id="filter_dropshadowAlpha" min="0" max="1" step="0.05" value="1"/>
+<!--
+  <br/><label>flex-grow</label>
+  <input type="range" id="flexGrow" class="Webkit" min="0" max="5" value="1" data-tgtexample="#myBox1"/>
+-->
+
+  <br/><label>flex-shrink</label>
+  <input type="range" id="flexShrink" class="Webkit" min="0" max="5" value="1" data-tgtexample="#myBox1"/>
 
 </div>
 <div id="demo_panel4">
-controls_4
+
+
+
+
+  <br/><label>align-self</label>
+  <select id="altAlignSelf" data-tgtprop="alignSelf" data-tgtcode="c_ALTalignSelf" class="Webkit" data-tgtexample="#myBox2">
+    <option selected>auto</option>
+    <option>flex-start</option>
+    <option>flex-end</option>
+    <option>center</option>
+    <option>baseline</option>
+    <option>stretch</option>
+  </select>
+
+  <br/><label>order</label>
+  <select id="altOrder" data-tgtprop="order" data-tgtcode="c_ALTorder" class="Webkit" data-tgtexample="#myBox2">
+    <option selected>0</option>
+    <option>1</option>
+    <option>2</option>
+    <option>3</option>
+  </select>
+
+  <br/><label>flex-basis</label>
+  <input type="range" id="altFlexBasis" data-tgtprop="flexBasis" data-tgtcode="c_ALTflexBasis" class="Webkit" min="0" max="500" value="100" data-unit="%" data-tgtexample="#myBox2"/>
+
+  <select id="altFlexBasis_keywords" data-tgtprop="flexBasis" data-tgtcode="c_ALTflexBasis" class="Webkit" data-tgtexample="#myBox2">
+    <option selected>auto</option>
+    <option>min-content</option>
+    <option>max-content</option>
+    <option>fill-available</option>
+    <option>fit-content</option>
+  </select>
+
+<!--
+  <br/><label>flex-grow</label>
+  <input type="range" id="flexGrow" class="Webkit" min="0" max="5" value="1" data-tgtexample="#myBox2"/>
+-->
+
+  <br/><label>flex-shrink</label>
+  <input type="range" id="altFlexShrink" data-tgtprop="flexShrink" data-tgtcode="c_ALTflexShrink" class="Webkit" min="0" max="5" value="1" data-tgtexample="#myBox2"/>
+
 </div>
 <div id="demo_panel5">
 controls_5
@@ -132,10 +186,28 @@ controls_6
 <!-- place CODE in here -->
 
 <pre>
-<span id="c_fontSize"></span>
-<span id="c_fontFamily"></span>
-<span id="c_color"></span>
-<span id="c_filter"></span>
+    /* basic */
+<span id="c_minHeight"></span>
+<span id="c_display"></span>
+    /* sizing & direction */
+<span id="c_flexDirection"></span>
+<span id="c_justifyContent"></span>
+<span id="c_alignItems"></span>
+<span id="c_flexWrap"></span>
+    /* box #1 */
+<span id="c_alignSelf"></span>
+<span id="c_flexBasis"></span>
+<span id="c_flexGrow"></span>
+<span id="c_flexGrow"></span>
+<span id="c_flexShrink"></span>
+<span id="c_order"></span>
+    /* box #2 */
+<span id="c_ALTalignSelf"></span>
+<span id="c_ALTflexBasis"></span>
+<span id="c_ALTflexGrow"></span>
+<span id="c_ALTflexGrow"></span>
+<span id="c_ALTflexShrink"></span>
+<span id="c_ALTorder"></span>
 </pre>
 
 <!-- place explanatory INFO in here -->

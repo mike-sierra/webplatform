@@ -129,10 +129,10 @@ app.modify = function(input) {
     // calculate final property value:
 
     if (metaProp) {
-        console.log('######################');
-        console.log(metaProp);
-        console.log(app.converter);
-        console.log(app.converter[metaProp]);
+        // console.log('######################');
+        // console.log(metaProp);
+        // console.log(app.converter);
+        // console.log(app.converter[metaProp]);
         try {
             // pass current value to function in case it's useful as a fallback return value:
             cssValue = app.converter[metaProp](value);

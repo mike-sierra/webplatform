@@ -1,4 +1,17 @@
 #myExample {
-    background-image: url(img/Objects007.jpg);
+/*    background-image: url(img/Objects007.jpg); */
     background-size: cover;
 }
+
+#myExample > div {
+    margin: 0.5em;
+    border: thin solid #777;
+    padding: 0.5em;
+    border-radius: 0.5em;
+}
+
+#myExample > div:nth-of-type(1) { background: pink; }
+#myExample > div:nth-of-type(2) { background: lightblue; }
+#myExample > div:nth-of-type(3) { background: gold; }
+#myExample > div:nth-of-type(4) { background: lightgreen; }
+#myExample > div:nth-of-type(5) { background: plum; }
