@@ -172,7 +172,7 @@ app.modify = function(input) {
     try {
         tgtCode = document.querySelector(input.dataset.tgtcode || ('#c_' + cssomProp ) );
         tgtCode.textContent = cssProp + ": " + cssValue + ';';
-        if (vendor) tgtCode.textContent += "\n" + cssPropVendor + ": " + cssValue + ';';
+        if (vendor) tgtCode.textContent += "   " + cssPropVendor + ": " + cssValue + ';';
     }
     catch(err) {
         console.log("no code target defined; need #c_" + cssomProp + " element.");

@@ -1,9 +1,5 @@
-#myExample {
-/*    background-image: url(img/Objects007.jpg); */
-    background-size: cover;
-}
-
 #myExample > div {
+    font-size: small;
     margin: 0.5em;
     border: thin solid #777;
     padding: 0.5em;
