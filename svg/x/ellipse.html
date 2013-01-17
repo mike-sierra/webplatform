@@ -1,0 +1,48 @@
+<html>
+<head>
+<title>rect</title>
+<link href='demoSVG.css' type='text/css' rel='stylesheet'/>
+</head>
+<body>
+
+<svg>
+    <ellipse id="example"/>
+</svg>
+
+<aside>
+    <label>cx</label><input type="range" id="cx" min="0" max="900" value="400"/><br/>
+    <label>cy</label><input type="range" id="cy" min="0" max="900" value="300"/><br/>
+    <label>rx</label><input type="range" id="rx" min="6" max="400" value="200"/><br/>
+    <label>ry</label><input type="range" id="ry" min="6" max="400" value="200"/><br/>
+    <hr/>
+    <label>fill</label><select id="fill">
+      <option>black</option>
+      <option>white</option>
+      <option selected>plum</option>
+      <option>pink</option>
+      <option>gold</option>
+      <option>lightgreen</option>
+      <option>lightblue</option>
+    </select><br/>
+    <label>fill-opacity</label><input type="range" id="fill-opacity" min="0" max="1" value="0.8" step="0.01"/><br/>
+    <label>stroke</label><select id="stroke">
+      <option>black</option>
+      <option>white</option>
+      <option>plum</option>
+      <option selected>pink</option>
+      <option>gold</option>
+      <option>lightgreen</option>
+      <option>lightblue</option>
+    </select></br/>
+    <label>stroke-width</label><input type="range" id="stroke-width" min="0" max="40" value="20"/><br/>
+    <label>stroke-opacity</label><input type="range" id="stroke-opacity" min="0" max="1" value="0.8" step="0.01"/><br/>
+
+</aside>
+
+<div id="debug"></div>
+
+
+<script src="demoSVG.js"></script>
+
+</body>
+</html>

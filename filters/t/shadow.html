@@ -1,0 +1,63 @@
+<html>
+  <head>
+<title>shadows</title>
+
+<style>
+body > div {
+/*    -webkit-transition: all 2s;  */
+    margin: 50px;
+    background: #444;
+    text-align: center;
+    width: 100px;
+    height: 100px;
+    display: inline-block;
+    font-size: 100px;
+    color: gold;
+}
+
+body.alt > div:nth-of-type(even) {
+    opacity: 0.5;
+}
+
+body.alt > div:nth-of-type(1), body.alt > div:nth-of-type(2) {
+    -webkit-filter: drop-shadow(6px 6px 6px red);
+}
+
+body.alt > div:nth-of-type(3), body.alt > div:nth-of-type(4) {
+    -webkit-box-shadow: 6px 6px 6px green;
+}
+
+body.alt > div:nth-of-type(5), body.alt > div:nth-of-type(6) {
+    text-shadow: 6px 6px 6px green;
+}
+
+body.alt > div:nth-of-type(7), body.alt > div:nth-of-type(8) {
+    -webkit-filter: drop-shadow(6px 6px 6px red);
+    text-shadow: 6px 6px 6px green;
+}
+
+body.alt > div:nth-of-type(9), body.alt > div:nth-of-type(10) {
+    -webkit-filter: blur(6px);
+}
+
+</style>
+
+</head>
+<body>
+
+<div>A</div>
+<div>A</div>
+<div>A</div>
+<div>A</div>
+<div>A</div>
+<div>A</div>
+<div>A</div>
+<div>A</div>
+<div>A</div>
+<div>A</div>
+
+<script>
+window.onload = function() { document.querySelector('body').classList.toggle('alt')}
+</script>
+</body>
+</html>

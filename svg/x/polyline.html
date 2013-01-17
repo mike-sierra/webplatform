@@ -1,0 +1,54 @@
+<html>
+<head>
+<title>rect</title>
+<link href='demoSVG.css' type='text/css' rel='stylesheet'/>
+</head>
+<body>
+
+<svg onclick="app.points(event)">
+    <polyline id="example" points=""/>
+</svg>
+
+<aside>
+    <label>points</label><input id="points" value="200,325 200,215 230,215, 170,115, 170,115 110,215 140,215, 140,325"><br/>
+    <label>fill</label><select id="fill">
+      <option>black</option>
+      <option>white</option>
+      <option>plum</option>
+      <option selected>pink</option>
+      <option>gold</option>
+      <option>lightgreen</option>
+      <option>lightblue</option>
+    </select><br/>
+    <label>fill-opacity</label><input type="range" id="fill-opacity" min="0" max="1" value="0.8" step="0.01"/><br/>
+    <label>stroke</label><select id="stroke">
+      <option>black</option>
+      <option>white</option>
+      <option selected>plum</option>
+      <option>pink</option>
+      <option>gold</option>
+      <option>lightgreen</option>
+      <option>lightblue</option>
+    </select></br/>
+    <label>stroke-width</label><input type="range" id="stroke-width" min="0" max="40" value="10"/><br/>
+    <label>stroke-opacity</label><input type="range" id="stroke-opacity" min="0" max="1" value="0.8" step="0.01"/><br/>
+    <label>stroke-linecap</label><select id="stroke-linecap">
+      <option selected>round</option>
+      <option>bevel</option>
+      <option>butt</option>
+    </select></br/>
+    <label>stroke-linejoin</label><select id="stroke-linejoin">
+      <option selected>round</option>
+      <option>bevel</option>
+      <option>miter</option>
+    </select></br/>
+
+</aside>
+
+<div id="debug"></div>
+
+
+<script src="demoSVG.js"></script>
+
+</body>
+</html>

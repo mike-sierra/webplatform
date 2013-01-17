@@ -464,10 +464,10 @@
 # /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/yChannelSelector' "`cat svg_properties_yChannelSelector.txt`" -u Sierra
 # /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/z' "`cat svg_properties_z.txt`" -u Sierra
 # /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/zoomAndPan' "`cat svg_properties_zoomAndPan.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/elements/feColorMatrix' "`cat svg_elements_feColorMatrix.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/a' "`cat svg_properties_a.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/b' "`cat svg_properties_b.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/c' "`cat svg_properties_c.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/d' "`cat svg_properties_d.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/e' "`cat svg_properties_e.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/f' "`cat svg_properties_f.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/elements/feColorMatrix' "`cat svg_elements_feColorMatrix.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/a' "`cat svg_properties_a.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/b' "`cat svg_properties_b.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/c' "`cat svg_properties_c.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/d' "`cat svg_properties_d.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/e' "`cat svg_properties_e.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/f' "`cat svg_properties_f.txt`" -u Sierra

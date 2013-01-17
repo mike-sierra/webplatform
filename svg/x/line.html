@@ -1,0 +1,43 @@
+<html>
+<head>
+<title>rect</title>
+<link href='demoSVG.css' type='text/css' rel='stylesheet'/>
+</head>
+<body>
+
+<svg>
+    <line id="example"/>
+</svg>
+
+<aside>
+    <label>x1</label><input type="range" id="x1" min="0" max="900" value="100"/><br/>
+    <label>y1</label><input type="range" id="y1" min="0" max="900" value="100"/><br/>
+    <label>x2</label><input type="range" id="x2" min="0" max="900" value="500"/><br/>
+    <label>y2</label><input type="range" id="y2" min="0" max="900" value="500"/><br/>
+    <hr/>
+    <label>stroke</label><select id="stroke">
+      <option>black</option>
+      <option>white</option>
+      <option>plum</option>
+      <option>pink</option>
+      <option>gold</option>
+      <option selected>lightgreen</option>
+      <option>lightblue</option>
+    </select></br/>
+    <label>stroke-width</label><input type="range" id="stroke-width" min="0" max="40" value="20"/><br/>
+    <label>stroke-opacity</label><input type="range" id="stroke-opacity" min="0" max="1" value="0.8" step="0.01"/><br/>
+    <label>stroke-linecap</label><select id="stroke-linecap">
+      <option selected>round</option>
+      <option>bevel</option>
+      <option>butt</option>
+    </select></br/>
+
+</aside>
+
+<div id="debug"></div>
+
+
+<script src="demoSVG.js"></script>
+
+</body>
+</html>

@@ -22,9 +22,7 @@ The following rules apply to the processing of the [[svg/elements/feComponentTra
 *If any of the transfer function elements are unspecified, the [[svg/elements/feComponentTransfer|'''feComponentTransferelement''']] must be processed as if those transfer function elements were specified with their '''type''' attributes set to '''identity''' (see below).
 
 In addition to core attributes ('''id''', '''xml:base''', '''xml:lang''', and '''xml:space'''), the following seven attributes are applicable to the '''feFuncR''', '''feFuncG''', '''feFuncB''' and '''feFuncA''' elements:
-*'''type'''
-
-The '''type''' attribute can be one of five values: '''identity''', '''table''', '''discrete''', '''linear''', or '''gamma''' (see below). These five values indicate the type of component transfer function. The value of '''type''' determines the applicability of the other attributes (as discussed below).
+*'''type''': The '''type''' attribute can be one of five values: '''identity''', '''table''', '''discrete''', '''linear''', or '''gamma''' (see below). These five values indicate the type of component transfer function. The value of '''type''' determines the applicability of the other attributes (as discussed below).
 
 In the following, C is the initial component (such as '''feFuncR'''), C' is the re-mapped component; both in the closed interval [0, 1]:
 **For '''identity''':
