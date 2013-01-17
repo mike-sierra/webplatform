@@ -1,473 +1,473 @@
-/Users/sandbox/webplatform-tools/wpd edit 'svg/attributes/alignment-baseline' "`cat svg_attributes_alignment-baseline.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/attributes/baseline-shift' "`cat svg_attributes_baseline-shift.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/attributes/clip-rule' "`cat svg_attributes_clip-rule.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/attributes/color-interpolation-filters' "`cat svg_attributes_color-interpolation-filters.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/attributes/dominant-baseline' "`cat svg_attributes_dominant-baseline.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/attributes/enable-background' "`cat svg_attributes_enable-background.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/attributes/fill' "`cat svg_attributes_fill.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/attributes/fill-opacity' "`cat svg_attributes_fill-opacity.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/attributes/fill-rule' "`cat svg_attributes_fill-rule.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/attributes/flood-color' "`cat svg_attributes_flood-color.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/attributes/flood-opacity' "`cat svg_attributes_flood-opacity.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/attributes/glyph-orientation-horizontal' "`cat svg_attributes_glyph-orientation-horizontal.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/attributes/glyph-orientation-vertical' "`cat svg_attributes_glyph-orientation-vertical.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/attributes/kerning' "`cat svg_attributes_kerning.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/attributes/lighting-color' "`cat svg_attributes_lighting-color.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/attributes/marker' "`cat svg_attributes_marker.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/attributes/marker-end' "`cat svg_attributes_marker-end.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/attributes/marker-mid' "`cat svg_attributes_marker-mid.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/attributes/marker-start' "`cat svg_attributes_marker-start.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/attributes/mask' "`cat svg_attributes_mask.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/attributes/pointers' "`cat svg_attributes_pointers.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/attributes/stop-color' "`cat svg_attributes_stop-color.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/attributes/stop-opacity' "`cat svg_attributes_stop-opacity.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/attributes/stroke' "`cat svg_attributes_stroke.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/attributes/stroke-dasharray' "`cat svg_attributes_stroke-dasharray.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/attributes/stroke-dashoffset' "`cat svg_attributes_stroke-dashoffset.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/attributes/stroke-linecap' "`cat svg_attributes_stroke-linecap.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/attributes/stroke-linejoin' "`cat svg_attributes_stroke-linejoin.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/attributes/stroke-miterlimit' "`cat svg_attributes_stroke-miterlimit.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/attributes/stroke-opacity' "`cat svg_attributes_stroke-opacity.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/attributes/stroke-width' "`cat svg_attributes_stroke-width.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/attributes/text-anchor' "`cat svg_attributes_text-anchor.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/elements/a' "`cat svg_elements_a.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/elements/clipPath' "`cat svg_elements_clipPath.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/elements/defs' "`cat svg_elements_defs.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/elements/desc' "`cat svg_elements_desc.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/elements/ellipse' "`cat svg_elements_ellipse.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/elements/etextContent' "`cat svg_elements_etextContent.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/elements/feBlend' "`cat svg_elements_feBlend.txt`" -u Sierra
+# /Users/sandbox/webplatform-tools/wpd edit 'svg/attributes/alignment-baseline' "`cat svg_attributes_alignment-baseline.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/attributes/baseline-shift' "`cat svg_attributes_baseline-shift.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/attributes/clip-rule' "`cat svg_attributes_clip-rule.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/attributes/color-interpolation-filters' "`cat svg_attributes_color-interpolation-filters.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/attributes/dominant-baseline' "`cat svg_attributes_dominant-baseline.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/attributes/enable-background' "`cat svg_attributes_enable-background.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/attributes/fill' "`cat svg_attributes_fill.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/attributes/fill-opacity' "`cat svg_attributes_fill-opacity.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/attributes/fill-rule' "`cat svg_attributes_fill-rule.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/attributes/flood-color' "`cat svg_attributes_flood-color.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/attributes/flood-opacity' "`cat svg_attributes_flood-opacity.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/attributes/glyph-orientation-horizontal' "`cat svg_attributes_glyph-orientation-horizontal.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/attributes/glyph-orientation-vertical' "`cat svg_attributes_glyph-orientation-vertical.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/attributes/kerning' "`cat svg_attributes_kerning.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/attributes/lighting-color' "`cat svg_attributes_lighting-color.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/attributes/marker' "`cat svg_attributes_marker.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/attributes/marker-end' "`cat svg_attributes_marker-end.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/attributes/marker-mid' "`cat svg_attributes_marker-mid.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/attributes/marker-start' "`cat svg_attributes_marker-start.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/attributes/mask' "`cat svg_attributes_mask.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/attributes/pointers' "`cat svg_attributes_pointers.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/attributes/stop-color' "`cat svg_attributes_stop-color.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/attributes/stop-opacity' "`cat svg_attributes_stop-opacity.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/attributes/stroke' "`cat svg_attributes_stroke.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/attributes/stroke-dasharray' "`cat svg_attributes_stroke-dasharray.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/attributes/stroke-dashoffset' "`cat svg_attributes_stroke-dashoffset.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/attributes/stroke-linecap' "`cat svg_attributes_stroke-linecap.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/attributes/stroke-linejoin' "`cat svg_attributes_stroke-linejoin.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/attributes/stroke-miterlimit' "`cat svg_attributes_stroke-miterlimit.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/attributes/stroke-opacity' "`cat svg_attributes_stroke-opacity.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/attributes/stroke-width' "`cat svg_attributes_stroke-width.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/attributes/text-anchor' "`cat svg_attributes_text-anchor.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/elements/a' "`cat svg_elements_a.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/elements/circle' "`cat svg_elements_circle.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/elements/clipPath' "`cat svg_elements_clipPath.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/elements/defs' "`cat svg_elements_defs.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/elements/desc' "`cat svg_elements_desc.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/elements/ellipse' "`cat svg_elements_ellipse.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/elements/etextContent' "`cat svg_elements_etextContent.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/elements/feBlend' "`cat svg_elements_feBlend.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/elements/feColorMatrix' "`cat svg_elements_feColorMatrix.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/elements/feComponentTransfer' "`cat svg_elements_feComponentTransfer.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/elements/feComposite' "`cat svg_elements_feComposite.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/elements/feConvolveMatrix' "`cat svg_elements_feConvolveMatrix.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/elements/feDiffuseLighting' "`cat svg_elements_feDiffuseLighting.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/elements/feDisplacementMap' "`cat svg_elements_feDisplacementMap.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/elements/feDistantLight' "`cat svg_elements_feDistantLight.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/elements/feFlood' "`cat svg_elements_feFlood.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/elements/feFuncA' "`cat svg_elements_feFuncA.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/elements/feFuncB' "`cat svg_elements_feFuncB.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/elements/feFuncG' "`cat svg_elements_feFuncG.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/elements/feFuncG' "`cat svg_elements_feFuncG.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/elements/feFuncR' "`cat svg_elements_feFuncR.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/elements/feGaussianBlur' "`cat svg_elements_feGaussianBlur.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/elements/feImage' "`cat svg_elements_feImage.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/elements/feMerge' "`cat svg_elements_feMerge.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/elements/feMergeNode' "`cat svg_elements_feMergeNode.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/elements/feMorphology' "`cat svg_elements_feMorphology.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/elements/feOffset' "`cat svg_elements_feOffset.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/elements/fePointLight' "`cat svg_elements_fePointLight.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/elements/feSpecularLighting' "`cat svg_elements_feSpecularLighting.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/elements/feSpotlight' "`cat svg_elements_feSpotlight.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/elements/feTile' "`cat svg_elements_feTile.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/elements/feTurbulence' "`cat svg_elements_feTurbulence.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/elements/filter' "`cat svg_elements_filter.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/elements/g' "`cat svg_elements_g.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/elements/gradient' "`cat svg_elements_gradient.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/elements/image' "`cat svg_elements_image.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/elements/line' "`cat svg_elements_line.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/elements/linearGradient' "`cat svg_elements_linearGradient.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/elements/marker' "`cat svg_elements_marker.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/elements/mask' "`cat svg_elements_mask.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/elements/metadata' "`cat svg_elements_metadata.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/elements/path' "`cat svg_elements_path.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/elements/patterrn' "`cat svg_elements_patterrn.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/elements/polygon' "`cat svg_elements_polygon.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/elements/polyline' "`cat svg_elements_polyline.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/elements/radialGradient' "`cat svg_elements_radialGradient.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/elements/rect' "`cat svg_elements_rect.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/elements/script' "`cat svg_elements_script.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/elements/stop' "`cat svg_elements_stop.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/elements/style' "`cat svg_elements_style.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/elements/svg' "`cat svg_elements_svg.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/elements/switch' "`cat svg_elements_switch.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/elements/symbol' "`cat svg_elements_symbol.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/elements/text' "`cat svg_elements_text.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/elements/textPath' "`cat svg_elements_textPath.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/elements/textPositioning' "`cat svg_elements_textPositioning.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/elements/title' "`cat svg_elements_title.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/elements/tspan' "`cat svg_elements_tspan.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/elements/use' "`cat svg_elements_use.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/elements/view' "`cat svg_elements_view.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/events/error' "`cat svg_events_error.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/events/load' "`cat svg_events_load.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/events/onabort' "`cat svg_events_onabort.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/events/onzoom' "`cat svg_events_onzoom.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/events/resize' "`cat svg_events_resize.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/events/scroll' "`cat svg_events_scroll.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/events/unload' "`cat svg_events_unload.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/addListener' "`cat svg_methods_addListener.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/animationsPaused' "`cat svg_methods_animationsPaused.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/appendItem' "`cat svg_methods_appendItem.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/checkEnclosure' "`cat svg_methods_checkEnclosure.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/checkIntersection' "`cat svg_methods_checkIntersection.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/clear' "`cat svg_methods_clear.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/consolidate' "`cat svg_methods_consolidate.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/convertToSpecifiedUnits' "`cat svg_methods_convertToSpecifiedUnits.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/create' "`cat svg_methods_create.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/createSVGAngle' "`cat svg_methods_createSVGAngle.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/createSVGLength' "`cat svg_methods_createSVGLength.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/createSVGMatrix' "`cat svg_methods_createSVGMatrix.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/createSVGNumber' "`cat svg_methods_createSVGNumber.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/createSVGPathSegArcAbs' "`cat svg_methods_createSVGPathSegArcAbs.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/createSVGPathSegArcRel' "`cat svg_methods_createSVGPathSegArcRel.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/createSVGPathSegClosePath' "`cat svg_methods_createSVGPathSegClosePath.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/createSVGPathSegCurvetoCubicAbs' "`cat svg_methods_createSVGPathSegCurvetoCubicAbs.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/createSVGPathSegCurvetoCubicRel' "`cat svg_methods_createSVGPathSegCurvetoCubicRel.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/createSVGPathSegCurvetoCubicSmoothAbs' "`cat svg_methods_createSVGPathSegCurvetoCubicSmoothAbs.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/createSVGPathSegCurvetoCubicSmoothRel' "`cat svg_methods_createSVGPathSegCurvetoCubicSmoothRel.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/createSVGPathSegCurvetoQuadraticAbs' "`cat svg_methods_createSVGPathSegCurvetoQuadraticAbs.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/createSVGPathSegCurvetoQuadraticRel' "`cat svg_methods_createSVGPathSegCurvetoQuadraticRel.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/createSVGPathSegCurvetoQuadraticSmoothAbs' "`cat svg_methods_createSVGPathSegCurvetoQuadraticSmoothAbs.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/createSVGPathSegCurvetoQuadraticSmoothRel' "`cat svg_methods_createSVGPathSegCurvetoQuadraticSmoothRel.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/createSVGPathSegLinetoAbs' "`cat svg_methods_createSVGPathSegLinetoAbs.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/createSVGPathSegLinetoHorizontalAbs' "`cat svg_methods_createSVGPathSegLinetoHorizontalAbs.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/createSVGPathSegLinetoHorizontalRel' "`cat svg_methods_createSVGPathSegLinetoHorizontalRel.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/createSVGPathSegLinetoRel' "`cat svg_methods_createSVGPathSegLinetoRel.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/createSVGPathSegLinetoVerticalAbs' "`cat svg_methods_createSVGPathSegLinetoVerticalAbs.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/createSVGPathSegLinetoVerticalRel' "`cat svg_methods_createSVGPathSegLinetoVerticalRel.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/createSVGPathSegMovetoAbs' "`cat svg_methods_createSVGPathSegMovetoAbs.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/createSVGPathSegMovetoRel' "`cat svg_methods_createSVGPathSegMovetoRel.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/createSVGPoint' "`cat svg_methods_createSVGPoint.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/createSVGRect' "`cat svg_methods_createSVGRect.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/createSVGTransform' "`cat svg_methods_createSVGTransform.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/createSVGTransformFromMatrix' "`cat svg_methods_createSVGTransformFromMatrix.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/deselectAll' "`cat svg_methods_deselectAll.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/dispatchEvent' "`cat svg_methods_dispatchEvent.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/flipX' "`cat svg_methods_flipX.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/flipY' "`cat svg_methods_flipY.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/forceRedraw' "`cat svg_methods_forceRedraw.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/getBBox' "`cat svg_methods_getBBox.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/getCTM' "`cat svg_methods_getCTM.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/getCharNumAtPosition' "`cat svg_methods_getCharNumAtPosition.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/getComputedStyle' "`cat svg_methods_getComputedStyle.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/getComputedTextLength' "`cat svg_methods_getComputedTextLength.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/getCurrentTime' "`cat svg_methods_getCurrentTime.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/getElementById' "`cat svg_methods_getElementById.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/getEnclosureList' "`cat svg_methods_getEnclosureList.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/getEndPositionOfChar' "`cat svg_methods_getEndPositionOfChar.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/getExtentOfChar' "`cat svg_methods_getExtentOfChar.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/getIntersectionList' "`cat svg_methods_getIntersectionList.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/getItem' "`cat svg_methods_getItem.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/getNumberOfChars' "`cat svg_methods_getNumberOfChars.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/getPathSegAtLength' "`cat svg_methods_getPathSegAtLength.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/getPointAtLength' "`cat svg_methods_getPointAtLength.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/getRotationOfChar' "`cat svg_methods_getRotationOfChar.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/getSVGDocument' "`cat svg_methods_getSVGDocument.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/getScreenCTM' "`cat svg_methods_getScreenCTM.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/getStartPositionOfChar' "`cat svg_methods_getStartPositionOfChar.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/getSubStringLength' "`cat svg_methods_getSubStringLength.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/getTotalLength' "`cat svg_methods_getTotalLength.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/getTransformToElement' "`cat svg_methods_getTransformToElement.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/hasExtension' "`cat svg_methods_hasExtension.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/initialize' "`cat svg_methods_initialize.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/insertItemBefore' "`cat svg_methods_insertItemBefore.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/inverse' "`cat svg_methods_inverse.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/item' "`cat svg_methods_item.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/matrixTransform' "`cat svg_methods_matrixTransform.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/multiply' "`cat svg_methods_multiply.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/newValueSpecifiedUnits' "`cat svg_methods_newValueSpecifiedUnits.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/pauseAnimations' "`cat svg_methods_pauseAnimations.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/removeItem' "`cat svg_methods_removeItem.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/removeListener' "`cat svg_methods_removeListener.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/replaceItem' "`cat svg_methods_replaceItem.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/rotate' "`cat svg_methods_rotate.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/rotateFromVector' "`cat svg_methods_rotateFromVector.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/scale' "`cat svg_methods_scale.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/scaleNonUniform' "`cat svg_methods_scaleNonUniform.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/selectSubString' "`cat svg_methods_selectSubString.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/setCurrentTime' "`cat svg_methods_setCurrentTime.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/setFilterRes' "`cat svg_methods_setFilterRes.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/setMatrix' "`cat svg_methods_setMatrix.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/setOrientToAngle' "`cat svg_methods_setOrientToAngle.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/setOrientToAuto' "`cat svg_methods_setOrientToAuto.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/setRotate' "`cat svg_methods_setRotate.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/setScale' "`cat svg_methods_setScale.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/setSkewX' "`cat svg_methods_setSkewX.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/setSkewY' "`cat svg_methods_setSkewY.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/setStdDeviation' "`cat svg_methods_setStdDeviation.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/setTranslate' "`cat svg_methods_setTranslate.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/skewX' "`cat svg_methods_skewX.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/skewY' "`cat svg_methods_skewY.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/suspendRedraw' "`cat svg_methods_suspendRedraw.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/toString' "`cat svg_methods_toString.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/translate' "`cat svg_methods_translate.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/unpauseAnimations' "`cat svg_methods_unpauseAnimations.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/unsuspendRedraw' "`cat svg_methods_unsuspendRedraw.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/unsuspendRedrawAll' "`cat svg_methods_unsuspendRedrawAll.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/objects/SVGAngle' "`cat svg_objects_SVGAngle.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/objects/SVGAnimatedAngle' "`cat svg_objects_SVGAnimatedAngle.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/objects/SVGAnimatedBoolean' "`cat svg_objects_SVGAnimatedBoolean.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/objects/SVGAnimatedEnumeration' "`cat svg_objects_SVGAnimatedEnumeration.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/objects/SVGAnimatedInteger' "`cat svg_objects_SVGAnimatedInteger.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/objects/SVGAnimatedLength' "`cat svg_objects_SVGAnimatedLength.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/objects/SVGAnimatedLengthList' "`cat svg_objects_SVGAnimatedLengthList.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/objects/SVGAnimatedNumber' "`cat svg_objects_SVGAnimatedNumber.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/objects/SVGAnimatedNumberList' "`cat svg_objects_SVGAnimatedNumberList.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/objects/SVGAnimatedPreserveAspectRatio' "`cat svg_objects_SVGAnimatedPreserveAspectRatio.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/objects/SVGAnimatedRect' "`cat svg_objects_SVGAnimatedRect.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/objects/SVGAnimatedString' "`cat svg_objects_SVGAnimatedString.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/objects/SVGAnimatedStringNS' "`cat svg_objects_SVGAnimatedStringNS.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/objects/SVGAnimatedTransformList' "`cat svg_objects_SVGAnimatedTransformList.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/objects/SVGComponentTransferFunctionElement' "`cat svg_objects_SVGComponentTransferFunctionElement.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/objects/SVGElement' "`cat svg_objects_SVGElement.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/objects/SVGElementInstance' "`cat svg_objects_SVGElementInstance.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/objects/SVGElementInstanceList' "`cat svg_objects_SVGElementInstanceList.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/objects/SVGException' "`cat svg_objects_SVGException.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/objects/SVGLength' "`cat svg_objects_SVGLength.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/objects/SVGLengthList' "`cat svg_objects_SVGLengthList.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/objects/SVGMatrix' "`cat svg_objects_SVGMatrix.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/objects/SVGNumber' "`cat svg_objects_SVGNumber.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/objects/SVGNumberList' "`cat svg_objects_SVGNumberList.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/objects/SVGPath' "`cat svg_objects_SVGPath.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/objects/SVGPathSeg' "`cat svg_objects_SVGPathSeg.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/objects/SVGPathSegArcAbs' "`cat svg_objects_SVGPathSegArcAbs.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/objects/SVGPathSegArcRel' "`cat svg_objects_SVGPathSegArcRel.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/objects/SVGPathSegClosePath' "`cat svg_objects_SVGPathSegClosePath.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/objects/SVGPathSegCurvetoCubicAbs' "`cat svg_objects_SVGPathSegCurvetoCubicAbs.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/objects/SVGPathSegCurvetoCubicRel' "`cat svg_objects_SVGPathSegCurvetoCubicRel.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/objects/SVGPathSegCurvetoCubicSmoothAbs' "`cat svg_objects_SVGPathSegCurvetoCubicSmoothAbs.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/objects/SVGPathSegCurvetoCubicSmoothRel' "`cat svg_objects_SVGPathSegCurvetoCubicSmoothRel.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/objects/SVGPathSegCurvetoQuadraticAbs' "`cat svg_objects_SVGPathSegCurvetoQuadraticAbs.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/objects/SVGPathSegCurvetoQuadraticRel' "`cat svg_objects_SVGPathSegCurvetoQuadraticRel.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/objects/SVGPathSegCurvetoQuadraticSmoothAbs' "`cat svg_objects_SVGPathSegCurvetoQuadraticSmoothAbs.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/objects/SVGPathSegCurvetoQuadraticSmoothRel' "`cat svg_objects_SVGPathSegCurvetoQuadraticSmoothRel.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/objects/SVGPathSegLinetoAbs' "`cat svg_objects_SVGPathSegLinetoAbs.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/objects/SVGPathSegLinetoHorizontalAbs' "`cat svg_objects_SVGPathSegLinetoHorizontalAbs.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/objects/SVGPathSegLinetoHorizontalRel' "`cat svg_objects_SVGPathSegLinetoHorizontalRel.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/objects/SVGPathSegLinetoRel' "`cat svg_objects_SVGPathSegLinetoRel.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/objects/SVGPathSegLinetoVerticalAbs' "`cat svg_objects_SVGPathSegLinetoVerticalAbs.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/objects/SVGPathSegLinetoVerticalRel' "`cat svg_objects_SVGPathSegLinetoVerticalRel.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/objects/SVGPathSegList' "`cat svg_objects_SVGPathSegList.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/objects/SVGPathSegMovetoAbs' "`cat svg_objects_SVGPathSegMovetoAbs.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/objects/SVGPathSegMovetoRel' "`cat svg_objects_SVGPathSegMovetoRel.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/objects/SVGPoint' "`cat svg_objects_SVGPoint.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/objects/SVGPointList' "`cat svg_objects_SVGPointList.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/objects/SVGPreserveAspectRatio' "`cat svg_objects_SVGPreserveAspectRatio.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/objects/SVGRect' "`cat svg_objects_SVGRect.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/objects/SVGStringList' "`cat svg_objects_SVGStringList.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/objects/SVGTransform' "`cat svg_objects_SVGTransform.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/objects/SVGTransformList' "`cat svg_objects_SVGTransformList.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/objects/SVGZoom' "`cat svg_objects_SVGZoom.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/objects/SVGZoomAndPan' "`cat svg_objects_SVGZoomAndPan.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/align' "`cat svg_properties_align.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/amplitude' "`cat svg_properties_amplitude.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/angle' "`cat svg_properties_angle.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/animVal_(SVGAnimatedAngle)' "`cat svg_properties_animVal_SVGAnimatedAngle.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/animVal_(SVGAnimatedBoolean)' "`cat svg_properties_animVal_SVGAnimatedBoolean.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/animVal_(SVGAnimatedEnumeration)' "`cat svg_properties_animVal_SVGAnimatedEnumeration.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/animVal_(SVGAnimatedInteger)' "`cat svg_properties_animVal_SVGAnimatedInteger.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/animVal_(SVGAnimatedLength)' "`cat svg_properties_animVal_SVGAnimatedLength.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/animVal_(SVGAnimatedLengthList)' "`cat svg_properties_animVal_SVGAnimatedLengthList.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/animVal_(SVGAnimatedNumber)' "`cat svg_properties_animVal_SVGAnimatedNumber.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/animVal_(SVGAnimatedNumberList)' "`cat svg_properties_animVal_SVGAnimatedNumberList.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/animVal_(SVGAnimatedPreserveAspectRatio)' "`cat svg_properties_animVal_SVGAnimatedPreserveAspectRatio.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/animVal_(SVGAnimatedRect)' "`cat svg_properties_animVal_SVGAnimatedRect.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/animVal_(SVGAnimatedString)' "`cat svg_properties_animVal_SVGAnimatedString.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/animVal_(SVGAnimatedTransformList)' "`cat svg_properties_animVal_SVGAnimatedTransformList.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/animatedInstanceRoot' "`cat svg_properties_animatedInstanceRoot.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/animatedNormalizedPathSegList' "`cat svg_properties_animatedNormalizedPathSegList.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/animatedPathSegList' "`cat svg_properties_animatedPathSegList.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/animatedPoints' "`cat svg_properties_animatedPoints.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/azimuth' "`cat svg_properties_azimuth.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/baseFrequencyX' "`cat svg_properties_baseFrequencyX.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/baseFrequencyY' "`cat svg_properties_baseFrequencyY.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/baseVal_(SVGAnimatedAngle)' "`cat svg_properties_baseVal_SVGAnimatedAngle.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/baseVal_(SVGAnimatedBoolean)' "`cat svg_properties_baseVal_SVGAnimatedBoolean.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/baseVal_(SVGAnimatedEnumeration)' "`cat svg_properties_baseVal_SVGAnimatedEnumeration.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/baseVal_(SVGAnimatedInteger)' "`cat svg_properties_baseVal_SVGAnimatedInteger.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/baseVal_(SVGAnimatedLength)' "`cat svg_properties_baseVal_SVGAnimatedLength.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/baseVal_(SVGAnimatedLengthList)' "`cat svg_properties_baseVal_SVGAnimatedLengthList.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/baseVal_(SVGAnimatedNumber)' "`cat svg_properties_baseVal_SVGAnimatedNumber.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/baseVal_(SVGAnimatedNumberList)' "`cat svg_properties_baseVal_SVGAnimatedNumberList.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/baseVal_(SVGAnimatedPreserveAspectRatio)' "`cat svg_properties_baseVal_SVGAnimatedPreserveAspectRatio.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/baseVal_(SVGAnimatedRect)' "`cat svg_properties_baseVal_SVGAnimatedRect.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/baseVal_(SVGAnimatedString)' "`cat svg_properties_baseVal_SVGAnimatedString.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/baseVal_(SVGAnimatedTransformList)' "`cat svg_properties_baseVal_SVGAnimatedTransformList.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/bias' "`cat svg_properties_bias.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/childNodes' "`cat svg_properties_childNodes.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/className' "`cat svg_properties_className.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/clipPath' "`cat svg_properties_clipPath.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/clipPathUnits' "`cat svg_properties_clipPathUnits.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/code' "`cat svg_properties_code.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/contentScriptType' "`cat svg_properties_contentScriptType.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/contentStyleType' "`cat svg_properties_contentStyleType.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/correspondingElement' "`cat svg_properties_correspondingElement.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/correspondingUseElement' "`cat svg_properties_correspondingUseElement.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/currentScale' "`cat svg_properties_currentScale.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/currentTranslate' "`cat svg_properties_currentTranslate.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/currentView' "`cat svg_properties_currentView.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/cx' "`cat svg_properties_cx.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/cx_(SVGRadialGradientElement)' "`cat svg_properties_cx_SVGRadialGradientElement.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/cy' "`cat svg_properties_cy.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/cy_(SVGRadialGradientElement)' "`cat svg_properties_cy_SVGRadialGradientElement.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/diffuseConstant' "`cat svg_properties_diffuseConstant.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/divisor' "`cat svg_properties_divisor.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/dx' "`cat svg_properties_dx.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/dy' "`cat svg_properties_dy.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/edgeMode' "`cat svg_properties_edgeMode.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/elevation' "`cat svg_properties_elevation.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/exponent' "`cat svg_properties_exponent.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/externalResourcesRequired' "`cat svg_properties_externalResourcesRequired.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/farthestViewportElement' "`cat svg_properties_farthestViewportElement.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/filter' "`cat svg_properties_filter.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/filterResX' "`cat svg_properties_filterResX.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/filterResY' "`cat svg_properties_filterResY.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/filterUnits' "`cat svg_properties_filterUnits.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/firstChild' "`cat svg_properties_firstChild.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/focusable' "`cat svg_properties_focusable.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/fx' "`cat svg_properties_fx.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/fy' "`cat svg_properties_fy.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/gradientTransform' "`cat svg_properties_gradientTransform.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/gradientUnits' "`cat svg_properties_gradientUnits.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/height' "`cat svg_properties_height.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/href' "`cat svg_properties_href.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/id' "`cat svg_properties_id.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/in1' "`cat svg_properties_in1.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/in2' "`cat svg_properties_in2.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/instanceRoot' "`cat svg_properties_instanceRoot.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/intercept' "`cat svg_properties_intercept.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/k1' "`cat svg_properties_k1.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/k2' "`cat svg_properties_k2.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/k3' "`cat svg_properties_k3.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/k4' "`cat svg_properties_k4.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/kernelMatrix' "`cat svg_properties_kernelMatrix.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/kernelUnitLengthX' "`cat svg_properties_kernelUnitLengthX.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/kernelUnitLengthY' "`cat svg_properties_kernelUnitLengthY.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/largeArcFlag' "`cat svg_properties_largeArcFlag.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/lastChild' "`cat svg_properties_lastChild.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/length' "`cat svg_properties_length.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/lengthAdjust' "`cat svg_properties_lengthAdjust.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/limitingConeAngle' "`cat svg_properties_limitingConeAngle.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/markerHeight' "`cat svg_properties_markerHeight.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/markerUnits' "`cat svg_properties_markerUnits.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/markerWidth' "`cat svg_properties_markerWidth.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/maskContentUnits' "`cat svg_properties_maskContentUnits.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/maskUnits' "`cat svg_properties_maskUnits.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/matrix' "`cat svg_properties_matrix.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/media' "`cat svg_properties_media.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/meetOrSlice' "`cat svg_properties_meetOrSlice.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/message' "`cat svg_properties_message.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/mode' "`cat svg_properties_mode.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/name' "`cat svg_properties_name.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/nearestViewportElement' "`cat svg_properties_nearestViewportElement.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/newScale' "`cat svg_properties_newScale.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/newTranslate' "`cat svg_properties_newTranslate.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/nextSibling' "`cat svg_properties_nextSibling.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/normalizedPathSegList' "`cat svg_properties_normalizedPathSegList.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/numOctaves' "`cat svg_properties_numOctaves.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/numberOfItems' "`cat svg_properties_numberOfItems.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/offset' "`cat svg_properties_offset.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/operator' "`cat svg_properties_operator.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/orderX' "`cat svg_properties_orderX.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/orderY' "`cat svg_properties_orderY.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/orientAngle' "`cat svg_properties_orientAngle.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/orientType' "`cat svg_properties_orientType.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/ownerSVGElement' "`cat svg_properties_ownerSVGElement.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/parentNode' "`cat svg_properties_parentNode.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/pathLength' "`cat svg_properties_pathLength.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/pathSegList' "`cat svg_properties_pathSegList.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/pathSegType' "`cat svg_properties_pathSegType.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/pathSegTypeAsLetter' "`cat svg_properties_pathSegTypeAsLetter.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/patternContentUnits' "`cat svg_properties_patternContentUnits.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/patternTransform' "`cat svg_properties_patternTransform.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/patternUnits' "`cat svg_properties_patternUnits.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/pixelUnitToMillimeterX' "`cat svg_properties_pixelUnitToMillimeterX.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/pixelUnitToMillimeterY' "`cat svg_properties_pixelUnitToMillimeterY.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/points' "`cat svg_properties_points.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/pointsAtX' "`cat svg_properties_pointsAtX.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/pointsAtY' "`cat svg_properties_pointsAtY.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/pointsAtZ' "`cat svg_properties_pointsAtZ.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/preserveAlpha' "`cat svg_properties_preserveAlpha.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/preserveAspectRatio' "`cat svg_properties_preserveAspectRatio.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/previousScale' "`cat svg_properties_previousScale.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/previousSibling' "`cat svg_properties_previousSibling.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/previousTranslate' "`cat svg_properties_previousTranslate.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/primitiveUnits' "`cat svg_properties_primitiveUnits.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/r' "`cat svg_properties_r.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/r1' "`cat svg_properties_r1.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/r2' "`cat svg_properties_r2.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/r_(SVGRadialGradientElement)' "`cat svg_properties_r_SVGRadialGradientElement.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/radiusX' "`cat svg_properties_radiusX.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/radiusY' "`cat svg_properties_radiusY.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/refX' "`cat svg_properties_refX.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/refY' "`cat svg_properties_refY.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/requiredExtensions' "`cat svg_properties_requiredExtensions.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/requiredFeatures' "`cat svg_properties_requiredFeatures.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/result' "`cat svg_properties_result.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/rootElement' "`cat svg_properties_rootElement.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/rotate' "`cat svg_properties_rotate.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/rx_(SVGEllipseElement)' "`cat svg_properties_rx_SVGEllipseElement.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/rx_(SVGRectElement)' "`cat svg_properties_rx_SVGRectElement.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/ry_(SVGEllipseElement)' "`cat svg_properties_ry_SVGEllipseElement.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/ry_(SVGRectElement)' "`cat svg_properties_ry_SVGRectElement.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/screenPixelToMillimeterX' "`cat svg_properties_screenPixelToMillimeterX.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/screenPixelToMillimeterY' "`cat svg_properties_screenPixelToMillimeterY.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/seed' "`cat svg_properties_seed.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/slope' "`cat svg_properties_slope.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/spacing' "`cat svg_properties_spacing.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/specularConstant' "`cat svg_properties_specularConstant.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/specularExponent' "`cat svg_properties_specularExponent.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/spread' "`cat svg_properties_spread.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/startOffset' "`cat svg_properties_startOffset.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/stdDeviationX' "`cat svg_properties_stdDeviationX.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/stdDeviationY' "`cat svg_properties_stdDeviationY.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/stitchTiles' "`cat svg_properties_stitchTiles.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/style' "`cat svg_properties_style.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/surfaceScale' "`cat svg_properties_surfaceScale.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/sweepFlag' "`cat svg_properties_sweepFlag.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/systemLanguage' "`cat svg_properties_systemLanguage.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/tableValues' "`cat svg_properties_tableValues.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/target' "`cat svg_properties_target.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/targetX' "`cat svg_properties_targetX.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/targetY' "`cat svg_properties_targetY.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/textLength' "`cat svg_properties_textLength.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/title' "`cat svg_properties_title.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/transform' "`cat svg_properties_transform.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/type_(SVGComponentTransferFunctionElement)' "`cat svg_properties_type_SVGComponentTransferFunctionElement.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/type_(SVGFEColorMatrixElement)' "`cat svg_properties_type_SVGFEColorMatrixElement.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/type_(SVGFETurbulenceElement)' "`cat svg_properties_type_SVGFETurbulenceElement.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/type_(SVGScriptElement)' "`cat svg_properties_type_SVGScriptElement.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/type_(SVGStyleElement)' "`cat svg_properties_type_SVGStyleElement.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/type_(SVGTransform)' "`cat svg_properties_type_SVGTransform.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/unitType' "`cat svg_properties_unitType.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/unitType_(SVGLength)' "`cat svg_properties_unitType_SVGLength.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/useCurrentView' "`cat svg_properties_useCurrentView.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/value' "`cat svg_properties_value.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/valueAsString' "`cat svg_properties_valueAsString.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/valueInSpecifiedUnits' "`cat svg_properties_valueInSpecifiedUnits.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/values' "`cat svg_properties_values.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/viewBox' "`cat svg_properties_viewBox.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/viewTarget' "`cat svg_properties_viewTarget.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/viewport' "`cat svg_properties_viewport.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/viewportElement' "`cat svg_properties_viewportElement.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/width' "`cat svg_properties_width.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/x' "`cat svg_properties_x.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/x1' "`cat svg_properties_x1.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/x1_(SVGLineElement)' "`cat svg_properties_x1_SVGLineElement.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/x1_(SVGLinearGradientElement)' "`cat svg_properties_x1_SVGLinearGradientElement.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/x2' "`cat svg_properties_x2.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/x2_(SVGLineElement)' "`cat svg_properties_x2_SVGLineElement.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/x2_(SVGLinearGradientElement)' "`cat svg_properties_x2_SVGLinearGradientElement.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/xChannelSelector' "`cat svg_properties_xChannelSelector.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/xmlbase' "`cat svg_properties_xmlbase.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/xmllang' "`cat svg_properties_xmllang.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/xmlspace' "`cat svg_properties_xmlspace.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/y' "`cat svg_properties_y.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/y1' "`cat svg_properties_y1.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/y1_(SVGLineElement)' "`cat svg_properties_y1_SVGLineElement.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/y1_(SVGLinearGradientElement)' "`cat svg_properties_y1_SVGLinearGradientElement.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/y2' "`cat svg_properties_y2.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/y2_(SVGLineElement)' "`cat svg_properties_y2_SVGLineElement.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/y2_(SVGLinearGradientElement)' "`cat svg_properties_y2_SVGLinearGradientElement.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/yChannelSelector' "`cat svg_properties_yChannelSelector.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/z' "`cat svg_properties_z.txt`" -u Sierra
+# /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/zoomAndPan' "`cat svg_properties_zoomAndPan.txt`" -u Sierra
 /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/elements/feColorMatrix' "`cat svg_elements_feColorMatrix.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/elements/feColorMatrix' "`cat svg_elements_feColorMatrix.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/elements/feComponentTransfer' "`cat svg_elements_feComponentTransfer.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/elements/feComposite' "`cat svg_elements_feComposite.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/elements/feConvolveMatrix' "`cat svg_elements_feConvolveMatrix.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/elements/feDiffuseLighting' "`cat svg_elements_feDiffuseLighting.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/elements/feDisplacementMap' "`cat svg_elements_feDisplacementMap.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/elements/feDistantLight' "`cat svg_elements_feDistantLight.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/elements/feFlood' "`cat svg_elements_feFlood.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/elements/feFuncA' "`cat svg_elements_feFuncA.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/elements/feFuncB' "`cat svg_elements_feFuncB.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/elements/feFuncG' "`cat svg_elements_feFuncG.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/elements/feFuncG' "`cat svg_elements_feFuncG.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/elements/feFuncR' "`cat svg_elements_feFuncR.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/elements/feGaussianBlur' "`cat svg_elements_feGaussianBlur.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/elements/feImage' "`cat svg_elements_feImage.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/elements/feMerge' "`cat svg_elements_feMerge.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/elements/feMergeNode' "`cat svg_elements_feMergeNode.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/elements/feMorphology' "`cat svg_elements_feMorphology.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/elements/feOffset' "`cat svg_elements_feOffset.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/elements/fePointLight' "`cat svg_elements_fePointLight.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/elements/feSpecularLighting' "`cat svg_elements_feSpecularLighting.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/elements/feSpotlight' "`cat svg_elements_feSpotlight.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/elements/feTile' "`cat svg_elements_feTile.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/elements/feTurbulence' "`cat svg_elements_feTurbulence.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/elements/filter' "`cat svg_elements_filter.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/elements/g' "`cat svg_elements_g.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/elements/gradient' "`cat svg_elements_gradient.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/elements/image' "`cat svg_elements_image.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/elements/line' "`cat svg_elements_line.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/elements/linearGradient' "`cat svg_elements_linearGradient.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/elements/marker' "`cat svg_elements_marker.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/elements/mask' "`cat svg_elements_mask.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/elements/metadata' "`cat svg_elements_metadata.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/elements/path' "`cat svg_elements_path.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/elements/patterrn' "`cat svg_elements_patterrn.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/elements/polygon' "`cat svg_elements_polygon.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/elements/polyline' "`cat svg_elements_polyline.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/elements/radialGradient' "`cat svg_elements_radialGradient.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/elements/rect' "`cat svg_elements_rect.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/elements/script' "`cat svg_elements_script.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/elements/stop' "`cat svg_elements_stop.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/elements/style' "`cat svg_elements_style.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/elements/svg' "`cat svg_elements_svg.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/elements/switch' "`cat svg_elements_switch.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/elements/symbol' "`cat svg_elements_symbol.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/elements/text' "`cat svg_elements_text.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/elements/textPath' "`cat svg_elements_textPath.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/elements/textPositioning' "`cat svg_elements_textPositioning.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/elements/title' "`cat svg_elements_title.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/elements/tspan' "`cat svg_elements_tspan.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/elements/use' "`cat svg_elements_use.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/elements/view' "`cat svg_elements_view.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/events/error' "`cat svg_events_error.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/events/load' "`cat svg_events_load.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/events/onabort' "`cat svg_events_onabort.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/events/onzoom' "`cat svg_events_onzoom.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/events/resize' "`cat svg_events_resize.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/events/scroll' "`cat svg_events_scroll.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/events/unload' "`cat svg_events_unload.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/addListener' "`cat svg_methods_addListener.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/animationsPaused' "`cat svg_methods_animationsPaused.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/appendItem' "`cat svg_methods_appendItem.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/checkEnclosure' "`cat svg_methods_checkEnclosure.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/checkIntersection' "`cat svg_methods_checkIntersection.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/clear' "`cat svg_methods_clear.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/consolidate' "`cat svg_methods_consolidate.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/convertToSpecifiedUnits' "`cat svg_methods_convertToSpecifiedUnits.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/create' "`cat svg_methods_create.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/createSVGAngle' "`cat svg_methods_createSVGAngle.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/createSVGLength' "`cat svg_methods_createSVGLength.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/createSVGMatrix' "`cat svg_methods_createSVGMatrix.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/createSVGNumber' "`cat svg_methods_createSVGNumber.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/createSVGPathSegArcAbs' "`cat svg_methods_createSVGPathSegArcAbs.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/createSVGPathSegArcRel' "`cat svg_methods_createSVGPathSegArcRel.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/createSVGPathSegClosePath' "`cat svg_methods_createSVGPathSegClosePath.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/createSVGPathSegCurvetoCubicAbs' "`cat svg_methods_createSVGPathSegCurvetoCubicAbs.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/createSVGPathSegCurvetoCubicRel' "`cat svg_methods_createSVGPathSegCurvetoCubicRel.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/createSVGPathSegCurvetoCubicSmoothAbs' "`cat svg_methods_createSVGPathSegCurvetoCubicSmoothAbs.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/createSVGPathSegCurvetoCubicSmoothRel' "`cat svg_methods_createSVGPathSegCurvetoCubicSmoothRel.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/createSVGPathSegCurvetoQuadraticAbs' "`cat svg_methods_createSVGPathSegCurvetoQuadraticAbs.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/createSVGPathSegCurvetoQuadraticRel' "`cat svg_methods_createSVGPathSegCurvetoQuadraticRel.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/createSVGPathSegCurvetoQuadraticSmoothAbs' "`cat svg_methods_createSVGPathSegCurvetoQuadraticSmoothAbs.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/createSVGPathSegCurvetoQuadraticSmoothRel' "`cat svg_methods_createSVGPathSegCurvetoQuadraticSmoothRel.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/createSVGPathSegLinetoAbs' "`cat svg_methods_createSVGPathSegLinetoAbs.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/createSVGPathSegLinetoHorizontalAbs' "`cat svg_methods_createSVGPathSegLinetoHorizontalAbs.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/createSVGPathSegLinetoHorizontalRel' "`cat svg_methods_createSVGPathSegLinetoHorizontalRel.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/createSVGPathSegLinetoRel' "`cat svg_methods_createSVGPathSegLinetoRel.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/createSVGPathSegLinetoVerticalAbs' "`cat svg_methods_createSVGPathSegLinetoVerticalAbs.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/createSVGPathSegLinetoVerticalRel' "`cat svg_methods_createSVGPathSegLinetoVerticalRel.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/createSVGPathSegMovetoAbs' "`cat svg_methods_createSVGPathSegMovetoAbs.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/createSVGPathSegMovetoRel' "`cat svg_methods_createSVGPathSegMovetoRel.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/createSVGPoint' "`cat svg_methods_createSVGPoint.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/createSVGRect' "`cat svg_methods_createSVGRect.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/createSVGTransform' "`cat svg_methods_createSVGTransform.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/createSVGTransformFromMatrix' "`cat svg_methods_createSVGTransformFromMatrix.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/deselectAll' "`cat svg_methods_deselectAll.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/dispatchEvent' "`cat svg_methods_dispatchEvent.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/flipX' "`cat svg_methods_flipX.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/flipY' "`cat svg_methods_flipY.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/forceRedraw' "`cat svg_methods_forceRedraw.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/getBBox' "`cat svg_methods_getBBox.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/getCTM' "`cat svg_methods_getCTM.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/getCharNumAtPosition' "`cat svg_methods_getCharNumAtPosition.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/getComputedStyle' "`cat svg_methods_getComputedStyle.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/getComputedTextLength' "`cat svg_methods_getComputedTextLength.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/getCurrentTime' "`cat svg_methods_getCurrentTime.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/getElementById' "`cat svg_methods_getElementById.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/getEnclosureList' "`cat svg_methods_getEnclosureList.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/getEndPositionOfChar' "`cat svg_methods_getEndPositionOfChar.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/getExtentOfChar' "`cat svg_methods_getExtentOfChar.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/getIntersectionList' "`cat svg_methods_getIntersectionList.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/getItem' "`cat svg_methods_getItem.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/getNumberOfChars' "`cat svg_methods_getNumberOfChars.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/getPathSegAtLength' "`cat svg_methods_getPathSegAtLength.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/getPointAtLength' "`cat svg_methods_getPointAtLength.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/getRotationOfChar' "`cat svg_methods_getRotationOfChar.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/getSVGDocument' "`cat svg_methods_getSVGDocument.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/getScreenCTM' "`cat svg_methods_getScreenCTM.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/getStartPositionOfChar' "`cat svg_methods_getStartPositionOfChar.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/getSubStringLength' "`cat svg_methods_getSubStringLength.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/getTotalLength' "`cat svg_methods_getTotalLength.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/getTransformToElement' "`cat svg_methods_getTransformToElement.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/hasExtension' "`cat svg_methods_hasExtension.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/initialize' "`cat svg_methods_initialize.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/insertItemBefore' "`cat svg_methods_insertItemBefore.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/inverse' "`cat svg_methods_inverse.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/item' "`cat svg_methods_item.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/matrixTransform' "`cat svg_methods_matrixTransform.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/multiply' "`cat svg_methods_multiply.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/newValueSpecifiedUnits' "`cat svg_methods_newValueSpecifiedUnits.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/pauseAnimations' "`cat svg_methods_pauseAnimations.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/removeItem' "`cat svg_methods_removeItem.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/removeListener' "`cat svg_methods_removeListener.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/replaceItem' "`cat svg_methods_replaceItem.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/rotate' "`cat svg_methods_rotate.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/rotateFromVector' "`cat svg_methods_rotateFromVector.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/scale' "`cat svg_methods_scale.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/scaleNonUniform' "`cat svg_methods_scaleNonUniform.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/selectSubString' "`cat svg_methods_selectSubString.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/setCurrentTime' "`cat svg_methods_setCurrentTime.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/setFilterRes' "`cat svg_methods_setFilterRes.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/setMatrix' "`cat svg_methods_setMatrix.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/setOrientToAngle' "`cat svg_methods_setOrientToAngle.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/setOrientToAuto' "`cat svg_methods_setOrientToAuto.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/setRotate' "`cat svg_methods_setRotate.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/setScale' "`cat svg_methods_setScale.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/setSkewX' "`cat svg_methods_setSkewX.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/setSkewY' "`cat svg_methods_setSkewY.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/setStdDeviation' "`cat svg_methods_setStdDeviation.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/setTranslate' "`cat svg_methods_setTranslate.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/skewX' "`cat svg_methods_skewX.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/skewY' "`cat svg_methods_skewY.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/suspendRedraw' "`cat svg_methods_suspendRedraw.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/toString' "`cat svg_methods_toString.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/translate' "`cat svg_methods_translate.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/unpauseAnimations' "`cat svg_methods_unpauseAnimations.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/unsuspendRedraw' "`cat svg_methods_unsuspendRedraw.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/methods/unsuspendRedrawAll' "`cat svg_methods_unsuspendRedrawAll.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/objects/SVGAngle' "`cat svg_objects_SVGAngle.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/objects/SVGAnimatedAngle' "`cat svg_objects_SVGAnimatedAngle.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/objects/SVGAnimatedBoolean' "`cat svg_objects_SVGAnimatedBoolean.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/objects/SVGAnimatedEnumeration' "`cat svg_objects_SVGAnimatedEnumeration.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/objects/SVGAnimatedInteger' "`cat svg_objects_SVGAnimatedInteger.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/objects/SVGAnimatedLength' "`cat svg_objects_SVGAnimatedLength.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/objects/SVGAnimatedLengthList' "`cat svg_objects_SVGAnimatedLengthList.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/objects/SVGAnimatedNumber' "`cat svg_objects_SVGAnimatedNumber.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/objects/SVGAnimatedNumberList' "`cat svg_objects_SVGAnimatedNumberList.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/objects/SVGAnimatedPreserveAspectRatio' "`cat svg_objects_SVGAnimatedPreserveAspectRatio.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/objects/SVGAnimatedRect' "`cat svg_objects_SVGAnimatedRect.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/objects/SVGAnimatedString' "`cat svg_objects_SVGAnimatedString.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/objects/SVGAnimatedStringNS' "`cat svg_objects_SVGAnimatedStringNS.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/objects/SVGAnimatedTransformList' "`cat svg_objects_SVGAnimatedTransformList.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/objects/SVGComponentTransferFunctionElement' "`cat svg_objects_SVGComponentTransferFunctionElement.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/objects/SVGElement' "`cat svg_objects_SVGElement.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/objects/SVGElementInstance' "`cat svg_objects_SVGElementInstance.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/objects/SVGElementInstanceList' "`cat svg_objects_SVGElementInstanceList.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/objects/SVGException' "`cat svg_objects_SVGException.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/objects/SVGLength' "`cat svg_objects_SVGLength.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/objects/SVGLengthList' "`cat svg_objects_SVGLengthList.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/objects/SVGMatrix' "`cat svg_objects_SVGMatrix.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/objects/SVGNumber' "`cat svg_objects_SVGNumber.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/objects/SVGNumberList' "`cat svg_objects_SVGNumberList.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/objects/SVGPath' "`cat svg_objects_SVGPath.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/objects/SVGPathSeg' "`cat svg_objects_SVGPathSeg.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/objects/SVGPathSegArcAbs' "`cat svg_objects_SVGPathSegArcAbs.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/objects/SVGPathSegArcRel' "`cat svg_objects_SVGPathSegArcRel.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/objects/SVGPathSegClosePath' "`cat svg_objects_SVGPathSegClosePath.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/objects/SVGPathSegCurvetoCubicAbs' "`cat svg_objects_SVGPathSegCurvetoCubicAbs.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/objects/SVGPathSegCurvetoCubicRel' "`cat svg_objects_SVGPathSegCurvetoCubicRel.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/objects/SVGPathSegCurvetoCubicSmoothAbs' "`cat svg_objects_SVGPathSegCurvetoCubicSmoothAbs.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/objects/SVGPathSegCurvetoCubicSmoothRel' "`cat svg_objects_SVGPathSegCurvetoCubicSmoothRel.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/objects/SVGPathSegCurvetoQuadraticAbs' "`cat svg_objects_SVGPathSegCurvetoQuadraticAbs.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/objects/SVGPathSegCurvetoQuadraticRel' "`cat svg_objects_SVGPathSegCurvetoQuadraticRel.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/objects/SVGPathSegCurvetoQuadraticSmoothAbs' "`cat svg_objects_SVGPathSegCurvetoQuadraticSmoothAbs.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/objects/SVGPathSegCurvetoQuadraticSmoothRel' "`cat svg_objects_SVGPathSegCurvetoQuadraticSmoothRel.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/objects/SVGPathSegLinetoAbs' "`cat svg_objects_SVGPathSegLinetoAbs.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/objects/SVGPathSegLinetoHorizontalAbs' "`cat svg_objects_SVGPathSegLinetoHorizontalAbs.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/objects/SVGPathSegLinetoHorizontalRel' "`cat svg_objects_SVGPathSegLinetoHorizontalRel.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/objects/SVGPathSegLinetoRel' "`cat svg_objects_SVGPathSegLinetoRel.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/objects/SVGPathSegLinetoVerticalAbs' "`cat svg_objects_SVGPathSegLinetoVerticalAbs.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/objects/SVGPathSegLinetoVerticalRel' "`cat svg_objects_SVGPathSegLinetoVerticalRel.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/objects/SVGPathSegList' "`cat svg_objects_SVGPathSegList.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/objects/SVGPathSegMovetoAbs' "`cat svg_objects_SVGPathSegMovetoAbs.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/objects/SVGPathSegMovetoRel' "`cat svg_objects_SVGPathSegMovetoRel.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/objects/SVGPoint' "`cat svg_objects_SVGPoint.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/objects/SVGPointList' "`cat svg_objects_SVGPointList.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/objects/SVGPreserveAspectRatio' "`cat svg_objects_SVGPreserveAspectRatio.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/objects/SVGRect' "`cat svg_objects_SVGRect.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/objects/SVGStringList' "`cat svg_objects_SVGStringList.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/objects/SVGTransform' "`cat svg_objects_SVGTransform.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/objects/SVGTransformList' "`cat svg_objects_SVGTransformList.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/objects/SVGZoom' "`cat svg_objects_SVGZoom.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/objects/SVGZoomAndPan' "`cat svg_objects_SVGZoomAndPan.txt`" -u Sierra
 /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/a' "`cat svg_properties_a.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/align' "`cat svg_properties_align.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/amplitude' "`cat svg_properties_amplitude.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/angle' "`cat svg_properties_angle.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/animVal_(SVGAnimatedAngle)' "`cat svg_properties_animVal_SVGAnimatedAngle.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/animVal_(SVGAnimatedBoolean)' "`cat svg_properties_animVal_SVGAnimatedBoolean.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/animVal_(SVGAnimatedEnumeration)' "`cat svg_properties_animVal_SVGAnimatedEnumeration.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/animVal_(SVGAnimatedInteger)' "`cat svg_properties_animVal_SVGAnimatedInteger.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/animVal_(SVGAnimatedLength)' "`cat svg_properties_animVal_SVGAnimatedLength.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/animVal_(SVGAnimatedLengthList)' "`cat svg_properties_animVal_SVGAnimatedLengthList.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/animVal_(SVGAnimatedNumber)' "`cat svg_properties_animVal_SVGAnimatedNumber.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/animVal_(SVGAnimatedNumberList)' "`cat svg_properties_animVal_SVGAnimatedNumberList.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/animVal_(SVGAnimatedPreserveAspectRatio)' "`cat svg_properties_animVal_SVGAnimatedPreserveAspectRatio.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/animVal_(SVGAnimatedRect)' "`cat svg_properties_animVal_SVGAnimatedRect.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/animVal_(SVGAnimatedString)' "`cat svg_properties_animVal_SVGAnimatedString.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/animVal_(SVGAnimatedTransformList)' "`cat svg_properties_animVal_SVGAnimatedTransformList.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/animatedInstanceRoot' "`cat svg_properties_animatedInstanceRoot.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/animatedNormalizedPathSegList' "`cat svg_properties_animatedNormalizedPathSegList.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/animatedPathSegList' "`cat svg_properties_animatedPathSegList.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/animatedPoints' "`cat svg_properties_animatedPoints.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/azimuth' "`cat svg_properties_azimuth.txt`" -u Sierra
 /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/b' "`cat svg_properties_b.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/baseFrequencyX' "`cat svg_properties_baseFrequencyX.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/baseFrequencyY' "`cat svg_properties_baseFrequencyY.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/baseVal_(SVGAnimatedAngle)' "`cat svg_properties_baseVal_SVGAnimatedAngle.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/baseVal_(SVGAnimatedBoolean)' "`cat svg_properties_baseVal_SVGAnimatedBoolean.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/baseVal_(SVGAnimatedEnumeration)' "`cat svg_properties_baseVal_SVGAnimatedEnumeration.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/baseVal_(SVGAnimatedInteger)' "`cat svg_properties_baseVal_SVGAnimatedInteger.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/baseVal_(SVGAnimatedLength)' "`cat svg_properties_baseVal_SVGAnimatedLength.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/baseVal_(SVGAnimatedLengthList)' "`cat svg_properties_baseVal_SVGAnimatedLengthList.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/baseVal_(SVGAnimatedNumber)' "`cat svg_properties_baseVal_SVGAnimatedNumber.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/baseVal_(SVGAnimatedNumberList)' "`cat svg_properties_baseVal_SVGAnimatedNumberList.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/baseVal_(SVGAnimatedPreserveAspectRatio)' "`cat svg_properties_baseVal_SVGAnimatedPreserveAspectRatio.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/baseVal_(SVGAnimatedRect)' "`cat svg_properties_baseVal_SVGAnimatedRect.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/baseVal_(SVGAnimatedString)' "`cat svg_properties_baseVal_SVGAnimatedString.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/baseVal_(SVGAnimatedTransformList)' "`cat svg_properties_baseVal_SVGAnimatedTransformList.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/bias' "`cat svg_properties_bias.txt`" -u Sierra
 /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/c' "`cat svg_properties_c.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/childNodes' "`cat svg_properties_childNodes.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/className' "`cat svg_properties_className.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/clipPath' "`cat svg_properties_clipPath.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/clipPathUnits' "`cat svg_properties_clipPathUnits.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/code' "`cat svg_properties_code.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/contentScriptType' "`cat svg_properties_contentScriptType.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/contentStyleType' "`cat svg_properties_contentStyleType.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/correspondingElement' "`cat svg_properties_correspondingElement.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/correspondingUseElement' "`cat svg_properties_correspondingUseElement.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/currentScale' "`cat svg_properties_currentScale.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/currentTranslate' "`cat svg_properties_currentTranslate.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/currentView' "`cat svg_properties_currentView.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/cx' "`cat svg_properties_cx.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/cx_(SVGRadialGradientElement)' "`cat svg_properties_cx_SVGRadialGradientElement.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/cy' "`cat svg_properties_cy.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/cy_(SVGRadialGradientElement)' "`cat svg_properties_cy_SVGRadialGradientElement.txt`" -u Sierra
 /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/d' "`cat svg_properties_d.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/diffuseConstant' "`cat svg_properties_diffuseConstant.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/divisor' "`cat svg_properties_divisor.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/dx' "`cat svg_properties_dx.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/dy' "`cat svg_properties_dy.txt`" -u Sierra
 /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/e' "`cat svg_properties_e.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/edgeMode' "`cat svg_properties_edgeMode.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/elevation' "`cat svg_properties_elevation.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/exponent' "`cat svg_properties_exponent.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/externalResourcesRequired' "`cat svg_properties_externalResourcesRequired.txt`" -u Sierra
 /Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/f' "`cat svg_properties_f.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/farthestViewportElement' "`cat svg_properties_farthestViewportElement.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/filter' "`cat svg_properties_filter.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/filterResX' "`cat svg_properties_filterResX.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/filterResY' "`cat svg_properties_filterResY.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/filterUnits' "`cat svg_properties_filterUnits.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/firstChild' "`cat svg_properties_firstChild.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/focusable' "`cat svg_properties_focusable.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/fx' "`cat svg_properties_fx.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/fy' "`cat svg_properties_fy.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/gradientTransform' "`cat svg_properties_gradientTransform.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/gradientUnits' "`cat svg_properties_gradientUnits.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/height' "`cat svg_properties_height.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/href' "`cat svg_properties_href.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/id' "`cat svg_properties_id.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/in1' "`cat svg_properties_in1.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/in2' "`cat svg_properties_in2.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/instanceRoot' "`cat svg_properties_instanceRoot.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/intercept' "`cat svg_properties_intercept.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/k1' "`cat svg_properties_k1.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/k2' "`cat svg_properties_k2.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/k3' "`cat svg_properties_k3.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/k4' "`cat svg_properties_k4.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/kernelMatrix' "`cat svg_properties_kernelMatrix.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/kernelUnitLengthX' "`cat svg_properties_kernelUnitLengthX.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/kernelUnitLengthY' "`cat svg_properties_kernelUnitLengthY.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/largeArcFlag' "`cat svg_properties_largeArcFlag.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/lastChild' "`cat svg_properties_lastChild.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/length' "`cat svg_properties_length.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/lengthAdjust' "`cat svg_properties_lengthAdjust.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/limitingConeAngle' "`cat svg_properties_limitingConeAngle.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/markerHeight' "`cat svg_properties_markerHeight.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/markerUnits' "`cat svg_properties_markerUnits.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/markerWidth' "`cat svg_properties_markerWidth.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/maskContentUnits' "`cat svg_properties_maskContentUnits.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/maskUnits' "`cat svg_properties_maskUnits.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/matrix' "`cat svg_properties_matrix.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/media' "`cat svg_properties_media.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/meetOrSlice' "`cat svg_properties_meetOrSlice.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/message' "`cat svg_properties_message.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/mode' "`cat svg_properties_mode.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/name' "`cat svg_properties_name.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/nearestViewportElement' "`cat svg_properties_nearestViewportElement.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/newScale' "`cat svg_properties_newScale.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/newTranslate' "`cat svg_properties_newTranslate.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/nextSibling' "`cat svg_properties_nextSibling.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/normalizedPathSegList' "`cat svg_properties_normalizedPathSegList.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/numOctaves' "`cat svg_properties_numOctaves.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/numberOfItems' "`cat svg_properties_numberOfItems.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/offset' "`cat svg_properties_offset.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/operator' "`cat svg_properties_operator.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/orderX' "`cat svg_properties_orderX.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/orderY' "`cat svg_properties_orderY.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/orientAngle' "`cat svg_properties_orientAngle.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/orientType' "`cat svg_properties_orientType.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/ownerSVGElement' "`cat svg_properties_ownerSVGElement.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/parentNode' "`cat svg_properties_parentNode.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/pathLength' "`cat svg_properties_pathLength.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/pathSegList' "`cat svg_properties_pathSegList.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/pathSegType' "`cat svg_properties_pathSegType.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/pathSegTypeAsLetter' "`cat svg_properties_pathSegTypeAsLetter.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/patternContentUnits' "`cat svg_properties_patternContentUnits.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/patternTransform' "`cat svg_properties_patternTransform.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/patternUnits' "`cat svg_properties_patternUnits.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/pixelUnitToMillimeterX' "`cat svg_properties_pixelUnitToMillimeterX.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/pixelUnitToMillimeterY' "`cat svg_properties_pixelUnitToMillimeterY.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/points' "`cat svg_properties_points.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/pointsAtX' "`cat svg_properties_pointsAtX.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/pointsAtY' "`cat svg_properties_pointsAtY.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/pointsAtZ' "`cat svg_properties_pointsAtZ.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/preserveAlpha' "`cat svg_properties_preserveAlpha.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/preserveAspectRatio' "`cat svg_properties_preserveAspectRatio.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/previousScale' "`cat svg_properties_previousScale.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/previousSibling' "`cat svg_properties_previousSibling.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/previousTranslate' "`cat svg_properties_previousTranslate.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/primitiveUnits' "`cat svg_properties_primitiveUnits.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/r' "`cat svg_properties_r.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/r1' "`cat svg_properties_r1.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/r2' "`cat svg_properties_r2.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/r_(SVGRadialGradientElement)' "`cat svg_properties_r_SVGRadialGradientElement.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/radiusX' "`cat svg_properties_radiusX.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/radiusY' "`cat svg_properties_radiusY.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/refX' "`cat svg_properties_refX.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/refY' "`cat svg_properties_refY.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/requiredExtensions' "`cat svg_properties_requiredExtensions.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/requiredFeatures' "`cat svg_properties_requiredFeatures.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/result' "`cat svg_properties_result.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/rootElement' "`cat svg_properties_rootElement.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/rotate' "`cat svg_properties_rotate.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/rx_(SVGEllipseElement)' "`cat svg_properties_rx_SVGEllipseElement.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/rx_(SVGRectElement)' "`cat svg_properties_rx_SVGRectElement.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/ry_(SVGEllipseElement)' "`cat svg_properties_ry_SVGEllipseElement.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/ry_(SVGRectElement)' "`cat svg_properties_ry_SVGRectElement.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/screenPixelToMillimeterX' "`cat svg_properties_screenPixelToMillimeterX.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/screenPixelToMillimeterY' "`cat svg_properties_screenPixelToMillimeterY.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/seed' "`cat svg_properties_seed.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/slope' "`cat svg_properties_slope.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/spacing' "`cat svg_properties_spacing.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/specularConstant' "`cat svg_properties_specularConstant.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/specularExponent' "`cat svg_properties_specularExponent.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/spread' "`cat svg_properties_spread.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/startOffset' "`cat svg_properties_startOffset.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/stdDeviationX' "`cat svg_properties_stdDeviationX.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/stdDeviationY' "`cat svg_properties_stdDeviationY.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/stitchTiles' "`cat svg_properties_stitchTiles.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/style' "`cat svg_properties_style.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/surfaceScale' "`cat svg_properties_surfaceScale.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/sweepFlag' "`cat svg_properties_sweepFlag.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/systemLanguage' "`cat svg_properties_systemLanguage.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/tableValues' "`cat svg_properties_tableValues.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/target' "`cat svg_properties_target.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/targetX' "`cat svg_properties_targetX.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/targetY' "`cat svg_properties_targetY.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/textLength' "`cat svg_properties_textLength.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/title' "`cat svg_properties_title.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/transform' "`cat svg_properties_transform.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/type_(SVGComponentTransferFunctionElement)' "`cat svg_properties_type_SVGComponentTransferFunctionElement.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/type_(SVGFEColorMatrixElement)' "`cat svg_properties_type_SVGFEColorMatrixElement.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/type_(SVGFETurbulenceElement)' "`cat svg_properties_type_SVGFETurbulenceElement.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/type_(SVGScriptElement)' "`cat svg_properties_type_SVGScriptElement.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/type_(SVGStyleElement)' "`cat svg_properties_type_SVGStyleElement.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/type_(SVGTransform)' "`cat svg_properties_type_SVGTransform.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/unitType' "`cat svg_properties_unitType.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/unitType_(SVGLength)' "`cat svg_properties_unitType_SVGLength.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/useCurrentView' "`cat svg_properties_useCurrentView.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/value' "`cat svg_properties_value.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/valueAsString' "`cat svg_properties_valueAsString.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/valueInSpecifiedUnits' "`cat svg_properties_valueInSpecifiedUnits.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/values' "`cat svg_properties_values.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/viewBox' "`cat svg_properties_viewBox.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/viewTarget' "`cat svg_properties_viewTarget.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/viewport' "`cat svg_properties_viewport.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/viewportElement' "`cat svg_properties_viewportElement.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/width' "`cat svg_properties_width.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/x' "`cat svg_properties_x.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/x1' "`cat svg_properties_x1.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/x1_(SVGLineElement)' "`cat svg_properties_x1_SVGLineElement.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/x1_(SVGLinearGradientElement)' "`cat svg_properties_x1_SVGLinearGradientElement.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/x2' "`cat svg_properties_x2.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/x2_(SVGLineElement)' "`cat svg_properties_x2_SVGLineElement.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/x2_(SVGLinearGradientElement)' "`cat svg_properties_x2_SVGLinearGradientElement.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/xChannelSelector' "`cat svg_properties_xChannelSelector.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/xmlbase' "`cat svg_properties_xmlbase.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/xmllang' "`cat svg_properties_xmllang.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/xmlspace' "`cat svg_properties_xmlspace.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/y' "`cat svg_properties_y.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/y1' "`cat svg_properties_y1.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/y1_(SVGLineElement)' "`cat svg_properties_y1_SVGLineElement.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/y1_(SVGLinearGradientElement)' "`cat svg_properties_y1_SVGLinearGradientElement.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/y2' "`cat svg_properties_y2.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/y2_(SVGLineElement)' "`cat svg_properties_y2_SVGLineElement.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/y2_(SVGLinearGradientElement)' "`cat svg_properties_y2_SVGLinearGradientElement.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/yChannelSelector' "`cat svg_properties_yChannelSelector.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/z' "`cat svg_properties_z.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/properties/zoomAndPan' "`cat svg_properties_zoomAndPan.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit 'svg/elements/circle' "`cat svg_elements_circle.txt`" -u Sierra
