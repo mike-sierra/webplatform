@@ -4,23 +4,28 @@
 }}
 {{Standardization_Status|}}
 {{API_Name}}
+{{Topics|SVG}}
 {{Notes_Section
 |Import_Notes=
-===Syntax===
-===Standards information===
-*[http://go.microsoft.com/fwlink/p/?linkid{{=}}204732 Scalable Vector Graphics: Basic Data Types and Interfaces], Section 4
 
+===Syntax===
+
+===Standards information===
+
+*[http://go.microsoft.com/fwlink/p/?linkid{{=}}204732 Scalable Vector Graphics: Basic Data Types and Interfaces], Section 4
 
 }}
 {{See_Also_Section
 |Manual_sections=
+
 ===Related pages (MSDN)===
-*&lt;code>[[svg/objects/SVGLengthList|SVGLengthList]]&lt;/code>
-*&lt;code>[[svg/objects/SVGNumberList|SVGNumberList]]&lt;/code>
-*&lt;code>[[svg/objects/SVGPathSegList|SVGPathSegList]]&lt;/code>
-*&lt;code>[[svg/objects/SVGPointList|SVGPointList]]&lt;/code>
-*&lt;code>[[svg/objects/SVGStringList|SVGStringList]]&lt;/code>
-*&lt;code>[[svg/objects/SVGTransformList|SVGTransformList]]&lt;/code>
+
+*[[svg/objects/SVGLengthList|'''SVGLengthList''']]
+*[[svg/objects/SVGNumberList|'''SVGNumberList''']]
+*[[svg/objects/SVGPathSegList|'''SVGPathSegList''']]
+*[[svg/objects/SVGPointList|'''SVGPointList''']]
+*[[svg/objects/SVGStringList|'''SVGStringList''']]
+*[[svg/objects/SVGTransformList|'''SVGTransformList''']]
 }}
 {{External_Attribution
 |Is_CC-BY-SA=No

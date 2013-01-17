@@ -10,24 +10,31 @@
 {{Topics|SVG}}
 {{Notes_Section
 |Notes=
+
 ===Remarks===
+
 Each text element has an initial current text position, defined as a point in the user coordinate system.
 |Import_Notes=
-===Syntax===
-&lt;code>'''text-anchor: '''start '''{{!}}''' middle '''{{!}}''' end '''{{!}}''' inherit&lt;/code>
-===Standards information===
-*[http://go.microsoft.com/fwlink/p/?linkid{{=}}199818 Scalable Vector Graphics: Text], Section 10.9.1
 
+===Syntax===
+
+ '''text-anchor: '''start '''{{!}}''' middle '''{{!}}''' end '''{{!}}''' inherit
+
+===Standards information===
+
+*[http://go.microsoft.com/fwlink/p/?linkid{{=}}199818 Scalable Vector Graphics: Text], Section 10.9.1
 
 }}
 {{See_Also_Section
 |Manual_sections=
+
 ===Related pages (MSDN)===
-*&lt;code>[[css/cssom/CSSStyleDeclaration/CSSStyleDeclaration|CSSStyleDeclaration]]&lt;/code>
-*&lt;code>[[svg/elements/text|SVGTextElement]]&lt;/code>
-*&lt;code>[[svg/elements/textPath|SVGTextPathElement]]&lt;/code>
-*&lt;code>[[svg/elements/textPositioning|SVGTextPositioningElement]]&lt;/code>
-*&lt;code>[[svg/elements/tspan|SVGTSpanElement]]&lt;/code>
+
+*[[css/cssom/CSSStyleDeclaration/CSSStyleDeclaration|'''CSSStyleDeclaration''']]
+*[[svg/elements/text|'''SVGTextElement''']]
+*[[svg/elements/textPath|'''SVGTextPathElement''']]
+*[[svg/elements/textPositioning|'''SVGTextPositioningElement''']]
+*[[svg/elements/tspan|'''SVGTSpanElement''']]
 }}
 {{External_Attribution
 |Is_CC-BY-SA=No

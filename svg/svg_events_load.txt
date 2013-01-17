@@ -17,54 +17,61 @@
 {{Topics|Events}}
 {{Notes_Section
 |Notes=
+
 ===Remarks===
+
 The '''onload'''  event  occurs  when the browser has fully parsed the element and its descendants and is ready to act appropriately on that element, such as rendering  the element to the target device. Before the event occurs, the browser must have loaded, parsed, and prepared referenced external resources  for  rendering. Optional external resources are not required to be ready for the event to occur.
+
 The object  that  the event is specified for is loaded.
 To invoke this event, do one of the following:
 *A user opens a page in the browser to  fire  this event for the document or any object within it.
-
 |Import_Notes=
+
 ===Syntax===
+
 ===Standards information===
+
 *[http://go.microsoft.com/fwlink/p/?linkid{{=}}204745 Scalable Vector Graphics: Scripting], Section 18.4.2
 
-
 ===Event handler parameters===
-;''pEvt'' [in]:Type: '''&lt;b>IDOMUIEvent'''&lt;/b>The [[dom/objects/Event|'''IDOMEvent''']] object.
+
+;''pEvt'' [in]:Type: '''IDOMUIEvent'''The [[dom/objects/Event|'''IDOMEvent''']] object.
 
 }}
 {{See_Also_Section
 |Manual_sections=
+
 ===Related pages (MSDN)===
-*&lt;code>[[svg/elements/a|SVGAElement]]&lt;/code>
-*&lt;code>[[svg/elements/circle|SVGCircleElement]]&lt;/code>
-*&lt;code>[[svg/elements/clipPath|SVGClipPathElement]]&lt;/code>
-*&lt;code>[[svg/elements/defs|SVGDefsElement]]&lt;/code>
-*&lt;code>[[svg/elements/desc|SVGDescElement]]&lt;/code>
-*&lt;code>[[svg/elements/ellipse|SVGEllipseElement]]&lt;/code>
-*&lt;code>[[svg/elements/g|SVGGElement]]&lt;/code>
-*&lt;code>[[svg/elements/gradient|SVGGradientElement]]&lt;/code>
-*&lt;code>[[svg/elements/image|SVGImageElement]]&lt;/code>
-*&lt;code>[[svg/elements/line|SVGLineElement]]&lt;/code>
-*&lt;code>[[svg/elements/marker|SVGMarkerElement]]&lt;/code>
-*&lt;code>[[svg/elements/mask|SVGMaskElement]]&lt;/code>
-*&lt;code>[[svg/elements/metadata|SVGMetadataElement]]&lt;/code>
-*&lt;code>[[svg/elements/path|SVGPathElement]]&lt;/code>
-*&lt;code>[[svg/elements/patterrn|SVGPatternElement]]&lt;/code>
-*&lt;code>[[svg/elements/polygon|SVGPolygonElement]]&lt;/code>
-*&lt;code>[[svg/elements/polyline|SVGPolylineElement]]&lt;/code>
-*&lt;code>[[svg/elements/rect|SVGRectElement]]&lt;/code>
-*&lt;code>[[svg/elements/script|SVGScriptElement]]&lt;/code>
-*&lt;code>[[svg/elements/stop|SVGStopElement]]&lt;/code>
-*&lt;code>[[svg/elements/style|SVGStyleElement]]&lt;/code>
-*&lt;code>[[svg/elements/svg|SVGSVGElement]]&lt;/code>
-*&lt;code>[[svg/elements/switch|SVGSwitchElement]]&lt;/code>
-*&lt;code>[[svg/elements/symbol|SVGSymbolElement]]&lt;/code>
-*&lt;code>[[svg/elements/text|SVGTextElement]]&lt;/code>
-*&lt;code>[[svg/elements/tspan|SVGTSpanElement]]&lt;/code>
-*&lt;code>[[svg/elements/textPath|SVGTextPathElement]]&lt;/code>
-*&lt;code>[[svg/elements/use|SVGUseElement]]&lt;/code>
-*&lt;code>[[svg/elements/view|SVGViewElement]]&lt;/code>
+
+*[[svg/elements/a|'''SVGAElement''']]
+*[[svg/elements/circle|'''SVGCircleElement''']]
+*[[svg/elements/clipPath|'''SVGClipPathElement''']]
+*[[svg/elements/defs|'''SVGDefsElement''']]
+*[[svg/elements/desc|'''SVGDescElement''']]
+*[[svg/elements/ellipse|'''SVGEllipseElement''']]
+*[[svg/elements/g|'''SVGGElement''']]
+*[[svg/elements/gradient|'''SVGGradientElement''']]
+*[[svg/elements/image|'''SVGImageElement''']]
+*[[svg/elements/line|'''SVGLineElement''']]
+*[[svg/elements/marker|'''SVGMarkerElement''']]
+*[[svg/elements/mask|'''SVGMaskElement''']]
+*[[svg/elements/metadata|'''SVGMetadataElement''']]
+*[[svg/elements/path|'''SVGPathElement''']]
+*[[svg/elements/patterrn|'''SVGPatternElement''']]
+*[[svg/elements/polygon|'''SVGPolygonElement''']]
+*[[svg/elements/polyline|'''SVGPolylineElement''']]
+*[[svg/elements/rect|'''SVGRectElement''']]
+*[[svg/elements/script|'''SVGScriptElement''']]
+*[[svg/elements/stop|'''SVGStopElement''']]
+*[[svg/elements/style|'''SVGStyleElement''']]
+*[[svg/elements/svg|'''SVGSVGElement''']]
+*[[svg/elements/switch|'''SVGSwitchElement''']]
+*[[svg/elements/symbol|'''SVGSymbolElement''']]
+*[[svg/elements/text|'''SVGTextElement''']]
+*[[svg/elements/tspan|'''SVGTSpanElement''']]
+*[[svg/elements/textPath|'''SVGTextPathElement''']]
+*[[svg/elements/use|'''SVGUseElement''']]
+*[[svg/elements/view|'''SVGViewElement''']]
 }}
 {{External_Attribution
 |Is_CC-BY-SA=No

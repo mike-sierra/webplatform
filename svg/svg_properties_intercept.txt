@@ -4,23 +4,28 @@
 }}
 {{Standardization_Status|}}
 {{API_Name}}
+{{Topics|SVG}}
 {{Notes_Section
 |Import_Notes=
-===Syntax===
-===Standards information===
-*[http://go.microsoft.com/fwlink/p/?linkid{{=}}226062 Scalable Vector Graphics: Filter Effects], Section 15.25.7
 
+===Syntax===
+
+===Standards information===
+
+*[http://go.microsoft.com/fwlink/p/?linkid{{=}}226062 Scalable Vector Graphics: Filter Effects], Section 15.25.7
 
 }}
 {{See_Also_Section
 |Manual_sections=
+
 ===Related pages (MSDN)===
-*&lt;code>[[svg/objects/SVGComponentTransferFunctionElement|SVGComponentTransferFunctionElement]]&lt;/code>
-*&lt;code>[[svg/elements/feFuncGelement|SVGFEFuncGElement]]&lt;/code>
-*&lt;code>[[svg/elements/feFuncB|SVGFEFuncBElement]]&lt;/code>
-*&lt;code>[[svg/elements/feFuncA|SVGFEFuncAElement]]&lt;/code>
-*&lt;code>[[svg/elements/feComponentTransfer|feComponentTransferelement]]&lt;/code>
-*&lt;code>[[svg/elements/feFuncR|SVGFEFuncRElement]]&lt;/code>
+
+*[[svg/objects/SVGComponentTransferFunctionElement|'''SVGComponentTransferFunctionElement''']]
+*[[svg/elements/feFuncGelement|'''SVGFEFuncGElement''']]
+*[[svg/elements/feFuncB|'''SVGFEFuncBElement''']]
+*[[svg/elements/feFuncA|'''SVGFEFuncAElement''']]
+*[[svg/elements/feComponentTransfer|'''feComponentTransferelement''']]
+*[[svg/elements/feFuncR|'''SVGFEFuncRElement''']]
 }}
 {{External_Attribution
 |Is_CC-BY-SA=No

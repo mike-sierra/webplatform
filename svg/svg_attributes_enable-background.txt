@@ -10,28 +10,33 @@
 {{Topics|SVG}}
 {{Notes_Section
 |Notes=
-===Remarks===
-The optional &amp;lt;x&amp;gt;,&amp;lt;y&amp;gt;,&amp;lt;width&amp;gt;,&amp;lt;height&amp;gt; parameters on the new value are numeric values that indicate the subregion of the container element's user space where access to the background image is allowed to happen. These parameters enable the SVG user agent potentially to allocate smaller temporary image buffers than the default values.
-|Import_Notes=
-===Syntax===
-&lt;code>'''enable-background: '''accumulate '''{{!}}''' new '''[''' ''
-&amp;lt;x&amp;gt;
-'' ''
-&amp;lt;y&amp;gt;
-'' ''
-&amp;lt;width&amp;gt;
-'' ''
-&amp;lt;height&amp;gt;
-'' ''']''''''?''' '''{{!}}''' inherit&lt;/code>
-===Standards information===
-*[http://go.microsoft.com/fwlink/p/?linkid{{=}}226062 Scalable Vector Graphics: Filter Effects], Section 15.6
 
+===Remarks===
+
+The optional ''x'', ''y'', ''width'', ''height''
+parameters on the new value are numeric values that indicate the
+subregion of the container element's user space where access to the
+background image is allowed to happen.  These parameters enable the
+SVG user agent potentially to allocate smaller temporary image buffers
+than the default values.
+
+|Import_Notes=
+
+===Syntax===
+
+ '''enable-background: '''accumulate '''{{!}}''' new '''[''' ''x'' ''y'' ''width'' ''height'' ''']''''''?''' '''{{!}}''' inherit
+
+===Standards information===
+
+*[http://go.microsoft.com/fwlink/p/?linkid{{=}}226062 Scalable Vector Graphics: Filter Effects], Section 15.6
 
 }}
 {{See_Also_Section
 |Manual_sections=
+
 ===Related pages (MSDN)===
-*&lt;code>[[css/cssom/CSSStyleDeclaration/CSSStyleDeclaration|CSSStyleDeclaration]]&lt;/code>
+
+*[[css/cssom/CSSStyleDeclaration/CSSStyleDeclaration|'''CSSStyleDeclaration''']]
 }}
 {{External_Attribution
 |Is_CC-BY-SA=No

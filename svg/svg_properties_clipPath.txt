@@ -4,43 +4,50 @@
 }}
 {{Standardization_Status|}}
 {{API_Name}}
+{{Topics|SVG}}
 {{Notes_Section
 |Notes=
-===Remarks===
-An IRI is similar to a URL. For example, an SVG file called &lt;code>myDrawing.svg&lt;/code> located at &lt;code>http://contoso.com&lt;/code> might have the following IRI: &lt;code>http://contoso.com/myDrawing.svg&lt;/code>.
-|Import_Notes=
-===Syntax===
-===Standards information===
-*[http://go.microsoft.com/fwlink/p/?linkid{{=}}199810 Scalable Vector Graphics: Clipping, Masking and Compositing], Section 14.3.6
 
+===Remarks===
+
+An IRI is similar to a URL. For example, an SVG file called '''myDrawing.svg''' located at '''http://contoso.com''' might have the following IRI: '''http://contoso.com/myDrawing.svg'''.
+|Import_Notes=
+
+===Syntax===
+
+===Standards information===
+
+*[http://go.microsoft.com/fwlink/p/?linkid{{=}}199810 Scalable Vector Graphics: Clipping, Masking and Compositing], Section 14.3.6
 
 }}
 {{See_Also_Section
 |Manual_sections=
+
 ===Related pages (MSDN)===
-*&lt;code>[[css/cssom/CSSStyleDeclaration/CSSStyleDeclaration|CSSStyleDeclaration]]&lt;/code>
-*&lt;code>[[css/cssom/currentStyle|currentStyle]]&lt;/code>
-*&lt;code>[[css/cssom/style|style]]&lt;/code>
-*&lt;code>[[svg/properties/a|a]]&lt;/code>
-*&lt;code>[[svg/elements/defs|SVGDefsElement]]&lt;/code>
-*&lt;code>[[svg/elements/g|SVGGElement]]&lt;/code>
-*&lt;code>[[svg/elements/marker|SVGMarkerElement]]&lt;/code>
-*&lt;code>[[svg/elements/mask|SVGMaskElement]]&lt;/code>
-*&lt;code>[[svg/elements/patterrn|SVGPatternElement]]&lt;/code>
-*&lt;code>[[svg/elements/svg|SVGSVGElement]]&lt;/code>
-*&lt;code>[[svg/elements/switch|SVGSwitchElement]]&lt;/code>
-*&lt;code>[[svg/elements/symbol|SVGSymbolElement]]&lt;/code>
-*&lt;code>[[svg/elements/circle|SVGCircleElement]]&lt;/code>
-*&lt;code>[[svg/elements/ellipse|SVGEllipseElement]]&lt;/code>
-*&lt;code>[[svg/elements/image|SVGImageElement]]&lt;/code>
-*&lt;code>[[svg/elements/line|SVGLineElement]]&lt;/code>
-*&lt;code>[[svg/elements/path|SVGPathElement]]&lt;/code>
-*&lt;code>[[svg/elements/polygon|SVGPolygonElement]]&lt;/code>
-*&lt;code>[[svg/elements/polyline|SVGPolylineElement]]&lt;/code>
-*&lt;code>[[svg/elements/rect|SVGRectElement]]&lt;/code>
-*&lt;code>[[svg/elements/text|SVGTextElement]]&lt;/code>
-*&lt;code>[[svg/elements/use|SVGUseElement]]&lt;/code>
-*&lt;code>[[svg/attributes/clip-rule|clip-rule]]&lt;/code>
+
+*[[css/cssom/CSSStyleDeclaration/CSSStyleDeclaration|'''CSSStyleDeclaration''']]
+*[[css/cssom/currentStyle|'''currentStyle''']]
+*[[css/cssom/style|'''style''']]
+*[[svg/properties/a|'''a''']]
+*[[svg/elements/defs|'''SVGDefsElement''']]
+*[[svg/elements/g|'''SVGGElement''']]
+*[[svg/elements/marker|'''SVGMarkerElement''']]
+*[[svg/elements/mask|'''SVGMaskElement''']]
+*[[svg/elements/patterrn|'''SVGPatternElement''']]
+*[[svg/elements/svg|'''SVGSVGElement''']]
+*[[svg/elements/switch|'''SVGSwitchElement''']]
+*[[svg/elements/symbol|'''SVGSymbolElement''']]
+*[[svg/elements/circle|'''SVGCircleElement''']]
+*[[svg/elements/ellipse|'''SVGEllipseElement''']]
+*[[svg/elements/image|'''SVGImageElement''']]
+*[[svg/elements/line|'''SVGLineElement''']]
+*[[svg/elements/path|'''SVGPathElement''']]
+*[[svg/elements/polygon|'''SVGPolygonElement''']]
+*[[svg/elements/polyline|'''SVGPolylineElement''']]
+*[[svg/elements/rect|'''SVGRectElement''']]
+*[[svg/elements/text|'''SVGTextElement''']]
+*[[svg/elements/use|'''SVGUseElement''']]
+*[[svg/attributes/clip-rule|clip-rule]]
 }}
 {{External_Attribution
 |Is_CC-BY-SA=No

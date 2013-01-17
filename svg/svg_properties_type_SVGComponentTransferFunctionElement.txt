@@ -4,39 +4,47 @@
 }}
 {{Standardization_Status|}}
 {{API_Name}}
+{{Topics|SVG}}
 {{Notes_Section
 |Notes=
+
 ===Remarks===
-For a type of '''table''' and a value C &amp;lt; 1, find k such that:
-k/''n'' &amp;lt;{{=}} C &amp;lt; (k+1)/''n''
+
+For a type of '''table''' and a value C &lt; 1, find k such that:
+k/''n'' &lt;{{=}} C &lt; (k+1)/''n''
 The result C' is given by:
-C' {{=}} v&lt;sub>k&lt;/sub> + (C - k/''n'')*''n'' * (v&lt;sub>k+1&lt;/sub> - v&lt;sub>k&lt;/sub>)
+C' {{=}} v<sub>k</sub> + (C - k/''n'')*''n'' * (v<sub>k+1</sub> - v<sub>k</sub>)
 If C {{=}} 1 then:
-C' {{=}} v''&lt;sub>n&lt;/sub>''
-For a type of '''discrete''' and a value C &amp;lt; 1 find k such that:
-k/''n'' &amp;lt;{{=}} C &amp;lt; (k+1)/''n''
+C' {{=}} v''<sub>n</sub>''
+For a type of '''discrete''' and a value C &lt; 1 find k such that:
+k/''n'' &lt;{{=}} C &lt; (k+1)/''n''
 The result C' is given by:
-C' {{=}} v&lt;sub>k&lt;/sub>
+C' {{=}} v<sub>k</sub>
 If C {{=}} 1 then:
-C' {{=}} v&lt;sub>n-1&lt;/sub>
+C' {{=}} v<sub>n-1</sub>
 |Import_Notes=
+
 ===Syntax===
+
 ===String format===
-&lt;code>identity '''{{!}}''' table '''{{!}}''' discrete '''{{!}}''' linear '''{{!}}''' gamma&lt;/code>
+
+ identity '''{{!}}''' table '''{{!}}''' discrete '''{{!}}''' linear '''{{!}}''' gamma
 
 ===Standards information===
-*[http://go.microsoft.com/fwlink/p/?linkid{{=}}226062 Scalable Vector Graphics: Filter Effects], Section 15.11
 
+*[http://go.microsoft.com/fwlink/p/?linkid{{=}}226062 Scalable Vector Graphics: Filter Effects], Section 15.11
 
 }}
 {{See_Also_Section
 |Manual_sections=
+
 ===Related pages (MSDN)===
-*&lt;code>[[svg/objects/SVGComponentTransferFunctionElement|SVGComponentTransferFunctionElement]]&lt;/code>
-*&lt;code>[[svg/elements/feFuncR|SVGFEFuncRElement]]&lt;/code>
-*&lt;code>[[svg/elements/feFuncGelement|SVGFEFuncGElement]]&lt;/code>
-*&lt;code>[[svg/elements/feFuncB|SVGFEFuncBElement]]&lt;/code>
-*&lt;code>[[svg/elements/feFuncA|SVGFEFuncAElement]]&lt;/code>
+
+*[[svg/objects/SVGComponentTransferFunctionElement|'''SVGComponentTransferFunctionElement''']]
+*[[svg/elements/feFuncR|'''SVGFEFuncRElement''']]
+*[[svg/elements/feFuncGelement|'''SVGFEFuncGElement''']]
+*[[svg/elements/feFuncB|'''SVGFEFuncBElement''']]
+*[[svg/elements/feFuncA|'''SVGFEFuncAElement''']]
 }}
 {{External_Attribution
 |Is_CC-BY-SA=No

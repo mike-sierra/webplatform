@@ -10,32 +10,39 @@
 {{Topics|SVG}}
 {{Notes_Section
 |Notes=
+
 ===Remarks===
+
 The '''marker''' property is a composite property for the three individual marker properties.
 |Import_Notes=
-===Syntax===
-&lt;code>'''marker: '''none '''{{!}}''' ''
-&amp;lt;funciri&amp;gt;
-'' '''{{!}}''' inherit&lt;/code>
-===Standards information===
-*[http://go.microsoft.com/fwlink/p/?linkid{{=}}199816 Scalable Vector Graphics: Painting, Filling, Stroking and Marker Symbols], Section 11.6.3
 
+===Syntax===
+
+ '''marker: '''none '''{{!}}''' ''funciri'' '''{{!}}''' inherit
+
+===Standards information===
+
+*[http://go.microsoft.com/fwlink/p/?linkid{{=}}199816 Scalable Vector Graphics: Painting, Filling, Stroking and Marker Symbols], Section 11.6.3
 
 }}
 {{See_Also_Section
 |Manual_sections=
+
 ===Related pages (MSDN)===
-*&lt;code>[[css/cssom/CSSStyleDeclaration/CSSStyleDeclaration|CSSStyleDeclaration]]&lt;/code>
-*&lt;code>[[css/cssom/currentStyle|currentStyle]]&lt;/code>
-*&lt;code>[[css/cssom/style|style]]&lt;/code>
-*&lt;code>[[svg/elements/path|SVGPathElement]]&lt;/code>
-*&lt;code>[[svg/elements/line|SVGLineElement]]&lt;/code>
-*&lt;code>[[svg/elements/polyline|SVGPolylineElement]]&lt;/code>
-*&lt;code>[[svg/elements/polygon|SVGPolygonElement]]&lt;/code>
-*&lt;code>Reference&lt;/code>
-*&lt;code>[[svg/attributes/marker-start|markerStart]]&lt;/code>
-*&lt;code>[[svg/attributes/marker-mid|markerMid]]&lt;/code>
-*&lt;code>[[svg/attributes/marker-end|markerEnd]]&lt;/code>
+
+*[[css/cssom/CSSStyleDeclaration/CSSStyleDeclaration|'''CSSStyleDeclaration''']]
+*[[css/cssom/currentStyle|'''currentStyle''']]
+*[[css/cssom/style|'''style''']]
+*[[svg/elements/path|'''SVGPathElement''']]
+*[[svg/elements/line|'''SVGLineElement''']]
+*[[svg/elements/polyline|'''SVGPolylineElement''']]
+*[[svg/elements/polygon|'''SVGPolygonElement''']]
+
+===Reference===
+
+*[[svg/attributes/marker-start|'''markerStart''']]
+*[[svg/attributes/marker-mid|'''markerMid''']]
+*[[svg/attributes/marker-end|'''markerEnd''']]
 }}
 {{External_Attribution
 |Is_CC-BY-SA=No

@@ -4,52 +4,59 @@
 }}
 {{Standardization_Status|}}
 {{API_Name}}
+{{Topics|SVG}}
 {{Notes_Section
 |Notes=
+
 ===Remarks===
+
 Returns a CSS style object. The returned object is live; changes to the object represent immediate changes to the associated CSS value.
 |Import_Notes=
-===Syntax===
-===Standards information===
-*[http://go.microsoft.com/fwlink/p/?linkid{{=}}204734 Scalable Vector Graphics: Styling], Section 6.1
 
+===Syntax===
+
+===Standards information===
+
+*[http://go.microsoft.com/fwlink/p/?linkid{{=}}204734 Scalable Vector Graphics: Styling], Section 6.1
 
 }}
 {{See_Also_Section
 |Manual_sections=
+
 ===Related pages (MSDN)===
-*&lt;code>[[svg/elements/a|SVGAElement]]&lt;/code>
-*&lt;code>[[svg/elements/circle|SVGCircleElement]]&lt;/code>
-*&lt;code>[[svg/elements/clipPath|SVGClipPathElement]]&lt;/code>
-*&lt;code>[[svg/elements/defs|SVGDefsElement]]&lt;/code>
-*&lt;code>[[svg/elements/desc|SVGDescElement]]&lt;/code>
-*&lt;code>[[svg/elements/ellipse|SVGEllipseElement]]&lt;/code>
-*&lt;code>[[svg/elements/filter|SVGFilterElement]]&lt;/code>
-*&lt;code>[[svg/elements/g|SVGGElement]]&lt;/code>
-*&lt;code>[[svg/elements/gradient|SVGGradientElement]]&lt;/code>
-*&lt;code>[[svg/elements/image|SVGImageElement]]&lt;/code>
-*&lt;code>[[svg/elements/linearGradient|SVGLinearGradientElement]]&lt;/code>
-*&lt;code>[[svg/elements/line|SVGLineElement]]&lt;/code>
-*&lt;code>[[svg/elements/marker|SVGMarkerElement]]&lt;/code>
-*&lt;code>[[svg/elements/mask|SVGMaskElement]]&lt;/code>
-*&lt;code>[[svg/elements/path|SVGPathElement]]&lt;/code>
-*&lt;code>[[svg/elements/patterrn|SVGPatternElement]]&lt;/code>
-*&lt;code>[[svg/elements/polygon|SVGPolygonElement]]&lt;/code>
-*&lt;code>[[svg/elements/polyline|SVGPolylineElement]]&lt;/code>
-*&lt;code>[[svg/elements/radialGradient|SVGRadialGradientElement]]&lt;/code>
-*&lt;code>[[svg/objects/SVGRect|SVGRect]]&lt;/code>
-*&lt;code>[[svg/elements/rect|SVGRectElement]]&lt;/code>
-*&lt;code>[[svg/elements/stop|SVGStopElement]]&lt;/code>
-*&lt;code>[[svg/elements/svg|SVGSVGElement]]&lt;/code>
-*&lt;code>[[svg/elements/switch|SVGSwitchElement]]&lt;/code>
-*&lt;code>[[svg/elements/symbol|SVGSymbolElement]]&lt;/code>
-*&lt;code>[[svg/elements/etextContent|SVGTextContentElement]]&lt;/code>
-*&lt;code>[[svg/elements/text|SVGTextElement]]&lt;/code>
-*&lt;code>[[svg/elements/textPath|SVGTextPathElement]]&lt;/code>
-*&lt;code>[[svg/elements/textPositioning|SVGTextPositioningElement]]&lt;/code>
-*&lt;code>[[svg/elements/title|SVGTitleElement]]&lt;/code>
-*&lt;code>[[svg/elements/tspan|SVGTSpanElement]]&lt;/code>
-*&lt;code>[[svg/elements/use|SVGUseElement]]&lt;/code>
+
+*[[svg/elements/a|'''SVGAElement''']]
+*[[svg/elements/circle|'''SVGCircleElement''']]
+*[[svg/elements/clipPath|'''SVGClipPathElement''']]
+*[[svg/elements/defs|'''SVGDefsElement''']]
+*[[svg/elements/desc|'''SVGDescElement''']]
+*[[svg/elements/ellipse|'''SVGEllipseElement''']]
+*[[svg/elements/filter|'''SVGFilterElement''']]
+*[[svg/elements/g|'''SVGGElement''']]
+*[[svg/elements/gradient|'''SVGGradientElement''']]
+*[[svg/elements/image|'''SVGImageElement''']]
+*[[svg/elements/linearGradient|'''SVGLinearGradientElement''']]
+*[[svg/elements/line|'''SVGLineElement''']]
+*[[svg/elements/marker|'''SVGMarkerElement''']]
+*[[svg/elements/mask|'''SVGMaskElement''']]
+*[[svg/elements/path|'''SVGPathElement''']]
+*[[svg/elements/patterrn|'''SVGPatternElement''']]
+*[[svg/elements/polygon|'''SVGPolygonElement''']]
+*[[svg/elements/polyline|'''SVGPolylineElement''']]
+*[[svg/elements/radialGradient|'''SVGRadialGradientElement''']]
+*[[svg/objects/SVGRect|'''SVGRect''']]
+*[[svg/elements/rect|'''SVGRectElement''']]
+*[[svg/elements/stop|'''SVGStopElement''']]
+*[[svg/elements/svg|'''SVGSVGElement''']]
+*[[svg/elements/switch|'''SVGSwitchElement''']]
+*[[svg/elements/symbol|'''SVGSymbolElement''']]
+*[[svg/elements/etextContent|'''SVGTextContentElement''']]
+*[[svg/elements/text|'''SVGTextElement''']]
+*[[svg/elements/textPath|'''SVGTextPathElement''']]
+*[[svg/elements/textPositioning|'''SVGTextPositioningElement''']]
+*[[svg/elements/title|'''SVGTitleElement''']]
+*[[svg/elements/tspan|'''SVGTSpanElement''']]
+*[[svg/elements/use|'''SVGUseElement''']]
 }}
 {{External_Attribution
 |Is_CC-BY-SA=No
