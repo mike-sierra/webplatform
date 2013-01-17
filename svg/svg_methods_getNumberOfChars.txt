@@ -1,0 +1,37 @@
+{{Flags
+|High-level issues=Needs Topics, Missing Relevant Sections, Data Not Semantic, Unreviewed Import
+|Content=Incomplete, Not Neutral, Compatibility Incomplete, Examples Best Practices, Cleanup
+}}
+{{Standardization_Status|}}
+{{API_Name}}
+{{Notes_Section
+|Notes=
+===Remarks===
+The total number of characters  includes referenced characters from &lt;code>tref&lt;/code> reference, regardless of whether they  are  rendered.
+The total number of characters  is  effectively equivalent to the length of the [[dom/properties/textContent|'''textContent''']] attribute from the [http://go.microsoft.com/fwlink/p/?linkid{{=}}203747 DOM Level 3 Core] specification (section 1.4), if that attribute also expands &lt;code>tref&lt;/code>  elements.
+|Import_Notes=
+===Syntax===
+&lt;div class{{=}}"code"> retVal {{=}} ''object.''getNumberOfChars();&lt;/div>
+===Standards information===
+*[http://go.microsoft.com/fwlink/p/?linkid{{=}}199818 Scalable Vector Graphics: Text], Section 10.17.1
+
+
+}}
+{{See_Also_Section
+|Manual_sections=
+===Related pages (MSDN)===
+*&lt;code>[[svg/elements/text|SVGTextElement]]&lt;/code>
+*&lt;code>[[svg/elements/textPositioning|SVGTextPositioningElement]]&lt;/code>
+*&lt;code>[[svg/elements/tspan|SVGTSpanElement]]&lt;/code>
+*&lt;code>[[svg/elements/textPath|SVGTextPathElement]]&lt;/code>
+*&lt;code>[[svg/elements/etextContent|ISVGTextContentElement]]&lt;/code>
+}}
+{{External_Attribution
+|Is_CC-BY-SA=No
+|Sources=MSDN
+|MSDN_link=[http://msdn.microsoft.com/en-us/library/ie/hh828809%28v=vs.85%29.aspx Windows Internet Explorer API reference]
+|MDN_link=
+|HTML5Rocks_link=
+}}
+
+[[Category:SVG]]

@@ -1,0 +1,134 @@
+{{Flags
+|High-level issues=Needs Topics, Missing Relevant Sections, Data Not Semantic, Unreviewed Import
+|Content=Incomplete, Not Neutral, Compatibility Incomplete, Examples Best Practices, Cleanup
+}}
+{{Standardization_Status|}}
+{{API_Name}}
+{{API_Object
+|Subclass_of=svg/objects/SVGElement
+}}
+{{Topics|DOM}}
+{{Examples_Section
+|Not_required=No
+|Examples={{Single_Example
+|Description=
+|LiveURL=Scalable Vector Graphics (SVG) 1.0 Specification
+|Code=
+&amp;lt;?xml version{{=}}"1.0" encoding{{=}}"UTF-8"?&amp;gt;
+&amp;lt;!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" 
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"
+[ &amp;lt;!ENTITY Smile "
+&amp;lt;rect x{{=}}'.5' y{{=}}'.5' width{{=}}'29' height{{=}}'39' fill{{=}}'black' stroke{{=}}'red'/&amp;gt;
+&amp;lt;g transform{{=}}'translate(0, 5)'&amp;gt;
+&amp;lt;circle cx{{=}}'15' cy{{=}}'15' r{{=}}'10' fill{{=}}'yellow'/&amp;gt;
+&amp;lt;circle cx{{=}}'12' cy{{=}}'12' r{{=}}'1.5' fill{{=}}'black'/&amp;gt;
+&amp;lt;circle cx{{=}}'17' cy{{=}}'12' r{{=}}'1.5' fill{{=}}'black'/&amp;gt;
+&amp;lt;path d{{=}}'M 10 19 A 8 8 0 0 0 20 19' stroke{{=}}'black' stroke-width{{=}}'2'/&amp;gt;
+&amp;lt;/g&amp;gt;
+"&amp;gt;
+&amp;lt;!ENTITY Viewport1 "&amp;lt;rect x{{=}}'.5' y{{=}}'.5' width{{=}}'49' height{{=}}'29'
+fill{{=}}'none' stroke{{=}}'blue'/&amp;gt;"&amp;gt;
+&amp;lt;!ENTITY Viewport2 "&amp;lt;rect x{{=}}'.5' y{{=}}'.5' width{{=}}'29' height{{=}}'59'
+fill{{=}}'none' stroke{{=}}'blue'/&amp;gt;"&amp;gt;
+]&amp;gt;
+&amp;lt;svg width{{=}}"450px" height{{=}}"300px" version{{=}}"1.1"
+     xmlns{{=}}"http://www.w3.org/2000/svg"&amp;gt;
+  &amp;lt;desc&amp;gt;Example PreserveAspectRatio - illustrates preserveAspectRatio attribute&amp;lt;/desc&amp;gt;
+  &amp;lt;rect x{{=}}"1" y{{=}}"1" width{{=}}"448" height{{=}}"298"
+        fill{{=}}"none" stroke{{=}}"blue"/&amp;gt;
+  &amp;lt;g font-size{{=}}"9"&amp;gt;
+    &amp;lt;text x{{=}}"10" y{{=}}"30"&amp;gt;SVG to fit&amp;lt;/text&amp;gt;
+    &amp;lt;g transform{{=}}"translate(20,40)"&amp;gt;&amp;amp;Smile;&amp;lt;/g&amp;gt;
+    &amp;lt;text x{{=}}"10" y{{=}}"110"&amp;gt;Viewport 1&amp;lt;/text&amp;gt;
+    &amp;lt;g transform{{=}}"translate(10,120)"&amp;gt;&amp;amp;Viewport1;&amp;lt;/g&amp;gt;
+    &amp;lt;text x{{=}}"10" y{{=}}"180"&amp;gt;Viewport 2&amp;lt;/text&amp;gt;
+    &amp;lt;g transform{{=}}"translate(20,190)"&amp;gt;&amp;amp;Viewport2;&amp;lt;/g&amp;gt;
+    &amp;lt;g id{{=}}"meet-group-1" transform{{=}}"translate(100, 60)"&amp;gt;
+      &amp;lt;text x{{=}}"0" y{{=}}"-30"&amp;gt;--------------- meet ---------------&amp;lt;/text&amp;gt;
+      &amp;lt;g&amp;gt;&amp;lt;text y{{=}}"-10"&amp;gt;xMin*&amp;lt;/text&amp;gt;&amp;amp;Viewport1;
+        &amp;lt;svg preserveAspectRatio{{=}}"xMinYMin meet" viewBox{{=}}"0 0 30 40"
+             width{{=}}"50" height{{=}}"30"&amp;gt;&amp;amp;Smile;&amp;lt;/svg&amp;gt;&amp;lt;/g&amp;gt;
+      &amp;lt;g transform{{=}}"translate(70,0)"&amp;gt;&amp;lt;text y{{=}}"-10"&amp;gt;xMid*&amp;lt;/text&amp;gt;&amp;amp;Viewport1;
+        &amp;lt;svg preserveAspectRatio{{=}}"xMidYMid meet" viewBox{{=}}"0 0 30 40"
+             width{{=}}"50" height{{=}}"30"&amp;gt;&amp;amp;Smile;&amp;lt;/svg&amp;gt;&amp;lt;/g&amp;gt;
+      &amp;lt;g transform{{=}}"translate(0,70)"&amp;gt;&amp;lt;text y{{=}}"-10"&amp;gt;xMax*&amp;lt;/text&amp;gt;&amp;amp;Viewport1;
+        &amp;lt;svg preserveAspectRatio{{=}}"xMaxYMax meet" viewBox{{=}}"0 0 30 40"
+             width{{=}}"50" height{{=}}"30"&amp;gt;&amp;amp;Smile;&amp;lt;/svg&amp;gt;&amp;lt;/g&amp;gt;
+    &amp;lt;/g&amp;gt;
+    &amp;lt;g id{{=}}"meet-group-2" transform{{=}}"translate(250, 60)"&amp;gt;
+      &amp;lt;text x{{=}}"0" y{{=}}"-30"&amp;gt;---------- meet ----------&amp;lt;/text&amp;gt;
+      &amp;lt;g&amp;gt;&amp;lt;text y{{=}}"-10"&amp;gt;*YMin&amp;lt;/text&amp;gt;&amp;amp;Viewport2;
+        &amp;lt;svg preserveAspectRatio{{=}}"xMinYMin meet" viewBox{{=}}"0 0 30 40"
+             width{{=}}"30" height{{=}}"60"&amp;gt;&amp;amp;Smile;&amp;lt;/svg&amp;gt;&amp;lt;/g&amp;gt;
+      &amp;lt;g transform{{=}}"translate(50, 0)"&amp;gt;&amp;lt;text y{{=}}"-10"&amp;gt;*YMid&amp;lt;/text&amp;gt;&amp;amp;Viewport2;
+        &amp;lt;svg preserveAspectRatio{{=}}"xMidYMid meet" viewBox{{=}}"0 0 30 40"
+             width{{=}}"30" height{{=}}"60"&amp;gt;&amp;amp;Smile;&amp;lt;/svg&amp;gt;&amp;lt;/g&amp;gt;
+      &amp;lt;g transform{{=}}"translate(100, 0)"&amp;gt;&amp;lt;text y{{=}}"-10"&amp;gt;*YMax&amp;lt;/text&amp;gt;&amp;amp;Viewport2;
+        &amp;lt;svg preserveAspectRatio{{=}}"xMaxYMax meet" viewBox{{=}}"0 0 30 40"
+             width{{=}}"30" height{{=}}"60"&amp;gt;&amp;amp;Smile;&amp;lt;/svg&amp;gt;&amp;lt;/g&amp;gt;
+    &amp;lt;/g&amp;gt;
+    &amp;lt;g id{{=}}"slice-group-1" transform{{=}}"translate(100, 220)"&amp;gt;
+      &amp;lt;text x{{=}}"0" y{{=}}"-30"&amp;gt;---------- slice ----------&amp;lt;/text&amp;gt;
+      &amp;lt;g&amp;gt;&amp;lt;text y{{=}}"-10"&amp;gt;xMin*&amp;lt;/text&amp;gt;&amp;amp;Viewport2;
+        &amp;lt;svg preserveAspectRatio{{=}}"xMinYMin slice" viewBox{{=}}"0 0 30 40"
+             width{{=}}"30" height{{=}}"60"&amp;gt;&amp;amp;Smile;&amp;lt;/svg&amp;gt;&amp;lt;/g&amp;gt;
+      &amp;lt;g transform{{=}}"translate(50,0)"&amp;gt;&amp;lt;text y{{=}}"-10"&amp;gt;xMid*&amp;lt;/text&amp;gt;&amp;amp;Viewport2;
+        &amp;lt;svg preserveAspectRatio{{=}}"xMidYMid slice" viewBox{{=}}"0 0 30 40"
+             width{{=}}"30" height{{=}}"60"&amp;gt;&amp;amp;Smile;&amp;lt;/svg&amp;gt;&amp;lt;/g&amp;gt;
+      &amp;lt;g transform{{=}}"translate(100,0)"&amp;gt;&amp;lt;text y{{=}}"-10"&amp;gt;xMax*&amp;lt;/text&amp;gt;&amp;amp;Viewport2;
+        &amp;lt;svg preserveAspectRatio{{=}}"xMaxYMax slice" viewBox{{=}}"0 0 30 40"
+             width{{=}}"30" height{{=}}"60"&amp;gt;&amp;amp;Smile;&amp;lt;/svg&amp;gt;&amp;lt;/g&amp;gt;
+    &amp;lt;/g&amp;gt;
+    &amp;lt;g id{{=}}"slice-group-2" transform{{=}}"translate(250, 220)"&amp;gt;
+      &amp;lt;text x{{=}}"0" y{{=}}"-30"&amp;gt;--------------- slice ---------------&amp;lt;/text&amp;gt;
+      &amp;lt;g&amp;gt;&amp;lt;text y{{=}}"-10"&amp;gt;*YMin&amp;lt;/text&amp;gt;&amp;amp;Viewport1;
+        &amp;lt;svg preserveAspectRatio{{=}}"xMinYMin slice" viewBox{{=}}"0 0 30 40"
+             width{{=}}"50" height{{=}}"30"&amp;gt;&amp;amp;Smile;&amp;lt;/svg&amp;gt;&amp;lt;/g&amp;gt;
+      &amp;lt;g transform{{=}}"translate(70,0)"&amp;gt;&amp;lt;text y{{=}}"-10"&amp;gt;*YMid&amp;lt;/text&amp;gt;&amp;amp;Viewport1;
+        &amp;lt;svg preserveAspectRatio{{=}}"xMidYMid slice" viewBox{{=}}"0 0 30 40"
+             width{{=}}"50" height{{=}}"30"&amp;gt;&amp;amp;Smile;&amp;lt;/svg&amp;gt;&amp;lt;/g&amp;gt;
+      &amp;lt;g transform{{=}}"translate(140,0)"&amp;gt;&amp;lt;text y{{=}}"-10"&amp;gt;*YMax&amp;lt;/text&amp;gt;&amp;amp;Viewport1;
+        &amp;lt;svg preserveAspectRatio{{=}}"xMaxYMax slice" viewBox{{=}}"0 0 30 40"
+             width{{=}}"50" height{{=}}"30"&amp;gt;&amp;amp;Smile;&amp;lt;/svg&amp;gt;&amp;lt;/g&amp;gt;
+    &amp;lt;/g&amp;gt;   
+  &amp;lt;/g&amp;gt;
+&amp;lt;/svg&amp;gt;
+}}}}
+{{Notes_Section
+|Notes=
+===Remarks===
+'''Note'''  In addition to the attributes, properties, events, methods, and styles listed above, SVG elements also inherent core HTML attributes, properties, events, methods, and styles.
+In some cases, typically when you are using the [[svg/properties/viewBox|'''viewBox''']] attribute,  you want the graphics to stretch to  non-uniformly  fill the entire viewport. In other cases,  you want to use uniform scaling  to preserve  the aspect ratio of the graphics. The [[svg/properties/preserveAspectRatio|'''preserveAspectRatio''']] attribute indicates whether  to force uniform scaling.
+|Import_Notes=
+===Standards information===
+*[http://go.microsoft.com/fwlink/p/?linkid{{=}}204735 Scalable Vector Graphics: Coordinate Systems, Transformations and Units], Section 7.14.7
+
+
+===Members===
+The '''SVGPreserveAspectRatio''' object has these types of members:
+*[#properties Properties]
+
+
+====Properties====
+The '''SVGPreserveAspectRatio''' object has these properties.
+{| class="wikitable"
+|-
+!Property
+!Description
+|-
+|[[svg/properties/align|'''align''']]
+|Gets or sets  the type of alignment value.
+|-
+|[[svg/properties/meetOrSlice|'''meetOrSlice''']]
+|Gets or sets the type of meet-or-slice value.
+|}
+ 
+
+}}
+{{External_Attribution
+|Is_CC-BY-SA=No
+|Sources=MSDN
+|MSDN_link=[http://msdn.microsoft.com/en-us/library/ie/hh828809%28v=vs.85%29.aspx Windows Internet Explorer API reference]
+|MDN_link=
+|HTML5Rocks_link=
+}}

@@ -1,0 +1,8 @@
+SVG primer: unfinished, long-winded
+
+Y: ellipse
+
+svg[width]
+svg[height]
+
+why can the 'fill' attr be styled via CSS, 

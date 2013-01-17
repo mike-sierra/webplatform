@@ -17,11 +17,11 @@
 
 <div id="myExample">
 
- <div id="myBox1">Box 1: All work and no play makes Jack a dull boy.</div>
- <div id="myBox2">Box 2: All work and no play makes Jack a dull boy.</div>
- <div id="myBox3">Box 3: All work and no play makes Jack a dull boy.</div>
- <div id="myBox4">Box 4: All work and no play makes Jack a dull boy.</div>
- <div id="myBox5">Box 5: All work and no play makes Jack a dull boy.</div>
+ <div id="myBox1">Box 1</div>
+ <div id="myBox2">Box 2</div>
+ <div id="myBox3">Box 3</div>
+ <div id="myBox4">Box 4</div>
+ <div id="myBox5">Box 5</div>
 
 </div>
 
@@ -112,7 +112,7 @@
   </select>
 
   <br/><label>flex-basis</label>
-  <input type="range" id="flexBasis" class="Webkit" min="0" max="500" value="100" data-unit="%" data-tgtexample="#myBox1"/>
+  <input type="range" id="flexBasis" class="Webkit" min="0" max="100" value="0" data-unit="%" data-tgtexample="#myBox1"/>
 
   <select id="flexBasis_keywords" data-tgtprop="flexBasis" class="Webkit" data-tgtexample="#myBox1">
     <option selected>auto</option>
@@ -155,7 +155,7 @@
   </select>
 
   <br/><label>flex-basis</label>
-  <input type="range" id="altFlexBasis" data-tgtprop="flexBasis" data-tgtcode="c_ALTflexBasis" class="Webkit" min="0" max="500" value="100" data-unit="%" data-tgtexample="#myBox2"/>
+  <input type="range" id="altFlexBasis" data-tgtprop="flexBasis" data-tgtcode="c_ALTflexBasis" class="Webkit" min="0" max="100" value="0" data-unit="%" data-tgtexample="#myBox2"/>
 
   <select id="altFlexBasis_keywords" data-tgtprop="flexBasis" data-tgtcode="c_ALTflexBasis" class="Webkit" data-tgtexample="#myBox2">
     <option selected>auto</option>
@@ -186,21 +186,20 @@ controls_6
 <!-- place CODE in here -->
 
 <pre>
-    /* basic */
-<span id="c_minHeight"></span>
-<span id="c_display"></span>
-    /* sizing & direction */
-<span id="c_flexDirection"></span>
-<span id="c_justifyContent"></span>
-<span id="c_alignItems"></span>
-<span id="c_flexWrap"></span>
-    /* box #1 */
-<span id="c_alignSelf"></span>
-<span id="c_flexBasis"></span>
-<span id="c_flexGrow"></span>
-<span id="c_flexGrow"></span>
-<span id="c_flexShrink"></span>
-<span id="c_order"></span>
+.flexbox {
+  <span id="c_minHeight"></span>
+  <span id="c_display"></span>
+  <span id="c_flexDirection"></span>
+  <span id="c_justifyContent"></span>
+  <span id="c_alignItems"></span>
+  <span id="c_flexWrap"></span>
+}
+.flexbox > #box1 {
+  <span id="c_alignSelf"></span>
+  <span id="c_flexBasis"></span>
+  <span id="c_flexShrink"></span>
+  <span id="c_order"></span>
+}
     /* box #2 */
 <span id="c_ALTalignSelf"></span>
 <span id="c_ALTflexBasis"></span>

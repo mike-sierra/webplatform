@@ -1,13 +1,20 @@
 #myExample > div {
-    font-size: small;
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 18px;
+    color: gold;
+    text-shadow: 2px 2px 2px #000, -2px -2px 2px #000;
     margin: 0.5em;
     border: thin solid #777;
     padding: 0.5em;
     border-radius: 0.5em;
+    -webkit-flex: 0;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
 }
 
-#myExample > div:nth-of-type(1) { background: pink; }
-#myExample > div:nth-of-type(2) { background: lightblue; }
-#myExample > div:nth-of-type(3) { background: gold; }
-#myExample > div:nth-of-type(4) { background: lightgreen; }
-#myExample > div:nth-of-type(5) { background: plum; }
+#myExample > div:nth-of-type(1) { background: url(img/Objects006.jpg); }
+#myExample > div:nth-of-type(2) { background: url(img/Objects002.jpg); }
+#myExample > div:nth-of-type(3) { background: url(img/Objects003.jpg); }
+#myExample > div:nth-of-type(4) { background: url(img/Objects004.jpg); }
+#myExample > div:nth-of-type(5) { background: url(img/Objects005.jpg); }

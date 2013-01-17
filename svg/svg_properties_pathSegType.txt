@@ -1,0 +1,46 @@
+{{Flags
+|High-level issues=Needs Topics, Missing Relevant Sections, Data Not Semantic, Unreviewed Import
+|Content=Incomplete, Not Neutral, Compatibility Incomplete, Examples Best Practices, Cleanup
+}}
+{{Standardization_Status|}}
+{{API_Name}}
+{{Notes_Section
+|Import_Notes=
+===Syntax===
+===Standards information===
+*[http://go.microsoft.com/fwlink/p/?linkid{{=}}204736 Scalable Vector Graphics: Paths], Section 8.5.1
+
+
+}}
+{{See_Also_Section
+|Manual_sections=
+===Related pages (MSDN)===
+*&lt;code>[[svg/objects/SVGPathSeg|SVGPathSeg]]&lt;/code>
+*&lt;code>[[svg/objects/SVGPathSegArcAbs|SVGPathSegArcAbs]]&lt;/code>
+*&lt;code>[[svg/objects/SVGPathSegArcRel|SVGPathSegArcRel]]&lt;/code>
+*&lt;code>[[svg/objects/SVGPathSegClosePath|SVGPathSegClosePath]]&lt;/code>
+*&lt;code>[[svg/objects/SVGPathSegMovetoAbs|SVGPathSegMovetoAbs]]&lt;/code>
+*&lt;code>[[svg/objects/SVGPathSegMovetoRel|SVGPathSegMovetoRel]]&lt;/code>
+*&lt;code>[[svg/objects/SVGPathSegLinetoAbs|SVGPathSegLinetoAbs]]&lt;/code>
+*&lt;code>[[svg/objects/SVGPathSegLinetoRel|SVGPathSegLinetoRel]]&lt;/code>
+*&lt;code>[[svg/objects/SVGPathSegCurvetoCubicAbs|SVGPathSegCurvetoCubicAbs]]&lt;/code>
+*&lt;code>[[svg/objects/SVGPathSegCurvetoCubicRel|SVGPathSegCurvetoCubicRel]]&lt;/code>
+*&lt;code>[[svg/objects/SVGPathSegCurvetoCubicSmoothAbs|SVGPathSegCurvetoCubicSmoothAbs]]&lt;/code>
+*&lt;code>[[svg/objects/SVGPathSegCurvetoCubicSmoothRel|SVGPathSegCurvetoCubicSmoothRel]]&lt;/code>
+*&lt;code>[[svg/objects/SVGPathSegCurvetoQuadraticAbs|SVGPathSegCurvetoQuadraticAbs]]&lt;/code>
+*&lt;code>[[svg/objects/SVGPathSegCurvetoQuadraticRel|SVGPathSegCurvetoQuadraticRel]]&lt;/code>
+*&lt;code>[[svg/objects/SVGPathSegCurvetoQuadraticSmoothAbs|SVGPathSegCurvetoQuadraticSmoothAbs]]&lt;/code>
+*&lt;code>[[svg/objects/SVGPathSegCurvetoQuadraticSmoothRel|SVGPathSegCurvetoQuadraticSmoothRel]]&lt;/code>
+*&lt;code>[[svg/objects/SVGPathSegLinetoHorizontalAbs|SVGPathSegLinetoHorizontalAbs]]&lt;/code>
+*&lt;code>[[svg/objects/SVGPathSegLinetoHorizontalRel|SVGPathSegLinetoHorizontalRel]]&lt;/code>
+*&lt;code>[[svg/objects/SVGPathSegLinetoVerticalAbs|SVGPathSegLinetoVerticalAbs]]&lt;/code>
+*&lt;code>[[svg/objects/SVGPathSegLinetoVerticalRel|SVGPathSegLinetoVerticalRel]]&lt;/code>
+}}
+{{External_Attribution
+|Is_CC-BY-SA=No
+|Sources=MSDN
+|MSDN_link=[http://msdn.microsoft.com/en-us/library/ie/hh828809%28v=vs.85%29.aspx Windows Internet Explorer API reference]
+|MDN_link=
+|HTML5Rocks_link=
+}}
+[[Category:SVG]]

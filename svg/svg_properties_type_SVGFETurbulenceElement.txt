@@ -1,0 +1,58 @@
+{{Flags
+|High-level issues=Needs Topics, Missing Relevant Sections, Data Not Semantic, Unreviewed Import
+|Content=Incomplete, Not Neutral, Compatibility Incomplete, Examples Best Practices, Cleanup
+}}
+{{Standardization_Status|}}
+{{API_Name}}
+{{Notes_Section
+|Notes=
+===Remarks===
+[[svg/elements/feTurbulence|'''SVGFETurbulenceElement''']] uses the '''type''' value to determine whether  the filter primitive should perform a &lt;code>noise&lt;/code> or &lt;code>turbulence&lt;/code> function. The default is  &lt;code>turbulence&lt;/code> (&lt;code>turbulence&lt;/code> is fractal-based and is considered smoother in appearance).
+The following are constants associated with [[svg/elements/feTurbulence|'''SVGFETurbulenceElement''']].
+{| class="wikitable"
+|-
+!Constant
+!Value
+!Description
+|-
+|SVG_TURBULENCE_TYPE_UNKNOWN
+|0
+|The type is not one of the predefined types. It is invalid to attempt to define a new value of this type or to attempt to switch an existing value to this type.
+|-
+|SVG_TURBULENCE_TYPE_FRACTALNOISE
+|1
+|Corresponds to value &lt;code>fractalNoise&lt;/code>.
+|-
+|SVG_TURBULENCE_TYPE_TURBULENCE
+|2
+|Corresponds to value &lt;code>turbulence&lt;/code>.
+|-
+|SVG_STITCHTYPE_UNKNOWN
+|0
+|The type is not one of the predefined types. It is invalid to attempt to define a new value of this type or to attempt to switch an existing value to this type.
+|-
+|SVG_STITCHTYPE_STITCH
+|1
+|Corresponds to value &lt;code>stitch&lt;/code>.
+|-
+|SVG_STITCHTYPE_NOSTITCH
+|2
+|Corresponds to value &lt;code>noStitch&lt;/code>.
+|}
+ 
+|Import_Notes=
+===Syntax===
+}}
+{{See_Also_Section
+|Manual_sections=
+===Related pages (MSDN)===
+*&lt;code>[[svg/elements/feTurbulence|SVGFETurbulenceElement]]&lt;/code>
+}}
+{{External_Attribution
+|Is_CC-BY-SA=No
+|Sources=MSDN
+|MSDN_link=[http://msdn.microsoft.com/en-us/library/ie/hh828809%28v=vs.85%29.aspx Windows Internet Explorer API reference]
+|MDN_link=
+|HTML5Rocks_link=
+}}
+[[Category:SVG]]
