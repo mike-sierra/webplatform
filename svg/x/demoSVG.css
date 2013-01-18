@@ -25,6 +25,7 @@ aside {
 svg {
     height             : 700;
     width              : 900;
+    background: #ddd;
 }
 
 input, select {
@@ -43,4 +44,8 @@ input, select {
     border-radius      : 1em;
     margin             : 1em;
     min-height: 1em;
+}
+
+g > * {
+    -webkit-transition: all 2s;
 }

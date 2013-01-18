@@ -1,11 +1,13 @@
 var app = new Function();
 
 window.onload = function() {
-    app.x = document.querySelector('#example');
+    app.examples = document.querySelectorAll('g > *');
     app.d = document.querySelector('#debug');
     app.inputs = document.querySelectorAll('input, select');
     for (var i = 0, l = app.inputs.length; i<l; i++) {
-        app.x.setAttribute(app.inputs[i].id, app.inputs[i].value);
+        for (var xi = 0, xl = app.examples.length; xi<xl; xi++) {
+            app.examples[xi].setAttribute(app.inputs[i].id, app.inputs[i].value);
+        }
         app.inputs[i].addEventListener('change', app.modify);
     }
 };
@@ -13,14 +15,9 @@ window.onload = function() {
 app.modify = function(e) {
     var id = e.target.id;
     var value = e.target.value;
-    app.x.setAttribute(id, value);
-
-    app.log();
-    app.log("<" + app.x.tagName + " ");
-    for (var i = 0, l = app.inputs.length; i<l; i++) {
-        app.log(' ' + app.inputs[i].id + '="' + app.inputs[i].value + '"');
+    for (var xi = 0, xl = app.examples.length; xi<xl; xi++) {
+        app.examples[xi].setAttribute(id, value);
     }
-    app.log(">");
 };
 
 app.points = function(n) {
