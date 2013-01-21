@@ -1,7 +1,7 @@
 var app = new Function();
 
 window.onload = function() {
-    app.examples = document.querySelectorAll('g > *');
+    app.examples = document.querySelectorAll('g > *, linearGradient, stop:nth-of-type(2)');
     app.d = document.querySelector('#debug');
     app.inputs = document.querySelectorAll('input, select');
     for (var i = 0, l = app.inputs.length; i<l; i++) {

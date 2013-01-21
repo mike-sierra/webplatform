@@ -5,13 +5,19 @@ body {
 
 svg, aside {
     border: thin solid #777;
-    max-width          : 1000px;
-    max-height         : 1000px;
     background         : #fff;
     display            : inline-block;
 }
 
+fieldset {
+    margin: 0.5em;
+    border-radius: 0.5em;
+    -webkit-column-break-inside: avoid;
+}
+
 aside {
+    width          : 700px;
+    -webkit-column-count: 2;
     position           : fixed;
     top                : 0;
     right              : 0;
@@ -24,7 +30,7 @@ aside {
 
 svg {
     height             : 700;
-    width              : 900;
+    width              : 700;
     background: #ddd;
 }
 
@@ -49,3 +55,5 @@ input, select {
 g > * {
     -webkit-transition: all 2s;
 }
+
+

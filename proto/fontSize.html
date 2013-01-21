@@ -1,0 +1,155 @@
+<html>
+  <head>
+<title>font-size</title>
+
+<style>
+
+body {
+    overflow: hidden;
+    width: 800px;
+    background: #ddd;
+    font-family        : Trebuchet MS, Tahoma, sans-serif;
+}
+
+section, aside {
+    position: absolute;
+    background: #fff;
+    padding: 12px;
+    margin: 12px;
+    border-radius: 12px;
+    min-height: 300px;
+    line-height: 1.5;
+    top: 12px;
+}
+
+section {
+    left: 12px;
+    width: 40%;
+}
+
+section, span {
+    -webkit-transition: all 1s;
+    transition: all 1s;
+}
+
+aside {
+    right: 12px;
+    width: 40%;
+}
+
+input, select {
+    float: right;
+    width: 1in;
+}
+
+label {
+    display: inline-block;
+}
+
+pre {
+    overflow-x: scroll:
+}
+
+h1,h2,h3 {
+    text-align: center;
+    margin-top: 0;
+}
+
+</style>
+
+</head>
+<body>
+
+<section>
+The quick brown fox jumped over the lazy dog.  <span>The quick brown
+fox jumped over the lazy dog.</span>  The quick brown fox jumped over
+the lazy dog.  The quick brown fox jumped over the lazy dog.  The
+quick brown fox jumped over the lazy dog.  The quick brown fox jumped
+over the lazy dog.  The quick brown fox jumped over the lazy dog.  The
+quick brown fox jumped over the lazy dog.  The quick brown fox jumped
+over the lazy dog.
+</section>
+
+<aside>
+
+<h3>The font-size CSS property</h3>
+
+<table border="0">
+
+<tr>
+<td>pixels (absolute)</td>
+<td><input data-key="fontSize" data-unit="px" type="range" min="6" max="96" value="24"/></td>
+</tr>
+
+<tr>
+<td>percentage (relative)</td>
+<td><input data-key="fontSize" data-unit="%" type="range" min="50" max="200" value="100" data-example="span"/></td>
+</tr>
+
+<tr>
+<td>keywords (absolute)</td>
+<td>
+<select  data-key="fontSize" data-unit="">
+  <option selected>inherit</option>
+  <option>xx-small</option>
+  <option>x-small</option>
+  <option>small</option>
+  <option>medium</option>
+  <option>large</option>
+  <option>x-large</option>
+  <option>xx-large</option>
+</select>
+</td>
+</tr>
+
+<tr>
+<td>keywords (relative)</td>
+<td>
+<select  data-key="fontSize" data-unit="" data-example="span">
+  <option selected>inherit</option>
+  <option>smaller</option>
+  <option>larger</option>
+</select>
+</td>
+</tr>
+
+</table>
+
+<pre></pre>
+
+</aside>
+
+<script>
+
+var demo = new Function();
+
+window.onload = function() {
+    demo.x = document.querySelector('section');
+    demo.d = document.querySelector('pre');
+    demo.inputs = document.querySelectorAll('input, select');
+
+    for (var i = 0, l = demo.inputs.length; i<l; i++) {
+        demo.inputs[i].addEventListener('change', demo.modify);
+    }
+}
+
+demo.modify = function(e) {
+    var input = e.target;
+    var output;
+    var alt = input.dataset.example;
+    if (alt) {
+        alt = document.querySelector(alt)
+        output = alt.style.fontSize = input.value + input.dataset.unit;
+    } else {
+        output = demo.x.style.fontSize = input.value + input.dataset.unit;
+    }
+
+    demo.d.textContent = 'font-size: ' + output + ";\n/* element.style.fontSize = '" + output + "'; */";
+
+    console.log(output);
+}
+
+</script>
+
+</body>
+</html>
