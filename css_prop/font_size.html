@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr" class="client-nojs">
 <head>
-<title>css/properties/font-size - WebPlatform Docs</title>
+<title>css/properties/font-size (WebPlatform Docs)</title>
 <meta charset="UTF-8" />
 <meta name="generator" content="MediaWiki 1.21wmf5" />
 <link rel="shortcut icon" href="http://docs.webplatform.org/favicon.ico" />
@@ -46,6 +46,28 @@ mw.loader.load(["ext.comments","mediawiki.page.startup","mediawiki.legacy.wikibi
     background-color: rgba(144, 238, 144, 0.4);
 }
 
+.myNoSupport {
+    text-align: center;
+    background-color: rgba(256, 0, 0, 0.2);
+}
+
+.myUnknownSupport {
+    text-align: center;
+    background-color: #ddd;
+}
+
+.myUnknownSupport:after {
+    content: "?";
+}
+
+.myNoSupport:after {
+    display: inline-block;
+    -webkit-transform: scale(0.75);
+    -o-transform: scale(0.75);
+    transform: scale(0.75);
+    content: url(uncheck.png);
+}
+
 .myCheck:before {
     content: url(check.png);
     margin-left: 1em;
@@ -57,7 +79,8 @@ mw.loader.load(["ext.comments","mediawiki.page.startup","mediawiki.legacy.wikibi
 }
 
 .myTeaser {
-    margin-top: -50px;
+    margin-top: -44px;
+    margin-bottom: 24px;
     font-size: 18px;
     text-align: right
 }
@@ -67,15 +90,23 @@ iframe {
     border-radius: 1em;
 }
 
-h3 + ul, h4 + ul {
+.myMulticol {
     -webkit-column-count: 3;
     -moz-column-count: 3;
     column-count: 3;
 }
 
+th {
+    text-align: center;
+}
+
 th > img {
     width: 48px;
     height: 48px;
+}
+
+dt {
+    font-weight: normal;
 }
 
 </style>
@@ -231,78 +262,126 @@ th > img {
 <h1 class="myTitle"><span class="mw-headline" id="font-size">font-size</span></h1>
 <p class="myTeaser">Specifies the size of text.</p>
 
-<br/>
-<!--
-SIERRA: get rid of link :hover/:active formatting that modifies font
-weight/width
--->
+<p>
+This property sets the font size of the element to which it is
+applied, and its
+descendants. (See <a href="http://docs.webplatform.org/wiki/guides/css_text_styling_fundamentals">CSS
+Text Styling Fundamentals</a> for an overview.)
+</p>
 
 <table border="0">
 
 <tr>
-<td><i>Initial value</i>: <code>medium</code></td>
-<td><i>Computed value</i>: absolute length, in pixels</td>
-<td><i><a href="http://docs.webplatform.org/w/index.php?title=css/concepts/inherited&amp;action=edit&amp;redlink=1" class="new" title="css/concepts/inherited (page does not exist)"> Inherited</a></i>: <span class="myCheck">&nbsp;</span></td>
-<td><i>Applies to</i>: all elements</td>
+<td><i> <a href="http://docs.webplatform.org/w/index.php?title=css/concepts/initial_value&amp;action=edit&amp;redlink=1" title="css/concepts/initial_value (page does not exist)">Initial value</a></i>: <code>medium</code></td>
+<td><i><a href="http://docs.webplatform.org/w/index.php?title=css/concepts/computed_value&amp;action=edit&amp;redlink=1"  title="css/concepts/computed_value (page does not exist)">Computed value</a></i>: absolute length, in pixels</td>
+<td><i><a href="http://docs.webplatform.org/w/index.php?title=css/concepts/inherited&amp;action=edit&amp;redlink=1"  title="css/concepts/inherited (page does not exist)"> Inherited</a></i>: <span class="myCheck">&nbsp;</span></td>
+<td><i><a href="http://docs.webplatform.org/w/index.php?title=css/concepts/css_applies_to&amp;action=edit&amp;redlink=1"  title="css/concepts/css_applies_to (page does not exist)">Applies to</a></i>: all elements</td>
 </tr>
 <tr>
-<td><i><a href="http://docs.webplatform.org/w/index.php?title=css/concepts/cssom&amp;action=edit&amp;redlink=1" class="new" title="css/concepts/cssom (page does not exist)"> CSS Object Model Property</a></i>: <code>fontSize</code></td>
-<td><i>media</i>: <a href="http://docs.webplatform.org/w/index.php?title=visual&amp;action=edit&amp;redlink=1" class="new" title="visual (page does not exist)">visual</a>, <a href="http://docs.webplatform.org/w/index.php?title=print&amp;action=edit&amp;redlink=1" class="new" title="print (page does not exist)">print</a></td>
-<td><i>Animatable</i>: <span class="myCheck">&nbsp;</span></td>
+<td><i><a href="http://docs.webplatform.org/w/index.php?title=css/concepts/cssom&amp;action=edit&amp;redlink=1"  title="css/concepts/cssom (page does not exist)"> CSS Object Model Property</a></i>: <code>fontSize</code></td>
+<td><i><a href="http://docs.webplatform.org/w/index.php?title=css/concepts/media&amp;action=edit&amp;redlink=1"  title="css/concepts/media (page does not exist)">media</a></i>: <a href="http://docs.webplatform.org/w/index.php?title=visual&amp;action=edit&amp;redlink=1"  title="visual (page does not exist)">visual</a>, <a href="http://docs.webplatform.org/w/index.php?title=print&amp;action=edit&amp;redlink=1"  title="print (page does not exist)">print</a></td>
+<td><i> <a href="http://docs.webplatform.org/w/index.php?title=css/concepts/animatable&amp;action=edit&amp;redlink=1"  title="css/concepts/animatable (page does not exist)">Animatable</a></i>: <span class="myCheck">&nbsp;</span></td>
 <td> 
-<i>Shorthand</i>: <a href="http://docs.webplatform.org/wiki/css/properties/font" title="css/properties/font"><b>font</b></a></td>
+<i><a href="http://docs.webplatform.org/w/index.php?title=css/concepts/shorthand&amp;action=edit&amp;redlink=1"  title="css/concepts/shorthand (page does not exist)">Shorthand</a></i>: <a href="http://docs.webplatform.org/wiki/css/properties/font" title="css/properties/font"><b>font</b></a></td>
 </tr>
 
 </table>
 
 <h2> <span class="mw-headline" id="Syntax">Syntax</span></h2>
 <pre>
-font-size: <i>absolute-size</i>
-font-size: <i>relative-size</i>
-font-size: <i>length</i>
-font-size: <i>percentage</i>
+font-size: <i>absolute-size</i>         /* font-size: medium */
+font-size: <i>relative-size</i>         /* font-size: larger */
+font-size: <i>length</i>                /* font-size: 1.5em (50% larger than parent) */
+font-size: <i>percentage</i>            /* font-size: 150% (same) */
+font-size: inherit               /* font-size: inherit (same as 100%) */
 </pre>
 
 <h2> <span class="mw-headline" id="Values">Values</span></h2>
 <div class="css-property">
 <dl><dt><i>absolute-size</i></dt>
 <dd>A set of keywords indicating predefined font sizes that scale
-according to font setting preferences or the browser's default
+according to font setting preferences or each browser's default
 values. From small to large, possible values
 are <b>xx-small</b>, <b>x-small</b>, <b>small</b>, <b>medium</b>,
 <b>large</b>, <b>x-large</b>, and <b>xx-large</b>.</dd>
 
 <dt><i>relative-size</i></dt>
 <dd>A set of keywords interpreted relative to the parent element's
-<b>font-size</b>. Possible values are <b>smaller</b>
-and <b>larger</b>.</dd>
+<b>font-size</b>, either <b>smaller</b> or <b>larger</b>.</dd>
 
 <dt><i>length</i></dt>
 <dd>A positive numeric value followed by a string designating absolute
-units (<b>cm</b>, <b>mm</b>, <b>in</b>, <b>pt</b>, <b>pc</b>) or
-relative units (<b>em</b>, <b>ex</b>, <b>px</b>).
-Proportional <b>em</b> measuements are based on the parent
-element's <b>font-size</b>.  (For more information about the supported
-length units, see the <a href="#">CSS Values and Units Reference</a>.)
+units
+(<b><a href="http://docs.webplatform.org/wiki/css/units/cm">cm</a></b>,
+<b><a href="http://docs.webplatform.org/wiki/css/units/mm">mm</a></b>,
+<b><a href="http://docs.webplatform.org/wiki/css/units/in">in</a></b>,
+<b><a href="http://docs.webplatform.org/wiki/css/units/pt">pt</a></b>,
+<b><a href="http://docs.webplatform.org/wiki/css/units/pc">pc</a></b>)
+or relative units
+(<b><a href="http://docs.webplatform.org/wiki/css/units/px">px</a></b>,
+<b><a href="http://docs.webplatform.org/wiki/css/units/rem">rem</a></b>,
+<b><a href="http://docs.webplatform.org/wiki/css/units/em">em</a></b>,
+<b><a href="http://docs.webplatform.org/wiki/css/units/ex">ex</a></b>,
+<b><a href="http://docs.webplatform.org/wiki/css/units/vw">vw</a></b>,
+<b><a href="http://docs.webplatform.org/wiki/css/units/vh">vh</a></b>,
+<b><a href="http://docs.webplatform.org/wiki/css/units/vmin">vmin</a></b>).
+Proportional <b><a href="http://docs.webplatform.org/wiki/css/units/em">em</a></b>
+and <b><a href="http://docs.webplatform.org/wiki/css/units/ex">ex</a></b>
+measurements are based on the parent element's <b>font-size</b>,
+while 
+<b><a href="http://docs.webplatform.org/wiki/css/units/rem">rem</a></b>
+measurements are based on that of the root element.
 </dd>
 
 <dt><i>percentage</i></dt>
-<dd>A positive integer followed by a percent (<b>%</b>),
+<dd>A positive integer followed by a percent (<b><a href="http://docs.webplatform.org/wiki/css/units/percent">%</a></b>),
 indicating the proportion of the parent
-element's <b>font-size</b>.</dd></dl>
+element's <b>font-size</b>.</dd>
+
+<dt><b>inherit</b></dt>
+
+<dd>The parent element's <b>font-size</b> value.</dd>
+
+</dl>
 
 </div>
 
 
-<h2> <span class="mw-headline" id="Examples">Examples</span></h2>
+<h2> <span class="mw-headline">Usage</span></h2>
 
-<p>This <a href="http://letmespellitoutforyou.com/wpd/fontSize.html">
-interactive utility</a> demonstrates absolute values applied to a
-block of text, and relative values applied to a span within the block:</p>
+<p>
+Keywords such as <b>large</b> and <b>medium</b>, or relative <b>em</b>
+or percentage units, are generally safer to use than pixel
+measurements, especially for mobile web browsers that adjust their set
+of default font sizes for legibility.  Otherwise, pixels offer the
+safest way to specify measurements, since
+<a href="http://docs.webplatform.org/w/index.php?title=css/concepts/CSS_pixels&amp;action=edit&amp;redlink=1"
+title="css/concepts/CSS_pixels (page does not exist)">CSS pixels</a>
+are adjusted for variations in display pixel density.</p>
 
-<iframe width="900" height="400" src="fontSize.html"></iframe>
+<p>The value of <b>font-size</b> also affects the value of
+<a href="http://docs.webplatform.org/wiki/css/properties/line-height" title="css/properties/line-height">
+<b>line-height</b></a> when using its default or relative
+measurements.</p>
 
+<p>
+Unless disabled using
+<a href="http://docs.webplatform.org/wiki/css/properties/text-size-adjust" title="css/properties/text-size-adjust">
+<b>text-size-adjust</b></a>, browsers automatically resize fonts when
+zooming the page, or on mobile browsers when tipping between portrait
+and landscape orientations.  For an overview of the issue, see
+<a href="http://docs.webplatform.org/wiki/tutorials/mobile_viewport">The
+Mobile Viewport and Orientation</a>.
+</p>
 
+<p>
+Along with many other CSS properties, <b>font-size</b> can also be
+applied directly as an SVG attribute:
+</p>
+
+<pre>
+&lt;text x="12px" y="12px" font-family="sans-serif" font-size="120%"/&gt;
+</pre>
 
 <h2> <span class="mw-headline" id="Compatibility">Compatibility</span></h2>
 
@@ -310,42 +389,122 @@ block of text, and relative values applied to a span within the block:</p>
 
 <tr>
 <th> &nbsp; </th>
-<th><img src="firefox.png" title="Firefox"/><br/>Firefox</th>
-<th><img src="opera.png" title="Opera"/><br/>Opera</th>
-<th><img src="ie.png" title="Internet Explorer"/><br/>IE</th>
-<th><img src="safari.png" title="Safari"/><br/>Safari</th>
-<th><img src="chrome.png" title="Chrome"/><br/>Chrome</th>
-<th><img src="android.gif" title="Android"/><br/>Android</th>
-<th><img src="blackberry.png" title="Blackberry"/><br/>Blackberry</th>
-<th><img src="opera.png" title="Opera"/><br/>Opera Mini</th>
+<th data-col="safari"><img src="safari.png" title="Safari"/><br/>Safari</th>
+<th data-col="chrome"><img src="chrome.png" title="Chrome"/><br/>Chrome</th>
+<th data-col="firefox"><img src="firefox.png" title="Firefox"/><br/>Firefox</th>
+<th data-col="ie"><img src="ie.png" title="Internet Explorer"/><br/>IE</th>
+<th data-col="opera"><img src="opera.png" title="Opera"/><br/>Opera</th>
+<th data-col="operamini"><img src="opera.png" title="Opera"/><br/>Opera Mini</th>
+<th data-col="android"><img src="android.gif" title="Android"/><br/>Android</th>
+<th data-col="blackberry"><img src="blackberry.png" title="Blackberry"/><br/>Blackberry</th>
 </tr>
 
 <tr>
 <th>Desktop</th>
-<td class="mySupport">1.0</td>
-<td class="mySupport">7.0</td>
-<td class="mySupport">5.5</td>
-<td class="mySupport">1.0</td>
-<td class="mySupport">1.0</td>
-<td class="myNA"></td>
-<td class="myNA"></td>
-<td class="myNA"></td>
+<td data=col="safari" class="mySupport">1.0</td>
+<td data=col="chrome" class="mySupport">1.0</td>
+<td data=col="firefox" class="mySupport">1.0</td>
+<td data=col="ie" class="mySupport">5.5</td>
+<td data=col="opera" class="mySupport">7.0</td>
+<td data=col="operamini" class="myNA"></td>
+<td data=col="android" class="myNA"></td>
+<td data=col="blackberry" class="myNA"></td>
 
 </tr>
 
 <tr>
 <th>Mobile</th>
-<td class="mySupport">1.0</td>
-<td class="mySupport">6.0</td>
-<td class="mySupport">6.0</td>
-<td class="mySupport">1.0</td>
-<td class="mySupport">1.0</td>
-<td class="mySupport">1.0</td>
-<td class="mySupport">3.8</td>
-<td class="mySupport">1.0</td>
+<td data=col="safari" class="mySupport">1.0</td>
+<td data=col="chrome" class="mySupport">1.0</td>
+<td data=col="firefox" class="mySupport">1.0</td>
+<td data=col="ie" class="mySupport">6.0</td>
+<td data=col="opera" class="mySupport">6.0</td>
+<td data=col="operamini" class="mySupport">1.0</td>
+<td data=col="android" class="mySupport">1.0</td>
+<td data=col="blackberry" class="mySupport">3.8</td>
+</tr>
+
+<tr>
+<th colspan="20">vw/vh/vmin viewport units</th>
+</th>
+
+<tr>
+<th>Desktop</th>
+<td data=col="safari" class="mySupport">6.0</td>
+<td data=col="chrome" class="mySupport">24.0</td>
+<td data=col="firefox" class="myNoSupport"></td>
+<td data=col="ie" class="mySupport">10.0</td>
+<td data=col="opera" class="myNoSupport"></td>
+<td data=col="operamini" class="myNA"></td>
+<td data=col="android" class="myNA"></td>
+<td data=col="blackberry" class="myNA"></td>
+
+</tr>
+
+<tr>
+<th>Mobile</th>
+<td data=col="safari" class="mySupport">6.0</td>
+<td data=col="chrome" class="myUnknownSupport"></td>
+<td data=col="firefox" class="myUnknownSupport"></td>
+<td data=col="ie" class="myUnknownSupport"></td>
+<td data=col="opera" class="myNoSupport"></td>
+<td data=col="operamini" class="myNoSupport"></td>
+<td data=col="android" class="myNoSupport"></td>
+<td data=col="blackberry" class="myNoSupport"></td>
 </tr>
 
 </table>
+
+<h3> <span class="mw-headline">Compatability notes</span></h3>
+
+<ul>
+
+<li><b>Internet Explorer &le; 6.0</b>: Requires
+a <a href="http://docs.webplatform.org/wiki/html/elements/!DOCTYPE">!DOCTYPE</a>
+declaration, otherwise the initial value is <b>small</b> rather
+than <b>medium</b>.</li>
+
+<li><b>Internet Explorer &le; 7.0</b>: Does not support <b>inherit</b>
+as a value.</li>
+
+<li><b>Internet Explorer &le; 8.0</b>: Does not resize text specified with
+absolute pixel measurements when using the browser's
+<i>text-resize</i> feature, but does resize correctly when zooming the
+page.</li>
+
+<li><b>Internet Explorer &le; 8.0</b>: Does not support <b>rem</b>
+values; specify other supported values as
+<a href="http://docs.webplatform.org/w/index.php?title=css/concepts/fallback_property&amp;action=edit&amp;redlink=1" title="css/concepts/fallback_property (page does not exist)">
+fallback properties</a>.</li>
+
+<li><b>All browsers</b>: Check compatibility for more recent 
+<a href="http://docs.webplatform.org/wiki/css/units/vw"><b>vw</b></a>,
+<a href="http://docs.webplatform.org/wiki/css/units/vh"><b>vh</b></a>,
+and <a href="http://docs.webplatform.org/wiki/css/units/vmin"><b>vmin</b></a>
+viewport unit values.</li>
+
+</ul>
+
+<h2> <span class="mw-headline" id="Examples">Examples</span></h2>
+
+<div class="example" style="position:relative">
+<p><span class="language">CSS</span></p>
+<pre>
+/* Redefine the typical 16px default "medium" value as 10px: */
+html { font-size: 62.5%; } /* 16 * 62.5% == 10 */
+
+/* Redefine other tags in proportion to the root: */
+h1 { font-size: 3.6rem }   /* 36px */
+h2 { font-size: 2.4rem }   /* 24px */
+p  { font-size: 1.4rem }   /* 14px */
+</pre>
+</div>
+
+<p>This <a href="fontSize.html"> interactive utility</a> demonstrates
+absolute values applied to a block of text, and relative values
+applied to the first sentence:</p>
+
+<iframe width="900" height="400" src="fontSize.html"></iframe>
 
 
 
@@ -353,64 +512,83 @@ block of text, and relative values applied to a span within the block:</p>
 
 <h3> <span class="mw-headline" id="Fonts">Fonts</span></h3>
 
-<ul>
-<li> <a href="http://docs.webplatform.org/wiki/css/properties/font-family" title="css/properties/font-family">font-family</a></li>
-<li> <a href="http://docs.webplatform.org/wiki/css/fonts/font-variant" title="font-variant">font-variant</a></li>
-<li> <a href="http://docs.webplatform.org/wiki/css/properties/font" title="css/properties/font">font</a></li>
-<li> <a href="http://docs.webplatform.org/wiki/css/properties/font-family" title="css/properties/font-family">font-family</a></li>
-<li> <a href="http://docs.webplatform.org/wiki/css/properties/font-feature-settings" title="css/properties/font-feature-settings">font-feature-settings</a></li>
-<li> <a href="http://docs.webplatform.org/wiki/css/properties/font-size-adjust" title="css/properties/font-size-adjust">font-size-adjust</a></li>
-<li> <a href="http://docs.webplatform.org/wiki/css/properties/font-stretch" title="css/properties/font-stretch">font-stretch</a></li>
-<li> <a href="http://docs.webplatform.org/wiki/css/properties/font-style" title="css/properties/font-style">font-style</a></li>
-<li> <a href="http://docs.webplatform.org/wiki/css/properties/font-weight" title="css/properties/font-weight">font-weight</a></li>
+<ul class="myMulticol">
+
+<li><a href="http://docs.webplatform.org/wiki/guides/css_text_styling_fundamentals">CSS Text Styling Fundamentals</a></li>
+<li><a href="http://docs.webplatform.org/wiki/css/units">CSS Units</a></li>
+<li><a href="http://docs.webplatform.org/wiki/css/properties/font-family" title="css/properties/font-family">font-family</a></li>
+<li><a href="http://docs.webplatform.org/wiki/css/fonts/font-variant" title="font-variant">font-variant</a></li>
+<li><a href="http://docs.webplatform.org/wiki/css/properties/font" title="css/properties/font">font</a></li>
+<li><a href="http://docs.webplatform.org/wiki/css/properties/font-family" title="css/properties/font-family">font-family</a></li>
+<li><a href="http://docs.webplatform.org/wiki/css/properties/font-feature-settings" title="css/properties/font-feature-settings">font-feature-settings</a></li>
+<li><a href="http://docs.webplatform.org/wiki/css/properties/font-size-adjust" title="css/properties/font-size-adjust">font-size-adjust</a></li>
+<li><a href="http://docs.webplatform.org/wiki/css/properties/font-stretch" title="css/properties/font-stretch">font-stretch</a></li>
+<li><a href="http://docs.webplatform.org/wiki/css/properties/font-style" title="css/properties/font-style">font-style</a></li>
+<li><a href="http://docs.webplatform.org/wiki/css/properties/font-weight" title="css/properties/font-weight">font-weight</a></li>
 
 </ul>
 <h3> <span class="mw-headline" id="Text">Text</span></h3>
-<ul>
-<li> <a href="http://docs.webplatform.org/wiki/css/properties/hyphens" title="css/properties/hyphens">hyphens</a></li>
-<li> <a href="http://docs.webplatform.org/wiki/css/properties/ime-mode" title="css/properties/ime-mode">ime-mode</a></li>
-<li> <a href="http://docs.webplatform.org/wiki/css/properties/layout-flow" title="css/properties/layout-flow">layout-flow</a></li>
-<li> <a href="http://docs.webplatform.org/wiki/css/properties/layout-grid" title="css/properties/layout-grid">layout-grid</a></li>
-<li> <a href="http://docs.webplatform.org/wiki/css/properties/layout-grid-char" title="css/properties/layout-grid-char">layout-grid-char</a></li>
-<li> <a href="http://docs.webplatform.org/wiki/css/properties/layout-grid-line" title="css/properties/layout-grid-line">layout-grid-line</a></li>
-<li> <a href="http://docs.webplatform.org/wiki/css/properties/layout-grid-mode" title="css/properties/layout-grid-mode">layout-grid-mode</a></li>
-<li> <a href="http://docs.webplatform.org/wiki/css/properties/layout-grid-type" title="css/properties/layout-grid-type">layout-grid-type</a></li>
-<li> <a href="http://docs.webplatform.org/wiki/css/properties/letter-spacing" title="css/properties/letter-spacing">letter-spacing</a></li>
-<li> <a href="http://docs.webplatform.org/wiki/css/properties/line-break" title="css/properties/line-break">line-break</a></li>
-<li> <a href="http://docs.webplatform.org/wiki/css/properties/text-align" title="css/properties/text-align">text-align</a></li>
-<li> <a href="http://docs.webplatform.org/wiki/css/properties/text-align-last" title="css/properties/text-align-last">text-align-last</a></li>
-<li> <a href="http://docs.webplatform.org/wiki/css/properties/text-autospace" title="css/properties/text-autospace">text-autospace</a></li>
-<li> <a href="http://docs.webplatform.org/wiki/css/properties/text-decoration" title="css/properties/text-decoration">text-decoration</a></li>
-<li> <a href="http://docs.webplatform.org/wiki/css/properties/text-indent" title="css/properties/text-indent">text-indent</a></li>
-<li> <a href="http://docs.webplatform.org/wiki/css/properties/text-justify" title="css/properties/text-justify">text-justify</a></li>
-<li> <a href="http://docs.webplatform.org/wiki/css/properties/text-kashida-space" title="css/properties/text-kashida-space">text-kashida-space</a></li>
-<li> <a href="http://docs.webplatform.org/wiki/css/properties/text-overflow" title="css/properties/text-overflow">text-overflow</a></li>
-<li> <a href="http://docs.webplatform.org/wiki/css/properties/text-shadow" title="css/properties/text-shadow">text-shadow</a></li>
-<li> <a href="http://docs.webplatform.org/wiki/css/properties/text-transform" title="css/properties/text-transform">text-transform</a></li>
-<li> <a href="http://docs.webplatform.org/wiki/css/properties/text-underline-position" title="css/properties/text-underline-position">text-underline-position</a></li>
-<li> <a href="http://docs.webplatform.org/wiki/css/properties/white-space" title="css/properties/white-space">white-space</a></li>
-<li> <a href="http://docs.webplatform.org/wiki/css/properties/word-break" title="css/properties/word-break">word-break</a></li>
-<li> <a href="http://docs.webplatform.org/wiki/css/properties/word-wrap" title="css/properties/word-wrap">word-wrap</a></li>
-<li> <a href="http://docs.webplatform.org/wiki/css/text/word-spacing" title="word-spacing">word-spacing</a></li></ul>
+<ul class="myMulticol">
 
+<li><a href="http://docs.webplatform.org/wiki/css/properties/hyphens" title="css/properties/hyphens">hyphens</a></li>
+<li><a href="http://docs.webplatform.org/wiki/css/properties/ime-mode" title="css/properties/ime-mode">ime-mode</a></li>
+<li><a href="http://docs.webplatform.org/wiki/css/properties/layout-flow" title="css/properties/layout-flow">layout-flow</a></li>
+<li><a href="http://docs.webplatform.org/wiki/css/properties/layout-grid" title="css/properties/layout-grid">layout-grid</a></li>
+<li><a href="http://docs.webplatform.org/wiki/css/properties/layout-grid-char" title="css/properties/layout-grid-char">layout-grid-char</a></li>
+<li><a href="http://docs.webplatform.org/wiki/css/properties/layout-grid-line" title="css/properties/layout-grid-line">layout-grid-line</a></li>
+<li><a href="http://docs.webplatform.org/wiki/css/properties/layout-grid-mode" title="css/properties/layout-grid-mode">layout-grid-mode</a></li>
+<li><a href="http://docs.webplatform.org/wiki/css/properties/layout-grid-type" title="css/properties/layout-grid-type">layout-grid-type</a></li>
+<li><a href="http://docs.webplatform.org/wiki/css/properties/letter-spacing" title="css/properties/letter-spacing">letter-spacing</a></li>
+<li><a href="http://docs.webplatform.org/wiki/css/properties/line-break" title="css/properties/line-break">line-break</a></li>
+<li><a href="http://docs.webplatform.org/wiki/css/properties/line-height" title="css/properties/line-height">line-height</a></li>
+<li><a href="http://docs.webplatform.org/wiki/css/properties/text-align" title="css/properties/text-align">text-align</a></li>
+<li><a href="http://docs.webplatform.org/wiki/css/properties/text-align-last" title="css/properties/text-align-last">text-align-last</a></li>
+<li><a href="http://docs.webplatform.org/wiki/css/properties/text-autospace" title="css/properties/text-autospace">text-autospace</a></li>
+<li><a href="http://docs.webplatform.org/wiki/css/properties/text-decoration" title="css/properties/text-decoration">text-decoration</a></li>
+<li><a href="http://docs.webplatform.org/wiki/css/properties/text-indent" title="css/properties/text-indent">text-indent</a></li>
+<li><a href="http://docs.webplatform.org/wiki/css/properties/text-justify" title="css/properties/text-justify">text-justify</a></li>
+<li><a href="http://docs.webplatform.org/wiki/css/properties/text-kashida-space" title="css/properties/text-kashida-space">text-kashida-space</a></li>
+<li><a href="http://docs.webplatform.org/wiki/css/properties/text-overflow" title="css/properties/text-overflow">text-overflow</a></li>
+<li><a href="http://docs.webplatform.org/wiki/css/properties/text-shadow" title="css/properties/text-shadow">text-shadow</a></li>
+<li><a href="http://docs.webplatform.org/wiki/css/properties/text-size-adjust" title="css/properties/text-size-adjust">text-size-adjust</a></li>
+<li><a href="http://docs.webplatform.org/wiki/css/properties/text-transform" title="css/properties/text-transform">text-transform</a></li>
+<li><a href="http://docs.webplatform.org/wiki/css/properties/text-underline-position" title="css/properties/text-underline-position">text-underline-position</a></li>
+<li><a href="http://docs.webplatform.org/wiki/css/properties/white-space" title="css/properties/white-space">white-space</a></li>
+<li><a href="http://docs.webplatform.org/wiki/css/properties/word-break" title="css/properties/word-break">word-break</a></li>
+<li><a href="http://docs.webplatform.org/wiki/css/properties/word-wrap" title="css/properties/word-wrap">word-wrap</a></li>
+<li><a href="http://docs.webplatform.org/wiki/css/text/word-spacing" title="word-spacing">word-spacing</a></li>
+
+</ul>
+
+
+
+<h3> <span class="mw-headline" id="Other">Specifications</span></h3>
+
+<ul>
+
+<li>W3C Working Draft: <a href="http://www.w3.org/TR/css3-fonts/#font-size-prop"
+title="W3C Working Draft: CSS Fonts Module Level 3">CSS Fonts Module
+Level 3</a></li>
+
+<li>W3C Candidate
+Recommendation: <a href="http://www.w3.org/TR/css3-values/" title="CSS
+Values and Units Module Level 3">CSS Values and Units Module Level
+3</a></li>
+
+
+</ul>
 
 <h3> <span class="mw-headline" id="Other">Other resources</span></h3>
 
 <ul>
-<li> W3C Working Draft: <a href="http://www.w3.org/TR/css3-fonts/" title="W3C Working Draft: CSS Fonts Module Level 3">CSS Fonts Module Level 3</a></li>
+
+<li>
+CSS Tricks: <a href="http://www.alistapart.com/articles/howtosizetextincss/">How to Size Text in CSS</a>
+</li>
+
 </ul>
 
 <br/><br/>
-
-<!-- 
-NewPP limit report
-Preprocessor visited node count: 1331/1000000
-Preprocessor generated node count: 6671/1000000
-Post-expand include size: 34549/2097152 bytes
-Template argument size: 13454/2097152 bytes
-Highest expansion depth: 9/40
-Expensive parser function count: 0/100
--->
 
 <!-- Saved in parser cache with key wpwiki:pcache:idhash:45-0!*!0!!en!*!* and timestamp 20130118205335 -->
 </div>                                <!-- /bodycontent -->
