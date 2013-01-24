@@ -69,8 +69,12 @@ mw.loader.load(["ext.comments","mediawiki.page.startup","mediawiki.legacy.wikibi
 }
 
 .myCheck:before {
+    display: inline-block;
     content: url(check.png);
     margin-left: 1em;
+    -webkit-transform: scale(0.75);
+    -o-transform: scale(0.75);
+    transform: scale(0.75);
 }
 
 .myX:before {
@@ -264,21 +268,22 @@ dt {
 
 <p>
 This property sets the font size of the element to which it is
-applied, and its
-descendants. (See <a href="http://docs.webplatform.org/wiki/guides/css_text_styling_fundamentals">CSS
-Text Styling Fundamentals</a> for an overview.)
+applied, and its descendants. Can size text using absolute
+measurements, or relative to the parent or root elements.
+<a href="http://docs.webplatform.org/wiki/guides/css_text_styling_fundamentals">
+CSS Text Styling Fundamentals</a> provides an overview.
 </p>
 
 <table border="0">
 
 <tr>
-<td><i> <a href="http://docs.webplatform.org/w/index.php?title=css/concepts/initial_value&amp;action=edit&amp;redlink=1" title="css/concepts/initial_value (page does not exist)">Initial value</a></i>: <code>medium</code></td>
+<td><i> <a href="http://docs.webplatform.org/w/index.php?title=css/concepts/initial_value&amp;action=edit&amp;redlink=1" title="css/concepts/initial_value (page does not exist)">Initial value</a></i>: <b>medium</b></td>
 <td><i><a href="http://docs.webplatform.org/w/index.php?title=css/concepts/computed_value&amp;action=edit&amp;redlink=1"  title="css/concepts/computed_value (page does not exist)">Computed value</a></i>: absolute length, in pixels</td>
 <td><i><a href="http://docs.webplatform.org/w/index.php?title=css/concepts/inherited&amp;action=edit&amp;redlink=1"  title="css/concepts/inherited (page does not exist)"> Inherited</a></i>: <span class="myCheck">&nbsp;</span></td>
 <td><i><a href="http://docs.webplatform.org/w/index.php?title=css/concepts/css_applies_to&amp;action=edit&amp;redlink=1"  title="css/concepts/css_applies_to (page does not exist)">Applies to</a></i>: all elements</td>
 </tr>
 <tr>
-<td><i><a href="http://docs.webplatform.org/w/index.php?title=css/concepts/cssom&amp;action=edit&amp;redlink=1"  title="css/concepts/cssom (page does not exist)"> CSS Object Model Property</a></i>: <code>fontSize</code></td>
+<td><i><a href="http://docs.webplatform.org/w/index.php?title=css/concepts/cssom&amp;action=edit&amp;redlink=1"  title="css/concepts/cssom (page does not exist)"> CSS Object Model Property</a></i>: <b>fontSize</b></td>
 <td><i><a href="http://docs.webplatform.org/w/index.php?title=css/concepts/media&amp;action=edit&amp;redlink=1"  title="css/concepts/media (page does not exist)">media</a></i>: <a href="http://docs.webplatform.org/w/index.php?title=visual&amp;action=edit&amp;redlink=1"  title="visual (page does not exist)">visual</a>, <a href="http://docs.webplatform.org/w/index.php?title=print&amp;action=edit&amp;redlink=1"  title="print (page does not exist)">print</a></td>
 <td><i> <a href="http://docs.webplatform.org/w/index.php?title=css/concepts/animatable&amp;action=edit&amp;redlink=1"  title="css/concepts/animatable (page does not exist)">Animatable</a></i>: <span class="myCheck">&nbsp;</span></td>
 <td> 
@@ -292,7 +297,7 @@ Text Styling Fundamentals</a> for an overview.)
 font-size: <i>absolute-size</i>         /* font-size: medium */
 font-size: <i>relative-size</i>         /* font-size: larger */
 font-size: <i>length</i>                /* font-size: 1.5em (50% larger than parent) */
-font-size: <i>percentage</i>            /* font-size: 150% (same) */
+font-size: <i>percentage</i>            /* font-size: 150% (50% larger than parent) */
 font-size: inherit               /* font-size: inherit (same as 100%) */
 </pre>
 
@@ -397,6 +402,7 @@ applied directly as an SVG attribute:
 <th data-col="operamini"><img src="opera.png" title="Opera"/><br/>Opera Mini</th>
 <th data-col="android"><img src="android.gif" title="Android"/><br/>Android</th>
 <th data-col="blackberry"><img src="blackberry.png" title="Blackberry"/><br/>Blackberry</th>
+<th data-col="nokia"><img src="nokia.png" title="Nokia"/><br/>Nokia N9</th>
 </tr>
 
 <tr>
@@ -409,6 +415,7 @@ applied directly as an SVG attribute:
 <td data=col="operamini" class="myNA"></td>
 <td data=col="android" class="myNA"></td>
 <td data=col="blackberry" class="myNA"></td>
+<td data=col="nokia" class="myNA"></td>
 
 </tr>
 
@@ -422,6 +429,7 @@ applied directly as an SVG attribute:
 <td data=col="operamini" class="mySupport">1.0</td>
 <td data=col="android" class="mySupport">1.0</td>
 <td data=col="blackberry" class="mySupport">3.8</td>
+<td data=col="nokia" class="mySupport">1.0</td>
 </tr>
 
 <tr>
@@ -438,6 +446,7 @@ applied directly as an SVG attribute:
 <td data=col="operamini" class="myNA"></td>
 <td data=col="android" class="myNA"></td>
 <td data=col="blackberry" class="myNA"></td>
+<td data=col="nokia" class="myNA"></td>
 
 </tr>
 
@@ -451,6 +460,7 @@ applied directly as an SVG attribute:
 <td data=col="operamini" class="myNoSupport"></td>
 <td data=col="android" class="myNoSupport"></td>
 <td data=col="blackberry" class="myNoSupport"></td>
+<td data=col="nokia" class="myNoSupport"></td>
 </tr>
 
 </table>
