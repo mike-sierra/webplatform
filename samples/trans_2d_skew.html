@@ -7,7 +7,8 @@ body {
     background: #ddd;
 }
 
-img {
+body img {
+    -webkit-transition: -webkit-transform 1s;
     border: thin solid #000;
     border-radius: 0.5em;
     position: absolute;
@@ -15,27 +16,27 @@ img {
     left: 100px;
 }
 
-img:nth-of-type(odd) {
+body img:nth-of-type(odd) {
     opacity: 0.3;
 }
 
-img:nth-of-type(3), img:nth-of-type(4) {
+body img:nth-of-type(3), body img:nth-of-type(4) {
     left: 500px;
 }
 
-img:nth-of-type(5), img:nth-of-type(6) {
+body img:nth-of-type(5), body img:nth-of-type(6) {
     left: 900px;
 }
 
-img:nth-of-type(2) {
+body.alt img:nth-of-type(2) {
     -webkit-transform: skewX(10deg);
 }
 
-img:nth-of-type(4) {
+body.alt img:nth-of-type(4) {
     -webkit-transform: skewY(-30deg);
 }
 
-img:nth-of-type(6) {
+body.alt img:nth-of-type(6) {
     -webkit-transform: skew(10deg, -30deg);
 }
 

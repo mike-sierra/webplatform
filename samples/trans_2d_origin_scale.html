@@ -7,7 +7,8 @@ body {
     background: #ddd;
 }
 
-img {
+body img {
+    -webkit-transition: -webkit-transform 1s;
     border: thin solid #000;
     border-radius: 0.5em;
     position: absolute;
@@ -15,20 +16,20 @@ img {
     left: 100px;
 }
 
-img:nth-of-type(odd) {
+body img:nth-of-type(odd) {
     opacity: 0.3;
 }
 
-img:nth-of-type(3), img:nth-of-type(4) {
+body img:nth-of-type(3), body img:nth-of-type(4) {
     left: 500px;
 }
 
-img:nth-of-type(2) {
+body.alt img:nth-of-type(2) {
     -webkit-transform: scale(0.35, 1);
     -webkit-transform-origin-x: 0%;
 }
 
-img:nth-of-type(4) {
+body.alt img:nth-of-type(4) {
     -webkit-transform-origin: 210% -20%;
     -webkit-transform: scale(0.5);
 }

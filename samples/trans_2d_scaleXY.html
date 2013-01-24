@@ -7,7 +7,8 @@ body {
     background: #ddd;
 }
 
-img {
+body img {
+    -webkit-transition: -webkit-transform 1s;
     border: thin solid #000;
     border-radius: 0.5em;
     position: absolute;
@@ -15,11 +16,11 @@ img {
     left: 100px;
 }
 
-img:first-of-type {
+body img:first-of-type {
     opacity: 0.3;
 }
 
-img:last-of-type {
+body.alt img:last-of-type {
     -webkit-transform: scale(1.25, 0.75);
 }
 

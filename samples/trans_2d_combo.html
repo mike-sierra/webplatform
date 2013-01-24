@@ -7,19 +7,21 @@ body {
     background: #ddd;
 }
 
-img {
+body img {
+    -webkit-transition: -webkit-transform 1s;
     border: thin solid #000;
     border-radius: 0.5em;
     position: absolute;
     top: 50px;
     left: 50px;
+    -webkit-transform: rotate(0deg);
 }
 
-img:first-of-type {
+body img:first-of-type {
     opacity: 0.3;
 }
 
-img:last-of-type {
+body.alt img:last-of-type {
     -webkit-transform: translate(50%, 10%) rotate(20deg) scale(0.75);
 }
 
