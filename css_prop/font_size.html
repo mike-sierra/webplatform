@@ -113,6 +113,10 @@ dt {
     font-weight: normal;
 }
 
+th[colspan] {
+    padding: 0.25em;
+}
+
 </style>
 
 
@@ -364,20 +368,25 @@ safest way to specify measurements, since
 title="css/concepts/CSS_pixels (page does not exist)">CSS pixels</a>
 are adjusted for variations in display pixel density.</p>
 
+<p>
+While the initial <b>medium</b> size applies widely, browsers apply a
+default style sheet that modifies it for various semantic elements,
+boosting the size of headings, for example.  Browsers also
+automatically resize fonts when zooming the page, stepping by values
+that may not correspond exactly to the zoom factor.  Unless disabled
+using
+<a href="http://docs.webplatform.org/wiki/css/properties/text-size-adjust" title="css/properties/text-size-adjust">
+<b>text-size-adjust</b></a>, fonts also resize when tipping between
+portrait and landscape orientations on mobile browsers.  For an
+overview of the issue, see
+<a href="http://docs.webplatform.org/wiki/tutorials/mobile_viewport">The
+Mobile Viewport and Orientation</a>.
+</p>
+
 <p>The value of <b>font-size</b> also affects the value of
 <a href="http://docs.webplatform.org/wiki/css/properties/line-height" title="css/properties/line-height">
 <b>line-height</b></a> when using its default or relative
 measurements.</p>
-
-<p>
-Unless disabled using
-<a href="http://docs.webplatform.org/wiki/css/properties/text-size-adjust" title="css/properties/text-size-adjust">
-<b>text-size-adjust</b></a>, browsers automatically resize fonts when
-zooming the page, or on mobile browsers when tipping between portrait
-and landscape orientations.  For an overview of the issue, see
-<a href="http://docs.webplatform.org/wiki/tutorials/mobile_viewport">The
-Mobile Viewport and Orientation</a>.
-</p>
 
 <p>
 Along with many other CSS properties, <b>font-size</b> can also be
@@ -404,6 +413,10 @@ applied directly as an SVG attribute:
 <th data-col="blackberry"><img src="blackberry.png" title="Blackberry"/><br/>Blackberry</th>
 <th data-col="nokia"><img src="nokia.png" title="Nokia"/><br/>Nokia N9</th>
 </tr>
+
+<tr>
+<th colspan="20">Basic support</th>
+</th>
 
 <tr>
 <th>Desktop</th>
@@ -469,9 +482,12 @@ applied directly as an SVG attribute:
 
 <ul>
 
-<li><b>Internet Explorer &le; 6.0</b>: Requires
+<li><b>Internet Explorer &le; 6.0</b>: Requires 
 a <a href="http://docs.webplatform.org/wiki/html/elements/!DOCTYPE">!DOCTYPE</a>
-declaration, otherwise the initial value is <b>small</b> rather
+declaration that triggers
+<a href="http://docs.webplatform.org/w/index.php?title=css/concepts/standards_mode&amp;action=edit&amp;redlink=1"
+title="css/concepts/standards_mode (page does not exist)">standards
+mode</a>, otherwise the initial value is <b>small</b> rather
 than <b>medium</b>.</li>
 
 <li><b>Internet Explorer &le; 7.0</b>: Does not support <b>inherit</b>
@@ -592,9 +608,17 @@ Values and Units Module Level 3">CSS Values and Units Module Level
 
 <ul>
 
-<li>
-CSS Tricks: <a href="http://www.alistapart.com/articles/howtosizetextincss/">How to Size Text in CSS</a>
-</li>
+<li>Smashing: <a href="http://www.smashingmagazine.com/2011/10/07/16-pixels-body-copy-anything-less-costly-mistake/">16 Pixels: For Body Copy. Anything Less Is a Costly Mistake</a></li>
+
+<li>HTML5 Boilerplate: <a href="https://github.com/h5bp/html5-boilerplate/issues/724">Reasoning behind default font-size and line-height</a></li>
+
+<li>A List Apart: <a href="http://www.alistapart.com/articles/howtosizetextincss/">How to Size Text in CSS</a></li>
+
+<li>Mozilla: <a href="http://mxr.mozilla.org/mozilla/source/layout/style/html.css">default style sheet</a></li>
+
+<li>WebKit: <a href="http://trac.webkit.org/browser/trunk/Source/WebCore/css/html.css">default style sheet</a></li>
+
+
 
 </ul>
 
