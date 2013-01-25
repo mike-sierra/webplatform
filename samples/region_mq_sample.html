@@ -1,0 +1,266 @@
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+<title>regions + media queries = narrow the window!</title>
+
+<style>
+
+/* LAYOUT */
+ 
+body {
+    background         : #444;
+    padding            : 1em;
+    font-family        : Trebuchet MS;
+    -webkit-hyphens: auto;
+}
+ 
+section, div {
+    padding            : 0.5em;
+    border-radius      : 0.5em;
+    background         : #eee;
+    min-height         : 2em;
+    -webkit-region-overflow: break;
+}
+ 
+section {
+    width              : 8.5in;
+    height             : 10.6in;
+    position           : absolute;
+}
+ 
+div {
+    border             : #777 medium solid;
+    margin-bottom      : 0.5em;
+}
+ 
+#intro, #col1, #col2a, #col2b, #pull {
+    width              : 45%;
+    position           : absolute;
+}
+ 
+#title {
+    height             : 2.5em;
+}
+ 
+#intro, #col2a {
+    top                : 5em;
+    height             : 3em;
+}
+ 
+#col1 {
+    top                : 10em;
+    height             : 52em;
+}
+ 
+#col2a, #col2b, #pull {
+    left               : 51%;
+}
+ 
+#col2a {
+    top                : 5em;
+    height             : 23em;
+}
+ 
+#col2b {
+    top                : 40em;
+    height             : 22em;
+}
+ 
+#pull {
+    top                : 30em;
+    height             : auto;
+}
+ 
+/* CONTENT */
+ 
+h1 {
+    margin             : 0.25em;
+    text-align         : center;    
+}
+
+h1, h2, h3, h4 {
+    -webkit-hyphens    : none;
+    break-after  : avoid;
+    break-inside : avoid;
+    -webkit-break-after  : avoid-region;
+    -webkit-break-inside : avoid-region;
+    -webkit-region-break-after  : avoid;
+    -webkit-region-break-inside : avoid;
+
+}
+ 
+#drop {
+    float              : left;
+    font-size          : 36px;
+    padding-right      : 0.15em;
+    font-family        : Georgia;
+}
+ 
+aside {
+    background         : #777;
+    padding            : 1em;
+    border-radius      : 1em;
+    color              : #fff;
+    -webkit-box-shadow : 0.5em 0.5em 0.5em #444;
+    margin-left        : 0.75em;
+    margin-right       : 0.75em;
+    font-size          : 20px;
+    text-shadow        : 4px 4px 4px #444;
+}
+ 
+ @-webkit-region #intro {
+      p:first-of-type { color : #fff; }
+ } 
+
+ #intro {
+     background         : #777;
+     border             : medium solid #777;
+ }
+
+/* article { display: none } */
+
+ @media screen and (min-width: 480px){
+
+     /* pour article into section */
+     article { -webkit-flow-into : main; }
+     section > div:not(#pull) { -webkit-flow-from : main; }
+
+     /* custom flow for pull quotes */
+     aside { -webkit-flow-into : pull; }
+     div#pull { -webkit-flow-from : pull; }
+ }
+ 
+ @media screen and (max-width: 480px){
+ 
+     /* suppress layout based on CSS Regions */
+     section { display : none; }
+ 
+     /* suppress content inappropriate for mobile */
+     aside { display : none; }
+ 
+     /* style content as single column for mobile */
+     article {
+         margin        : 1em 1em 10em 1em;
+         padding       : 1em;
+         border-radius : 1em;
+         background    : #fff;
+     }
+     body {
+         background    : #aaa;
+         padding       : 0;
+     }
+
+     /* useful commentary */
+     h1:first-of-type::after {
+         display       : block;
+         content       : " (but without the regions)";
+     }
+ }
+</style>
+
+</head>
+<body>
+
+<section class="page">
+    <div id="title"><h1>Region #1</h1></div>
+    <div id="intro"><h1>Region #2</h1></div>
+    <div id="col1"><h1>Region #3</h1></div>
+    <div id="col2a"><h1>Region #4</h1></div>
+    <div id="pull"><h1>(Separate Region)</h1></div>
+    <div id="col2b"><h1>Region #5</h1></div>
+</section>
+
+<article>
+
+<h1>Sample CSS Regions Layout</h1>
+
+<p><span id="drop">R</span>iverrun, past Eve and Adam's, from swerve
+of shore to bend of bay, brings us by a commodius vicus of
+recirculation back to Howth Castle and Environs.</p>
+
+<p>Sir Tristram, violer d'amores, fr'over the short sea, had passencore
+rearrived from North Armorica on this side the scraggy isthmus of
+Europe Minor to wielderfight his penisolate war: nor had topsawyer's
+rocks by the stream Oconee exaggerated themselse to Laurens County's
+gorgios while they went doublin their mumper all the time: nor avoice
+from afire bellowsed mishe mishe to tauftauf thuartpeatrick: not yet,
+though venissoon after, had a kidscad buttended a bland old isaac: not
+yet, though all's fair in vanessy, were sosie sesthers wroth with
+twone nathandjoe.  Rot a peck of pa's malt had Jhem or Shen brewed by
+arclight and rory end to the regginbrow was to be seen ringsome on the
+aquaface.</p>
+
+<p>The fall... of a once wallstrait oldparr is retaled early in bed
+and later on life down through all christian minstrelsy.  The great
+fall of the offwall entailed at such short notice the pftjschute of
+Finnegan, erse solid man, that the humptyhillhead of humself prumptly
+sends an unquiring one well to the west in quest of his tumptytumtoes:
+and their upturnpikepointandplace is at the knock out in the park
+where oranges have been laid to rust upon the green since devlinsfirst
+loved livvy.</p>
+
+<aside>
+The oaks of ald now they lie in peat yet elms leap where askes lay.
+</aside>
+
+<p>What clashes here of wills gen wonts, oystrygods gaggin fishygods!
+Br&eacute;kkek K&eacute;kkek K&eacute;kkek K&eacute;kkek!  K&oacute;ax
+K&oacute;ax K&oacute;ax!  Ualu Ualu Ualu!  Quaouauh!  Where the
+Baddelaries partisans are still out to mathmaster Malachus Micgranes
+and the Verdons catapelting the camibalistics out of the Whoyteboyce
+of Hoodie Head.  Assiegates and boomeringstroms.  Sod's brood, be me
+fear!  Sanglorians, save!  Arms apeal with larms, appalling.
+Killykillkilly: a toll, a toll.  What chance cuddleys, what cashels
+aired and ventilated!  What bidimetoloves sinduced by what
+tegotetabsolvers!  What true feeling for their's hayair with what
+strawng voice of false jiccup!  O here here how hoth sprowled met the
+duskt the father of fornicationists but, (O my shining stars and
+body!)  how hath fanespanned most high heaven the skysign of soft
+advertisement!  But was iz?  Iseut?  Ere were sewers?  The oaks of ald
+now they lie in peat yet elms leap where askes lay.  Phall if you but
+will, rise you must: and none so soon either shall the pharce for the
+nunce come to a setdown secular phoenish.</p>
+
+<!--
+<p>&nbsp;</p>
+-->
+
+<h2>Bygmester Finnegan, of the Stuttering Hand...</h2>
+
+<p>...freemen's maurer, lived in the broadest way immarginable in his
+rushlit toofarback for messuages before joshuan judges had given us
+numbers or Helviticus committed deuteronomy (one yeastyday he sternely
+struxk his tete in a tub for to watsch the future of his fates but ere
+he swiftly stook it out again, by the might of moses, the very water
+was eviparated and all the guenneses had met their exodus so that
+ought to show you what a pentschanjeuchy chap he was!)  and during
+mighty odd years this man of hod, cement and edifices in Toper's Thorp
+piled buildung supra buildung pon the banks for the livers by the
+Soangso.</p>
+
+<p>He addle liddle phifie Annie ugged the little craythur.  Wither
+hayre in honds tuck up your part inher.  Oftwhile balbulous, mithre
+ahead, with goodly trowel in grasp and ivoroiled overalls which he
+habitacularly fondseed, like Haroun Childeric Eggeberth he would
+caligulate by multiplicables the alltitude and malltitude until he
+seesaw by neatlight of the liquor wheretwin 'twas born, his roundhead
+staple of other days to rise in undress maisonry upstanded
+(joygrantit!), a waalworth of a skyerscape of most eyeful hoyth
+entowerly, erigenating from next to nothing and celescalating the
+himals and all, hierarchitectitiptitoploftical, with a burning bush
+abob off its baubletop and with larrons o'toolers clittering up and
+tombles a'buckets clottering down.</p>
+
+<p>Of the first was he to bare arms and a name: Wassaily Booslaeugh of
+Riesengeborg.  His crest of huroldry, in vert with ancillars,
+troublant, argent, a hegoak, poursuivant, horrid, horned.  His
+scutschum fessed, with archers strung, helio, of the second.  Hootch
+is for husbandman handling his hoe.  Hohohoho, Mister Finn, you're
+going to be Mister Finnagain!  Comeday morm and, O, you're vine!
+Sendday's eve and, ah, you're vinegar!  Hahahaha, Mister Funn, you're
+going to be fined again!</p>
+
+</article>
+
+</body>
+</html>
