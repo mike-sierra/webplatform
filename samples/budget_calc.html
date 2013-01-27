@@ -1,0 +1,103 @@
+<html>
+<head>
+<title>How Much Money Is That?</title>
+
+<style>
+input {
+    width: 6em;
+}
+
+output {
+    display: block;
+    margin-top: 2em;
+}
+
+</style>
+
+</head>
+<body>
+<h3>How Much Money Is That?</h3>
+
+<form onsubmit="return false">
+Enter some large amount of money:
+<p>$
+<input name="n" type="number" onchange="o.value = calc(n,u)"/>
+<select name="u" onchange="o.value = calc(n,u)">
+  <option>thousand
+  <option>million
+  <option selected>billion
+  <option>trillion
+</select>
+<br/>
+<output name="o" for="n u"></output>
+</form>
+
+<script>
+function calc(n,u) {
+    var preStr = 'That amounts to ';
+    var postStr = " worth of federal spending, based on 2013's $3.8 trillion budget";
+    var perStr;
+    var str;
+    var d = 0;
+
+    var dPerYear = 3.803 * 1000 * 1000 * 1000 * 1000;
+
+    var dPerSec;
+    var dPerMin;
+    var dPerHour;
+    var dPerDay;
+    var dPerWeek;
+    var dPerMon;
+
+    if (! n.valueAsNumber) return('');
+
+    // get units
+    u.value.match(/^mil/)  ? (d = n.valueAsNumber * 1000 * 1000)               :
+    u.value.match(/^bil/)  ? (d = n.valueAsNumber * 1000 * 1000 * 1000)        :
+    u.value.match(/^tril/) ? (d = n.valueAsNumber * 1000 * 1000 * 1000 * 1000) :
+    d = n.valueAsNumber * 1000;
+
+    dPerMon = dPerYear / 12;
+    dPerDay = dPerYear / 365;
+    dPerWeek = dPerDay * 7;
+    dPerHour = dPerDay / 24;    
+    dPerMin = dPerHour / 60;
+    dPerSec = dPerMin / 60;
+
+    if (d < dPerMin) {
+        str = trim(d/dPerSec) + " seconds";
+        perStr = ', spending at $' + trim(dPerSec, 1) + ' per second';
+    } else if (d < dPerHour) {
+        str = trim(d/dPerMin) + " minutes";
+        perStr = ', spending at $' + trim(dPerMin, 1) + ' per minute';
+    } else if (d < dPerDay) {
+        str = trim(d/dPerHour) + " hours";
+        perStr = ', spending at $' + trim(dPerHour, 1) + ' per hour';
+    } else if (d < dPerMon) {
+        str = trim(d/dPerDay) + " days";
+        perStr = ', spending at $' + trim(dPerDay, 1) + ' per day';
+    } else if (d < dPerYear) {
+        str = trim(d/dPerMon) + " months";
+        perStr = ', spending at $' + trim(dPerMon, 1) + ' per month';
+    } else {
+        str = trim(d/dPerYear) + " years";
+        perStr = ', spending at $' + trim(dPerYear, 1) + ' per year';
+    }
+
+    for (i = 5; i; i--) {
+        perStr = perStr.replace(/([0-9]+)([0-9][0-9][0-9])/, "$1,$2");
+    }
+
+    return(preStr + str + postStr + perStr + '.');
+
+};
+
+function trim(n,m) {
+    if (!m) m = 100;
+    return(Math.floor(n * m)/m)
+}
+
+</script>
+
+</body>
+</html>
