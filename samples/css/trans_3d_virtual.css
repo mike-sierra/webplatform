@@ -1,0 +1,76 @@
+body {
+    background				: #000;
+}
+
+@media all and (orientation:portrait) {
+    #outer {
+        opacity				: 1;
+        color				: gold;
+        font-size			: x-large;
+        font-family			: sans-serif;
+        text-align			: center;
+        padding-top			: 3em;    
+    }
+    #outer:before {
+        content				: "Tip the handset on its side"
+    }
+}
+
+@media all and (orientation:landscape) {
+    
+    #outer, #rx, #ry, #ry > div {
+        -webkit-transition		: all 5s;
+        position			: absolute;
+        top				: 0em;
+        left				: 0em;
+        width				: 480px;
+        height				: 320px;
+        border				: medium solid transparent;
+    }
+    
+    #outer {
+        -webkit-perspective		: 1000;
+    }
+    
+    #rx {    
+        -webkit-perspective		: 1000;
+        -webkit-transform		: translateZ(240px);
+    }
+    
+    #ry {    
+        -webkit-transform-style		: preserve-3d;
+        -webkit-transform-origin-z	: 240px;
+    }
+    
+    #ry > div {
+        background-image		: url(../img/mars.jpg);
+        background-size			: 390% 100%;
+        background-repeat		: no-repeat;
+        -webkit-backface-visibility	: hidden;
+    }
+    
+    #ry > div:nth-of-type(1) {
+        -webkit-transform		: rotateY(0deg) translateZ(0);
+        background-position-x		: 0%;
+    }
+    
+    #ry > div:nth-of-type(2) {
+        -webkit-transform		: rotateY(-90deg) translateX(480px);
+        -webkit-transform-origin	: 100% 0%;
+        background-position-x		: 25%;
+    }
+    
+    #ry > div:nth-of-type(3) {
+        -webkit-transform		: rotateY(-180deg) translateZ(-480px);
+        -webkit-transform-origin	: 50% 50%;
+        background-position-x		: 50%;
+    }
+    
+    #ry > div:nth-of-type(4) {
+        -webkit-transform		: rotateY(90deg) translateX(-480px);
+        -webkit-transform-origin	: 0% 0%;
+        background-position-x		: 75%;
+    }
+
+}
+
