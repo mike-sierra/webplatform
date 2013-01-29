@@ -1,0 +1,69 @@
+<html>
+  <head>
+<title>nested transitions</title>
+
+<style>
+
+body {
+    background: #aaa;
+}
+
+section {
+    overflow: hidden;
+    position: absolute;
+    width: 320px;
+    height: 480px;
+    background: #fff;
+}
+
+nav {
+        /* transition applies to all varying elements */
+    -webkit-transition            : all 0.5s;
+        /* dimensions and position (mostly outside view) */
+    height                : 42px;
+    width                 : 300px;
+    position              : absolute;
+    right                 : -260px;
+    top                   : 10px;
+    padding-top           : 2px;
+    padding-bottom        : 2px;
+    padding-left          : 6px;
+    padding-right         : 6px;
+    overflow              : hidden;
+    box-sizing            : border-box;
+        /* define icon */
+    background-image      : url(img/html5.png);
+    background-position-x : left;
+    background-position-y : 50%;
+    background-repeat     : no-repeat;
+    background-size       : contain;
+    background-color      : #fff;
+        /* border and shadow hidden by default */
+    border                : transparent solid medium;
+    border-radius         : 4px;
+    box-shadow            : 0 0 1em transparent;
+    text-align: justify;
+}
+
+nav.expanded  {
+        /* transition applies to these varying elements */
+    right                 : 10px;   /* bring panel into view */
+    background-position-x : 400px;  /* icon out of view */
+    border                : #aaa solid medium;
+    box-shadow            : 0 0 1em #777;
+}
+
+</style>
+
+</head>
+<body>
+
+<section>
+
+<nav onclick="this.classList.toggle('expanded')">
+</nav>
+
+</section>
+
+</body>
+</html>

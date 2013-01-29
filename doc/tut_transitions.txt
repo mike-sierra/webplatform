@@ -192,6 +192,8 @@ collapsing the panel back down to icon size:
 
 [[Image:transit_sequence.png|900px]]
 
+([http://letmespellitoutforyou.com/samples/transit_sequence.html View live sample])
+
 Here is the relevant CSS:
 
  div {
@@ -278,6 +280,8 @@ The overall movement is staggered like this:
 
 [[Image:transit_delay.png]]
 
+([http://letmespellitoutforyou.com/samples/transit_delay.html View live sample])
+
 <span id="timing"></span>
 
 ==Timing functions==
@@ -291,6 +295,8 @@ value. If it were '''linear''', they would all start and stop abruptly
 and move at the same speed:
 
 [[Image:transit_linear.png]]
+
+([http://letmespellitoutforyou.com/samples/transit_delay_linear.html View live sample])
 
 Browsers represent these keywords as bezier curves, which makes their
 response easier to visualize.  Here is the basic set of keyword values
@@ -356,6 +362,8 @@ panel appear:
 
 [[Image:transit_end.png]]
 
+([http://letmespellitoutforyou.com/samples/transit_end.html View live sample])
+
 The [[css/properties/opacity|'''opacity''']] property makes the
 element fade in, and is the only noticable change to its appearance. A
 second transition executes over a longer span of time, and makes an
@@ -412,6 +420,8 @@ following can thus drive an image gallery interface:
 
 [[Image:fade.png]]
 
+([http://letmespellitoutforyou.com/samples/transit_bkimg.html View live sample])
+
 See the [[css/functions/cross-fade|cross-fade()]] function for a way
 to mix images statically.
 
@@ -435,6 +445,8 @@ and distorting its colors in various ways while it rotates in space:
  }
 
 [[Image:videofade.png]]
+
+([http://letmespellitoutforyou.com/samples/transit_filter_video.html View live sample])
 
 Unlike [[css/properties/transform|'''transform''']] functions,
 [[css/properties/filter|'''filter''']] functions must be explictly
