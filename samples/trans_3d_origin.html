@@ -1,6 +1,6 @@
 <html>
 <head>
-<title>cards</title>
+<title>transform + 3D rotation + transform-origin-z</title>
 <style>
 
 body {
@@ -8,13 +8,14 @@ body {
 }
 
 div {
+    -webkit-transform: scale(0.5);
     border: solid thin #777;
     background: #aaa;
     position: absolute;
     width: 281;
     height: 400;
     left: 40%;
-    top: 100px;
+    top: 0;
     -webkit-perspective: 10000;
     -webkit-perspective-origin-y: -3000;
 }
@@ -23,7 +24,7 @@ img {
     border: thin solid #777;
     border-radius: 0.5em;
     position: absolute;
-    -webkit-transform-origin-z: -620;
+    -webkit-transform-origin-z: -920;
 }
 
 img:nth-of-type(1) { -webkit-transform: rotateY(-50deg); }

@@ -1,6 +1,6 @@
 <html>
   <head>
-<title>nested transitions</title>
+<title>simultaneous transitions on &gt;1 element</title>
 
 <style>
 
@@ -84,7 +84,7 @@ div:nth-of-type(7) { background-image : url(img/html5icon7.png); }
 
 <section>
 
-<nav onclick="this.classList.toggle('expanded')">
+<nav>
 <div></div>
 <div></div>
 <div></div>
@@ -96,6 +96,22 @@ div:nth-of-type(7) { background-image : url(img/html5icon7.png); }
 </nav>
 
 </section>
+
+<script>
+window.onload = function() {
+    // expand <nav> when collapsed:
+    document.querySelector('nav').addEventListener('click', function(e) {
+        if (e.currentTarget.className) return(false);
+        e.currentTarget.classList.add('expanded');
+        // keep it from collapsing again:
+        e.stopPropagation();
+    });
+    // otherwise clicking anywhere collapses it:
+    document.querySelector('body').addEventListener('click', function(e) {
+        document.querySelector('nav').classList.remove('expanded');
+    });
+}
+</script>
 
 </body>
 </html>

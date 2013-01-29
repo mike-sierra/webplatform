@@ -1,6 +1,6 @@
 <html>
-  <head>
-<title>delay</title>
+<head>
+<title>animations w/linear timing; delays randomly staggered</title>
 
 <style>
 
@@ -73,8 +73,8 @@ div {
          divs[i].style.animationDelay = delay;
          divs[i].style.WebkitAnimationDelay = delay;
      }
+     document.querySelector('body').addEventListener('click', function() { window.location.reload()})
  }
-
 
 </script>
 

@@ -408,12 +408,12 @@ face the other way. As described below, you can rotate the entire
 card along with its children. In this case, with the backface hidden,
 only one of the child ''face'' elements displays at a time:
 
-<syntaxhighlight lang="xml">
+ <syntaxhighlight lang="xml">
  <div class="card">
    <div class="face" id="jackheart"></div>
    <div class="face"></div>
  </div>
-</syntaxhighlight>
+ </syntaxhighlight>
 
 [[Image:3d_backface.png]]
 

@@ -58,6 +58,8 @@ example will illustrate several other features below:
 
 [[Image:anim_pulse.png]]
 
+([http://letmespellitoutforyou.com/samples/anim_pulse.html View live sample])
+
 The [[css/properties/animation|'''animation''']] CSS property
 specifies the ''name'' of an animation you will supply, '''pulse''' in
 this case, and its overall ''duration'' of 1 second. Both are
@@ -204,6 +206,8 @@ In this case, setting different durations makes the two ''fade'' and
      to   { transform : scale(0.75); }
  }
 
+([http://letmespellitoutforyou.com/samples/anim_pulse_multiple.html View live sample])
+
 Make sure that any keyframes or transitions that execute concurrently
 don't manipulate any of the same properties. This is ''not'' a problem
 for animations or transitions applied to different elements.
@@ -237,6 +241,8 @@ for a series of banner advertisements, which then continuously cycle
 horizontally and rewind to display the first:
 
 [[Image:anim_cycle.png]]
+
+([http://letmespellitoutforyou.com/samples/anim_banner.html View live sample])
 
 To achieve this effect, the
 [[css/properties/animation-delay|'''animation-delay''']] property
@@ -383,6 +389,8 @@ fast-moving, slide in haphazardly from the right edge of the screen,
 then hit a wall at the left edge and wobble to a stop:
 
 [[Image:animDelay.png]]
+
+([http://letmespellitoutforyou.com/samples/anim_timing.html View live sample])
 
 Setting the timing function to '''linear''' makes the shift from a
 moving to a stopped state as abrupt as possible. This occurs at the

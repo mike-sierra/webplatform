@@ -1,6 +1,6 @@
 <html>
   <head>
-<title>nested transitions</title>
+<title>simple transition of &gt; property</title>
 
 <style>
 
@@ -60,10 +60,26 @@ nav.expanded  {
 
 <section>
 
-<nav onclick="this.classList.toggle('expanded')">
+<nav>
 </nav>
 
 </section>
+
+<script>
+window.onload = function() {
+    // expand <nav> when collapsed:
+    document.querySelector('nav').addEventListener('click', function(e) {
+        if (e.currentTarget.className) return(false);
+        e.currentTarget.classList.add('expanded');
+        // keep it from collapsing again:
+        e.stopPropagation();
+    });
+    // otherwise clicking anywhere collapses it:
+    document.querySelector('body').addEventListener('click', function(e) {
+        document.querySelector('nav').classList.remove('expanded');
+    });
+}
+</script>
 
 </body>
 </html>

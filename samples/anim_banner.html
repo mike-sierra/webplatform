@@ -1,6 +1,6 @@
 <html>
   <head>
-<title>banner</title>
+<title>&gt;1 concurrent animation; delayed; fill-mode:both</title>
 
 <style>
 
@@ -27,9 +27,6 @@ section, header {
 header {
     background                        : #fff;
     height                            : 3em;
-/*
-    -webkit-animation                 : insertBanner 1s 4s 1 backwards, scrollBanner 20s 5s infinite none;
-*/
     -webkit-animation-name            : insertBanner , scrollBanner;
     -webkit-animation-duration        : 1s           , 20s;
     -webkit-animation-delay           : 4s           , 5s;

@@ -1,6 +1,6 @@
 <html>
   <head>
-<title>transitionend</title>
+<title>transitionend event</title>
 
 <style>
 
@@ -44,7 +44,7 @@ var div;
      div.addEventListener('transitionend'       , timeoutPanelDisplay); // Mozilla
      div.addEventListener('otransitionend'      , timeoutPanelDisplay); // Opera
      div.addEventListener('webkitTransitionEnd' , timeoutPanelDisplay); // WebKit
-     setTimeout(function() { div.classList.add('display') }, 1000)
+     div.classList.add('display');
  };
  
  function timeoutPanelDisplay(e) {

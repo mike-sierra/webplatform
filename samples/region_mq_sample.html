@@ -1,111 +1,112 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-<title>regions + media queries = narrow the window!</title>
+<title>CSS regions + media queries</title>
 
 <style>
 
 /* LAYOUT */
  
 body {
-    background         : #444;
-    padding            : 1em;
-    font-family        : Trebuchet MS;
-    -webkit-hyphens: auto;
+    background                  : #444;
+    padding                     : 1em;
+    font-family                 : Trebuchet MS;
+    -webkit-hyphens             : auto;
 }
  
 section, div {
-    padding            : 0.5em;
-    border-radius      : 0.5em;
-    background         : #eee;
-    min-height         : 2em;
-    -webkit-region-overflow: break;
+    padding                     : 0.5em;
+    border-radius               : 0.5em;
+    background                  : #eee;
+    min-height                  : 2em;
+    -webkit-region-overflow     : break;
 }
  
 section {
-    width              : 8.5in;
-    height             : 10.6in;
-    position           : absolute;
+    width                       : 8.5in;
+    height                      : 10.6in;
+    position                    : absolute;
 }
  
 div {
-    border             : #777 medium solid;
-    margin-bottom      : 0.5em;
+    border                      : #777 medium solid;
+    margin-bottom               : 0.5em;
 }
  
 #intro, #col1, #col2a, #col2b, #pull {
-    width              : 45%;
-    position           : absolute;
+    width                       : 45%;
+    position                    : absolute;
 }
  
 #title {
-    height             : 2.5em;
+    height                      : 2.5em;
 }
  
 #intro, #col2a {
-    top                : 5em;
-    height             : 3em;
+    top                         : 5em;
+    height                      : 3em;
 }
  
 #col1 {
-    top                : 10em;
-    height             : 52em;
+    top                         : 10em;
+    height                      : 52em;
 }
  
 #col2a, #col2b, #pull {
-    left               : 51%;
+    left                        : 51%;
 }
  
 #col2a {
-    top                : 5em;
-    height             : 23em;
+    top                         : 5em;
+    height                      : 23em;
 }
  
 #col2b {
-    top                : 40em;
-    height             : 22em;
+    top                         : 40em;
+    height                      : 22em;
 }
  
 #pull {
-    top                : 30em;
-    height             : auto;
+    top                         : 30em;
+    height                      : auto;
 }
  
 /* CONTENT */
  
 h1 {
-    margin             : 0.25em;
-    text-align         : center;    
+    margin                      : 0.25em;
+    text-align                  : center;    
 }
 
 h1, h2, h3, h4 {
-    -webkit-hyphens    : none;
-    break-after  : avoid;
-    break-inside : avoid;
-    -webkit-break-after  : avoid-region;
-    -webkit-break-inside : avoid-region;
+    -webkit-hyphens             : none;
+    break-after                 : avoid;
+    break-inside                : avoid;
+    -webkit-break-after         : avoid-region;
+    -webkit-break-inside        : avoid-region;
     -webkit-region-break-after  : avoid;
     -webkit-region-break-inside : avoid;
 
 }
  
 #drop {
-    float              : left;
-    font-size          : 36px;
-    padding-right      : 0.15em;
-    font-family        : Georgia;
+    float                       : left;
+    font-size                   : 36px;
+    padding-right               : 0.15em;
+    font-family                 : Georgia;
 }
  
 aside {
-    background         : #777;
-    padding            : 1em;
-    border-radius      : 1em;
-    color              : #fff;
-    -webkit-box-shadow : 0.5em 0.5em 0.5em #444;
-    margin-left        : 0.75em;
-    margin-right       : 0.75em;
-    font-size          : 20px;
-    text-shadow        : 4px 4px 4px #444;
+    background                  : #777;
+    padding                     : 1em;
+    border-radius               : 1em;
+    color                       : #fff;
+    -webkit-box-shadow          : 0.5em 0.5em 0.5em #444;
+    margin-left                 : 0.75em;
+    margin-right                : 0.75em;
+    font-size                   : 20px;
+    margin-bottom               : 10px;
+    text-shadow                 : 4px 4px 4px #444;
 }
  
  @-webkit-region #intro {
@@ -162,12 +163,12 @@ aside {
 <body>
 
 <section class="page">
-    <div id="title"><h1>Region #1</h1></div>
-    <div id="intro"><h1>Region #2</h1></div>
-    <div id="col1"><h1>Region #3</h1></div>
-    <div id="col2a"><h1>Region #4</h1></div>
-    <div id="pull"><h1>(Separate Region)</h1></div>
-    <div id="col2b"><h1>Region #5</h1></div>
+    <div id="title"> <h1>Region #1</h1>         </div>
+    <div id="intro"> <h1>Region #2</h1>         </div>
+    <div id="col1">  <h1>Region #3</h1>         </div>
+    <div id="col2a"> <h1>Region #4</h1>         </div>
+    <div id="pull">  <h1>(Separate Region)</h1> </div>
+    <div id="col2b"> <h1>Region #5</h1>         </div>
 </section>
 
 <article>
@@ -261,6 +262,13 @@ Sendday's eve and, ah, you're vinegar!  Hahahaha, Mister Funn, you're
 going to be fined again!</p>
 
 </article>
+
+<script>
+window.onload = function() {
+    if (!document.webkitGetNamedFlows)
+        alert("Sorry, your browser doesn't support CSS regions; try Webkit Nightly or Canary");
+};
+</script>
 
 </body>
 </html>
