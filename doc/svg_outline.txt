@@ -1,3 +1,7 @@
+SVG basic shapes
+SVG paths
+
+
 1 Introduction
 	1.1 About SVG
 	1.2 SVG MIME type, file name extension and Macintosh file type

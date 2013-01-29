@@ -1,0 +1,9 @@
+/Users/sierra/sandbox/webplatform-tools/wpd edit css/units/angle      "`cat unit_angle.txt`"      -u Sierra
+/Users/sierra/sandbox/webplatform-tools/wpd edit css/units/color      "`cat unit_color.txt`"      -u Sierra
+/Users/sierra/sandbox/webplatform-tools/wpd edit css/units/frequency  "`cat unit_frequency.txt`"  -u Sierra
+/Users/sierra/sandbox/webplatform-tools/wpd edit css/units/length     "`cat unit_length.txt`"     -u Sierra
+/Users/sierra/sandbox/webplatform-tools/wpd edit css/units/numeric    "`cat unit_numeric.txt`"    -u Sierra
+/Users/sierra/sandbox/webplatform-tools/wpd edit css/units/resolution "`cat unit_resolution.txt`" -u Sierra
+/Users/sierra/sandbox/webplatform-tools/wpd edit css/units/time       "`cat unit_time.txt`"       -u Sierra
+/Users/sierra/sandbox/webplatform-tools/wpd edit css/units/text       "`cat unit_text.txt`"       -u Sierra
+/Users/sierra/sandbox/webplatform-tools/wpd edit css/units            "`cat unit.txt`"            -u Sierra

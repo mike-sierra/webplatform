@@ -1,0 +1,9 @@
+/Users/sierra/sandbox/webplatform/src/wpdget.pl get css/units > unit.txt
+/Users/sierra/sandbox/webplatform/src/wpdget.pl get css/units/angle > unit_angle.txt 
+/Users/sierra/sandbox/webplatform/src/wpdget.pl get css/units/color > unit_color.txt 
+/Users/sierra/sandbox/webplatform/src/wpdget.pl get css/units/frequency > unit_frequency.txt 
+/Users/sierra/sandbox/webplatform/src/wpdget.pl get css/units/length > unit_length.txt 
+/Users/sierra/sandbox/webplatform/src/wpdget.pl get css/units/numeric > unit_numeric.txt 
+/Users/sierra/sandbox/webplatform/src/wpdget.pl get css/units/resolution > unit_resolution.txt 
+/Users/sierra/sandbox/webplatform/src/wpdget.pl get css/units/text > unit_text.txt
+/Users/sierra/sandbox/webplatform/src/wpdget.pl get css/units/time > unit_time.txt 
