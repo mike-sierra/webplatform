@@ -20,6 +20,11 @@ section, div {
     background                  : #eee;
     min-height                  : 2em;
     -webkit-region-overflow     : break;
+    -webkit-region-fragment     : break;
+    -ms-region-overflow         : break;
+    -ms-region-fragment         : break;
+    region-fragment             : break;
+    region-overflow             : break;
 }
  
 section {
@@ -86,7 +91,10 @@ h1, h2, h3, h4 {
     -webkit-break-inside        : avoid-region;
     -webkit-region-break-after  : avoid;
     -webkit-region-break-inside : avoid;
-
+    -ms-break-after             : avoid-region;
+    -ms-break-inside            : avoid-region;
+    -ms-region-break-after      : avoid;
+    -ms-region-break-inside     : avoid;
 }
  
 #drop {
@@ -102,6 +110,8 @@ aside {
     border-radius               : 1em;
     color                       : #fff;
     -webkit-box-shadow          : 0.5em 0.5em 0.5em #444;
+    -ms-box-shadow              : 0.5em 0.5em 0.5em #444;
+    box-shadow                  : 0.5em 0.5em 0.5em #444;
     margin-left                 : 0.75em;
     margin-right                : 0.75em;
     font-size                   : 20px;
@@ -110,51 +120,79 @@ aside {
 }
  
  @-webkit-region #intro {
-      p:first-of-type { color : #fff; }
- } 
+     p:first-of-type {
+         color                  : #fff;
+     } 
+ }
+ @-ms-region #intro {
+    p:first-of-type {
+        color                   : #fff; 
+    } 
+ }
+ @region #intro { 
+    p:first-of-type { 
+        color                   : #fff;
+    } 
+ }
 
  #intro {
-     background         : #777;
-     border             : medium solid #777;
+     background                 : #777;
+     border                     : medium solid #777;
  }
 
-/* article { display: none } */
+/* article { display            : none } */
 
- @media screen and (min-width: 480px){
+ @media screen and (min-width   : 480px){
 
      /* pour article into section */
-     article { -webkit-flow-into : main; }
-     section > div:not(#pull) { -webkit-flow-from : main; }
+     article {
+         -webkit-flow-into      : main;
+         -ms-flow-into          : main;
+         flow-into              : main; 
+     }
+     section > div:not(#pull) { 
+         -webkit-flow-from      : main;
+         -ms-flow-from          : main;
+         flow-from              : main;
+     }
 
      /* custom flow for pull quotes */
-     aside { -webkit-flow-into : pull; }
-     div#pull { -webkit-flow-from : pull; }
+     aside {
+         -webkit-flow-into      : pull; 
+         -ms-flow-into          : pull; 
+         flow-into              : pull; 
+     }
+     div#pull {
+         -webkit-flow-from      : pull; 
+         -ms-flow-from          : pull; 
+         flow-from              : pull; 
+     }
  }
  
- @media screen and (max-width: 480px){
+ @media screen and (max-width   : 480px){
  
      /* suppress layout based on CSS Regions */
-     section { display : none; }
+     section { display          : none; }
  
      /* suppress content inappropriate for mobile */
-     aside { display : none; }
+     aside { display            : none; }
  
      /* style content as single column for mobile */
      article {
-         margin        : 1em 1em 10em 1em;
-         padding       : 1em;
-         border-radius : 1em;
-         background    : #fff;
+         margin                 : 1em 1em 10em 1em;
+         padding                : 1em;
+         border-radius          : 1em;
+         background             : #fff;
      }
      body {
-         background    : #aaa;
-         padding       : 0;
+         background             : #aaa;
+         padding                : 0;
      }
 
      /* useful commentary */
      h1:first-of-type::after {
-         display       : block;
-         content       : " (but without the regions)";
+         display                : block;
+         content                : " (but without the regions)";
      }
  }
 </style>
@@ -265,8 +303,8 @@ going to be fined again!</p>
 
 <script>
 window.onload = function() {
-    if (!document.webkitGetNamedFlows)
-        alert("Sorry, your browser doesn't support CSS regions; try Webkit Nightly or Canary");
+    if (!document.webkitGetNamedFlows && !document.msGetNamedFlows && !document.getNamedFlows)
+        alert("Sorry, your browser doesn't support CSS regions;\ntry Canary, Webkit Nightly, or the latest IE 10");
 };
 </script>
 
