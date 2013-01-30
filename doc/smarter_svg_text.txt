@@ -4,7 +4,7 @@
 |Editorial notes=[new content from Sierra to reframe SVG]
 }}
 {{Byline}}
-{{Summary_Section|__SUMMARY__}}
+{{Summary_Section|This shows you how to embed text in your SVG content.}}
 {{Tutorial
 |Content=__CONTENT__
 
