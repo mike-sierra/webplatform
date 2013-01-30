@@ -1,0 +1,109 @@
+{{Page_Title|Smarter SVG: text}}
+{{Flags
+|High-level issues=Stub
+|Editorial notes=[new content from Sierra to reframe SVG]
+}}
+{{Byline}}
+{{Summary_Section|__SUMMARY__}}
+{{Tutorial
+|Content=__CONTENT__
+
+==Text==
+
+* x
+* y
+* dx
+* dy
+* rotate
+* textLength
+* lengthAdjust
+* tspan
+* tref
+* textPath
+
+==Glyphs?==
+
+ 10 Text
+    10.1 Introduction
+    10.2 Characters and their corresponding glyphs
+    10.3 Fonts, font tables and baselines
+    10.4 The 'text' element
+    10.5 The 'tspan' element
+    10.6 The 'tref' element
+    10.7 Text layout
+        10.7.1 Text layout introduction
+        10.7.2 Setting the inline-progression-direction
+        10.7.3 Glyph orientation within a text run
+        10.7.4 Relationship with bidirectionality
+    10.8 Text rendering order
+    10.9 Alignment properties
+        10.9.1 Text alignment properties
+        10.9.2 Baseline alignment properties
+    10.10 Font selection properties
+    10.11 Spacing properties
+    10.12 Text decoration
+    10.13 Text on a path
+        10.13.1 Introduction to text on a path
+        10.13.2 The 'textPath' element
+        10.13.3 Text on a path layout rules
+    10.14 Alternate glyphs
+        10.14.1 The 'altGlyph' element
+        10.14.2 The 'altGlyphDef', 'altGlyphItem' and 'glyphRef' elements
+    10.15 White space handling
+    10.16 Text selection and clipboard operations
+    10.17 DOM interfaces
+        10.17.1 Interface SVGTextContentElement
+        10.17.2 Interface SVGTextPositioningElement
+        10.17.3 Interface SVGTextElement
+        10.17.4 Interface SVGTSpanElement
+        10.17.5 Interface SVGTRefElement
+        10.17.6 Interface SVGTextPathElement
+        10.17.7 Interface SVGAltGlyphElement
+        10.17.8 Interface SVGAltGlyphDefElement
+        10.17.9 Interface SVGAltGlyphItemElement
+        10.17.10 Interface SVGGlyphRefElement
+
+ 20 Fonts
+    20.1 Introduction
+    20.2 Overview of SVG fonts
+    20.3 The 'font' element
+    20.4 The 'glyph' element
+    20.5 The 'missing-glyph' element
+    20.6 Glyph selection rules
+    20.7 The 'hkern' and 'vkern' elements
+    20.8 Describing a font
+        20.8.1 Overview of font descriptions
+        20.8.2 Alternative ways for providing a font description
+        20.8.3 The 'font-face' element
+        20.8.4 The 'font-face-src' element
+        20.8.5 The 'font-face-uri' and 'font-face-format' elements
+        20.8.6 The 'font-face-name' element
+    20.9 DOM interfaces
+        20.9.1 Interface SVGFontElement
+        20.9.2 Interface SVGGlyphElement
+        20.9.3 Interface SVGMissingGlyphElement
+        20.9.4 Interface SVGHKernElement
+        20.9.5 Interface SVGVKernElement
+        20.9.6 Interface SVGFontFaceElement
+        20.9.7 Interface SVGFontFaceSrcElement
+        20.9.8 Interface SVGFontFaceUriElement
+        20.9.9 Interface SVGFontFaceFormatElement
+        20.9.10 Interface SVGFontFaceNameElement
+
+}}
+{{Notes_Section}}
+{{Compatibility_Section
+|Not_required=Yes
+|Imported_tables=
+|Desktop_rows=
+|Mobile_rows=
+|Notes_rows=
+}}
+{{See_Also_Section}}
+{{Topics|SVG}}
+{{External_Attribution
+|Is_CC-BY-SA=No
+|MDN_link=
+|MSDN_link=
+|HTML5Rocks_link=
+}}
