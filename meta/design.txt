@@ -1,3 +1,4 @@
+
 == overview ==
 
 * 'g' element groups elements. There's one character shaped like a
@@ -5,15 +6,13 @@
   group to re-fill them all with a different color, or to scale or
   rotate them, maybe when the character gets excited.
 
-
 == shapes ==
 
 * circles/ellipses: represent an eye as an ellipse & eyeball as circle
   within ellipse; decreasing ellipse's rx causes blinking; adjusting
   circle's x makes you glance from side to side. How does the ellipse
   clip the circle when eye is closed? Extra credit: is the ellipse a
-  path
-  
+  path  
 
 == filters ==
 
