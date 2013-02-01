@@ -1,0 +1,29 @@
+/* CSS */
+
+body {
+    background       : #aaaaaa;
+}
+
+svg, aside, pre {
+    padding          : 1em;
+    margin           : 1em;
+    border-radius    : 1em;
+    border           : thin #777 solid;
+    background-color : #fff;
+}
+
+aside {
+    position         : fixed;
+    width            : 400px;
+    top              : 1em;
+    right            : 1em;
+}
+
+pre {
+    position         : fixed;
+    width            : 600px;
+    bottom           : 1em;
+    height           : 300px;
+    right            : 1em;
+    overflow         : scroll;
+}
