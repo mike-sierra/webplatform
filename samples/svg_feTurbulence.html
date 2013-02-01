@@ -8,7 +8,7 @@
 <svg width="500" height="700">
 <image xlink:href="img/Objects007.jpg" x="50" y="50" width="320" height="569" filter="url(#f)"/>
 <filter id="f">
-<feTurbulence id="fe" baseFrequency="0" />
+<feTurbulence id="fe" baseFrequency=".1,.01" numOctaves="1" seed="1" stitchTiles="noStitch"/>
 </filter>
 </svg>
 <aside>
@@ -16,7 +16,11 @@
 </select>
 <form id="feTurbulence">
 <label>baseFrequency</label>
-<input id="baseFrequency" type="range" min="0" max="10" step="0.1" value="0"/>
+<input id="baseFrequency" type="range" min="0" max="0.5" step="0.01" value="0"/>
+<br/><label>horizontal: (n,*)</label>
+<input id="baseFrequencyX" data-alt="baseFrequency" data-suffix=",0.01" type="range" min="0" max="0.5" step="0.01" value="0"/>
+<br/><label>horizontal: (*,n)</label>
+<input id="baseFrequencyY" data-alt="baseFrequency" data-prefix="0.01," type="range" min="0" max="0.5" step="0.01" value="0"/>
 <br/><label>numOctaves</label>
 <input id="numOctaves" type="range" min="0" max="10" value="0"/>
 <br/><label>seed</label>
