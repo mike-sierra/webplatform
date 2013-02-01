@@ -5,6 +5,16 @@
   group to re-fill them all with a different color, or to scale or
   rotate them, maybe when the character gets excited.
 
+
+== shapes ==
+
+* circles/ellipses: represent an eye as an ellipse & eyeball as circle
+  within ellipse; decreasing ellipse's rx causes blinking; adjusting
+  circle's x makes you glance from side to side. How does the ellipse
+  clip the circle when eye is closed? Extra credit: is the ellipse a
+  path
+  
+
 == filters ==
 
 * figure may have sunlight (light-source filter) shining on it,
@@ -14,12 +24,8 @@
 
 * A figure might become blurred in the head when he gets tired.
 
-* View this in Google Chrome
-  http://letmespellitoutforyou.com/samples/custom_action.html
-  
 == animations ==
 
-* Figure appears to wander perpendicularly (upright) along a path,
-  which is positioned 3D to
-
-'walks' along a path in 3D space
+* Figure appears to wander perpendicularly (upright) along a path;
+  path is positioned w/3D perspective to make the figure move to
+  foreground (larger) & background (smaller).
