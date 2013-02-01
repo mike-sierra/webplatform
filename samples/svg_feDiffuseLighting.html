@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>SVG Filter Effect Demo: feDiffuseLighting</title>
+<link rel="stylesheet" href="css/svg_feDemo.css" />
+</head>
+<body>
+<svg width="500" height="700">
+<image xlink:href="img/Objects007.jpg" x="50" y="50" width="320" height="569" filter="url(#f)"/>
+<filter id="f">
+<TAG id="fe" ATTR="0" />
+</filter>
+</svg>
+<aside>
+<select>
+</select>
+<form id="TAG">
+<label>ATTR</label>
+<input id="ATTR" type="range" min="0" max="60" value="0"/>
+</form>
+</aside>
+<pre>
+</pre>
+<script src="js/svg_feDemo.js">
+</script>
+</body>
+</html>

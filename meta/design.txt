@@ -1,0 +1,25 @@
+== overview ==
+
+* 'g' element groups elements. There's one character shaped like a
+  cloud, whose belly contains a bunch of circles.  You might use a
+  group to re-fill them all with a different color, or to scale or
+  rotate them, maybe when the character gets excited.
+
+== filters ==
+
+* figure may have sunlight (light-source filter) shining on it,
+  leaving a shadow (feOffset filter) behind it. The sun may animate
+  across the top of the scene, animating how it shines on the figure &
+  how the shadow falls.
+
+* A figure might become blurred in the head when he gets tired.
+
+* View this in Google Chrome
+  http://letmespellitoutforyou.com/samples/custom_action.html
+  
+== animations ==
+
+* Figure appears to wander perpendicularly (upright) along a path,
+  which is positioned 3D to
+
+'walks' along a path in 3D space

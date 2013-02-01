@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>SVG Filter Effect Demo: feTurbulence</title>
+<link rel="stylesheet" href="css/svg_feDemo.css" />
+</head>
+<body>
+<svg width="500" height="700">
+<image xlink:href="img/Objects007.jpg" x="50" y="50" width="320" height="569" filter="url(#f)"/>
+<filter id="f">
+<feTurbulence id="fe" baseFrequency="0" />
+</filter>
+</svg>
+<aside>
+<select>
+</select>
+<form id="feTurbulence">
+<label>baseFrequency</label>
+<input id="baseFrequency" type="range" min="0" max="10" step="0.1" value="0"/>
+<br/><label>numOctaves</label>
+<input id="numOctaves" type="range" min="0" max="10" value="0"/>
+<br/><label>seed</label>
+<input id="seed" type="range" min="0" max="200" value="0"/>
+<br/><label>type</label>
+<select id="type">
+<option>fractalNoise</option>
+<option>turbulence</option>
+</select>
+<br/><label>stitchTiles</label>
+<select id="stitchTiles">
+<option>stitch</option>
+<option>noStitch</option>
+</select>
+</form>
+</aside>
+<pre>
+</pre>
+<script src="js/svg_feDemo.js">
+</script>
+</body>
+</html>

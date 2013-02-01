@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>SVG Filter Effect Demo: feBlend</title>
+<link rel="stylesheet" href="css/svg_feDemo.css" />
+</head>
+<body>
+<svg width="500" height="700">
+<image xlink:href="img/Objects007.jpg" x="50" y="50" width="320" height="569" filter="url(#f)"/>
+<filter id="f">
+<feBlend id="fe" in="0" />
+</filter>
+</svg>
+<aside>
+<select>
+</select>
+<form id="feBlend">
+<label>in</label>
+<select id="in">
+    <option>img/Objects001.jpg</option>
+    <option>img/Objects002.jpg</option>
+    <option>img/Objects003.jpg</option>
+    <option>img/Objects004.jpg</option>
+    <option>img/Objects005.jpg</option>
+    <option>img/Objects006.jpg</option>
+    <option>img/Objects007.jpg</option>
+    <option>img/Objects008.jpg</option>
+    <option>img/Objects009.jpg</option>
+</select>
+
+<br/><label>in2</label>
+<select id="in2">
+    <option>img/Objects001.jpg</option>
+    <option>img/Objects002.jpg</option>
+    <option>img/Objects003.jpg</option>
+    <option>img/Objects004.jpg</option>
+    <option>img/Objects005.jpg</option>
+    <option>img/Objects006.jpg</option>
+    <option>img/Objects007.jpg</option>
+    <option>img/Objects008.jpg</option>
+    <option>img/Objects009.jpg</option>
+</select>
+
+<br/><label>mode</label>
+<select id="mode">
+    <option>normal</option>
+    <option>multiply</option>
+    <option>screen</option>
+    <option>darken</option>
+    <option>lighten</option>
+</select>
+
+</form>
+</aside>
+<pre>
+</pre>
+<script src="js/svg_feDemo.js">
+</script>
+</body>
+</html>

@@ -1,27 +1,31 @@
 {{Page_Title|Smarter SVG: text}}
 {{Flags
 |High-level issues=Stub
-|Editorial notes=[new content from Sierra to reframe SVG]
+|Editorial notes=[new content from Sierra -- please do not edit]
 }}
 {{Byline}}
 {{Summary_Section|This shows you how to embed text in your SVG content.}}
 {{Tutorial
-|Content=__CONTENT__
+|Content=
 
-==Text==
+==Basic Text==
 
 * x
 * y
 * dx
 * dy
-* rotate
 * textLength
 * lengthAdjust
 * tspan
-* tref
-* textPath
 
-==Glyphs?==
+==Referencing Text==
+
+* tref
+
+==Advanced Effects==
+
+* rotate
+* textPath
 
  10 Text
     10.1 Introduction
@@ -51,17 +55,8 @@
         10.14.2 The 'altGlyphDef', 'altGlyphItem' and 'glyphRef' elements
     10.15 White space handling
     10.16 Text selection and clipboard operations
-    10.17 DOM interfaces
-        10.17.1 Interface SVGTextContentElement
-        10.17.2 Interface SVGTextPositioningElement
-        10.17.3 Interface SVGTextElement
-        10.17.4 Interface SVGTSpanElement
-        10.17.5 Interface SVGTRefElement
-        10.17.6 Interface SVGTextPathElement
-        10.17.7 Interface SVGAltGlyphElement
-        10.17.8 Interface SVGAltGlyphDefElement
-        10.17.9 Interface SVGAltGlyphItemElement
-        10.17.10 Interface SVGGlyphRefElement
+
+==Font Glyphs==
 
  20 Fonts
     20.1 Introduction
@@ -78,17 +73,45 @@
         20.8.4 The 'font-face-src' element
         20.8.5 The 'font-face-uri' and 'font-face-format' elements
         20.8.6 The 'font-face-name' element
-    20.9 DOM interfaces
-        20.9.1 Interface SVGFontElement
-        20.9.2 Interface SVGGlyphElement
-        20.9.3 Interface SVGMissingGlyphElement
-        20.9.4 Interface SVGHKernElement
-        20.9.5 Interface SVGVKernElement
-        20.9.6 Interface SVGFontFaceElement
-        20.9.7 Interface SVGFontFaceSrcElement
-        20.9.8 Interface SVGFontFaceUriElement
-        20.9.9 Interface SVGFontFaceFormatElement
-        20.9.10 Interface SVGFontFaceNameElement
+
+CSS2 Font:
+
+* '''font'''
+* '''font-family'''
+* '''font-size'''
+* '''font-size-adjust'''
+* '''font-stretch'''
+* '''font-style'''
+* '''font-variant'''
+* '''font-weight'''
+
+CSS2 Text:
+
+* '''direction'''
+* '''letter-spacing'''
+* '''text-decoration'''
+* '''unicode-bidi'''
+* '''word-spacing'''
+
+The following SVG properties are not defined in CSS2. The complete normative definitions for these properties are found in this specification:
+
+Text properties:
+* '''alignment-baseline'''
+* '''baseline-shift'''
+* '''dominant-baseline'''
+* '''glyph-orientation-horizontal'''
+* '''glyph-orientation-vertical'''
+* '''kerning'''
+* '''text-anchor'''
+* '''writing-mode'''
+
+([[svg/tutorials/smarter_svg_overview|overview]] /
+[[svg/tutorials/smarter_svg_shapes|shapes]] /
+[[svg/tutorials/smarter_svg_graphics|graphics]] /
+[[svg/tutorials/smarter_svg_text|text]] /
+[[svg/tutorials/smarter_svg_filters|filters]] /
+[[svg/tutorials/smarter_svg_animation|animation]] /
+[[svg/tutorials/smarter_svg_interaction|interaction]])
 
 }}
 {{Notes_Section}}

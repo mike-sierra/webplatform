@@ -1,12 +1,12 @@
 {{Page_Title|Smarter SVG: animation}}
 {{Flags
 |High-level issues=Stub
-|Editorial notes=[new content from Sierra to reframe SVG]
+|Editorial notes=[new content from Sierra -- please do not edit]
 }}
 {{Byline}}
 {{Summary_Section|This guide shows you how to integrate SVG's animation features with other techniques available in CSS and JavaScript.}}
 {{Tutorial
-|Content=__CONTENT__
+|Content=
 
  19 Animation
     19.1 Introduction
@@ -29,17 +29,14 @@
         19.2.15 The 'animateColor' element
         19.2.16 The 'animateTransform' element
         19.2.17 Elements, attributes and properties that can be animated
-    19.3 Animation using the SVG DOM
-    19.4 DOM interfaces
-        19.4.1 Interface ElementTimeControl
-        19.4.2 Interface TimeEvent
-        19.4.3 Interface SVGAnimationElement
-        19.4.4 Interface SVGAnimateElement
-        19.4.5 Interface SVGSetElement
-        19.4.6 Interface SVGAnimateMotionElement
-        19.4.7 Interface SVGMPathElement
-        19.4.8 Interface SVGAnimateColorElement
-        19.4.9 Interface SVGAnimateTransformElement
+
+([[svg/tutorials/smarter_svg_overview|overview]] /
+[[svg/tutorials/smarter_svg_shapes|shapes]] /
+[[svg/tutorials/smarter_svg_graphics|graphics]] /
+[[svg/tutorials/smarter_svg_text|text]] /
+[[svg/tutorials/smarter_svg_filters|filters]] /
+[[svg/tutorials/smarter_svg_animation|animation]] /
+[[svg/tutorials/smarter_svg_interaction|interaction]])
 
 }}
 {{Notes_Section}}
