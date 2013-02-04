@@ -1,0 +1,180 @@
+<html>
+<head>
+<title>eyeball</title>
+
+<style>
+
+body {
+    perspective        : 1000;
+    background-color   : #eeeeee;
+}
+
+ellipse#eye, #CP, g#eyeball, #iris {
+    -webkit-transition : all 1s;
+    -webkit-transform-origin: center;
+}
+
+ellipse#eye {
+    fill               : #ffffff;
+    fill-opacity       : 1;
+    stroke             : #777777;
+    stroke-opacity     : 1;
+    stroke-width       : 1;
+}
+
+#CP {
+    stroke-width       : 2;
+    stroke             : "#777777";
+}
+
+g#eyeball {
+    _clip-path         : url(#CP);
+}
+
+</style>
+
+</head>
+<body>
+
+<svg
+    width          = "200"
+    height         = "200"
+>
+
+<g
+    transform = "translate(0,50)"
+>
+
+<ellipse
+    id             = "eye"
+    cx             = "100"
+    cy             = "30"
+    rx             = "70"
+    ry             = "35"
+/>
+<clipPath id="CP">
+</clipPath>
+
+<g
+    transform      = "translate(0,0)"
+    id             = "eyeball"
+    data-clip-path      = "url(#CP)"
+>
+
+<circle
+    id             = "iris"
+    stroke         = "#777777"
+    stroke-width   = "1"
+    fill           = "lightblue"
+    cx             = "100"
+    cy             = "30"
+    r              = "30"
+/>
+
+<circle
+    id             = "pupil"
+    fill           = "#000000"
+    cx             = "100"
+    cy             = "30"
+    r              = "15"
+/>
+</g>
+
+</g>
+
+</svg>
+
+<aside>
+
+<label>ry attr</label>
+<input
+    type           = "range"
+    min            = "2"
+    max            = "50"
+    value          = "30"
+    data-id        = "#eye"
+    data-attr      = "ry"
+/>
+
+<br/>
+<label>transform attr: translate X</label>
+<input
+    type           = "range"
+    min            = "-30"
+    max            = "30"
+    value          = "0"
+    data-prefix    = "translate("
+    data-suffix    = ",0)"
+    data-id        = "#eyeball"
+    data-attr      = "transform"
+/>
+
+<br/>
+<label>r attr</label>
+<input
+    type           = "range"
+    min            = "10"
+    max            = "20"
+    value          = "15"
+    data-id        = "#pupil"
+    data-attr      = "r"
+/>
+
+<br/>
+<label>color property</label>
+<select
+    data-id        = "#iris"
+    data-attr      = "fill"
+>
+    <option selected>lightblue</option>
+    <option>brown</option>
+</select>
+
+<br/><label>transform prop: rotateX</label>
+<input
+    type           = "range"
+    min            = "0"
+    max            = "90"
+    value          = "0"
+    data-id        = "#eye"
+    data-attr      = "style"
+    data-prefix      = "-webkit-transform:rotateX("
+    data-suffix      = "deg)"
+/>
+
+<br/><label>transform prop: translateX</label>
+<input
+    type           = "range"
+    min            = "-30"
+    max            = "30"
+    value          = "0"
+    data-id        = "#eyeball"
+    data-attr      = "style"
+    data-prefix      = "-webkit-transform:translateX("
+    data-suffix      = "px)"
+/>
+
+
+</aside>
+
+<script>
+
+window.onload = function() {
+    var inputs = document.querySelectorAll('select, input');
+    var input;
+    for (var i = 0, l = inputs.length; i < l; i++) {
+        input = inputs[i];
+        if (! input.dataset.prefix ) input.dataset.prefix = "";
+        if (! input.dataset.suffix ) input.dataset.suffix = "";
+        input.addEventListener('change', function(e) {
+            var c = e.target;
+            var v = c.dataset.prefix + c.value + c.dataset.suffix;
+            document.querySelector(c.dataset.id).setAttribute(c.dataset.attr, v);
+        });
+    }
+}
+
+</script>
+
+</body>
+</html>

@@ -67,10 +67,16 @@ img#i12.alt {-webkit-filter: custom(url(media/warp.vs) mix(url(media/warp.fs) no
 
 </style>
 
+<style id="customCSS"></style>
+
 </head>
 <body>
 
 <h3>CSS custom filters + transitions: click on the images & see what happens (Canary | Webkit Nightly)</h3>
+
+<!--
+<label>rotateY</label><input type="range" min="-90" max="90" value="0"/><hr/>
+-->
 
 <img id="i01" src="img/Objects001.jpg"/>
 <img id="i02" src="img/Objects002.jpg"/>
@@ -90,6 +96,13 @@ window.onload = function() {
     document.querySelector('body').addEventListener('click', function(e) {
         if (e.target.tagName != 'IMG') return(false);
         e.target.classList.toggle('alt');
+    });
+    document.querySelector('input').addEventListener('change', function(e) {
+
+
+        document.querySelector('#customCSS').textContent =
+            "img { -webkit-transform: rotateY(" + e.target.value + "deg); }";
+
     });
 };
 </script>
