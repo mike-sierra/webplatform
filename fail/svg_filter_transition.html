@@ -1,0 +1,42 @@
+<html>
+  <head>
+<title></title>
+
+<style>
+
+img {
+    -webkit-filter: url(#from);
+    filter: url(#from);
+    -webkit-transition: all 1s;
+    transition: all 1s;
+}
+
+img.alt {
+    -webkit-filter: url(#to);
+    filter: url(#to);
+}
+
+</style>
+
+</head>
+<body>
+
+<img src="img/Objects001.jpg" onclick="this.classList.toggle('alt')"/>
+
+<svg>
+
+<filter id="from">
+<feMorphology id="fe1" radius="11, 1" operator="erode"></feMorphology>
+</filter>
+
+<filter id="to">
+<feMorphology id="fe2" radius="1, 23" operator="erode"></feMorphology>
+</filter>
+
+</svg>
+
+
+
+
+</body>
+</html>

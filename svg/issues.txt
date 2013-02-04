@@ -1,0 +1,43 @@
+== QUERIES ==
+
+* In eyeball.html sample, would like the #eye ellipse to serve as a
+  clipping path to obscure the g#eyeball elements, but there appears
+  to be no way to render the ellipse's stroke/fill once nested within
+  a <clipPath>. Know of any way around this?
+
+* Any way to anchor eyelash-shaped paths to the top portion of the
+  #eye ellipse?
+
+* Is any effort underway to make CSS animations (transforms/keyframes)
+  apply to SVG attributes, rather than simply to properties?  Ideally
+  you should be able to morph a path via CSS (the way you can for
+  polygons defining a CSS exclusion, assuming the # of points in each
+  shape match).
+
+* Confirmed you can't use CSS to animate the value of the CSS "filter"
+  property between two SVG filters referenced by url(), even when they
+  use the same set of primitives, albeit with different values.  Will
+  this change? (Note: you can transition matching sets of built-in &
+  custom CSS filter functions.)
+
+
+
+== COMMENTS ==
+
+* Edge Animate: why doesn't it include path/polygon tools?
+
+* Edge Animate: why doesn't it incorporate HTML5 audio into the
+  timeline UI?
+
+* Edge Animate: does its "keyframe" feature correspond 1-to-1 with
+  CSS's, or does it also translate to SVG's SMILs?
+
+* SVG: it appears transform attribute is 2D-only, but that you can 3D
+  transform an element via CSS.
+
+* Custom filters: How does the 3D transform space defined in custom
+  filters relate to the 3D necessary to define an overall scene?  I'd
+  like to be able to use perspective & rotateX to place an arbitrary
+  SVG path on the ground of a scene, so that an element gets bigger
+  closer to the viewer.
+
