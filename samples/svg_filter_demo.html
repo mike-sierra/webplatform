@@ -1,0 +1,259 @@
+<html>
+<head>
+<title>SVG Filter Demo</title>
+
+<style>
+/* CSS */
+
+body {
+    background       : #aaaaaa;
+    font-family     : Trebuchet MS;
+}
+
+svg, aside, pre {
+    padding          : 1em;
+    margin           : 1em;
+    border-radius    : 1em;
+    border           : thin #777 solid;
+    background-color : #fff;
+}
+
+fieldset {
+    border-radius    : 1em;
+    border           : medium #aaa solid;
+    margin-top: 1em;
+}
+
+svg {
+    width: 600;
+    height: 600;
+}
+
+aside {
+    position         : fixed;
+    width            : 400px;
+    top              : 1em;
+    right            : 1em;
+    max-height: 500;
+    overflow-y: scroll;
+}
+
+pre {
+    position         : fixed;
+    width            : 600px;
+    bottom           : 1em;
+    height           : 100px;
+    right            : 1em;
+    overflow         : scroll;
+}
+
+</style>
+
+</head>
+<body>
+
+<svg width="500" height="700">
+
+<defs>
+
+<filter id="GaussianBlur">
+<feGaussianBlur id="fe_gaussian" stdDeviation="4"></feGaussianBlur>
+</filter>
+
+<filter id="Offset">
+<feOffset id="fe_offset" dx="0" dy="0"></feOffset>
+</filter>
+
+<filter id="Morphology">
+<feMorphology id="fe_morphology" radius="1" operator="dilate"></feMorphology>
+</filter>
+
+<filter id="Turbulence">
+<feTurbulence id="fe_turbulence" baseFrequency="0.01" numOctaves="1" seed="1" stitchTiles="noStitch" type="fractalNoise"></feTurbulence>
+</filter>
+
+</defs>
+
+<image id="img2" xlink:href="img/Objects002.jpg" x="320" y="0" width="320" height="569"></image>
+<image id="img1" xlink:href="img/Objects001.jpg" x="0" y="0" width="320" height="569"></image>
+</svg>
+
+<aside>
+
+<label>Filter Effect</label>
+<select data-tgt="#img1" data-attr="filter" data-prefix="url(#" data-suffix=")">
+    <option>GaussianBlur</option>
+    <option>Morphology</option>
+    <option>Offset</option>
+    <option>Turbulence</option>
+</select>
+
+<br/><label>Image #1</label>
+<select data-tgt="#img1" data-attr="xlink:href">
+    <option>img/Objects001.jpg</option>
+    <option>img/Objects002.jpg</option>
+    <option>img/Objects003.jpg</option>
+    <option>img/Objects004.jpg</option>
+    <option>img/Objects005.jpg</option>
+    <option>img/Objects006.jpg</option>
+    <option>img/Objects007.jpg</option>
+    <option>img/Objects008.jpg</option>
+    <option>img/Objects009.jpg</option>
+    <option>img/Objects010.jpg</option>
+    <option>img/Objects011.jpg</option>
+    <option>img/Objects012.jpg</option>
+</select>
+
+<br/><label>Image #2</label>
+<select data-tgt="#img2" data-attr="xlink:href">
+    <option>img/Objects001.jpg</option>
+    <option>img/Objects002.jpg</option>
+    <option>img/Objects003.jpg</option>
+    <option>img/Objects004.jpg</option>
+    <option>img/Objects005.jpg</option>
+    <option>img/Objects006.jpg</option>
+    <option>img/Objects007.jpg</option>
+    <option>img/Objects008.jpg</option>
+    <option>img/Objects009.jpg</option>
+    <option>img/Objects010.jpg</option>
+    <option>img/Objects011.jpg</option>
+    <option>img/Objects012.jpg</option>
+</select>
+
+
+<fieldset><legend>feGaussianBlur</legend>
+
+<label>stdDeviation</label>
+<input data-tgt="#fe_gaussian" data-attr="stdDeviation" type="range" min="0" max="60" value="0" />
+
+<br/><label>(n,0)</label>
+<input data-tgt="#fe_gaussian" data-attr="stdDeviation" type="range" min="0" max="60" value="0"  data-suffix=",0"/>
+
+<br/><label>(0,n)</label>
+<input data-tgt="#fe_gaussian" data-attr="stdDeviation" type="range" min="0" max="60" value="0" data-prefix="0," />
+
+</fieldset>
+
+<fieldset><legend>feMorphology</legend>
+
+<select data-tgt="#fe_morphology" data-attr="operator" >
+    <option>dilate</option>
+    <option>erode</option>
+</select>
+
+<br/><label>radius</label>
+<input data-tgt="#fe_morphology" data-attr="radius" type="range" min="1" max="50" value="1" />
+
+<br/><label>(n,0)</label>
+<input data-tgt="#fe_morphology" data-attr="radius" type="range" min="1" max="50" value="1"  data-suffix=",1"/>
+
+<br/><label>(0,n)</label>
+<input data-tgt="#fe_morphology" data-attr="radius" type="range" min="1" max="50" value="1" data-prefix="1," />
+
+</fieldset>
+
+<fieldset><legend>feOffset</legend>
+
+<label>dx</label>
+<input data-tgt="#fe_offset" data-attr="dx" type="range" min="-100" max="100" value="0" />
+
+<br/><label>dy</label>
+<input data-tgt="#fe_offset" data-attr="dy" type="range" min="-100" max="100" value="0" />
+
+</fieldset>
+
+<fieldset><legend>feTurbulence</legend>
+
+<label>baseFrequency</label>
+<input data-tgt="#fe_turbulence" data-attr="baseFrequency" type="range" min="0" max="0.5" step="0.01" value="0" />
+
+<br/><label>(n,.1)</label>
+<input data-tgt="#fe_turbulence" data-attr="baseFrequency" type="range" min="0" max="0.5" step="0.01" value="0" data-suffix=",0.1"/>
+
+<br/><label>(.1,n)</label>
+<input data-tgt="#fe_turbulence" data-attr="baseFrequency" type="range" min="0" max="0.5" step="0.01" value="0" data-prefix="0.1,"/>
+
+<br/><label>numOctaves</label>
+<input data-tgt="#fe_turbulence" data-attr="numOctaves" type="range" min="0" max="10" value="0"/>
+
+<br/><label>seed</label>
+<input data-tgt="#fe_turbulence" data-attr="seed" type="range" min="0" max="200" value="0"/>
+
+<br/><label>type</label>
+<select data-tgt="#fe_turbulence" data-attr="type" >
+    <option>turbulence</option>
+    <option>fractalNoise</option>
+</select>
+
+<br/><label>stitchTiles</label>
+<select data-tgt="#fe_turbulence" data-attr="stitchTiles" >
+    <option>stitch</option>
+    <option>noStitch</option>
+</select>
+
+</fieldset>
+
+
+<fieldset><legend>feBlend</legend>
+</fieldset>
+<fieldset><legend>feColorMatrix</legend>
+</fieldset>
+<fieldset><legend>feComponentTransfer</legend>
+</fieldset>
+<fieldset><legend>feComposite</legend>
+</fieldset>
+<fieldset><legend>feConvolveMatrix</legend>
+</fieldset>
+<fieldset><legend>feDiffuseLighting</legend>
+</fieldset>
+<fieldset><legend>feDisplacementMap</legend>
+</fieldset>
+<fieldset><legend>feFlood</legend>
+</fieldset>
+<fieldset><legend>feImage</legend>
+</fieldset>
+<fieldset><legend>feMerge</legend>
+</fieldset>
+<fieldset><legend>feSpecularLighting</legend>
+</fieldset>
+<fieldset><legend>feTile</legend>
+</fieldset>
+
+
+
+</aside>
+
+<pre></pre>
+
+<script>
+
+var app = new Function();
+
+window.onload = function() {
+    var input;
+    app.inputs = document.querySelectorAll('select, input');
+    app.dbg = document.querySelector('pre');
+
+    for (var i=0, l=app.inputs.length; i<l; i++) {
+        input = app.inputs[i];
+        if (!input.dataset.prefix) input.dataset.prefix = "";
+        if (!input.dataset.suffix) input.dataset.suffix = "";
+        input.addEventListener('change', app.modify);
+    }
+}
+
+app.modify = function(e) {
+    var input = e.target;
+    var element = document.querySelector(input.dataset.tgt);
+    var value = input.dataset.prefix + input.value + input.dataset.suffix;
+    element.setAttribute(input.dataset.attr, value);
+    app.dbg.textContent = "TAG:    " + element.tagName + "\n";
+    app.dbg.textContent += "TARGET: " + input.dataset.tgt + "\n";
+    app.dbg.textContent += "ATTR:   " + input.dataset.attr + "\n";
+    app.dbg.textContent += "VALUE:  " + value + "\n";
+}
+
+</script>
+
+</body>
+</html>
