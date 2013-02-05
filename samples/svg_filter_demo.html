@@ -7,7 +7,7 @@
 
 body {
     background       : #aaaaaa;
-    font-family     : Trebuchet MS;
+    font-family      : Trebuchet MS;
 }
 
 svg, aside, pre {
@@ -21,12 +21,12 @@ svg, aside, pre {
 fieldset {
     border-radius    : 1em;
     border           : medium #aaa solid;
-    margin-top: 1em;
+    margin-top       : 1em;
 }
 
 svg {
-    width: 600;
-    height: 600;
+    width            : 600;
+    height           : 600;
 }
 
 aside {
@@ -34,8 +34,8 @@ aside {
     width            : 400px;
     top              : 1em;
     right            : 1em;
-    max-height: 500;
-    overflow-y: scroll;
+    max-height       : 500;
+    overflow-y       : scroll;
 }
 
 pre {
@@ -46,6 +46,33 @@ pre {
     right            : 1em;
     overflow         : scroll;
 }
+
+select ~ fieldset {
+    display: none;
+}
+
+select[data-mode=Blend]             ~ #fsBlend,
+select[data-mode=ColorMatrix]       ~ #fsColorMatrix,
+select[data-mode=ComponentTransfer] ~ #fsComponentTransfer,
+select[data-mode=Composite]         ~ #fsComposite,
+select[data-mode=ConvolveMatrix]    ~ #fsConvolveMatrix,
+select[data-mode=DiffuseLighting]   ~ #fsDiffuseLighting,
+select[data-mode=DisplacementMap]   ~ #fsDisplacementMap,
+select[data-mode=Flood]             ~ #fsFlood,
+select[data-mode=GaussianBlur]      ~ #fsGaussianBlur,
+select[data-mode=Image]             ~ #fsImage,
+select[data-mode=Merge]             ~ #fsMerge,
+select[data-mode=Morphology]        ~ #fsMorphology,
+select[data-mode=Offset]            ~ #fsOffset,
+select[data-mode=SpecularLighting]  ~ #fsSpecularLighting,
+select[data-mode=Tile]              ~ #fsTile,
+select[data-mode=Turbulence]        ~ #fsTurbulence
+{
+    display: block;
+}
+
+
+
 
 </style>
 
@@ -72,19 +99,40 @@ pre {
 <feTurbulence id="fe_turbulence" baseFrequency="0.01" numOctaves="1" seed="1" stitchTiles="noStitch" type="fractalNoise"></feTurbulence>
 </filter>
 
+<filter id="Blend">
+<feBlend in="img1" in2="SourceGraphic" mode="normal"/>
+</filter>
+
+
+
+
+
 </defs>
 
 <image id="img2" xlink:href="img/Objects002.jpg" x="320" y="0" width="320" height="569"></image>
 <image id="img1" xlink:href="img/Objects001.jpg" x="0" y="0" width="320" height="569"></image>
+
 </svg>
 
 <aside>
 
 <label>Filter Effect</label>
-<select data-tgt="#img1" data-attr="filter" data-prefix="url(#" data-suffix=")">
+<select data-tgt="#img1" data-attr="filter" data-prefix="url(#" data-suffix=")"  onchange="this.dataset.mode = this.value">
+    <option>Blend</option>
+    <option>ColorMatrix</option>
+    <option>ComponentTransfer</option>
+    <option>Composite</option>
+    <option>ConvolveMatrix</option>
+    <option>DiffuseLighting</option>
+    <option>DisplacementMap</option>
+    <option>Flood</option>
     <option>GaussianBlur</option>
+    <option>Image</option>
+    <option>Merge</option>
     <option>Morphology</option>
     <option>Offset</option>
+    <option>SpecularLighting</option>
+    <option>Tile</option>
     <option>Turbulence</option>
 </select>
 
@@ -120,8 +168,7 @@ pre {
     <option>img/Objects012.jpg</option>
 </select>
 
-
-<fieldset><legend>feGaussianBlur</legend>
+<fieldset id="fsGaussianBlur" ><legend>feGaussianBlur</legend>
 
 <label>stdDeviation</label>
 <input data-tgt="#fe_gaussian" data-attr="stdDeviation" type="range" min="0" max="60" value="0" />
@@ -134,8 +181,9 @@ pre {
 
 </fieldset>
 
-<fieldset><legend>feMorphology</legend>
+<fieldset id="fsMorphology" ><legend>feMorphology</legend>
 
+<label>operator</label>
 <select data-tgt="#fe_morphology" data-attr="operator" >
     <option>dilate</option>
     <option>erode</option>
@@ -152,7 +200,7 @@ pre {
 
 </fieldset>
 
-<fieldset><legend>feOffset</legend>
+<fieldset id="fsOffset" ><legend>feOffset</legend>
 
 <label>dx</label>
 <input data-tgt="#fe_offset" data-attr="dx" type="range" min="-100" max="100" value="0" />
@@ -162,7 +210,7 @@ pre {
 
 </fieldset>
 
-<fieldset><legend>feTurbulence</legend>
+<fieldset id="fsTurbulence" ><legend>feTurbulence</legend>
 
 <label>baseFrequency</label>
 <input data-tgt="#fe_turbulence" data-attr="baseFrequency" type="range" min="0" max="0.5" step="0.01" value="0" />
@@ -194,29 +242,39 @@ pre {
 </fieldset>
 
 
-<fieldset><legend>feBlend</legend>
+<fieldset id="fsBlend"><legend>feBlend</legend>
+
+<select data-tgt="#fe_blend" data-attr="mode" >
+    <option>normal</option>
+    <option>multiply</option>
+    <option>screen</option>
+    <option>darken</option>
+    <option>lighten</option>
+</select>
+
+
 </fieldset>
-<fieldset><legend>feColorMatrix</legend>
+<fieldset id="fsColorMatrix" ><legend>feColorMatrix</legend>
 </fieldset>
-<fieldset><legend>feComponentTransfer</legend>
+<fieldset id="fsComponentTransfer" ><legend>feComponentTransfer</legend>
 </fieldset>
-<fieldset><legend>feComposite</legend>
+<fieldset id="fsComposite" ><legend>feComposite</legend>
 </fieldset>
-<fieldset><legend>feConvolveMatrix</legend>
+<fieldset id="fsConvolveMatrix" ><legend>feConvolveMatrix</legend>
 </fieldset>
-<fieldset><legend>feDiffuseLighting</legend>
+<fieldset id="fsDiffuseLighting" ><legend>feDiffuseLighting</legend>
 </fieldset>
-<fieldset><legend>feDisplacementMap</legend>
+<fieldset id="fsDisplacementMap" ><legend>feDisplacementMap</legend>
 </fieldset>
-<fieldset><legend>feFlood</legend>
+<fieldset id="fsFlood" ><legend>feFlood</legend>
 </fieldset>
-<fieldset><legend>feImage</legend>
+<fieldset id="fsImage" ><legend>feImage</legend>
 </fieldset>
-<fieldset><legend>feMerge</legend>
+<fieldset id="fsMerge" ><legend>feMerge</legend>
 </fieldset>
-<fieldset><legend>feSpecularLighting</legend>
+<fieldset id="fsSpecularLighting" ><legend>feSpecularLighting</legend>
 </fieldset>
-<fieldset><legend>feTile</legend>
+<fieldset id="fsTile" ><legend>feTile</legend>
 </fieldset>
 
 
@@ -244,6 +302,7 @@ window.onload = function() {
 
 app.modify = function(e) {
     var input = e.target;
+    console.log(input);
     var element = document.querySelector(input.dataset.tgt);
     var value = input.dataset.prefix + input.value + input.dataset.suffix;
     element.setAttribute(input.dataset.attr, value);
