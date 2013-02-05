@@ -1,0 +1,335 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>drag & drop SVG filter builder</title>
+<style>
+
+#filter:empty::before {
+    content             : "DRAG FILTER EFFECTS HERE"
+}
+
+body {
+    font-family         : Trebuchet MS;
+    background          : #aaa;
+}
+
+section {
+    width               : 300px;
+}
+
+section#filter {
+    position            : absolute;
+    right               : 0.5em;
+    top                 : 0.5em;
+    padding             : 0.5em;
+    border-radius       : 0.5em;
+    background          : #fff;
+    min-height          : 1in;
+    -moz-user-select    : none;
+    -khtml-user-select  : none;
+    -webkit-user-select : none;
+    user-select         : none;
+}
+
+details {
+    line-height         : 1.5;
+    background          : #fff;
+    -moz-user-select    : none;
+    -khtml-user-select  : none;
+    user-select         : none;
+    -webkit-user-select : none;
+    cursor              : pointer;
+    margin              : 0.5em;
+    padding             : 0.5em;
+    border-radius       : 0.5em;
+    border              : #777 solid thin;
+}
+
+summary {
+    width               : 70%;
+}
+
+label {
+}
+
+input, select {
+    float               : right;
+    width               : 50%;
+}
+
+#graphic, #code {
+    position            : absolute;
+    width               : 500px;
+    height              : 500px;
+    left                : 320px;
+    top                 : 1em;
+    padding             : 0.5em;
+    border-radius       : 0.5em;
+    background          : #fff;
+}
+
+#code {
+    top                 : 550px;
+    height              : initial;
+    min-height          : 50px;
+}
+
+</style>
+</head>
+<body>
+
+
+
+
+<section id="effects">
+<details id="feBlend">
+<summary>feBlend</summary>
+<label>FOO</label>
+<input type="range" data-attr="foo" min="0" max="100" value="0"/>
+<br/><label>BAR</label>
+<select data-attr="bar">
+    <option selected>fubar</option>
+    <option>barfu</option>
+</select>
+</details>
+<details id="feGaussianBlur">
+<summary>feGaussianBlur</summary>
+<label>stdDeviation</label>
+<input type="range" data-attr="stdDeviation" min="0" max="100" value="0"/>
+</details>
+<details id="feMorphology">
+<summary>feMorphology</summary>
+<label>radius</label>
+<input type="range" data-attr="radius" min="1" max="100" value="1"/>
+<br/><label>operator</label>
+<select data-attr="operator">
+    <option selected>dilate</option>
+    <option>erode</option>
+</select>
+</details>
+<details id="feOffset">
+<summary>feOffset</summary>
+<label>x</label>
+<input type="range" data-attr="x" min="-320" max="320" value="0"/>
+<br/><label>y</label>
+<input type="range" data-attr="y" min="-320" max="320" value="0"/>
+</details>
+<details id="feSpecularLighting">
+<summary>feSpecularLighting</summary>
+<label>FOO</label>
+<input type="range" data-attr="foo" min="0" max="320" value="0"/>
+<br/><label>BAR</label>
+<select data-attr="bar">
+    <option selected>fubar</option>
+    <option>barfu</option>
+</select>
+</details>
+<details id="feTurbulence">
+<summary>feTurbulence</summary>
+<label>FOO</label>
+<input type="range" data-attr="foo" min="0" max="320" value="0"/>
+<br/><label>BAR</label>
+<select data-attr="bar">
+    <option selected>fubar</option>
+    <option>barfu</option>
+</select>
+</details>
+<details id="feColorMatrix">
+<summary>feColorMatrix</summary>
+<label>FOO</label>
+<input type="range" data-attr="foo" min="0" max="320" value="0"/>
+<br/><label>BAR</label>
+<select data-attr="bar">
+    <option selected>fubar</option>
+    <option>barfu</option>
+</select>
+</details>
+<details id="feComponentTransfer">
+<summary>feComponentTransfer</summary>
+<label>FOO</label>
+<input type="range" data-attr="foo" min="0" max="320" value="0"/>
+<br/><label>BAR</label>
+<select data-attr="bar">
+    <option selected>fubar</option>
+    <option>barfu</option>
+</select>
+</details>
+<details id="feComposite">
+<summary>feComposite</summary>
+<label>FOO</label>
+<input type="range" data-attr="foo" min="0" max="320" value="0"/>
+<br/><label>BAR</label>
+<select data-attr="bar">
+    <option selected>fubar</option>
+    <option>barfu</option>
+</select>
+</details>
+<details id="feConvolveMatrix">
+<summary>feConvolveMatrix</summary>
+<label>FOO</label>
+<input type="range" data-attr="foo" min="0" max="320" value="0"/>
+<br/><label>BAR</label>
+<select data-attr="bar">
+    <option selected>fubar</option>
+    <option>barfu</option>
+</select>
+</details>
+<details id="feDiffuseLighting">
+<summary>feDiffuseLighting</summary>
+<label>FOO</label>
+<input type="range" data-attr="foo" min="0" max="320" value="0"/>
+<br/><label>BAR</label>
+<select data-attr="bar">
+    <option selected>fubar</option>
+    <option>barfu</option>
+</select>
+</details>
+<details id="feDisplacementMap">
+<summary>feDisplacementMap</summary>
+<label>FOO</label>
+<input type="range" data-attr="foo" min="0" max="320" value="0"/>
+<br/><label>BAR</label>
+<select data-attr="bar">
+    <option selected>fubar</option>
+    <option>barfu</option>
+</select>
+</details>
+<details id="feFlood">
+<summary>feFlood</summary>
+<label>FOO</label>
+<input type="range" data-attr="foo" min="0" max="320" value="0"/>
+<br/><label>BAR</label>
+<select data-attr="bar">
+    <option selected>fubar</option>
+    <option>barfu</option>
+</select>
+</details>
+<details id="feImage">
+<summary>feImage</summary>
+<label>FOO</label>
+<input type="range" data-attr="foo" min="0" max="320" value="0"/>
+<br/><label>BAR</label>
+<select data-attr="bar">
+    <option selected>fubar</option>
+    <option>barfu</option>
+</select>
+</details>
+<details id="feMerge">
+<summary>feMerge</summary>
+<label>FOO</label>
+<input type="range" data-attr="foo" min="0" max="320" value="0"/>
+<br/><label>BAR</label>
+<select data-attr="bar">
+    <option selected>fubar</option>
+    <option>barfu</option>
+</select>
+</details>
+<details id="feTile">
+<summary>feTile</summary>
+<label>FOO</label>
+<input type="range" data-attr="foo" min="0" max="320" value="0"/>
+<br/><label>BAR</label>
+<select data-attr="bar">
+    <option selected>fubar</option>
+    <option>barfu</option>
+</select>
+</details>
+
+</section>
+
+<section id="filter"></section>
+
+<section id="graphic">
+<svg>
+<defs>
+<filter id="F">
+</filter>
+</defs>
+<image xlink:href="img/Objects001.jpg" x="0" y="0" width="320" height="480"/>
+</svg>
+</section>
+
+<pre id="code"></pre>
+
+<script>
+
+var app = new Function();
+
+app.c = 0;
+
+window.onload = function() {
+    // EFFECTS
+    app.effects = document.querySelectorAll('section#effects > details');
+    for (var i = 0, l = app.effects.length; i < l; i++) {
+        app.effects[i].draggable = 'true';
+        app.effects[i].addEventListener('dragstart', app.dragstart);
+    }
+    // FILTER
+    app.filter = document.querySelector('section#filter');
+    app.filter.addEventListener('dragover', app.dragover);
+    app.filter.addEventListener('drop', app.drop);
+    // CONTROLS
+    app.filter.addEventListener('change', app.assemble);
+    // DEBUG
+    app.debug = document.querySelector('#code');
+    // GRAPHIC
+    app.g = document.querySelector('#graphic');
+}
+
+app.d = function(s) {
+    app.debug.textContent = s;
+}
+
+app.drop = function(e) {
+    e.preventDefault();
+    var data = e.dataTransfer.getData("Text");    
+    var el = document.getElementById(data).cloneNode(true)
+    el.dataset.tag = el.id;
+    el.removeAttribute('id');
+    el.addEventListener('change', app.modify);
+    e.currentTarget.appendChild(el);
+}
+
+app.dragover = function(e) {
+    e.preventDefault();
+}
+
+app.dragstart = function(e) {
+    e.dataTransfer.setData("Text", e.target.id);
+}
+
+app.modify = function(e) {
+    var ctrl = e.currentTarget;
+    var ctrls = e.currentTarget.querySelectorAll('*[data-attr]');
+    ctrl.dataset.markup = '<' + ctrl.dataset.tag;
+    for (var i = 0, l = ctrls.length; i < l; i++) {
+        ctrl.dataset.markup += ' ' + ctrls[i].dataset.attr + '="' + ctrls[i].value + '"';
+    }
+    ctrl.dataset.markup += '>';
+    ctrl.dataset.markup += '</' + ctrl.dataset.tag + '>\n';
+    console.log(ctrl);
+}
+
+app.assemble = function(e) {
+    var g;
+    app.fes = document.querySelectorAll('section#filter > details');
+    g = '<svg>\n';
+    g += '<defs>\n';
+    g += '<filter id="F">\n';
+
+    for (var i = 0, l = app.fes.length; i<l; i++) {
+        g += app.fes[i].dataset.markup;
+    }
+
+    g += '</filter>\n';
+    g += '</defs>\n';
+    g += '<image xlink:href="img/Objects001.jpg" x="0" y="0" width="320" height="480" filter="url(#F)"/>\n';
+    g += '</svg>\n';
+
+    app.g.innerHTML = g;
+    app.d(g);
+};
+
+</script>
+</body>
+</html>

@@ -5,6 +5,10 @@
 <style>
 /* CSS */
 
+filter, feSpecularLighting {
+    -webkit-transition: all 1s;
+}
+
 body {
     background       : #aaaaaa;
     font-family      : Trebuchet MS;
@@ -84,7 +88,7 @@ select[data-mode=Turbulence]        ~ #fsTurbulence
 <defs>
 
 <filter id="GaussianBlur">
-<feGaussianBlur id="fe_gaussian" stdDeviation="4"></feGaussianBlur>
+<feGaussianBlur id="fe_gaussian" stdDeviation="0"></feGaussianBlur>
 </filter>
 
 <filter id="Offset">
@@ -100,25 +104,40 @@ select[data-mode=Turbulence]        ~ #fsTurbulence
 </filter>
 
 <filter id="Blend">
-<feBlend in="img1" in2="SourceGraphic" mode="normal"/>
+   <feImage xlink:href="img/Objects001.jpg" result="i1" id="fe_blendI1" />
+   <feImage xlink:href="img/Objects005.jpg" result="i2" id="fe_blendI2" />
+   <feBlend id="fe_blend" in="i1" in2="i2" mode="screen"/>
 </filter>
 
-
+<filter id="SpecularLighting">
+  <feSpecularLighting id="fe_specularLighting" specularExponent="25" lighting-color="black">
+    <fePointLight x="400" y="100" z="100" id="fe_pointLight" />
+  </feSpecularLighting>
+</filter>
 
 
 
 </defs>
 
+<!--
 <image id="img2" xlink:href="img/Objects002.jpg" x="320" y="0" width="320" height="569"></image>
+-->
 <image id="img1" xlink:href="img/Objects001.jpg" x="0" y="0" width="320" height="569"></image>
-
 </svg>
 
 <aside>
 
 <label>Filter Effect</label>
 <select data-tgt="#img1" data-attr="filter" data-prefix="url(#" data-suffix=")"  onchange="this.dataset.mode = this.value">
+  <optgroup label="done">
     <option>Blend</option>
+    <option>GaussianBlur</option>
+    <option>Morphology</option>
+    <option>Offset</option>
+    <option>SpecularLighting</option>
+    <option>Turbulence</option>
+  </optgroup>
+  <optgroup label="to do">
     <option>ColorMatrix</option>
     <option>ComponentTransfer</option>
     <option>Composite</option>
@@ -126,47 +145,45 @@ select[data-mode=Turbulence]        ~ #fsTurbulence
     <option>DiffuseLighting</option>
     <option>DisplacementMap</option>
     <option>Flood</option>
-    <option>GaussianBlur</option>
     <option>Image</option>
     <option>Merge</option>
-    <option>Morphology</option>
-    <option>Offset</option>
-    <option>SpecularLighting</option>
     <option>Tile</option>
-    <option>Turbulence</option>
+  </optgroup>
 </select>
 
-<br/><label>Image #1</label>
-<select data-tgt="#img1" data-attr="xlink:href">
-    <option>img/Objects001.jpg</option>
-    <option>img/Objects002.jpg</option>
-    <option>img/Objects003.jpg</option>
-    <option>img/Objects004.jpg</option>
-    <option>img/Objects005.jpg</option>
-    <option>img/Objects006.jpg</option>
-    <option>img/Objects007.jpg</option>
-    <option>img/Objects008.jpg</option>
-    <option>img/Objects009.jpg</option>
-    <option>img/Objects010.jpg</option>
-    <option>img/Objects011.jpg</option>
-    <option>img/Objects012.jpg</option>
+<br/><label>Image</label>
+<select data-tgt="#img1" data-attr="xlink:href" data-prefix="img/Objects" data-suffix=".jpg">
+    <option>001</option>
+    <option>002</option>
+    <option>003</option>
+    <option>004</option>
+    <option>005</option>
+    <option>006</option>
+    <option>007</option>
+    <option>008</option>
+    <option>009</option>
+    <option>010</option>
+    <option>011</option>
+    <option>012</option>
 </select>
 
+<!--
 <br/><label>Image #2</label>
-<select data-tgt="#img2" data-attr="xlink:href">
-    <option>img/Objects001.jpg</option>
-    <option>img/Objects002.jpg</option>
-    <option>img/Objects003.jpg</option>
-    <option>img/Objects004.jpg</option>
-    <option>img/Objects005.jpg</option>
-    <option>img/Objects006.jpg</option>
-    <option>img/Objects007.jpg</option>
-    <option>img/Objects008.jpg</option>
-    <option>img/Objects009.jpg</option>
-    <option>img/Objects010.jpg</option>
-    <option>img/Objects011.jpg</option>
-    <option>img/Objects012.jpg</option>
+<select data-tgt="#img2" data-attr="xlink:href" data-prefix="img/Objects" data-suffix=".jpg">
+    <option>001</option>
+    <option>002</option>
+    <option>003</option>
+    <option>004</option>
+    <option>005</option>
+    <option>006</option>
+    <option>007</option>
+    <option>008</option>
+    <option>009</option>
+    <option>010</option>
+    <option>011</option>
+    <option>012</option>
 </select>
+-->
 
 <fieldset id="fsGaussianBlur" ><legend>feGaussianBlur</legend>
 
@@ -225,7 +242,7 @@ select[data-mode=Turbulence]        ~ #fsTurbulence
 <input data-tgt="#fe_turbulence" data-attr="numOctaves" type="range" min="0" max="10" value="0"/>
 
 <br/><label>seed</label>
-<input data-tgt="#fe_turbulence" data-attr="seed" type="range" min="0" max="200" value="0"/>
+<input data-tgt="#fe_turbulence" data-attr="seed" type="range" min="0" max="100" step="0.1" value="0"/>
 
 <br/><label>type</label>
 <select data-tgt="#fe_turbulence" data-attr="type" >
@@ -241,9 +258,9 @@ select[data-mode=Turbulence]        ~ #fsTurbulence
 
 </fieldset>
 
-
 <fieldset id="fsBlend"><legend>feBlend</legend>
 
+<label>mode</label>
 <select data-tgt="#fe_blend" data-attr="mode" >
     <option>normal</option>
     <option>multiply</option>
@@ -252,9 +269,45 @@ select[data-mode=Turbulence]        ~ #fsTurbulence
     <option>lighten</option>
 </select>
 
+<br/><label>image 1</label>
+<select data-tgt="#fe_blendI1" data-attr="xlink:href" data-prefix="img/Objects" data-suffix=".jpg">
+    <option>001</option>
+    <option>002</option>
+    <option>003</option>
+    <option>004</option>
+    <option>005</option>
+    <option>006</option>
+    <option>007</option>
+    <option>008</option>
+    <option>009</option>
+    <option>010</option>
+    <option>011</option>
+    <option>012</option>
+</select>
+
+<br/><label>image 2</label>
+<select data-tgt="#fe_blendI2" data-attr="xlink:href" data-prefix="img/Objects" data-suffix=".jpg">
+    <option>001</option>
+    <option>002</option>
+    <option>003</option>
+    <option>004</option>
+    <option>005</option>
+    <option>006</option>
+    <option>007</option>
+    <option>008</option>
+    <option>009</option>
+    <option>010</option>
+    <option>011</option>
+    <option>012</option>
+</select>
+
 
 </fieldset>
 <fieldset id="fsColorMatrix" ><legend>feColorMatrix</legend>
+
+
+matrix | saturate | hueRotate | luminanceToAlpha
+
 </fieldset>
 <fieldset id="fsComponentTransfer" ><legend>feComponentTransfer</legend>
 </fieldset>
@@ -273,6 +326,21 @@ select[data-mode=Turbulence]        ~ #fsTurbulence
 <fieldset id="fsMerge" ><legend>feMerge</legend>
 </fieldset>
 <fieldset id="fsSpecularLighting" ><legend>feSpecularLighting</legend>
+
+<label>lighting-color</label>
+<input data-tgt="#fe_specularLighting" data-attr="lighting-color" type="color"/>
+
+<br/><label>specularExponent</label>
+<input data-tgt="#fe_specularLighting" data-attr="specularExponent" type="range" min="0" max="20" value="0"/>
+
+<br/><label>x</label>
+<input data-tgt="#fe_pointLight" data-attr="x" type="range" min="-1000" max="1000" value="0"/>
+<br/><label>y</label>
+<input data-tgt="#fe_pointLight" data-attr="y" type="range" min="-1000" max="1000" value="0"/>
+<br/><label>z</label>
+<input data-tgt="#fe_pointLight" data-attr="z" type="range" min="-1000" max="1000" value="0"/>
+
+
 </fieldset>
 <fieldset id="fsTile" ><legend>feTile</legend>
 </fieldset>
