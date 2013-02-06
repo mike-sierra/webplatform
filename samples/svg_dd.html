@@ -4,8 +4,6 @@
 
 TO DO:
 
-* warn if drag/drop is unsupported
-
 * disable controls in effects templates
 
 # build nested tags from nested details blocks
@@ -390,8 +388,9 @@ app.img = '001';
 app.c = 0;
 
 window.onload = function() {
-    // INIT
-    app.checkSupport();
+
+    if (!app.browserSupport()) return(false);
+
     // populate channel select:
     app.initSelect();
 
@@ -414,9 +413,18 @@ window.onload = function() {
     app.g = document.querySelector('#graphic');
 }
 
-app.checkSupport = function() {
+app.browserSupport = function() {
     var support = 'open' in document.createElement('details');
-    if (!support) alert("Your browser can't display this page; try Chrome");
+    if (!support) {
+        alert("Your browser can't display the 'details' element; try Chrome");
+        return(false);
+    }
+    support = 'draggable' in document.createElement('span');
+    if (!support) {
+        alert("Your browser doesn't drag and drop; try Chrome");
+        return(false);
+    }
+    return(true);
 }
 
 app.initSelect = function() {
