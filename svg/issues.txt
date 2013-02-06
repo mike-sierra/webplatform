@@ -1,9 +1,25 @@
+I'm at the point where I could use some help answering some technical
+questions about SVG, so I'll throw these over the wall:
+
+* The CSS "filter" property can reference an SVG <filter> by url()
+  reference. Unlike custom CSS filters & built-in functions, these SVG
+  filters currently do not animate via CSS. Will this change in the
+  future?  If it were to animate, I expect you'd need 2 different
+  filter elements, each containing matching sequences of filter
+  primitives. (CSS-only filters require matching sequences.)
+
+* I was trying to use SVG to animate a human eye, complete with
+  blinking and glancing side-to-side behavior. Example here:
+  http://letmespellitoutforyou.com/samples/svg_eyeball.html I tried to
+  define the white #eye ellipse as a clipping path to obscure the
+  g#eyeball elements, but that prevents it from rendering its stroke &
+  fill. Is there a way around this, or do clipping paths not render by
+  definition?
+
+
 == QUERIES ==
 
-* In eyeball.html sample, would like the #eye ellipse to serve as a
-  clipping path to obscure the g#eyeball elements, but there appears
-  to be no way to render the ellipse's stroke/fill once nested within
-  a <clipPath>. Know of any way around this?
+
 
 * Any way to anchor eyelash-shaped paths to the top portion of the
   #eye ellipse?
