@@ -17,9 +17,17 @@ section {
     width               : 300px;
 }
 
+section#effects nav {
+    display: none;
+}
+
+nav {
+    float: right;
+}
+
 section#filter {
     position            : absolute;
-    right               : 0.5em;
+    left                : 320px;
     top                 : 0.5em;
     padding             : 0.5em;
     border-radius       : 0.5em;
@@ -31,6 +39,8 @@ section#filter {
     user-select         : none;
 }
 
+
+
 details {
     line-height         : 1.5;
     background          : #fff;
@@ -40,17 +50,16 @@ details {
     -webkit-user-select : none;
     cursor              : pointer;
     margin              : 0.5em;
-    padding             : 0.5em;
+    padding             : 0.25em 0.5em;
     border-radius       : 0.5em;
     border              : #777 solid thin;
 }
 
+/*
 summary {
-    width               : 70%;
+    width               : 90%;
 }
-
-label {
-}
+*/
 
 input, select {
     float               : right;
@@ -61,7 +70,7 @@ input, select {
     position            : absolute;
     width               : 500px;
     height              : 500px;
-    left                : 320px;
+    left                : 650px;
     top                 : 1em;
     padding             : 0.5em;
     border-radius       : 0.5em;
@@ -69,6 +78,7 @@ input, select {
 }
 
 #code {
+    overflow: scroll;
     top                 : 550px;
     height              : initial;
     min-height          : 50px;
@@ -78,25 +88,58 @@ input, select {
 </head>
 <body>
 
-
-
-
 <section id="effects">
+
 <details id="feBlend">
 <summary>feBlend</summary>
-<label>FOO</label>
-<input type="range" data-attr="foo" min="0" max="100" value="0"/>
-<br/><label>BAR</label>
-<select data-attr="bar">
-    <option selected>fubar</option>
-    <option>barfu</option>
+<label>in</label>
+<select data-attr="in">
+    <option></option>
+    <option selected>sourceAlpha</option>
+    <option>SourceGraphic</option>
+    <option>ch1</option>
+    <option>ch2</option>
+    <option>ch3</option>
+    <option>ch4</option>
+    <option>ch5</option>
+    <option>ch6</option>
+    <option>ch7</option>
+    <option>ch8</option>
+    <option>ch9</option>
 </select>
+<br/><label>in2</label>
+<select data-attr="in2">
+    <option></option>
+    <option selected>sourceAlpha</option>
+    <option>SourceGraphic</option>
+    <option>ch1</option>
+    <option>ch2</option>
+    <option>ch3</option>
+    <option>ch4</option>
+    <option>ch5</option>
+    <option>ch6</option>
+    <option>ch7</option>
+    <option>ch8</option>
+    <option>ch9</option>
+</select>
+
+<br/><label>mode</label>
+<select data-attr="mode">
+    <option selected>normal</option>
+    <option>multiply</option>
+    <option>screen</option>
+    <option>darken</option>
+    <option>lighten</option>
+</select>
+
 </details>
+
 <details id="feGaussianBlur">
 <summary>feGaussianBlur</summary>
 <label>stdDeviation</label>
 <input type="range" data-attr="stdDeviation" min="0" max="100" value="0"/>
 </details>
+
 <details id="feMorphology">
 <summary>feMorphology</summary>
 <label>radius</label>
@@ -107,127 +150,318 @@ input, select {
     <option>erode</option>
 </select>
 </details>
+
 <details id="feOffset">
 <summary>feOffset</summary>
-<label>x</label>
-<input type="range" data-attr="x" min="-320" max="320" value="0"/>
+<label>dx</label>
+<input type="range" data-attr="dx" min="-480" max="480" value="0"/>
+<br/><label>dy</label>
+<input type="range" data-attr="dy" min="-480" max="480" value="0"/>
+<br/><label>x</label>
+<input type="range" data-attr="x" min="-480" max="480" value="0"/>
 <br/><label>y</label>
-<input type="range" data-attr="y" min="-320" max="320" value="0"/>
-</details>
-<details id="feSpecularLighting">
-<summary>feSpecularLighting</summary>
-<label>FOO</label>
-<input type="range" data-attr="foo" min="0" max="320" value="0"/>
-<br/><label>BAR</label>
-<select data-attr="bar">
-    <option selected>fubar</option>
-    <option>barfu</option>
+<input type="range" data-attr="y" min="-480" max="480" value="0"/>
+<br/><label>in</label>
+<select data-attr="_in">
+    <option></option>
+    <option selected>sourceAlpha</option>
+    <option>SourceGraphic</option>
+    <option>ch1</option>
+    <option>ch2</option>
+    <option>ch3</option>
+    <option>ch4</option>
+    <option>ch5</option>
+    <option>ch6</option>
+    <option>ch7</option>
+    <option>ch8</option>
+    <option>ch9</option>
+</select>
+<br/><label>result</label>
+<select data-attr="_result">
+    <option></option>
+    <option selected>sourceAlpha</option>
+    <option>SourceGraphic</option>
+    <option>ch1</option>
+    <option>ch2</option>
+    <option>ch3</option>
+    <option>ch4</option>
+    <option>ch5</option>
+    <option>ch6</option>
+    <option>ch7</option>
+    <option>ch8</option>
+    <option>ch9</option>
 </select>
 </details>
+
 <details id="feTurbulence">
 <summary>feTurbulence</summary>
-<label>FOO</label>
-<input type="range" data-attr="foo" min="0" max="320" value="0"/>
-<br/><label>BAR</label>
-<select data-attr="bar">
-    <option selected>fubar</option>
-    <option>barfu</option>
+<label>baseFrequency</label>
+<input type="range" data-attr="baseFrequency" min="0" max="1" step="0.01" value="0"/>
+<br/><label>numOctaves</label>
+<input type="range" data-attr="numOctaves" min="0" max="10" value="1"/>
+<br/><label>seed</label>
+<input type="range" data-attr="seed" min="0" max="100" value="1"/>
+<br/><label>type</label>
+<select data-attr="type">
+    <option selected>fractalNoise</option>
+    <option>turbulence</option>
 </select>
 </details>
+
 <details id="feColorMatrix">
-<summary>feColorMatrix</summary>
-<label>FOO</label>
-<input type="range" data-attr="foo" min="0" max="320" value="0"/>
-<br/><label>BAR</label>
-<select data-attr="bar">
-    <option selected>fubar</option>
-    <option>barfu</option>
+<summary>... feColorMatrix</summary>
+<label>values</label>
+<input type="range" data-attr="values" min="0" max="480" value="0"/>
+<br/><label>type</label>
+<select data-attr="type">
+    <option selected>matrix</option>
+    <option>saturate</option>
+    <option>hueRotate</option>
+    <option>luminanceToAlpha</option>
 </select>
 </details>
+
 <details id="feComponentTransfer">
-<summary>feComponentTransfer</summary>
+<summary>#feComponentTransfer</summary>
 <label>FOO</label>
-<input type="range" data-attr="foo" min="0" max="320" value="0"/>
+<input type="range" data-attr="foo" min="0" max="480" value="0"/>
 <br/><label>BAR</label>
 <select data-attr="bar">
     <option selected>fubar</option>
     <option>barfu</option>
 </select>
 </details>
+
 <details id="feComposite">
 <summary>feComposite</summary>
-<label>FOO</label>
-<input type="range" data-attr="foo" min="0" max="320" value="0"/>
-<br/><label>BAR</label>
-<select data-attr="bar">
-    <option selected>fubar</option>
-    <option>barfu</option>
+<label>in</label>
+<select data-attr="in">
+    <option></option>
+    <option selected>sourceAlpha</option>
+    <option>SourceGraphic</option>
+    <option>ch1</option>
+    <option>ch2</option>
+    <option>ch3</option>
+    <option>ch4</option>
+    <option>ch5</option>
+    <option>ch6</option>
+    <option>ch7</option>
+    <option>ch8</option>
+    <option>ch9</option>
 </select>
+<br/><label>in2</label>
+<select data-attr="in2">
+    <option></option>
+    <option selected>sourceAlpha</option>
+    <option>SourceGraphic</option>
+    <option>ch1</option>
+    <option>ch2</option>
+    <option>ch3</option>
+    <option>ch4</option>
+    <option>ch5</option>
+    <option>ch6</option>
+    <option>ch7</option>
+    <option>ch8</option>
+    <option>ch9</option>
+</select>
+<br/><label>operator</label>
+<select data-attr="operator">
+    <option selected>over</option>
+    <option>in</option>
+    <option>out</option>
+    <option>atop</option>
+    <option>xor</option>
+    <option>arithmetic</option>
+</select>
+
+<br/><label>k1</label>
+<input type="range" data-attr="k1" min="0" max="1" value="0" step="0.01"/>
+<br/><label>k2</label>
+<input type="range" data-attr="k2" min="0" max="1" value="0" step="0.01"/>
+<br/><label>k3</label>
+<input type="range" data-attr="k3" min="0" max="1" value="0" step="0.01"/>
+<br/><label>k4</label>
+<input type="range" data-attr="k4" min="0" max="1" value="0" step="0.01"/>
+
 </details>
+
 <details id="feConvolveMatrix">
-<summary>feConvolveMatrix</summary>
-<label>FOO</label>
-<input type="range" data-attr="foo" min="0" max="320" value="0"/>
-<br/><label>BAR</label>
-<select data-attr="bar">
-    <option selected>fubar</option>
-    <option>barfu</option>
-</select>
+<summary>... feConvolveMatrix</summary>
+<label>kernelMatrix</label>
+<input type="range" data-attr="kernelMatrix" min="-1" max="1" value="0" step="0.01"/>
 </details>
-<details id="feDiffuseLighting">
-<summary>feDiffuseLighting</summary>
-<label>FOO</label>
-<input type="range" data-attr="foo" min="0" max="320" value="0"/>
-<br/><label>BAR</label>
-<select data-attr="bar">
-    <option selected>fubar</option>
-    <option>barfu</option>
-</select>
-</details>
+
 <details id="feDisplacementMap">
 <summary>feDisplacementMap</summary>
-<label>FOO</label>
-<input type="range" data-attr="foo" min="0" max="320" value="0"/>
-<br/><label>BAR</label>
-<select data-attr="bar">
-    <option selected>fubar</option>
-    <option>barfu</option>
+<label>scale</label>
+<input type="range" data-attr="scale" min="-700" max="700" value="0"/>
+<br/><label>xChannelSelector</label>
+<select data-attr="xChannelSelector">
+    <option selected>R</option>
+    <option>G</option>
+    <option>B</option>
+    <option>A</option>
+</select>
+<br/><label>yChannelSelector</label>
+<select data-attr="yChannelSelector">
+    <option selected>R</option>
+    <option>G</option>
+    <option>B</option>
+    <option>A</option>
+</select>
+<label>in</label>
+<select data-attr="_in">
+    <option></option>
+    <option selected>sourceAlpha</option>
+    <option>SourceGraphic</option>
+    <option>ch1</option>
+    <option>ch2</option>
+    <option>ch3</option>
+    <option>ch4</option>
+    <option>ch5</option>
+    <option>ch6</option>
+    <option>ch7</option>
+    <option>ch8</option>
+    <option>ch9</option>
+</select>
+<br/><label>in2</label>
+<select data-attr="_in2">
+    <option></option>
+    <option selected>sourceAlpha</option>
+    <option>SourceGraphic</option>
+    <option>ch1</option>
+    <option>ch2</option>
+    <option>ch3</option>
+    <option>ch4</option>
+    <option>ch5</option>
+    <option>ch6</option>
+    <option>ch7</option>
+    <option>ch8</option>
+    <option>ch9</option>
 </select>
 </details>
+
 <details id="feFlood">
 <summary>feFlood</summary>
-<label>FOO</label>
-<input type="range" data-attr="foo" min="0" max="320" value="0"/>
-<br/><label>BAR</label>
-<select data-attr="bar">
-    <option selected>fubar</option>
-    <option>barfu</option>
+<br/><label>flood-color</label>
+<input type="color" data-attr="flood-color" value="black" />
+<br/><label>flood-opacity</label>
+<input type="range" data-attr="flood-opacity" min="0" max="1" value="1" step="0.1"/>
+<br/><label>result</label>
+<select data-attr="result">
+    <option></option>
+    <option selected>sourceAlpha</option>
+    <option>SourceGraphic</option>
+    <option>ch1</option>
+    <option>ch2</option>
+    <option>ch3</option>
+    <option>ch4</option>
+    <option>ch5</option>
+    <option>ch6</option>
+    <option>ch7</option>
+    <option>ch8</option>
+    <option>ch9</option>
 </select>
 </details>
+
 <details id="feImage">
 <summary>feImage</summary>
-<label>FOO</label>
-<input type="range" data-attr="foo" min="0" max="320" value="0"/>
-<br/><label>BAR</label>
-<select data-attr="bar">
-    <option selected>fubar</option>
-    <option>barfu</option>
+<label>xlink:href</label>
+<select data-attr="xlink:href">
+    <option selected>img/Objects001.jpg</option>
+    <option>img/Objects002.jpg</option>
+    <option>img/Objects003.jpg</option>
+    <option>img/Objects004.jpg</option>
+    <option>img/Objects005.jpg</option>
+    <option>img/Objects006.jpg</option>
+    <option>img/Objects007.jpg</option>
+    <option>img/Objects008.jpg</option>
+    <option>img/Objects009.jpg</option>
+    <option>img/Objects010.jpg</option>
+    <option>img/Objects011.jpg</option>
+    <option>img/Objects012.jpg</option>
 </select>
+<br/><label>result</label>
+<select data-attr="result">
+    <option></option>
+    <option selected>sourceAlpha</option>
+    <option>SourceGraphic</option>
+    <option>ch1</option>
+    <option>ch2</option>
+    <option>ch3</option>
+    <option>ch4</option>
+    <option>ch5</option>
+    <option>ch6</option>
+    <option>ch7</option>
+    <option>ch8</option>
+    <option>ch9</option>
+</select>
+<br/><label>width</label>
+<input type="range" data-attr="width" min="0" max="320" value="320"/>
+<br/><label>height</label>
+<input type="range" data-attr="height" min="0" max="480" value="480"/>
 </details>
+
 <details id="feMerge">
-<summary>feMerge</summary>
+<summary>#feMerge</summary>
 <label>FOO</label>
-<input type="range" data-attr="foo" min="0" max="320" value="0"/>
+<input type="range" data-attr="foo" min="0" max="480" value="0"/>
 <br/><label>BAR</label>
 <select data-attr="bar">
     <option selected>fubar</option>
     <option>barfu</option>
 </select>
 </details>
+
 <details id="feTile">
 <summary>feTile</summary>
+<label>in</label>
+<select data-attr="in">
+    <option></option>
+    <option selected>sourceAlpha</option>
+    <option>SourceGraphic</option>
+    <option>ch1</option>
+    <option>ch2</option>
+    <option>ch3</option>
+    <option>ch4</option>
+    <option>ch5</option>
+    <option>ch6</option>
+    <option>ch7</option>
+    <option>ch8</option>
+    <option>ch9</option>
+</select>
+<br/><label>result</label>
+<select data-attr="result">
+    <option></option>
+    <option selected>sourceAlpha</option>
+    <option>SourceGraphic</option>
+    <option>ch1</option>
+    <option>ch2</option>
+    <option>ch3</option>
+    <option>ch4</option>
+    <option>ch5</option>
+    <option>ch6</option>
+    <option>ch7</option>
+    <option>ch8</option>
+    <option>ch9</option>
+</select>
+</details>
+
+<details id="feDiffuseLighting">
+<summary># feDiffuseLighting</summary>
 <label>FOO</label>
-<input type="range" data-attr="foo" min="0" max="320" value="0"/>
+<input type="range" data-attr="foo" min="0" max="480" value="0"/>
+<br/><label>BAR</label>
+<select data-attr="bar">
+    <option selected>fubar</option>
+    <option>barfu</option>
+</select>
+</details>
+
+<details id="feSpecularLighting">
+<summary># feSpecularLighting</summary>
+<label>FOO</label>
+<input type="range" data-attr="foo" min="0" max="480" value="0"/>
 <br/><label>BAR</label>
 <select data-attr="bar">
     <option selected>fubar</option>
@@ -255,6 +489,8 @@ input, select {
 
 var app = new Function();
 
+app.img = '001';
+
 app.c = 0;
 
 window.onload = function() {
@@ -263,13 +499,14 @@ window.onload = function() {
     for (var i = 0, l = app.effects.length; i < l; i++) {
         app.effects[i].draggable = 'true';
         app.effects[i].addEventListener('dragstart', app.dragstart);
+        app.effects[i].querySelector('summary').innerHTML += '<nav>[X]</nav>';
     }
     // FILTER
     app.filter = document.querySelector('section#filter');
     app.filter.addEventListener('dragover', app.dragover);
     app.filter.addEventListener('drop', app.drop);
     // CONTROLS
-    app.filter.addEventListener('change', app.assemble);
+    app.filter.addEventListener('change', app.assemble); // 2DO: DOM mutation handler
     // DEBUG
     app.debug = document.querySelector('#code');
     // GRAPHIC
@@ -282,12 +519,20 @@ app.d = function(s) {
 
 app.drop = function(e) {
     e.preventDefault();
-    var data = e.dataTransfer.getData("Text");    
+    var data = e.dataTransfer.getData("Text");
     var el = document.getElementById(data).cloneNode(true)
     el.dataset.tag = el.id;
     el.removeAttribute('id');
     el.addEventListener('change', app.modify);
+    el.addEventListener('click', app.removeEffect);
     e.currentTarget.appendChild(el);
+}
+
+app.removeEffect = function(e) {
+    if (e.target.tagName != 'NAV') return(false);
+    var node = e.currentTarget;
+    node.parentNode.removeChild(node);
+    app.assemble();
 }
 
 app.dragover = function(e) {
@@ -307,7 +552,6 @@ app.modify = function(e) {
     }
     ctrl.dataset.markup += '>';
     ctrl.dataset.markup += '</' + ctrl.dataset.tag + '>\n';
-    console.log(ctrl);
 }
 
 app.assemble = function(e) {
@@ -323,7 +567,7 @@ app.assemble = function(e) {
 
     g += '</filter>\n';
     g += '</defs>\n';
-    g += '<image xlink:href="img/Objects001.jpg" x="0" y="0" width="320" height="480" filter="url(#F)"/>\n';
+    g += '<image xlink:href="img/Objects' + app.img + '.jpg" x="0" y="0" width="320" height="480" filter="url(#F)"/>\n';
     g += '</svg>\n';
 
     app.g.innerHTML = g;
