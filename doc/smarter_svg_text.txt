@@ -1,10 +1,10 @@
 {{Page_Title|Smarter SVG: text}}
 {{Flags
 |High-level issues=Stub
-|Editorial notes=[new content from Sierra -- please do not edit]
+|Editorial notes=[new content from Sierra (~~~); please do not edit]
 }}
 {{Byline}}
-{{Summary_Section|This shows you how to embed text in your SVG content.}}
+{{Summary_Section|This guide shows how to embed text in your SVG content.}}
 {{Tutorial
 |Content=
 
@@ -27,6 +27,7 @@
 * rotate
 * textPath
 
+<!--
  10 Text
     10.1 Introduction
     10.2 Characters and their corresponding glyphs
@@ -55,9 +56,11 @@
         10.14.2 The 'altGlyphDef', 'altGlyphItem' and 'glyphRef' elements
     10.15 White space handling
     10.16 Text selection and clipboard operations
+-->
 
 ==Font Glyphs==
 
+<!--
  20 Fonts
     20.1 Introduction
     20.2 Overview of SVG fonts
@@ -73,6 +76,7 @@
         20.8.4 The 'font-face-src' element
         20.8.5 The 'font-face-uri' and 'font-face-format' elements
         20.8.6 The 'font-face-name' element
+-->
 
 CSS2 Font:
 
@@ -105,13 +109,13 @@ Text properties:
 * '''text-anchor'''
 * '''writing-mode'''
 
-([[svg/tutorials/smarter_svg_overview|overview]] /
-[[svg/tutorials/smarter_svg_shapes|shapes]] /
-[[svg/tutorials/smarter_svg_graphics|graphics]] /
-[[svg/tutorials/smarter_svg_text|text]] /
-[[svg/tutorials/smarter_svg_filters|filters]] /
-[[svg/tutorials/smarter_svg_animation|animation]] /
-[[svg/tutorials/smarter_svg_interaction|interaction]])
+([[svg/tutorials/smarter_svg_overview|Overview]] /
+[[svg/tutorials/smarter_svg_shapes|Shapes]] /
+[[svg/tutorials/smarter_svg_graphics|Graphics]] /
+[[svg/tutorials/smarter_svg_text|Text]] /
+[[svg/tutorials/smarter_svg_filters|Filters]] /
+[[svg/tutorials/smarter_svg_animation|Animation]] /
+[[svg/tutorials/smarter_svg_interaction|Interaction]])
 
 }}
 {{Notes_Section}}

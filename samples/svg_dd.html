@@ -433,7 +433,7 @@ app.initSelect = function() {
     var sel = document.querySelectorAll('.channel');
     var markup;
     for (var i = 0, l = sel.length; i<l; i++) {
-        markup = '<option selected>sourceAlpha</option><option>SourceGraphic</option>';
+        markup = '<option selected>SourceAlpha</option><option>SourceGraphic</option><option>BackgroundAlpha</option><option>BackgroundGraphic</option><option>fillPaint</option><option>strokePaint</option>';
         for (var n = 1; n < 10; n++) {
             markup += '<option>channel' + n + '</option>';
         }
