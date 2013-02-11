@@ -51,10 +51,15 @@ $bot->get( $prefix . $stub . $suffix );
 die qq~Can't get file~ if (! $bot->success());
 $wiki_text = $bot->content;
 die qq~Not an existing page: $stub~ if ($wiki_text !~ m~<textarea~i);
+
 $wiki_text =~ m~<textarea[^>]+?>(.+?)</textarea>~si and ($wiki_text = $1);
+$wiki_text =~ s~&amp;~&~gi;
+$wiki_text =~ s~&lt;~<~gi;
+
 $digest = md5_hex($wiki_text);
 
 print STDERR qq~$stub\n~;
+
 if ($command eq q~get~) {
     $store->{$stub} = $digest;
     store $store, $store_file;
