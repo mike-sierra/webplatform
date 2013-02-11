@@ -1,0 +1,145 @@
+<html>
+<head>
+
+<title>path</title>
+
+<style>
+svg {
+    stroke: black;
+    stroke-width: 2;
+    width: 100%;
+    height: 80%;
+    border: medium solid gold;
+    fill: transparent;
+}
+
+path {
+/*    fill: yellow; */
+}
+
+p {
+    font-family: monospace;
+}
+
+</style>
+
+</head>
+<body>
+
+<section>
+<svg>
+<path d="M 0,0"/>
+<circle id="c1" stroke="red" r="4" cx="-10" cy="-10"/>
+<circle id="c2" stroke="red" r="4" cx="-10" cy="-10"/>
+</svg>
+</section>
+
+<label>Path Command:</label>
+
+<select class="tool">
+    <option value="M">M</option>
+    <option value="L">L (line to)</option>
+    <option value="H">H (horizontal line to)</option>
+    <option value="V">V (vertical line to)</option>
+    <option value="Q">Q (quadratic bezier curve to)</option>
+    <option value="T">T (foo)</option>
+    <option value="C">C (cubic bezier curve to)</option>
+    <option value="S">S (foo)</option>
+    <option value="z">z (close subpath)</option>
+</select>
+
+<label>fill</label>
+<input onchange="app.path.setAttribute('fill', this.value)" type="color" value="transparent"/>
+
+<label>fill-rule</label>
+
+<select onchange="app.path.setAttribute('fill-rule', this.value)" >
+<option selected>nonzero</option>
+<option>evenodd</option>
+</select>
+
+<p></p>
+
+<script>
+var app = new Function();
+
+window.onload = function() {
+    app.dbg = document.querySelector("p");
+    app.path = document.querySelector("path");
+    app.sect = document.querySelector("section");
+    app.svg = document.querySelector("svg");
+    app.c1 = document.querySelector("#c1");
+    app.c2 = document.querySelector("#c2");
+    app.toolSelect = document.querySelector("select.tool");
+
+    app.svg.addEventListener("click", app.handleClick);
+
+    app.toolSelect.addEventListener("change", app.changeTool);
+    app.tool = app.toolSelect.value;
+
+    app.req = {"M":1,"L":1,"H":1,"V":1,"Q":2,"C":3,"T":1,"S":2};
+    app.refresh();
+
+}
+
+app.refresh = function() {
+    app.points = [];
+    app.c1.setAttribute('cx', '-10');
+    app.c1.setAttribute('cy', '-10');
+    app.c2.setAttribute('cx', '-10');
+    app.c2.setAttribute('cy', '-10');
+};
+
+app.changeTool = function(e) {
+    var d;
+    app.tool = e.target.value;
+    app.refresh();
+    if (app.tool == 'z') {
+        d = app.path.getAttribute("d") + ", Z";
+        app.path.setAttribute("d", d);        
+        e.target.value = "M";
+        app.tool = "M";
+    }
+};
+
+app.handleClick = function(e) {
+    app.points.push(e.offsetX + "," + e.offsetY);
+    app.render();
+}
+
+app.render = function() {
+    var attr;
+    var d;
+
+    if (app.points.length < app.req[app.tool]) {
+        if ( app.points[0] ) {
+            app.c1.setAttribute('cx', app.points[0].replace(/,.+/, ""));
+            app.c1.setAttribute('cy', app.points[0].replace(/.+,/, ""));
+        }
+        if ( app.points[1] ) {
+            app.c2.setAttribute('cx', app.points[1].replace(/,.+/, ""));
+            app.c2.setAttribute('cy', app.points[1].replace(/.+,/, ""));
+        }
+        return(false);
+    }
+
+    attr = " " + app.tool + " ";
+    attr += app.points.join(" ");
+    d = app.path.getAttribute("d") + attr;
+    app.path.setAttribute("d", d);
+    app.refresh();
+    app.d( app.sect.innerHTML.replace(/<circle.+?<\/circle>/g, "") );
+};
+
+app.d = function(s) {
+    app.dbg.textContent = s;
+}
+
+app.handleMove = function(e) { 
+    if (!app.mode) return(false);
+    app.points.push();
+};
+</script>
+
+</body>
+</html>
