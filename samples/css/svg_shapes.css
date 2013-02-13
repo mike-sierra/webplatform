@@ -17,8 +17,8 @@ fieldset {
 
 aside {
     width          : 700px;
-/*
     -webkit-column-count: 2;
+/*
 */
     position           : fixed;
     top                : 0;

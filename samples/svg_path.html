@@ -36,6 +36,12 @@ p {
 <path d="M 0,0"/>
 <circle id="c1" stroke="red" r="4" cx="-10" cy="-10"/>
 <circle id="c2" stroke="red" r="4" cx="-10" cy="-10"/>
+<line id="l1s" stroke="pink" x1="-10" y1="-10" x2="-5" y2="-5"/>
+<line id="l1e" stroke="pink" x1="-10" y1="-10" x2="-5" y2="-5"/>
+<line id="l1x" stroke="pink" x1="-10" y1="-10" x2="-5" y2="-5"/>
+<line id="l2s" stroke="gold" x1="-10" y1="-10" x2="-5" y2="-5"/>
+<line id="l2e" stroke="gold" x1="-10" y1="-10" x2="-5" y2="-5"/>
+<line id="l2x" stroke="gold" x1="-10" y1="-10" x2="-5" y2="-5"/>
 </svg>
 </section>
 
@@ -65,6 +71,8 @@ p {
 
 <span>morph (2do)</span>
 <span>animate path (2do)</span>
+<span>ellipse (2do)</span>
+<span>relative paths (2do)</span>
 
 <p></p>
 
@@ -76,11 +84,19 @@ window.onload = function() {
     app.path = document.querySelector("path");
     app.sect = document.querySelector("section");
     app.svg = document.querySelector("svg");
+
     app.c1 = document.querySelector("#c1");
     app.c2 = document.querySelector("#c2");
+    app.l1s = document.querySelector("#l1s");
+    app.l1e = document.querySelector("#l1e");
+    app.l1x = document.querySelector("#l1x");
+    app.l2s = document.querySelector("#l2s");
+    app.l2e = document.querySelector("#l2e");
+    app.l2x = document.querySelector("#l2x");
+
     app.toolSelect = document.querySelector("select.tool");
 
-    app.svg.addEventListener("click", app.handleClick);
+    app.svg.addEventListener("mousedown", app.handleClick);
 
     app.toolSelect.addEventListener("change", app.changeTool);
     app.tool = app.toolSelect.value;
@@ -92,10 +108,10 @@ window.onload = function() {
 
 app.refresh = function() {
     app.points = [];
-    app.c1.setAttribute('cx', '-10');
-    app.c1.setAttribute('cy', '-10');
-    app.c2.setAttribute('cx', '-10');
-    app.c2.setAttribute('cy', '-10');
+    // app.c1.setAttribute('cx', '-10');
+    // app.c1.setAttribute('cy', '-10');
+    // app.c2.setAttribute('cx', '-10');
+    // app.c2.setAttribute('cy', '-10');
 };
 
 app.changeTool = function(e) {
@@ -119,34 +135,45 @@ app.render = function() {
     var attr;
     var d;
 
+    var p = [];
+
+    for (var i = 0, l = app.points.length; i < l; i++) {
+        p[(i*2)] = app.points[0].replace(/,.+/, "");
+        p[(i*2)+1] = app.points[0].replace(/.+,/, "");
+    }
+
     if (app.points.length < app.req[app.tool]) {
         if ( app.points[0] ) {
-            app.c1.setAttribute('cx', app.points[0].replace(/,.+/, ""));
-            app.c1.setAttribute('cy', app.points[0].replace(/.+,/, ""));
+            app.c1.setAttribute('cx', p[0]);
+            app.c1.setAttribute('cy', p[1]);
         }
         if ( app.points[1] ) {
-            app.c2.setAttribute('cx', app.points[1].replace(/,.+/, ""));
-            app.c2.setAttribute('cy', app.points[1].replace(/.+,/, ""));
+            app.c2.setAttribute('cx', p[2]);
+            app.c2.setAttribute('cy', p[3]);
         }
         return(false);
+    }
+
+    if (app.tool == "Q") {
+//        app.
     }
 
     attr = " " + app.tool + " ";
     attr += app.points.join(" ");
     d = app.path.getAttribute("d") + attr;
     app.path.setAttribute("d", d);
+
+    app.lastX = p[p.length-2];
+    app.lastY = p[p.length-1];
+
     app.refresh();
-    app.d( app.sect.innerHTML.replace(/<circle.+?<\/circle>/g, "") );
+    app.d( app.sect.innerHTML.replace(/<circle.+?<\/circle>/g, "").replace(/<line.+?<\/line>/g, "") );
 };
 
 app.d = function(s) {
     app.dbg.textContent = s;
 }
 
-app.handleMove = function(e) { 
-    if (!app.mode) return(false);
-    app.points.push();
-};
 </script>
 
 </body>
