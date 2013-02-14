@@ -1,6 +1,6 @@
 <html>
 <head>
-<title>SVG: basic shapes & text</title>
+<title>interactive SVG shape tool</title>
 <link href='css/svg_shapes.css' type='text/css' rel='stylesheet'/>
 </head>
 <body>
@@ -107,6 +107,7 @@
       <option>20,20</option>
       <option>10,20</option>
       <option>20,10</option>
+      <option>20,10,10,10</option>
       <option>10,10</option>
       <option>10,50</option>
       <option>50,10</option>
@@ -123,7 +124,7 @@
       <option>bevel</option>
       <option>miter</option>
     </select></br/>
-    <label>stroke-miterlimit</label><input type="range" id="stroke-miterlimit" min="0" max="20" value="0"/><br/>
+    <label>stroke-miterlimit</label><input type="range" id="stroke-miterlimit" min="1" max="5" steps="0.1" value="0"/><br/>
   </fieldset>
   <fieldset>
     <label>font-size</label><input type="range" id="font-size" min="6" max="96" value="72"/><br/>

@@ -38,8 +38,10 @@ provide rounded corners:
 <rect x="10" y="10" width="160" height="240" rx="20" ry="20"/>
 </syntaxhighlight>
 
-This interactive utility allows you to manipulate various attributes
-and see how they apply to various shapes:
+This
+[http://letmespellitoutforyou.com/samples/svg_shapes.html interactive utility]
+allows you to manipulate various attributes and see how they apply to
+various shapes:
 
 [[Image:svg_shapes.png]]
 
@@ -52,7 +54,7 @@ The '''fill''' and '''stroke''' properties specify the color of the
 background and the edge of the shape:
 
 <syntaxhighlight lang="xml">
-<rect x="10" y="10" width="160" height="240" fill="pink" stroke="red"/>
+<rect fill="pink" stroke="red" x="10" y="10" width="160" height="240"/>
 </syntaxhighlight>
 
 You can assign these as attributes on SVG elements, but they are
@@ -120,58 +122,68 @@ coordinate is joined with the first:
 <polygon points="100,225 100,115 130,115 70,15 70,15 10,115 40,115 40,225"/>
 </syntaxhighlight>
 
-==Other CSS properties==
+[[Image:svg_polygon.png]]
+
+==Finer control over strokes==
 
 Additional properties provide greater control over how the ends or
-joints of line segments appear. The '''stroke-linecap''' determines
-the appearance of the end of the line. Options appear as follows, with
-both '''round''' and '''square''' extending past the end of the line:
+joints of line segments appear. The '''stroke-linecap''' property
+determines the appearance of the end of a stroke, or dashes within a
+stroke. Options appear as follows, with both '''round''' and
+'''square''' extending past the end of the line depending on the
+'''stroke-width'''::
 
 <div style="display:inline-block">
 [[Image:svg_linecap_round.png]]
- polygon { stroke-linecap: round }
+ stroke-linecap: round;
 </div>
 <div style="display:inline-block">
 [[Image:svg_linecap_square.png]]
- polygon { stroke-linecap: square }
+ stroke-linecap: square;
 </div>
 <div style="display:inline-block">
 [[Image:svg_linecap_butt.png]]
- polygon { stroke-linecap: butt }
+ stroke-linecap: butt;
 </div>
 
-The '''stroke-linejoin''' property affects how joined segments appear:
+The '''stroke-linejoin''' property affects how joined segments appear,
+and becomes more apparent for narrower angles as the
+'''stroke-width''' increases:
 
 <div style="display:inline-block">
 [[Image:svg_linejoin_round.png]]
- polygon { stroke-linejoin: round }
+ stroke-linejoin: round;
 </div>
 <div style="display:inline-block">
 [[Image:svg_linejoin_bevel.png]]
- polygon { stroke-linejoin: bevel }
+ stroke-linejoin: bevel;
 </div>
 <div style="display:inline-block">
 [[Image:svg_linejoin_miter.png]]
- polygon { stroke-linejoin: miter }
+ stroke-linejoin: miter;
 </div>
+
+Setting '''stroke-linejoin''' to '''bevel''' diagonally shaves the
+points from angles, and setting it to '''miter''' allows them to
+protrude.  The '''stroke-miterlimit''' property limits how much of the
+angle is allowed to protrude, expressed relative to the
+'''stroke-width'''.  This example only bevels those angles that
+protrude twice the width:
+
 <div style="display:inline-block">
 [[Image:svg_linejoin_miterlimit.png]]
  polygon {
-   stroke-linejoin: miter;
-   stroke-miterlimit: 6;
+   stroke-linejoin   : miter;
+   stroke-miterlimit : 2;
+   stroke-width      : 10;
  }
 </div>
 
-Setting it to '''bevel''' diagonally shaves off sharp protruding
-angles. Setting it to '''miter''' allows angles to protrude, but
-subject to the '''stroke-miterlimit''' that sets the range of
-protruding pixels at which point the angle is beveled. (If
-'''stroke-miterlimit''' is unspecified, there is no beveling.)
-
 The '''stroke-dasharray''' property allows you define arbitrary dash
 patterns as a comma-separated list of pixel values. A value of
-''20,10,10,10'' draws a dash 20 pixels long, followed by a gap of 10 pixels
-before the following 10-pixel dash:
+''20,10,10,10'' draws a dash 20 pixels long, followed by a gap of 10
+pixels before the following 10-pixel dash, another gap, followed the
+same pattern repeated to the end of the shape:
 
 [[Image:svg_stroke_dasharray.png]]
 
@@ -186,11 +198,13 @@ effects.
 Paths are complex shapes that may feature discontinuous series of
 lines and curves. The '''path''' element's '''d''' (definition)
 attribute specifies a sequence of commands referencing pairs of
-''x''/''y'' screen coordinates.
+''x''/''y'' coordinates within the drawing area.
 
-The following interactive utility allows you to build path definitions
-using all the commands detailed below. Choose the command you want,
-then click within the drawing area to provide coordinates:
+The following
+[http://letmespellitoutforyou.com/samples/svg_path.html interactive utility]
+allows you to build path definitions using all the commands detailed
+below. Choose the command you want, then click within the drawing area
+to provide each set of coordinates:
 
 [[Image:svg_path.png]]
 
@@ -214,13 +228,13 @@ or whitespace characters. (To clarify these examples, commas separate
 each coordinate pair.)
 
 The uppercase commands above specify absolute coordinates.  For each
-one there is an alternative lowercase command that specifies
-coordinates in terms relative to the previously defined coordinate.
-Starting from the default ''0,0'' origin point, the following path
-defines the same shape as the one above:
+there is an alternative lowercase command that specifies coordinates
+in terms relative to the previously defined coordinate.  Starting from
+the default ''0,0'' origin point, the following path defines the same
+shape as the one above:
 
 <syntaxhighlight lang="xml">
-<path d="m 100,225 l 0,-100 l 30,0 l -60,-100 l 0,15 l -60,100 l 30,0 l 0,100 z"/>
+<path d="m 100,225 l 0,-110 l 30,0 l -60,-100 l -60,100 l 30,0 l 0,110 z" />
 </syntaxhighlight>
 
 The '''H''' and '''V''' commands, and their '''h''' and '''v'''

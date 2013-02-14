@@ -1,7 +1,7 @@
 <html>
 <head>
 
-<title>path</title>
+<title>interactive SVG path tool</title>
 
 <style>
 
@@ -26,6 +26,10 @@ p {
     font-family  : monospace;
 }
 
+line {
+    stroke-width: 2;
+}
+
 </style>
 
 </head>
@@ -36,12 +40,12 @@ p {
 <path d="M 0,0"/>
 <circle id="c1" stroke="red" r="4" cx="-10" cy="-10"/>
 <circle id="c2" stroke="red" r="4" cx="-10" cy="-10"/>
-<line id="l1s" stroke="pink" x1="-10" y1="-10" x2="-5" y2="-5"/>
-<line id="l1e" stroke="pink" x1="-10" y1="-10" x2="-5" y2="-5"/>
-<line id="l1x" stroke="pink" x1="-10" y1="-10" x2="-5" y2="-5"/>
-<line id="l2s" stroke="gold" x1="-10" y1="-10" x2="-5" y2="-5"/>
-<line id="l2e" stroke="gold" x1="-10" y1="-10" x2="-5" y2="-5"/>
-<line id="l2x" stroke="gold" x1="-10" y1="-10" x2="-5" y2="-5"/>
+<line id="l1s" stroke="lightgreen" x1="-44" y1="-44" x2="-88" y2="-88"/>
+<line id="l1e" stroke="lightblue"  x1="-44" y1="-44" x2="-88" y2="-88"/>
+<line id="l1x" stroke="pink"       x1="-44" y1="-44" x2="-88" y2="-88"/>
+<line id="l2s" stroke="green"      x1="-44" y1="-44" x2="-88" y2="-88"/>
+<line id="l2e" stroke="blue"       x1="-44" y1="-44" x2="-88" y2="-88"/>
+<line id="l2x" stroke="red"        x1="-44" y1="-44" x2="-88" y2="-88"/>
 </svg>
 </section>
 
@@ -56,6 +60,7 @@ p {
     <option value="T">T (foo)</option>
     <option value="C">C (cubic bezier curve to)</option>
     <option value="S">S (foo)</option>
+    <option value="A">A (elliptical arc)</option>
     <option value="z">z (close subpath)</option>
 </select>
 
@@ -69,15 +74,24 @@ p {
 <option>evenodd</option>
 </select>
 
-<span>morph (2do)</span>
-<span>animate path (2do)</span>
-<span>ellipse (2do)</span>
-<span>relative paths (2do)</span>
+<label>large arc?</label>
+<input type="checkbox" id="largearc"  onchange="this.checked ? (app.largeArc = 1) : (app.largeArc = 0)"/>
+
+<label>sweep arc?</label>
+<input type="checkbox" id="sweeparc"  onchange="this.checked ? (app.sweepArc = 1) : (app.sweepArc = 0)"/>
+
+
+<label>rotate arc</label>
+<input type="range" id="rotatearc" value="0" min="-360" max="360"  onchange="app.rotateArc = this.value"/>
 
 <p></p>
 
 <script>
 var app = new Function();
+
+app.rotateArc = 0;
+app.sweepArc = 0;
+app.largeArc = 0;
 
 window.onload = function() {
     app.dbg = document.querySelector("p");
@@ -101,9 +115,8 @@ window.onload = function() {
     app.toolSelect.addEventListener("change", app.changeTool);
     app.tool = app.toolSelect.value;
 
-    app.req = {"M":1,"L":1,"H":1,"V":1,"Q":2,"C":3,"T":1,"S":2};
+    app.req = {"M":1,"L":1,"H":1,"V":1,"Q":2,"C":3,"T":1,"S":2,"A":2};
     app.refresh();
-
 }
 
 app.refresh = function() {
@@ -135,36 +148,24 @@ app.render = function() {
     var attr;
     var d;
 
-    var p = [];
-
-    for (var i = 0, l = app.points.length; i < l; i++) {
-        p[(i*2)] = app.points[0].replace(/,.+/, "");
-        p[(i*2)+1] = app.points[0].replace(/.+,/, "");
-    }
-
     if (app.points.length < app.req[app.tool]) {
-        if ( app.points[0] ) {
-            app.c1.setAttribute('cx', p[0]);
-            app.c1.setAttribute('cy', p[1]);
-        }
-        if ( app.points[1] ) {
-            app.c2.setAttribute('cx', p[2]);
-            app.c2.setAttribute('cy', p[3]);
-        }
         return(false);
     }
 
-    if (app.tool == "Q") {
-//        app.
+    if (app.tool == "A") {
+        attr = " A ";
+        attr += app.points[0] + " ";
+        attr += app.rotateArc + " ";
+        attr += app.largeArc + " ";
+        attr += app.sweepArc + " ";
+        attr += app.points[1];
+    } else {
+        attr = " " + app.tool + " ";
+        attr += app.points.join(" ");
     }
 
-    attr = " " + app.tool + " ";
-    attr += app.points.join(" ");
     d = app.path.getAttribute("d") + attr;
     app.path.setAttribute("d", d);
-
-    app.lastX = p[p.length-2];
-    app.lastY = p[p.length-1];
 
     app.refresh();
     app.d( app.sect.innerHTML.replace(/<circle.+?<\/circle>/g, "").replace(/<line.+?<\/line>/g, "") );
