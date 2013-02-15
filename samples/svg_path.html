@@ -5,29 +5,65 @@
 
 <style>
 
+fieldset {
+    border-radius : 0.5em;
+    line-height: 1.5;
+    margin-bottom: 0.5em;
+}
+
+form {
+    background    : #fff;
+    padding       : 0.5em;
+    border-radius : 0.5em;
+    position      : absolute;
+    left          : 720px;
+    top           : 20px;
+    width         : 300px;
+}
+
 body {
-    font-family  : Trebuchet MS;
+    background    : #aaa;
+    font-family   : Trebuchet MS;
 }
 
 span {
-    border: medium solid pink;
+    border        : medium solid pink;
 }
 
 svg {
-    stroke       : black;
-    stroke-width : 2;
-    width        : 100%;
-    height       : 80%;
-    border       : medium solid gold;
-    fill         : transparent;
+    stroke        : black;
+    stroke-width  : 2;
+}
+
+p:empty {
+    display: none;
 }
 
 p {
-    font-family  : monospace;
+    padding: 0.5em;
+    border-radius: 0.5em;
+    background    : #fff;
+    font-family   : monospace;
 }
 
 line {
-    stroke-width: 2;
+    stroke-width  : 2;
+}
+
+section {
+    width         : 700px;
+    height        : 700px;
+    background    : #fff;
+}
+
+marker {
+    fill: none;
+}
+
+#arrowhead {
+    fill          : black;
+    stroke        : transparent;
+    stroke-width  : 1;
 }
 
 </style>
@@ -37,7 +73,14 @@ line {
 
 <section>
 <svg>
-<path d="M 0,0"/>
+
+<defs>
+  <marker id="arrowhead" markerWidth="10" markerHeight="10" orient="auto" refY="5">
+    <polygon points="0,0 10,5 0,10"/>
+  </marker>
+  <marker id="dot" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto">
+    <circle fill="black" cx="3" cy="3" r="6"/>
+  </marker>
 <circle id="c1" stroke="red" r="4" cx="-10" cy="-10"/>
 <circle id="c2" stroke="red" r="4" cx="-10" cy="-10"/>
 <line id="l1s" stroke="lightgreen" x1="-44" y1="-44" x2="-88" y2="-88"/>
@@ -46,11 +89,19 @@ line {
 <line id="l2s" stroke="green"      x1="-44" y1="-44" x2="-88" y2="-88"/>
 <line id="l2e" stroke="blue"       x1="-44" y1="-44" x2="-88" y2="-88"/>
 <line id="l2x" stroke="red"        x1="-44" y1="-44" x2="-88" y2="-88"/>
+</defs>
+
+<path d="M 0,0" fill="transparent"/>
+
+
+
 </svg>
 </section>
 
-<label>Path Command:</label>
+<form>
 
+<fieldset>
+<legend>path command</legend>
 <select class="tool">
     <option value="M">M</option>
     <option value="L">L (line to)</option>
@@ -64,25 +115,102 @@ line {
     <option value="z">z (close subpath)</option>
 </select>
 
-<label>fill</label>
+<br/>
+<label>rotate arc</label>
+<br/>
+<input type="range" id="rotatearc" value="0" min="-360" max="360"  onchange="app.rotateArc = this.value"/>
+
+<br/><input type="checkbox" id="largearc"  onchange="this.checked ? (app.largeArc = 1) : (app.largeArc = 0)"/>
+<label>large arc?</label>
+
+<br/><input type="checkbox" id="sweeparc"  onchange="this.checked ? (app.sweepArc = 1) : (app.sweepArc = 0)"/>
+<label>sweep arc?</label>
+
+</fieldset>
+
+<fieldset>
+<legend>fill</legend>
+<label>color</label>
 <input onchange="app.path.setAttribute('fill', this.value)" type="color" value="transparent"/>
 
-<label>fill-rule</label>
-
+<br/><label>fill-rule</label>
 <select onchange="app.path.setAttribute('fill-rule', this.value)" >
 <option selected>nonzero</option>
 <option>evenodd</option>
 </select>
+</fieldset>
 
-<label>large arc?</label>
-<input type="checkbox" id="largearc"  onchange="this.checked ? (app.largeArc = 1) : (app.largeArc = 0)"/>
+<fieldset>
+<legend>stroke</legend>
+<label>color</label>
+<input onchange="app.path.setAttribute('stroke', this.value)" type="color" value="black"/>
 
-<label>sweep arc?</label>
-<input type="checkbox" id="sweeparc"  onchange="this.checked ? (app.sweepArc = 1) : (app.sweepArc = 0)"/>
+<br/>
+<label>width</label>
+<input type="range" min="1" max="10" value="1" onchange="app.path.setAttribute('stroke-width', this.value)" />
+
+</fieldset>
+
+<fieldset>
+<legend>marker reference</legend>
+
+<label>property</label>
+<select id="selMarkerProp" onchange="app.path.setAttribute('style', this.value + ':' + document.querySelector('#selMarkerValue').value);console.log(app.path)">
+<option>marker-end</option>
+<option>marker-start</option>
+<option>marker-mid</option>
+<option>marker</option>
+</select>
+
+<br/>
+<label>shape</label>
+<select id="selMarkerValue" onchange="app.path.setAttribute('style', document.querySelector('#selMarkerProp').value + ':' + this.value);app.marker=this.value.replace(/url(/, '').replace(/)/, '')">
+<option selected>url(#arrowhead)</option>
+<option>url(#dot)</option>
+<option>none</option>
+</select>
+
+</fieldset>
+
+<fieldset>
+<legend>marker element</legend>
+
+<label>orient</label>
+<select onchange="document.querySelector(app.marker).setAttribute('orient', this.value)">
+<option selected>auto</option>
+<option>0</option>
+<option>30</option>
+<option>60</option>
+<option>90</option>
+<option>180</option>
+</select>
+
+<br/><label>refX</label>
+<input type="range" min="0" max="10" value="5"
+onchange="document.querySelector(app.marker).setAttribute('refX', this.value)" />
+
+<br/><label>refY</label>
+<input type="range" min="0" max="10" value="5"
+onchange="document.querySelector(app.marker).setAttribute('refY', this.value)" />
+
+<br/><label>markerWidth</label>
+<input type="range" min="0" max="10" value="5"
+onchange="document.querySelector(app.marker).setAttribute('markerWidth', this.value)" />
+
+<br/><label>markerHeight</label>
+<input type="range" min="0" max="10" value="5"
+onchange="document.querySelector(app.marker).setAttribute('markerHeight', this.value)" />
+
+<label>markerUnits</label>
+<select onchange="document.querySelector(app.marker).setAttribute('markerUnits', this.value)">
+<option selected>userSpaceOnUse</option>
+<option>strokeWidth</option>
+</select>
 
 
-<label>rotate arc</label>
-<input type="range" id="rotatearc" value="0" min="-360" max="360"  onchange="app.rotateArc = this.value"/>
+</fieldset>
+
+</form>
 
 <p></p>
 
@@ -92,6 +220,7 @@ var app = new Function();
 app.rotateArc = 0;
 app.sweepArc = 0;
 app.largeArc = 0;
+app.marker = '#arrowhead';
 
 window.onload = function() {
     app.dbg = document.querySelector("p");
@@ -168,7 +297,7 @@ app.render = function() {
     app.path.setAttribute("d", d);
 
     app.refresh();
-    app.d( app.sect.innerHTML.replace(/<circle.+?<\/circle>/g, "").replace(/<line.+?<\/line>/g, "") );
+    app.d( app.sect.innerHTML.replace(/<defs[^`]+?<\/defs>/gim, "") );
 };
 
 app.d = function(s) {
