@@ -7,8 +7,8 @@
 
 fieldset {
     border-radius : 0.5em;
-    line-height: 1.5;
-    margin-bottom: 0.5em;
+    line-height: 1.25;
+    margin-bottom: 0.25em;
 }
 
 form {
@@ -66,6 +66,18 @@ marker {
     stroke-width  : 1;
 }
 
+polyline {
+    display: none;
+    fill: none;
+    stroke: red;
+    stroke-opacity: 1;
+    stroke-dasharray: 5,5;
+    stroke-width: 2;
+    marker-mid: url(#dot);
+    marker-end: url(#dot);
+}
+
+
 </style>
 
 </head>
@@ -78,22 +90,13 @@ marker {
   <marker id="arrowhead" markerWidth="10" markerHeight="10" orient="auto" refY="5">
     <polygon points="0,0 10,5 0,10"/>
   </marker>
-  <marker id="dot" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto">
-    <circle fill="black" cx="3" cy="3" r="6"/>
+  <marker id="dot" markerWidth="4" markerHeight="4" refX="0" refY="2" orient="auto">
+    <circle fill="black" cx="2" cy="2" r="4"/>
   </marker>
-<circle id="c1" stroke="red" r="4" cx="-10" cy="-10"/>
-<circle id="c2" stroke="red" r="4" cx="-10" cy="-10"/>
-<line id="l1s" stroke="lightgreen" x1="-44" y1="-44" x2="-88" y2="-88"/>
-<line id="l1e" stroke="lightblue"  x1="-44" y1="-44" x2="-88" y2="-88"/>
-<line id="l1x" stroke="pink"       x1="-44" y1="-44" x2="-88" y2="-88"/>
-<line id="l2s" stroke="green"      x1="-44" y1="-44" x2="-88" y2="-88"/>
-<line id="l2e" stroke="blue"       x1="-44" y1="-44" x2="-88" y2="-88"/>
-<line id="l2x" stroke="red"        x1="-44" y1="-44" x2="-88" y2="-88"/>
 </defs>
 
+<polyline points="0,0"/>
 <path d="M 0,0" fill="transparent"/>
-
-
 
 </svg>
 </section>
@@ -108,23 +111,32 @@ marker {
     <option value="H">H (horizontal line to)</option>
     <option value="V">V (vertical line to)</option>
     <option value="Q">Q (quadratic bezier curve to)</option>
-    <option value="T">T (foo)</option>
+    <option value="T">T (smooth quadratic curve)</option>
     <option value="C">C (cubic bezier curve to)</option>
-    <option value="S">S (foo)</option>
+    <option value="S">S (smooth cubic curve)</option>
     <option value="A">A (elliptical arc)</option>
     <option value="z">z (close subpath)</option>
 </select>
 
-<br/>
-<label>rotate arc</label>
-<br/>
+</fieldset>
+
+<fieldset>
+<legend>arc</legend>
+
+<label>X radius</label>
+<input type="range" id="arcRadX" value="200" min="0" max="500"  onchange="app.arcRadiusX = this.value"/>
+
+<br/><label>Y radius</label>
+<input type="range" id="arcRadY" value="200" min="0" max="500"  onchange="app.arcRadiusY = this.value"/>
+
+<br/><label>rotation</label>
 <input type="range" id="rotatearc" value="0" min="-360" max="360"  onchange="app.rotateArc = this.value"/>
 
 <br/><input type="checkbox" id="largearc"  onchange="this.checked ? (app.largeArc = 1) : (app.largeArc = 0)"/>
-<label>large arc?</label>
+<label>large arc? (&gt;180&deg;)</label>
 
 <br/><input type="checkbox" id="sweeparc"  onchange="this.checked ? (app.sweepArc = 1) : (app.sweepArc = 0)"/>
-<label>sweep arc?</label>
+<label>sweep arc? (clockwise path)</label>
 
 </fieldset>
 
@@ -220,11 +232,15 @@ var app = new Function();
 app.rotateArc = 0;
 app.sweepArc = 0;
 app.largeArc = 0;
+app.arcRadiusX = 200;
+app.arcRadiusY = 200;
+
 app.marker = '#arrowhead';
 
 window.onload = function() {
     app.dbg = document.querySelector("p");
     app.path = document.querySelector("path");
+    app.polyline = document.querySelector("polyline");
     app.sect = document.querySelector("section");
     app.svg = document.querySelector("svg");
 
@@ -244,7 +260,7 @@ window.onload = function() {
     app.toolSelect.addEventListener("change", app.changeTool);
     app.tool = app.toolSelect.value;
 
-    app.req = {"M":1,"L":1,"H":1,"V":1,"Q":2,"C":3,"T":1,"S":2,"A":2};
+    app.req = {"M":1,"L":1,"H":1,"V":1,"Q":2,"C":3,"T":1,"S":2,"A":1};
     app.refresh();
 }
 
@@ -283,11 +299,12 @@ app.render = function() {
 
     if (app.tool == "A") {
         attr = " A ";
-        attr += app.points[0] + " ";
+        attr += app.arcRadiusX + ",";
+        attr += app.arcRadiusY + " ";
         attr += app.rotateArc + " ";
         attr += app.largeArc + " ";
         attr += app.sweepArc + " ";
-        attr += app.points[1];
+        attr += app.points[0];
     } else {
         attr = " " + app.tool + " ";
         attr += app.points.join(" ");
@@ -295,6 +312,8 @@ app.render = function() {
 
     d = app.path.getAttribute("d") + attr;
     app.path.setAttribute("d", d);
+
+    app.polyline.setAttribute("points", d.replace(/[A-Z] /g, ""));
 
     app.refresh();
     app.d( app.sect.innerHTML.replace(/<defs[^`]+?<\/defs>/gim, "") );
