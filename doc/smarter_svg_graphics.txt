@@ -4,11 +4,19 @@
 |Editorial notes=[new content from Sierra (~~~); please do not edit]
 }}
 {{Byline}}
-{{Summary_Section|This guide shows you how to embed images in SVG and apply graphics effects such as gradients, patterns, clipping, masking, and compositing.}}
+{{Summary_Section|This guide shows you how to embed images within SVG and apply various graphics effects such as gradients, patterns, clipping, masking, and compositing.}}
 {{Tutorial
 |Content=
 
+==Images==
+
+<!--
+    5.7 The 'image' element
+-->
+
 ==Gradients==
+
+
 
 <!--
  13 Gradients and Patterns
@@ -23,12 +31,6 @@
 Gradient properties:
 * '''stop-color'''
 * '''stop-opacity'''
-
-==Images==
-
-<!--
-    5.7 The 'image' element
--->
 
 ==Patterns==
 

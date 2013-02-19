@@ -4,9 +4,11 @@
 |Editorial notes=[new content from Sierra (~~~); please do not edit]
 }}
 {{Byline}}
-{{Summary_Section|This guide shows you how to build SVG image processing filters, which you can also apply to non-SVG content using the  [[css/properties/filter|'''filter''']] CSS property.}}
+{{Summary_Section|This guide shows you how to build SVG image processing filters to create interesting visual effects. It shows how to apply these effects within an SVG graphic, or how to apply it to non-SVG content using the [[css/properties/filter|'''filter''']] CSS property.}}
 {{Tutorial
 |Content=
+
+==Applying filters==
 
 ==Chained filters==
 
