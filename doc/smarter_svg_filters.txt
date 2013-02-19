@@ -8,15 +8,17 @@
 {{Tutorial
 |Content=
 
-==Applying filters==
+==Applying filters in SVG==
+
+==Applying SVG filters with CSS==
 
 ==Chained filters==
+
+==Blending channels==
 
 ==Filter regions==
 
 ==Light sources==
-
-==Blends==
 
 Filter Effects properties:
 * '''enable-background'''

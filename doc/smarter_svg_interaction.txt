@@ -8,6 +8,12 @@
 {{Tutorial
 |Content=
 
+==Links==
+
+==Links within SVG==
+
+==Events==
+
 <!--
  16 Interactivity
     16.1 Introduction

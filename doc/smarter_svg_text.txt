@@ -97,9 +97,12 @@ CSS2 Text:
 * '''unicode-bidi'''
 * '''word-spacing'''
 
-The following SVG properties are not defined in CSS2. The complete normative definitions for these properties are found in this specification:
+The following SVG properties are not defined in CSS2. The complete
+normative definitions for these properties are found in this
+specification:
 
 Text properties:
+
 * '''alignment-baseline'''
 * '''baseline-shift'''
 * '''dominant-baseline'''

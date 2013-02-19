@@ -8,6 +8,8 @@
 {{Tutorial
 |Content=
 
+<!-- waves -->
+
 <!--
  19 Animation
     19.1 Introduction

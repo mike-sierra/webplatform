@@ -66,6 +66,10 @@ Other properties for visual media:
 * '''clip-rule'''
 * '''overflow''', only applicable to elements which establish a new viewport.
 
+Video:    http://paulirish.com/work/videooo.xhtml
+
+SVG mask: http://atomicrobotdesign.com/blog_media/svg_mask.html
+
 ==Masking==
 
 <!--
@@ -75,7 +79,7 @@ Other properties for visual media:
 
 * '''mask'''
 
-==Advanced rendering options==
+==Rendering preferences==
 
 <!--
     11.7 Rendering properties
@@ -104,9 +108,6 @@ Color and Painting properties:
  11 Painting: Filling, Stroking and Marker Symbols
     11.1 Introduction
     11.2 Specifying paint
-
-public service spots to educate us to wash our shopping bags in
-3... 2... 1...
 
  12 Color
     12.1 Introduction

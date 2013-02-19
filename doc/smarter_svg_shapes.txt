@@ -389,8 +389,7 @@ common definition:
 <syntaxhighlight lang="xml">
 <defs>
   <marker id="arrowhead" markerWidth="10" markerHeight="10" orient="auto" refX="2" refY="5">
-    <!-- triangle pointing right -->
-    <polygon points="0,0 10,5 0,10"/>
+    <polygon points="0,0 10,5 0,10"/>    <!-- triangle pointing right -->
   </marker>
 </defs>
 </syntaxhighlight>
