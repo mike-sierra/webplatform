@@ -46,7 +46,8 @@ section#filter {
 
 
 details {
-    line-height         : 1.5;
+    font-size           : small;
+    line-height         : 2;
     background          : #fff;
     -moz-user-select    : none;
     -khtml-user-select  : none;

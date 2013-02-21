@@ -1,0 +1,305 @@
+<html>
+<head>
+<title>svg graphics effects</title>
+
+<style>
+
+* {
+    box-sizing           : border-box;
+    -webkit-transition   : all 1s;
+}
+
+rect {
+    stroke: transparent;
+    stroke-width: 0;
+}
+
+text {
+    font-size            : 20px;
+}
+
+path {
+    fill: none;
+    stroke: #eee;
+    stroke-width: 2;
+}
+
+body {
+    background           : #aaa;
+    font-family          : Trebuchet MS;
+}
+
+svg {
+    background           : #fff;
+background-image: url(img/Objects010.jpg);
+    width                : 700px;
+    height               : 600px;
+    border-radius        : 1em;
+}
+
+form {
+    -webkit-column-count: 1;
+    width: 700;
+    line-height          : 1.5;
+    background           : #fff;
+    position             : absolute;
+    left                 : 720px;
+    top                  : 0;
+    margin               : 1em;
+    padding              : 1em;
+    border-radius        : 1em;
+}
+
+fieldset {
+    -webkit-break-inside : avoid;
+    border-radius        : 1em;
+}
+
+.rad, .lin {
+    display: none;
+}
+
+.radial:first-of-type,
+.linear:first-of-type,
+.linear ~ .lin,
+.radial ~ .rad
+{
+    display: block;
+}
+
+
+</style>
+
+</head>
+<body>
+
+<section>
+<svg>
+
+<defs>
+<linearGradient id="myLinearGradient" x1="20%" y1="30%" x2="40%" y2="80%" spreadMethod="reflect">
+    <stop id="myLinearStop1" offset="0%" style="stop-color: gold;"/>
+    <stop id="myLinearStop2" offset="33%" style="stop-color: plum"/>
+    <stop id="myLinearStop3" offset="100%" style="stop-color: lightgreen;"/>
+</linearGradient>
+<radialGradient id="myRadialGradient">
+    <stop id="myRadialStop1" offset="0%" style="stop-color: #f96;"/>
+    <stop id="myRadialStop2" offset="33%" style="stop-color: #9c9;"/>
+    <stop id="myRadialStop3" offset="100%" style="stop-color: #906;"/>
+</radialGradient>
+
+</defs>
+
+<rect id="myRect" x="20" y="20" width="500" height="500" style="fill: url(#myLinearGradient); stroke: black;"/>
+
+</svg>
+</section>
+
+<form>
+
+<fieldset class="linear">
+
+<legend>fill</legend>
+
+<label>fill</label>
+<select data-prop="fill" data-tgt="#myRect" id="selFill">
+<option selected>url(#myLinearGradient)</option>
+<option>url(#myRadialGradient)</option>
+</select>
+
+
+</fieldset>
+
+<fieldset class="lin">
+
+<legend>linear gradient</legend>
+
+
+<label>x1</label>
+<input type="range" data-tgt="#myLinearGradient" data-attr="x1" min="0" max="100" value="0" data-unit="%"/>
+<br/>
+<label>y1</label>
+<input type="range" data-tgt="#myLinearGradient" data-attr="y1" min="0" max="100" value="0" data-unit="%"/>
+<br/>
+<label>x2</label>
+<input type="range" data-tgt="#myLinearGradient" data-attr="x2" min="0" max="100" value="0" data-unit="%"/>
+<br/>
+<label>y2</label>
+<input type="range" data-tgt="#myLinearGradient" data-attr="y2" min="0" max="100" value="0" data-unit="%"/>
+
+<br/>
+<label>spreadMethod</label>
+<select data-attr="spreadMethod" data-tgt="#myLinearGradient">
+<option selected>pad</option>
+<option>repeat</option>
+<option>reflect</option>
+</select>
+
+<br/>
+<label>gradientTransform</label>
+<input type="text" data-tgt="#myLinearGradient" data-attr="gradientTransform" value="skewX(0) skewY(0)"/>
+
+
+</fieldset>
+
+<fieldset class="lin">
+<legend>stop #1</legend>
+
+
+<label>offset</label>
+<input type="range" data-tgt="#myLinearStop1" data-attr="offset" min="0" max="100" value="0" data-unit="%"/>
+<br/>
+<label>color</label>
+<input type="color" data-tgt="#myLinearStop1" data-prop="stop-color" value="gold"/>
+<br/>
+<label>opacity</label>
+<input type="range" data-tgt="#myLinearStop1" data-prop="stop-opacity" min="0" max="1" value="1" step="0.01"/>
+
+</fieldset>
+
+<fieldset class="lin">
+<legend>stop #2</legend>
+
+<label>offset</label>
+<input type="range" data-tgt="#myLinearStop2" data-attr="offset" min="0" max="100" value="33" data-unit="%"/>
+<br/>
+<label>color</label>
+<input type="color" data-tgt="#myLinearStop2" data-prop="stop-color" value="plum"/>
+<br/>
+<label>opacity</label>
+<input type="range" data-tgt="#myLinearStop2" data-prop="stop-opacity" min="0" max="1" value="1" step="0.01"/>
+
+</fieldset>
+
+<fieldset class="lin">
+<legend>stop #3</legend>
+
+
+<label>offset</label>
+<input type="range" data-tgt="#myLinearStop3" data-attr="offset" min="0" max="200" value="100" data-unit="%"/>
+<br/>
+<label>color</label>
+<input type="color" data-tgt="#myLinearStop3" data-prop="stop-color" value="lightgreen"/>
+<br/>
+<label>opacity</label>
+<input type="range" data-tgt="#myLinearStop3" data-prop="stop-opacity" min="0" max="1" value="1" step="0.01"/>
+
+</fieldset>
+
+<fieldset class="rad">
+
+<legend>radial gradient</legend>
+
+
+<label>cx</label>
+<input type="range" data-tgt="#myRadialGradient" data-attr="cx" min="-100" max="200" value="50" data-unit="%"/>
+<br/>
+<label>cy</label>
+<input type="range" data-tgt="#myRadialGradient" data-attr="cy" min="-100" max="200" value="50" data-unit="%"/>
+<br/>
+<label>fx</label>
+<input type="range" data-tgt="#myRadialGradient" data-attr="fx" min="-100" max="200" value="50" data-unit="%"/>
+<br/>
+<label>fy</label>
+<input type="range" data-tgt="#myRadialGradient" data-attr="fy" min="-100" max="200" value="50" data-unit="%"/>
+<br/>
+<label>r</label>
+<input type="range" data-tgt="#myRadialGradient" data-attr="r" min="0" max="200" value="50" data-unit="%"/>
+
+<br/>
+<label>spreadMethod</label>
+<select data-attr="spreadMethod" data-tgt="#myRadialGradient">
+<option selected>pad</option>
+<option>repeat</option>
+<option>reflect</option>
+</select>
+
+<br/>
+<label>gradientTransform</label>
+<input type="text" data-tgt="#myRadialGradient" data-attr="gradientTransform" value="skewX(0) skewY(0)"/>
+
+</fieldset>
+
+<fieldset class="rad">
+<legend>stop #1</legend>
+<label>offset</label>
+<input type="range" data-tgt="#myRadialStop1" data-attr="offset" min="0" max="100" value="0" data-unit="%"/>
+<br/>
+<label>color</label>
+<input type="color" data-tgt="#myRadialStop1" data-prop="stop-color" value="gold"/>
+<br/>
+<label>opacity</label>
+<input type="range" data-tgt="#myRadialStop1" data-prop="stop-opacity" min="0" max="1" value="1" step="0.01"/>
+
+</fieldset>
+<fieldset class="rad">
+<legend>stop #2</legend>
+<label>offset</label>
+<input type="range" data-tgt="#myRadialStop2" data-attr="offset" min="0" max="100" value="33" data-unit="%"/>
+<br/>
+<label>color</label>
+<input type="color" data-tgt="#myRadialStop2" data-prop="stop-color" value="plum"/>
+<br/>
+<label>opacity</label>
+<input type="range" data-tgt="#myRadialStop2" data-prop="stop-opacity" min="0" max="1" value="1" step="0.01"/>
+</fieldset>
+<fieldset class="rad">
+<legend>stop #3</legend>
+<label>offset</label>
+<input type="range" data-tgt="#myRadialStop3" data-attr="offset" min="0" max="200" value="100" data-unit="%"/>
+<br/>
+<label>color</label>
+<input type="color" data-tgt="#myRadialStop3" data-prop="stop-color" value="lightgreen"/>
+<br/>
+<label>opacity</label>
+<input type="range" data-tgt="#myRadialStop3" data-prop="stop-opacity" min="0" max="1" value="1" step="0.01"/>
+</fieldset>
+
+
+
+</form>
+
+<script>
+
+var app = new Function();
+
+window.onload = function() {
+    app.ex = document.querySelector('#ex');
+    app.inputs = document.querySelectorAll('input, select');
+    for (var i = 0, l = app.inputs.length; i < l; i++) {
+        app.inputs[i].addEventListener('change', app.modify);
+    }
+    document.querySelector('#selFill').addEventListener('change', app.customFieldsets)
+};
+
+app.modify = function(e) {
+    var ex = app.ex;
+    var unit;
+    var arr;
+
+    if (e.target.dataset.tgt) ex = document.querySelector(e.target.dataset.tgt);
+    unit = e.target.dataset.unit || '';
+
+    if (e.target.dataset.prop) {
+        ex.style[e.target.dataset.prop] = e.target.value + unit;
+    }
+    else if (e.target.dataset.attr) {
+        arr = e.target.dataset.attr.split(/:/);
+        if (arr.length > 1) {
+            ex.setAttributeNS(arr[0], arr[1], e.target.value + unit);
+        }
+        else {
+            ex.setAttribute(e.target.dataset.attr, e.target.value + unit);
+        }
+    }
+};
+
+app.customFieldsets = function(e) {
+    if (e.target.value.match(/linear/i)) e.target.parentNode.className = "linear";
+    if (e.target.value.match(/radial/i)) e.target.parentNode.className = "radial";
+};
+
+</script>
+
+</body>
+</html>

@@ -66,9 +66,7 @@ Other properties for visual media:
 * '''clip-rule'''
 * '''overflow''', only applicable to elements which establish a new viewport.
 
-Video:    http://paulirish.com/work/videooo.xhtml
 
-SVG mask: http://atomicrobotdesign.com/blog_media/svg_mask.html
 
 ==Masking==
 

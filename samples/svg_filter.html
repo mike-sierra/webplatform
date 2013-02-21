@@ -217,19 +217,96 @@ TO DO:
 
 <details id="feComponentTransfer">
 <summary>#feComponentTransfer</summary>
-<label>FOO</label>
-<input type="range" data-attr="foo" min="0" max="480" value="0"/>
-<br/><label>BAR</label>
-<select data-attr="bar">
-    <option selected>fubar</option>
-    <option>barfu</option>
+
+<label>in</label>
+<select class="channel" data-attr="in">
 </select>
+    
+    <br/><label>result</label>
+    <select class="channel" data-attr="result">
+    </select>
+    
+    <details id="feFuncR">
+    <summary>#feFuncR</summary>
+        <label>type</label>
+        <select data-attr="type">
+            <option>identity</option>
+            <option>table</option>
+            <option>discrete</option>
+            <option>linear</option>
+            <option>gamma</option>
+        </select>
+        <br/><label>slope</label>
+        <input type="range" data-attr="slope" min="0" max="5" step="0.1" value="1"/>
+        <br/><label>intercept</label>
+        <input type="range" data-attr="intercept" min="0" max="1" step="0.1" value="0"/>
+        <br/><label>amplitude</label>
+        <input type="range" data-attr="amplitude" min="0" max="2" step="0.1" value="1"/>
+        <br/><label>exponent</label>
+        <input type="range" data-attr="exponent" min="0" max="2" step="0.1" value="0"/>
+        <br/><label>offset</label>
+        <input type="range" data-attr="offset" min="0" max="2" step="0.1" value="0"/>
+    </details>
+    
+    <details id="feFuncG">
+    <summary>#feFuncG</summary>
+        <label>FOO</label>
+        <input type="range" data-attr="foo" min="0" max="480" value="0"/>
+        <br/><label>BAR</label>
+        <select data-attr="bar">
+            <option selected>fubar</option>
+            <option>barfu</option>        
+        </select>
+    </details>
+    
+    <details id="feFuncB">
+    <summary>#feFuncB</summary>
+        <label>FOO</label>
+        <input type="range" data-attr="foo" min="0" max="480" value="0"/>
+        <br/><label>BAR</label>
+        <select data-attr="bar">
+            <option selected>fubar</option>
+            <option>barfu</option>        
+        </select>
+    </details>
+    
+    <details id="feFuncA">
+    <summary>#feFuncA</summary>
+        <label>FOO</label>
+        <input type="range" data-attr="foo" min="0" max="480" value="0"/>
+        <br/><label>BAR</label>
+        <select data-attr="bar">
+            <option selected>fubar</option>
+            <option>barfu</option>        
+        </select>
+    </details>
+
 </details>
 
 <details id="feDiffuseLighting">
 <summary>#feDiffuseLighting</summary>
-<label>FOO</label>
-<input type="range" data-attr="foo" min="0" max="480" value="0"/>
+
+<label>in</label>
+<select class="channel" data-attr="in">
+</select>
+
+<br/><label>result</label>
+<select class="channel" data-attr="result">
+</select>
+
+<br/><label>lighting-color</label>
+<input type="color" data-attr="lighting-color" value="yellow" />
+
+<br/><label>surfaceScale</label>
+<input type="range" data-attr="surfaceScale" min="0" max="5" value="1" step="0.1"/>
+
+<br/><label>diffuseConstant</label>
+<input type="range" data-attr="diffuseConstant" min="0" max="5" value="1" step="0.1"/>
+
+<!-- (2DO) -->
+<br/><label>kernelUnitLength</label>
+<input type="range" data-attr="kernelUnitLength" min="0" max="5" value="1" step="0.1"/>
+
 <br/><label>BAR</label>
 <select data-attr="bar">
     <option selected>fubar</option>
