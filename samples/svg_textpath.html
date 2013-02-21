@@ -1,0 +1,108 @@
+<html>
+  <head>
+<title>textPath</title>
+
+<style>
+
+path {
+    stroke: pink;
+    stroke-opacity: 0.5;
+    fill: none;
+}
+
+
+text {
+    font-size: 40;
+}
+
+
+</style>
+
+</head>
+<body>
+
+<select>
+<option>#curvePath</option>
+<option>#anglePath</option>
+<option>#concavePath</option>
+<option>#convexPath</option>
+<option>#brokenPath</option>
+</select>
+
+<svg>
+
+<defs>
+</defs>
+
+<path id="curvePath" d="M 72,303 C 153,468 334,507 365,348 C 383,186 519,94 624,328"  transform="translate(0,-100)"/>
+
+<path id="anglePath" d="M 105,328 L 344,117 L 390,423 L 616,189"  transform="translate(650,-50)"/>
+
+<path id="concavePath" d="M 73,302 S 207,608 255,591 S 411,314 411,314"  transform="translate(600,150)"/>
+
+<path id="convexPath" d="M 50,500 S 226,232 365,630"  transform="translate(1000,100)"/>
+    
+<path id="brokenPath" d="M 64,269 S 151,366 201,290 S 212,230 316,251 S 316,295 287,387 M 458,406 C 486,309 478,224 434,139 C 510,117 606,222 600,375"  transform="translate(0,300)" />
+
+
+<text>
+    <textPath xlink:href="#curvePath" startOffset="10%" id="tp1" method="align" spacing="exact">
+        All work and no play makes Jack a dull boy.
+        All work and no play makes Jack a dull boy.
+    </textPath>
+    <textPath xlink:href="#anglePath" startOffset="10%" id="tp2" method="align" spacing="exact">
+        All work and no play makes Jack a dull boy.
+        All work and no play makes Jack a dull boy.
+    </textPath>
+    <textPath xlink:href="#convexPath" startOffset="10%" id="tp3" method="align" spacing="exact">
+        All work and no play makes Jack a dull boy.
+        All work and no play makes Jack a dull boy.
+    </textPath>
+    <textPath xlink:href="#concavePath" startOffset="10%" id="tp4" method="align" spacing="exact">
+        All work and no play makes Jack a dull boy.
+        All work and no play makes Jack a dull boy.
+    </textPath>
+    <textPath xlink:href="#brokenPath" startOffset="10%" id="tp5" method="align" spacing="exact">
+        All work and no play makes Jack a dull boy.
+        All work and no play makes Jack a dull boy.
+    </textPath>
+</text>
+
+</svg>
+
+<script>
+
+var c = 101;
+var tp = [];
+var frameRate = 20;
+
+window.onload = function() {
+    tp[0] = document.querySelector('#tp1');
+    tp[1] = document.querySelector('#tp2');
+    tp[2] = document.querySelector('#tp3');
+    tp[3] = document.querySelector('#tp4');
+    tp[4] = document.querySelector('#tp5');
+    setInterval(function(){
+        if (!c) return(0);
+        c = c - 1;;
+        tp[0].setAttribute('startOffset', c + '%');
+        tp[1].setAttribute('startOffset', c + '%');
+        tp[2].setAttribute('startOffset', c + '%');
+        tp[3].setAttribute('startOffset', c + '%');
+        tp[4].setAttribute('startOffset', c + '%');
+    }, frameRate);
+
+    var sel = document.querySelector('select');
+    sel.addEventListener('change', modify);
+}
+
+
+function modify(e) {
+    tp['xlink:href'] = e.target.value;
+    console.log(e.target.value);
+};
+
+</script>
+
+</body>
+</html>

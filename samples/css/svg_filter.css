@@ -1,0 +1,88 @@
+#filter:empty::before {
+    content             : "DRAG FILTER EFFECTS HERE"
+}
+
+#code:empty::before {
+    content             : "SVG CODE DISPLAYS HERE"
+}
+
+body {
+    font-family         : Trebuchet MS;
+    background          : #aaa;
+}
+
+section {
+    width               : 300px;
+}
+
+section#effects nav {
+    display             : none;
+}
+
+nav {
+    float               : right;
+    display             : inline-block;
+    height              : 12px;
+}
+
+summary > nav::before {
+    content             : url(../img/dismiss.png);
+}
+
+section#filter {
+    position            : absolute;
+    left                : 320px;
+    top                 : 0.5em;
+    padding             : 0.5em;
+    border-radius       : 0.5em;
+    background          : #fff;
+    min-height          : 1in;
+    -moz-user-select    : none;
+    -khtml-user-select  : none;
+    -webkit-user-select : none;
+    user-select         : none;
+}
+
+
+
+details {
+    line-height         : 1.5;
+    background          : #fff;
+    -moz-user-select    : none;
+    -khtml-user-select  : none;
+    user-select         : none;
+    -webkit-user-select : none;
+    cursor              : pointer;
+    margin              : 0.5em;
+    padding             : 0.25em 0.5em;
+    border-radius       : 0.5em;
+    border              : #777 solid thin;
+}
+
+summary {
+    width               : 90%;
+    height              : auto;
+}
+
+input, select {
+    float               : right;
+    width               : 50%;
+}
+
+#graphic, #code {
+    position            : absolute;
+    width               : 700px;
+    height              : 500px;
+    left                : 650px;
+    top                 : 1em;
+    padding             : 0.5em;
+    border-radius       : 0.5em;
+    background          : #fff;
+}
+
+#code {
+    overflow            : scroll;
+    top                 : 550px;
+    height              : initial;
+    min-height          : 50px;
+}

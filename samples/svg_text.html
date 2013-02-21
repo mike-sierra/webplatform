@@ -1,0 +1,402 @@
+<html>
+<head>
+<title>svg text effects</title>
+
+<style>
+
+* {
+    box-sizing           : border-box;
+    -webkit-transition   : all 1s;
+}
+
+text {
+    font-size            : 20px;
+}
+
+path {
+    fill: none;
+    stroke: #eee;
+    stroke-width: 2;
+}
+
+body {
+    background           : #aaa;
+    font-family          : Trebuchet MS;
+}
+
+svg {
+    background           : #fff;
+    width                : 700px;
+    height               : 600px;
+    border-radius        : 1em;
+}
+
+form {
+    -webkit-column-count: 2;
+    width: 700;
+    line-height          : 1.5;
+    background           : #fff;
+    position             : absolute;
+    left                 : 720px;
+    top                  : 0;
+    margin               : 1em;
+    padding              : 1em;
+    border-radius        : 1em;
+}
+
+fieldset {
+    -webkit-break-inside : avoid;
+    border-radius        : 1em;
+}
+
+</style>
+
+</head>
+<body>
+
+<section>
+<svg>
+
+<text id="ex" x="100" y="150">
+The <tspan id="span">quick</tspan> brown fox jumped over the lazy dog.
+</text>
+
+<path id="curvePath" d="M 73,309 S 223,474 374,349 S 501,227 636,355"/>
+
+<text id="ex2" x="50" y="400">
+  <textPath id="myTextPath" xlink:href="#curvepath">
+    All work and no play makes Jack a dull boy.
+  </textPath>
+</text>
+
+</svg>
+</section>
+
+<form>
+
+<fieldset>
+
+<legend>placement attributes</legend>
+
+<label>x</label>
+<input type="range" data-attr="x" min="0" max="500" value="50"/>
+
+<br/>
+<label>y</label>
+<input type="range" data-attr="y" min="0" max="500" value="50"/>
+
+<br/>
+<label>rotate</label>
+<input type="range" data-attr="rotate" min="-360" max="360" value="0" data-tgt="#span"/>
+
+<br/>
+<label>dx</label>
+<input type="range" data-attr="dx" min="-50" max="50" value="0" data-tgt="#span"/>
+
+<br/>
+<label>dy</label>
+<input type="range" data-attr="dy" min="-50" max="50" value="0" data-tgt="#span"/>
+
+</fieldset>
+
+<fieldset>
+
+<legend>font properties</legend>
+
+<label>font-size</label>
+<input type="range" data-prop="font-size" min="6" max="96" value="72"/>
+
+<br/>
+<label>font-family</label>
+<select data-prop="font-family">
+<optgroup label="font classes">
+<option>serif</option>
+<option selected>sans-serif</option>
+<option>monospace</option>
+<option>fantasy</option>
+<option>script</option>
+</optgroup>
+<optgroup label="font families">
+<option>Arial Black</option>
+<option>Arial</option>
+<option>Book Antiqua</option>
+<option>Calibri</option>
+<option>Charcoal</option>
+<option>Comic Sans MS</option>
+<option>Comic Sans</option>
+<option>Courier New</option>
+<option>Courier</option>
+<option>Garamond</option>
+<option>Geneva</option>
+<option>Georgia</option>
+<option>Helvetica</option>
+<option>Impact</option>
+<option>Lucida Console</option>
+<option>Lucida Sans Unicode</option>
+<option>MS Sans Serif</option>
+<option>Minion</option>
+<option>Monospace</option>
+<option>Palatino Linotype</option>
+<option>Palatino</option>
+<option>Symbol</option>
+<option>Tahoma</option>
+<option>Times New Roman</option>
+<option>Times</option>
+<option>Trebuchet MS</option>
+<option>Verdana</option>
+<option>Webdings</option>
+<option>Wingdings</option>
+</optgroup>
+</select>
+
+<br/>
+<label>font-style</label>
+<select data-prop="font-style">
+<option selected>normal</option>
+<option>italic</option>
+<option>oblique</option>
+</select>
+
+<br/>
+<label>font-weight</label>
+<select data-prop="font-weight">
+<option>lighter</option>
+<option selected>normal</option>
+<option>bold</option>
+<option>bolder</option>
+</select>
+
+<br/>
+<label>font-variant</label>
+<select data-prop="font-variant">
+<option selected>normal</option>
+<option>small-caps</option>
+</select>
+
+<br/>
+<label>text-decoration</label>
+<select data-prop="text-decoration">
+<option selected>none</option>
+<option>underline</option>
+<option>overline</option>
+<option>line-through</option>
+</select>
+
+<br/>
+<label>letter-spacing</label>
+<input data-prop="letter-spacing" type="range" min="-100" max="200" value="0"/>
+
+<br/>
+<label>word-spacing</label>
+<input data-prop="word-spacing" type="range" min="-100" max="200" value="1"/>
+
+<br/>
+<label>font-stretch</label>
+<select data-prop="font-stretch"/>
+<option>ultra-condensed</option>
+<option>extra-condensed</option>
+<option>condensed</option>
+<option>semi-condensed</option>
+<option selected>normal</option>
+<option>semi-expanded</option>
+<option>expanded</option>
+<option>extra-expanded</option>
+<option>ultra-expanded</option>
+<option>narrower</option>
+<option>wider</option>
+</select>
+
+<br/>
+<label>font-size-adjust</label>
+<input data-prop="font-size-adjust" type="range" min="0" max="2" step="0.01" value="1"/>
+
+</fieldset>
+
+
+
+<fieldset>
+
+<legend>other properties</legend>
+
+
+<label>direction</label>
+<select data-prop="direction"/>
+<option selected>ltr</option>
+<option>rtl</option>
+</select>
+
+<br/>
+<label>unicode-bidi</label>
+<select data-prop="unicode-bidi"/>
+<option selected>normal</option>
+<option>embed</option>
+<option>isolate</option>
+<option>bidi-override</option>
+<option>isolate-override</option>
+<option>plaintext</option>
+</select>
+
+<br/>
+<label>alignment-baseline</label>
+<select data-prop="alignment-baseline" data-tgt="#span"/>
+<option selected>auto</option>
+<option>baseline</option>
+<option>before-edge</option>
+<option>text-before-edge</option>
+<option>middle</option>
+<option>central</option>
+<option>after-edge</option>
+<option>text-after-edge</option>
+<option>ideographic</option>
+<option>alphabetic</option>
+<option>hanging</option>
+<option>mathematical</option>
+</select>
+
+<br/>
+<label>baseline-shift</label>
+<select data-prop="baseline-shift" data-tgt="#span"/>
+<option selected>auto</option>
+<option>baseline</option>
+<option>sub</option>
+<option>sup</option>
+</select>
+
+<br/>
+<label>dominant-baseline</label>
+<select data-prop="dominant-baseline" data-tgt="#span"/>
+<option selected>auto</option>
+<option>use-script</option>
+<option>no-change</option>
+<option>reset-size</option>
+<option>ideographic</option>
+<option>alphabetic</option>
+<option>hanging</option>
+<option>mathematical</option>
+<option>central</option>
+<option>middle</option>
+<option>text-after-edge</option>
+<option>text-before-edge</option>
+</select>
+
+<br/>
+<label>kerning</label>
+<select data-prop="kerning"/>
+<option selected>auto</option>
+<option>-1</option>
+<option>-2</option>
+<option>-3</option>
+<option>0</option>
+<option>1</option>
+<option>2</option>
+<option>3</option>
+</select>
+
+<br/>
+<label>text-anchor</label>
+<select data-prop="text-anchor"/>
+<option selected>start</option>
+<option>middle</option>
+<option>end</option>
+</select>
+
+<br/>
+<label>writing-mode</label>
+<select data-prop="writing-mode"/>
+<option>horizontal-tb</option>
+<option>rl-tb</option>
+<option>vertical-lr</option>
+<option>vertical-rl</option>
+<option>bt-rl</option>
+<option>bt-lr</option>
+<option>lr-bt</option>
+<option>rl-bt</option>
+<option>lr</option>
+<option>lr-tb</option>
+<option>rl</option>
+<option>tb</option>
+<option>tb-lr</option>
+<option>tb-rl</option>
+</select>
+
+<br/>
+<label>glyph-orientation-horizontal</label>
+<select data-prop="glyph-orientation-horizontal"/>
+<option>auto</option>
+<option>inline</option>
+</select>
+
+<input type="range" value="0" min="-360" max="360" step="90" data-prop="glyph-orientation-horizontal" data-unit="deg" />
+
+<br/>
+<label>glyph-orientation-vertical</label>
+<select data-prop="glyph-orientation-vertical"/>
+<option>auto</option>
+<option>upright</option>
+<option>inline</option>
+</select>
+
+<input type="range" value="0" min="-360" max="360" step="90" data-prop="glyph-orientation-vertical" data-unit="deg" />
+
+
+</fieldset>
+
+<fieldset>
+
+<legend>textPath attributes</legend>
+
+<label>xlink:href</label>
+<select data-attr="xlink:href" data-tgt="#myTextPath"/>
+<option></option>
+<option selected>#curvePath</option>
+<option>#concavePath</option>
+<option>#convexPath</option>
+<option>#insideCornerPath</option>
+<option>#outsideCornerPath</option>
+<option>#brokenPath</option>
+</select>
+
+
+
+</fieldset>
+
+</form>
+
+<script>
+
+var app = new Function();
+
+window.onload = function() {
+    app.ex = document.querySelector('#ex');
+    app.inputs = document.querySelectorAll('input, select');
+    for (var i = 0, l = app.inputs.length; i < l; i++) {
+        app.inputs[i].addEventListener('change', app.modify);
+    }
+};
+
+app.modify = function(e) {
+    var ex = app.ex;
+    var unit;
+    var arr;
+
+    if (e.target.dataset.tgt) ex = document.querySelector(e.target.dataset.tgt);
+    unit = e.target.dataset.unit || '';
+
+    if (e.target.dataset.prop) {
+        ex.style[e.target.dataset.prop] = e.target.value + unit;
+    }
+    else if (e.target.dataset.attr) {
+        arr = e.target.dataset.attr.split(/:/);
+        if (arr.length > 1) {
+            ex.setAttributeNS(arr[0], arr[1], e.target.value + unit);
+        }
+        else {
+            ex.setAttribute(e.target.dataset.attr, e.target.value + unit);
+        }
+    }
+}
+
+</script>
+
+</body>
+</html>
