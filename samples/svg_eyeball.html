@@ -5,30 +5,31 @@
 <style>
 
 body {
-    perspective        : 1000;
-    background-color   : #eeeeee;
+    perspective              : 1000;
+    background-color         : #ddd;
+}
+
+svg {
+    background               : #eee;
+    height                   : 90%;
 }
 
 ellipse#eye, #CP, g#eyeball, #iris {
-    -webkit-transition : all 1s;
-    -webkit-transform-origin: center;
+    -webkit-transition       : all 1s;
+    -webkit-transform-origin : center;
 }
 
-ellipse#eye {
-    fill               : #ffffff;
-    fill-opacity       : 1;
-    stroke             : #777777;
-    stroke-opacity     : 1;
-    stroke-width       : 1;
+use, ellipse#eye {
+    fill                     : #fff;
+    fill-opacity             : 1;
+    stroke                   : #777777;
+    stroke-opacity           : 1;
+    stroke-width             : 1;
 }
 
 #CP {
-    stroke-width       : 2;
-    stroke             : "#777777";
-}
-
-g#eyeball {
-    _clip-path         : url(#CP);
+    stroke-width             : 2;
+    stroke                   : "#777777";
 }
 
 </style>
@@ -36,130 +37,115 @@ g#eyeball {
 </head>
 <body>
 
-<svg
-    width          = "200"
-    height         = "200"
->
+<svg>
 
-<g
-    transform = "translate(0,50)"
->
+<defs>
 
-<ellipse
-    id             = "eye"
-    cx             = "100"
-    cy             = "30"
-    rx             = "70"
-    ry             = "35"
-/>
-<clipPath id="CP">
-</clipPath>
+  <ellipse id="eye" cx="100" cy="30" rx="70" ry="35"/>
 
-<g
-    transform      = "translate(0,0)"
-    id             = "eyeball"
-    data-clip-path      = "url(#CP)"
->
+  <clipPath id="CP">
+    <use xlink:href="#eye" />
+  </clipPath>
 
-<circle
-    id             = "iris"
-    stroke         = "#777777"
-    stroke-width   = "1"
-    fill           = "lightblue"
-    cx             = "100"
-    cy             = "30"
-    r              = "30"
-/>
+  <clipPath id="CP2">
+    <use xlink:href="#eyelidTop" />
+  </clipPath>
 
-<circle
-    id             = "pupil"
-    fill           = "#000000"
-    cx             = "100"
-    cy             = "30"
-    r              = "15"
-/>
+<radialGradient id="grad">
+ <stop id="stop1" offset="0%" style="stop-color: black;"/>
+ <stop id="stop2" offset="40%" style="stop-color: black;"/>
+ <stop id="stop3" offset="60%" style="stop-color: lightblue;"/>
+ <stop id="stop4" offset="100%" style="stop-color: lightblue"/>
+</radialGradient>
+
+<circle id="iris" stroke="#777777" stroke-width="1" fill="url(#grad)" cx="100" cy="30" r="30" clip-path="url(#CP)"  />
+
+  <path id="eyelidTop" d="M 120,100 Q 220,40 320,100" stroke="#777" stroke-width="2"/>
+  <path id="eyelidBottom" d="M 320,100 Q 220,170 120,100" stroke="#777" stroke-width="2"/>
+
+
+<text id="content">
+llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll
+</text>
+
+<text id="eyelashesTop" font-size="20" fill="#777" letter-spacing="6">
+  <textPath xlink:href="#eyelidTop">
+    <tref xlink:href="#content"/>
+  </textPath>
+</text>
+
+<text id="eyelashesBottom" font-size="20" fill="#777" letter-spacing="6">
+  <textPath xlink:href="#eyelidBottom">
+    <tref xlink:href="#content"/>
+  </textPath>
+</text>
+
+
+</defs>
+
+<g transform="translate(0,50)">
+  <use xlink:href="#eye" />
+  <use xlink:href="#iris" />
 </g>
 
+<g transform="translate(250,50)">
+  <use xlink:href="#eye" />
+  <use xlink:href="#iris" />
 </g>
 
+<g transform="translate(0,180)">
+  <use xlink:href="#eyelashesTop"/>
+  <use xlink:href="#eyelidTop" />
+  <use xlink:href="#eyelashesBottom" />
+  <use xlink:href="#eyelidBottom" />
 </svg>
+
+
 
 <aside>
 
-<label>ry attr</label>
+<label>ellipse.ry</label>
 <input
-    type           = "range"
-    min            = "2"
-    max            = "50"
-    value          = "30"
-    data-id        = "#eye"
-    data-attr      = "ry"
+ type             ="range"
+    min           ="1"
+    max           ="50"
+    value         ="30"
+    data-id       ="#eye"
+    data-attr     ="ry"
 />
 
-<br/>
-<label>transform attr: translate X</label>
+
+<label>circle.cx</label>
 <input
-    type           = "range"
-    min            = "-30"
-    max            = "30"
-    value          = "0"
-    data-prefix    = "translate("
-    data-suffix    = ",0)"
-    data-id        = "#eyeball"
-    data-attr      = "transform"
+    type          ="range"
+    min           ="70"
+    max           ="130"
+    value         ="100"
+    data-id       ="#iris"
+    data-attr     ="cx"
 />
 
-<br/>
-<label>r attr</label>
+
+<label>path.d</label>
 <input
-    type           = "range"
-    min            = "10"
-    max            = "20"
-    value          = "15"
-    data-id        = "#pupil"
-    data-attr      = "r"
+    id = "pathInput"
+    type          ="range"
+    min           ="0"
+    max           ="100"
+    value         ="0"
+    data-id       ="#eyelidTop"
+    data-attr     ="data-pt"
 />
-
-<br/>
-<label>color property</label>
-<select
-    data-id        = "#iris"
-    data-attr      = "fill"
->
-    <option selected>lightblue</option>
-    <option>brown</option>
-</select>
-
-<br/><label>transform prop: rotateX</label>
-<input
-    type           = "range"
-    min            = "0"
-    max            = "90"
-    value          = "0"
-    data-id        = "#eye"
-    data-attr      = "style"
-    data-prefix      = "-webkit-transform:rotateX("
-    data-suffix      = "deg)"
-/>
-
-<br/><label>transform prop: translateX</label>
-<input
-    type           = "range"
-    min            = "-30"
-    max            = "30"
-    value          = "0"
-    data-id        = "#eyeball"
-    data-attr      = "style"
-    data-prefix      = "-webkit-transform:translateX("
-    data-suffix      = "px)"
-/>
-
 
 </aside>
 
 <script>
 
+var eyelidTop;
+var eyelidBottom;
+
 window.onload = function() {
+    eyelidTop = document.querySelector('#eyelidTop');
     var inputs = document.querySelectorAll('select, input');
     var input;
     for (var i = 0, l = inputs.length; i < l; i++) {
@@ -172,6 +158,11 @@ window.onload = function() {
             document.querySelector(c.dataset.id).setAttribute(c.dataset.attr, v);
         });
     }
+    document.querySelector('#pathInput').addEventListener('change', function(e) {
+        console.log(e.target.valueAsNumber);
+        eyelidTop.setAttribute('d', 'M 120,100 Q 220,' + (100 - e.target.valueAsNumber) + ' 320,100');
+        eyelidBottom.setAttribute('d', 'M 320,100 Q 220,' + (100 + e.target.valueAsNumber) + ' 120,100');
+    });
 }
 
 </script>

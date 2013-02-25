@@ -5,66 +5,67 @@
 <style>
 
 * {
-    box-sizing           : border-box;
-    -webkit-transition   : all 1s;
+ box-sizing : border-box;
+ -webkit-transition : all 1s;
 }
 
 rect {
-    stroke: transparent;
-    stroke-width: 0;
+ stroke: transparent;
+ stroke-width: 0;
 }
 
 text {
-    font-size            : 20px;
+ font-size : 20px;
 }
 
 path {
-    fill: none;
-    stroke: #eee;
-    stroke-width: 2;
+ fill: none;
+ stroke: #eee;
+ stroke-width: 2;
 }
 
 body {
-    background           : #aaa;
-    font-family          : Trebuchet MS;
+ background : #aaa;
+ font-family : Trebuchet MS;
 }
 
 svg {
-    background           : #fff;
+ background : #fff;
 background-image: url(img/Objects010.jpg);
-    width                : 700px;
-    height               : 600px;
-    border-radius        : 1em;
+ width : 700px;
+ height : 600px;
+ border-radius : 1em;
 }
 
 form {
-    -webkit-column-count: 1;
-    width: 700;
-    line-height          : 1.5;
-    background           : #fff;
-    position             : absolute;
-    left                 : 720px;
-    top                  : 0;
-    margin               : 1em;
-    padding              : 1em;
-    border-radius        : 1em;
+ -webkit-column-count: 1;
+ width: 700;
+ line-height : 1.5;
+ background : #fff;
+ position : absolute;
+ left : 720px;
+ top : 0;
+ margin : 1em;
+ padding : 1em;
+ border-radius : 1em;
 }
 
 fieldset {
-    -webkit-break-inside : avoid;
-    border-radius        : 1em;
+ -webkit-break-inside : avoid;
+ border-radius : 1em;
 }
 
-.rad, .lin {
-    display: none;
+.rad, .lin, .pat {
+ display: none;
 }
 
 .radial:first-of-type,
 .linear:first-of-type,
 .linear ~ .lin,
-.radial ~ .rad
+.radial ~ .rad,
+.pattern ~ .pat
 {
-    display: block;
+ display: block;
 }
 
 
@@ -77,16 +78,22 @@ fieldset {
 <svg>
 
 <defs>
+
 <linearGradient id="myLinearGradient" x1="20%" y1="30%" x2="40%" y2="80%" spreadMethod="reflect">
-    <stop id="myLinearStop1" offset="0%" style="stop-color: gold;"/>
-    <stop id="myLinearStop2" offset="33%" style="stop-color: plum"/>
-    <stop id="myLinearStop3" offset="100%" style="stop-color: lightgreen;"/>
+ <stop id="myLinearStop1" offset="0%" style="stop-color: gold;"/>
+ <stop id="myLinearStop2" offset="33%" style="stop-color: plum"/>
+ <stop id="myLinearStop3" offset="100%" style="stop-color: lightgreen;"/>
 </linearGradient>
+
 <radialGradient id="myRadialGradient">
-    <stop id="myRadialStop1" offset="0%" style="stop-color: #f96;"/>
-    <stop id="myRadialStop2" offset="33%" style="stop-color: #9c9;"/>
-    <stop id="myRadialStop3" offset="100%" style="stop-color: #906;"/>
+ <stop id="myRadialStop1" offset="0%" style="stop-color: gold;"/>
+ <stop id="myRadialStop2" offset="33%" style="stop-color: plum;"/>
+ <stop id="myRadialStop3" offset="100%" style="stop-color: lightgreen;"/>
 </radialGradient>
+
+<pattern id="myPattern" x="0" y="0" width="4%" height="4%" patternUnits="objectBoundingBox">
+    <path d="M 0 0 Q 5 20 10 10 T 20 20" style="stroke: black; fill: none;"/>
+</pattern>
 
 </defs>
 
@@ -105,6 +112,7 @@ fieldset {
 <select data-prop="fill" data-tgt="#myRect" id="selFill">
 <option selected>url(#myLinearGradient)</option>
 <option>url(#myRadialGradient)</option>
+<option>url(#myPattern)</option>
 </select>
 
 
@@ -230,8 +238,8 @@ fieldset {
 <br/>
 <label>opacity</label>
 <input type="range" data-tgt="#myRadialStop1" data-prop="stop-opacity" min="0" max="1" value="1" step="0.01"/>
-
 </fieldset>
+
 <fieldset class="rad">
 <legend>stop #2</legend>
 <label>offset</label>
@@ -253,6 +261,34 @@ fieldset {
 <br/>
 <label>opacity</label>
 <input type="range" data-tgt="#myRadialStop3" data-prop="stop-opacity" min="0" max="1" value="1" step="0.01"/>
+</fieldset>
+
+<fieldset class="pat">
+<legend>pattern</legend>
+
+<label>x</label>
+<input type="range" data-tgt="#myPattern" data-attr="x" min="0" max="100" value="0"/>
+<br/>
+<label>y</label>
+<input type="range" data-tgt="#myPattern" data-attr="y" min="0" max="100" value="0"/>
+<br/>
+<label>width</label>
+<input type="range" data-tgt="#myPattern" data-attr="width" min="0" max="100" value="0" data-unit="%"/>
+<br/>
+<label>height</label>
+<input type="range" data-tgt="#myPattern" data-attr="height" min="0" max="100" value="0" data-unit="%"/>
+
+<br/>
+<label>patternContentUnits</label>
+<select data-attr="patternContentUnits" data-tgt="#myPattern">
+<option selected>objectBoundingBox</option>
+<option>userSpaceOnUse</option>
+</select>
+
+<br/>
+<label>patternTransform</label>
+<input type="text" data-tgt="#myPattern" data-attr="patternTransform" value="skewX(0) skewY(0)"/>
+
 </fieldset>
 
 
@@ -297,6 +333,7 @@ app.modify = function(e) {
 app.customFieldsets = function(e) {
     if (e.target.value.match(/linear/i)) e.target.parentNode.className = "linear";
     if (e.target.value.match(/radial/i)) e.target.parentNode.className = "radial";
+    if (e.target.value.match(/pattern/i)) e.target.parentNode.className = "pattern";
 };
 
 </script>

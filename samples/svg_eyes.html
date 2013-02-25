@@ -1,0 +1,130 @@
+<html>
+<head>
+<title>eyes</title>
+
+<style>
+
+body {
+    background: #aaa;
+}
+
+svg {
+    background: #ddd;
+}
+
+.eyelid {
+    fill: none;
+}
+
+
+
+#eyeball {
+    fill: #fff;
+}
+
+#eyelashes {
+    font-size: 40;
+}
+
+/* pattern within eye */
+
+#pupil, #iris { stop-color: lightblue; }
+
+#white, #bloodshotExtent { stop-color: white; }
+
+#inner { stop-color: black; }
+
+#outer { stop-color: pink; }
+
+</style>
+
+</head>
+<body>
+
+<svg>
+
+<defs>
+
+<!-- eyeball -->
+
+<circle id="eyeball" cx="100" cy="100" r="100" fill="url(#eyeballFill)">
+<!--
+   <use id="glance"  xlink:href="#glanceRight"/>
+-->
+</circle>
+
+<radialGradient id="eyeballFill">
+ <stop id="inner"           offset="15%"  />
+ <stop id="pupil"           offset="20%"  />
+ <stop id="iris"            offset="40%"  />
+ <stop id="white"           offset="45%"  />
+ <stop id="bloodshotExtent" offset="75%"  />
+ <stop id="outer"           offset="100%" />
+</radialGradient>
+
+<!-- eyelids -->
+
+<path id="eyelids" d="M 200,100 Q 100,200 0,100 Q 100,0 200,100" stroke="#777" stroke-width="2" fill="none" />
+
+<clipPath id="clipEyelid">
+    <use xlink:href="#eyelids" />
+</clipPath>
+
+<!-- eyelashes -->
+
+<text id="eyelashes">
+  <textPath xlink:href="#eyelids">
+    <tref xlink:href="#eyelashContent" font-size="24" letter-spacing="4" font-style="italic" stroke="#aaa"/>
+  </textPath>
+</text>
+
+<text id="eyelashContent" >
+llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll
+</text>
+
+<!-- entire eye -->
+
+<g id="eye">
+  <use xlink:href="#eyeball" clip-path="url(#clipEyelid)" />
+  <use xlink:href="#eyelids" />
+  <use xlink:href="#eyelashes" />
+</g>
+
+<!-- animations -->
+
+<animate id="glanceRight" attributeName="transform" attributeType="XML"
+from="translate(0,0)" to="translate(100,0)" begin="0s" dur="5s" _fill="freeze" />
+
+
+
+</defs>
+
+
+<use xlink:href="#eye" transform="translate(50,0)"/>
+
+<!--
+
+
+
+<use xlink:href="#eyeball" />
+<use class="eyelid" xlink:href="#eyelidBoth" />
+<text id="content">
+
+</text>
+
+<text id="eyelashesTop" font-size="20" fill="#777" letter-spacing="6">
+  </textPath>
+</text>
+
+-->
+
+</svg>
+
+<form>
+</form>
+
+<script>
+</script>
+
+</body>
+</html>
