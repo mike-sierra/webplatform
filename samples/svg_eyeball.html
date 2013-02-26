@@ -1,171 +1,301 @@
 <html>
 <head>
-<title>SVG eyeball</title>
+<title>SVG grand tour demo</title>
 
 <style>
 
 body {
-    perspective              : 1000;
-    background-color         : #ddd;
+    background     : #aaa;
+    font-family    : Trebuchet MS;
 }
 
 svg {
-    background               : #eee;
-    height                   : 90%;
+    background     : #ddd;
 }
 
-ellipse#eye, #CP, g#eyeball, #iris {
-    -webkit-transition       : all 1s;
-    -webkit-transform-origin : center;
+.eyelid {
+    fill           : none;
 }
 
-use, ellipse#eye {
-    fill                     : #fff;
-    fill-opacity             : 1;
-    stroke                   : #777777;
-    stroke-opacity           : 1;
-    stroke-width             : 1;
+form {
+    margin         : 1em;
+    padding        : 1em;
+    border-radius  : 1em;
+    background     : #fff;
 }
 
-#CP {
-    stroke-width             : 2;
-    stroke                   : "#777777";
+#eyelashes {
+    font-size      : 40;
 }
+
+/* pattern within eye */
+
+#pupil, #iris {
+    stop-color     : lightblue;
+    -webkit-transition: all 5s;
+}
+
+#white, #bloodshotExtent {
+    stop-color     : white;
+}
+
+#inner {
+    stop-color     : black;
+}
+
+#outer {
+    stop-color     : pink;
+}
+
+/*
+#eyeball {
+    fill           : url(#eyeballFill);
+}
+
+#eyelids {
+    stroke         : #aaa;
+    stroke-width   : 2;
+    fill           : transparent;
+}
+
+#eyelashTextRef {
+    font-size      : 24;
+    letter-spacing : 4;
+    font-style     : italic;
+    stroke         : #aaa;
+}
+
+
+*/
+
+form {
+   line-height: 2;
+}
+
+span { border: lightgreen solid medium; padding: 0.25em; border-radius: 0.5em; cursor: pointer }
 
 </style>
 
 </head>
 <body>
 
-<svg>
+<svg width="600" height="200">
 
 <defs>
 
-  <ellipse id="eye" cx="100" cy="30" rx="70" ry="35"/>
+<!-- eyeball -->
 
-  <clipPath id="CP">
-    <use xlink:href="#eye" />
-  </clipPath>
+<circle
+    id         = "eyeball"
+    cx         = "100"
+    cy         = "100"
+    r          = "150"
+    fill       = "url(#eyeballFill)"
+    transform  = "translate(0,0)"
+>
 
-  <clipPath id="CP2">
-    <use xlink:href="#eyelidTop" />
-  </clipPath>
+    <animateTransform
+        id             = "glanceStart"
+        attributeType  = "XML"
+        attributeName  = "transform"
+        type           = "translate"
+        from           = "0 0"
+        to             = "50 0"
+        calcMode       = "paced"
+        begin          = "1s"
+        dur            = "0.5s"
+        repeatCount    = "1"
+        restart        = "whenNotActive"
+    />
 
-<radialGradient id="grad">
- <stop id="stop1" offset="0%" style="stop-color: black;"/>
- <stop id="stop2" offset="40%" style="stop-color: black;"/>
- <stop id="stop3" offset="60%" style="stop-color: lightblue;"/>
- <stop id="stop4" offset="100%" style="stop-color: lightblue"/>
+    <animateTransform
+        id             = "glanceEnd"
+        attributeType  = "XML"
+        attributeName  = "transform"
+        type           = "translate"
+        from           = "50 0"
+        to             = "0 0"
+        begin          = "glanceStart.end"
+        dur            = "0.5s"
+        calcMode       = "linear"
+        repeatCount    = "1"
+        restart        = "whenNotActive"
+    />
+
+</circle>
+
+<radialGradient id="eyeballFill">
+  <stop id="inner"           offset="12%"  />
+  <stop id="pupil"           offset="15%"  />
+  <stop id="iris"            offset="27%"  />
+  <stop id="white"           offset="30%"  />
+  <stop id="bloodshotExtent" offset="40%"  />
+  <stop id="outer"           offset="100%" />
 </radialGradient>
 
-<circle id="iris" stroke="#777777" stroke-width="1" fill="url(#grad)" cx="100" cy="30" r="30" clip-path="url(#CP)"  />
+<!-- eyelids -->
 
-  <path id="eyelidTop" d="M 120,100 Q 220,40 320,100" stroke="#777" stroke-width="2"/>
-  <path id="eyelidBottom" d="M 320,100 Q 220,170 120,100" stroke="#777" stroke-width="2"/>
+<path
+    filter       = "url(#soften)"
+    id           = "eyelids"
+    d            = "M 200,100 Q 100,200 0,100 Q 100,0 200,100"
+    fill         = "transparent"
+    stroke       = "#ddd"
+    stroke-width = "2"
+>
 
+    <animate
+        id            = "blink"
+        attributeType = "XML"
+        attributeName = "d"
+        from          = "M 200,100 Q 100,200 0,100 Q 100,0 200,100"
+        to            = "M 200,100 Q 100,100 0,100 Q 100,100 200,100"
+        begin         = "4s;6s;9s;11s;14s;17s;20s"
+        dur           = "0.1s"
+    />
 
-<text id="content">
-llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll
-</text>
+</path>
 
-<text id="eyelashesTop" font-size="20" fill="#777" letter-spacing="6">
-  <textPath xlink:href="#eyelidTop">
-    <tref xlink:href="#content"/>
+<clipPath id="clipEyelid">
+    <use xlink:href="#eyelids" />
+</clipPath>
+
+<!-- eyelashes -->
+
+<text
+    id      = "eyelashes"
+    filter       = "url(#soften)"
+>
+  <textPath xlink:href="#eyelids"
+  >
+    <tref
+      id              = "eyelashTextRef"
+      xlink:href      = "#eyelashContent"
+      font-size       = "20"
+      letter-spacing  = "4"
+      font-style      = "italic"
+      stroke          = "#ddd"
+    />
   </textPath>
 </text>
 
-<text id="eyelashesBottom" font-size="20" fill="#777" letter-spacing="6">
-  <textPath xlink:href="#eyelidBottom">
-    <tref xlink:href="#content"/>
-  </textPath>
+<text id="eyelashContent" >
+llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll
 </text>
+
+<!-- entire eye -->
+
+<g id="eye">
+  <use xlink:href="#eyeball" clip-path="url(#clipEyelid)" />
+  <use xlink:href="#eyelids" />
+  <use xlink:href="#eyelashes" />
+</g>
+
+<!-- animations -->
+
+<!--
+    filters -->
+
+<filter
+    id           = "soften"
+    filterUnits  = "userSpaceOnUse"
+    x            = "-20"
+    y            = "-20"
+    width        = "250"
+    height       = "250"
+>
+  <desc>soften eyelashes</desc>
+  <feComponentTransfer>
+      <feFuncR type="linear" slope="0.1"/>
+      <feFuncG type="linear" slope="0.1"/>
+      <feFuncB type="linear" slope="0.1"/>
+  </feComponentTransfer>
+  <feGaussianBlur stdDeviation = "2 3" />
+</filter>
 
 
 </defs>
 
-<g transform="translate(0,50)">
-  <use xlink:href="#eye" />
-  <use xlink:href="#iris" />
-</g>
+<use xlink:href="#eye" transform="translate(50,0)"/>
+<use xlink:href="#eye" transform="translate(350,0)"/>
 
-<g transform="translate(250,50)">
-  <use xlink:href="#eye" />
-  <use xlink:href="#iris" />
-</g>
-
-<g transform="translate(0,180)">
-  <use xlink:href="#eyelashesTop"/>
-  <use xlink:href="#eyelidTop" />
-  <use xlink:href="#eyelashesBottom" />
-  <use xlink:href="#eyelidBottom" />
 </svg>
 
+<form>
 
+<b>JavaScript manual override</b>
 
-<aside>
+<br/><label>blink</label>
+<input id = "blinkInput" type = "range" min = "0" max = "100" value = "100" />
 
-<label>ellipse.ry</label>
-<input
- type             ="range"
-    min           ="1"
-    max           ="50"
-    value         ="30"
-    data-id       ="#eye"
-    data-attr     ="ry"
-/>
+<br/><label>glance X</label>
+<input class = "glanceX" id = "glanceXinput" type = "range" min = "-50" max = "50" value = "0" />
 
+<br/><label>glance Y</label>
+<input class = "glanceY" id = "glanceYinput" type = "range" min = "-30" max = "30" value = "0" />
 
-<label>circle.cx</label>
-<input
-    type          ="range"
-    min           ="70"
-    max           ="130"
-    value         ="100"
-    data-id       ="#iris"
-    data-attr     ="cx"
-/>
+<br/><label>eye color</label>
+<select>
+  <option>lightblue</option>
+  <option>brown</option>
+</select>
 
+<br/>
 
-<label>path.d</label>
-<input
-    id = "pathInput"
-    type          ="range"
-    min           ="0"
-    max           ="100"
-    value         ="0"
-    data-id       ="#eyelidTop"
-    data-attr     ="data-pt"
-/>
+<span onclick="app.blink.beginElementAt(0)">replay blink</span>
+<span onclick="app.glanceStart.beginElementAt(0)">replay glance</span>
+<span onclick="app.svg.setCurrentTime(0)">replay sequence of both</span>
 
-</aside>
+</form>
 
 <script>
 
-var eyelidTop;
-var eyelidBottom;
+var app = new Function();
 
 window.onload = function() {
-    eyelidTop = document.querySelector('#eyelidTop');
-    var inputs = document.querySelectorAll('select, input');
-    var input;
-    for (var i = 0, l = inputs.length; i < l; i++) {
-        input = inputs[i];
-        if (! input.dataset.prefix ) input.dataset.prefix = "";
-        if (! input.dataset.suffix ) input.dataset.suffix = "";
-        input.addEventListener('change', function(e) {
-            var c = e.target;
-            var v = c.dataset.prefix + c.value + c.dataset.suffix;
-            document.querySelector(c.dataset.id).setAttribute(c.dataset.attr, v);
-        });
-    }
-    document.querySelector('#pathInput').addEventListener('change', function(e) {
-        console.log(e.target.valueAsNumber);
-        eyelidTop.setAttribute('d', 'M 120,100 Q 220,' + (100 - e.target.valueAsNumber) + ' 320,100');
-        eyelidBottom.setAttribute('d', 'M 320,100 Q 220,' + (100 + e.target.valueAsNumber) + ' 120,100');
-    });
+    app.svg = document.querySelector('svg');
+    app.eyelids = document.querySelector('#eyelids');
+    app.eyelashes = document.querySelector('#eyelashTextRef');
+    app.eyeball = document.querySelector('#eyeball');
+    app.pupil = document.querySelector('#pupil');
+    app.iris = document.querySelector('#iris');
+    app.glanceStart = document.querySelector('#glanceStart');
+    app.blink = document.querySelector('#blink');
+
+    app.glanceX = 0;
+    app.glanceY = 0;
+
+    app.colorInput = document.querySelector('select');
+    app.colorInput.addEventListener('change', app.changeEyeColor);
+
+    app.blinkInput = document.querySelector('#blinkInput');
+    app.blinkInput.addEventListener('change', app.moveEyelid);
+    app.glanceXinput = document.querySelector('#glanceXinput');
+    app.glanceYinput = document.querySelector('#glanceYinput');
+    app.glanceXinput.addEventListener('change', app.moveEyeball);
+    app.glanceYinput.addEventListener('change', app.moveEyeball);
 }
+
+app.changeEyeColor = function(e) {
+    app.pupil.setAttribute('style', "stop-color:" + e.target.value);
+    app.iris.setAttribute('style', "stop-color:" + e.target.value);
+}
+
+app.moveEyeball = function(e) {
+    app[e.target.className] = e.target.value;
+    console.log(app.glanceX + " " + app.glanceY);
+    app.eyeball.setAttribute('transform', 'translate(' + app.glanceX + " " + app.glanceY + ')');
+}
+
+app.moveEyelid = function(e) {
+    var m = 0.05;
+    var path = 'M 200,100 Q 100,' + (100 + e.target.valueAsNumber)
+        + ' 0,100 Q 100,' + (100 - e.target.valueAsNumber) + ' 200,100';
+    app.eyelids.setAttribute('d', path);
+};
 
 </script>
 
 </body>
 </html>
+

@@ -1,6 +1,6 @@
 <html>
 <head>
-<title>CSS filters + 3D transforms (click in the box)</title>
+<title>CSS custom filters + 3D transforms</title>
 
 <style>
 
@@ -64,11 +64,11 @@ body {
 }
 
 .face::before {
-    background-image            : url(img/cardAceSpade.png);
     background-image            : url(img/cardKingClub.png);
     background-image            : url(img/cardJackClub.png);
-    background-image            : url(img/cardJackSpade.png);
     background-image            : url(img/cardQueenSpade.png);
+    background-image            : url(img/cardJackSpade.png);
+    background-image            : url(img/cardAceSpade.png);
     background-image            : url(img/cardJackHeart.png);
 }
 
@@ -83,7 +83,9 @@ body {
     -webkit-animation-name: "";
 }
 
-.walking > .face::before, .walking > .face::after {
+
+.walking > .face::after,
+.walking > .face::before {
     -webkit-animation: walk 0.75s infinite;
 }
 
@@ -106,6 +108,7 @@ body {
 
 </head>
 <body>
+
 <section class="scene">
 <section class="ground">
 
@@ -120,7 +123,10 @@ body {
 
 var app = new Function();
 
-app.manualMode = 0;
+// auto/manual mode
+app.manualMode   = 0;
+app.autoDelay    = 3000; // delay until auto demo mode
+app.autoInterval = 5000; // auto mode delay between strolls
 
 app.prevX        = 0;
 app.prevY        = 0;
@@ -128,15 +134,15 @@ app.curX         = 0;
 app.curY         = 0;
 app.deltaX       = 0;
 app.deltaY       = 0;
-app.autoDelay    = 3000; // delay until auto demo mode
-app.autoInterval = 5000; // auto mode delay between strolls
 
 window.onload = function() {
     app.ground = document.querySelector('.ground');
     app.card = document.querySelector('.card');
     app.face = document.querySelector('.face');
+
     app.width = app.ground.scrollWidth;
     app.height = app.ground.scrollHeight;
+
     app.ground.addEventListener('click', app.handleClick);
     app.card.addEventListener('webkitTransitionEnd', app.stopWalking);
     setTimeout(app.randomDestination, app.autoDelay)
@@ -147,7 +153,7 @@ app.randomDestination = function() {
     app.curX = Math.round(Math.random() * app.width);
     app.curY = Math.round(Math.random() * app.height);
     app.move();
-    setTimeout(app.randomDestination, app.autoInterval)
+    setTimeout(app.randomDestination, app.autoInterval); // rinse, repeat
 }
 
 app.handleClick = function(e) {
@@ -173,9 +179,7 @@ app.stopWalking = function(e) {
     app.card.classList.remove('walking');
 }
 
-
 </script>
-
 
 </body>
 </html>
