@@ -5,81 +5,65 @@
 <style>
 
 body {
-    background     : #aaa;
-    font-family    : Trebuchet MS;
+    background         : #ddd;
+    font-family        : Trebuchet MS;
 }
 
 svg {
-    background     : #ddd;
+    background         : #fff;
 }
 
 .eyelid {
-    fill           : none;
+    fill               : none;
 }
 
 form {
-    margin         : 1em;
-    padding        : 1em;
-    border-radius  : 1em;
-    background     : #fff;
+    margin             : 1em;
+    padding            : 1em;
+    border-radius      : 1em;
+    background         : #fff;
 }
 
 #eyelashes {
-    font-size      : 40;
+    font-size          : 40;
 }
 
 /* pattern within eye */
 
 #pupil, #iris {
-    stop-color     : lightblue;
-    -webkit-transition: all 5s;
+    stop-color         : lightblue;
+    -webkit-transition : all 5s;
 }
 
 #white, #bloodshotExtent {
-    stop-color     : white;
+    stop-color         : white;
 }
 
 #inner {
-    stop-color     : black;
+    stop-color         : black;
 }
 
 #outer {
-    stop-color     : pink;
+    stop-color         : pink;
 }
-
-/*
-#eyeball {
-    fill           : url(#eyeballFill);
-}
-
-#eyelids {
-    stroke         : #aaa;
-    stroke-width   : 2;
-    fill           : transparent;
-}
-
-#eyelashTextRef {
-    font-size      : 24;
-    letter-spacing : 4;
-    font-style     : italic;
-    stroke         : #aaa;
-}
-
-
-*/
 
 form {
-   line-height: 2;
+   line-height         : 2;
 }
 
-span { border: lightgreen solid medium; padding: 0.25em; border-radius: 0.5em; cursor: pointer }
+span {
+    border             : lightgreen solid medium; 
+    padding            : 0.25em; 
+    border-radius      : 0.5em; 
+    cursor             : pointer;
+}
 
 </style>
 
 </head>
 <body>
 
-<svg width="600" height="200">
+<svg width="600" height="400" viewBox="0 0 600 200">
 
 <defs>
 
@@ -124,14 +108,6 @@ span { border: lightgreen solid medium; padding: 0.25em; border-radius: 0.5em; c
 
 </circle>
 
-<radialGradient id="eyeballFill">
-  <stop id="inner"           offset="12%"  />
-  <stop id="pupil"           offset="15%"  />
-  <stop id="iris"            offset="27%"  />
-  <stop id="white"           offset="30%"  />
-  <stop id="bloodshotExtent" offset="40%"  />
-  <stop id="outer"           offset="100%" />
-</radialGradient>
 
 <!-- eyelids -->
 
@@ -140,7 +116,7 @@ span { border: lightgreen solid medium; padding: 0.25em; border-radius: 0.5em; c
     id           = "eyelids"
     d            = "M 200,100 Q 100,200 0,100 Q 100,0 200,100"
     fill         = "transparent"
-    stroke       = "#ddd"
+    stroke       = "#aaa"
     stroke-width = "2"
 >
 
@@ -163,18 +139,17 @@ span { border: lightgreen solid medium; padding: 0.25em; border-radius: 0.5em; c
 <!-- eyelashes -->
 
 <text
-    id      = "eyelashes"
-    filter       = "url(#soften)"
+    id                 = "eyelashes"
+    filter             = "url(#soften)"
 >
-  <textPath xlink:href="#eyelids"
-  >
+  <textPath xlink:href = "#eyelids">
     <tref
-      id              = "eyelashTextRef"
-      xlink:href      = "#eyelashContent"
-      font-size       = "20"
-      letter-spacing  = "4"
-      font-style      = "italic"
-      stroke          = "#ddd"
+      id               = "eyelashTextRef"
+      xlink:href       = "#eyelashContent"
+      font-size        = "20"
+      letter-spacing   = "4"
+      font-style       = "italic"
+      stroke           = "#ddd"
     />
   </textPath>
 </text>
@@ -193,31 +168,53 @@ llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll
 
 <!-- animations -->
 
-<!--
-    filters -->
+<!-- filters -->
 
 <filter
     id           = "soften"
-    filterUnits  = "userSpaceOnUse"
     x            = "-20"
     y            = "-20"
     width        = "250"
     height       = "250"
+    filterUnits  = "userSpaceOnUse"
 >
   <desc>soften eyelashes</desc>
+
+  <feGaussianBlur stdDeviation = "1 3" />
   <feComponentTransfer>
-      <feFuncR type="linear" slope="0.1"/>
-      <feFuncG type="linear" slope="0.1"/>
-      <feFuncB type="linear" slope="0.1"/>
+      <feFuncR type="linear" slope="0.3"/>
+      <feFuncG type="linear" slope="0.3"/>
+      <feFuncB type="linear" slope="0.3"/>
   </feComponentTransfer>
-  <feGaussianBlur stdDeviation = "2 3" />
+
 </filter>
 
+<radialGradient id="eyeballFill">
+  <stop id="inner"           offset="12%"  />
+  <stop id="pupil"           offset="15%"  />
+  <stop id="iris"            offset="27%"  />
+  <stop id="white"           offset="30%"  />
+  <stop id="bloodshotExtent" offset="40%"  />
+  <stop id="outer"           offset="100%" />
+</radialGradient>
+
+<g id="eyes">
+  <use xlink:href="#eye" transform="translate(50,0)"/>
+  <use xlink:href="#eye" transform="translate(350,0)"/>
+</g>
 
 </defs>
 
-<use xlink:href="#eye" transform="translate(50,0)"/>
-<use xlink:href="#eye" transform="translate(350,0)"/>
+<use xlink:href="#eyes"/>
+
+<!--
+
+-->
+
+
+
+
+
 
 </svg>
 
