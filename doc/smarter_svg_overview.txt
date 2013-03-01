@@ -1,4 +1,4 @@
-{{Page_Title|Smarter SVG: Overview}}
+{{Page_Title|SVG: Grand Tour}}
 {{Flags
 |High-level issues=Stub
 |Editorial notes=[new content edited offline by Sierra (~~~); please do not edit]
@@ -17,20 +17,22 @@ graphic component can be styled through CSS, manipulated with
 JavaScript through core APIs, and can appear comfortably alongside
 HTML content.
 
-<div style="float:right;margin:12px">
-[[Image:scr_svg_eyes.png]]
-</div>
-
 This section of the guide shows how SVG is deployed along with other
 core web standards, with which you should already be familiar.  It
 highlights some notable differences, and provides a quick tour of many
 SVG features that are covered in more detail in other sections. It
 focuses on the unique way you can build complex interactive graphics
 from reusable components, and how to flexibly resize them and place
-them within various drawing surfaces. As part of a grand tour to get a
-feel for SVG markup, you'll stroll through an example that shows how
-to build a pair of eyes, and how to move them around and make them
-blink.
+them within various drawing surfaces.
+
+<div style="float:right;margin:12px">
+[[Image:scr_svg_eyes.png]]
+</div>
+
+As part of a grand tour to get a feel for SVG markup, you'll stroll
+through an example that shows how to build a pair of eyes, and how to
+move them around and make them blink.
+[http://letmespellitoutforyou.com/samples/svg_eyeball.html View the accompanying live demo here].
 
 ==Defining the drawing area==
 
@@ -41,18 +43,19 @@ which allows you to flexibly apply CSS and JavaScript to both the SVG
 graphic and the HTML content. The basic markup looks like this, with
 an '''svg''' tag encapsulating the graphics:
 
-<syntaxhighlight lang="xml" highlight="7-10">
+<syntaxhighlight lang="html5" highlight="8-11">
+<!DOCTYPE html>
 <html>
 <head>
 <title>SVG grand tour demo</title>
-<link href = "css/eyeballs.css" rel = "stylesheet" />
+<link href="css/eyeballs.css" rel="stylesheet" />
 </head>
 <body>
-<svg width = "600" height = "200">
+<svg width="600" height="200">
    <title>eyeballs</title>
    <desc>interactive demo showcasing several SVG features</desc>
 </svg>
-<script src = "js/eyeballs.js"></script>
+<script src="js/eyeballs.js"></script>
 </body>
 </html>
 </syntaxhighlight>
@@ -66,7 +69,7 @@ Adding this line within the '''svg''' region produces a circle. The
 '''cx''', '''cy''', and '''r''' attributes position and size it:
 
 <syntaxhighlight lang="xml">
-<circle id = "eyeball" cx = "100" cy = "100" r = "150"/>
+<circle id="eyeball" cx="100" cy="100" r="150"/>
 </syntaxhighlight>
 
 [[Image:svg_overview_eyeball_nofill.png]]
@@ -76,22 +79,22 @@ more complex radial gradient happens to be the ideal way to build the
 eyeball's series of concentric rings:
 
 <syntaxhighlight lang="xml">
-<circle id = "eyeball" cx = "100" cy = "100" r = "150" fill = "url(#eyeballFill)" />
+<circle id="eyeball" cx="100" cy="100" r="150" fill="url(#eyeballFill)" />
 
-<radialGradient id = "eyeballFill">
-  <stop id = "inner"           offset = "12%"  stop-color = "black" />
-  <stop id = "pupil"           offset = "15%"  stop-color = "lightblue" />
-  <stop id = "iris"            offset = "27%"  stop-color = "lightblue" />
-  <stop id = "white"           offset = "30%"  stop-color = "white" />
-  <stop id = "bloodshotExtent" offset = "40%"  stop-color = "white" />
-  <stop id = "outer"           offset = "100%" stop-color = "pink" />
+<radialGradient id="eyeballFill">
+  <stop id="inner"           offset="12%"  stop-color="black" />
+  <stop id="pupil"           offset="15%"  stop-color="lightblue" />
+  <stop id="iris"            offset="27%"  stop-color="lightblue" />
+  <stop id="white"           offset="30%"  stop-color="white" />
+  <stop id="bloodshotExtent" offset="40%"  stop-color="white" />
+  <stop id="outer"           offset="100%" stop-color="pink" />
 </radialGradient>
 </syntaxhighlight>
 
 [[Image:svg_overview_eyeball_fill.png]]
 
 The '''circle''' tag's '''fill''' attribute references the '''id''' of
-the '''radialGradient'''. The various nested '''stop''' tags define
+the '''radialGradient'''.  The various nested '''stop''' tags define
 fairly abrupt gradations from the center to the edge&mdash;from black
 to blue and then to white&mdash;followed by a more gradual transition
 to pink around the edge of the circle.
@@ -116,7 +119,7 @@ value of presentation attributes, so this example changes the eye
 color to brown:
 
 <syntaxhighlight lang="xml">
-<stop id = "pupil" offset = "15%" stop-color = "lightblue" style = "stop-color:brown"/>
+<stop id="pupil" offset="15%" stop-color="lightblue" style="stop-color:brown"/>
 </syntaxhighlight>
 
 It's best practice to consolidate CSS in style sheets and separate it
@@ -124,20 +127,22 @@ from markup. Placing this CSS in the ''eyeballs.css'' file referenced
 from the HTML applies it to the slightly pared-down SVG markup that
 follows:
 
+<syntaxhighlight lang="css">
  #inner { stop-color                   : black; }
  #outer { stop-color                   : pink; }
  #white, #bloodshotExtent { stop-color : white; }
  .blue { stop-color                    : lightblue; }
  .brown { stop-color                   : brown; }
+</syntaxhighlight>
 
 <syntaxhighlight lang="xml">
-<radialGradient id = "eyeballFill">
-  <stop id = "inner"           offset = "12%"  />
-  <stop id = "pupil"           offset = "15%"  class = "blue" />
-  <stop id = "iris"            offset = "27%"  class = "blue" />
-  <stop id = "white"           offset = "30%"  />
-  <stop id = "bloodshotExtent" offset = "40%"  />
-  <stop id = "outer"           offset = "100%" />
+<radialGradient id="eyeballFill">
+  <stop id="inner"           offset="12%"  />
+  <stop id="pupil"           offset="15%"  class="blue" />
+  <stop id="iris"            offset="27%"  class="blue" />
+  <stop id="white"           offset="30%"  />
+  <stop id="bloodshotExtent" offset="40%"  />
+  <stop id="outer"           offset="100%" />
 </radialGradient>
 </syntaxhighlight>
 
@@ -148,21 +153,22 @@ to float behind a pair of eyelids. Before you build them, however, you
 should stash away the graphic components you've already defined. Add a
 '''defs''' region to the '''svg''':
 
-<syntaxhighlight lang="xml" highlight="10-12">
+<syntaxhighlight lang="html5" highlight="11-13">
+<!DOCTYPE html>
 <html>
 <head>
 <title>SVG grand tour demo</title>
-<link href = "css/eyeballs.css" rel = "stylesheet" />
+<link href="css/eyeballs.css" rel="stylesheet" />
 </head>
 <body>
-<svg width = "600" height = "200" viewBox = "0 0 600 200">
+<svg width="600" height="200">
    <title>eyeballs</title>
    <desc>interactive demo showcasing several SVG features</desc>
    <defs>
       <!-- place components here -->
    </defs>
 </svg>
-<script src = "js/eyeballs.js"></script>
+<script src="js/eyeballs.js"></script>
 </body>
 </html>
 </syntaxhighlight>
@@ -174,10 +180,10 @@ after you've built other components, you don't have to move it back
 out. Instead, place this line outside the '''defs''' region:
 
 <syntaxhighlight lang="xml">
-<use xlink:href = "#eyeball"/>
+<use xlink:href="#eyeball"/>
 </syntaxhighlight>
 
-This serves as a pointer to the eyeball graphic. It's a ''deep''
+This serves as a pointer to the eyeball graphic.  It's a ''deep''
 reference, not just a copy. That means any changes made to the
 '''circle''' or '''radialGradient''' within the '''defs''' appears
 dynamically. Still, the '''use''' tag allows you to add attributes or
@@ -186,7 +192,7 @@ specifies a new '''id''' and modifies the '''cx''' attribute to move
 it to the left a bit from its original position at ''100'':
 
 <syntaxhighlight lang="xml">
-<use  xlink:href = "#eyeball" id = "eyeballLeft" cx = "80"/>
+<use  xlink:href="#eyeball" id="eyeballLeft" cx="80"/>
 </syntaxhighlight>
 
 The '''transform''' attribute's '''translate()''' function provides a
@@ -195,7 +201,7 @@ uses relative measurements to move it to the left along the ''x''
 axis, and not at all along the ''y'' axis:
 
 <syntaxhighlight lang="xml">
-<use xlink:href = "#eyeball" id = "eyeballLeft" transform = "translate(-20,0)"/>
+<use xlink:href="#eyeball" id="eyeballLeft" transform="translate(-20,0)"/>
 </syntaxhighlight>
 
 These provide the same functionality as two-dimensional CSS
@@ -225,13 +231,22 @@ whose '''d''' (''definition'') draws two curves that face each other:
 
 [[Image:svg_overview_eyeball_eyelid.png]]
 
+Part of each curve's definition is a ''control point'' that influences
+that shape of the curve, but do not themselves render. Starting from
+the right corner (''M'' for ''move to''), the first quadratic (''Q'')
+curve's control point is placed at the top, and the destination is the
+left corner. The second quadratic curve places its control point at
+the bottom corner and ends up at the right corner:
+
+[[Image:svg_overview_eyeball_ctrl.png]]
+
 To make the shape behave as a clipping path, place a '''clipPath'''
 tag around the '''path'''. You will actually need to use this shape
 again, so it is best to '''use''' a reference to it:
 
 <syntaxhighlight lang="xml">
-<clipPath id = "clipEyelid">
-    <use xlink:href = "#eyelids" />
+<clipPath id="clipEyelid">
+    <use xlink:href="#eyelids" />
 </clipPath>
 </syntaxhighlight>
 
@@ -240,7 +255,7 @@ clipping path to take effect. You can apply it to the original shape,
 or the '''use''' that references it:
 
 <syntaxhighlight lang="xml">
-<use xlink:href = "#eyeball" clip-path = "url(#clipEyelid)" />
+<use xlink:href="#eyeball" clip-path="url(#clipEyelid)" />
 </syntaxhighlight>
 
 [[Image:svg_overview_eyeball_eyelid_clip.png]]
@@ -251,9 +266,9 @@ it.  The first '''use''' below renders the eyeball within the clipping
 path, and the second renders the path:
 
 <syntaxhighlight lang="xml">
-<g id = "eye">
-  <use xlink:href = "#eyeball" clip-path = "url(#clipEyelid)" />
-  <use xlink:href = "#eyelids" />
+<g id="eye">
+  <use xlink:href="#eyeball" clip-path="url(#clipEyelid)" />
+  <use xlink:href="#eyelids" />
 </g>
 </syntaxhighlight>
 
@@ -274,7 +289,7 @@ many lowercase ''l'' characters within a '''text''' element, enough to
 overflow the ''eyelids'' shape:
 
 <syntaxhighlight lang="xml">
-<text id = "eyelashContent" >
+<text id="eyelashContent" >
 llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll
 </text>
 </syntaxhighlight>
@@ -287,8 +302,8 @@ run along a path. Various '''tref''' attributes slant the text,
 lighten it, and space it out:
 
 <syntaxhighlight lang="xml" highlight="2,5">
-<text id = "eyelashes">
-  <textPath xlink:href = "#eyelids">
+<text id="eyelashes">
+  <textPath xlink:href="#eyelids">
     <tref
       id               = "eyelashTextRef"
       xlink:href       = "#eyelashContent"
@@ -304,10 +319,10 @@ lighten it, and space it out:
 Add the eyelashes to the consolidated ''eye'' object:
 
 <syntaxhighlight lang="xml">
-<g id = "eye">
-  <use xlink:href = "#eyeball" clip-path = "url(#clipEyelid)" />
-  <use xlink:href = "#eyelids" />
-  <use xlink:href = "#eyelashes" />
+<g id="eye">
+  <use xlink:href="#eyeball" clip-path="url(#clipEyelid)" />
+  <use xlink:href="#eyelids" />
+  <use xlink:href="#eyelashes" />
 </g>
 </syntaxhighlight>
 
@@ -335,11 +350,11 @@ pixels around, and '''feComponentTransfer''' darkens the result:
     filterUnits  = "userSpaceOnUse"
 >
   <desc>soften eyelidand eyelashes</desc>
-  <feGaussianBlur stdDeviation = "1 3" />
+  <feGaussianBlur stdDeviation="1 3" />
   <feComponentTransfer>
-      <feFuncR type = "linear" slope = "0.3"/>
-      <feFuncG type = "linear" slope = "0.3"/>
-      <feFuncB type = "linear" slope = "0.3"/>
+      <feFuncR type="linear" slope="0.3"/>
+      <feFuncG type="linear" slope="0.3"/>
+      <feFuncB type="linear" slope="0.3"/>
   </feComponentTransfer>
 </filter>
 </syntaxhighlight>
@@ -380,14 +395,16 @@ It needs to be applied again separately to the eyelids:
 
 [[Image:svg_overview_eyeball_eyelid_filter.png]]
 
+==Coordinate spaces==
+
 To finish off the graphic, group another instance of the ''eye''
 object into a higher-level ''eyes'' object, and use '''transform''' to
 space them out:
 
 <syntaxhighlight lang="xml">
-<g id = "eyes">
-  <use xlink:href = "#eye" transform = "translate(50,0)" />
-  <use xlink:href = "#eye" transform = "translate(350,0)" />
+<g id="eyes">
+  <use xlink:href="#eye" transform="translate(50,0)" />
+  <use xlink:href="#eye" transform="translate(350,0)" />
 </g>
 </syntaxhighlight>
 
@@ -399,16 +416,66 @@ A single '''use''' tag outside the '''defs''' region renders the eyes:
 
 [[Image:svg_overview_eyeballs.png]]
 
+The original '''svg''' tag specified that the eyes should appear
+within a 600&times;200-pixel rectangle:
+
+<syntaxhighlight lang="xml">
+<svg width="600" height="200">
+</syntaxhighlight>
+
+[[Image:svg_overview_eyeballs_viewport_large.png]]
+
+But what if that's much too big for the interface where you want to
+use them? If you shrink it down, using either the tag's
+'''width'''/'''height''' attributes or CSS, the dimensions no longer
+match the various measurements specified within the graphic:
+
+<syntaxhighlight lang="xml">
+<style>
+svg {
+    width: 300;
+    height: 100;
+}
+</style>
+    <!-- ...or... -->
+<svg width="300" height="100">
+</syntaxhighlight>
+
+[[Image:svg_overview_eyeballs_viewport_small.png]]
+
+The solution is to define a custom box using the '''viewBox'''
+attribute.  Doing so declares a set of abstract units for exclusive
+use within the graphic, which may bear no relation to the coordinate
+space in which the graphic appears:
+
+<syntaxhighlight lang="xml">
+<svg width="300" height="100" viewBox="0 0 600 200">
+</syntaxhighlight>
+
+[[Image:svg_overview_eyeballs_viewbox.png]]
+
+Adding a '''preserveAspectRatio''' attribute controls what happens in
+cases when the '''viewBox''' doesn't match the ''viewport'' within
+which the graphic appears. In this case, '''xMidYMid''' centers it and
+shrinks it enough for the entire graphic to appear:
+
+<syntaxhighlight lang="xml">
+<svg width="100" height="100" viewBox="0 0 600 200" preserveAspectRatio="xMidYMid">
+</syntaxhighlight>
+
+[[Image:svg_overview_eyeballs_viewbox_preserve.png]]
+
 ==Blinking and glancing==
 
-The only remaining problem is that the graphic doesn't do anything. We
-want to make the eyes to ''move''.
+The only remaining problem is that the graphic doesn't ''do''
+anything.  We want to make the eyes to ''move''.
 
-In a few marginal cases, you can use familiar CSS techniques to
-animate numeric and color properties that apply to SVG. For example,
-here's a way to gradually change the eye color, by toggling between
-the gradient color stops' ''blue'' and ''brown'' classes:
+In a few marginal cases, you can use CSS techniques to animate numeric
+and color properties that apply to SVG. For example, here's a way to
+gradually change the eye color, by toggling between the gradient color
+stops' ''blue'' and ''brown'' classes:
 
+<syntaxhighlight lang="css">
  .blue  { stop-color   : lightblue; }
  .brown { stop-color   : brown; }
  stop {
@@ -416,11 +483,103 @@ the gradient color stops' ''blue'' and ''brown'' classes:
     -webkit-transition : all 5s;
     -moz-transition    : all 5s;
  }
+</syntaxhighlight>
 
-You can't use that approach for SVG attributes.  SVG has its own
-mechanism to animate attributes.
+You can't use that familiar approach for SVG attributes.  SVG has its
+own mechanism (based on the ''SMIL'' standard) to animate attribute
+values. We'll use it to make the eye glance to the side. As we've
+seen, the '''transform''' attribute's '''translate()''' function
+offers the most flexible way to move objects around. SVG provides an
+'''animateTransform''' tag dedicated to manipulating it. Add it within
+the ''eyeball'' object you want to move:
 
-<syntaxhighlight lang="xml">
+<syntaxhighlight lang="xml" highlight="3-12">
+<circle id="eyeball" transform="translate(0,0)" cx="100" cy="100"
+        r="150" fill="url(#eyeballFill)">
+    <animateTransform
+        id             = "glanceStart"
+        attributeType  = "XML"
+        attributeName  = "transform"
+        type           = "translate"
+        begin          = "1s"
+        dur            = "0.5s"
+        from           = "0 0"
+        to             = "50 0"
+    />
+</circle>
+</syntaxhighlight>
+
+Let's run down what each attribute does:
+
+* '''attributeType''' clarifies that the value we're manipulating is an ''XML'' attribute, not a ''CSS'' property.
+
+* '''attributeName''' provides the name of the attribute to modify, ''transform'' in this case.
+
+* Since a transform can specify combinations of functions, the '''type''' attribute clarifies which function to manipulate, ''translate'' in this case.
+
+* '''begin''' specifies a delay after which the animation executes, in this case 1 second. A begin value of ''0s'' animates immediately. (If you leave out this attribute, the animation does not play by default, but you can use JavaScript to make it play as described below.)
+
+* '''dur''' specifies the animation's duration, half a second in this case.
+
+* '''from''' and '''to''' provide the values between which the animation should transition. In this case, it moves it 50 units to the right.
+
+As it appears above, the animation moves the eyes to the right, then
+immediately snaps back:
+
+[[Image:svg_overview_eyeball_glance.png]]
+
+There's an attribute called '''fill''', which is unfortunately named
+the same as the '''fill''' property that applies colors and
+gradients. Adding a '''fill''' attribute here and setting it to
+'''freeze''' would keep the eyes looking right after the animation
+ends.  But instead, we'll add another animation to return the eyes so
+that they look ahead:
+
+<syntaxhighlight lang="xml" highlight="4,19-20">
+<circle id="eyeball" transform="translate(0,0)" cx="100" cy="100"
+        r="150" fill="url(#eyeballFill)">
+    <animateTransform
+        id             = "glanceStart"
+        attributeType  = "XML"
+        attributeName  = "transform"
+        type           = "translate"
+        begin          = "1s"
+        dur            = "0.5s"
+        from           = "0 0"
+        to             = "50 0"
+    />
+    <animateTransform
+        id             = "glanceEnd"
+        attributeType  = "XML"
+        attributeName  = "transform"
+        type           = "translate"
+        dur            = "0.5s"
+        begin          = "glanceStart.end"
+        from           = "50 0"
+        to             = "0 0"
+    />
+</circle>
+</syntaxhighlight>
+
+Aside from the values of '''from''' and '''to''' being inverted, note
+the '''begin''' time is expressed in terms of whenever the previous
+animation ends.  And yes, it may help to keep track of the three
+different ways we've seen so far to reference an SVG object:
+
+* the ''id.attr'' notation above.
+
+* SVG's '''xlink:href''', which specifies a URL, external file, or anchor.
+
+* CSS's own '''url()''' function, which can be applied to SVG's presentation attribute values.
+
+As is true for CSS transitions and animations, you can animate most
+any numeric or color value. You can also animate complex series of
+coordinates used in '''path''' definitions, so long as the sequence of
+path commands match so that there are corresponding sets of points.
+This allows us to make the eyes blink. Add this to the ''eyelids''
+object:
+
+<syntaxhighlight lang="xml" highlight="9-17">
 <path
     filter       = "url(#soften)"
     id           = "eyelids"
@@ -435,26 +594,50 @@ mechanism to animate attributes.
         attributeName = "d"
         from          = "M 200,100 Q 100,200 0,100 Q 100,0 200,100"
         to            = "M 200,100 Q 100,100 0,100 Q 100,100 200,100"
-        begin         = "4s;6s;9s;11s;14s;17s;20s"
+        begin         = "4s;6s"
         dur           = "0.1s"
     />
-
 </path>
-
-
-<animateTransform/>
 </syntaxhighlight>
 
-<!--
+In this case, the '''begin''' attribute specifies two different
+values, so the animation is triggered after four seconds, then once
+again after six seconds.  Between the '''from''' and '''to''' values,
+the only values that are modified are the positions of the two control
+points that affect the shape of the curve, so the animation behaves
+like this:
 
-<syntaxhighlight lang="xml"></syntaxhighlight>
-<syntaxhighlight lang="xml"></syntaxhighlight>
-<syntaxhighlight lang="xml"></syntaxhighlight>
-<syntaxhighlight lang="xml"></syntaxhighlight>
-<syntaxhighlight lang="xml"></syntaxhighlight>
+[[Image:svg_overview_eyeball_blink.png]]
 
--->
+You can use JavaScript to control these animations more flexibly. To
+do so, call the '''beginElement()''' method on the animation object.
+This allows a script to change where the eyes glance:
 
+<syntaxhighlight lang="javascript">
+function glanceTo(x,y) {
+    var toThere = document.querySelector('#glanceStart')
+    var andBack = document.querySelector('#glanceEnd')
+    toThere.setAttribute("to", x + " " + y);
+    andBack.setAttribute("from", x + " " + y);
+    toThere.beginElement();
+}
+</syntaxhighlight>
+
+Calling this function keeps the eyes blinking at random points between
+two and five seconds:
+
+<syntaxhighlight lang="javascript">
+function blink() {
+    var minDelay = 2000;
+    var extraDelay = 3000;
+    document.querySelector('#blink').beginElement();
+    setTimeout(blink, (Math.floor(Math.random() * extraDelay) + minDelay));
+}
+</syntaxhighlight>
+
+Enough, already?
+
+[[Image:svg_overview_eyeball_tired.png]]
 
 ==Deploying SVG==
 
@@ -642,6 +825,7 @@ the tag's '''requiredExtensions''' attribute. If not, it uses fallback
 * '''visibility'''
 
 * '''color''', used to provide a potential indirect value (currentColor) for the '''fill''', '''stroke''', '''stop-color''', '''flood-color''' and '''lighting-color''' properties. (The SVG properties which support color allow a color specification which is extended from CSS2 to accommodate color definitions in arbitrary color spaces. See Color profile descriptions.)
+
 
 -->
 

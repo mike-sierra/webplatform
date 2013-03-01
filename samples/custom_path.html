@@ -15,6 +15,10 @@ body {
 .scene {
     -webkit-perspective         : 1000;
     -webkit-transform-style     : preserve-3d;
+    -moz-perspective         : 1000;
+    -moz-transform-style     : preserve-3d;
+    perspective         : 1000;
+    transform-style     : preserve-3d;
     height                      : 100%;
 }
 
@@ -27,12 +31,20 @@ body {
     -webkit-transform           : rotateX(80deg) scale(0.9);
     -webkit-perspective         : 5000;
     -webkit-transform-style     : preserve-3d;
+    -moz-transform           : rotateX(80deg) scale(0.9);
+    -moz-perspective         : 5000;
+    -moz-transform-style     : preserve-3d;
+    transform           : rotateX(80deg) scale(0.9);
+    perspective         : 5000;
+    transform-style     : preserve-3d;
     height                      : 1000;
     pointer-events              : auto;
 }
 
 .card, .face, .face::before, .face::after  {
     -webkit-perspective         : 10000;
+    -moz-perspective         : 10000;
+    perspective         : 10000;
     height                      : 130px;
     width                       : 100px;
     border-radius               : 6px;
@@ -43,6 +55,14 @@ body {
     -webkit-transform-style     : preserve-3d;
     -webkit-transform           : translate(0px,0px) rotateX(-90deg);
     -webkit-transform-origin    : bottom;
+    -moz-transition          : all 1.5s ease-out;
+    -moz-transform-style     : preserve-3d;
+    -moz-transform           : translate(0px,0px) rotateX(-90deg);
+    -moz-transform-origin    : bottom;
+    transition          : all 1.5s ease-out;
+    transform-style     : preserve-3d;
+    transform           : translate(0px,0px) rotateX(-90deg);
+    transform-origin    : bottom;
     border                      : medium solid pink;
     border                      : medium solid transparent;
 }
@@ -52,6 +72,14 @@ body {
     -webkit-transform-origin    : bottom;
     -webkit-transform-style     : preserve-3d;
     -webkit-transform           : rotateY(0deg);
+    -moz-transition          : all 0.25s;
+    -moz-transform-origin    : bottom;
+    -moz-transform-style     : preserve-3d;
+    -moz-transform           : rotateY(0deg);
+    transition          : all 0.25s;
+    transform-origin    : bottom;
+    transform-style     : preserve-3d;
+    transform           : rotateY(0deg);
 }
 
 .face::before, .face::after {
@@ -61,6 +89,8 @@ body {
     content                     : " ";
     background-size             : 100% 100%;
     -webkit-backface-visibility : hidden;
+    -moz-backface-visibility : hidden;
+    backface-visibility : hidden;
 }
 
 .face::before {
@@ -76,6 +106,8 @@ body {
     background-image            : url(img/cardBack1.png);
     background-image            : url(img/cardBack2.png);
     -webkit-transform           : rotateY(180deg);
+    -moz-transform           : rotateY(180deg);
+    transform           : rotateY(180deg);
 }
 
 
@@ -128,6 +160,8 @@ app.manualMode   = 0;
 app.autoDelay    = 3000; // delay until auto demo mode
 app.autoInterval = 5000; // auto mode delay between strolls
 
+app.minRadius = 200;
+
 app.prevX        = 0;
 app.prevY        = 0;
 app.curX         = 0;
@@ -164,13 +198,17 @@ app.handleClick = function(e) {
 }
 
 app.move = function() {
+//    var radius = 0;
+
     app.deltaX = app.curX - app.prevX;
     app.prevX = app.curX;
     app.deltaY = app.curY - app.prevY;
     app.prevY = app.curY;
-    app.rad = Math.atan2(app.deltaX, app.deltaY);
+    app.radian = Math.atan2(app.deltaX, app.deltaY);
+//    radius = Math.round(Math.sqrt( Math.pow(app.deltaX, 2)  + Math.pow(app.deltaY, 2) ) );
+
     app.card.style.WebkitTransform = 'translate(' + app.curX + 'px , ' + app.curY + 'px) rotateX(-90deg)';
-    app.face.style.WebkitTransform = 'rotateY(' + app.rad + 'rad)';
+    app.face.style.WebkitTransform = 'rotateY(' + app.radian + 'rad)';
     app.card.classList.add('walking');
 }
 

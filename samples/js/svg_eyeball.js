@@ -41,3 +41,10 @@ app.moveEyelid = function(e) {
         + ' 0,100 Q 100,' + (100 - e.target.valueAsNumber) + ' 200,100';
     app.eyelids.setAttribute('d', path);
 };
+
+app.keepBlinking = function () {
+    var minDelay = 2000;
+    var extraDelay = 3000;
+    document.querySelector('#blink').beginElement();
+    setTimeout(app.keepBlinking, (Math.floor(Math.random() * extraDelay) + minDelay));
+}

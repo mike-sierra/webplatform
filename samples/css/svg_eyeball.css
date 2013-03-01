@@ -52,3 +52,6 @@ span {
     cursor             : pointer;
 }
 
+polyline {
+    marker-end: url(#dot);
+}
