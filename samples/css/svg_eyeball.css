@@ -1,0 +1,54 @@
+body {
+    background         : #ddd;
+    font-family        : Trebuchet MS;
+}
+
+svg {
+    background         : #fff;
+}
+
+.eyelid {
+    fill               : none;
+}
+
+form {
+    margin             : 1em;
+    padding            : 1em;
+    border-radius      : 1em;
+    background         : #fff;
+}
+
+#eyelashes {
+    font-size          : 40;
+}
+
+/* pattern within eye */
+
+#pupil, #iris {
+    stop-color         : lightblue;
+    -webkit-transition : all 5s;
+}
+
+#white, #bloodshotExtent {
+    stop-color         : white;
+}
+
+#inner {
+    stop-color         : black;
+}
+
+#outer {
+    stop-color         : pink;
+}
+
+form {
+   line-height         : 2;
+}
+
+span {
+    border             : lightgreen solid medium; 
+    padding            : 0.25em; 
+    border-radius      : 0.5em; 
+    cursor             : pointer;
+}
+
