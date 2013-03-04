@@ -1,9 +1,13 @@
 #filter:empty::before {
-    content             : "DRAG FILTER EFFECTS HERE"
+    content             : "Drag filter effects here and modify their values...";
+}
+
+*[disabled] {
+    opacity: 0.5;
 }
 
 #code:empty::before {
-    content             : "SVG CODE DISPLAYS HERE"
+    content             : "..."
 }
 
 body {
@@ -70,6 +74,11 @@ input, select {
     width               : 50%;
 }
 
+input[type=number] {
+    float: none;
+    width: 3em;
+}
+
 #graphic, #code {
     position            : absolute;
     width               : 700px;
@@ -86,4 +95,18 @@ input, select {
     top                 : 550px;
     height              : initial;
     min-height          : 50px;
+}
+
+/* tab-style fieldsets */
+
+#fsColorMatrix ~ fieldset {
+    display: none;
+}
+
+#fsColorMatrix[data-value="matrix"] ~ #fsColorMatrix_matrix ,
+#fsColorMatrix[data-value="saturate"] ~ #fsColorMatrix_saturate ,
+#fsColorMatrix[data-value="hueRotate"] ~ #fsColorMatrix_hue ,
+#fsColorMatrix[data-value="luminanceToAlpha"] ~ #fsColorMatrix_luminance
+{
+    display: block;
 }

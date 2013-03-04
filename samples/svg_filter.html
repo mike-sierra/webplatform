@@ -4,13 +4,13 @@
 
 TO DO:
 
-* prefix/suffix support
+* support prefix/suffix values
 
-* disable controls in effects templates
+% support >1 compound value
 
-# build nested tags from nested details blocks
+* disable controls in effects templates?
 
-% build multivalue matrixes
+# build nested tags from nested details regions
 
 -->
 
@@ -28,7 +28,7 @@ TO DO:
 <details id="feImage">
 <summary>feImage</summary>
 <label>xlink:href</label>
-<select data-attr="xlink:href">
+<select disabled data-attr="xlink:href">
     <option selected>img/Objects001.jpg</option>
     <option>img/Objects002.jpg</option>
     <option>img/Objects003.jpg</option>
@@ -43,25 +43,25 @@ TO DO:
     <option>img/Objects012.jpg</option>
 </select>
 <br/><label>result</label>
-<select class="channel" data-attr="result">
+<select disabled class="channel" data-attr="result">
 </select>
 <br/><label>width</label>
-<input type="range" data-attr="width" min="0" max="320" value="320"/>
+<input disabled type="range" data-attr="width" min="0" max="320" value="320"/>
 <br/><label>height</label>
-<input type="range" data-attr="height" min="0" max="480" value="480"/>
+<input disabled type="range" data-attr="height" min="0" max="480" value="480"/>
 </details>
 
 <details id="feBlend">
 <summary>feBlend</summary>
 <label>in</label>
-<select class="channel" data-attr="in">
+<select disabled class="channel" data-attr="in">
 </select>
 <br/><label>in2</label>
-<select class="channel" data-attr="in2">
+<select disabled class="channel" data-attr="in2">
 </select>
 
 <br/><label>mode</label>
-<select data-attr="mode">
+<select disabled data-attr="mode">
     <option selected>normal</option>
     <option>multiply</option>
     <option>screen</option>
@@ -74,53 +74,53 @@ TO DO:
 <details id="feOffset">
 <summary>feOffset</summary>
 <label>dx</label>
-<input type="range" data-attr="dx" min="-480" max="480" value="0"/>
+<input disabled type="range" data-attr="dx" min="-480" max="480" value="0"/>
 <br/><label>dy</label>
-<input type="range" data-attr="dy" min="-480" max="480" value="0"/>
+<input disabled type="range" data-attr="dy" min="-480" max="480" value="0"/>
 <br/><label>x</label>
-<input type="range" data-attr="x" min="-480" max="480" value="0"/>
+<input disabled type="range" data-attr="x" min="-480" max="480" value="0"/>
 <br/><label>y</label>
-<input type="range" data-attr="y" min="-480" max="480" value="0"/>
+<input disabled type="range" data-attr="y" min="-480" max="480" value="0"/>
 <br/><label>in</label>
-<select class="channel" data-attr="_in"></select>
+<select disabled class="channel" data-attr="_in"></select>
 <br/><label>result</label>
-<select class="channel" data-attr="_result">
+<select disabled class="channel" data-attr="_result">
 </select>
 </details>
 
 <details id="feTile">
 <summary>feTile</summary>
 <label>in</label>
-<select class="channel" data-attr="in">
+<select disabled class="channel" data-attr="in">
 </select>
 <br/><label>result</label>
-<select class="channel" data-attr="result">
+<select disabled class="channel" data-attr="result">
 </select>
 </details>
 
 <details id="feFlood">
 <summary>feFlood</summary>
 <br/><label>flood-color</label>
-<input type="color" data-attr="flood-color" value="black" />
+<input disabled type="color" data-attr="flood-color" value="black" />
 <br/><label>flood-opacity</label>
-<input type="range" data-attr="flood-opacity" min="0" max="1" value="1" step="0.1"/>
+<input disabled type="range" data-attr="flood-opacity" min="0" max="1" value="1" step="0.1"/>
 <br/><label>result</label>
-<select class="channel" data-attr="result">
+<select disabled class="channel" data-attr="result">
 </select>
 </details>
 
 <details id="feGaussianBlur">
 <summary>feGaussianBlur</summary>
 <label>stdDeviation</label>
-<input type="range" data-attr="stdDeviation" min="0" max="100" value="0"/>
+<input disabled type="range" data-attr="stdDeviation" min="0" max="100" value="0"/>
 </details>
 
 <details id="feMorphology">
 <summary>feMorphology</summary>
 <label>radius</label>
-<input type="range" data-attr="radius" min="1" max="100" value="1"/>
+<input disabled type="range" data-attr="radius" min="1" max="100" value="1"/>
 <br/><label>operator</label>
-<select data-attr="operator">
+<select disabled data-attr="operator">
     <option selected>dilate</option>
     <option>erode</option>
 </select>
@@ -129,13 +129,13 @@ TO DO:
 <details id="feTurbulence">
 <summary>feTurbulence</summary>
 <label>baseFrequency</label>
-<input type="range" data-attr="baseFrequency" min="0" max="1" step="0.01" value="0"/>
+<input disabled type="range" data-attr="baseFrequency" min="0" max="1" step="0.01" value="0"/>
 <br/><label>numOctaves</label>
-<input type="range" data-attr="numOctaves" min="0" max="10" value="1"/>
+<input disabled type="range" data-attr="numOctaves" min="0" max="10" value="1"/>
 <br/><label>seed</label>
-<input type="range" data-attr="seed" min="0" max="100" value="1"/>
+<input disabled type="range" data-attr="seed" min="0" max="100" value="1"/>
 <br/><label>type</label>
-<select data-attr="type">
+<select disabled data-attr="type">
     <option selected>fractalNoise</option>
     <option>turbulence</option>
 </select>
@@ -144,39 +144,39 @@ TO DO:
 <details id="feDisplacementMap">
 <summary>feDisplacementMap</summary>
 <label>scale</label>
-<input type="range" data-attr="scale" min="-700" max="700" value="0"/>
+<input disabled type="range" data-attr="scale" min="-700" max="700" value="0"/>
 <br/><label>xChannelSelector</label>
-<select data-attr="xChannelSelector">
+<select disabled data-attr="xChannelSelector">
     <option selected>R</option>
     <option>G</option>
     <option>B</option>
     <option>A</option>
 </select>
 <br/><label>yChannelSelector</label>
-<select data-attr="yChannelSelector">
+<select disabled data-attr="yChannelSelector">
     <option selected>R</option>
     <option>G</option>
     <option>B</option>
     <option>A</option>
 </select>
-<label>in</label>
-<select class="channel" data-attr="_in">
+<br/><label>in</label>
+<select disabled class="channel" data-attr="_in">
 </select>
 <br/><label>in2</label>
-<select class="channel" data-attr="_in2">
+<select disabled class="channel" data-attr="_in2">
 </select>
 </details>
 
 <details id="feComposite">
-<summary>@ feComposite</summary>
+<summary>feComposite</summary>
 <label>in</label>
-<select class="channel" data-attr="in">
+<select disabled class="channel" data-attr="in">
 </select>
 <br/><label>in2</label>
-<select class="channel" data-attr="in2">
+<select disabled class="channel" data-attr="in2">
 </select>
 <br/><label>operator</label>
-<select data-attr="operator">
+<select disabled data-attr="operator">
     <option selected>over</option>
     <option>in</option>
     <option>out</option>
@@ -186,50 +186,152 @@ TO DO:
 </select>
 
 <br/><label>k1</label>
-<input type="range" data-attr="k1" min="0" max="1" value="0" step="0.01"/>
+<input disabled type="range" data-attr="k1" min="0" max="1" value="0" step="0.01"/>
 <br/><label>k2</label>
-<input type="range" data-attr="k2" min="0" max="1" value="0" step="0.01"/>
+<input disabled type="range" data-attr="k2" min="0" max="1" value="0" step="0.01"/>
 <br/><label>k3</label>
-<input type="range" data-attr="k3" min="0" max="1" value="0" step="0.01"/>
+<input disabled type="range" data-attr="k3" min="0" max="1" value="0" step="0.01"/>
 <br/><label>k4</label>
-<input type="range" data-attr="k4" min="0" max="1" value="0" step="0.01"/>
+<input disabled type="range" data-attr="k4" min="0" max="1" value="0" step="0.01"/>
 
 </details>
 
 <details id="feColorMatrix">
 <summary>% feColorMatrix</summary>
-<label>values</label>
-<input type="range" data-attr="values" min="0" max="480" value="0"/>
+
 <br/><label>type</label>
-<select data-attr="type">
+<select disabled data-attr="type" id="fsColorMatrix" onchange="this.dataset.value = this.value" data-value="matrix">
     <option selected>matrix</option>
     <option>saturate</option>
     <option>hueRotate</option>
     <option>luminanceToAlpha</option>
 </select>
+
+<fieldset id="fsColorMatrix_matrix">
+<legend>values (matrix)</legend>
+
+<input disabled type="number" data-attr="values" data-component="cmx01" min="0" max="1" step="0.1" value="1"/>
+<input disabled type="number" data-attr="values" data-component="cmx02" min="0" max="1" step="0.1" value="0"/>
+<input disabled type="number" data-attr="values" data-component="cmx03" min="0" max="1" step="0.1" value="0"/>
+<input disabled type="number" data-attr="values" data-component="cmx04" min="0" max="1" step="0.1" value="0"/>
+<input disabled type="number" data-attr="values" data-component="cmx05" min="0" max="1" step="0.1" value="0"/>
+<br/>
+<input disabled type="number" data-attr="values" data-component="cmx06" min="0" max="1" step="0.1" value="0"/>
+<input disabled type="number" data-attr="values" data-component="cmx07" min="0" max="1" step="0.1" value="1"/>
+<input disabled type="number" data-attr="values" data-component="cmx08" min="0" max="1" step="0.1" value="0"/>
+<input disabled type="number" data-attr="values" data-component="cmx09" min="0" max="1" step="0.1" value="0"/>
+<input disabled type="number" data-attr="values" data-component="cmx10" min="0" max="1" step="0.1" value="0"/>
+<br/>
+<input disabled type="number" data-attr="values" data-component="cmx11" min="0" max="1" step="0.1" value="0"/>
+<input disabled type="number" data-attr="values" data-component="cmx12" min="0" max="1" step="0.1" value="0"/>
+<input disabled type="number" data-attr="values" data-component="cmx13" min="0" max="1" step="0.1" value="1"/>
+<input disabled type="number" data-attr="values" data-component="cmx14" min="0" max="1" step="0.1" value="0"/>
+<input disabled type="number" data-attr="values" data-component="cmx15" min="0" max="1" step="0.1" value="0"/>
+<br/>
+<input disabled type="number" data-attr="values" data-component="cmx16" min="0" max="1" step="0.1" value="0"/>
+<input disabled type="number" data-attr="values" data-component="cmx17" min="0" max="1" step="0.1" value="0"/>
+<input disabled type="number" data-attr="values" data-component="cmx18" min="0" max="1" step="0.1" value="0"/>
+<input disabled type="number" data-attr="values" data-component="cmx19" min="0" max="1" step="0.1" value="1"/>
+<input disabled type="number" data-attr="values" data-component="cmx20" min="0" max="1" step="0.1" value="0"/>
+
+</fieldset>
+
+<fieldset id="fsColorMatrix_saturate">
+<legend>values (saturate)</legend>
+
+<input disabled type="range" data-attr="values" min="0" max="1" step="0.05" value="0"/>
+
+<br/>[2do: BUG prevents non-matrix values from applying]
+
+</fieldset>
+
+<fieldset id="fsColorMatrix_hue">
+<legend>values (hueRotate)</legend>
+<input disabled type="range" data-attr="values" min="-360" max="360" value="0"/>
+
+<br/>[2do: BUG prevents non-matrix values from applying]
+
+</fieldset>
+
 </details>
 
 <details id="feConvolveMatrix">
-<summary>% feConvolveMatrix</summary>
-<label>kernelMatrix</label>
-<input type="range" data-attr="kernelMatrix" min="-1" max="1" value="0" step="0.01"/>
+<summary>feConvolveMatrix</summary>
+
+<!-- 2do: mechanism to vary # of matrix rows / columns? -->
+
+<label>order (2DO, BUG)<br/>(fixed at 3x3)</label>
+<input disabled type="range" data-attr="order" min="3" max="3" value="3" step="1"/>
+
+<br/>
+<label>divisor</label>
+<input disabled type="range" data-attr="divisor" min="1" max="20" value="9" step="1"/>
+
+<br/>
+<label>bias</label>
+<input disabled type="range" data-attr="bias" min="0" max="2" value="0.1" step="0.1"/>
+
+<br/>
+<label>targetX</label>
+<input disabled type="range" data-attr="targetX" min="0" max="3" value="0" step="1"/>
+
+<br/>
+<label>targetY</label>
+<input disabled type="range" data-attr="targetY" min="0" max="3" value="0" step="1"/>
+
+<br/>
+<label>kernelUnitLength</label>
+<input disabled type="range" data-attr="kernelUnitLength" min="1" max="10" value="0" step="1"/>
+
+<br/>
+<label>preserveAlpha</label>
+<select disabled data-attr="preserveAlpha">
+    <option>true</option>
+    <option>false</option>
+</select>
+
+<br/>
+<label>edgeMode</label>
+<select disabled data-attr="edgeMode">
+    <option>duplicate</option>
+    <option>wrap</option>
+    <option>none</option>
+</select>
+
+
+<fieldset>
+<legend>kernelMatrix</legend>
+<input disabled type="number" data-attr="kernelMatrix" data-component="cvmx01" min="-10" max="10" step="1" value="1"/>
+<input disabled type="number" data-attr="kernelMatrix" data-component="cvmx02" min="-10" max="10" step="1" value="0"/>
+<input disabled type="number" data-attr="kernelMatrix" data-component="cvmx03" min="-10" max="10" step="1" value="0"/>
+<br/>
+<input disabled type="number" data-attr="kernelMatrix" data-component="cvmx04" min="-10" max="10" step="1" value="0"/>
+<input disabled type="number" data-attr="kernelMatrix" data-component="cvmx05" min="-10" max="10" step="1" value="0"/>
+<input disabled type="number" data-attr="kernelMatrix" data-component="cvmx06" min="-10" max="10" step="1" value="0"/>
+<br/>
+<input disabled type="number" data-attr="kernelMatrix" data-component="cvmx07" min="-10" max="10" step="1" value="0"/>
+<input disabled type="number" data-attr="kernelMatrix" data-component="cvmx08" min="-10" max="10" step="1" value="0"/>
+<input disabled type="number" data-attr="kernelMatrix" data-component="cvmx09" min="-10" max="10" step="1" value="-1"/>
+</fieldset>
+
+
 </details>
 
 <details id="feComponentTransfer">
 <summary>#feComponentTransfer</summary>
 
 <label>in</label>
-<select class="channel" data-attr="in">
+<select disabled class="channel" data-attr="in">
 </select>
     
     <br/><label>result</label>
-    <select class="channel" data-attr="result">
+    <select disabled class="channel" data-attr="result">
     </select>
     
     <details id="feFuncR">
     <summary>#feFuncR</summary>
         <label>type</label>
-        <select data-attr="type">
+        <select disabled data-attr="type">
             <option>identity</option>
             <option>table</option>
             <option>discrete</option>
@@ -237,23 +339,23 @@ TO DO:
             <option>gamma</option>
         </select>
         <br/><label>slope</label>
-        <input type="range" data-attr="slope" min="0" max="5" step="0.1" value="1"/>
+        <input disabled type="range" data-attr="slope" min="0" max="5" step="0.1" value="1"/>
         <br/><label>intercept</label>
-        <input type="range" data-attr="intercept" min="0" max="1" step="0.1" value="0"/>
+        <input disabled type="range" data-attr="intercept" min="0" max="1" step="0.1" value="0"/>
         <br/><label>amplitude</label>
-        <input type="range" data-attr="amplitude" min="0" max="2" step="0.1" value="1"/>
+        <input disabled type="range" data-attr="amplitude" min="0" max="2" step="0.1" value="1"/>
         <br/><label>exponent</label>
-        <input type="range" data-attr="exponent" min="0" max="2" step="0.1" value="0"/>
+        <input disabled type="range" data-attr="exponent" min="0" max="2" step="0.1" value="0"/>
         <br/><label>offset</label>
-        <input type="range" data-attr="offset" min="0" max="2" step="0.1" value="0"/>
+        <input disabled type="range" data-attr="offset" min="0" max="2" step="0.1" value="0"/>
     </details>
     
     <details id="feFuncG">
     <summary>#feFuncG</summary>
         <label>FOO</label>
-        <input type="range" data-attr="foo" min="0" max="480" value="0"/>
+        <input disabled type="range" data-attr="foo" min="0" max="480" value="0"/>
         <br/><label>BAR</label>
-        <select data-attr="bar">
+        <select disabled data-attr="bar">
             <option selected>fubar</option>
             <option>barfu</option>        
         </select>
@@ -262,9 +364,9 @@ TO DO:
     <details id="feFuncB">
     <summary>#feFuncB</summary>
         <label>FOO</label>
-        <input type="range" data-attr="foo" min="0" max="480" value="0"/>
+        <input disabled type="range" data-attr="foo" min="0" max="480" value="0"/>
         <br/><label>BAR</label>
-        <select data-attr="bar">
+        <select disabled data-attr="bar">
             <option selected>fubar</option>
             <option>barfu</option>        
         </select>
@@ -273,9 +375,9 @@ TO DO:
     <details id="feFuncA">
     <summary>#feFuncA</summary>
         <label>FOO</label>
-        <input type="range" data-attr="foo" min="0" max="480" value="0"/>
+        <input disabled type="range" data-attr="foo" min="0" max="480" value="0"/>
         <br/><label>BAR</label>
-        <select data-attr="bar">
+        <select disabled data-attr="bar">
             <option selected>fubar</option>
             <option>barfu</option>        
         </select>
@@ -287,28 +389,28 @@ TO DO:
 <summary>#feDiffuseLighting</summary>
 
 <label>in</label>
-<select class="channel" data-attr="in">
+<select disabled class="channel" data-attr="in">
 </select>
 
 <br/><label>result</label>
-<select class="channel" data-attr="result">
+<select disabled class="channel" data-attr="result">
 </select>
 
 <br/><label>lighting-color</label>
-<input type="color" data-attr="lighting-color" value="yellow" />
+<input disabled type="color" data-attr="lighting-color" value="yellow" />
 
 <br/><label>surfaceScale</label>
-<input type="range" data-attr="surfaceScale" min="0" max="5" value="1" step="0.1"/>
+<input disabled type="range" data-attr="surfaceScale" min="0" max="5" value="1" step="0.1"/>
 
 <br/><label>diffuseConstant</label>
-<input type="range" data-attr="diffuseConstant" min="0" max="5" value="1" step="0.1"/>
+<input disabled type="range" data-attr="diffuseConstant" min="0" max="5" value="1" step="0.1"/>
 
 <!-- (2DO) -->
 <br/><label>kernelUnitLength</label>
-<input type="range" data-attr="kernelUnitLength" min="0" max="5" value="1" step="0.1"/>
+<input disabled type="range" data-attr="kernelUnitLength" min="0" max="5" value="1" step="0.1"/>
 
 <br/><label>BAR</label>
-<select data-attr="bar">
+<select disabled data-attr="bar">
     <option selected>fubar</option>
     <option>barfu</option>
 </select>
@@ -317,9 +419,9 @@ TO DO:
 <details id="feSpecularLighting">
 <summary>#feSpecularLighting</summary>
 <label>FOO</label>
-<input type="range" data-attr="foo" min="0" max="480" value="0"/>
+<input disabled type="range" data-attr="foo" min="0" max="480" value="0"/>
 <br/><label>BAR</label>
-<select data-attr="bar">
+<select disabled data-attr="bar">
     <option selected>fubar</option>
     <option>barfu</option>
 </select>
@@ -328,9 +430,9 @@ TO DO:
 <details id="feMerge">
 <summary>#feMerge</summary>
 <label>FOO</label>
-<input type="range" data-attr="foo" min="0" max="480" value="0"/>
+<input disabled  type="range" data-attr="foo" min="0" max="480" value="0"/>
 <br/><label>BAR</label>
-<select data-attr="bar">
+<select disabled data-attr="bar">
     <option selected>fubar</option>
     <option>barfu</option>
 </select>
