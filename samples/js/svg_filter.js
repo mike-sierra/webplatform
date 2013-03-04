@@ -15,7 +15,7 @@ window.onload = function() {
     app.initComponents();
 
     // conditional interfaces
-    app.initPanels();
+    // app.initPanels();
 
     // EFFECTS
     app.effects = document.querySelectorAll('section#effects > details');
@@ -29,7 +29,7 @@ window.onload = function() {
     app.filter.addEventListener('dragover', app.dragover);
     app.filter.addEventListener('drop', app.drop);
     // CONTROLS
-    app.filter.addEventListener('change', app.assemble); // 2DO: DOM mutation handler
+    app.filter.addEventListener('change', app.assemble);
     // DEBUG
     app.debug = document.querySelector('#code');
     // GRAPHIC
@@ -63,15 +63,38 @@ app.initSelect = function() {
 };
 
 app.initPanels = function() {
+
+    // console.log( document.querySelector("#fsColorMatrix") );
+    // document.querySelector("#fsColorMatrix").addEventListener('change', app.changePanel);
+
+    // <select disabled data-attr="type" id="fsColorMatrix" onchange="this.dataset.value = this.value" data-value="matrix">
         // onchange="this.dataset.value = this.value" 
 
 };
 
+app.changePanel = function(el) {
+    var p = el.parentNode;
+    var fs = p.querySelectorAll('fieldset');
+    var tgt;
+    el.dataset.value = el.value;
+    for (var i = 0, l = fs.length; i < l; i++) {
+        // fs[i].dataset.enabled = 'no';
+    }    
+    tgt = document.getElementById(el.id + "_" + el.value);
+    
+    // console.log(tgt.tagName);
+    tgt.dataset.enabled = 'yes';
+    // console.log(tgt);
+    // console.log(el.id);
+    // console.log(el.value);
+}
+
+
 app.initComponents = function() {
 
-    // When an attribute requires a series of more than one value,
-    // these are called components. The component 'map' identifies
-    // what other component IDs are associated with the current input.
+    // For attributes requiring a series of more than one value, these
+    // are called components. The component 'map' identifies sequence
+    // of other component IDs associated with the current input's.
     // The 'value' caches the component's value for each input.
 
     app.component = {};
@@ -117,6 +140,7 @@ app.drop = function(e) {
     }
     el.dataset.tag = el.id;
     el.removeAttribute('id');
+    el.removeAttribute('draggable');
     el.addEventListener('change', app.modify);
     el.addEventListener('click', app.removeEffect);
     e.currentTarget.appendChild(el);
@@ -143,8 +167,16 @@ app.modify = function(e) {
     var ctrls = e.currentTarget.querySelectorAll('*[data-attr]');
     var comp;
     var myComponents = false;
+
+    // console.log(input.parentNode.tagName);
+    // console.log(input.parentNode.dataset.enabled);
+
     panel.dataset.markup = '<' + panel.dataset.tag;
+
     for (var i = 0, l = ctrls.length; i < l; i++) {
+
+
+        // special case: input is component of larger attribute
         if (ctrls[i].dataset.component) {
             app.component.value[input.dataset.component] = input.value;
             if (myComponents) break;
@@ -154,7 +186,9 @@ app.modify = function(e) {
                 panel.dataset.markup += app.component.value[ myComponents[inner]] + ' ';
             }
             panel.dataset.markup += '"';
-        } else {
+        } 
+        // default case: input directly corresponds to attribute output
+        else {
             panel.dataset.markup += ' ' + ctrls[i].dataset.attr + '="' + ctrls[i].value + '"';
         }
     }

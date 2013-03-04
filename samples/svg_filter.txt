@@ -1,0 +1,14 @@
+BUGS:
+
+* once dragged, disable draggable
+
+* enable fsColorMatrix saturate & hueRotate
+
+* feConvolveMatrix fixed at 3x3
+
+WISHES:
+
+* localStorage to cache state
+
+* drag/drop to re-order
+

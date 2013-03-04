@@ -1,19 +1,5 @@
 <!DOCTYPE HTML>
 
-<!--
-
-TO DO:
-
-* support prefix/suffix values
-
-% support >1 compound value
-
-* disable controls in effects templates?
-
-# build nested tags from nested details regions
-
--->
-
 <html>
 <head>
 <title>drag & drop SVG filter builder</title>
@@ -177,12 +163,12 @@ TO DO:
 </select>
 <br/><label>operator</label>
 <select disabled data-attr="operator">
-    <option selected>over</option>
+    <option>over</option>
     <option>in</option>
     <option>out</option>
     <option>atop</option>
     <option>xor</option>
-    <option>arithmetic</option>
+    <option selected>arithmetic</option>
 </select>
 
 <br/><label>k1</label>
@@ -200,7 +186,7 @@ TO DO:
 <summary>% feColorMatrix</summary>
 
 <br/><label>type</label>
-<select disabled data-attr="type" id="fsColorMatrix" onchange="this.dataset.value = this.value" data-value="matrix">
+<select disabled data-attr="type" id="fsColorMatrix" onchange="app.changePanel(this)" data-onchange="this.dataset.value = this.value" data-value="matrix">
     <option selected>matrix</option>
     <option>saturate</option>
     <option>hueRotate</option>
@@ -245,7 +231,7 @@ TO DO:
 
 </fieldset>
 
-<fieldset id="fsColorMatrix_hue">
+<fieldset id="fsColorMatrix_hueRotate">
 <legend>values (hueRotate)</legend>
 <input disabled type="range" data-attr="values" min="-360" max="360" value="0"/>
 
@@ -258,9 +244,7 @@ TO DO:
 <details id="feConvolveMatrix">
 <summary>feConvolveMatrix</summary>
 
-<!-- 2do: mechanism to vary # of matrix rows / columns? -->
-
-<label>order (2DO, BUG)<br/>(fixed at 3x3)</label>
+<label>order</label>
 <input disabled type="range" data-attr="order" min="3" max="3" value="3" step="1"/>
 
 <br/>
@@ -405,7 +389,6 @@ TO DO:
 <br/><label>diffuseConstant</label>
 <input disabled type="range" data-attr="diffuseConstant" min="0" max="5" value="1" step="0.1"/>
 
-<!-- (2DO) -->
 <br/><label>kernelUnitLength</label>
 <input disabled type="range" data-attr="kernelUnitLength" min="0" max="5" value="1" step="0.1"/>
 

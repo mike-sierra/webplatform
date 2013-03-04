@@ -7,7 +7,7 @@
 }
 
 #code:empty::before {
-    content             : "..."
+    content             : "...and see the SVG filter code here"
 }
 
 body {
@@ -105,8 +105,8 @@ input[type=number] {
 
 #fsColorMatrix[data-value="matrix"] ~ #fsColorMatrix_matrix ,
 #fsColorMatrix[data-value="saturate"] ~ #fsColorMatrix_saturate ,
-#fsColorMatrix[data-value="hueRotate"] ~ #fsColorMatrix_hue ,
-#fsColorMatrix[data-value="luminanceToAlpha"] ~ #fsColorMatrix_luminance
+#fsColorMatrix[data-value="hueRotate"] ~ #fsColorMatrix_hueRotate ,
+#fsColorMatrix[data-value="luminanceToAlpha"] ~ #fsColorMatrix_luminanceToAlpha
 {
     display: block;
 }
