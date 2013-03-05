@@ -1,5 +1,5 @@
 #filter:empty::before {
-    content             : "Drag filter effects here and modify their values...";
+    content             : "Drag filter effects here and modify their values";
 }
 
 *[disabled] {
@@ -7,7 +7,7 @@
 }
 
 #code:empty::before {
-    content             : "...and see the SVG filter code here"
+    content             : "See the SVG filter code here"
 }
 
 body {
@@ -47,8 +47,6 @@ section#filter {
     user-select         : none;
 }
 
-
-
 details {
     font-size           : small;
     line-height         : 2;
@@ -79,20 +77,24 @@ input[type=number] {
     width: 3em;
 }
 
-#graphic, #code {
+#graphic, #code, #options {
     position            : absolute;
     width               : 700px;
     height              : 500px;
     left                : 650px;
-    top                 : 1em;
+    top                 : 3em;
     padding             : 0.5em;
     border-radius       : 0.5em;
     background          : #fff;
 }
 
-#code {
+#options {
+    top                 : 0.5em;
+}
+
+#code  {
     overflow            : scroll;
-    top                 : 550px;
+    top                 : 570px;
     height              : initial;
     min-height          : 50px;
 }
@@ -103,10 +105,40 @@ input[type=number] {
     display: none;
 }
 
+#fsColorMatrix ~ fieldset.channelPanel,
+#fsColorMatrix ~ fieldset.subregionPanel {
+    display: block;
+}
+
 #fsColorMatrix[data-value="matrix"] ~ #fsColorMatrix_matrix ,
 #fsColorMatrix[data-value="saturate"] ~ #fsColorMatrix_saturate ,
 #fsColorMatrix[data-value="hueRotate"] ~ #fsColorMatrix_hueRotate ,
 #fsColorMatrix[data-value="luminanceToAlpha"] ~ #fsColorMatrix_luminanceToAlpha
 {
     display: block;
+}
+
+header {
+       background: #fff;
+}
+
+header > select, header > input {
+       float: none;
+       width: auto;
+}
+
+body .channelPanel,
+body .subregionPanel {
+     display: none;
+}
+
+body.showChannels .channelPanel,
+body.showSubregions .subregionPanel {
+     display: block;
+}
+
+fieldset {
+    border-radius: 0.5em;
+    margin: 0.5em;
+    padding: 0.5em;
 }

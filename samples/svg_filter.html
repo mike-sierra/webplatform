@@ -6,8 +6,7 @@
 <link href='css/svg_filter.css' type='text/css' rel='stylesheet'/>
 </head>
 
-
-<body>
+<body  class="showChannels showSubregions">
 
 <section id="effects">
 
@@ -63,15 +62,26 @@
 <input disabled type="range" data-attr="dx" min="-480" max="480" value="0"/>
 <br/><label>dy</label>
 <input disabled type="range" data-attr="dy" min="-480" max="480" value="0"/>
-<br/><label>x</label>
-<input disabled type="range" data-attr="x" min="-480" max="480" value="0"/>
-<br/><label>y</label>
-<input disabled type="range" data-attr="y" min="-480" max="480" value="0"/>
-<br/><label>in</label>
-<select disabled class="channel" data-attr="_in"></select>
+
+<fieldset class="channelPanel">
+<label>in</label>
+<select disabled class="channel" data-attr="in"></select>
 <br/><label>result</label>
-<select disabled class="channel" data-attr="_result">
+<select disabled class="channel" data-attr="result">
 </select>
+</fieldset>
+
+<fieldset class="subregionPanel">
+<label>x</label>
+<input class="subregion" disabled type="range" data-attr="x" min="-480" max="480" value="0"/>
+<br/><label>y</label>
+<input class="subregion" disabled type="range" data-attr="y" min="-480" max="480" value="0"/>
+<br/><label>width</label>
+<input class="subregion" disabled type="range" data-attr="width" min="0" max="320" value="320"/>
+<br/><label>height</label>
+<input class="subregion" disabled type="range" data-attr="height" min="0" max="480" value="480"/>
+</fieldset>
+
 </details>
 
 <details id="feTile">
@@ -86,7 +96,7 @@
 
 <details id="feFlood">
 <summary>feFlood</summary>
-<br/><label>flood-color</label>
+<label>flood-color</label>
 <input disabled type="color" data-attr="flood-color" value="black" />
 <br/><label>flood-opacity</label>
 <input disabled type="range" data-attr="flood-opacity" min="0" max="1" value="1" step="0.1"/>
@@ -97,8 +107,30 @@
 
 <details id="feGaussianBlur">
 <summary>feGaussianBlur</summary>
+
 <label>stdDeviation</label>
 <input disabled type="range" data-attr="stdDeviation" min="0" max="100" value="0"/>
+
+<fieldset class="channelPanel">
+<label>in</label>
+<select disabled class="channel" data-attr="in">
+</select>
+<br/><label>result</label>
+<select disabled class="channel" data-attr="result">
+</select>
+</fieldset>
+
+<fieldset class="subregionPanel">
+<label>x</label>
+<input class="subregion" disabled type="range" data-attr="x" min="-480" max="480" value="0"/>
+<br/><label>y</label>
+<input class="subregion" disabled type="range" data-attr="y" min="-480" max="480" value="0"/>
+<br/><label>width</label>
+<input class="subregion" disabled type="range" data-attr="width" min="0" max="320" value="320"/>
+<br/><label>height</label>
+<input class="subregion" disabled type="range" data-attr="height" min="0" max="480" value="480"/>
+</fieldset>
+
 </details>
 
 <details id="feMorphology">
@@ -110,14 +142,36 @@
     <option selected>dilate</option>
     <option>erode</option>
 </select>
+
+<fieldset class="channelPanel">
+<label>in</label>
+<select disabled class="channel" data-attr="in"></select>
+<br/><label>result</label>
+<select disabled class="channel" data-attr="result">
+</select>
+</fieldset>
+
+<fieldset class="subregionPanel">
+<label>x</label>
+<input class="subregion" disabled type="range" data-attr="x" min="-480" max="480" value="0"/>
+<br/><label>y</label>
+<input class="subregion" disabled type="range" data-attr="y" min="-480" max="480" value="0"/>
+<br/><label>width</label>
+<input class="subregion" disabled type="range" data-attr="width" min="0" max="320" value="320"/>
+<br/><label>height</label>
+<input class="subregion" disabled type="range" data-attr="height" min="0" max="480" value="480"/>
+</fieldset>
+
+
+
 </details>
 
 <details id="feTurbulence">
 <summary>feTurbulence</summary>
 <label>baseFrequency</label>
-<input disabled type="range" data-attr="baseFrequency" min="0" max="1" step="0.01" value="0"/>
+<input disabled type="range" data-attr="baseFrequency" min="0" max="1" step="0.01" value="0.1"/>
 <br/><label>numOctaves</label>
-<input disabled type="range" data-attr="numOctaves" min="0" max="10" value="1"/>
+<input disabled type="range" data-attr="numOctaves" min="0" max="6" value="1"/>
 <br/><label>seed</label>
 <input disabled type="range" data-attr="seed" min="0" max="100" value="1"/>
 <br/><label>type</label>
@@ -125,6 +179,28 @@
     <option selected>fractalNoise</option>
     <option>turbulence</option>
 </select>
+
+<fieldset class="channelPanel">
+<label>in</label>
+<select disabled class="channel" data-attr="in"></select>
+<br/><label>result</label>
+<select disabled class="channel" data-attr="result">
+</select>
+</fieldset>
+
+<fieldset class="subregionPanel">
+<label>x</label>
+<input class="subregion" disabled type="range" data-attr="x" min="-480" max="480" value="0"/>
+<br/><label>y</label>
+<input class="subregion" disabled type="range" data-attr="y" min="-480" max="480" value="0"/>
+<br/><label>width</label>
+<input class="subregion" disabled type="range" data-attr="width" min="0" max="320" value="320"/>
+<br/><label>height</label>
+<input class="subregion" disabled type="range" data-attr="height" min="0" max="480" value="480"/>
+</fieldset>
+
+
+
 </details>
 
 <details id="feDisplacementMap">
@@ -145,23 +221,45 @@
     <option>B</option>
     <option>A</option>
 </select>
-<br/><label>in</label>
-<select disabled class="channel" data-attr="_in">
-</select>
+
+<fieldset class="channelPanel">
+<label>in</label>
+<select disabled class="channel" data-attr="in"></select>
 <br/><label>in2</label>
-<select disabled class="channel" data-attr="_in2">
+<select disabled class="channel" data-attr="in2"></select>
+<br/><label>result</label>
+<select disabled class="channel" data-attr="result">
 </select>
+</fieldset>
+
+<fieldset class="subregionPanel">
+<label>x</label>
+<input class="subregion" disabled type="range" data-attr="x" min="-480" max="480" value="0"/>
+<br/><label>y</label>
+<input class="subregion" disabled type="range" data-attr="y" min="-480" max="480" value="0"/>
+<br/><label>width</label>
+<input class="subregion" disabled type="range" data-attr="width" min="0" max="320" value="320"/>
+<br/><label>height</label>
+<input class="subregion" disabled type="range" data-attr="height" min="0" max="480" value="480"/>
+</fieldset>
+
+
+
 </details>
 
 <details id="feComposite">
 <summary>feComposite</summary>
+
 <label>in</label>
 <select disabled class="channel" data-attr="in">
 </select>
 <br/><label>in2</label>
 <select disabled class="channel" data-attr="in2">
 </select>
-<br/><label>operator</label>
+
+
+<br/>
+<label>operator</label>
 <select disabled data-attr="operator">
     <option>over</option>
     <option>in</option>
@@ -180,12 +278,38 @@
 <br/><label>k4</label>
 <input disabled type="range" data-attr="k4" min="0" max="1" value="0" step="0.01"/>
 
+<fieldset class="channelPanel">
+<label>result</label>
+<select disabled class="channel" data-attr="result">
+</select>
+</fieldset>
+
 </details>
 
-<details id="feColorMatrix">
-<summary>% feColorMatrix</summary>
+<details id="feColorMatrix" data-topic="matrix">
+<summary>feColorMatrix</summary>
 
-<br/><label>type</label>
+<fieldset class="channelPanel">
+<label>in</label>
+<select disabled class="channel" data-attr="in"></select>
+<br/><label>result</label>
+<select disabled class="channel" data-attr="result">
+</select>
+</fieldset>
+
+<fieldset class="subregionPanel">
+<label>x</label>
+<input class="subregion" disabled type="range" data-attr="x" min="-480" max="480" value="0"/>
+<br/><label>y</label>
+<input class="subregion" disabled type="range" data-attr="y" min="-480" max="480" value="0"/>
+<br/><label>width</label>
+<input class="subregion" disabled type="range" data-attr="width" min="0" max="320" value="320"/>
+<br/><label>height</label>
+<input class="subregion" disabled type="range" data-attr="height" min="0" max="480" value="480"/>
+</fieldset>
+
+
+<label>type</label>
 <select disabled data-attr="type" id="fsColorMatrix" onchange="app.changePanel(this)" data-onchange="this.dataset.value = this.value" data-value="matrix">
     <option selected>matrix</option>
     <option>saturate</option>
@@ -196,46 +320,42 @@
 <fieldset id="fsColorMatrix_matrix">
 <legend>values (matrix)</legend>
 
-<input disabled type="number" data-attr="values" data-component="cmx01" min="0" max="1" step="0.1" value="1"/>
-<input disabled type="number" data-attr="values" data-component="cmx02" min="0" max="1" step="0.1" value="0"/>
-<input disabled type="number" data-attr="values" data-component="cmx03" min="0" max="1" step="0.1" value="0"/>
-<input disabled type="number" data-attr="values" data-component="cmx04" min="0" max="1" step="0.1" value="0"/>
-<input disabled type="number" data-attr="values" data-component="cmx05" min="0" max="1" step="0.1" value="0"/>
+<input disabled type="number" data-attr="values" data-component="cmx01" data-topic="matrix" step="0.1" value="1"/>
+<input disabled type="number" data-attr="values" data-component="cmx02" data-topic="matrix" step="0.1" value="0"/>
+<input disabled type="number" data-attr="values" data-component="cmx03" data-topic="matrix" step="0.1" value="0"/>
+<input disabled type="number" data-attr="values" data-component="cmx04" data-topic="matrix" step="0.1" value="0"/>
+<input disabled type="number" data-attr="values" data-component="cmx05" data-topic="matrix" step="0.1" value="0"/>
 <br/>
-<input disabled type="number" data-attr="values" data-component="cmx06" min="0" max="1" step="0.1" value="0"/>
-<input disabled type="number" data-attr="values" data-component="cmx07" min="0" max="1" step="0.1" value="1"/>
-<input disabled type="number" data-attr="values" data-component="cmx08" min="0" max="1" step="0.1" value="0"/>
-<input disabled type="number" data-attr="values" data-component="cmx09" min="0" max="1" step="0.1" value="0"/>
-<input disabled type="number" data-attr="values" data-component="cmx10" min="0" max="1" step="0.1" value="0"/>
+<input disabled type="number" data-attr="values" data-component="cmx06" data-topic="matrix" step="0.1" value="0"/>
+<input disabled type="number" data-attr="values" data-component="cmx07" data-topic="matrix" step="0.1" value="1"/>
+<input disabled type="number" data-attr="values" data-component="cmx08" data-topic="matrix" step="0.1" value="0"/>
+<input disabled type="number" data-attr="values" data-component="cmx09" data-topic="matrix" step="0.1" value="0"/>
+<input disabled type="number" data-attr="values" data-component="cmx10" data-topic="matrix" step="0.1" value="0"/>
 <br/>
-<input disabled type="number" data-attr="values" data-component="cmx11" min="0" max="1" step="0.1" value="0"/>
-<input disabled type="number" data-attr="values" data-component="cmx12" min="0" max="1" step="0.1" value="0"/>
-<input disabled type="number" data-attr="values" data-component="cmx13" min="0" max="1" step="0.1" value="1"/>
-<input disabled type="number" data-attr="values" data-component="cmx14" min="0" max="1" step="0.1" value="0"/>
-<input disabled type="number" data-attr="values" data-component="cmx15" min="0" max="1" step="0.1" value="0"/>
+<input disabled type="number" data-attr="values" data-component="cmx11" data-topic="matrix" step="0.1" value="0"/>
+<input disabled type="number" data-attr="values" data-component="cmx12" data-topic="matrix" step="0.1" value="0"/>
+<input disabled type="number" data-attr="values" data-component="cmx13" data-topic="matrix" step="0.1" value="1"/>
+<input disabled type="number" data-attr="values" data-component="cmx14" data-topic="matrix" step="0.1" value="0"/>
+<input disabled type="number" data-attr="values" data-component="cmx15" data-topic="matrix" step="0.1" value="0"/>
 <br/>
-<input disabled type="number" data-attr="values" data-component="cmx16" min="0" max="1" step="0.1" value="0"/>
-<input disabled type="number" data-attr="values" data-component="cmx17" min="0" max="1" step="0.1" value="0"/>
-<input disabled type="number" data-attr="values" data-component="cmx18" min="0" max="1" step="0.1" value="0"/>
-<input disabled type="number" data-attr="values" data-component="cmx19" min="0" max="1" step="0.1" value="1"/>
-<input disabled type="number" data-attr="values" data-component="cmx20" min="0" max="1" step="0.1" value="0"/>
+<input disabled type="number" data-attr="values" data-component="cmx16" data-topic="matrix" step="0.1" value="0"/>
+<input disabled type="number" data-attr="values" data-component="cmx17" data-topic="matrix" step="0.1" value="0"/>
+<input disabled type="number" data-attr="values" data-component="cmx18" data-topic="matrix" step="0.1" value="0"/>
+<input disabled type="number" data-attr="values" data-component="cmx19" data-topic="matrix" step="0.1" value="1"/>
+<input disabled type="number" data-attr="values" data-component="cmx20" data-topic="matrix" step="0.1" value="0"/>
 
 </fieldset>
 
 <fieldset id="fsColorMatrix_saturate">
 <legend>values (saturate)</legend>
 
-<input disabled type="range" data-attr="values" min="0" max="1" step="0.05" value="0"/>
-
-<br/>[2do: BUG prevents non-matrix values from applying]
+<input disabled type="range" data-topic="saturate" data-attr="values" min="0" max="1" step="0.05" value="0"/>
 
 </fieldset>
 
 <fieldset id="fsColorMatrix_hueRotate">
 <legend>values (hueRotate)</legend>
-<input disabled type="range" data-attr="values" min="-360" max="360" value="0"/>
-
-<br/>[2do: BUG prevents non-matrix values from applying]
+<input disabled type="range" data-topic="hueRotate" data-attr="values" min="-360" max="360" value="0"/>
 
 </fieldset>
 
@@ -282,36 +402,53 @@
     <option>none</option>
 </select>
 
-
 <fieldset>
 <legend>kernelMatrix</legend>
-<input disabled type="number" data-attr="kernelMatrix" data-component="cvmx01" min="-10" max="10" step="1" value="1"/>
-<input disabled type="number" data-attr="kernelMatrix" data-component="cvmx02" min="-10" max="10" step="1" value="0"/>
-<input disabled type="number" data-attr="kernelMatrix" data-component="cvmx03" min="-10" max="10" step="1" value="0"/>
+<input disabled type="number" data-attr="kernelMatrix" data-component="cvmx01" value="1"/>
+<input disabled type="number" data-attr="kernelMatrix" data-component="cvmx02" value="0"/>
+<input disabled type="number" data-attr="kernelMatrix" data-component="cvmx03" value="0"/>
 <br/>
-<input disabled type="number" data-attr="kernelMatrix" data-component="cvmx04" min="-10" max="10" step="1" value="0"/>
-<input disabled type="number" data-attr="kernelMatrix" data-component="cvmx05" min="-10" max="10" step="1" value="0"/>
-<input disabled type="number" data-attr="kernelMatrix" data-component="cvmx06" min="-10" max="10" step="1" value="0"/>
+<input disabled type="number" data-attr="kernelMatrix" data-component="cvmx04" value="0"/>
+<input disabled type="number" data-attr="kernelMatrix" data-component="cvmx05" value="0"/>
+<input disabled type="number" data-attr="kernelMatrix" data-component="cvmx06" value="0"/>
 <br/>
-<input disabled type="number" data-attr="kernelMatrix" data-component="cvmx07" min="-10" max="10" step="1" value="0"/>
-<input disabled type="number" data-attr="kernelMatrix" data-component="cvmx08" min="-10" max="10" step="1" value="0"/>
-<input disabled type="number" data-attr="kernelMatrix" data-component="cvmx09" min="-10" max="10" step="1" value="-1"/>
+<input disabled type="number" data-attr="kernelMatrix" data-component="cvmx07" value="0"/>
+<input disabled type="number" data-attr="kernelMatrix" data-component="cvmx08" value="0"/>
+<input disabled type="number" data-attr="kernelMatrix" data-component="cvmx09" value="-1"/>
 </fieldset>
 
+<fieldset class="subregionPanel">
+<label>x</label>
+<input class="subregion" disabled type="range" data-attr="x" min="-480" max="480" value="0"/>
+<br/><label>y</label>
+<input class="subregion" disabled type="range" data-attr="y" min="-480" max="480" value="0"/>
+<br/><label>width</label>
+<input class="subregion" disabled type="range" data-attr="width" min="0" max="320" value="320"/>
+<br/><label>height</label>
+<input class="subregion" disabled type="range" data-attr="height" min="0" max="480" value="480"/>
+</fieldset>
+
+<fieldset class="channelPanel">
+<label>in</label>
+<select disabled class="channel" data-attr="in"></select>
+<br/><label>result</label>
+<select disabled class="channel" data-attr="result">
+</fieldset>
 
 </details>
 
 <details id="feComponentTransfer">
 <summary>#feComponentTransfer</summary>
 
+<fieldset class="channelPanel">
 <label>in</label>
 <select disabled class="channel" data-attr="in">
 </select>
-    
-    <br/><label>result</label>
-    <select disabled class="channel" data-attr="result">
-    </select>
-    
+<br/><label>result</label>
+<select disabled class="channel" data-attr="result">
+</select>
+</fieldset>
+
     <details id="feFuncR">
     <summary>#feFuncR</summary>
         <label>type</label>
@@ -333,7 +470,7 @@
         <br/><label>offset</label>
         <input disabled type="range" data-attr="offset" min="0" max="2" step="0.1" value="0"/>
     </details>
-    
+
     <details id="feFuncG">
     <summary>#feFuncG</summary>
         <label>FOO</label>
@@ -341,10 +478,10 @@
         <br/><label>BAR</label>
         <select disabled data-attr="bar">
             <option selected>fubar</option>
-            <option>barfu</option>        
+            <option>barfu</option>
         </select>
     </details>
-    
+
     <details id="feFuncB">
     <summary>#feFuncB</summary>
         <label>FOO</label>
@@ -352,10 +489,10 @@
         <br/><label>BAR</label>
         <select disabled data-attr="bar">
             <option selected>fubar</option>
-            <option>barfu</option>        
+            <option>barfu</option>
         </select>
     </details>
-    
+
     <details id="feFuncA">
     <summary>#feFuncA</summary>
         <label>FOO</label>
@@ -363,7 +500,7 @@
         <br/><label>BAR</label>
         <select disabled data-attr="bar">
             <option selected>fubar</option>
-            <option>barfu</option>        
+            <option>barfu</option>
         </select>
     </details>
 
@@ -372,15 +509,7 @@
 <details id="feDiffuseLighting">
 <summary>#feDiffuseLighting</summary>
 
-<label>in</label>
-<select disabled class="channel" data-attr="in">
-</select>
-
-<br/><label>result</label>
-<select disabled class="channel" data-attr="result">
-</select>
-
-<br/><label>lighting-color</label>
+<label>lighting-color</label>
 <input disabled type="color" data-attr="lighting-color" value="yellow" />
 
 <br/><label>surfaceScale</label>
@@ -397,6 +526,27 @@
     <option selected>fubar</option>
     <option>barfu</option>
 </select>
+
+<fieldset class="channelPanel">
+<label>in</label>
+<select disabled class="channel" data-attr="in"></select>
+<br/><label>result</label>
+<select disabled class="channel" data-attr="result">
+</select>
+</fieldset>
+
+<fieldset class="subregionPanel">
+<label>x</label>
+<input class="subregion" disabled type="range" data-attr="x" min="-480" max="480" value="0"/>
+<br/><label>y</label>
+<input class="subregion" disabled type="range" data-attr="y" min="-480" max="480" value="0"/>
+<br/><label>width</label>
+<input class="subregion" disabled type="range" data-attr="width" min="0" max="320" value="320"/>
+<br/><label>height</label>
+<input class="subregion" disabled type="range" data-attr="height" min="0" max="480" value="480"/>
+</fieldset>
+
+
 </details>
 
 <details id="feSpecularLighting">
@@ -408,6 +558,27 @@
     <option selected>fubar</option>
     <option>barfu</option>
 </select>
+
+<fieldset class="channelPanel">
+<label>in</label>
+<select disabled class="channel" data-attr="in"></select>
+<br/><label>result</label>
+<select disabled class="channel" data-attr="result">
+</select>
+</fieldset>
+
+<fieldset class="subregionPanel">
+<label>x</label>
+<input class="subregion" disabled type="range" data-attr="x" min="-480" max="480" value="0"/>
+<br/><label>y</label>
+<input class="subregion" disabled type="range" data-attr="y" min="-480" max="480" value="0"/>
+<br/><label>width</label>
+<input class="subregion" disabled type="range" data-attr="width" min="0" max="320" value="320"/>
+<br/><label>height</label>
+<input class="subregion" disabled type="range" data-attr="height" min="0" max="480" value="480"/>
+</fieldset>
+
+
 </details>
 
 <details id="feMerge">
@@ -419,11 +590,29 @@
     <option selected>fubar</option>
     <option>barfu</option>
 </select>
+
+<details id="feMergeNode">
+<summary>#feMergeNode</summary>
+<label>FOO</label>
+<input disabled  type="range" data-attr="foo" min="0" max="480" value="0"/>
+<br/><label>BAR</label>
+<select disabled data-attr="bar">
+    <option selected>fubar</option>
+    <option>barfu</option>
+</select>
 </details>
 
-<label>source image</label>
+</details>
 
-<select onchange="app.img=this.value;app.assemble()">
+</section>
+
+<section id="filter"></section>
+
+<header id="options">
+
+<label>Choose graphic:</label>
+
+<select id="selectGraphic" onchange="app.img=this.value;app.assemble()">
     <option selected>001</option>
     <option>002</option>
     <option>003</option>
@@ -438,11 +627,18 @@
     <option>012</option>
 </select>
 
-</section>
+<label>Show optional channels?</label>
 
-<section id="filter"></section>
+<input checked type="checkbox" id="selectChannelMode" onchange="document.body.classList.toggle('showChannels')"/>
+
+<label>Show subregion controls?</label>
+
+<input checked type="checkbox" id="selectSubregionMode" onchange="document.body.classList.toggle('showSubregions')"/>
+
+</header>
 
 <section id="graphic">
+
 <svg>
 <defs>
 <filter id="F">

@@ -52,10 +52,13 @@ app.browserSupport = function() {
 
 app.initSelect = function() {
     var sel = document.querySelectorAll('.channel');
-    var markup;
-    for (var i = 0, l = sel.length; i<l; i++) {
-        markup = '<option selected>SourceAlpha</option><option>SourceGraphic</option><option>BackgroundAlpha</option><option>BackgroundGraphic</option><option>fillPaint</option><option>strokePaint</option>';
-        for (var n = 1; n < 10; n++) {
+    var markup = '';
+    for (var i = 0, l = sel.length; i < l; i++) {
+        markup = '';
+        if (sel[i].dataset.attr != 'result') {
+            markup = '<option selected>SourceAlpha</option><option selected>SourceGraphic</option><option>BackgroundAlpha</option><option>BackgroundImage</option><option>fillPaint</option><option>strokePaint</option>';
+        }
+        for (var n = 1; n < 5; n++) {
             markup += '<option>channel' + n + '</option>';
         }
         sel[i].innerHTML = markup;
@@ -64,31 +67,12 @@ app.initSelect = function() {
 
 app.initPanels = function() {
 
-    // console.log( document.querySelector("#fsColorMatrix") );
-    // document.querySelector("#fsColorMatrix").addEventListener('change', app.changePanel);
-
-    // <select disabled data-attr="type" id="fsColorMatrix" onchange="this.dataset.value = this.value" data-value="matrix">
-        // onchange="this.dataset.value = this.value" 
-
 };
 
 app.changePanel = function(el) {
-    var p = el.parentNode;
-    var fs = p.querySelectorAll('fieldset');
-    var tgt;
     el.dataset.value = el.value;
-    for (var i = 0, l = fs.length; i < l; i++) {
-        // fs[i].dataset.enabled = 'no';
-    }    
-    tgt = document.getElementById(el.id + "_" + el.value);
-    
-    // console.log(tgt.tagName);
-    tgt.dataset.enabled = 'yes';
-    // console.log(tgt);
-    // console.log(el.id);
-    // console.log(el.value);
+    el.parentNode.dataset.topic = el.value;
 }
-
 
 app.initComponents = function() {
 
@@ -105,7 +89,8 @@ app.initComponents = function() {
     var strings = [
                    'cmx01 cmx02 cmx03 cmx04 cmx05 cmx06 cmx07 cmx08 cmx09 cmx10 cmx11 cmx12 cmx13 cmx14 cmx15 cmx16 cmx17 cmx18 cmx19 cmx20',
 
-                   'cvmx01 cvmx02 cvmx03 cvmx04 cvmx05 cvmx06 cvmx07 cvmx08 cvmx09'
+                   'cvmx01 cvmx02 cvmx03 cvmx04 cvmx05 cvmx06 cvmx07 cvmx08 cvmx09',
+                   'blurX blurY'
 
              ];
 
@@ -124,7 +109,6 @@ app.initComponents = function() {
     }
 
 };
-
 
 app.d = function(s) {
     app.debug.textContent = s;
@@ -168,13 +152,13 @@ app.modify = function(e) {
     var comp;
     var myComponents = false;
 
-    // console.log(input.parentNode.tagName);
-    // console.log(input.parentNode.dataset.enabled);
-
     panel.dataset.markup = '<' + panel.dataset.tag;
 
     for (var i = 0, l = ctrls.length; i < l; i++) {
 
+        if (ctrls[i].dataset.topic) {
+            if (ctrls[i].dataset.topic != panel.dataset.topic) continue;
+        }
 
         // special case: input is component of larger attribute
         if (ctrls[i].dataset.component) {
@@ -186,7 +170,7 @@ app.modify = function(e) {
                 panel.dataset.markup += app.component.value[ myComponents[inner]] + ' ';
             }
             panel.dataset.markup += '"';
-        } 
+        }
         // default case: input directly corresponds to attribute output
         else {
             panel.dataset.markup += ' ' + ctrls[i].dataset.attr + '="' + ctrls[i].value + '"';
@@ -242,10 +226,10 @@ HashTable.prototype = {
 
 // var object1 = new Object();
 // var object2 = new Object();
-// 
+//
 // var myHash = new HashTable();
-// 
+//
 // myHash.put(object1, "value1");
 // myHash.put(object2, "value2");
-// 
+//
 // alert(myHash.get(object1), myHash.get(object2)); // I wish that it will print value1 value2
