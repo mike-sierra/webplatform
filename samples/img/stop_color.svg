@@ -5,6 +5,13 @@
      width="792px" height="612px" xml:space="preserve">
 
 
+<defs>
+<filter id="F">
+<feTurbulence baseFrequency="0.06" numOctaves="5" seed="1" type="fractalNoise"></feTurbulence>
+</filter>
+
+</defs>
+
 	<g transform="translate(-280,-170)" id="foo">
 		<g>
 			<path d="M320.565,385.609c0,0-2.426,35.944-2.479,38.857c-0.054,2.912,6.047,4.252,6.613,0

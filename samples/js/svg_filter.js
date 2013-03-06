@@ -74,7 +74,9 @@ app.initSelect = function() {
     for (var i = 0, l = sel.length; i < l; i++) {
         markup = '';
         if (sel[i].dataset.attr != 'result') {
-            markup = '<option selected>SourceAlpha</option><option selected>SourceGraphic</option><option>BackgroundAlpha</option><option>BackgroundImage</option><option>fillPaint</option><option>strokePaint</option>';
+            markup += '<option selected>SourceAlpha</option><option selected>SourceGraphic</option>';
+            markup += '<option>fillPaint</option><option>strokePaint</option>';
+            //            markup += '<option>BackgroundAlpha</option><option>BackgroundImage</option>';
         }
         for (var n = 1; n < 5; n++) {
             markup += '<option>channel' + n + '</option>';
