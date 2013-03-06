@@ -365,11 +365,11 @@
 <summary>feConvolveMatrix</summary>
 
 <label>order</label>
-<input disabled type="range" data-attr="order" min="3" max="3" value="3" step="1"/>
+<input disabled type="range" data-attr="order" min="3" max="3" value="3"/>
 
 <br/>
 <label>divisor</label>
-<input disabled type="range" data-attr="divisor" min="1" max="20" value="9" step="1"/>
+<input disabled type="range" data-attr="divisor" min="1" max="20" value="9"/>
 
 <br/>
 <label>bias</label>
@@ -377,15 +377,15 @@
 
 <br/>
 <label>targetX</label>
-<input disabled type="range" data-attr="targetX" min="0" max="3" value="0" step="1"/>
+<input disabled type="range" data-attr="targetX" min="0" max="3" value="0"/>
 
 <br/>
 <label>targetY</label>
-<input disabled type="range" data-attr="targetY" min="0" max="3" value="0" step="1"/>
+<input disabled type="range" data-attr="targetY" min="0" max="3" value="0"/>
 
 <br/>
 <label>kernelUnitLength</label>
-<input disabled type="range" data-attr="kernelUnitLength" min="1" max="10" value="0" step="1"/>
+<input disabled type="range" data-attr="kernelUnitLength" min="1" max="10" value="0"/>
 
 <br/>
 <label>preserveAlpha</label>
@@ -439,7 +439,7 @@
 </details>
 
 <details id="feComponentTransfer">
-<summary>#feComponentTransfer</summary>
+<summary>feComponentTransfer</summary>
 
 <fieldset class="channelPanel">
 <label>in</label>
@@ -451,7 +451,7 @@
 </fieldset>
 
     <details id="feFuncR" data-tag="feFuncR" data-markup="<feFuncR/>">
-    <summary>#feFuncR</summary>
+    <summary>feFuncR</summary>
         <label>type</label>
         <select disabled data-attr="type">
             <option>identity</option>
@@ -475,7 +475,7 @@
     </details>
 
     <details id="feFuncG" data-tag="feFuncG" data-markup="<feFuncG/>">
-    <summary>#feFuncG</summary>
+    <summary>feFuncG</summary>
         <label>type</label>
         <select disabled data-attr="type">
             <option>identity</option>
@@ -499,7 +499,7 @@
     </details>
 
     <details id="feFuncB" data-tag="feFuncB" data-markup="<feFuncB/>">
-    <summary>#feFuncB</summary>
+    <summary>feFuncB</summary>
         <label>type</label>
         <select disabled data-attr="type">
             <option>identity</option>
@@ -523,7 +523,7 @@
     </details>
 
     <details id="feFuncA" data-tag="feFuncA" data-markup="<feFuncA/>">
-    <summary>#feFuncA</summary>
+    <summary>feFuncA</summary>
         <label>type</label>
         <select disabled data-attr="type">
             <option>identity</option>
@@ -549,7 +549,40 @@
 </details>
 
 <details id="feDiffuseLighting">
-<summary>#feDiffuseLighting</summary>
+<summary>feDiffuseLighting</summary>
+
+
+    <details data-tag="fePointLight" data-markup="<fePointLight/>">
+    <summary>light source</summary>
+    <label>(type)</label>
+    <select disabled onchange="this.parentNode.dataset.tag = this.value">
+      <option>fePointLight</option>
+      <option>feDistantLight</option>
+      <option>feSpotLight</option>
+    </select>
+    <br/><label>azimuth</label>
+    <input disabled type="range" data-attr="azimuth" min="0" max="480" value="100"/>
+    <br/><label>elevation</label>
+    <input disabled type="range" data-attr="elevation" min="0" max="480" value="100"/>
+    <br/><label>x</label>
+    <input disabled type="range" data-attr="x" min="-480" max="480" value="100"/>
+    <br/><label>y</label>
+    <input disabled type="range" data-attr="y" min="-480" max="480" value="100"/>
+    <br/><label>z</label>
+    <input disabled type="range" data-attr="z" min="-480" max="480" value="100"/>
+    <br/><label>pointsAtX</label>
+    <input disabled type="range" data-attr="pointsAtX" min="-480" max="480" value="100"/>
+    <br/><label>pointsAtY</label>
+    <input disabled type="range" data-attr="pointsAtY" min="-480" max="480" value="100"/>
+    <br/><label>pointsAtZ</label>
+    <input disabled type="range" data-attr="pointsAtZ" min="-480" max="480" value="100"/>
+    <br/><label>specularExponent</label>
+    <input disabled type="range" data-attr="specularExponent" min="1" max="5" value="1"/>
+    <br/><label>limitingConeAngle</label>
+    <input disabled type="range" data-attr="limitingConeAngle" min="0" max="360" value="0"/>
+    </details>
+
+
 
 <label>lighting-color</label>
 <input disabled type="color" data-attr="lighting-color" value="yellow" />
@@ -562,12 +595,6 @@
 
 <br/><label>kernelUnitLength</label>
 <input disabled type="range" data-attr="kernelUnitLength" min="0" max="5" value="1" step="0.1"/>
-
-<br/><label>BAR</label>
-<select disabled data-attr="bar">
-    <option selected>fubar</option>
-    <option>barfu</option>
-</select>
 
 <fieldset class="channelPanel">
 <label>in</label>
@@ -591,14 +618,53 @@
 </details>
 
 <details id="feSpecularLighting">
-<summary>#feSpecularLighting</summary>
-<label>FOO</label>
-<input disabled type="range" data-attr="foo" min="0" max="480" value="0"/>
-<br/><label>BAR</label>
-<select disabled data-attr="bar">
-    <option selected>fubar</option>
-    <option>barfu</option>
-</select>
+<summary>feSpecularLighting</summary>
+
+    <details data-tag="fePointLight" data-markup="<fePointLight/>">
+    <summary>light source</summary>
+    <label>(type)</label>
+    <select disabled onchange="this.parentNode.dataset.tag = this.value">
+      <option>fePointLight</option>
+      <option>feDistantLight</option>
+      <option>feSpotLight</option>
+    </select>
+    <br/><label>azimuth</label>
+    <input disabled type="range" data-attr="azimuth" min="0" max="480" value="100"/>
+    <br/><label>elevation</label>
+    <input disabled type="range" data-attr="elevation" min="0" max="480" value="100"/>
+    <br/><label>x</label>
+    <input disabled type="range" data-attr="x" min="-480" max="480" value="100"/>
+    <br/><label>y</label>
+    <input disabled type="range" data-attr="y" min="-480" max="480" value="100"/>
+    <br/><label>z</label>
+    <input disabled type="range" data-attr="z" min="-480" max="480" value="100"/>
+    <br/><label>pointsAtX</label>
+    <input disabled type="range" data-attr="pointsAtX" min="-480" max="480" value="100"/>
+    <br/><label>pointsAtY</label>
+    <input disabled type="range" data-attr="pointsAtY" min="-480" max="480" value="100"/>
+    <br/><label>pointsAtZ</label>
+    <input disabled type="range" data-attr="pointsAtZ" min="-480" max="480" value="100"/>
+    <br/><label>specularExponent</label>
+    <input disabled type="range" data-attr="specularExponent" min="1" max="5" value="1"/>
+    <br/><label>limitingConeAngle</label>
+    <input disabled type="range" data-attr="limitingConeAngle" min="0" max="360" value="0"/>
+    </details>
+
+<label>lighting-color</label>
+<input disabled type="color" data-attr="lighting-color" value="yellow" />
+
+<br/><label>surfaceScale</label>
+<input disabled type="range" data-attr="surfaceScale" min="0" max="10" value="1" step="0.1"/>
+
+<br/><label>specularConstant</label>
+<input disabled type="range" data-attr="specularConstant" min="0" max="5" value="1" step="0.1"/>
+
+<br/><label>specularExponent</label>
+<input disabled type="range" data-attr="specularExponent" min="0" max="128" value="1"/>
+
+<br/>
+<label>kernelUnitLength</label>
+<input disabled type="range" data-attr="kernelUnitLength" min="1" max="10" value="0"/>
 
 <fieldset class="channelPanel">
 <label>in</label>
@@ -625,14 +691,14 @@
 <summary>feMerge</summary>
 
     <details data-tag="feMergeNode" data-markup="<feMergeNode in='channel1'>">
-    <summary>#feMergeNode</summary>
+    <summary>feMergeNode</summary>
     <label>in</label>
     <select disabled class="channel" data-attr="in">
     </select>
     </details>
 
     <details data-tag="feMergeNode" data-markup="<feMergeNode in='channel2'>">
-    <summary>#feMergeNode</summary>
+    <summary>feMergeNode</summary>
     <label>in</label>
     <select disabled class="channel" data-attr="in">
     </select>

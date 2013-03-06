@@ -223,15 +223,15 @@ app.modify = function(e) {
     // compiled markup. (REQ: nested tags must include default
     // data-markup.)  
 
-    panels = e.currentTarget.querySelectorAll('details');
-    for (var pi = 0, pl = panels.length; pi < pl; pi++) {
-        nestedMarkup += "\n<" + panels[pi].dataset.tag;
-        inputs = panels[pi].querySelectorAll('*[data-attr]');
-        for (var i = 0, l = inputs.length; i < l; i++) {
-            nestedMarkup += ' ' + inputs[i].dataset.attr + '="' + inputs[i].value + '"';
-        }
-        nestedMarkup += '></' + panels[pi].dataset.tag + ">";
-    }
+//    panels = e.currentTarget.querySelectorAll('details');
+//    for (var pi = 0, pl = panels.length; pi < pl; pi++) {
+//        nestedMarkup += "\n<" + panels[pi].dataset.tag;
+//        inputs = panels[pi].querySelectorAll('*[data-attr]');
+//        for (var i = 0, l = inputs.length; i < l; i++) {
+//            nestedMarkup += ' ' + inputs[i].dataset.attr + '="' + inputs[i].value + '"';
+//        }
+//        nestedMarkup += '></' + panels[pi].dataset.tag + ">";
+//    }
 
     // 3: Iterate over main inputs within children, and cache each
     // attr value.
@@ -250,7 +250,8 @@ app.modify = function(e) {
         // console.log(inputs[i].tagName);
     }
 
-    markup += optionalMarkup + '>' + nestedMarkup + '</' + panel.dataset.tag + '>';
+    //    markup += optionalMarkup + '>' + nestedMarkup + '</' + panel.dataset.tag + '>';
+    markup += optionalMarkup + '>';
     panel.dataset.markup = markup;
 
     app.assemble();
@@ -274,47 +275,54 @@ app.modify = function(e) {
 
 };
 
-app.assemble = function() {
-
-    // build SVG markup based on sequence of "filter" section's details
-    // nodes, then execute & display code
-
-    var g;
-    app.fes = document.querySelectorAll('section#filter > details');
-    g = '<svg>\n';
-    g += '<defs>\n';
-
-    if (app.fes.length) {
-        g += '<filter id="F">\n';
-        // gather previously assembled markup from each filter effect node
-        for (var i = 0, l = app.fes.length; i<l; i++) {
-            g += app.fes[i].dataset.markup;
-        }
-        g += '</filter>\n';
-        g += '</defs>\n';
-        g += '<image xlink:href="img/Objects' + app.img + '.jpg" x="0" y="0" width="320" height="480" filter="url(#F)"/>\n';
-    }
-    // show default image with no filter present
-    else {
-        g += '</defs>\n';
-        g += '<image xlink:href="img/Objects' + app.img + '.jpg" x="0" y="0" width="320" height="480"/>\n';
-    }
-
-    g += '</svg>\n';
-
-    // execute SVG
-    app.g.innerHTML = g;
-    // display SVG code
-    app.d(g);
-
-};
-
 app.toggleOption = function(el) {
     app.body.classList.toggle(el.dataset.toggle)
     app.optionSelector = app.body.className.replace(/(showSubregions)/, ".subregionPanel~>~.subregion").replace(/showChannels/, ".channelPanel~>~.channel").replace(/ /, ", ").replace(/~/g, " ");
     app.assemble();
 };
 
+
+app.assemble = function() {
+
+    // build SVG markup based on sequence of "filter" section's details
+    // nodes, including their nested panels, then execute & display code
+
+    var markup;
+    app.fes = document.querySelectorAll('section#filter > details');
+    var nested;
+    markup = '<svg>\n';
+    markup += '<defs>\n';
+
+    if (app.fes.length) {
+        markup += '<filter id="F">\n';
+        // gather previously assembled markup from each filter effect node
+        for (var i = 0, l = app.fes.length; i<l; i++) {
+            markup += app.fes[i].dataset.markup;
+            nested = app.fes[i].querySelectorAll('details');
+            for (var ni = 0, nl = nested.length; ni < nl; ni++) {
+                markup += "\n" + nested[ni].dataset.markup;
+                markup += "\n</" + nested[ni].dataset.tag + ">";
+            }
+            markup += "\n</" + app.fes[i].dataset.tag + ">";
+        }
+        markup += '\n</filter>';
+        markup += '\n</defs>\n';
+        markup += '<image xlink:href="img/Objects' + app.img + '.jpg" x="0" y="0" width="320" height="480" filter="url(#F)"/>\n';
+    }
+    // show default image with no filter present
+    else {
+        markup += '</defs>\n';
+        markup += '<image xlink:href="img/Objects' + app.img + '.jpg" x="0" y="0" width="320" height="480"/>\n';
+    }
+
+    markup += '</svg>\n';
+
+    // execute SVG
+    app.g.innerHTML = markup;
+    // display SVG code
+    app.d(markup);
+
+};
 
 // BUGS:
 // * feConvolveMatrix fixed at 3x3
