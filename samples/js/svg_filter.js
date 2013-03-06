@@ -191,90 +191,6 @@ app.dragstart = function(e) {
     e.dataTransfer.setData("Text", e.target.id);
 };
 
-app.modify = function(e) {
-
-    // Convert element attribute values to SVG markup, and cache in
-    // element for later app.assemble pass. This may fire on the main
-    // filter-effect panel, or a panel for a nested tag. 
-
-    // keep from firing on both nested & main panels
-    e.stopPropagation();
-
-    var panel = e.currentTarget;
-    var input = e.target;
-    var children = e.currentTarget.children;
-    var panels; 
-    var inputs; // used for all 3 steps
-
-    var markup = '';
-    var optionalMarkup = '';
-    var nestedMarkup = '';
-
-    // 1: gather attr values from optional inputs within nested fieldsets
-
-    if (app.optionSelector) {
-        inputs = e.currentTarget.querySelectorAll(app.optionSelector);
-        for (var i = 0, l = inputs.length; i < l; i++) {
-            optionalMarkup += ' ' + inputs[i].dataset.attr + '="' + inputs[i].value + '"';
-        }
-    }
-
-    // 2: Gather any nested details tags & include their already
-    // compiled markup. (REQ: nested tags must include default
-    // data-markup.)  
-
-//    panels = e.currentTarget.querySelectorAll('details');
-//    for (var pi = 0, pl = panels.length; pi < pl; pi++) {
-//        nestedMarkup += "\n<" + panels[pi].dataset.tag;
-//        inputs = panels[pi].querySelectorAll('*[data-attr]');
-//        for (var i = 0, l = inputs.length; i < l; i++) {
-//            nestedMarkup += ' ' + inputs[i].dataset.attr + '="' + inputs[i].value + '"';
-//        }
-//        nestedMarkup += '></' + panels[pi].dataset.tag + ">";
-//    }
-
-    // 3: Iterate over main inputs within children, and cache each
-    // attr value.
-
-    markup += '<' + panel.dataset.tag;
-
-    inputs = e.currentTarget.children;
-    for (var i = 0, l = inputs.length; i < l; i++) {
-        if (! inputs[i].dataset.attr) continue;
-
-        // special case: assemble component values
-
-
-        // default case:
-        markup += ' ' + inputs[i].dataset.attr + '="' + inputs[i].value + '"';        
-        // console.log(inputs[i].tagName);
-    }
-
-    //    markup += optionalMarkup + '>' + nestedMarkup + '</' + panel.dataset.tag + '>';
-    markup += optionalMarkup + '>';
-    panel.dataset.markup = markup;
-
-    app.assemble();
-
-
-
-//
-//
-//        // special case: input is component of larger attribute
-//        if (children[i].dataset.component) {
-//            app.component.value[input.dataset.component] = input.value;
-//            if (myComponents) break;
-//            myComponents = app.component.map[ children[i].dataset.component ];
-//            panel.dataset.markup += ' ' + children[i].dataset.attr + '="';
-//            for (var inner = 0; inner < myComponents.length; inner++) {
-//                panel.dataset.markup += app.component.value[ myComponents[inner]] + ' ';
-//            }
-//            panel.dataset.markup += '"';
-//        }
-
-
-};
-
 app.toggleOption = function(el) {
     app.body.classList.toggle(el.dataset.toggle)
     app.optionSelector = app.body.className.replace(/(showSubregions)/, ".subregionPanel~>~.subregion").replace(/showChannels/, ".channelPanel~>~.channel").replace(/ /, ", ").replace(/~/g, " ");
@@ -323,6 +239,78 @@ app.assemble = function() {
     app.d(markup);
 
 };
+
+app.modify = function(e) {
+
+    // Convert element attribute values to SVG markup, and cache in
+    // element for later app.assemble pass. This may fire on the main
+    // filter-effect panel, or a panel for a nested tag. 
+
+    // keep from firing on both nested & main panels
+    e.stopPropagation();
+
+    var panel = e.currentTarget;
+    var input = e.target;
+    var children = e.currentTarget.children;
+    var panels; 
+    var inputs; // used for all 3 steps
+    var components;
+
+    var markup = '';
+    var optionalMarkup = '';
+    var nestedMarkup = '';
+
+    // 1: gather attr values from optional inputs within nested fieldsets
+
+    if (app.optionSelector) {
+        inputs = e.currentTarget.querySelectorAll(app.optionSelector);
+        for (var i = 0, l = inputs.length; i < l; i++) {
+            optionalMarkup += ' ' + inputs[i].dataset.attr + '="' + inputs[i].value + '"';
+        }
+    }
+
+    // messy special case: matrixes & components
+    if (panel.dataset.topic) {
+        inputs = panel.querySelectorAll('#' + panel.dataset.tag.replace(/^fe/,"fs") + "_" + panel.dataset.topic + " *[data-attr], #fsConvolveMatrix *[data-attr]");
+        for (var i = 0, l = inputs.length; i < l; i++) {
+
+            if (inputs[i].dataset.component) {
+                if (components) break;
+                app.component.value[input.dataset.component] = input.value;
+                components = app.component.map[ inputs[i].dataset.component ];
+                optionalMarkup += ' ' + inputs[i].dataset.attr + '="';
+                for (var inner = 0; inner < components.length; inner++) {
+                    optionalMarkup += app.component.value[ components[inner]] + ' ';
+                }
+                optionalMarkup += '"';
+            }
+            else {
+                optionalMarkup += ' ' + inputs[i].dataset.attr + '="' + inputs[i].value + '"';
+            }
+        }        
+    }
+
+    // 2: Iterate over main inputs within children, and cache each
+    // attr value.
+
+    markup += '<' + panel.dataset.tag;
+
+    inputs = e.currentTarget.children;
+    for (var i = 0, l = inputs.length; i < l; i++) {
+        if (! inputs[i].dataset.attr) continue;
+
+        // default case:
+        markup += ' ' + inputs[i].dataset.attr + '="' + inputs[i].value + '"';        
+        // console.log(inputs[i].tagName);
+    }
+
+    markup += optionalMarkup + '>';
+    panel.dataset.markup = markup;
+
+    app.assemble();
+
+};
+
 
 // BUGS:
 // * feConvolveMatrix fixed at 3x3
