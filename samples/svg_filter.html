@@ -6,7 +6,7 @@
 <link href='css/svg_filter.css' type='text/css' rel='stylesheet'/>
 </head>
 
-<body  class="showChannels showSubregions">
+<body class="showChannels showSubregions">
 
 <section id="effects">
 
@@ -30,10 +30,18 @@
 <br/><label>result</label>
 <select disabled class="channel" data-attr="result">
 </select>
+
+<fieldset class="subregionPanel">
+<label>x</label>
+<input class="subregion" disabled type="range" data-attr="x" min="-480" max="480" value="0"/>
+<br/><label>y</label>
+<input class="subregion" disabled type="range" data-attr="y" min="-480" max="480" value="0"/>
 <br/><label>width</label>
-<input disabled type="range" data-attr="width" min="0" max="320" value="320"/>
+<input class="subregion" disabled type="range" data-attr="width" min="0" max="320" value="320"/>
 <br/><label>height</label>
-<input disabled type="range" data-attr="height" min="0" max="480" value="480"/>
+<input class="subregion" disabled type="range" data-attr="height" min="0" max="480" value="480"/>
+</fieldset>
+
 </details>
 
 <details id="feBlend">
@@ -162,8 +170,6 @@
 <input class="subregion" disabled type="range" data-attr="height" min="0" max="480" value="480"/>
 </fieldset>
 
-
-
 </details>
 
 <details id="feTurbulence">
@@ -198,8 +204,6 @@
 <br/><label>height</label>
 <input class="subregion" disabled type="range" data-attr="height" min="0" max="480" value="480"/>
 </fieldset>
-
-
 
 </details>
 
@@ -243,8 +247,6 @@
 <input class="subregion" disabled type="range" data-attr="height" min="0" max="480" value="480"/>
 </fieldset>
 
-
-
 </details>
 
 <details id="feComposite">
@@ -256,7 +258,6 @@
 <br/><label>in2</label>
 <select disabled class="channel" data-attr="in2">
 </select>
-
 
 <br/>
 <label>operator</label>
@@ -308,9 +309,8 @@
 <input class="subregion" disabled type="range" data-attr="height" min="0" max="480" value="480"/>
 </fieldset>
 
-
 <label>type</label>
-<select disabled data-attr="type" id="fsColorMatrix" onchange="app.changePanel(this)" data-onchange="this.dataset.value = this.value" data-value="matrix">
+<select disabled data-attr="type" id="fsColorMatrix" onchange="app.changePanel(this)" data-value="matrix">
     <option selected>matrix</option>
     <option>saturate</option>
     <option>hueRotate</option>
@@ -433,6 +433,7 @@
 <select disabled class="channel" data-attr="in"></select>
 <br/><label>result</label>
 <select disabled class="channel" data-attr="result">
+</select>
 </fieldset>
 
 </details>
@@ -449,7 +450,7 @@
 </select>
 </fieldset>
 
-    <details id="feFuncR">
+    <details id="feFuncR" data-tag="feFuncR" data-markup="<feFuncR/>">
     <summary>#feFuncR</summary>
         <label>type</label>
         <select disabled data-attr="type">
@@ -469,39 +470,80 @@
         <input disabled type="range" data-attr="exponent" min="0" max="2" step="0.1" value="0"/>
         <br/><label>offset</label>
         <input disabled type="range" data-attr="offset" min="0" max="2" step="0.1" value="0"/>
+        <br/><label>tableValues</label>
+        <input disabled type="text" data-attr="tableValues" value="0 0 1 1"/>
     </details>
 
-    <details id="feFuncG">
+    <details id="feFuncG" data-tag="feFuncG" data-markup="<feFuncG/>">
     <summary>#feFuncG</summary>
-        <label>FOO</label>
-        <input disabled type="range" data-attr="foo" min="0" max="480" value="0"/>
-        <br/><label>BAR</label>
-        <select disabled data-attr="bar">
-            <option selected>fubar</option>
-            <option>barfu</option>
+        <label>type</label>
+        <select disabled data-attr="type">
+            <option>identity</option>
+            <option>table</option>
+            <option>discrete</option>
+            <option>linear</option>
+            <option>gamma</option>
         </select>
+        <br/><label>slope</label>
+        <input disabled type="range" data-attr="slope" min="0" max="5" step="0.1" value="1"/>
+        <br/><label>intercept</label>
+        <input disabled type="range" data-attr="intercept" min="0" max="1" step="0.1" value="0"/>
+        <br/><label>amplitude</label>
+        <input disabled type="range" data-attr="amplitude" min="0" max="2" step="0.1" value="1"/>
+        <br/><label>exponent</label>
+        <input disabled type="range" data-attr="exponent" min="0" max="2" step="0.1" value="0"/>
+        <br/><label>offset</label>
+        <input disabled type="range" data-attr="offset" min="0" max="2" step="0.1" value="0"/>
+        <br/><label>tableValues</label>
+        <input disabled type="text" data-attr="tableValues" value="0 0 1 1"/>
     </details>
 
-    <details id="feFuncB">
+    <details id="feFuncB" data-tag="feFuncB" data-markup="<feFuncB/>">
     <summary>#feFuncB</summary>
-        <label>FOO</label>
-        <input disabled type="range" data-attr="foo" min="0" max="480" value="0"/>
-        <br/><label>BAR</label>
-        <select disabled data-attr="bar">
-            <option selected>fubar</option>
-            <option>barfu</option>
+        <label>type</label>
+        <select disabled data-attr="type">
+            <option>identity</option>
+            <option>table</option>
+            <option>discrete</option>
+            <option>linear</option>
+            <option>gamma</option>
         </select>
+        <br/><label>slope</label>
+        <input disabled type="range" data-attr="slope" min="0" max="5" step="0.1" value="1"/>
+        <br/><label>intercept</label>
+        <input disabled type="range" data-attr="intercept" min="0" max="1" step="0.1" value="0"/>
+        <br/><label>amplitude</label>
+        <input disabled type="range" data-attr="amplitude" min="0" max="2" step="0.1" value="1"/>
+        <br/><label>exponent</label>
+        <input disabled type="range" data-attr="exponent" min="0" max="2" step="0.1" value="0"/>
+        <br/><label>offset</label>
+        <input disabled type="range" data-attr="offset" min="0" max="2" step="0.1" value="0"/>
+        <br/><label>tableValues</label>
+        <input disabled type="text" data-attr="tableValues" value="0 0 1 1"/>
     </details>
 
-    <details id="feFuncA">
+    <details id="feFuncA" data-tag="feFuncA" data-markup="<feFuncA/>">
     <summary>#feFuncA</summary>
-        <label>FOO</label>
-        <input disabled type="range" data-attr="foo" min="0" max="480" value="0"/>
-        <br/><label>BAR</label>
-        <select disabled data-attr="bar">
-            <option selected>fubar</option>
-            <option>barfu</option>
+        <label>type</label>
+        <select disabled data-attr="type">
+            <option>identity</option>
+            <option>table</option>
+            <option>discrete</option>
+            <option>linear</option>
+            <option>gamma</option>
         </select>
+        <br/><label>slope</label>
+        <input disabled type="range" data-attr="slope" min="0" max="5" step="0.1" value="1"/>
+        <br/><label>intercept</label>
+        <input disabled type="range" data-attr="intercept" min="0" max="1" step="0.1" value="0"/>
+        <br/><label>amplitude</label>
+        <input disabled type="range" data-attr="amplitude" min="0" max="2" step="0.1" value="1"/>
+        <br/><label>exponent</label>
+        <input disabled type="range" data-attr="exponent" min="0" max="2" step="0.1" value="0"/>
+        <br/><label>offset</label>
+        <input disabled type="range" data-attr="offset" min="0" max="2" step="0.1" value="0"/>
+        <br/><label>tableValues</label>
+        <input disabled type="text" data-attr="tableValues" value="0 0 1 1"/>
     </details>
 
 </details>
@@ -546,7 +588,6 @@
 <input class="subregion" disabled type="range" data-attr="height" min="0" max="480" value="480"/>
 </fieldset>
 
-
 </details>
 
 <details id="feSpecularLighting">
@@ -578,29 +619,28 @@
 <input class="subregion" disabled type="range" data-attr="height" min="0" max="480" value="480"/>
 </fieldset>
 
-
 </details>
 
 <details id="feMerge">
-<summary>#feMerge</summary>
-<label>FOO</label>
-<input disabled  type="range" data-attr="foo" min="0" max="480" value="0"/>
-<br/><label>BAR</label>
-<select disabled data-attr="bar">
-    <option selected>fubar</option>
-    <option>barfu</option>
-</select>
+<summary>feMerge</summary>
 
-<details id="feMergeNode">
-<summary>#feMergeNode</summary>
-<label>FOO</label>
-<input disabled  type="range" data-attr="foo" min="0" max="480" value="0"/>
-<br/><label>BAR</label>
-<select disabled data-attr="bar">
-    <option selected>fubar</option>
-    <option>barfu</option>
+    <details data-tag="feMergeNode" data-markup="<feMergeNode in='channel1'>">
+    <summary>#feMergeNode</summary>
+    <label>in</label>
+    <select disabled class="channel" data-attr="in">
+    </select>
+    </details>
+
+    <details data-tag="feMergeNode" data-markup="<feMergeNode in='channel2'>">
+    <summary>#feMergeNode</summary>
+    <label>in</label>
+    <select disabled class="channel" data-attr="in">
+    </select>
+    </details>
+
+<label>result</label>
+<select disabled class="channel" data-attr="result">
 </select>
-</details>
 
 </details>
 
@@ -627,13 +667,13 @@
     <option>012</option>
 </select>
 
-<label>Show optional channels?</label>
+<label>Include optional channels?</label>
 
-<input checked type="checkbox" id="selectChannelMode" onchange="document.body.classList.toggle('showChannels')"/>
+<input checked type="checkbox" id="selectChannelMode" data-toggle="showChannels" onchange="app.toggleOption(this)"/>
 
-<label>Show subregion controls?</label>
+<label>Include subregion controls?</label>
 
-<input checked type="checkbox" id="selectSubregionMode" onchange="document.body.classList.toggle('showSubregions')"/>
+<input checked type="checkbox" id="selectSubregionMode" data-toggle="showSubregions" onchange="app.toggleOption(this)"/>
 
 </header>
 

@@ -8,35 +8,49 @@ window.onload = function() {
 
     if (!app.browserSupport()) return(false);
 
+    // classes on this determine app state:
+    app.body = document.querySelector('body');
+
     // populate channel select:
     app.initSelect();
 
     // associate controls that build complex values:
     app.initComponents();
 
-    // conditional interfaces
-    // app.initPanels();
+    // by default, both channels & subregion controls display; this
+    // CSS selector reflects that:
+    app.optionSelector = '.subregionPanel > .subregion, .channelPanel > .channel';
 
-    // EFFECTS
+    // each filter effect is represented as a details element, often
+    // referred to in code as a "panel"
+
     app.effects = document.querySelectorAll('section#effects > details');
     for (var i = 0, l = app.effects.length; i < l; i++) {
         app.effects[i].draggable = 'true';
         app.effects[i].addEventListener('dragstart', app.dragstart);
+        // this attaches a dismiss icon:
         app.effects[i].querySelector('summary').innerHTML += '<nav></nav>';
     }
-    // FILTER
+    // This element serves as container for filter effect sequence
     app.filter = document.querySelector('section#filter');
     app.filter.addEventListener('dragover', app.dragover);
     app.filter.addEventListener('drop', app.drop);
-    // CONTROLS
-    app.filter.addEventListener('change', app.assemble);
-    // DEBUG
+    // This is where the code displays:
     app.debug = document.querySelector('#code');
-    // GRAPHIC
+    // This is where the SVG code executes & displays
     app.g = document.querySelector('#graphic');
+    // display empty default code:
+    app.assemble();
+};
+
+app.d = function(s) {
+    app.debug.textContent = s;
 };
 
 app.browserSupport = function() {
+
+    // excludes browsers that don't do details element or drag & drop
+
     var support = 'open' in document.createElement('details');
     if (!support) {
         alert("Your browser can't display the 'details' element; try Chrome");
@@ -51,6 +65,10 @@ app.browserSupport = function() {
 };
 
 app.initSelect = function() {
+
+    // populate <select> tags that specify input-channel keywords, and
+    // provide a few present channels to play with
+
     var sel = document.querySelectorAll('.channel');
     var markup = '';
     for (var i = 0, l = sel.length; i < l; i++) {
@@ -65,11 +83,11 @@ app.initSelect = function() {
     }
 };
 
-app.initPanels = function() {
-
-};
-
 app.changePanel = function(el) {
+
+    // stupid little routine used to key CSS to toggle display of
+    // nested fieldsets for feColorMatrix panel's "values" attribute
+
     el.dataset.value = el.value;
     el.parentNode.dataset.topic = el.value;
 }
@@ -77,9 +95,11 @@ app.changePanel = function(el) {
 app.initComponents = function() {
 
     // For attributes requiring a series of more than one value, these
-    // are called components. The component 'map' identifies sequence
-    // of other component IDs associated with the current input's.
-    // The 'value' caches the component's value for each input.
+    // are called components. Each component 'map' identifies a
+    // sequence of other components associated with that of the
+    // current input. The 'value' provides a cache of the component's
+    // value for each input. REQ: each component ID must be defined in
+    // a string sequence.  This could use some error checking.
 
     app.component = {};
     app.component.map = {};
@@ -94,12 +114,17 @@ app.initComponents = function() {
 
              ];
 
+    // each component ID maps to an array of components within which
+    // it appears:
+
     for (i = 0; i < strings.length; i++) {
         components = strings[i].split(/ +/);
         for (i2 = 0; i2 < components.length; i2++) {
             app.component.map[components[i2]] = components;
         }
     }
+
+    // initialize value of each component.
 
     app.inputs = document.querySelectorAll('input, select');
     for (var i = 0, l = app.inputs.length; i < l; i++) {
@@ -108,79 +133,152 @@ app.initComponents = function() {
         }
     }
 
-};
+    // BUG: drag in a filter effect that uses components, then modify
+    // those values; if you then delete the effect or drag in a new
+    // instance, its component values won't match those already
+    // modified. Possible fix would be to cache modified values on the
+    // panel (details element).
 
-app.d = function(s) {
-    app.debug.textContent = s;
 };
 
 app.drop = function(e) {
     e.preventDefault();
+    // get ID of dragged element:
     var data = e.dataTransfer.getData("Text");
+    // ...and clone it
     var el = document.getElementById(data).cloneNode(true)
+    // does it have any panels for nested tags within filter effects?
+    var nested = el.querySelectorAll('details');
+    // REQ: all inputs on dragged element should already be disabled
     var inputs = el.querySelectorAll('*[disabled]');
     for (var i = 0; i < inputs.length; i++) {
+        // enable inputs
         inputs[i].disabled = false;
     }
+    for (var i = 0; i < nested.length; i++) {
+        // allow inputs in nested panels to build their own markup
+        nested[i].addEventListener('change', app.modify);
+    }
+    // REQ: each top-level panel's ID corresponds to top-level filter effect tagName:
     el.dataset.tag = el.id;
     el.removeAttribute('id');
     el.removeAttribute('draggable');
+    // allow inputs within panel to build markup
     el.addEventListener('change', app.modify);
+    // enable deletion of effect
     el.addEventListener('click', app.removeEffect);
+    // attach it to sequence of filter effects
     e.currentTarget.appendChild(el);
 };
 
 app.removeEffect = function(e) {
+    // click must be in dismiss box:
     if (e.target.tagName != 'NAV') return(false);
+    // remove this node...
     var node = e.currentTarget;
     node.parentNode.removeChild(node);
+    // ...and recalculate SVG markup
     app.assemble();
 };
 
 app.dragover = function(e) {
+    // might add a visual effect here?
     e.preventDefault();
 };
 
 app.dragstart = function(e) {
+    // ID of dragged element used for cloneNode
     e.dataTransfer.setData("Text", e.target.id);
 };
 
 app.modify = function(e) {
+
+    // Convert element attribute values to SVG markup, and cache in
+    // element for later app.assemble pass. This may fire on the main
+    // filter-effect panel, or a panel for a nested tag. 
+
+    // keep from firing on both nested & main panels
+    e.stopPropagation();
+
     var panel = e.currentTarget;
     var input = e.target;
-    var ctrls = e.currentTarget.querySelectorAll('*[data-attr]');
-    var comp;
-    var myComponents = false;
+    var children = e.currentTarget.children;
+    var panels; 
+    var inputs; // used for all 3 steps
 
-    panel.dataset.markup = '<' + panel.dataset.tag;
+    var markup = '';
+    var optionalMarkup = '';
+    var nestedMarkup = '';
 
-    for (var i = 0, l = ctrls.length; i < l; i++) {
+    // 1: gather attr values from optional inputs within nested fieldsets
 
-        if (ctrls[i].dataset.topic) {
-            if (ctrls[i].dataset.topic != panel.dataset.topic) continue;
-        }
-
-        // special case: input is component of larger attribute
-        if (ctrls[i].dataset.component) {
-            app.component.value[input.dataset.component] = input.value;
-            if (myComponents) break;
-            myComponents = app.component.map[ ctrls[i].dataset.component ];
-            panel.dataset.markup += ' ' + ctrls[i].dataset.attr + '="';
-            for (var inner = 0; inner < myComponents.length; inner++) {
-                panel.dataset.markup += app.component.value[ myComponents[inner]] + ' ';
-            }
-            panel.dataset.markup += '"';
-        }
-        // default case: input directly corresponds to attribute output
-        else {
-            panel.dataset.markup += ' ' + ctrls[i].dataset.attr + '="' + ctrls[i].value + '"';
+    if (app.optionSelector) {
+        inputs = e.currentTarget.querySelectorAll(app.optionSelector);
+        for (var i = 0, l = inputs.length; i < l; i++) {
+            optionalMarkup += ' ' + inputs[i].dataset.attr + '="' + inputs[i].value + '"';
         }
     }
-    panel.dataset.markup += '>';
-    panel.dataset.markup += '</' + panel.dataset.tag + '>\n';
+
+    // 2: Gather any nested details tags & include their already
+    // compiled markup. (REQ: nested tags must include default
+    // data-markup.)  
+
+    panels = e.currentTarget.querySelectorAll('details');
+    for (var pi = 0, pl = panels.length; pi < pl; pi++) {
+        nestedMarkup += "\n<" + panels[pi].dataset.tag;
+        inputs = panels[pi].querySelectorAll('*[data-attr]');
+        for (var i = 0, l = inputs.length; i < l; i++) {
+            nestedMarkup += ' ' + inputs[i].dataset.attr + '="' + inputs[i].value + '"';
+        }
+        nestedMarkup += '></' + panels[pi].dataset.tag + ">";
+    }
+
+    // 3: Iterate over main inputs within children, and cache each
+    // attr value.
+
+    markup += '<' + panel.dataset.tag;
+
+    inputs = e.currentTarget.children;
+    for (var i = 0, l = inputs.length; i < l; i++) {
+        if (! inputs[i].dataset.attr) continue;
+
+        // special case: assemble component values
+
+
+        // default case:
+        markup += ' ' + inputs[i].dataset.attr + '="' + inputs[i].value + '"';        
+        // console.log(inputs[i].tagName);
+    }
+
+    markup += optionalMarkup + '>' + nestedMarkup + '</' + panel.dataset.tag + '>';
+    panel.dataset.markup = markup;
+
+    app.assemble();
+
+
+
+//
+//
+//        // special case: input is component of larger attribute
+//        if (children[i].dataset.component) {
+//            app.component.value[input.dataset.component] = input.value;
+//            if (myComponents) break;
+//            myComponents = app.component.map[ children[i].dataset.component ];
+//            panel.dataset.markup += ' ' + children[i].dataset.attr + '="';
+//            for (var inner = 0; inner < myComponents.length; inner++) {
+//                panel.dataset.markup += app.component.value[ myComponents[inner]] + ' ';
+//            }
+//            panel.dataset.markup += '"';
+//        }
+
+
 };
 
-app.assemble = function(e) {
+app.assemble = function() {
+
+    // build SVG markup based on sequence of "filter" section's details
+    // nodes, then execute & display code
+
     var g;
     app.fes = document.querySelectorAll('section#filter > details');
     g = '<svg>\n';
@@ -188,6 +286,7 @@ app.assemble = function(e) {
 
     if (app.fes.length) {
         g += '<filter id="F">\n';
+        // gather previously assembled markup from each filter effect node
         for (var i = 0, l = app.fes.length; i<l; i++) {
             g += app.fes[i].dataset.markup;
         }
@@ -195,6 +294,7 @@ app.assemble = function(e) {
         g += '</defs>\n';
         g += '<image xlink:href="img/Objects' + app.img + '.jpg" x="0" y="0" width="320" height="480" filter="url(#F)"/>\n';
     }
+    // show default image with no filter present
     else {
         g += '</defs>\n';
         g += '<image xlink:href="img/Objects' + app.img + '.jpg" x="0" y="0" width="320" height="480"/>\n';
@@ -202,34 +302,23 @@ app.assemble = function(e) {
 
     g += '</svg>\n';
 
+    // execute SVG
     app.g.innerHTML = g;
+    // display SVG code
     app.d(g);
+
 };
 
-// code for using object as hash key...
-
-function HashTable() {
-    this.hashes = {};
+app.toggleOption = function(el) {
+    app.body.classList.toggle(el.dataset.toggle)
+    app.optionSelector = app.body.className.replace(/(showSubregions)/, ".subregionPanel~>~.subregion").replace(/showChannels/, ".channelPanel~>~.channel").replace(/ /, ", ").replace(/~/g, " ");
+    app.assemble();
 };
 
-HashTable.prototype = {
-    constructor: HashTable,
 
-    put: function( key, value ) {
-        this.hashes[ JSON.stringify( key ) ] = value;
-    },
+// BUGS:
+// * feConvolveMatrix fixed at 3x3
 
-    get: function( key ) {
-        return this.hashes[ JSON.stringify( key ) ];
-    }
-};
+// WISHES:
+// * localStorage to cache state
 
-// var object1 = new Object();
-// var object2 = new Object();
-//
-// var myHash = new HashTable();
-//
-// myHash.put(object1, "value1");
-// myHash.put(object2, "value2");
-//
-// alert(myHash.get(object1), myHash.get(object2)); // I wish that it will print value1 value2

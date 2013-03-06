@@ -1,113 +1,113 @@
 #filter:empty::before {
-    content             : "Drag filter effects here and modify their values";
+ content : "Drag filter effects here and modify their values";
 }
 
 *[disabled] {
-    opacity: 0.5;
+ opacity: 0.5;
 }
 
 #code:empty::before {
-    content             : "See the SVG filter code here"
+ content : "See the SVG filter code here"
 }
 
 body {
-    font-family         : Trebuchet MS;
-    background          : #aaa;
+ font-family : Trebuchet MS;
+ background : #aaa;
 }
 
 section {
-    width               : 300px;
+ width : 300px;
 }
 
 section#effects nav {
-    display             : none;
+ display : none;
 }
 
 nav {
-    float               : right;
-    display             : inline-block;
-    height              : 12px;
+ float : right;
+ display : inline-block;
+ height : 12px;
 }
 
 summary > nav::before {
-    content             : url(../img/dismiss.png);
+ content : url(../img/dismiss.png);
 }
 
 section#filter {
-    position            : absolute;
-    left                : 320px;
-    top                 : 0.5em;
-    padding             : 0.5em;
-    border-radius       : 0.5em;
-    background          : #fff;
-    min-height          : 1in;
-    -moz-user-select    : none;
-    -khtml-user-select  : none;
-    -webkit-user-select : none;
-    user-select         : none;
+ position : absolute;
+ left : 320px;
+ top : 0.5em;
+ padding : 0.5em;
+ border-radius : 0.5em;
+ background : #fff;
+ min-height : 1in;
+ -moz-user-select : none;
+ -khtml-user-select : none;
+ -webkit-user-select : none;
+ user-select : none;
 }
 
 details {
-    font-size           : small;
-    line-height         : 2;
-    background          : #fff;
-    -moz-user-select    : none;
-    -khtml-user-select  : none;
-    user-select         : none;
-    -webkit-user-select : none;
-    cursor              : pointer;
-    margin              : 0.5em;
-    padding             : 0.25em 0.5em;
-    border-radius       : 0.5em;
-    border              : #777 solid thin;
+ font-size : small;
+ line-height : 2;
+ background : #fff;
+ -moz-user-select : none;
+ -khtml-user-select : none;
+ user-select : none;
+ -webkit-user-select : none;
+ cursor : pointer;
+ margin : 0.5em;
+ padding : 0.25em 0.5em;
+ border-radius : 0.5em;
+ border : #777 solid thin;
 }
 
 summary {
-    width               : 90%;
-    height              : auto;
+ width : 90%;
+ height : auto;
 }
 
 input, select {
-    float               : right;
-    width               : 50%;
+ float : right;
+ width : 50%;
 }
 
 input[type=number] {
-    float: none;
-    width: 3em;
+ float: none;
+ width: 3em;
 }
 
 #graphic, #code, #options {
-    position            : absolute;
-    width               : 700px;
-    height              : 500px;
-    left                : 650px;
-    top                 : 3em;
-    padding             : 0.5em;
-    border-radius       : 0.5em;
-    background          : #fff;
+ position : absolute;
+ width : 700px;
+ height : 500px;
+ left : 650px;
+ top : 3em;
+ padding : 0.5em;
+ border-radius : 0.5em;
+ background : #fff;
 }
 
 #options {
-    top                 : 0.5em;
+ top : 0.5em;
 }
 
-#code  {
-    overflow            : scroll;
-    top                 : 570px;
-    height              : initial;
-    min-height          : 50px;
+#code {
+ overflow : scroll;
+ top : 570px;
+ height : initial;
+ min-height : 50px;
 }
 
 /* tab-style fieldsets */
 
 #fsColorMatrix ~ fieldset {
-    display: none;
+ display: none;
 }
 
 #fsColorMatrix ~ fieldset.channelPanel,
 #fsColorMatrix ~ fieldset.subregionPanel {
-    display: block;
+ display: block;
 }
 
 #fsColorMatrix[data-value="matrix"] ~ #fsColorMatrix_matrix ,
@@ -115,30 +115,30 @@ input[type=number] {
 #fsColorMatrix[data-value="hueRotate"] ~ #fsColorMatrix_hueRotate ,
 #fsColorMatrix[data-value="luminanceToAlpha"] ~ #fsColorMatrix_luminanceToAlpha
 {
-    display: block;
+ display: block;
 }
 
 header {
-       background: #fff;
+ background: #fff;
 }
 
 header > select, header > input {
-       float: none;
-       width: auto;
+ float: none;
+ width: auto;
 }
 
 body .channelPanel,
 body .subregionPanel {
-     display: none;
+ display: none;
 }
 
 body.showChannels .channelPanel,
 body.showSubregions .subregionPanel {
-     display: block;
+ display: block;
 }
 
 fieldset {
-    border-radius: 0.5em;
-    margin: 0.5em;
-    padding: 0.5em;
+ border-radius: 0.5em;
+ margin: 0.5em;
+ padding: 0.5em;
 }
