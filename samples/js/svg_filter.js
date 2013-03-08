@@ -316,6 +316,7 @@ app.modify = function(e) {
 
 // BUGS:
 // * feConvolveMatrix fixed at 3x3
+// * bug when modifying nested tag's attr values before parent's
 
 // WISHES:
 // * localStorage to cache state

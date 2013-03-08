@@ -1,0 +1,72 @@
+fieldset {
+    border-radius    : 0.5em;
+    line-height      : 1.25;
+    margin-bottom    : 0.25em;
+}
+
+form {
+    background       : #fff;
+    padding          : 0.5em;
+    border-radius    : 0.5em;
+    position         : absolute;
+    left             : 720px;
+    top              : 20px;
+    width            : 300px;
+}
+
+body {
+    background       : #aaa;
+    font-family      : Trebuchet MS;
+}
+
+span {
+    border           : medium solid pink;
+}
+
+svg {
+    stroke           : black;
+    stroke-width     : 2;
+}
+
+p:empty {
+    display          : none;
+}
+
+p {
+    padding          : 0.5em;
+    border-radius    : 0.5em;
+    background       : #fff;
+    font-family      : monospace;
+}
+
+line {
+    stroke-width     : 2;
+}
+
+section {
+    width            : 700px;
+    height           : 700px;
+    background       : #fff;
+}
+
+marker {
+    fill             : none;
+}
+
+#arrowhead {
+    fill             : black;
+    stroke           : transparent;
+    stroke-width     : 1;
+}
+
+polyline {
+    display          : none;
+    fill             : none;
+    stroke           : red;
+    stroke-opacity   : 1;
+    stroke-dasharray : 5,5;
+    stroke-width     : 2;
+    marker-mid       : url(#dot);
+    marker-end       : url(#dot);
+}
+

@@ -4,10 +4,9 @@
 <link href='css/svg_eyeball.css' type='text/css' rel='stylesheet'/>
 
 <style>
-#svg {
-    width: 300;
-    height: 100;
-}
+
+form { width: 600; }
+
 </style>
 
 </head>
@@ -69,8 +68,7 @@
     id           = "eyelids"
     d            = "M 200,100 Q 100,200 0,100 Q 100,0 200,100"
     fill         = "transparent"
-    stroke       = "#aaa"
-    stroke-width = "2"
+    stroke       = "#333"
 >
 
     <animate
@@ -94,7 +92,7 @@
 <!-- eyelashes -->
 
 <text
-    id                 = "eyelashes"
+    id                 = "eyelashes_OLD"
     filter             = "url(#soften)"
 >
   <textPath xlink:href = "#eyelids">
@@ -116,9 +114,24 @@ llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll
 <!-- entire eye -->
 
 <g id="eye">
-  <use xlink:href="#eyeball" clip-path="url(#clipEyelid)" />
-  <use xlink:href="#eyelids" />
-  <use xlink:href="#eyelashes" />
+  <use
+     xlink:href="#eyeball" 
+     clip-path="url(#clipEyelid)"
+     />
+  <use 
+     xlink:href="#eyelids" 
+     stroke-width="2"
+     />
+
+  <use 
+     xlink:href="#eyelids" 
+     stroke-width="20" 
+     stroke-miterlimit="1"
+     stroke-dasharray="1,10"
+     transform="scale(1.10) translate(-10,-10)"
+     data-style="transform-origin:center;transform:scale(1.2);-webkit-transform-origin:center;-webkit-transform:scale(1.2)"
+     />
+
 </g>
 
 <!-- animations -->
