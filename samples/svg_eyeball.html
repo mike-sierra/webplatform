@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 <head>
 <title>SVG grand tour demo</title>
@@ -5,14 +6,18 @@
 
 <style>
 
-form { width: 600; }
+#pupil, #iris {
+    -webkit-transition : all 1s;
+    -moz-transition    : all 1s;
+    transition         : all 1s;
+}
 
 </style>
 
 </head>
 <body>
 
-<svg width="600" height="300" viewBox="0 0 600 200" preserveAspectRatio="xMidYMid">
+<svg width="600" height="300" viewBox="0 0 600 200" preserveAspectRatio="xMidYMid" xmlns="http://www.w3.org/2000/svg"  xmlns:xlink="http://www.w3.org/1999/xlink">
 
 <defs>
 
@@ -25,64 +30,56 @@ form { width: 600; }
     r          = "150"
     fill       = "url(#eyeballFill)"
     transform  = "translate(0,0)"
+    clip-path  = "url(#clipEyelid)"
 >
-
-    <animateTransform
+    <animate
         id             = "glanceStart"
         attributeType  = "XML"
-        attributeName  = "transform"
-        type           = "translate"
-        from           = "0 0"
-        to             = "50 0"
-        data-calcMode       = "paced"
+        attributeName  = "cx"
+        from           = "100"
+        to             = "150"
         begin          = "1s"
         dur            = "0.5s"
         restart        = "whenNotActive"
     />
-
-    <animateTransform
+    <animate
         id             = "glanceEnd"
         attributeType  = "XML"
-        attributeName  = "transform"
-        type           = "translate"
-        from           = "50 0"
-        to             = "0 0"
+        attributeName  = "cx"
+        from           = "150"
+        to             = "100"
         begin          = "glanceStart.end"
         dur            = "0.5s"
-        data-calcMode       = "paced"
         restart        = "whenNotActive"
     />
-
-<!-- Q: why can't I "use" an animation? -->
-
-<!-- Q: can I repeat an animation 2x, the 2nd time in reverse? Want
-     behavior like CSS's animation-direction. Otherwise, seem to need
-     sequence of 2 <animate> tags -->
-
 </circle>
+
+<radialGradient id="eyeballFill">
+  <stop id="inner"           offset="12%"  stop-color="black"     />
+  <stop id="pupil"           offset="15%"  stop-color="lightblue" />
+  <stop id="iris"            offset="27%"  stop-color="lightblue" />
+  <stop id="white"           offset="30%"  stop-color="white"     />
+  <stop id="bloodshotExtent" offset="40%"  stop-color="white"     />
+  <stop id="outer"           offset="100%" stop-color="pink"      />
+</radialGradient>
+
 
 <!-- eyelids -->
 
 <path
-    filter       = "url(#soften)"
-    id           = "eyelids"
-    d            = "M 200,100 Q 100,200 0,100 Q 100,0 200,100"
-    fill         = "transparent"
-    stroke       = "#333"
+    filter = "url(#soften)"
+    id     = "eyelids"
+    d      = "M 200,100 Q 100,200 0,100 Q 100,0 200,100"
 >
-
     <animate
         id            = "blink"
         attributeType = "XML"
         attributeName = "d"
         from          = "M 200,100 Q 100,200 0,100 Q 100,0 200,100"
         to            = "M 200,100 Q 100,100 0,100 Q 100,100 200,100"
-        begin         = "4s; 6s"
+        begin         = "4s; 6s; 8s; 9s; 11.5s; 13s"
         dur           = "0.1s"
     />
-
-<!-- Q: can't reliably repeat >1 'begin' time value -->
-
 </path>
 
 <clipPath id="clipEyelid">
@@ -90,53 +87,6 @@ form { width: 600; }
 </clipPath>
 
 <!-- eyelashes -->
-
-<text
-    id                 = "eyelashes_OLD"
-    filter             = "url(#soften)"
->
-  <textPath xlink:href = "#eyelids">
-    <tref
-      id               = "eyelashTextRef"
-      xlink:href       = "#eyelashContent"
-      font-size        = "20"
-      letter-spacing   = "4"
-      font-style       = "italic"
-      stroke           = "#ddd"
-    />
-  </textPath>
-</text>
-
-<text id="eyelashContent" >
-llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll
-</text>
-
-<!-- entire eye -->
-
-<g id="eye">
-  <use
-     xlink:href="#eyeball" 
-     clip-path="url(#clipEyelid)"
-     />
-  <use 
-     xlink:href="#eyelids" 
-     stroke-width="2"
-     />
-
-  <use 
-     xlink:href="#eyelids" 
-     stroke-width="20" 
-     stroke-miterlimit="1"
-     stroke-dasharray="1,10"
-     transform="scale(1.10) translate(-10,-10)"
-     data-style="transform-origin:center;transform:scale(1.2);-webkit-transform-origin:center;-webkit-transform:scale(1.2)"
-     />
-
-</g>
-
-<!-- animations -->
-
-<!-- filters -->
 
 <filter
     id           = "soften"
@@ -157,40 +107,39 @@ llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll
 
 </filter>
 
-<radialGradient id="eyeballFill">
-  <stop id="inner"           offset="12%"  />
-  <stop id="pupil"           offset="15%"  />
-  <stop id="iris"            offset="27%"  />
-  <stop id="white"           offset="30%"  />
-  <stop id="bloodshotExtent" offset="40%"  />
-  <stop id="outer"           offset="100%" />
-</radialGradient>
+<!-- grouped eye, eyes -->
+
+<g id="eye">
+
+  <use 
+     xlink:href        = "#eyelids" 
+     fill              = "none"
+     stroke            = "#ddd"
+     stroke-width      = "30" 
+     stroke-dasharray  = "1,10"
+     stroke-miterlimit = "1"
+     />
+
+  <use
+     xlink:href   = "#eyelids" 
+     stroke-width = "4"
+     stroke       = "#ddd"
+     fill         = "none"
+     />
+
+  <use xlink:href="#eyeball" />
+
+</g>
 
 <g id="eyes">
   <use xlink:href="#eye" transform="translate(50,0)"/>
   <use xlink:href="#eye" transform="translate(350,0)"/>
 </g>
 
-<marker id="dot" markerWidth="2" markerHeight="2" refX="2" refY="2" orient="auto">
-    <circle r="2" cx="10" cy="10" fill="red"/>
-</marker>
-
-
 
 </defs>
 
-<use xlink:href="#eyes"/>
-
-<!--
-<g transform="translate(100,0)">
-<path d = "M 200,100 Q 100,100 0,100 Q 100,100 200,100" fill =
-    "transparent" stroke = "#aaa" stroke-width = "2" />
-<polyline points="200,100 100,100 0,100" fill="none" stroke="red" stroke-dasharray="5,5"/>
-<polyline points="0,100  100,100 200,100" fill="none" stroke="red" stroke-dasharray="5,5"/>
-<circle r="4" cx="100" cy="100" fill="red"/>
-<circle r="4" cx="100" cy="100" fill="red"/>
-</g>
--->
+<use xlink:href="#eyes" />
 
 </svg>
 

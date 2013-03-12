@@ -1,0 +1,83 @@
+<html>
+<head>
+<title>svg use test</title>
+
+<style>
+
+text { font-family: sans-serif; }
+
+.green, #irisStledID { fill: lightgreen }
+
+.blue { fill: lightblue }
+
+</style>
+
+</head>
+<body>
+
+<svg width="800" height="1100" xmlns="http://www.w3.org/2000/svg"  xmlns:xlink="http://www.w3.org/1999/xlink">
+
+
+<svg>
+
+<defs>
+<circle id="irisFill" cx="80" cy="100" r="40" fill="lightblue"/>
+<circle id="irisNoFill" cx="80" cy="100" r="40"/>
+<circle id="irisStyled" cx="80" cy="100" r="40" class="green"/>
+<circle id="irisStyledID" cx="80" cy="100" r="40"/>
+</defs>
+
+<g>
+<use xlink:href="#irisFill" />
+<text x="150" y="100">referent has blue fill attr</text>
+</g>
+
+<g transform="translate(0,100)">
+<use xlink:href="#irisFill" fill="lightgreen"/>
+<text x="150" y="100">referent has blue fill attr; use redefines fille attr green</text>
+</g>
+
+<g transform="translate(0,200)">
+<use xlink:href="#irisFill" class="green"/>
+<text x="150" y="100">referent has blue fill attr; use restyles green via CSS class</text>
+</g>
+
+<g transform="translate(0,300)">
+<use xlink:href="#irisFill" style="fill:lightgreen"/>
+<text x="150" y="100">referent has blue fill attr; use restyles green via local CSS style attr</text>
+</g>
+
+<g transform="translate(0,400)">
+<use xlink:href="#irisNoFill"/>
+<text x="150" y="100">referent has no fill attr</text>
+</g>
+
+<g transform="translate(0,500)">
+<use xlink:href="#irisNoFill" fill="lightgreen"/>
+<text x="150" y="100">referent has no fill attr; use adds green fill attr</text>
+</g>
+
+<g transform="translate(0,600)">
+<use xlink:href="#irisNoFill" class="green"/>
+<text x="150" y="100">referent has no fill attr; use restyles green via CSS class</text>
+</g>
+
+<g transform="translate(0,700)">
+<use xlink:href="#irisStyled"/>
+<text x="150" y="100">referent styled green via CSS class</text>
+</g>
+
+<g transform="translate(0,800)">
+<use xlink:href="#irisStyled" class="blue"/>
+<text x="150" y="100">referent styled green via CSS class; use restyles blue via CSS class</text>
+</g>
+
+<g transform="translate(0,900)">
+<use xlink:href="#irisStyledID" class="blue"/>
+<text x="150" y="100">referent styled green via CSS #id selector; use restyles blue via CSS class</text>
+</g>
+
+</svg>
+
+</body>
+</html>

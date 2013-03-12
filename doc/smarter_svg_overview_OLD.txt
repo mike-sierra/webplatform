@@ -6,16 +6,16 @@
 {{Byline}}
 {{Summary_Section|This guide introduces SVG graphics and shows you all the basics of how to deploy them along with standard web content.}}
 {{Tutorial
-|Content=SVG is a standard markup format, like HTML and XML, that
-renders ''Scalable Vector Graphics'' within web browsers.  Vector or
-''drawing''-style graphics are implemented as pure shapes that render
-crisply at any magnification. In contrast, ''raster'' or
-''paint''-style images consist of a series of pixels that may not
-display well when zoomed at high resolution.  Use SVG if you want to
-freely interact with portions of a graphic.  Since SVG renders within
-the browser's DOM, each graphic component can be styled through CSS,
-manipulated with JavaScript through core APIs, and can appear
-comfortably alongside HTML content.
+|Content=SVG is a standard XML markup format that renders ''Scalable
+Vector Graphics'' within web browsers.  Vector or ''drawing''-style
+graphics are implemented as pure shapes that render crisply at any
+magnification. In contrast, ''raster'' or ''paint''-style images
+consist of a series of pixels that may not display well when zoomed at
+high resolution.  Use SVG if you want to freely interact with portions
+of a graphic.  Since SVG renders within the browser's DOM, each
+graphic component can be styled through CSS, manipulated with
+JavaScript through core APIs, and can appear comfortably alongside
+HTML content.
 
 This section of the guide shows how SVG is deployed along with other
 core web standards, with which you should already be familiar.  It
@@ -66,89 +66,17 @@ comment your markup.
 ==The eyeball==
 
 Adding this line within the '''svg''' region produces a circle. The
-'''cx''' and '''cy''' attributes position its center point, and the
-'''r''' sizes it relative to that point:
+'''cx''', '''cy''', and '''r''' attributes position and size it:
 
 <syntaxhighlight lang="xml">
-<circle id="eyeball" cx="100" cy="100" r="50"/>
+<circle id="eyeball" cx="100" cy="100" r="150"/>
 </syntaxhighlight>
 
-[[Image:svg_overview_eyeball_circle_black.png]]
+[[Image:svg_overview_eyeball_nofill.png]]
 
-By default, it's filled black. Adding a '''fill''' attribute allows
-you to color the background white, and a '''stroke''' attribute helps
-clarify the edge of the shape:
-
-<syntaxhighlight lang="xml">
-<circle id="eyeball" cx="100" cy="100" r="50" fill="white" stroke="black"/>
-</syntaxhighlight>
-
-[[Image:svg_overview_eyeball_circle_white.png]]
-
-To add the iris and pupil, you can add more circles that specify
-different fill colors. Declaring the larger circles first prevents
-them from obscuring the smaller ones:
-
-<syntaxhighlight lang="xml">
-<circle id="eyeball" cx="100" cy="100" r="50" fill="white" stroke="black"/>
-<circle id="iris"    cx="100" cy="100" r="25" fill="lightblue"/>
-<circle id="pupil"   cx="100" cy="100" r="12" fill="black"/>
-</syntaxhighlight>
-
-[[Image:svg_overview_eyeball_circles.png]]
-
-==Styling via CSS==
-
-In this example, the '''id''', '''cx''', '''cy''', and '''r''' are all
-ordinary ''attributes'', while the '''fill''' and '''stroke''' are
-known as ''presentation attributes''.  These are simply CSS properties
-that happen to be expressed as attributes.  Other than the tendency of
-longer CSS property names to use ''dashes-between-lowercase-words''
-rather than ''camelCase'' for attribute names, there may be no way to
-tell the difference by looking at them.
-
-Many CSS properties such as '''fill''' and '''stroke''' apply only to
-SVG content. Some, like '''font-size''', apply to both SVG and HTML.
-Some behave like CSS properties that you apply to HTML, but are named
-differently. The '''fill''' property provides much the same
-capabilities in SVG as the '''background-color''' and
-'''background-image''' properties do for HTML.  Since '''fill'''
-is CSS, You can also modify it locally via the '''style'''
-attribute. Doing so actually takes precedence over the value of
-presentation attributes, so this example changes the eye color to
-brown:
-
-<syntaxhighlight lang="xml">
-<circle id="iris" cx="100" cy="100" r="25" fill="lightblue" style="fill:brown"/>
-</syntaxhighlight>
-
-As in HTML, you can consolidate CSS in style sheets and separate it
-from markup. Placing this CSS in the ''eyeballs.css'' file referenced
-from the HTML applies it to the slightly pared-down SVG markup that
-follows:
-
-<syntaxhighlight lang="css">
-#eyeball { fill: white; stroke: black }
-#iris { fill: lightblue }
-#pupil { fill: black }
-</syntaxhighlight>
-<syntaxhighlight lang="xml">
-<circle id="eyeball" cx="100" cy="100" r="50"/>
-<circle id="iris"    cx="100" cy="100" r="25"/>
-<circle id="pupil"   cx="100" cy="100" r="12"/>
-</syntaxhighlight>
-
-As you'll see below, there are some cases where you want to avoid
-using style sheets. The examples below show CSS applied as
-presentational attributes.
-
-==Applying a gradient==
-
-The concentric circles provide a good way to implement the edge of the
-iris and pupil, but are not good for the slight bloodshot color
-towards the edge of the eye. As an alternative, you can implement the
-entire eyeball as a large circle, within which a radial gradient
-builds a series of concentric rings:
+By default, it's filled black. While you can apply a solid color, a
+more complex radial gradient happens to be the ideal way to build the
+eyeball's series of concentric rings:
 
 <syntaxhighlight lang="xml">
 <circle id="eyeball" cx="100" cy="100" r="150" fill="url(#eyeballFill)" />
@@ -165,23 +93,65 @@ builds a series of concentric rings:
 
 [[Image:svg_overview_eyeball_fill.png]]
 
-The '''circle''' tag's '''fill''' attribute uses CSS's '''url()'''
-function to reference the '''id''' of the '''radialGradient''' tag.
-Its nested '''stop''' tags define fairly abrupt gradations from the
-center towards the edge&mdash;from black to blue and then to
-white&mdash;followed by a more gradual transition to pink around the
-edge of the circle.
+The '''circle''' tag's '''fill''' attribute references the '''id''' of
+the '''radialGradient'''.  The various nested '''stop''' tags define
+fairly abrupt gradations from the center to the edge&mdash;from black
+to blue and then to white&mdash;followed by a more gradual transition
+to pink around the edge of the circle.
 
-SVG gradients work similarly to CSS gradients available for HTML
-content, but CSS gradients are only available via the
-'''background-image''' property, which doesn't apply to SVG.
+In this example, the '''id''' and '''offset''' are ordinary
+''attributes'', while the '''stop-color''' is known as a
+''presentation attribute''.  These are simply CSS properties that are
+expressed as attributes.  Other than the tendency of CSS property
+names to use dashes-between-lowercase-words rather than ''camelCase''
+for attribute names, there may be no way to tell the difference by
+looking at them.
+
+Many CSS properties such as '''stop-color''' apply only to SVG
+content. Some, like '''font-size''', apply to both SVG and HTML.  Some
+behave like CSS properties that you apply to HTML, but are named
+differently. The '''fill''' property provides much the same
+capabilities in SVG as the '''background-color''' and
+'''background-image''' properties does in HTML.  Since
+'''stop-color''' is CSS, You can also modify it locally via the
+'''style''' attribute. Doing so actually takes precedence over the
+value of presentation attributes, so this example changes the eye
+color to brown:
+
+<syntaxhighlight lang="xml">
+<stop id="pupil" offset="15%" stop-color="lightblue" style="stop-color:brown"/>
+</syntaxhighlight>
+
+It's best practice to consolidate CSS in style sheets and separate it
+from markup. Placing this CSS in the ''eyeballs.css'' file referenced
+from the HTML applies it to the slightly pared-down SVG markup that
+follows:
+
+<syntaxhighlight lang="css">
+ #inner { stop-color                   : black; }
+ #outer { stop-color                   : pink; }
+ #white, #bloodshotExtent { stop-color : white; }
+ .blue { stop-color                    : lightblue; }
+ .brown { stop-color                   : brown; }
+</syntaxhighlight>
+
+<syntaxhighlight lang="xml">
+<radialGradient id="eyeballFill">
+  <stop id="inner"           offset="12%"  />
+  <stop id="pupil"           offset="15%"  class="blue" />
+  <stop id="iris"            offset="27%"  class="blue" />
+  <stop id="white"           offset="30%"  />
+  <stop id="bloodshotExtent" offset="40%"  />
+  <stop id="outer"           offset="100%" />
+</radialGradient>
+</syntaxhighlight>
 
 ==Referencing graphics==
 
-This new circle is much larger than the actual eyeball, because we
-want to move it around behind a smaller pair of eyelids.  But before
-you build them, you should stash away the graphic components you've
-already defined. Add a '''defs''' region to the '''svg''':
+The circle is much larger than the actual eyeball, because we want it
+to float behind a pair of eyelids. Before you build them, however, you
+should stash away the graphic components you've already defined. Add a
+'''defs''' region to the '''svg''':
 
 <syntaxhighlight lang="html5" highlight="11-13">
 <!DOCTYPE html>
@@ -204,71 +174,56 @@ already defined. Add a '''defs''' region to the '''svg''':
 </syntaxhighlight>
 
 If you move the '''radialGradient''' within the '''defs''' region, the
-'''circle''' still references it as before, but if you move the
-'''circle''' there, it doesn't render.
-
-The SVG '''use''' tag allows you a way to reuse graphic components
-repeatedly, and to place them in differently sized areas.  After
-placing the '''circle''' within the '''defs''' region, pointing to it
-with a '''use''' tag placed outside the '''defs''' makes it render:
+'''circle''' still references it as before.  If you move the
+'''circle''' there, it doesn't render. To get it to appear again later
+after you've built other components, you don't have to move it back
+out. Instead, place this line outside the '''defs''' region:
 
 <syntaxhighlight lang="xml">
 <use xlink:href="#eyeball"/>
 </syntaxhighlight>
 
-The '''use''' tag can be a bit mystifying at first.  It's not simply a
-copy of the object it points to, but a ''deep'' reference.  That means
-any changes made to the prototype '''circle''' or '''radialGradient'''
-components within the '''defs''' appears dynamically wherever a
-'''use''' tag references them.  Despite this flexibility, you can't
-redefine any of the referenced object's attributes. But you can add
-optional presentation attributes that aren't already defined there.
-
-Since the '''use''' and its target element are placed in different
-parts of the document tree, CSS style sheets that ordinarily apply to
-the target do not automatically cascade to the '''use'''. However, you
-can apply CSS separately to the '''use'''. This example applies the
-same style sheet based on the '''id''' of the target, and the
-'''class''' of any '''use''' that references it:
+This serves as a pointer to the eyeball graphic.  It's a ''deep''
+reference, not just a copy. That means any changes made to the
+'''circle''' or '''radialGradient''' within the '''defs''' appears
+dynamically. Still, the '''use''' tag allows you to add attributes or
+override those defined in the prototype component. This example
+specifies a new '''id''' and modifies the '''cx''' attribute to move
+it to the left a bit from its original position at ''100'':
 
 <syntaxhighlight lang="xml">
-<style>
-#eyeball, .eyeball {
-    fill: url(#eyeballFill);
-}
-</style>
-
-<svg width="200" height="200">
-<defs>
-<circle id="eyeball" cx="100" cy="100" r="150" />
-<defs>
-<use xlink:href="#eyeball" class="eyeball" id="eyeballInstance1"/>
-</svg>
+<use  xlink:href="#eyeball" id="eyeballLeft" cx="80"/>
 </syntaxhighlight>
 
-Note that if the targeted '''circle''' were also to share the same
-''eyeball'' class in this example, then the '''use''' tag would not
-have the flexibility to be able to change it.
+The '''transform''' attribute's '''translate()''' function provides a
+more flexible way to reposition objects referenced via '''use'''. It
+uses relative measurements to move it to the left along the ''x''
+axis, and not at all along the ''y'' axis:
 
-Notice as well that the '''use''' tag needs the '''xlink''' namespace
-to qualify the standard '''href''' attribute, which is also available
-in HTML with no namespace qualifier.  This '''xlink:href''' attribute
-offers a different way to reference an object than the CSS '''url()'''
-syntax you see in the example above.
+<syntaxhighlight lang="xml">
+<use xlink:href="#eyeball" id="eyeballLeft" transform="translate(-20,0)"/>
+</syntaxhighlight>
+
+These provide the same functionality as two-dimensional CSS
+transforms.  The '''scale()''' function accepts a decimal value to
+size the object, where ''1'' is the current size, ''0'' vanishes to a
+point, and values greater than 1 increase the size.  The
+'''rotate()''' function accepts a ''deg'' or ''rad'' measurement that
+spins the object.  The '''skewX()''' and '''skewY()''' also accepts an
+angle with which to shear the object horizontally or vertically.
 
 ==The eyelids==
 
 To place the eyeball within eyelids requires a ''clipping path'',
 which allows an object to render only when it appears within another
 shape. In this case, the ''eyelids'' shape is a free-form '''path'''
-whose '''d''' (''definition'') attribute draws two curves that face
-each other:
+whose '''d''' (''definition'') draws two curves that face each other:
 
 <syntaxhighlight lang="xml">
 <path
     id           = "eyelids"
     d            = "M 200,100 Q 100,200 0,100 Q 100,0 200,100"
-    fill         = "none"
+    fill         = "transparent"
     stroke       = "black"
     stroke-width = "2"
 />
@@ -297,7 +252,7 @@ again, so it is best to '''use''' a reference to it:
 
 Now apply the '''clip-path''' attribute to the eyeball shape for the
 clipping path to take effect. You can apply it to the original shape,
-or to the '''use''' that references it:
+or the '''use''' that references it:
 
 <syntaxhighlight lang="xml">
 <use xlink:href="#eyeball" clip-path="url(#clipEyelid)" />
@@ -305,8 +260,8 @@ or to the '''use''' that references it:
 
 [[Image:svg_overview_eyeball_eyelid_clip.png]]
 
-The only problem now is that the eyelid has disappeared. Clipping
-paths don't actually render, so we need to point another reference to
+The only problem now is that the eyelid disappeared. Clipping paths
+don't actually render, so the solution is to draw another reference to
 it.  The first '''use''' below renders the eyeball within the clipping
 path, and the second renders the path:
 
@@ -322,27 +277,6 @@ path, and the second renders the path:
 It becomes useful here to wrap a '''g''' tag to ''group'' the two
 graphic elements into a larger semantic ''eye'' object. You can then
 move or otherwise transform them as a unit.
-
-<!--
-
-The '''transform''' attribute's '''translate()''' function provides a
-more flexible way to reposition objects referenced via '''use'''. It
-uses relative measurements to move it to the left along the ''x''
-axis, and not at all along the ''y'' axis:
-
-<syntaxhighlight lang="xml">
-<use xlink:href="#eyeball" id="eyeballLeft" transform="translate(-20,0)"/>
-</syntaxhighlight>
-
-These provide the same functionality as two-dimensional CSS
-transforms.  The '''scale()''' function accepts a decimal value to
-size the object, where ''1'' is the current size, ''0'' vanishes to a
-point, and values greater than 1 increase the size.  The
-'''rotate()''' function accepts a ''deg'' or ''rad'' measurement that
-spins the object.  The '''skewX()''' and '''skewY()''' also accepts an
-angle with which to shear the object horizontally or vertically.
-
--->
 
 ==The eyelashes==
 
