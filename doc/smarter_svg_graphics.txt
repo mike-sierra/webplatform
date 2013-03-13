@@ -16,8 +16,6 @@
 
 ==Gradients==
 
-
-
 <!--
  13 Gradients and Patterns
     13.1 Introduction

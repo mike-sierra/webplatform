@@ -33,10 +33,12 @@
 .eyelids {
      stroke-width : 4;
      stroke       : #ddd;
+     fill         : transparent;
      fill         : none;
 }
 
 #eyelashes, .eyelashes {
+    fill         : transparent;
     fill              : none;
     stroke            : #ddd;
     stroke-width      : 40;
@@ -63,22 +65,25 @@
     r          = "150"
 >
     <animate
-        id             = "glanceStart"
-        attributeType  = "XML"
-        attributeName  = "cx"
-        from           = "100"
-        to             = "150"
-        begin          = "1s"
-        dur            = "0.5s"
+        id            = "glanceStart"
+        attributeType = "XML"
+        attributeName = "cx"
+        from          = "100"
+        to            = "150"
+        begin         = "1s"
+        dur           = "0.5s"
+        keyTimes      = "0; 1"
+        keySplines    = "0.5 0 0.5 0"
+        calcMode      = "spline"
     />
     <animate
-        id             = "glanceEnd"
-        attributeType  = "XML"
-        attributeName  = "cx"
-        from           = "150"
-        to             = "100"
-        begin          = "glanceStart.end"
-        dur            = "0.5s"
+        id            = "glanceEnd"
+        attributeType = "XML"
+        attributeName = "cx"
+        from          = "150"
+        to            = "100"
+        begin         = "glanceStart.end"
+        dur           = "0.5s"
     />
 </circle>
 
@@ -97,7 +102,7 @@
 <g id="mark" transform="translate(50,0)">
 <circle fill="red" cx="100" cy="100" r="2"/>
 <circle fill="red" cx="100" cy="100" r="2"/>
-<polygon points = "200,100 100,100 0,100 100,100"  fill="none" stroke="pink" stroke-width="1" stroke-dasharray="3,3">
+<polygon points = "200,100 100,100 0,100 100,100"  fill="none" stroke="pink" stroke-width="1" stroke-dasharray="3,3"/>
 </g>
 
 <path
