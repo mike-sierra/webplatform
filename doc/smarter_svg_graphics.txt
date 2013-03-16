@@ -286,6 +286,8 @@ to reference the '''clipPath''' element:
 
 [[Image:svg_gfx_clip.png|200px]]
 
+[http://letmespellitoutforyou.com/samples/img/tv_clip.svg View the SVG file here].
+
 <!--
     14.3 Clipping paths
         14.3.1 Introduction
