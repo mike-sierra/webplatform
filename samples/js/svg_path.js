@@ -16,18 +16,8 @@ app.marker = '#arrowhead';
 window.onload = function() {
     app.dbg = document.querySelector("p");
     app.path = document.querySelector("path");
-    app.polyline = document.querySelector("polyline");
     app.sect = document.querySelector("section");
     app.svg = document.querySelector("svg");
-
-    app.c1 = document.querySelector("#c1");
-    app.c2 = document.querySelector("#c2");
-    app.l1s = document.querySelector("#l1s");
-    app.l1e = document.querySelector("#l1e");
-    app.l1x = document.querySelector("#l1x");
-    app.l2s = document.querySelector("#l2s");
-    app.l2e = document.querySelector("#l2e");
-    app.l2x = document.querySelector("#l2x");
 
     app.toolSelect = document.querySelector("select.tool");
 
@@ -42,10 +32,6 @@ window.onload = function() {
 
 app.refresh = function() {
     app.points = [];
-    // app.c1.setAttribute('cx', '-10');
-    // app.c1.setAttribute('cy', '-10');
-    // app.c2.setAttribute('cx', '-10');
-    // app.c2.setAttribute('cy', '-10');
 };
 
 app.changeTool = function(e) {
@@ -89,8 +75,6 @@ app.render = function() {
     d = app.path.getAttribute("d") + attr;
     app.path.setAttribute("d", d);
 
-    app.polyline.setAttribute("points", d.replace(/[A-Z] /g, ""));
-
     app.refresh();
     app.d( app.sect.innerHTML.replace(/<defs[^`]+?<\/defs>/gim, "") );
 };
@@ -98,4 +82,7 @@ app.render = function() {
 app.d = function(s) {
     app.dbg.textContent = s;
 }
+
+// BUG: syntax displays spurious "fill='transparent'" even after
+// modifying
 
