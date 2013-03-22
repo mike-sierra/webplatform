@@ -4,35 +4,67 @@
 <style>
 
 body {
-    background: #ddd;
+    background                   : #ddd;
 }
 
 div {
-    -webkit-transform: scale(0.5);
-    border: solid thin #777;
-    background: #aaa;
-    position: absolute;
-    width: 281;
-    height: 400;
-    left: 40%;
-    top: 0;
-    -webkit-perspective: 10000;
-    -webkit-perspective-origin-y: -3000;
+    border                       : solid thin #777;
+    background                   : #aaa;
+    position                     : absolute;
+    width                        : 281px;
+    height                       : 400px;
+    left                         : 40%;
+    top                          : 0;
+    -webkit-perspective          : 10000px;
+    -webkit-perspective-origin-y : -3000px;
+    -webkit-transform            : scale(0.5);
+    -moz-perspective             : 10000px;
+    -moz-perspective-origin-y    : -3000px;
+    -moz-transform               : scale(0.5);
+    perspective                  : 10000px;
+    perspective-origin-y         : -3000px;
+    transform                    : scale(0.5);
 }
 
 img {
-    border: thin solid #777;
-    border-radius: 0.5em;
-    position: absolute;
-    -webkit-transform-origin-z: -920;
+    border                       : thin solid #777;
+    border-radius                : 0.5em;
+    position                     : absolute;
+    -webkit-transform-origin-z   : -920px;
+    -moz-transform-origin-z      : -920px;
+    transform-origin-z           : -920px;
 }
 
-img:nth-of-type(1) { -webkit-transform: rotateY(-50deg); }
-img:nth-of-type(2) { -webkit-transform: rotateY(-30deg); }
-img:nth-of-type(3) { -webkit-transform: rotateY(-10deg); }
-img:nth-of-type(4) { -webkit-transform: rotateY(10deg); }
-img:nth-of-type(5) { -webkit-transform: rotateY(30deg); }
-img:nth-of-type(6) { -webkit-transform: rotateY(50deg); }
+img:nth-of-type(1) {
+    -webkit-transform            : rotateY(-50deg); 
+    -moz-transform               : rotateY(-50deg); 
+    transform                    : rotateY(-50deg); 
+}
+img:nth-of-type(2) {
+    -webkit-transform            : rotateY(-30deg); 
+    -moz-transform               : rotateY(-30deg); 
+    transform                    : rotateY(-30deg); 
+}
+img:nth-of-type(3) {
+    -webkit-transform            : rotateY(-10deg); 
+    -moz-transform               : rotateY(-10deg); 
+    transform                    : rotateY(-10deg); 
+}
+img:nth-of-type(4) {
+    -webkit-transform            : rotateY(10deg); 
+    -moz-transform               : rotateY(10deg); 
+    transform                    : rotateY(10deg); 
+}
+img:nth-of-type(5) {
+    -webkit-transform            : rotateY(30deg); 
+    -moz-transform               : rotateY(30deg); 
+    transform                    : rotateY(30deg); 
+}
+img:nth-of-type(6) {
+    -webkit-transform            : rotateY(50deg); 
+    -moz-transform               : rotateY(50deg); 
+    transform                    : rotateY(50deg); 
+}
 
 </style>
 

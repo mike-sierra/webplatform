@@ -5,7 +5,7 @@
 <style>
 
 body {
-    background: #777;
+    background         : #777;
 }
 
 div {
@@ -13,12 +13,16 @@ div {
     margin             : 0.5in;
     padding            : 0.5em;
     -webkit-box-shadow : 0 0 2em plum;
+    -moz-box-shadow    : 0 0 2em plum;
+    box-shadow         : 0 0 2em plum;
     border-radius      : 0.5em;
     font-family        : Trebuchet MS;
     text-align         : left;
     width              : 260px;
     opacity            : 0;
-    -webkit-transition  : opacity 1s 1s, background-color 10s 1s;
+    -webkit-transition : opacity 1s 1s, background-color 10s 1s;
+    -moz-transition    : opacity 1s 1s, background-color 10s 1s;
+    transition         : opacity 1s 1s, background-color 10s 1s;
 }
 
 div.display {

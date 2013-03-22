@@ -5,11 +5,11 @@
 <style>
 
 section {
-    position: absolute;
-    width: 320px;
-    height: 480px;
-    border: medium solid #aaa;
-    border-radius: 0.5em;
+    position                    : absolute;
+    width                       : 320px;
+    height                      : 480px;
+    border                      : medium solid #aaa;
+    border-radius               : 0.5em;
 }
 
 div {
@@ -23,28 +23,21 @@ div {
     -webkit-transition-property : height, width, background-color;
     -webkit-transition-duration : 0.5s, 0.5s, 5s;
     -webkit-transition-delay    : 0.0s, 0.5s, 0.0s;
-
-/*
-
-    -webkit-transition-timing-function : cubic-bezier(0.4, 0, 1, 0.4), cubic-bezier(0, 0.4, 0.4, 1);
-
-    -webkit-transition-timing-function : steps(3), steps(4);
-
-*/
-
+    -moz-transition-property    : height, width, background-color;
+    -moz-transition-duration    : 0.5s, 0.5s, 5s;
+    -moz-transition-delay       : 0.0s, 0.5s, 0.0s;
+    transition-property         : height, width, background-color;
+    transition-duration         : 0.5s, 0.5s, 5s;
+    transition-delay            : 0.0s, 0.5s, 0.0s;
 }
 
 div.expanded {
     -webkit-transition-property : width, height, background-color;
+    -moz-transition-property    : width, height, background-color;
+    transition-property         : width, height, background-color;
     width                       : 280px;
     height                      : 400px;
     background-color            : #eee;
-}
-
-div {
-}
-
-div.expanded {
 }
 
 </style>

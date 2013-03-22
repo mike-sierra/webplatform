@@ -4,42 +4,54 @@
 <style>
 
 body {
-    background: #ddd;
+    background                 : #ddd;
 }
 
 body img {
-    -webkit-transition: all 1s;
-    border: thin solid #000;
-    border-radius: 0.5em;
-    position: absolute;
-    top: 50px;
-    left: 150px;
-    -webkit-transform-origin-y: 100%;
+    -webkit-transition         : all 1s;
+    -moz-transition            : all 1s;
+    transition                 : all 1s;
+    border                     : thin solid #000;
+    border-radius              : 0.5em;
+    position                   : absolute;
+    top                        : 50px;
+    left                       : 150px;
+    -webkit-transform-origin-y : 100%;
+    -moz-transform-origin-y    : 100%;
+    transform-origin-y         : 100%;
 }
 
 body img:nth-of-type(odd) {
-    opacity: 0.3;
+    opacity                    : 0.3;
 }
 
 body img:nth-of-type(3), body img:nth-of-type(4) {
-    left: 500px;
+    left                       : 500px;
 }
 
 body img:nth-of-type(5), body img:nth-of-type(6) {
-    left: 900px;
+    left                       : 900px;
 }
 
 body.alt img:nth-of-type(2) {
-    -webkit-transform: skewX(15deg);
+    -webkit-transform          : skewX(15deg);
+    -moz-transform             : skewX(15deg);
+    transform                  : skewX(15deg);
 }
 
 body.alt img:nth-of-type(4) {
-    -webkit-transform: skewY(-20deg);
-    -webkit-transform-origin: 300%;
+    -webkit-transform          : skewY(-20deg);
+    -webkit-transform-origin   : 300%;
+    -moz-transform             : skewY(-20deg);
+    -moz-transform-origin      : 300%;
+    transform                  : skewY(-20deg);
+    transform-origin           : 300%;
 }
 
 body.alt img:nth-of-type(6) {
-    -webkit-transform: skew(10deg, -30deg);
+    -webkit-transform          : skew(10deg, -30deg);
+    -moz-transform             : skew(10deg, -30deg);
+    transform                  : skew(10deg, -30deg);
 }
 
 </style>

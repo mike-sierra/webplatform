@@ -5,20 +5,22 @@
 <style>
 
 body {
-    background: #aaa;
+    background            : #aaa;
 }
 
 section {
-    overflow: hidden;
-    position: absolute;
-    width: 320px;
-    height: 480px;
-    background: #fff;
+    overflow              : hidden;
+    position              : absolute;
+    width                 : 320px;
+    height                : 480px;
+    background            : #fff;
 }
 
 nav {
         /* transition applies to all varying elements */
-    -webkit-transition            : all 0.5s;
+    -webkit-transition    : all 0.5s;
+    -moz-transition       : all 0.5s;
+    transition            : all 0.5s;
         /* dimensions and position (mostly outside view) */
     height                : 42px;
     width                 : 300px;
@@ -33,8 +35,7 @@ nav {
     box-sizing            : border-box;
         /* define icon */
     background-image      : url(img/html5.png);
-    background-position-x : left;
-    background-position-y : 50%;
+    background-position   : left 50%;
     background-repeat     : no-repeat;
     background-size       : contain;
     background-color      : #fff;
@@ -42,29 +43,35 @@ nav {
     border                : transparent solid medium;
     border-radius         : 4px;
     box-shadow            : 0 0 1em transparent;
-    text-align: justify;
+    text-align            : justify;
 }
 
 nav.expanded  {
         /* transition applies to these varying elements */
     right                 : 10px;   /* bring panel into view */
-    background-position-x : 400px;  /* icon out of view */
+    background-position   : 400px 50%;  /* icon out of view */
     border                : #aaa solid medium;
     box-shadow            : 0 0 1em #777;
 }
 
 nav > div {
-    -webkit-transition        : all 0.5s;
-    height            : 34px;
-    width             : 34px;
-    background-size   : contain;
-    display           : inline-block; /* arranged horizontally */
-    opacity           : 0;            /* faded */
-    -webkit-transform         : scale(0);     /* scaled down */
+    -webkit-transition    : all 0.5s;
+    -moz-transition       : all 0.5s;
+    transition            : all 0.5s;
+    height                : 34px;
+    width                 : 34px;
+    background-size       : contain;
+    display               : inline-block; /* arranged horizontally */
+    opacity               : 0;            /* faded */
+    -webkit-transform     : scale(0);     /* scaled down */
+    -moz-transform        : scale(0);     /* scaled down */
+    transform             : scale(0);     /* scaled down */
 }
 nav.expanded > div {
-    opacity           : 1;
-    -webkit-transform         : scale(1);
+    opacity               : 1;
+    -webkit-transform     : scale(1);
+    -moz-transform        : scale(1);
+    transform             : scale(1);
 }
 
 div:nth-of-type(1) { background-image : url(img/html5icon1.png); }

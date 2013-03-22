@@ -4,24 +4,28 @@
 <style>
 
 body {
-    background: #ddd;
+    background         : #ddd;
 }
 
 body img {
-    -webkit-transition: -webkit-transform 1s;
-    border: thin solid #000;
-    border-radius: 0.5em;
-    position: absolute;
-    top: 50px;
-    left: 50px;
+    -webkit-transition : all 1s;
+    -moz-transition    : all 1s;
+    transition         : all 1s;
+    border             : thin solid #000;
+    border-radius      : 0.5em;
+    position           : absolute;
+    top                : 50px;
+    left               : 50px;
 }
 
 body img:first-of-type {
-    opacity: 0.3;
+    opacity            : 0.3;
 }
 
 body.alt img:last-of-type {
-    -webkit-transform: translate(50%, 10%);
+    -webkit-transform  : translate(50%, 10%);
+    -moz-transform     : translate(50%, 10%);
+    transform          : translate(50%, 10%);
 }
 
 </style>

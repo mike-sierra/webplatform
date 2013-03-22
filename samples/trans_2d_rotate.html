@@ -4,26 +4,30 @@
 <style>
 
 body {
-    background: #ddd;
+    background         : #ddd;
 }
 
 body img {
-    -webkit-transition: -webkit-transform 1s;
-    border: thin solid #000;
-    border-radius: 0.5em;
-    position: absolute;
-    top: 100px;
-    left: 100px;
+    -webkit-transition : all 1s;
+    -moz-transition    : all 1s;
+    transition         : all 1s;
+    border             : thin solid #000;
+    border-radius      : 0.5em;
+    position           : absolute;
+    top                : 100px;
+    left               : 100px;
 }
 
 body img:first-of-type {
-    opacity: 0.3;
+    opacity            : 0.3;
 }
 
 body.alt img:last-of-type {
-    -webkit-transform: rotate(380deg);  /*   360  +   20  */
-    -webkit-transform: rotate(-340deg); /* (-360) - (-20) */
-    -webkit-transform: rotate(20deg);
+    -webkit-transform  : rotate(380deg);  /*   360  +   20  */
+    -webkit-transform  : rotate(-340deg); /* (-360) - (-20) */
+    -webkit-transform  : rotate(20deg);
+    -moz-transform     : rotate(20deg);
+    transform          : rotate(20deg);
 }
 
 </style>

@@ -3,48 +3,86 @@
 <title>3D transform + backface-visibility:hidden</title>
 <style>
 
+body {
+    background                  : #aaa;
+}
+
 section {
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    margin-top: 50px;
-    -webkit-perspective: 1000;
-    -webkit-transform: scale(0.75);
+    position                    : absolute;
+    height                      : 100%;
+    width                       : 100%;
+    margin-top                  : 50px;
+    -webkit-perspective         : 1000px;
+    -webkit-transform           : scale(0.75);
+    -moz-perspective            : 1000px;
+    -moz-transform              : scale(0.75);
+    perspective                 : 1000px;
+    transform                   : scale(0.75);
 }
 
 div {
-    position: absolute;
-    width: 280;
-    height: 400;
-    border: thin solid #777;
-    border-radius: 0.5em;
+    position                    : absolute;
+    width                       : 280;
+    height                      : 400;
+    border                      : thin solid #777;
+    border-radius               : 0.5em;
 }
 
 .card {
-    left: 0px;
-    -webkit-transform-style: preserve-3d;
+    left                        : 0px;
+    -webkit-transform-style     : preserve-3d;
+    -moz-transform-style        : preserve-3d;
+    transform-style             : preserve-3d;
 }
 
 .face {
-    background-size: 100% 100%;
-    -webkit-backface-visibility: hidden;
+    background-size             : 100% 100%;
+    -webkit-backface-visibility : hidden;
+    -moz-backface-visibility    : hidden;
+    backface-visibility         : hidden;
 }
 
 .face:first-of-type {
-    background-image: url(img/cardJackHeart.png);
+    background-image            : url(img/cardJackHeart.png);
 }
 
 .face:last-of-type {
-    background-image: url(img/cardBack2.jpg);
-    -webkit-transform: rotateY(180deg);
+    background-image            : url(img/cardBack2.jpg);
+    -webkit-transform           : rotateY(180deg);
+    -moz-transform              : rotateY(180deg);
+    transform                   : rotateY(180deg);
 }
 
-.card:nth-of-type(1) { -webkit-transform: rotateY(0deg); }
-.card:nth-of-type(2) { -webkit-transform: rotateY(45deg); }
-.card:nth-of-type(3) { -webkit-transform: rotateY(72deg); }
-.card:nth-of-type(4) { -webkit-transform: rotateY(108deg); }
-.card:nth-of-type(5) { -webkit-transform: rotateY(135deg); }
-.card:nth-of-type(6) { -webkit-transform: rotateY(180deg); }
+.card:nth-of-type(1) {
+    -webkit-transform           : rotateY(0deg); 
+    -moz-transform              : rotateY(0deg); 
+    transform                   : rotateY(0deg); 
+}
+.card:nth-of-type(2) {
+    -webkit-transform           : rotateY(45deg); 
+    -moz-transform              : rotateY(45deg); 
+    transform                   : rotateY(45deg); 
+}
+.card:nth-of-type(3) {
+    -webkit-transform           : rotateY(72deg); 
+    -moz-transform              : rotateY(72deg); 
+    transform                   : rotateY(72deg); 
+}
+.card:nth-of-type(4) {
+    -webkit-transform           : rotateY(108deg); 
+    -moz-transform              : rotateY(108deg); 
+    transform                   : rotateY(108deg); 
+}
+.card:nth-of-type(5) {
+    -webkit-transform           : rotateY(135deg); 
+    -moz-transform              : rotateY(135deg); 
+    transform                   : rotateY(135deg); 
+}
+.card:nth-of-type(6) {
+    -webkit-transform           : rotateY(180deg); 
+    -moz-transform              : rotateY(180deg); 
+    transform                   : rotateY(180deg); 
+}
 
 .card:nth-of-type(1) { left: 0px }
 .card:nth-of-type(2) { left: 330px }

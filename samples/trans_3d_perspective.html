@@ -4,29 +4,37 @@
 <style>
 
 body {
-    background		: #ddd;
+    background                   : #ddd;
 }
 
 .parent {
-    position		: absolute;
-    top			: 100px;
-    left		: 100px;
-    border              : thin solid #000;
+    position                     : absolute;
+    top                          : 100px;
+    left                         : 100px;
+    border                       : thin solid #000;
 }
 .child {
-    border              : thin solid #000;
-    -webkit-transform           : rotateY(45deg);
+    border                       : thin solid #000;
+    -webkit-transform            : rotateY(45deg);
+    -moz-transform               : rotateY(45deg);
+    transform                    : rotateY(45deg);
 }
 
 div:nth-of-type(2) {
-    left		: 450px;
-    -webkit-perspective         : 1000;
+    left                         : 450px;
+    -webkit-perspective          : 1000px;
+    -moz-perspective             : 1000px;
+    perspective                  : 1000px;
 }
 
 div:last-of-type {
-    left		: 800px;
-    -webkit-perspective-origin-x  : 500px;
-    -webkit-perspective         : 1000;
+    left                         : 800px;
+    -moz-perspective-origin-x    : 500px;
+    -moz-perspective             : 1000px;
+    -webkit-perspective-origin-x : 500px;
+    -webkit-perspective          : 1000px;
+    perspective-origin-x         : 500px;
+    perspective                  : 1000px;
 }
 
 </style>

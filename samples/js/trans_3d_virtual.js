@@ -23,6 +23,10 @@ window.addEventListener('deviceorientation', function(e) {
 
     app.ry.style.WebkitTransform = 'rotateY(' + app.rotY + 'deg)';
     app.rx.style.WebkitTransform = 'rotateX(' + (app.rotX * -1) + 'deg)' + ' translateZ(400px)';
+    app.ry.style.MozTransform    = 'rotateY(' + app.rotY + 'deg)';
+    app.rx.style.MozTransform    = 'rotateX(' + (app.rotX * -1) + 'deg)' + ' translateZ(400px)';
+    app.ry.style.transform       = 'rotateY(' + app.rotY + 'deg)';
+    app.rx.style.transform       = 'rotateX(' + (app.rotX * -1) + 'deg)' + ' translateZ(400px)';
 });
 
 setTimeout(function(){
@@ -32,5 +36,7 @@ setTimeout(function(){
         app.rotY += 3;
         app.ry.dataset.y = app.rotY;
         app.ry.style.WebkitTransform = 'rotateY(' + app.rotY + 'deg)';
+        app.ry.style.MozTransform    = 'rotateY(' + app.rotY + 'deg)';
+        app.ry.style.transform       = 'rotateY(' + app.rotY + 'deg)';
     }, 100);
 },1000);
