@@ -75,7 +75,7 @@ C467.202,305.564,467.768,305.858,468.054,306.428z"/>
        begin         = "2s"
        dur           = "10s"
        repeatCount   = "0"
-       fill = "freeze"
+       fill          = "freeze"
        />
     </rect>
   <rect id="tileRectWhite" x="0.5" y="0.5" width="9.0" height="4.0" fill="#E1BC9B" />
