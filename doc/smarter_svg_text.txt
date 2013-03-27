@@ -80,22 +80,22 @@
 
 CSS2 Font:
 
-* '''font'''
-* '''font-family'''
-* '''font-size'''
-* '''font-size-adjust'''
-* '''font-stretch'''
-* '''font-style'''
-* '''font-variant'''
-* '''font-weight'''
+* [[svg/properties/font|'''font''']]
+* [[svg/properties/font-family|'''font-family''']]
+* [[svg/properties/font-size|'''font-size''']]
+* [[svg/properties/font-size-adjust|'''font-size-adjust''']]
+* [[svg/properties/font-stretch|'''font-stretch''']]
+* [[svg/properties/font-style|'''font-style''']]
+* [[svg/properties/font-variant|'''font-variant''']]
+* [[svg/properties/font-weight|'''font-weight''']]
 
 CSS2 Text:
 
-* '''direction'''
-* '''unicode-bidi'''
-* '''letter-spacing'''
-* '''text-decoration'''
-* '''word-spacing'''
+* [[svg/properties/direction|'''direction''']]
+* [[svg/properties/unicode-bidi|'''unicode-bidi''']]
+* [[svg/properties/letter-spacing|'''letter-spacing''']]
+* [[svg/properties/text-decoration|'''text-decoration''']]
+* [[svg/properties/word-spacing|'''word-spacing''']]
 
 The following SVG properties are not defined in CSS2. The complete
 normative definitions for these properties are found in this
@@ -103,14 +103,14 @@ specification:
 
 Text properties:
 
-* '''alignment-baseline'''
-* '''baseline-shift'''
-* '''dominant-baseline'''
-* '''glyph-orientation-horizontal'''
-* '''glyph-orientation-vertical'''
-* '''kerning'''
-* '''text-anchor'''
-* '''writing-mode'''
+* [[svg/properties/alignment-baseline|'''alignment-baseline''']]
+* [[svg/properties/baseline-shift|'''baseline-shift''']]
+* [[svg/properties/dominant-baseline|'''dominant-baseline''']]
+* [[svg/properties/glyph-orientation-horizontal|'''glyph-orientation-horizontal''']]
+* [[svg/properties/glyph-orientation-vertical|'''glyph-orientation-vertical''']]
+* [[svg/properties/kerning|'''kerning''']]
+* [[svg/properties/text-anchor|'''text-anchor''']]
+* [[svg/properties/writing-mode|'''writing-mode''']]
 
 }}
 {{Notes_Section}}
