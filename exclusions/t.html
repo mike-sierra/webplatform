@@ -1,6 +1,6 @@
 <html>
 <head>
-<title>ellipse</title>
+<title>exclusions</title>
 
 <style>
 
@@ -8,6 +8,10 @@ body {
 /*
     -webkit-user-select   : none;
 */
+}
+
+aside {
+    padding: 0;
 }
 
 article {
@@ -23,6 +27,7 @@ article {
 }
 
 .float {
+    -webkit-transition: all 1s;
     margin                : 0px;
     padding               : 6px;
     width                 : 300px;
@@ -30,6 +35,10 @@ article {
     overflow              : hidden;
     color                 : red;
     font-family           : sans-serif;
+}
+
+.anim {
+    color: blue;
 }
 
 .right {
@@ -43,6 +52,7 @@ article {
 .arrow {
     -webkit-shape-outside : polygon(0% 25%, 50% 25%, 50% 0%, 100% 50%, 50% 100%, 50% 75%, 0% 75%, 0% 25%);
     -webkit-shape-padding : 10px;
+    -webkit-shape-margin : 10px; /* square wheel */
 }
 
 .triangle {
@@ -56,6 +66,14 @@ article {
     -webkit-shape-outside : circle(50%, 50%, 50%);
 }
 
+.insideCircle {
+    -webkit-shape-inside : circle(50%, 50%, 40%);
+}
+.insideArrow {
+    -webkit-shape-inside : polygon(0% 25%, 50% 25%, 50% 0%, 100% 50%, 50% 100%, 50% 75%, 0% 75%, 0% 25%);
+}
+
+
 .ellipse {
     width                 : 200px;
     -webkit-shape-padding : 10px;
@@ -67,6 +85,13 @@ article {
     -webkit-shape-padding : 10px;
     border-radius: 50%;
     -webkit-shape-outside : ellipse(0%, 50%, 50%, 50%);
+}
+
+.roundrect {
+    -webkit-shape-padding : 10px;
+    border-radius: 50%;
+    -webkit-shape-outside : rectangle(0%, 0%, 50%, 100%, 50%, 50%);
+    overflow: visible;
 }
 
 .photo {
@@ -99,6 +124,39 @@ article {
     -webkit-shape-padding : 6px;
 }
 
+.animArrow, .animArrow, .animCircle, .animEllipse, .animSemi, .animTriangle, .animInsideCircle { color: blue; }
+
+.animArrow {
+    -webkit-shape-outside : polygon(0% 45%, 50% 45%, 50% 0%, 100% 50%, 50% 100%, 50% 55%, 0% 55%, 0% 45%);
+}
+.animCircle {
+    -webkit-shape-outside : circle(50%, 50%, 30%);
+}
+.animEllipse {
+    -webkit-shape-outside : ellipse(50%, 50%, 100%, 20%);
+}
+.animSemi {
+}
+.animTriangle {
+    -webkit-shape-outside : polygon(0% 50%, 50% 0%, 100% 100%);
+}
+.animInsideCircle {
+    -webkit-shape-inside : circle(100%, 50%, 50%);
+    font-size: smaller;
+}
+.animInsideArrow {
+    -webkit-shape-inside : polygon(75% 0%, 75% 50%, 100% 50%, 50% 100%, 0% 50%, 25% 50%, 25% 0%, 75% 0%);
+    font-size: xx-small;
+}
+
+aside > img {
+    width: 300;
+    height: 300;
+    margin: 0;
+    border-radius: 50%;
+    -webkit-transform: translate(-220px, -30px) scale(0.9);
+}
+
 </style>
 
 </head>
@@ -124,7 +182,7 @@ twone nathandjoe.  Rot a peck of pa's malt had Jhem or Shen brewed by
 arclight and rory end to the regginbrow was to be seen ringsome on the
 aquaface.
 
-<aside class="float left arrow">
+<aside class="float left arrow" onclick="this.classList.toggle('animArrow')">
 All work and no play makes Jack a dull boy.
 All work and no play makes Jack a dull boy.
 All work and no play makes Jack a dull boy.
@@ -168,7 +226,7 @@ before joshuan judges had given us numbers or Helviticus committed
 deuteronomy (one yeastyday he sternely struxk his tete in a tub for to
 watsch the future of his fates but ere he swiftly stook it out again,
 by the might of moses, the very water was eviparated and all the
-<aside class="float right triangle">
+<aside class="float right triangle"  onclick="this.classList.toggle('animTriangle')">
 All work and no play makes Jack a dull boy.
 All work and no play makes Jack a dull boy.
 All work and no play makes Jack a dull boy.
@@ -205,7 +263,7 @@ going to be Mister Finnagain!  Comeday morm and, O, you're vine!
 Sendday's eve and, ah, you're vinegar!  Hahahaha, Mister Funn, you're
 going to be fined again!</p>
 
-<aside class="float left circle">
+<aside class="float left circle"  onclick="this.classList.toggle('animCircle')">
 All work and no play makes Jack a dull boy.
 All work and no play makes Jack a dull boy.
 All work and no play makes Jack a dull boy.
@@ -231,7 +289,7 @@ nod to the nabir is better than wink to the wabsanti.  Otherways
 wesways like that provost scoffing bedoueen the jebel and the jpysian
 sea.</p>
 
-<aside class="float right ellipse">
+<aside class="float right ellipse"  onclick="this.classList.toggle('animEllipse')">
 All work and no play makes Jack a dull boy.
 All work and no play makes Jack a dull boy.
 All work and no play makes Jack a dull boy.
@@ -267,7 +325,7 @@ course in erection) Dimb!  He stottered from the latter.  Damb!  he
 was dud.  Dumb!  Mastabatoom, mastabadtomm, when a mon merries his
 lute is all long.  For whole the world to see.</p>
 
-<aside  class="float left cutout">
+<aside  class="float left cutout"  onclick="this.classList.toggle('animArrow')">
   <aside  class="photo rotated">
   </aside>
 </aside>
@@ -309,7 +367,7 @@ carina!  O carina!)  wake him.</p>
 inns and ouses.  Tilling a teel of a tum, telling a toll of a teary
 turty Taubling.  Grace before Glutton.  For what we are, gifs a gross
 if we are, about to believe.  So pool the begg and pass the kish for
-<aside  class="float left semicircle">
+<aside  class="float left semicircle"  onclick="this.classList.toggle('animSemi')">
   <aside  class="photo rounded">
   </aside>
 </aside>
@@ -335,6 +393,17 @@ pinnyweight.  Arrah, sure, we all love little Anny Ruiny, or, we mean
 to say, lovelittle Anna Rayiny, when unda her brella, mid piddle med
 puddle, she ninnygoes nannygoes nancing by.  Yoh!  Brontolone slaaps,
 yoh snoores.</p>
+
+<aside  class="float right triangle insideCircle"  onclick="this.classList.toggle('animTriangle'); this.classList.toggle('animInsideCircle')">
+All work and no play makes Jack a dull boy.
+All work and no play makes Jack a dull boy.
+All work and no play makes Jack a dull boy.
+All work and no play makes Jack a dull boy.
+All work and no play makes Jack a dull boy.
+All work and no play makes Jack a dull boy.
+All work and no play makes Jack a dull boy.
+All work and no play makes Jack a dull boy.
+</aside>
 
 <p>Upon Benn Heather, in Seeple Isout too.  The cranic head on him,
 caster of his reasons, peer yuthner in yondmist.  Whooth?  His clay
@@ -365,8 +434,29 @@ and his pulluponeasyan wartrews.  This is his big wide harse.</p>
 detch.  This is an inimyskilling inglis, this is a scotcher grey, this
 is a davy, stooping.  This is the bog lipoleum mordering the lipoleum
 beg.  A Gallawghurs argaumunt.  This is the petty lipoleum boy that
+<aside class="float right arrow insideArrow" onclick="this.classList.toggle('animArrow');this.classList.toggle('animInsideArrow')">
+All work and no play makes Jack a dull boy.
+All work and no play makes Jack a dull boy.
+All work and no play makes Jack a dull boy.
+All work and no play makes Jack a dull boy.
+All work and no play makes Jack a dull boy.
+All work and no play makes Jack a dull boy.
+All work and no play makes Jack a dull boy.
+All work and no play makes Jack a dull boy.
+All work and no play makes Jack a dull boy.
+All work and no play makes Jack a dull boy.
+All work and no play makes Jack a dull boy.
+All work and no play makes Jack a dull boy.
+All work and no play makes Jack a dull boy.
+All work and no play makes Jack a dull boy.
+All work and no play makes Jack a dull boy.
+All work and no play makes Jack a dull boy.
+All work and no play makes Jack a dull boy.
+All work and no play makes Jack a dull boy.
+</aside>
 was nayther bag nor bug.  Assaye, assaye! Touchole Fitz Tuomush.
 Dirty MacDyke.  And Hairy O'Hurry.</p>
+
 
 <p>All of them arminus-varminus.  This is Delian alps.  This is Mont
 Tivel, this is Mont Tipsey, this is the Grand Mons Injun.  This is the
@@ -397,6 +487,12 @@ Damn fairy ann, Voutre.  Willingdone.  That was the first joke of
 Willingdone, tic for tac.  Hee, hee, hee!  This is me Belchum in his
 twelvemile cowchooks, weet, tweet and stampforth foremost, footing the
 camp for the jinnies.</p>
+
+<aside  class="float left roundrect"  onclick="this.classList.toggle('animRoundrect')">
+
+<img src="http://adobe.github.com/web-platform/samples/css-exclusions/polygon-dawn/stock-photo.jpeg"/>
+
+</aside>
 
 <p>Drink a sip, drankasup, for he's as sooner buy a guinness than he'd
 stale store stout.  This is Rooshious balls.  This is a ttrinch.  This
@@ -445,7 +541,6 @@ back of his big wide harse.  Tip (Bullseye!  Game!)  How Copenhagen
 ended.  This way the museyroom.  Mind your boots goan out.</p>
 
 </article>
-
 
 </body>
 </html>
