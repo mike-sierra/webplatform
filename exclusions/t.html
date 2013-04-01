@@ -518,13 +518,13 @@ band up.</p>
     cont-family           : sans-serif;
     background            : gold;
     -webkit-transform     : rotate(-30deg);
-    -webkit-shape-padding : 10px;
-    font-size             : small;
+    font-size             : 12;
     -webkit-shape-outside : rectangle(0%, 0%, 100%, 100%);
+    -webkit-shape-inside  : polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
 ">
 
-Can you rotate an exclusion's shape-outside along with the rest of a
-transformed element? Not so much.
+Can you rotate an exclusion's shape- outside along with a transformed
+element? No, but shape- inside transforms OK.
 
 </aside>
 
