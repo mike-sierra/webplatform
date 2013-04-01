@@ -108,8 +108,6 @@ article {
 }
 
 .rounded {
-/*
-*/
     box-sizing: border-box;
     border-radius: 50%;
     width: 300px;
@@ -127,7 +125,7 @@ article {
 .animArrow, .animArrow, .animCircle, .animEllipse, .animSemi, .animTriangle, .animInsideCircle { color: blue; }
 
 .animArrow {
-    -webkit-shape-outside : polygon(0% 45%, 50% 45%, 50% 0%, 100% 50%, 50% 100%, 50% 55%, 0% 55%, 0% 45%);
+    -webkit-shape-outside : polygon(0% 25%, 50% 25%, 50% 0%, 100% 50%, 50% 102%, 50% 75%, 0% 75%, 0% 25%);
 }
 .animCircle {
     -webkit-shape-outside : circle(50%, 50%, 30%);
@@ -145,7 +143,7 @@ article {
     font-size: smaller;
 }
 .animInsideArrow {
-    -webkit-shape-inside : polygon(75% 0%, 75% 50%, 100% 50%, 50% 100%, 0% 50%, 25% 50%, 25% 0%, 75% 0%);
+    -webkit-shape-inside : polygon(75% 0%, 75% 50%, 100% 50%, 50% 102%, 0% 50%, 25% 50%, 25% 0%, 75% 0%);
     font-size: xx-small;
 }
 
@@ -155,6 +153,22 @@ aside > img {
     margin: 0;
     border-radius: 50%;
     -webkit-transform: translate(-220px, -30px) scale(0.9);
+}
+
+div {
+    -webkit-column-count: 2;
+}
+
+.centered {
+    float: right;
+    width: 200px;
+    height: 200px;
+    background-color: yellow;
+    border-radius: 50%;
+    -webkit-shape-outside : rectangle(0px, 0px, 100px, 200px, 100px, 100px);
+    color: red;
+    font-family: sans-serif;
+    font-size: small;
 }
 
 </style>
@@ -169,6 +183,15 @@ riverrun, past Eve and Adam's, from swerve of shore to bend of bay,
 brings us by a commodius vicus of recirculation back to Howth Castle
 and Environs.
 
+<aside class="float left arrow" onclick="this.classList.toggle('animArrow')">
+All work and no play makes Jack a dull boy.
+All work and no play makes Jack a dull boy.
+All work and no play makes Jack a dull boy.
+All work and no play makes Jack a dull boy.
+All work and no play makes Jack a dull boy.
+All work and no play makes Jack a dull boy.
+</aside>
+
 <p>
 Sir Tristram, violer d'amores, fr'over the short sea, had passencore
 rearrived from North Armorica on this side the scraggy isthmus of
@@ -182,15 +205,6 @@ twone nathandjoe.  Rot a peck of pa's malt had Jhem or Shen brewed by
 arclight and rory end to the regginbrow was to be seen ringsome on the
 aquaface.
 
-<aside class="float left arrow" onclick="this.classList.toggle('animArrow')">
-All work and no play makes Jack a dull boy.
-All work and no play makes Jack a dull boy.
-All work and no play makes Jack a dull boy.
-All work and no play makes Jack a dull boy.
-All work and no play makes Jack a dull boy.
-All work and no play makes Jack a dull boy.
-</aside>
-
 <p>
 The fall...  of a once wallstrait oldparr is retaled early in bed and
 later on life down through all christian minstrelsy.  The great fall
@@ -200,6 +214,24 @@ sends an unquiring one well to the west in quest of his tumptytumtoes:
 and their upturnpikepointandplace is at the knock out in the park
 where oranges have been laid to rust upon the green since devlinsfirst
 loved livvy.
+
+<aside class="float left arrow" onclick="this.classList.toggle('animArrow')" style="    -webkit-shape-outside : polygon(0% 25%, 50% 25%, 50% 0%, 100% 50%, 50% 110%, 50% 75%, 0% 75%, 0% 25%);font-size:x-small">
+All work and no play makes Jack a dull boy.
+All work and no play makes Jack a dull boy.
+All work and no play makes Jack a dull boy.
+All work and no play makes Jack a dull boy.
+All work and no play makes Jack a dull boy.
+All work and no play makes Jack a dull boy.
+All work and no play makes Jack a dull boy.
+All work and no play makes Jack a dull boy.
+All work and no play makes Jack a dull boy.
+All work and no play makes Jack a dull boy.
+All work and no play makes Jack a dull boy.
+All work and no play makes Jack a dull boy.
+All work and no play makes Jack a dull boy.
+All work and no play makes Jack a dull boy.
+All work and no play makes Jack a dull boy.
+</aside>
 
 <p>
 What clashes here of wills gen wonts, oystrygods gaggin fishygods!
@@ -521,7 +553,8 @@ hung bushellors.  This is hiena hinnessy laughing alout at the
 Willingdone.  This is lipsyg dooley krieging the funk from the
 hinnessy.</p>
 
-<p>This is the hinndoo Shimar Shin between the dooley boy and the
+<div>
+This is the hinndoo Shimar Shin between the dooley boy and the
 hinnessy.  Tip.  This is the wixy old Willingdone picket up the half
 of the threefoiled hat of lipoleums fromoud of the bluddle filth.
 This is the hinndoo waxing ranjymad for a bombshoob.  This is the
@@ -533,12 +566,63 @@ hat of lipoleums to insoult on the hinndoo seeboy.  Hney, hney, hney!
 (Bullsrag!  Foul!)  This is the seeboy, madrashattaras, upjump and
 pumpim, cry to the Willingdone: Ap Pukkaru!  Pukka Yurap!  This is the
 Willingdone, bornstable ghentleman, tinders his maxbotch to the
-cursigan Shimar Shin.</p>
+cursigan Shimar Shin.
+
+<aside class="centered">
+A failed attempt to center an exclusion within multicolumn text.
+All work and no play makes Jack a dull boy.
+All work and no play makes Jack a dull boy.
+All work and no play makes Jack a dull boy.
+</aside>
 
 <p>Basucker youstead!  This is the dooforhim seeboy blow the whole of
 the half of the hat of lipoleums off of the top of the tail on the
 back of his big wide harse.  Tip (Bullseye!  Game!)  How Copenhagen
 ended.  This way the museyroom.  Mind your boots goan out.</p>
+
+<p>What a warm time we were in there, but how keling is here the
+airabouts!  We nowhere she lives but you mussna tell annaone for the
+lamp of Jig-a-Lanthern!  It's a candlelittle houthse of a month and
+one windies.  Downadown, High Downadown.  And nummered quaintlymine.
+And such reasonable weather too!  The wagrant wind's awalt'zaround the
+piltdowns and on every blasted knollyrock (if you can spot fifty I spy
+four more) there's that gnarlybird ygathering, a runalittle,
+doalittle, preealittle, pouralittle, wipealittle, kicksalittle,
+severalittle, eatalittle, whinealittle, kenalittle, helfalittle,
+pelfalittle gnarlybird.  A verytableland of bleakbardfields!  Under
+his seven wrothschields lies one, Lumproar.</p>
+
+<p>His glav toside him.  Skud ontorsed.  Our pigeons pair are flewn
+for northcliffs.  The three of crows have flapped it southenly,
+kraaking of de baccle to the kvarters of that sky whence triboos
+answer; Wail, 'tis well!  She niver comes out when Thon's on shower or
+when Thon's flash with his Nixy girls or when Thon's blowing
+toomcracks down the gaels of Thon.  No nubo no!  Neblas on you liv!
+Her would be too moochy afreet.  Of Burymeleg and Bindmerollingeyes
+and all the deed in the woe.  Fe fo fom!  She jist does hopes till
+byes will be byes.  Here, and it goes on to appear now, she comes, a
+peacefugle, a parody's bird, a peri potmother, a pringlpik in the
+ilandiskippy, with peewee and powwows in beggybaggy on her bickybacky
+and a flick flask fleckflinging its pixylighting pacts' huemeramybows,
+picking here, pecking there, pussypussy plunderpussy.  But it's the
+armitides toonigh, militopucos, and toomourn we wish for a muddy
+kissmans to the minutia workers and there's to be a gorgeups truce for
+happinest childher everwere.</p>
+
+<p>Come nebo me and suso sing the day we sallybright.  She's burrowed
+the coacher's headlight the better to pry (who goes cute goes siocur
+and shoos aroun) and all spoiled goods go into her nabsack: curtrages
+and rattlin buttins, nappy spattees and flasks of all nations,
+clavicures and scampulars, maps, keys and woodpiles of haypennies and
+moonled brooches with bloodstaned breeks in em, boaston nightgarters
+and masses of shoesets and nickelly nacks and foder allmicheal and a
+lugly parson of cates and howitzer muchears and midgers and maggets,
+ills and ells with loffs of toffs and pleures of bells and the last
+sigh that come fro the hart (bucklied!)  and the fairest sin the
+sunsaw (that's cearc!).  With Kiss.  Kiss Criss.  Cross Criss.  Kiss
+Cross.  Undo lives 'end.  Slain.</p>
+
+</div>
 
 </article>
 
