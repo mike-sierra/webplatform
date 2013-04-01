@@ -1,0 +1,137 @@
+=head1 Hulk Smash
+
+We've all heard how HTML5 and CSS3 make for an impressive cross-device
+mobile development platform. Let's see how we can use the latest web
+standards to design a browser-based mobile application to edit
+photographs you snap with the handset's camera. We'll explore ways to
+incorporate device orientation and gesture into the interface, both to
+navigate within an image gallery, and to adjust images.  So far, such
+gestural interfaces are unfamiliar, and thus pose real challenges all
+around, but we'll use this as an exercise to explore what's possible
+without weighing whether users will prefer them.
+
+This tutorial takes a quick romp through many different browser
+features, using rough prototype code that avoids web frameworks in the
+interest of clarity, and that ignores all sorts of complex problems
+and necessary optimizations about which you can comment below.  The
+application uses touch events to navigate within a gallery interface,
+and CSS transforms and transitions to animate these navigations. It
+uses CSS media queries to contextually display portrait- and
+landscape-orientated images, and HTML5 progress elements to keep track of
+where you are in each part of the gallery. It uses the Device
+Orientation API to add more complex gestural interface navigation
+modes, either one image at a time or flipping through them
+quickly. The HTML5 Multimedia API provides simple audio feedback. To
+round out the basic application shell, it uses the FileReader API to
+add new images from the handset's camera.
+
+The second half of the tutorial focuses on the Canvas API as a way to
+edit images. Touch events trigger various editing modes that crop
+photos, magnify the display, outline freehand selections, or add
+drawings.  Session storage provides a clipboard for copy and paste
+operations, and the History API allows users to undo any of their
+mistakes. Local storage allows users to save their changes for good.
+Finally, the application uses an additional gestural mode to adjust
+the image's brightness and contrast, and the HTML5 meter element to
+help fine-tune the gesture.
+
+=head2 A Photo Gallery Interface
+
+ * Basic semantic structure: ol > li
+
+ * add/remove DOM nodes
+
+ * CSS transforms; translate() to push neighboring images offscreen
+
+ * CSS transitions to swipe & fade
+
+ * nav element: [+]. [<]?
+
+=head2 Simple Touch Navigation
+
+ * Not always so simple!
+
+ * threshold touch by comparing touchstart/touchmove coordinates
+
+ * (ignore multipoint touch; used for crop & magnification)
+
+ * navigating past bookends triggers bounce-back keyframe animation
+
+=head2 Contextual Display
+
+ * viewport to disable browser's magnification
+
+ * init phase: calculate img orientation
+
+ * display based on orientation media query
+
+ * app needs to track 2 sets of images
+
+ * orientationchange event
+
+=head2 Progress Bars for Navigational Context
+
+ * apply full-screen transparency
+
+ * restyle <progress> on webkit, mozilla
+
+=head2 Navigating by Flick Gestures
+
+ * cache gesture state
+
+ * simple flick gesture based on raw accelerometer values
+
+=head2 Navigating by Tilt Gestures
+
+ * a separate gesture-only navigation app mode
+
+ * different set of 3D transforms for cover flow UI
+
+ * tilt degree modifies rate of setTimeout() fire
+
+=head2 Adding Images
+
+ * file input, no form
+
+ * limit to image input
+
+ * from device image gallery, possibly from camera
+
+ * FileReader API
+
+ * add to gallery
+
+=head2 ___ Cropping Images
+
+ * two-point touch defines crop rect; rescale based on new dimensions
+
+=head2 Magnifying Images
+
+ * support pan?
+
+ * is point between touch points the transform-origin?
+
+=head2 Freehand Selections
+
+ * touchmove
+
+=head2 Copy and Paste
+
+ * Session storage?
+
+=head2 Drawing
+
+ * touchmove
+
+=head2 Undo
+
+ * Session History API
+
+=Image Adjustment
+
+ * beta (rotateX) or brightness
+
+ * gamma (rotateY) for gamma
+
+http://mobile.smashingmagazine.com/2012/07/19/do-mobile-desktop-interfaces-belong-together/
+

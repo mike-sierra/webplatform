@@ -1,7 +1,7 @@
 {{Page_Title|SVG: graphic effects}}
 {{Flags
 |High-level issues=Stub
-|Checked_Out=No
+|Checked_Out=Yes
 }}
 {{Byline}}
 {{Summary_Section|This guide shows you how to embed images within SVG and apply various graphics effects such as gradients, patterns, clipping, masking, and compositing.}}
@@ -374,6 +374,7 @@ Color and Painting properties:
 ==Compositing options==
 
 ...
+
 }}
 {{Notes_Section}}
 {{Compatibility_Section
@@ -383,7 +384,9 @@ Color and Painting properties:
 |Mobile_rows=
 |Notes_rows=
 }}
-{{See_Also_Section}}
+{{See_Also_Section
+|Topic_clusters=Filters
+}}
 {{Topics|SVG}}
 {{External_Attribution
 |Is_CC-BY-SA=No

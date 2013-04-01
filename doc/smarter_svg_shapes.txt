@@ -1,12 +1,14 @@
-{{Page_Title|SVG: basic shapes and text}}
+{{Page_Title|SVG: basic shapes}}
 {{Flags
 |High-level issues=Stub
-|Checked_Out=No
+|Checked_Out=Yes
 }}
 {{Byline}}
-{{Summary_Section|This guide introduces SVG's basic graphic primitives, from simple lines and shapes to complex polygons and paths.}}
+{{Summary_Section|This guide introduces SVG's basic graphic elements, from simple lines and shapes to complex polygons and freehand paths.}}
 {{Tutorial
-|Content===Simple shapes==
+|Content=
+
+==Simple shapes==
 
 Various SVG elements produce basic shapes, and attributes specify
 their dimensions.
@@ -50,17 +52,17 @@ This is how these examples appear:
 [[Image:svg_shapes.png]]
 
 This
-[http://letmespellitoutforyou.com/samples/svg_shapes.html interactive shape-building tool]
+[http://letmespellitoutforyou.com/samples/svg_shapes.html interactive shape-building tool]!
 allows you to manipulate various attributes and see how they apply to
 corresponding shapes.  Use it to test lines, polygons, and other CSS
 properties described below.
 
 ==Fill and stroke properties==
 
-By default, shapes have a black fill.  The
+By default, shapes are filled black.  The
 [[svg/properties/fill|'''fill''']] and
 [[svg/properties/stroke|'''stroke''']] properties specify the color of
-the background and the edge of the shape:
+the background and the edge of the shape.
 
 <syntaxhighlight lang="xml">
 <rect fill="pink" stroke="red" x="10" y="10" width="160" height="240"/>
@@ -70,10 +72,12 @@ You can assign these as attributes on SVG elements, but they are
 really CSS properties. For the sake of clarity and best practice, this
 guide expresses SVG properties as CSS selectors:
 
+<syntaxhighlight lang="css">
  rect {
      fill   : pink;
      stroke : red;
  }
+</syntaxhighlight>
 
 Properties specified via CSS override those specified as attributes,
 so this local CSS that colors the [[svg/elements/rect|'''rect''']]
@@ -89,29 +93,43 @@ over the edge of the shape, so increasing its pixel value bleeds the
 [[svg/properties/stroke|'''stroke''']] color both inside and outside
 the shape:
 
+<syntaxhighlight lang="css">
  rect {
      fill         : pink;
      stroke       : red;
      stroke-width : 6;
  }
-
-[[Image:svg_stroke_width.png]]
+</syntaxhighlight>
 
 To apply transparencies, you can set the
 [[svg/properties/fill-opacity|'''fill-opacity''']] and
-[[svg/properties/stroke-opacity|'''stroke-opacity''']] properties, or
-specify [[css/units/color|'''rgba()''' and '''hsla()''']] colors.
-Applying both results in additional transparency:
+[[svg/properties/stroke-opacity|'''stroke-opacity''']] properties.
 
+<syntaxhighlight lang="css">
  rect {
-     stroke-width  : 10;
-     stroke        : rgba(100%,0%,0%,0.5);
-     stroke-opacity: 0.5;
-     fill          : pink;
-     fill-opacity  : 0.5;
+     stroke-width   : 10;
+     stroke         : red;
+     stroke-opacity : 0.5;
+     fill           : red;
+     fill-opacity   : 0.25;
  }
+</syntaxhighlight>
 
 [[Image:svg_opacity.png]]
+
+Alternately, you can use [[css/units/color|'''rgba()''' and
+'''hsla()''']] CSS colors to to incorpoarate opacity as part of
+[[svg/properties/fill|'''fill''']] and
+[[svg/properties/stroke|'''stroke''']] property values. The following
+has the same effect as the example above:
+
+<syntaxhighlight lang="css">
+ rect {
+     stroke-width : 10;
+     stroke       : rgba(100%,0%,0%,0.5);
+     fill         : rgba(100%,0%,0%,0.25);
+ }
+</syntaxhighlight>
 
 ==Lines and polygons==
 
@@ -224,11 +242,12 @@ lines and curves. The [[svg/elements/path|'''path''']] element's
 sequence of commands referencing pairs of ''x''/''y'' coordinates
 within the drawing area.
 
-The following [http://letmespellitoutforyou.com/samples/svg_path.html
-interactive path-building utility] allows you to create your own path
-definitions using all the commands detailed below, and see them
-reflected in SVG code. Choose the command you want, then click within
-the drawing area to provide each set of coordinates:
+The following
+[http://letmespellitoutforyou.com/samples/svg_path.html interactive path-building utility]
+allows you to create your own path definitions using all the commands
+detailed below, and see them reflected in SVG code. Choose the command
+you want, then click within the drawing area to provide each set of
+coordinates:
 
 [[Image:svg_path.png|600px]]
 
@@ -247,18 +266,19 @@ bottom-left corner and drawing in a clockwise direction:
 
 The '''z''' command at the end draws a final line to the most recent
 '''M''' coordinate to close off the box. At any point along the path,
-you may use '''M''' to place the drawing point elsewhere to set off
-discontinuous segments known as ''subpaths''.
+you may use '''M''' to place the drawing point elsewhere to create
+discontinuous segments known as ''subpaths'', which may appear
+to be separate objects.
 
 Coordinates and commands can be separated by any combination of commas
 or whitespace characters. (To clarify these examples, commas separate
-each coordinate pair.)
+each ''x,y'' pair.)
 
 The uppercase '''M''' and '''L''' commands above specify absolute
-coordinates.  For all uppercase commands described in this section,
-there are alternative lowercase commands that specify coordinates in
-terms relative to the previously defined coordinate.  Starting from
-the default ''0,0'' origin point, the following path defines the same
+coordinates.  For all uppercase commands described here, there are
+alternative lowercase commands that specify coordinates in terms
+relative to the previously defined coordinate.  Starting from the
+default ''0,0'' origin point, the following path defines the same
 shape as the one above using '''m''' and '''l''' commands:
 
 <syntaxhighlight lang="xml">
@@ -279,14 +299,15 @@ The '''Q''' and '''q''' commands define a ''quadratic'' B&eacute;zier
 curve using one control point coordinate followed by another
 coordinate where the curve segment ends. The '''C''' and '''c'''
 commands use two intervening control points to define a more complex
-''cubic'' B&eacute;zier curve. These examples show where each
-control point falls:
+''cubic'' B&eacute;zier curve. These examples show where each control
+point falls:
 
 <div style="display:inline-block">
 
 [[Image:svg_quadratic.png]]
 
 <syntaxhighlight lang="xml">
+<!-- quadratic -->
 <path d="M 50,100 Q 180,20 300,130"/>
 </syntaxhighlight>
 
@@ -296,6 +317,7 @@ control point falls:
 [[Image:svg_cubic.png]]
 
 <syntaxhighlight lang="xml">
+<!-- cubic -->
 <path d="M 50,120 C 130,50 250,150 280,100"/>
 </syntaxhighlight>
 
@@ -309,6 +331,7 @@ cubic curves, but the second line leaves out the redundant command:
 [[Image:svg_quadratic_poly.png]]
 
 <syntaxhighlight lang="xml">
+<!-- quadratic, chained -->
 <path d="M 50,100 Q 180,20 300,130 Q 320,20 400,50"/>
 <path d="M 50,100 Q 180,20 300,130   320,20 400,50"/>
 </syntaxhighlight>
@@ -316,6 +339,7 @@ cubic curves, but the second line leaves out the redundant command:
 [[Image:svg_cubic_poly.png]]
 
 <syntaxhighlight lang="xml">
+<!-- cubic, chained -->
 <path d="M 50,120 C 130,50 250,150 280,100 C 250,50 450,50 400,100"/>
 <path d="M 50,120 C 130,50 250,150 280,100   250,50 450,50 400,100"/>
 </syntaxhighlight>
@@ -370,6 +394,9 @@ syntax specifying a surprisingly great deal of information:
 If the ellipse's radii is insufficient or if its rotation makes it
 impossible to get to the final end point, the ellipse does not render.
 
+Elliptical arcs are great for drawing parts of clouds and thought
+balloons:
+
 [[Image:svg_arc.png|300px]]
 
 Experiment with the
@@ -384,11 +411,35 @@ control and destination points:
 
 * '''M'''/'''m''' ''destination'': jumps to ''destination'' point
 * '''L'''/'''l''' ''destination'': draws straight line to ''destination'' point
-* '''Q'''/'''q''' ''control'' ''destination'': draws quadratic B&eacute;zier curve to ''destination'' point, shaped by ''control''
+* '''Q'''/'''q''' ''control'' ''destination'': draws quadratic B&eacute;zier curve to ''destination'' point, shaped by ''control'' point
 * '''T'''/'''t''' ''destination'': draws quadratic curve to ''destination'' point, influenced by virtual control point mirroring most recent control point
 * '''C'''/'''c''' ''control1'' ''control2'' ''destination'': draws a cubic B&eacute;zier curve to ''destination'' point, shaped by two control points
-* '''S'''/'''s''' ''control2'' ''destination'': draws a cubic B&eacute;zier curve to ''destination'' point, shaped by a virtual control point mirroring the most recent control point, and by a second ''control2'' point
-* '''A'''/'''a''' ''radiusX'',''radiusY'' ''rotationAngle'' ''large-arc-flag'' ''sweep-arc-flag'' ''destination'': draws an elliptical arc to ''destination'', if possible, with overall ellipse shaped by ''radiusX'',''radiusY'' and rotated by ''rotationAngle''. The ''large-arc-flag'' prefers the widest-angle arc path, and ''sweep-arc-flag'' specifies the ellipse whose arc path is clockwise.
+* '''S'''/'''s''' ''control2'' ''destination'': draws a cubic B&eacute;zier curve to ''destination'' point, shaped by a virtual control point mirroring the most recent control point, and by a second explicit ''control2'' point
+* '''A'''/'''a''' ''radiusX'',''radiusY'' ''rotationAngle'' ''large-arc-flag'' ''sweep-arc-flag'' ''destination'': draws an elliptical arc to ''destination'', if possible, with overall ellipse shaped by ''radiusX'',''radiusY'' and rotated by ''rotationAngle''. The ''large-arc-flag'' prefers the widest-angle arc path, and ''sweep-arc-flag'' specifies the ellipse whose arc path travels clockwise to get to the destination point.
+
+==Fill rules==
+
+Whenever lines within paths cross each other, and when subpath shapes
+appear as islands within other shapes, it is not immediately obvious
+how such paths might be filled. By default, the
+[[svg/properties/fill-rule|'''fill-rule''']] property is set to
+'''nonzero''', which errs on the side of filling regions based on the
+direction of each stroke, which as the example below shows, may not
+always be intuitive. Setting it to '''evenodd''' prevents regions
+bordering each other from sharing the same fill value.
+
+<div style="display:inline-block">
+[[Image:svg_fillrule_nonzero.png]]
+ fill-rule: nonzero;
+</div>
+<div style="display:inline-block">
+[[Image:svg_fillrule_evenodd.png]]
+ fill-rule: evenodd;
+</div>
+
+Note that while these arrows appear to be separate graphics, they are
+actually sub-paths.  The [[svg/properties/fill-rule|'''fill-rule''']]
+property only applies in this case. 
 
 ==Markers==
 
@@ -407,13 +458,16 @@ a common definition:
 </defs>
 </syntaxhighlight>
 
-The [[svg/elements/marker|'''marker''']] element does not render unless it is associated with
-a path or other line element using various marker-related properties.
-This example places the arrowhead at the end of the last path segment:
+The [[svg/elements/marker|'''marker''']] element does not render
+unless it is associated with a path or other line element using
+various marker-related properties.  This example places the arrowhead
+at the end of the last path segment:
 
+<syntaxhighlight lang="css">
  path.pointer {
      marker-end: url(#arrowhead);
  }
+</syntaxhighlight>
 
 Alternately, the [[svg/properties/marker-start|'''marker-start''']]
 property places the marker at the path's starting point. Setting
@@ -465,25 +519,6 @@ The [[svg/attributes/markerWidth|'''markerWidth''']] and
 * [[svg/attributes/markerUnits|'''markerUnits''']]
 -->
 
-==Fill rules==
-
-Whenever lines within paths cross each other, and when subpath shapes
-appear as islands within other shapes, it is not immediately obvious
-how such paths might be filled. By default, the
-[[svg/properties/fill-rule|'''fill-rule''']] property is set to
-'''nonzero''', which errs on the side of filling regions based on the
-direction of each stroke, which as the example below shows, may not
-always be intuitive. Setting it to '''evenodd''' prevents regions
-bordering each other from sharing the same fill value.
-
-<div style="display:inline-block">
-[[Image:svg_fillrule_nonzero.png]]
- fill-rule: nonzero;
-</div>
-<div style="display:inline-block">
-[[Image:svg_fillrule_evenodd.png]]
- fill-rule: evenodd;
-</div>
 }}
 {{Notes_Section}}
 {{Compatibility_Section

@@ -1,0 +1,52 @@
+<html>
+  <head>
+<title>svg curve shadow</title>
+</head>
+<body>
+
+<svg width="800" height="250" >
+      <defs>
+       <filter id="curved-shadow" x="-10%" y="-40%" width="120%" height="300%">
+        <feFlood flood-color="black" flood-opacity="0.55" />
+        <feComposite in2="SourceAlpha" operator="in" result="coloredAlpha"/>
+        <feImage xlink:href="assets/images/slides/curved-disp.png" preserveAspectRatio="none" result="displacement"/>
+        <feDisplacementMap id="displacement" in2="displacement" in="coloredAlpha" scale="-30" xChannelSelector="R" yChannelSelector="A" result="displaced"/>
+        <feGaussianBlur stdDeviation="8" />
+        <feOffset id="displacementOffset" dx="0" dy="15" result="displaced-blurred"/>
+        <feMerge>
+         <feMergeNode/>
+         <feMergeNode in="SourceGraphic"/>
+        </feMerge>
+
+        <feGaussianBlur stdDeviation="8" in="SourceAlpha"/>
+        <feMerge>
+         <feMergeNode in="displaced-blurred"/>
+         <feMergeNode in="SourceGraphic"/>
+        </feMerge>
+       </filter>
+
+       <!-- Pattern from http://subtlepatterns.com/?p=1178 -->
+       <pattern id="paper" x="0" y="0" width="103" height="23" patternUnits="userSpaceOnUse">
+        <image xlink:href="assets/images/slides/arches.png" width="103" height="23" />
+       </pattern>
+
+      </defs>
+
+
+      <rect x="50" y="20" filter='url(#curved-shadow)' width="700"
+      height="160" fill="url(#paper)" stroke="#808080"
+      stroke-opacity="1" stroke-width="3" rx="10" />
+
+      <foreignObject x="50" y="20" width="700" height="160">
+       <body>
+        <div style="line-height:160px;">
+        <p style="font-weight:700;text-shadow: 0 0 5px rgba(0, 0, 0, 0.25)">no extra markup or :before!!! oh yeah!</p>
+        </div>
+       </body>
+      </foreignObject>
+
+ </svg>
+
+
+</body>
+</html>

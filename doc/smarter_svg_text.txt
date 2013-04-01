@@ -1,14 +1,13 @@
-{{Page_Title|Smarter SVG: text}}
+{{Page_Title|SVG text}}
 {{Flags
 |High-level issues=Stub
-|Editorial notes=[new content edited offline by Sierra (~~~); please do not edit]
+|Checked_Out=Yes
+|Editorial notes=[new content edited offline by Sierra ([[User:Sierra|Sierra]] ([[User talk:Sierra|talk]])); please do not edit]
 }}
 {{Byline}}
 {{Summary_Section|This guide shows how to embed text in your SVG content.}}
 {{Tutorial
-|Content=
-
-==Basic Text==
+|Content===Basic Text==
 
 * x
 * y
@@ -80,22 +79,22 @@
 
 CSS2 Font:
 
-* [[svg/properties/font|'''font''']]
-* [[svg/properties/font-family|'''font-family''']]
-* [[svg/properties/font-size|'''font-size''']]
-* [[svg/properties/font-size-adjust|'''font-size-adjust''']]
-* [[svg/properties/font-stretch|'''font-stretch''']]
-* [[svg/properties/font-style|'''font-style''']]
-* [[svg/properties/font-variant|'''font-variant''']]
-* [[svg/properties/font-weight|'''font-weight''']]
+* '''font'''
+* '''font-family'''
+* '''font-size'''
+* '''font-size-adjust'''
+* '''font-stretch'''
+* '''font-style'''
+* '''font-variant'''
+* '''font-weight'''
 
 CSS2 Text:
 
-* [[svg/properties/direction|'''direction''']]
-* [[svg/properties/unicode-bidi|'''unicode-bidi''']]
-* [[svg/properties/letter-spacing|'''letter-spacing''']]
-* [[svg/properties/text-decoration|'''text-decoration''']]
-* [[svg/properties/word-spacing|'''word-spacing''']]
+* '''direction'''
+* '''unicode-bidi'''
+* '''letter-spacing'''
+* '''text-decoration'''
+* '''word-spacing'''
 
 The following SVG properties are not defined in CSS2. The complete
 normative definitions for these properties are found in this
@@ -103,15 +102,14 @@ specification:
 
 Text properties:
 
-* [[svg/properties/alignment-baseline|'''alignment-baseline''']]
-* [[svg/properties/baseline-shift|'''baseline-shift''']]
-* [[svg/properties/dominant-baseline|'''dominant-baseline''']]
-* [[svg/properties/glyph-orientation-horizontal|'''glyph-orientation-horizontal''']]
-* [[svg/properties/glyph-orientation-vertical|'''glyph-orientation-vertical''']]
-* [[svg/properties/kerning|'''kerning''']]
-* [[svg/properties/text-anchor|'''text-anchor''']]
-* [[svg/properties/writing-mode|'''writing-mode''']]
-
+* '''alignment-baseline'''
+* '''baseline-shift'''
+* '''dominant-baseline'''
+* '''glyph-orientation-horizontal'''
+* '''glyph-orientation-vertical'''
+* '''kerning'''
+* '''text-anchor'''
+* '''writing-mode'''
 }}
 {{Notes_Section}}
 {{Compatibility_Section

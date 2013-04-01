@@ -1,0 +1,119 @@
+body {
+    -webkit-perspective     : 1000px;
+    background              : #777;
+    -webkit-user-select     : none;
+    cursor                  : pointer;
+}
+
+#gallery {
+    background              : #666;
+    -webkit-transition      : all 0.5s;
+    position                : absolute;
+    top                     : 0;
+    left                    : 0;
+    display                 : -webkit-flex;
+    justify-content         : center;
+    -webkit-justify-content : center;
+    align-items             : center;
+    -webkit-align-items     : center;
+}
+
+#gallery > div {
+    -webkit-transition      : all 0.5s;
+    -moz-transition         : all 0.5s;
+    transition              : all 0.5s;
+    -webkit-transform       : translateX(-100%);
+    transform               : translateX(-100%);
+    position                : absolute;
+    top                     : 0;
+    left                    : 0;
+    opacity                 : 0;
+    pointer-events          : none;
+}
+
+#gallery > div.selected {
+    -webkit-transform       : translateX(0);
+    transform               : translateX(0);
+    opacity                 : 1;
+    pointer-events          : auto;
+}
+
+/* images downstream selection w/same orientation */
+#gallery > div.selected:not(.portrait) ~ div.landscape,
+#gallery > div.selected:not(.landscape) ~ div.portrait {
+    transform               : translateX(100%);
+    -webkit-transform       : translateX(100%);
+    opacity                 : 0;
+    pointer-events          : none;
+}
+
+/* speed */
+
+body.speed > #gallery {
+    -webkit-transform       : translateZ(-1000px);
+    overflow                : visible;
+}
+
+body.speed > #gallery > div
+body.speed > #gallery > div.selected ~ div {
+    opacity                 : 1;
+    overflow                : visible;
+}
+
+/* progress */
+
+progress {
+    -webkit-transform       : translateZ(2px);
+    height                  : 100%;
+    width                   : 100%;
+    opacity                 : 0.5;
+    pointer-events          : none;
+}
+
+
+
+/* orientation */
+
+@media screen and (orientation:portrait) {
+    .landscape {
+        display             : none;
+    }
+    .portrait  {
+        display             : block;
+    }
+    #gallery {
+        width               : 320px;
+        height              : 480px;
+    }
+    img {
+        max-width           : 320px;
+        max-height          : 480px;
+    }
+}
+
+@media screen and (orientation:landscape) {
+    .landscape {
+        display             : block;
+    }
+    .portrait  {
+        display             : none;
+    }
+    #gallery {
+        width               : 480px;
+        height              : 320px;
+    }
+    img {
+        max-width           : 480px;
+        max-height          : 320px;
+    }
+}
+
+/* debug */
+
+span {
+     display                : block;
+     display                : none;;;
+     float                  : right;
+     background             : #fff;
+}
+

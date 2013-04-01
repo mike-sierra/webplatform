@@ -1,0 +1,191 @@
+<?xml version="1.0" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>hulksmash.txt</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rev="made" href="mailto:_mdnsresponder@doublemagnum.apple.com" />
+</head>
+
+<body style="background-color: white">
+
+
+<!-- INDEX BEGIN -->
+<div name="index">
+<p><a name="__index__"></a></p>
+
+<ul>
+
+	<li><a href="#hulk_smash">Hulk Smash</a></li>
+	<ul>
+
+		<li><a href="#a_photo_gallery_interface">A Photo Gallery Interface</a></li>
+		<li><a href="#simple_touch_navigation">Simple Touch Navigation</a></li>
+		<li><a href="#contextual_display">Contextual Display</a></li>
+		<li><a href="#progress_bars_for_navigational_context">Progress Bars for Navigational Context</a></li>
+		<li><a href="#navigating_by_flick_gestures">Navigating by Flick Gestures</a></li>
+		<li><a href="#navigating_by_tilt_gestures">Navigating by Tilt Gestures</a></li>
+		<li><a href="#adding_images">Adding Images</a></li>
+		<li><a href="#____cropping_images">___ Cropping Images</a></li>
+		<li><a href="#magnifying_images">Magnifying Images</a></li>
+		<li><a href="#freehand_selections">Freehand Selections</a></li>
+		<li><a href="#copy_and_paste">Copy and Paste</a></li>
+		<li><a href="#drawing">Drawing</a></li>
+		<li><a href="#undo">Undo</a></li>
+	</ul>
+
+</ul>
+
+<hr name="index" />
+</div>
+<!-- INDEX END -->
+
+<p>
+</p>
+<h1><a name="hulk_smash">Hulk Smash</a></h1>
+<p>We've all heard how HTML5 and CSS3 make for an impressive cross-device
+mobile development platform. Let's see how we can use the latest web
+standards to design a browser-based mobile application to edit
+photographs you snap with the handset's camera. We'll explore ways to
+incorporate device orientation and gesture into the interface, both to
+navigate within an image gallery, and to adjust images.  So far, such
+gestural interfaces are unfamiliar, and thus pose real challenges all
+around, but we'll use this as an exercise to explore what's possible
+without weighing whether users will prefer them.</p>
+<p>This tutorial takes a quick romp through many different browser
+features, using rough prototype code that avoids web frameworks in the
+interest of clarity, and that ignores all sorts of complex problems
+and necessary optimizations about which you can comment below.  The
+application uses touch events to navigate within a gallery interface,
+and CSS transforms and transitions to animate these navigations. It
+uses CSS media queries to contextually display portrait- and
+landscape-orientated images, and HTML5 progress elements to keep track of
+where you are in each part of the gallery. It uses the Device
+Orientation API to add more complex gestural interface navigation
+modes, either one image at a time or flipping through them
+quickly. The HTML5 Multimedia API provides simple audio feedback. To
+round out the basic application shell, it uses the FileReader API to
+add new images from the handset's camera.</p>
+<p>The second half of the tutorial focuses on the Canvas API as a way to
+edit images. Touch events trigger various editing modes that crop
+photos, magnify the display, outline freehand selections, or add
+drawings.  Session storage provides a clipboard for copy and paste
+operations, and the History API allows users to undo any of their
+mistakes. Local storage allows users to save their changes for good.
+Finally, the application uses an additional gestural mode to adjust
+the image's brightness and contrast, and the HTML5 meter element to
+help fine-tune the gesture.</p>
+<p>
+</p>
+<h2><a name="a_photo_gallery_interface">A Photo Gallery Interface</a></h2>
+<pre>
+ * Basic semantic structure: ol &gt; li</pre>
+<pre>
+ * add/remove DOM nodes</pre>
+<pre>
+ * CSS transforms; translate() to push neighboring images offscreen</pre>
+<pre>
+ * CSS transitions to swipe &amp; fade</pre>
+<pre>
+ * nav element: [+]. [&lt;]?</pre>
+<p>
+</p>
+<h2><a name="simple_touch_navigation">Simple Touch Navigation</a></h2>
+<pre>
+ * Not always so simple!</pre>
+<pre>
+ * threshold touch by comparing touchstart/touchmove coordinates</pre>
+<pre>
+ * (ignore multipoint touch; used for crop &amp; magnification)</pre>
+<pre>
+ * navigating past bookends triggers bounce-back keyframe animation</pre>
+<p>
+</p>
+<h2><a name="contextual_display">Contextual Display</a></h2>
+<pre>
+ * viewport to disable browser's magnification</pre>
+<pre>
+ * init phase: calculate img orientation</pre>
+<pre>
+ * display based on orientation media query</pre>
+<pre>
+ * app needs to track 2 sets of images</pre>
+<pre>
+ * orientationchange event</pre>
+<p>
+</p>
+<h2><a name="progress_bars_for_navigational_context">Progress Bars for Navigational Context</a></h2>
+<pre>
+ * apply full-screen transparency</pre>
+<pre>
+ * restyle &lt;progress&gt; on webkit, mozilla</pre>
+<p>
+</p>
+<h2><a name="navigating_by_flick_gestures">Navigating by Flick Gestures</a></h2>
+<pre>
+ * cache gesture state</pre>
+<pre>
+ * simple flick gesture based on raw accelerometer values</pre>
+<p>
+</p>
+<h2><a name="navigating_by_tilt_gestures">Navigating by Tilt Gestures</a></h2>
+<pre>
+ * a separate gesture-only navigation app mode</pre>
+<pre>
+ * different set of 3D transforms for cover flow UI</pre>
+<pre>
+ * tilt degree modifies rate of setTimeout() fire</pre>
+<p>
+</p>
+<h2><a name="adding_images">Adding Images</a></h2>
+<pre>
+ * file input, no form</pre>
+<pre>
+ * limit to image input</pre>
+<pre>
+ * from device image gallery, possibly from camera</pre>
+<pre>
+ * FileReader API</pre>
+<pre>
+ * add to gallery</pre>
+<p>
+</p>
+<h2><a name="____cropping_images">___ Cropping Images</a></h2>
+<pre>
+ * two-point touch defines crop rect; rescale based on new dimensions</pre>
+<p>
+</p>
+<h2><a name="magnifying_images">Magnifying Images</a></h2>
+<pre>
+ * support pan?</pre>
+<pre>
+ * is point between touch points the transform-origin?</pre>
+<p>
+</p>
+<h2><a name="freehand_selections">Freehand Selections</a></h2>
+<pre>
+ * touchmove</pre>
+<p>
+</p>
+<h2><a name="copy_and_paste">Copy and Paste</a></h2>
+<pre>
+ * Session storage?</pre>
+<p>
+</p>
+<h2><a name="drawing">Drawing</a></h2>
+<pre>
+ * touchmove</pre>
+<p>
+</p>
+<h2><a name="undo">Undo</a></h2>
+<pre>
+ * Session History API</pre>
+<pre>
+ * beta (rotateX) or brightness</pre>
+<pre>
+ * gamma (rotateY) for gamma</pre>
+<p><a href="http://mobile.smashingmagazine.com/2012/07/19/do-mobile-desktop-interfaces-belong-together/">http://mobile.smashingmagazine.com/2012/07/19/do-mobile-desktop-interfaces-belong-together/</a></p>
+
+</body>
+
+</html>

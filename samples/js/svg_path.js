@@ -47,7 +47,7 @@ app.changeTool = function(e) {
 };
 
 app.handleClick = function(e) {
-    app.points.push(e.offsetX + "," + e.offsetY);
+    app.points.push(e.clientX + "," + e.clientY);
     app.render();
 }
 
