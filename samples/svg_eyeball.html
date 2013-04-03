@@ -47,12 +47,64 @@
     stroke-linejoin   : miter;
 }
 
+/* viewBox */
+
+svg {
+    width: 600px;
+    height: 200px;
+    -webkit-transition: all 3s;
+    -moz-transition: all 3s;
+    transition: all 3s;
+    border-radius: 20px;
+}
+
+svg.zoomIn {
+    height: 600px;
+}
+
+/* labels */
+
+text {
+    fill-opacity: 0;
+    stroke-opacity: 0;
+    -webkit-transition: all 2s 0s;
+    font-size: 10px;
+    fill: red;
+    stroke-width: 0.5;
+    stroke: #000;
+    text-transform: uppercase;
+}
+
+svg.zoomIn text {
+    fill-opacity: 0.25;
+    stroke-opacity: 0.25;
+    -webkit-transition: all 2s 2s;
+}
+
+#irisPath, #pupilPath {
+    fill: none;
+    -webkit-transform-origin: center;
+}
+
+#irisPath {
+    -webkit-transform: rotate(120deg);
+}
+
+#pupilPath {
+    -webkit-transform: rotate(20deg);
+}
+
 </style>
 
 </head>
 <body>
 
-<svg width="600" height="200" viewBox="0 0 600 200" preserveAspectRatio="xMidYMid" xmlns="http://www.w3.org/2000/svg"  xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg
+   viewBox             = "0 0 600 200" 
+   preserveAspectRatio = "xMidYMid"
+   xmlns               = "http://www.w3.org/2000/svg"
+   xmlns:xlink         = "http://www.w3.org/1999/xlink"
+>
 
 <defs>
 
@@ -141,6 +193,28 @@
   </feComponentTransfer>
 </filter>
 
+<!-- text labels -->
+
+<text id="irisLabel">Iris</text>
+<text id="pupilLabel">Pupil</text>
+
+<g id="labels">
+  <text>
+    <textPath xlink:href="#irisPath">
+      <tref xlink:href="#irisLabel"/>
+    </textPath>
+  </text>
+  <text>
+    <textPath xlink:href="#pupilPath">
+      <tref xlink:href="#pupilLabel"/>
+    </textPath>
+  </text>
+
+    <path id="irisPath" d="M 60,100 A 40,40 0 0 1 140,100 A 40,40 0 0 1 60,100"/>
+    <path id="pupilPath" d="M 78,100 A 22,22 0 0 1 122,100 A 22,22 0 0 1 78,100"/>
+</g>
+
+
 <!-- grouped eye, eyes -->
 
 <g id="eye">
@@ -160,19 +234,60 @@
      class      = "eyeball"
      />
 
+  <use xlink:href="#labels"/>
+
 </g>
 
 <g id="eyes">
-  <use xlink:href="#eye" id="eyeRight" transform="translate(50,0)"/>
-  <use xlink:href="#eye" id="eyeLeft"  transform="translate(350,0)"/>
+    <use xlink:href="#eye" id="eyeRight" transform="translate(50,0)"/>
+    <use xlink:href="#eye" id="eyeLeft"  transform="translate(350,0)"/>
 </g>
 
 </defs>
 
-<use xlink:href="#eyes"/>
+<view id="zoomOut" viewBox="0 0 600 200" />
+<view id="zoomIn" viewBox="100 50 100 100" />
+
+<animate
+    id            = "zoomNavAnimate"
+    attributeType = "XML"
+    attributeName = "viewBox"
+    fill          = "freeze"
+/>
+
+  <a class="zoom" xlink:href="#zoomIn">
+    <use xlink:href="#eyes"/>
+  </a>
 
 </svg>
 
+<script>
+
+var app = new Function();
+
+window.onload = function() {
+    app.dur = '3s';
+    app.svg = document.querySelector('svg');
+    app.an = document.querySelector('#zoomNavAnimate');
+    app.an.setAttribute('dur', app.dur);
+    app.an.setAttribute('from', app.svg.getAttribute('viewBox'));
+    app.an.setAttribute('to', app.svg.getAttribute('viewBox'));
+    var links = document.querySelectorAll('a.zoom');
+    for (var i = 0, l = links.length; i < l; i++) {
+        links[i].setAttribute('onclick', 'event.preventDefault()');
+        links[i].addEventListener('click', zoomNav);
+    }
+};
+
+function zoomNav(e) {
+    var hash = e.currentTarget.getAttribute('xlink:href');
+    var tgt = document.querySelector(hash);
+    app.an.setAttribute('from', app.an.getAttribute('to'));
+    app.an.setAttribute('to', tgt.getAttribute('viewBox'));
+    app.an.beginElement();
+    app.svg.classList.toggle(hash.replace(/#/,''));
+}
+</script>
+
 </body>
 </html>
-

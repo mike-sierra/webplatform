@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<svg 
+   version           = "1.1" 
+   xmlns             = "http://www.w3.org/2000/svg"
+   xmlns:xlink       = "http://www.w3.org/1999/xlink" 
+   x                 = "0px" 
+   y                 = "0px"
+   width             = "1024px"
+   height            = "768px" 
+   viewBox           = "0 0 1024 768"
+   enable-background = "new 0 0 1024 768" 
+   xml:space         = "preserve"
+   class             = "zoomOut"
+   onclick           = "console.log(event.clientX + ' ' + event.clientY)"
+>
+
+<defs>
+
+<style><![CDATA[
+   text {
+      fill: #ffffff;
+      font-size: 20px;
+   }
+
+]]></style>
+
+
+</defs>
+
+
+
+<animate
+    id            = "AN"
+    attributeType = "XML"
+    attributeName = "viewBox"
+    fill          = "freeze"
+/>
+
+<!--
+<animateTransform
+    id            = "ANT"
+    attributeType = "XML"
+    attributeName = "transform"
+    type          = "rotate"
+    fill          = "freeze"
+/>
+-->
+
+<image xlink:href="stock-photo.jpeg"  x="0" y="0" width="1024" height="768"/>
+
+<view id ="zoomIn" viewBox ="100 150 560 480" viewTarget="tgt"/>
+<view id ="zoomOut" viewBox ="0 0 1024 768"/>
+<view id ="zoomOver" viewBox ="530 330 300 200"/>
+
+<a class="zoomIn" id="zoomInNav" xlink:href="#tgt"><text x="20" y="20">zoomIn</text></a>
+<a class="zoomIn" id="zoomOutNav" xlink:href="#zoomOut"><text x="200" y="200">zoomOut</text></a>
+<a class="zoomIn" id="zoomOverNav" xlink:href="#zoomOver" viewTarget="tgt"><text x="200" y="250">zoomOver</text></a>
+
+<a class="zoomOut" id="zoomOutNav" xlink:href="#zoomOut" style="fill:#000000"><text x="550" y="350">zoomOut</text></a>
+
+<g id="tgt">
+<circle  cx="640" cy="440" r="50" viewTarget="zoomOver" fill="gold"/>
+</g>
+
+</svg>

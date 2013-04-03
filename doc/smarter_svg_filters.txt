@@ -9,6 +9,34 @@
 {{Tutorial
 |Content===Applying filters in SVG==
 
+* feImage: places an image
+* feBlend
+* feOffset
+* feTile
+* feFlood: applies fill color
+
+* feGaussianBlur: motion blur
+
+* feMorphology [http://www.cs.auckland.ac.nz/courses/compsci773s1c/lectures/ImageProcessing-html/topic4.htm]
+* feTurbulence
+* feDisplacementMap
+* feComposite
+* feColorMatrix
+* feConvolveMatrix
+* feComponentTransfer
+    feFuncR
+    feFuncG
+    feFuncB
+    feFuncA
+* feDiffuseLighting
+    light source
+* feSpecularLighting
+    light source
+* feMerge
+    feMergeNode
+    feMergeNode
+
+
 ==Applying SVG filters with CSS==
 
 ==Chained filters==

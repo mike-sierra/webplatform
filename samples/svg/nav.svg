@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<svg 
+   version           = "1.1" 
+   xmlns             = "http://www.w3.org/2000/svg"
+   xmlns:xlink       = "http://www.w3.org/1999/xlink" 
+   x                 = "0px" 
+   y                 = "0px"
+   width             = "1024px"
+   height            = "768px" 
+   viewBox           = "0 0 1024 768"
+   enable-background = "new 0 0 1024 768" 
+   xml:space         = "preserve"
+   class             = "zoomOut"
+   onclick           = "console.log(event.clientX + ' ' + event.clientY)"
+>
+
+<defs>
+
+<style><![CDATA[
+   a {
+      -webkit-transition: all 1s;
+   }
+
+   text {
+      fill: #ffffff;
+      font-size: 20px;
+   }
+
+   svg a[href] {
+      display: none;
+   }
+
+   svg.zoomIn .zoomIn, 
+   svg.zoomOver .zoomOver, 
+   svg.zoomOut .zoomOut {
+      display: block;
+   }   
+
+]]></style>
+
+</defs>
+
+<animate
+    id            = "AN"
+    attributeType = "XML"
+    attributeName = "viewBox"
+    fill          = "freeze"
+/>
+
+<image xlink:href="stock-photo.jpeg"  x="0" y="0" width="1024" height="768"/>
+
+<view id ="zoomIn"   viewBox ="100 150 560 480"/>
+<view id ="zoomOut"  viewBox ="0 0 1024 768"/>
+<view id ="zoomOver" viewBox ="530 330 300 200"/>
+
+<a class="animate" id="zoomInNav" xlink:href="#zoomIn"><text x="20" y="20">zoomIn</text></a>
+<a class="animate" id="zoomOutNav" xlink:href="#zoomOut"><text x="200" y="200">zoomOut</text></a>
+<a class="animate" id="zoomOverNav" xlink:href="#zoomOver"><text x="200" y="250">zoomOver</text></a>
+<a class="animate" id="zoomOutNav" xlink:href="#zoomOut" style="fill:#000000"><text x="550" y="350">zoomOut</text></a>
+
+
+<script><![CDATA[
+
+var app = new Function();
+
+window.onload = function() {
+    app.dur = '0.5s';
+    app.svg = document.querySelector('svg');
+    app.an = document.querySelector('#AN');
+    app.an.setAttribute('dur', app.dur);
+    app.an.setAttribute('from', app.svg.getAttribute('viewBox'));
+    app.an.setAttribute('to', app.svg.getAttribute('viewBox'));
+    var links = document.querySelectorAll('a.animate');
+    for (var i = 0, l = links.length; i < l; i++) {
+        links[i].setAttribute('onclick', 'event.preventDefault()');
+        links[i].addEventListener('click', zoomNav);
+    }
+};
+
+function zoomNav(e) {
+    var hash = e.currentTarget.getAttribute('xlink:href');
+    var tgt = document.querySelector(hash);
+    app.an.setAttribute('from', app.an.getAttribute('to'));
+    app.an.setAttribute('to', tgt.getAttribute('viewBox'));
+    app.an.beginElement();
+    app.svg.className = hash.replace(/#/,'');
+}
+]]></script>
+
+</svg>
