@@ -1,14 +1,15 @@
-{{Page_Title|SVG: grand tour}}
+{{Page_Title|SVG grand tour}}
 {{Flags
 |Checked_Out=Yes
 }}
 {{Byline
 |Name=Mike Sierra
 }}
-{{Summary_Section|This guide introduces SVG graphics and shows how to deploy them along with other web content. It steps through various SVG features, showing you how to build a pair of animating eyeballs.}}
+{{Summary_Section|
+This guide shows you how to build a pair of animating eyeballs, providing a comprehensive tour of SVG features detailed in other tutorials. It shows how to maintain a set of reusable graphic components, and provides essential context on SVG transforms and coordinate spaces.}}
 {{Tutorial
 |Content=SVG is a standard markup format, like HTML and XML, that
-renders ''Scalable Vector Graphics'' within web browsers.  Vector or
+renders ''Scalable Vector Graphics'' within web browsers.  ''Vector'' or
 ''drawing''-style graphics are implemented as pure shapes that render
 crisply at any magnification. In contrast, ''raster'' or
 ''paint''-style images consist of a series of pixels that may not
@@ -16,7 +17,7 @@ display well when zoomed at high resolution.  Use SVG if you want to
 freely interact with portions of a graphic.  Since SVG renders within
 the browser's DOM, each graphic component can be styled through CSS,
 manipulated with JavaScript through core APIs, and can appear
-comfortably alongside HTML content.
+comfortably within HTML pages.
 
 This section of the guide shows how SVG is deployed along with other
 core web standards, with which you should already be familiar.  It
@@ -42,7 +43,7 @@ the section at the bottom of this page. Examples used throughout this
 guide feature ''inline'' SVG that's directly embedded within HTML,
 which allows you to flexibly apply CSS and JavaScript to both the SVG
 graphic and the HTML content. The basic markup looks like this, with
-an [[svg/elements/svg|'''svg''']] tag encapsulating the graphics:
+an [[svg/elements/svg|'''svg''']] element encapsulating the graphics:
 
 <syntaxhighlight lang="html5" highlight="8-11">
 <!DOCTYPE html>
@@ -62,8 +63,11 @@ an [[svg/elements/svg|'''svg''']] tag encapsulating the graphics:
 </syntaxhighlight>
 
 You can add [[svg/elements/title|'''title''']] and
-[[svg/elements/desc|'''desc''']] tags wherever necessary to comment
-your markup.
+[[svg/elements/desc|'''desc''']] elements wherever necessary to
+comment your markup.
+
+(See [[svg/tutorials/smarter_svg_deploy|'''SVG deployment''']] for
+different ways to render SVG content.)
 
 ==The eyeball==
 
@@ -101,18 +105,23 @@ them from obscuring the smaller ones:
 
 [[Image:svgGrandTour_eyeball_circles.png|100px]]
 
+(See [[svg/tutorials/smarter_svg_shapes|'''SVG shapes''']] for more
+about basic graphic elements such as circles, ellipses, rectangles,
+and polygons.)
+
 ==Styling via CSS==
 
 In this example, the [[svg/attributes/id|'''id''']],
 [[svg/attributes/cx|'''cx''']], [[svg/attributes/cy|'''cy''']], and
 [[svg/attributes/r|'''r''']] are all ordinary ''attributes'', while
 the [[svg/properties/fill|'''fill''']] and
-[[svg/properties/stroke|'''stroke''']] are known as ''presentation
-attributes''.  These are simply CSS properties that happen to be
-expressed as attributes.  Other than the tendency of longer CSS
-property names to use ''dashes-between-lowercase-words'' rather than
-''camelCase'' for attribute names, there may be no way to tell the
-difference by looking at them.
+[[svg/properties/stroke|'''stroke''']] are known as
+''presentation attributes''.
+These are simply CSS properties that happen to be expressed as
+attributes.  Other than the tendency of longer CSS property names to
+use ''dashes-between-lowercase-words'' rather than ''camelCase'' for
+attribute names, there may be no way to tell the difference by looking
+at them.
 
 Many CSS properties such as [[svg/properties/fill|'''fill''']] and
 [[svg/properties/stroke|'''stroke''']] apply only to SVG
@@ -123,17 +132,17 @@ apply to HTML, but are named differently. The
 capabilities in SVG as the
 [[css/properties/background-color|'''background-color''']] and
 [[css/properties/background-image|'''background-image''']] properties
-do for HTML.  Since [[svg/properties/fill|'''fill''']] is CSS, You can
-also modify it locally via the [[svg/attributes/style|'''style''']]
-attribute. Doing so actually takes precedence over the value of
-presentation attributes, so this example changes the eye color to
-brown:
+do for HTML.  Since [[svg/properties/fill|'''fill''']] is a CSS
+property, You can also modify it locally via the
+[[svg/attributes/style|'''style''']] attribute. Doing so actually
+takes precedence over the value of presentation attributes, so this
+example changes the eye color to brown:
 
 <syntaxhighlight lang="xml">
 <circle id="iris" cx="100" cy="100" r="25" fill="lightblue" style="fill:brown"/>
 </syntaxhighlight>
 
-As in HTML, you can consolidate CSS in style sheets and separate it
+As in HTML, you can consolidate CSS within style sheets to separate it
 from markup. Placing this CSS in the ''eyeballs.css'' file referenced
 from the HTML applies it to the slightly pared-down SVG markup that
 follows:
@@ -150,8 +159,10 @@ follows:
 </syntaxhighlight>
 
 As you'll see below, there are some cases where you want to avoid
-using style sheets. The examples below show CSS applied as
-presentational attributes.
+using style sheets.
+
+(See [[svg/tutorials/smarter_svg_deploy|'''SVG deployment''']] for
+different ways to apply CSS.)
 
 ==Applying a gradient==
 
@@ -176,17 +187,21 @@ builds a series of concentric rings:
 
 [[Image:svgGrandTour_eyeball_fill.png|200px]]
 
-The [[svg/elements/circle|'''circle''']] tag's
+The [[svg/elements/circle|'''circle''']] element's
 [[svg/properties/fill|'''fill''']] attribute uses CSS's '''url()'''
 function to reference the [[svg/attributes/id|'''id''']] of the
-[[svg/elements/radialGradient|'''radialGradient''']] tag.  Its nested
-[[svg/elements/stop|'''stop''']] tags define fairly abrupt gradations
+[[svg/elements/radialGradient|'''radialGradient''']] element.  Its nested
+[[svg/elements/stop|'''stop''']] elements define fairly abrupt gradations
 from the center towards the edge&mdash;from black to blue and then to
 white&mdash;followed by a more gradual transition to pink around the
 edge of the circle.  SVG gradients work similarly to CSS gradients
 available for HTML content, but CSS gradients are only available via
 the [[css/properties/background-image|'''background-image''']]
 property, which doesn't apply to SVG.
+
+(See [[svg/tutorials/smarter_svg_graphics|'''SVG graphics''']] for
+details about gradients, and other information on using patterns and
+images.)
 
 ==Referencing graphics==
 
@@ -223,23 +238,23 @@ within the [[svg/elements/defs|'''defs''']] region, the
 but if you move the [[svg/elements/circle|'''circle''']] there, it
 doesn't render.
 
-The SVG [[svg/elements/use|'''use''']] tag allows you a way to reuse
+The SVG [[svg/elements/use|'''use''']] element allows you a way to reuse
 graphic components repeatedly, and to place them in differently sized
 areas.  After placing the [[svg/elements/circle|'''circle''']] within
 the [[svg/elements/defs|'''defs''']] region, pointing to it with a
-[[svg/elements/use|'''use''']] tag placed outside the
+[[svg/elements/use|'''use''']] element placed outside the
 [[svg/elements/defs|'''defs''']] makes it render:
 
 <syntaxhighlight lang="xml">
 <use xlink:href="#eyeball"/>
 </syntaxhighlight>
 
-The [[svg/elements/use|'''use''']] tag can be a bit mystifying at
+The [[svg/elements/use|'''use''']] element can be a bit mystifying at
 first.  It's not simply a copy of the object it points to, but a
 ''deep reference''.  Any changes made to the prototype
 [[svg/elements/circle|'''circle''']] or
 [[svg/elements/radialGradient|'''radialGradient''']] components
-appears dynamically wherever a [[svg/elements/use|'''use''']] tag
+appears dynamically wherever a [[svg/elements/use|'''use''']] element
 references them.  Despite this flexibility, you can't redefine any of
 the referenced object's attributes. But you can add optional
 presentation attributes that aren't already defined there.
@@ -269,10 +284,10 @@ the target, and the [[svg/attributes/class|'''class''']] of any
 
 Note that if the targeted [[svg/elements/circle|'''circle''']] were
 also to share the same ''eyeball'' class in this example, then the
-[[svg/elements/use|'''use''']] tag would not have the flexibility to
+[[svg/elements/use|'''use''']] element would not have the flexibility to
 be able to change it.
 
-Notice as well that the [[svg/elements/use|'''use''']] tag needs the
+Notice as well that the [[svg/elements/use|'''use''']] element needs the
 '''xlink''' namespace to qualify the standard
 '''href''' attribute, which is also available in HTML
 with no namespace qualifier.  This '''xlink:href''' attribute offers a
@@ -303,7 +318,7 @@ the bottom corner and ends up at the right corner:
 [[Image:svgGrandTour_eyeball_ctrl.png|200px]]
 
 To make the shape behave as a clipping path, place a
-[[svg/elements/clipPath|'''clipPath''']] tag around the
+[[svg/elements/clipPath|'''clipPath''']] element around the
 [[svg/elements/path|'''path''']]. You will actually need to use this shape
 again, so it is best to [[svg/elements/use|'''use''']] a reference to it:
 
@@ -348,9 +363,14 @@ third [[svg/elements/use|'''use''']] that appears outside the
 [[Image:svgGrandTour_eyeball_eyelid_both.png|200px]]
 
 It becomes useful here to ''group'' the two graphic elements, wrapping
-a [[svg/elements/g|'''g''']] tag around them to consolidate a larger
+a [[svg/elements/g|'''g''']] element around them to consolidate a larger
 semantic ''eye'' object. You can reference the grouped object, and you
 will see below, move or otherwise transform it as a unit.
+
+(See [[svg/tutorials/smarter_svg_shapes|'''SVG shapes''']] for details
+on path commands, and
+[[svg/tutorials/smarter_svg_graphics|'''SVG graphics''']] for clipping
+paths.)
 
 ==The eyelashes==
 
@@ -393,6 +413,9 @@ The beveled [[svg/properties/stroke-linejoin|'''stroke-linejoin''']]
 property prevents the stroke from rendering too far past the sharp
 corner of the eye where the eyelids meet.
 
+(See [[svg/tutorials/smarter_svg_shapes|'''SVG shapes''']] for details
+on various stroke properties.)
+
 ==Applying eyeliner==
 
 Even after lightening the color of the stroke, the eyelashes appear
@@ -431,7 +454,7 @@ darkens the result:
 
 Since the eyelid renders horizontally between 0 and 200 pixels, the
 eyelashes spill slightly outside the the left edge of the original
-drawing area.  The ''filter'' tag's
+drawing area.  The ''filter'' element's
 [[svg/attributes/x|'''x''']]/[[svg/attributes/y|'''y''']]/[[svg/attributes/width|'''width''']]/[[svg/attributes/height|'''height''']]
 attributes apply the effect to a wider set of dimensions. Setting
 [[svg/attributes/filterUnits|'''filterUnits''']] to
@@ -457,6 +480,9 @@ subsequent darkening:
 <div style="display:inline-block">
 [[Image:svgGrandTour_eyeball_eyelid_filters.png||200px]]
 </div>
+
+(See [[svg/tutorials/smarter_svg_filters|'''SVG filters''']] for
+information on various ways to combine SVG's filter effects.)
 
 ==Transforms and coordinate spaces==
 
@@ -496,7 +522,7 @@ shear the object horizontally or vertically. And '''translate()'''
 shifts the object's position.
 
 Once the eyes are semantically grouped, a single
-[[svg/elements/use|'''use''']] tag outside the
+[[svg/elements/use|'''use''']] element outside the
 [[svg/elements/defs|'''defs''']] region renders them:
 
 <syntaxhighlight lang="xml">
@@ -506,7 +532,7 @@ Once the eyes are semantically grouped, a single
 [[Image:svgGrandTour_eyeballs.png|500px]]
 
 When presenting the eyes with other interface elements, you may want
-to resize them.  The original [[svg/elements/svg|'''svg''']] tag
+to resize them.  The original [[svg/elements/svg|'''svg''']] element
 specified that they should appear within a 600&times;200-pixel
 rectangle:
 
@@ -517,7 +543,7 @@ rectangle:
 [[Image:svgGrandTour_eyeballs_viewport_large.png|600px]]
 
 But what if that's much too big for the context in which they are to
-appear?  If you shrink it down, using either the tag's
+appear?  If you shrink it down, using either
 [[svg/attributes/width|'''width''']]/[[svg/attributes/height|'''height''']]
 attributes or CSS, its dimensions no longer match the various
 measurements specified within the graphic:
@@ -525,8 +551,8 @@ measurements specified within the graphic:
 <syntaxhighlight lang="xml">
 <style>
 svg {
-    width  : 300;
-    height : 100;
+    width  : 300px;
+    height : 100px;
 }
 </style>
     <!-- ...or... -->
@@ -538,7 +564,7 @@ svg {
 The solution is to define a custom box using the
 [[svg/attributes/viewBox|'''viewBox''']] attribute.  Doing so declares
 a set of abstract units for exclusive use ''within'' the graphic,
-which may bear no relation to the outer coordinate space n which the
+which may bear no relation to the outer coordinate space in which the
 graphic is presented, to which the SVG's
 [[svg/attributes/width|'''width''']] and
 [[svg/attributes/height|'''height''']] apply:
@@ -611,7 +637,7 @@ sets the position of the center of the circle:
 
 That's much better. Now return the [[svg/attributes/cx|'''cx''']] to
 its original value.  To get it to move dynamically, place an
-[[svg/elements/animate|'''animate''']] tag within the ''eyeball''
+[[svg/elements/animate|'''animate''']] element within the ''eyeball''
 object whose attribute you want to modify:
 
 <syntaxhighlight lang="xml" highlight="2-10">
@@ -682,6 +708,9 @@ we've seen used to reference objects, now we see a third form of dot
 syntax that references the ''glanceStart'' identifier along with the
 value of its [[svg/attributes/end|'''end''']] attribute.
 
+(See [[svg/tutorials/smarter_svg_filters|'''SVG animations''']] for
+details.)
+
 ==Blinking==
 
 As is true for CSS transitions and animations, you can animate most
@@ -744,220 +773,225 @@ function blink() {
 }
 </syntaxhighlight>
 
-Enough, already?
+(See [[svg/tutorials/smarter_svg_filters|'''SVG animations''']] for
+details.)
+
+==Interactive Zoom==
+
+Suppose you want to click on the graphic to get a closer look at it.
+Scaling the eyeball would be difficult, because there are now two of
+them, and they would collide with each other.  Instead, you can alter
+the dimensions of the current [[svg/attributes/viewBox|'''viewBox''']]
+to zoom into the scene.
+
+Links use the same [[svg/elements/a|'''a''']] element as in HTML, but
+as usual in SVG the '''xlink:href''' attribute needs its namespace
+qualified.  This link encapsulates the wrapper for both eyes, so
+clicking on either one activates the link:
+
+<syntaxhighlight lang="xml">
+<a xlink:href="#zoomIn">
+  <use xlink:href="#eyes"/>
+</a>
+
+<view id="zoomIn" viewBox="100 50 100 100" />
+</syntaxhighlight>
+
+When linking to an internal [[svg/elements/view|'''view''']] element,
+its [[svg/attributes/viewBox|'''viewBox''']] value overrides that of
+the [[svg/elements/svg|'''svg''']] of which it is a descendant, thus
+zooming the scene:
+
+[[Image:svgGrandTour_eyeball_zoom.png|200px]]
+
+(See [[svg/tutorials/smarter_svg_filters|'''SVG interaction''']] for
+details.)
+
+==Animated Zoom==
+
+There are two problems with the anchor-zoom navigation described
+above. First, it only works within SVG files, not inline SVG within
+HTML. Second, it executes abruptly, the same way anchor navigation
+scrolls an HTML page.
+
+Both problems can be fixed by overriding the default navigation.
+First, define alternate [[svg/elements/view|'''view''']] targets along
+with an [[svg/elements/animate|'''animate''']] element to shift
+between each target's [[svg/attributes/viewBox|'''viewBox''']].
+Setting [[svg/attributes/fill|'''fill''']] to '''freeze''' retains the
+zoom level after the animation ends:
+
+<syntaxhighlight lang="xml">
+<view id="zoomOut" viewBox="0 0 600 200" />
+<view id="zoomIn" viewBox="100 50 100 100" />
+
+<animate
+   id            = "zoomNav" 
+   attributeType = "XML"
+   attributeName = "viewBox" 
+   fill          = "freeze" 
+   />
+
+<a class="zoom" xlink:href="#zoomIn">
+  <use xlink:href="#eyes"/>
+</a>
+</syntaxhighlight>
+
+This JavaScript calls '''preventDefault()''' to disable default
+navigation for ''zoom''-classed links. Instead, it executes the
+animation modified based on the target's
+[[svg/attributes/viewBox|'''viewBox''']]:
+
+<syntaxhighlight lang="javascript">
+var animate, svg; // corresponds to SVG elements
+var duration = '3s';
+
+window.onload = function() {
+    svg = document.querySelector('svg');
+    animate = document.querySelector('#zoomNav');
+    animate.setAttribute('dur', duration);
+    animate.setAttribute('from', svg.getAttribute('viewBox'));
+    animate.setAttribute('to', svg.getAttribute('viewBox'));
+    var links = document.querySelectorAll('a.zoom');
+    for (var i = 0, l = links.length; i < l; i++) {
+        // replace default navigation:
+        links[i].setAttribute('onclick', 'event.preventDefault()');
+        links[i].addEventListener('click', zoomNav);
+    }
+};
+
+function zoomNav(e) {
+    var hash = e.currentTarget.getAttribute('xlink:href');
+    var tgt = document.querySelector(hash);
+    // swap to/from values:
+    animate.setAttribute('from', animate.getAttribute('to'));
+    animate.setAttribute('to', tgt.getAttribute('viewBox'));
+    // execute animation:
+    animate.beginElement();
+    // apply CSS class to help customize display within each zoom level:
+    svg.className = hash.replace(/#/,'');
+}
+</syntaxhighlight>
+
+The last line applies different classes to the
+[[svg/elements/svg|'''svg''']] container, which we'll use to customize
+display of the text elements described below for different zoom
+levels.
+
+==Adding Text==
+
+SVG allows you to mix text with other graphics, but these are simple
+lines of text that do not wrap within a box as in HTML.  You
+ordinarily use '''x''' and '''y''' coordinate attributes to position
+[[svg/elements/text|'''text''']] elements directly within a graphic.
+This example relies on SVG's characteristic ability to place text
+along a curved path:
+
+[[Image:svgGrandTour_eyeball_textRotate.png|200px]]
+
+The text appears to wrap around a [[svg/elements/circle|'''circle''']]
+element, but since circles do not have logical start and end points,
+you need to use the [[svg/tutorials/smarter_svg_shapes|rather complex]]
+''A'' path command to draw two elliptical arc curves, each facing the
+other, originating and terminating at the left edge:
+
+<syntaxhighlight lang="xml">
+<path id="irisPath" d="M 60,100 A 40,40 0 0 1 140,100 A 40,40 0 0 1 60,100 "/>
+<path id="pupilPath" d="M 78,100 A 22,22 0 0 1 122,100 A 22,22 0 0 1 78,100"/>
+</syntaxhighlight>
+
+[[Image:svgGrandTour_eyeball_textPath.png|200px]]
+
+We'll add a reference to a ''labels'' object along with other eyeball
+components:
+
+<syntaxhighlight lang="xml">
+<g id="eye">
+  <use xlink:href="#eyelids" class="eyelashes" />
+  <use xlink:href="#eyelids" class="eyelids"   />
+  <use xlink:href="#eyeball" class="eyeball"   />
+  <use xlink:href="#labels"/>
+</g>
+</syntaxhighlight>
+
+Its [[svg/elements/textPath|'''textPath''']] diverts a portion of the
+[[svg/elements/text|'''text''']] to display along the path:
+
+<syntaxhighlight lang="xml">
+<g id="labels">
+  <text>
+    <textPath xlink:href="#irisPath"> Iris </textPath>
+  </text>
+  <text>
+    <textPath xlink:href="#pupilPath"> Pupil </textPath>
+  </text>
+</g>
+</syntaxhighlight>
+
+[[Image:svgGrandTour_eyeball_text.png|200px]]
+
+Ordinarily, you can increment the
+[[svg/elements/textPath|'''textPath''']]'s
+[[svg/attributes/startOffset|'''startOffset''']] attribute in
+animations to push text along the path. As an alternative in this
+case, you can use CSS transforms to rotate the circular object:
+
+<syntaxhighlight lang="css">
+#irisPath, #pupilPath {
+    fill             : none;
+    transform-origin : center         ; -webkit-transform-origin : center  ; -moz-transform-origin : center;
+}
+#irisPath {
+    transform        : rotate(120deg) ; -webkit-transform : rotate(120deg) ; -moz-transform : rotate(120deg);
+}
+#pupilPath {
+    transform        : rotate(20deg)  ; -webkit-transform : rotate(20deg)  ; -moz-transform : rotate(20deg);
+}
+</syntaxhighlight>
+
+By default, SVG transforms originate from an element's top-left
+corner, so to spin the circle properly you need to explicitly set the
+[[css/properties/transform-origin|'''transform-origin''']] property to
+CSS's own default '''50% 50%''' value.
+
+[[Image:svgGrandTour_eyeball_textRotate.png|200px]]
+
+Finally, additional CSS specifies the appearance of the text labels,
+and displays contextually within the magnified zoom level. Transitions
+on the [[svg/properties/fill-opacity|'''fill-opacity''']] and
+[[svg/properties/stroke-opacity|'''stroke-opacity''']] properties fade
+them in and out as the zoom animation executes:
+
+<syntaxhighlight lang="css">
+text {
+    font-size          : 10px;
+    text-transform     : uppercase;
+    stroke-width       : 0.5;
+    stroke             : black;
+    stroke-opacity     : 0;
+    fill               : red;
+    fill-opacity       : 0;
+    /* transition to default zoom level lasts 2 seconds; no delay */
+    transition         : all 2s;    -webkit-transition : all 2s;    -moz-transition    : all 2s;
+}
+
+svg.zoomIn text {
+    fill-opacity       : 0.25;
+    stroke-opacity     : 0.25;
+    /* transition to magnified zoom level lasts 2 seconds, with 2 second delay */
+    transition         : all 2s 2s;    -webkit-transition : all 2s 2s;    -moz-transition    : all 2s 2s;
+}
+</syntaxhighlight>
+
+Text letterforms behave just like paths, so the various and fill and
+stroke properties work the same way as for other shapes.
+
+(See [[svg/tutorials/smarter_svg_text|'''SVG text''']] for details on
+text properties.)
+
+Had enough?
 
 [[Image:svgGrandTour_eyeball_tired.png|600px]]
-
-<!--
-
-==Adding text and interaction==
-
-* pointer-events
-
-* view, zoomAndPan
-
-* text
-
-* foreignObject
-
--->
-
-==Deploying SVG==
-
-Until recently, SVG was fairly difficult to incorporate with other web
-content, and there are still many challenges.  The HTML5 standard
-provides a way to insert ''inline'' regions of SVG into HTML files.
-
-[[Image:scr_svg_html.png]]
-
-It translates to this basic HTML markup structure, where CSS and
-JavaScript may affect both HTML and SVG content:
-
-<syntaxhighlight lang="xml">
-<!DOCTYPE html>
-<html>
-  <head>
-    <link href="styles/html_and_svg.css" rel="stylesheet" />
-  </head>
-  <body>
-    <script defer type="text/javascript" src="js/html_and_svg.js">
-    </script>
-    <svg>
-      <!-- define graphics here -->
-    </svg>
-  </body>
-</html>
-</syntaxhighlight>
-
-There are also other ways to do it.  You can reference external SVG
-files, and render them interactively within the HTML using either
-[[html/elements/iframe|'''iframe''']],
-[[html/elements/embed|'''embed''']], or
-[[html/elements/object|'''object''']] tags:
-
-<syntaxhighlight lang="xml">
-<!DOCTYPE html>
-<html>
-  <head>
-    <link href="styles/html_and_svg.css" rel="stylesheet" />
-  </head>
-  <body>
-    <script defer type="text/javascript" src="js/html_and_svg.js"></script>
-    <iframe src=’graphics.svg’></iframe>
-    <embed src=’graphics.svg’></embed>
-    <object data=’graphics.svg’ type=’image/svg+xml’></object>
-  </body>
-</html>
-</syntaxhighlight>
-
-It's also common to reference external SVG files to present static SVG
-graphics via CSS. The example below shows how you might place a
-right-aligned navigation arrow within a mobile interface, rendering as
-crisply as possible on high-resolution handsets:
-
-[[Image:scr_svg_css.png]]
-
-<syntaxhighlight lang="css">
- a[href] {
-     background-image    : url(img/nav_arrow.svg);
-     background-position : center 0 right 10px;
-     background-size     : contain;
-     display             : block;
-     min-height          : 2em;
-     border-radius       : 0.5em;
-     padding             : 0.5em;
- }
-</syntaxhighlight>
-
-As you will see, you can also use URL anchors to reference individual
-component graphics that are collected within an SVG file. This assigns
-a custom bullet shape:
-
-<syntaxhighlight lang="css">
- ul > li {
-    list-style-image     : url(img/components.svg#bullet);
- }
-</syntaxhighlight>
-
-Less common in practice, SVG files can be viewed as standalone files,
-perhaps as the target of a navigation. Any SVG file or
-[[svg/elements/svg|'''svg''']] tag region can reference its own set of
-CSS and JavaScript, which only applies within the SVG:
-
-[[Image:scr_svg_svg.png]]
-
-This example shows how to embed or reference either CSS or JavaScript
-from within an SVG file:
-
-<syntaxhighlight lang="xml">
-<?xml version="1.0" standalone="no"?>
-  <!-- reference CSS here: -->
-<?xml-stylesheet href="css/styles.css" type="text/css"?>
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="700px" height="500px" viewBox="0 0 1000 500">
-  <defs>
-    <style type="text/css">
-        <![CDATA[
-            /* embed CSS here */
-        ]]>
-    </style>
-  </defs>
-  <script type="application/ecmascript">
-      <![CDATA[
-          // embed JavaScript here
-      ]]>
-  </script>
-  <!-- or reference JavaScript here: -->
-  <script type="application/ecmascript" xlink:href="js/app.js">
-  </script>
-  <!-- define graphics here -->
-</svg>
-</syntaxhighlight>
-
-From within an SVG, you can also reference components from other SVG
-files. The example that follows shows how you might import a graphic
-of a cat from another SVG file, then style it ''calico'' based on
-referenced CSS:
-
-[[Image:scr_svg_svg2svg.png]]
-
-<syntaxhighlight lang="xml">
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<?xml-stylesheet href="css/svg_styles.css" type="text/css"?>
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1000" height="1000">
-    <use xlink:href="components.svg#cat" class="calico"/>
-</svg>
-</syntaxhighlight>
-
-You may also be able to use the
-[[svg/elements/foreignObject|'''foreignObject''']] tag to render live
-HTML content within an SVG graphic environment. This example uses the
-[[svg/elements/switch|'''switch''']] tag to test whether the feature
-works, as recognized by the tag's
-[[svg/attributes/requiredExtensions|'''requiredExtensions''']]
-attribute. If not, it uses fallback [[svg/elements/text|'''text''']]:
-
-[[Image:scr_svg_svg2html.png]]
-
-<syntaxhighlight lang="xml">
-<?xml version="1.0" standalone="yes"?>
-<svg width="4in" height="3in" version="1.1" xmlns='http://www.w3.org/2000/svg'>
-  <desc>use 'switch' to test if foreignObject works, otherwise render fallback 'text' content</desc>
-  <switch>
-    <foreignObject width="100" height="50" requiredExtensions="http://example.com/SVGExtensions/EmbeddedXHTML">
-      <!-- XHTML content goes here -->
-      <body xmlns="http://www.w3.org/1999/xhtml">
-        <p>Here is a paragraph that requires word wrap</p>
-        <iframe src="external.html">...or an iframe...</iframe>
-      </body>
-    </foreignObject>
-    <text font-size="10" font-family="Verdana">
-      <tspan x="10" y="10">Here is a paragraph that</tspan>
-      <tspan x="10" y="20">requires word wrap.</tspan>
-    </text>
-  </switch>
-</svg>
-</syntaxhighlight>
-
-<!--
-
- 7 Coordinate Systems, Transformations and Units
-    7.1 Introduction
-    7.2 The initial viewport
-    7.3 The initial coordinate system
-    7.4 Coordinate system transformations
-    7.5 Nested transformations
-    7.6 The 'transform' attribute
-    7.7 The 'viewBox' attribute
-    7.8 The 'preserveAspectRatio' attribute
-    7.9 Establishing a new viewport
-    7.10 Units
-    7.11 Object bounding box units
-    7.12 Intrinsic sizing properties of the viewport of SVG content
-    7.13 Geographic coordinate systems
-    7.14 The 'svg:transform' attribute
-
-    5.5 The 'symbol' element
-
- 5 Document Structure
-    5.6 The 'use' element
-    5.8 Conditional processing
-        5.8.1 Conditional processing overview
-        5.8.2 The 'switch' element
-        5.8.3 The 'requiredFeatures' attribute
-        5.8.4 The 'requiredExtensions' attribute
-        5.8.5 The 'systemLanguage' attribute
-        5.8.6 Applicability of test attributes
-    21.2 The 'metadata' element
-
-    11.5 Controlling visibility
-
-* [[svg/properties/display|'''display''']]
-* [[svg/properties/visibility|'''visibility''']]
-
-* [[svg/properties/color|'''color''']], used to provide a potential indirect value (currentColor) for the [[svg/properties/fill|'''fill''']], [[svg/properties/stroke|'''stroke''']], [[svg/properties/stop-color|'''stop-color''']], [[svg/properties/flood-color|'''flood-color''']] and [[svg/properties/lighting-color|'''lighting-color''']] properties. (The SVG properties which support color allow a color specification which is extended from CSS2 to accommodate color definitions in arbitrary color spaces. See Color profile descriptions.)
-
--->
 
 }}
 {{Notes_Section}}

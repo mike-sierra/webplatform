@@ -226,6 +226,7 @@ app.assemble = function() {
         markup += '\n</filter>';
         markup += '\n</defs>\n';
         markup += '<image xlink:href="img/Objects' + app.img + '.jpg" x="0" y="0" width="320" height="480" filter="url(#F)"/>\n';
+        markup += '<text filter="url(#F)" x="100" y="100" fill="red" font-size="90">SVG</text>';
     }
     // show default image with no filter present
     else {

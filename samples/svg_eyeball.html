@@ -55,7 +55,6 @@ svg {
     -webkit-transition: all 3s;
     -moz-transition: all 3s;
     transition: all 3s;
-    border-radius: 20px;
 }
 
 svg.zoomIn {
@@ -65,33 +64,46 @@ svg.zoomIn {
 /* labels */
 
 text {
-    fill-opacity: 0;
-    stroke-opacity: 0;
-    -webkit-transition: all 2s 0s;
-    font-size: 10px;
-    fill: red;
-    stroke-width: 0.5;
-    stroke: #000;
-    text-transform: uppercase;
+    font-size          : 10px;
+    text-transform     : uppercase;
+    stroke-width       : 0.5;
+    stroke             : black;
+    stroke-opacity     : 0;
+    fill               : red;
+    fill-opacity       : 0;
+    -webkit-transition : all 2s;
+    -moz-transition    : all 2s;
+    transition         : all 2s;
 }
 
 svg.zoomIn text {
-    fill-opacity: 0.25;
-    stroke-opacity: 0.25;
-    -webkit-transition: all 2s 2s;
+    fill-opacity       : 0.25;
+    stroke-opacity     : 0.25;
+    _fill-opacity      : 0.0;
+    _stroke-opacity    : 0.0;
+    -webkit-transition : all 2s 2s;
+    -moz-transition    : all 2s 2s;
+    transition         : all 2s 2s;
 }
 
 #irisPath, #pupilPath {
-    fill: none;
-    -webkit-transform-origin: center;
+    fill                     : none;
+    -webkit-transform-origin : center;
+    -moz-transform-origin    : center;
+    transform-origin         : center;
+    _stroke                  : red;
 }
 
 #irisPath {
-    -webkit-transform: rotate(120deg);
+    -webkit-transform : rotate(120deg);
+    -moz-transform    : rotate(120deg);
+    transform         : rotate(120deg);
 }
 
 #pupilPath {
-    -webkit-transform: rotate(20deg);
+    -webkit-transform        : rotate(20deg);
+    -moz-transform           : rotate(20deg);
+    transform                : rotate(20deg);
 }
 
 </style>
@@ -198,44 +210,34 @@ svg.zoomIn text {
 <text id="irisLabel">Iris</text>
 <text id="pupilLabel">Pupil</text>
 
+<path id="irisPath" d="M 60,100 A 40,40 0 0 1 140,100 A 40,40 0 0 1 60,100 "/>
+<path id="pupilPath" d="M 78,100 A 22,22 0 0 1 122,100 A 22,22 0 0 1 78,100"/>
+
 <g id="labels">
+  <a class="zoom" xlink:href="#zoomOut">
   <text>
     <textPath xlink:href="#irisPath">
       <tref xlink:href="#irisLabel"/>
     </textPath>
   </text>
+  </a>
+  <a class="zoom" xlink:href="#zoomOut">
   <text>
     <textPath xlink:href="#pupilPath">
       <tref xlink:href="#pupilLabel"/>
     </textPath>
   </text>
-
-    <path id="irisPath" d="M 60,100 A 40,40 0 0 1 140,100 A 40,40 0 0 1 60,100"/>
-    <path id="pupilPath" d="M 78,100 A 22,22 0 0 1 122,100 A 22,22 0 0 1 78,100"/>
+  </a>
 </g>
 
 
 <!-- grouped eye, eyes -->
 
 <g id="eye">
-
-  <use
-     xlink:href = "#eyelids"
-     class      = "eyelashes"
-     />
-
-  <use
-     xlink:href = "#eyelids"
-     class      = "eyelids"
-     />
-
-  <use
-     xlink:href = "#eyeball"
-     class      = "eyeball"
-     />
-
+  <use xlink:href="#eyelids" class="eyelashes" />
+  <use xlink:href="#eyelids" class="eyelids" />
+  <use xlink:href="#eyeball" class="eyeball" />
   <use xlink:href="#labels"/>
-
 </g>
 
 <g id="eyes">
@@ -249,7 +251,7 @@ svg.zoomIn text {
 <view id="zoomIn" viewBox="100 50 100 100" />
 
 <animate
-    id            = "zoomNavAnimate"
+    id            = "zoomNav"
     attributeType = "XML"
     attributeName = "viewBox"
     fill          = "freeze"
@@ -263,29 +265,36 @@ svg.zoomIn text {
 
 <script>
 
-var app = new Function();
+var animate, svg; // corresponds to SVG elements
+var duration = '3s';
 
 window.onload = function() {
-    app.dur = '3s';
-    app.svg = document.querySelector('svg');
-    app.an = document.querySelector('#zoomNavAnimate');
-    app.an.setAttribute('dur', app.dur);
-    app.an.setAttribute('from', app.svg.getAttribute('viewBox'));
-    app.an.setAttribute('to', app.svg.getAttribute('viewBox'));
+    svg = document.querySelector('svg');
+    animate = document.querySelector('#zoomNav');
+    animate.setAttribute('dur', duration);
+    animate.setAttribute('from', svg.getAttribute('viewBox'));
+    animate.setAttribute('to', svg.getAttribute('viewBox'));
+    // relies on links classed 'zoom':
     var links = document.querySelectorAll('a.zoom');
     for (var i = 0, l = links.length; i < l; i++) {
+        // replace default navigation:
         links[i].setAttribute('onclick', 'event.preventDefault()');
         links[i].addEventListener('click', zoomNav);
     }
 };
 
 function zoomNav(e) {
-    var hash = e.currentTarget.getAttribute('xlink:href');
-    var tgt = document.querySelector(hash);
-    app.an.setAttribute('from', app.an.getAttribute('to'));
-    app.an.setAttribute('to', tgt.getAttribute('viewBox'));
-    app.an.beginElement();
-    app.svg.classList.toggle(hash.replace(/#/,''));
+    var hash, tgt;
+    hash = e.currentTarget.getAttribute('xlink:href');
+//    e.currentTarget.correspondingElement
+    tgt = document.querySelector(hash);
+    // swap to/from values
+    animate.setAttribute('from', animate.getAttribute('to'));
+    animate.setAttribute('to', tgt.getAttribute('viewBox'));
+    // execute animation
+    animate.beginElement();    
+    svg.classList.toggle(hash.replace(/#/,''));
+//    svg.className = hash.replace(/#/,'');
 }
 </script>
 
