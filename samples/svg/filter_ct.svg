@@ -1,0 +1,75 @@
+<svg width="1100px" height="800px" xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1100 800" >
+
+<defs>
+
+<style><![CDATA[
+
+image, text {
+    font-family: sans-serif;
+    font-size: 70px;
+    fill: red;
+    filter: url(#F);
+}
+
+]]></style>
+
+<filter id="Fdis">
+<feComponentTransfer>
+  <feFuncR type="discrete" tableValues="0 0.2 0.4 0.6 0.8 1"/>
+  <feFuncG type="discrete" tableValues="0 0.2 0.4 0.6 0.8 1"/>
+  <feFuncB type="discrete" tableValues="0 0.2 0.4 0.6 0.8 1"/>
+</feComponentTransfer>
+</filter>
+
+<filter id="Fid">
+<feComponentTransfer>
+  <feFuncR type="identity"/>
+  <feFuncG type="identity"/>
+  <feFuncB type="identity"/>
+  <feFuncA type="identity"/>
+</feComponentTransfer>
+</filter>
+
+<filter id="Fslope">
+<feComponentTransfer>
+ <feFuncR type="linear" slope="0.5"/>
+ <feFuncG type="linear" slope="0.5"/>
+ <feFuncB type="linear" slope="0.5"/>
+</feComponentTransfer>
+</filter>
+
+<filter id="Fintercept">
+<feComponentTransfer>
+ <feFuncR type="linear" slope="1.5" intercept="-0.3"/>
+ <feFuncG type="linear" slope="1.5" intercept="-0.3"/>
+ <feFuncB type="linear" slope="1.5" intercept="-0.3"/>
+</feComponentTransfer>
+</filter>
+
+<filter id="F" x="10%" y="10%" width="80%" height="80%">
+<feComponentTransfer>
+ <feFuncA type="table" tableValues="0 0.25"/>
+</feComponentTransfer>
+</filter>
+
+<filter id="Finvert">
+<feComponentTransfer>
+ <feFuncR type="table" tableValues="1 0"/>
+ <feFuncG type="table" tableValues="1 0"/>
+ <feFuncB type="table" tableValues="1 0"/>
+</feComponentTransfer>
+</filter>
+
+<filter id="Fgamma">
+<feComponentTransfer>
+ <feFuncG type="gamma" amplitude="1" exponent="0.5"/>
+</feComponentTransfer>
+</filter>
+
+</defs>
+
+<image x="10" y="10" xlink:href="stock-photo.jpeg" width="1024" height="768"/>
+
+</svg>
+

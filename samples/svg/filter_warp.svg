@@ -1,0 +1,45 @@
+<svg width="1100px" height="800px" xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1100 800" >
+
+<defs>
+
+<style><![CDATA[
+
+image, text {
+    font-family: sans-serif;
+    font-size: 70px;
+    fill: red;
+    filter: url(#F);
+}
+
+]]></style>
+
+<filter id="F">
+  <feMorphology radius="3" operator="dilate"/>
+  <feComponentTransfer>
+    <feFuncR type="table" tableValues="1 0.5"/>
+  </feComponentTransfer>
+  <feMerge result="text">
+    <feMergeNode/>
+    <feMergeNode in="SourceGraphic"/>
+  </feMerge>
+  <feTurbulence type="fractalNoise" baseFrequency="0.017" numOctaves="1" result="warp" />
+  <feDisplacementMap xChannelSelector="R" yChannelSelector="G" in="text" in2="warp" scale="60" />
+  <feGaussianBlur stdDeviation="1 2" />
+<!--
+
+
+  <feSpecularLighting specularExponent="20" surfaceScale="5">
+    <feDistantLight elevation="28" azimuth="220" />
+  </feSpecularLighting>
+  <feComposite operator="in" in2="inputB" />
+  <feComposite operator="arithmetic" k2="1" k3="1" in2="inputB" />
+-->
+</filter>
+
+</defs>
+
+<text x="30" y="100">An SVG Filter</text>
+
+</svg>
+
