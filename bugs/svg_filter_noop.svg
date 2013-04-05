@@ -1,0 +1,24 @@
+<svg width="1100px" height="1100px" xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1100 1100" >
+
+<defs>
+
+<style><![CDATA[
+
+.filtered { filter: url(#F); }
+
+]]></style>
+
+<filter id="F">
+  <feGaussianBlur stdDeviation="0"/>
+</filter>
+
+</defs>
+
+<image class="filtered" x="10" y="10" width="1024" height="768"
+onclick="this.classList.toggle('filtered')"
+xlink:href="http://adobe.github.com/web-platform/samples/css-exclusions/polygon-dawn/stock-photo.jpeg"
+/>
+
+</svg>
+
