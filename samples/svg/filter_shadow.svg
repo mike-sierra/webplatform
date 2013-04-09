@@ -9,23 +9,12 @@ image, text {
     font-family: sans-serif;
     font-size: 70px;
     fill: red;
-    filter: url(#F);
+    filter: url(#dropShadow);
 }
 
 ]]></style>
 
-<filter id="Fterse">
-  <feGaussianBlur stdDeviation="2"  in="SourceAlpha" />
-  <feOffset dx="20" dy="20"           result="offsetblur"/>
-  <feFlood flood-color="#777"/>
-  <feComposite operator="in"        in2="offsetblur"/>
-  <feMerge>
-    <feMergeNode/>
-    <feMergeNode                    in="SourceGraphic"/>
-  </feMerge>
-</filter>
-
-<filter id="F">
+<filter id="dropShadow">
   <feGaussianBlur stdDeviation="2" in="SourceAlpha" result="blurred"/>
   <feOffset dx="6" dy="8"          in="blurred" result="offsetblur"/>
   <feFlood flood-color="#777"      in="offsetblur"/>

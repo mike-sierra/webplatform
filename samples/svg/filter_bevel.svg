@@ -1,36 +1,52 @@
-<svg width="1100px" height="800px" xmlns="http://www.w3.org/2000/svg"
-  xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1100 800" >
+<svg width="500px" height="500px" xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 500 500" >
 
 <defs>
 
 <style><![CDATA[
 
-image, text {
+text, image {
     font-family: sans-serif;
     font-size: 70px;
+    font-weight: bold;
     fill: red;
-    filter: url(#F);
+    filter: url(#bevel);
+}
+
+feSpecularLighting  {
+    lighting-color: #bbbbbb;
 }
 
 ]]></style>
 
-<filter id="F">
-
-
-<feComposite operator="arithmetic" k1="0" k2="1" k3="0" k4="0" in="SourceGraphic" in2="SourceGraphic" result="inputTo_2"/>
-<feGaussianBlur stdDeviation="0" result="inputTo_3"/>
-
-<feSpecularLighting specularExponent="20" surfaceScale="5" lighting-color="white" in="SourceGraphic">
-  <feDistantLight elevation="28" azimuth="90"/>
-</feSpecularLighting>
-<feComposite operator="in" in2="inputTo_3" />
-<feComposite operator="arithmetic" k2="1" k3="1" in2="inputTo_2" />
-
+<filter id="f">
+  <feGaussianBlur stdDeviation="0"/>
 </filter>
+
+    <filter id="bevel" filterUnits="userSpaceOnUse">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="4" result="blur"/>
+      <feOffset in="blur" dx="4" dy="4" result="offsetBlur"/>
+      <feSpecularLighting surfaceScale="5" specularConstant=".75"
+          in="blur" result="specOut" specularExponent="20"
+          lighting-color="#bbbbbb" >
+        <fePointLight x="-5000" y="-10000" z="20000"/>
+      </feSpecularLighting>
+      <feComposite in="specOut" in2="SourceAlpha" operator="in" result="specOut"/>
+      <feComposite in="SourceGraphic" in2="specOut" operator="arithmetic" 
+                   k1="0" k2="1" k3="1" k4="0" result="litPaint"/>
+      <feMerge>
+        <feMergeNode in="offsetBlur"/>
+        <feMergeNode in="litPaint"/>
+      </feMerge>
+    </filter>
 
 </defs>
 
-<text x="30" y="100">An SVG Filter</text>
+<rect x="0" y="30" width="640" height="90" fill="#aaaaaa" stroke="#aaaaaa" stroke-width="1"/>
+<!--
+-->
+
+<text x="20" y="100">An SVG Filter</text>
 
 </svg>
 

@@ -1,0 +1,229 @@
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1400px" height="800px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 800">
+
+<defs>
+
+<style><![CDATA[
+
+text {
+    font-size: 36px;
+    font-family: Tahoma, sans-serif;
+}
+
+]]></style>
+
+<rect id="terrain" x="0" y="600" width="390" height="190" filter="url(#F)"/>
+
+<filter x="0" y="0" width="100%" height="100%" id="F" primitiveUnits="objectBoundingBox">
+<feTurbulence baseFrequency=".01" numOctaves="2" seed="10" type="turbulence"/>
+<feColorMatrix type="luminanceToAlpha"/>
+<feComponentTransfer result="t_terr">
+ <feFuncA type="table" tableValues="1 0"/>
+</feComponentTransfer>
+</filter>
+
+<filter x="0" y="0" width="100%" height="100%" id="specular_distant" primitiveUnits="objectBoundingBox">
+<feTurbulence baseFrequency=".01" numOctaves="2" seed="1" type="turbulence"/>
+<feColorMatrix type="luminanceToAlpha"/>
+<feComponentTransfer result="t_terr">
+ <feFuncA type="table" tableValues="1 0"/>
+</feComponentTransfer>
+<feSpecularLighting lighting-color="brown" surfaceScale="100"
+       specularConstant="1">
+  <feDistantLight azimuth="0" elevation="20" >
+     <animate attributeType="XML" attributeName="azimuth" begin="0s"
+          dur="5s" to="360" from="0" repeatCount="10"/>
+  </feDistantLight>
+</feSpecularLighting>
+</filter>
+
+<filter x="0" y="0" width="100%" height="100%" id="combo_distant" primitiveUnits="objectBoundingBox">
+<feTurbulence baseFrequency=".01" numOctaves="2" seed="1" type="turbulence"/>
+<feColorMatrix type="luminanceToAlpha"/>
+<feComponentTransfer result="t_terr">
+ <feFuncA type="table" tableValues="1 0"/>
+</feComponentTransfer>
+
+<feDiffuseLighting lighting-color="brown" surfaceScale="100"
+       in="t_terr" diffuseConstant="1"
+       result="t_diff">
+  <feDistantLight azimuth="0" elevation="20" >
+     <animate attributeType="XML" attributeName="azimuth" begin="0s"
+          dur="5s" to="360" from="0" repeatCount="10"/>
+  </feDistantLight>
+</feDiffuseLighting>
+
+<feSpecularLighting lighting-color="brown" surfaceScale="100"
+       in="t_terr" specularConstant="1"
+       specularExponent="3" result="t_spec">
+  <feDistantLight azimuth="90" elevation="20" >
+     <animate attributeType="XML" attributeName="azimuth" begin="0s"
+          dur="5s" to="450" from="90" repeatCount="10"/>
+  </feDistantLight>
+</feSpecularLighting>
+
+<feComposite in="t_diff" in2="t_spec" operator="xor"/>
+</filter>
+
+<filter x="0" y="0" width="100%" height="100%" id="diffuse_distant" primitiveUnits="objectBoundingBox">
+<feTurbulence baseFrequency=".01" numOctaves="2" seed="1" type="turbulence"/>
+<feColorMatrix type="luminanceToAlpha"/>
+<feComponentTransfer result="t_terr">
+ <feFuncA type="table" tableValues="1 0"/>
+</feComponentTransfer>
+
+<feDiffuseLighting lighting-color="brown" surfaceScale="100"
+       diffuseConstant="1.0">
+  <feDistantLight azimuth="0" elevation="20" >
+     <animate attributeType="XML" attributeName="azimuth" begin="0s"
+          dur="5s" to="360" from="0" repeatCount="10"/>
+  </feDistantLight>
+</feDiffuseLighting>
+</filter>
+
+<filter x="0" y="0" width="100%" height="100%" id="specular_point" primitiveUnits="objectBoundingBox">
+<feTurbulence baseFrequency=".01" numOctaves="2" seed="1" type="turbulence"/>
+<feColorMatrix type="luminanceToAlpha"/>
+<feComponentTransfer result="t_terr">
+ <feFuncA type="table" tableValues="1 0"/>
+</feComponentTransfer>
+
+<feSpecularLighting lighting-color="brown" surfaceScale="100"
+       specularConstant="1">
+  <fePointLight x="0" y="100" z="150">
+     <animate attributeType="XML" attributeName="x" begin="0s"
+          dur="5s" from="-200" to="600" repeatCount="10"/>
+  </fePointLight>
+</feSpecularLighting>
+</filter>
+
+<filter x="0" y="0" width="100%" height="100%" id="combo_point" primitiveUnits="objectBoundingBox">
+<feTurbulence baseFrequency=".01" numOctaves="2" seed="1" type="turbulence"/>
+<feColorMatrix type="luminanceToAlpha"/>
+<feComponentTransfer result="t_terr">
+ <feFuncA type="table" tableValues="1 0"/>
+</feComponentTransfer>
+
+<feDiffuseLighting lighting-color="brown" surfaceScale="100"
+       diffuseConstant="1" in="t_terr" result="t_diff">
+  <fePointLight x="0" y="100" z="150">
+     <animate attributeType="XML" attributeName="x" begin="0s"
+          dur="5s" from="-200" to="600" repeatCount="10"/>
+  </fePointLight>
+</feDiffuseLighting>
+
+<feSpecularLighting lighting-color="brown" surfaceScale="100"
+       specularConstant="1" in="t_terr" result="t_spec">
+  <fePointLight x="0" y="100" z="150">
+     <animate attributeType="XML" attributeName="x" begin="0s"
+          dur="5s" from="-200" to="600" repeatCount="10"/>
+  </fePointLight>
+</feSpecularLighting>
+
+
+<feComposite in="t_diff" in2="t_spec" operator="xor"/>
+</filter>
+
+<filter x="0" y="0" width="100%" height="100%" id="diffuse_point" primitiveUnits="objectBoundingBox">
+<feTurbulence baseFrequency=".01" numOctaves="2" seed="1" type="turbulence"/>
+<feColorMatrix type="luminanceToAlpha"/>
+<feComponentTransfer result="t_terr">
+ <feFuncA type="table" tableValues="1 0"/>
+</feComponentTransfer>
+
+<feDiffuseLighting lighting-color="brown" surfaceScale="100"
+       diffuseConstant="1">
+  <fePointLight x="0" y="100" z="150">
+     <animate attributeType="XML" attributeName="x" begin="0s"
+          dur="5s" from="-200" to="600" repeatCount="10"/>
+  </fePointLight>
+</feDiffuseLighting>
+</filter>
+
+<filter x="0" y="0" width="100%" height="100%" id="specular_spot" primitiveUnits="objectBoundingBox">
+<feTurbulence baseFrequency=".01" numOctaves="2" seed="1" type="turbulence"/>
+<feColorMatrix type="luminanceToAlpha"/>
+<feComponentTransfer result="t_terr">
+ <feFuncA type="table" tableValues="1 0"/>
+</feComponentTransfer>
+
+<feSpecularLighting lighting-color="brown" surfaceScale="100"
+       specularConstant="1">
+  <feSpotLight limitingConeAngle="30" x="0" y="100" z="150"
+    pointsAtX="200" pointsAtY="100" pointsAtZ="0">
+     <animate attributeType="XML" attributeName="x" begin="0s"
+          dur="5s" from="-200" to="600" repeatCount="10"/>
+  </feSpotLight>
+</feSpecularLighting>
+</filter>
+
+<filter x="0" y="0" width="100%" height="100%" id="diffuse_spot" primitiveUnits="objectBoundingBox">
+<feTurbulence baseFrequency=".01" numOctaves="2" seed="1" type="turbulence"/>
+<feColorMatrix type="luminanceToAlpha"/>
+<feComponentTransfer result="t_terr">
+ <feFuncA type="table" tableValues="1 0"/>
+</feComponentTransfer>
+
+<feDiffuseLighting lighting-color="brown" surfaceScale="100"
+       diffuseConstant="1">
+  <feSpotLight limitingConeAngle="30" x="0" y="100" z="150"
+       pointsAtX="200" pointsAtY="100" pointsAtZ="0">
+     <animate attributeType="XML" attributeName="x" begin="0s"
+          dur="5s" from="-200" to="600" repeatCount="10"/>
+  </feSpotLight>
+</feDiffuseLighting>
+</filter>
+
+<filter x="0" y="0" width="100%" height="100%" id="combo_spot" primitiveUnits="objectBoundingBox">
+<feTurbulence baseFrequency=".01" numOctaves="2" seed="1" type="turbulence"/>
+<feColorMatrix type="luminanceToAlpha"/>
+<feComponentTransfer result="t_terr">
+ <feFuncA type="table" tableValues="1 0"/>
+</feComponentTransfer>
+
+<feDiffuseLighting lighting-color="brown" surfaceScale="100"
+       diffuseConstant="1" in="t_terr" result="t_diff">
+  <feSpotLight limitingConeAngle="30" x="0" y="100" z="150"
+       pointsAtX="200" pointsAtY="100" pointsAtZ="0">
+     <animate attributeType="XML" attributeName="x" begin="0s"
+          dur="5s" from="-200" to="600" repeatCount="10"/>
+  </feSpotLight>
+</feDiffuseLighting>
+
+<feSpecularLighting lighting-color="brown" surfaceScale="100"
+       specularConstant="1" in="t_terr" result="t_spec">
+  <feSpotLight limitingConeAngle="30" x="0" y="100" z="150"
+    pointsAtX="200" pointsAtY="100" pointsAtZ="0">
+     <animate attributeType="XML" attributeName="x" begin="0s"
+          dur="5s" from="-200" to="600" repeatCount="10"/>
+  </feSpotLight>
+</feSpecularLighting>
+
+<feComposite in="t_diff" in2="t_spec" operator="xor"/>
+</filter>
+
+</defs>
+
+<text x="110" y="70">Diffuse</text>
+<text x="510" y="70">Specular</text>
+      
+<g transform="translate(10,100)">
+
+<rect x="0" y="0" width="390" height="190" filter="url(#diffuse_distant)"/>
+<rect x="400" y="0" width="390" height="190" filter="url(#specular_distant)"/>
+<rect x="800" y="0" width="390" height="190" filter="url(#combo_distant)"/>
+<text x="1210" y="100">Distant</text>
+
+<rect x="0" y="200" width="390" height="190" filter="url(#diffuse_point)"/>
+<rect x="400" y="200" width="390" height="190" filter="url(#specular_point)"/>
+<rect x="800" y="200" width="390" height="190" filter="url(#combo_point)"/>
+<text x="1210" y="300">Point</text>
+
+<rect x="0" y="400" width="390" height="190" filter="url(#diffuse_spot)"/>
+<rect x="400" y="400" width="390" height="190" filter="url(#specular_spot)"/>
+<rect x="800" y="400" width="390" height="190" filter="url(#combo_spot)"/>
+<text x="1210" y="500">Spot</text>
+
+
+</g>
+
+</svg>

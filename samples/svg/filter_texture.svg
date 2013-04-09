@@ -1,0 +1,41 @@
+<svg width="1100px" height="800px" xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1100 800" >
+
+<defs>
+
+<style><![CDATA[
+
+rect, image {
+    filter: url(#weave);
+    fill: black;
+}
+
+text {
+    font-family: sans-serif;
+    font-size: 80px;
+    font-weight: bold;
+    fill: red;
+    stroke: #fff;
+    stroke-width: 2;
+}
+
+]]></style>
+
+<filter id="weave" x="0" y="0" width="100%" height="100%">
+ <feTurbulence baseFrequency=".25,.03" numOctaves="3" seed="1"/>
+ <feComponentTransfer result="grain">
+   <feFuncR type="linear" slope="3"/>
+ </feComponentTransfer>
+ <feFlood flood-color="brown" result="bkgnd"/>
+ <feBlend mode="normal" in="grain" in2="bkgnd"/>
+</filter>
+
+<text id="label0">label0</text>
+
+</defs>
+
+<rect x="10" y="10" width="1024" height="768"/>
+
+</svg>
+
+

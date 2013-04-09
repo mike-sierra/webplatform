@@ -1,0 +1,90 @@
+<html>
+  <head>
+<title>SVG filters</title>
+
+<style>
+
+div {
+  -webkit-transition : all 0.5;
+  -moz-transition    : all 0.5;
+  transition         : all 0.5;
+  margin             : 12px;
+  height             : 600px;
+  color              : gold;
+  font-size          : 50px;
+  background-image   : url(svg/stock-photo.jpeg);
+  background-size    : contain;
+  background-repeat  : no-repeat;
+  font-family        : sans-serif;
+  font-size          : 70px;
+}
+
+div.noImg {
+  color              : red;
+  background-image   : url();
+}
+
+</style>
+
+</head>
+<body>
+
+<select>
+  <option selected>filter_blur.svg#identity</option>
+  <option>filter_blur.svg#horizontal</option>
+  <option>filter_blur.svg#vertical</option>
+  <option>filter_bevel.svg#bevel</option>
+  <option>filter_cmx.svg#css_grayscale</option>
+  <option>filter_cmx.svg#css_hue_rotate</option>
+  <option>filter_cmx.svg#css_saturate</option>
+  <option>filter_cmx.svg#css_sepia</option>
+  <option>filter_cmx.svg#dusk</option>
+  <option>filter_cmx.svg#luminance_mask</option>
+  <option>filter_ct.svg#discrete</option>
+  <option>filter_ct.svg#identity</option>
+  <option>filter_ct.svg#intercept</option>
+  <option>filter_ct.svg#invert</option>
+  <option>filter_ct.svg#opacity</option>
+  <option>filter_ct.svg#slope</option>
+  <option>filter_shadow.svg#dropShadow</option>
+  <option>filter_terrain.svg#combo_distant</option>
+  <option>filter_texture.svg#weave</option>
+  <option>filter_warp.svg#warp</option>
+  <option>filter_convolve.svg#identity</option>
+  <option>filter_convolve.svg#emboss</option>
+  <option>filter_convolve.svg#moat</option>
+  <option>filter_convolve.svg#moatMore</option>
+  <option>filter_convolve.svg#sharpen</option>
+  <option>filter_convolve.svg#sharpenMore</option>
+
+</select>
+
+<div></div>
+
+<script>
+
+var app = new Function();
+
+window.onload = function() {
+    app.el = document.querySelector('div');
+    app.sel = document.querySelector('select');
+    app.sel.addEventListener('change', app.swap);
+    app.el.style.filter = 'url(svg/' + app.sel.value + ')';
+    app.el.style.WebkitFilter = 'url(svg/' + app.sel.value + ')';
+}
+
+app.swap = function(e)  {
+    var v = e.target.value;
+    app.el.innerHTML = v;
+    app.el.style.filter = 'url(svg/' + v + ')';
+    app.el.style.WebkitFilter = 'url(svg/' + v + ')';
+    v.match(/bevel/i) ? app.el.classList.add('noImg') : app.el.classList.remove('noImg');
+}
+
+</script>
+
+
+</body>
+</html>
+
+

@@ -9,20 +9,12 @@ image, text {
     font-family: sans-serif;
     font-size: 70px;
     fill: red;
-    filter: url(#F);
+    filter: url(#opacity);
 }
 
 ]]></style>
 
-<filter id="Fdis">
-<feComponentTransfer>
-  <feFuncR type="discrete" tableValues="0 0.2 0.4 0.6 0.8 1"/>
-  <feFuncG type="discrete" tableValues="0 0.2 0.4 0.6 0.8 1"/>
-  <feFuncB type="discrete" tableValues="0 0.2 0.4 0.6 0.8 1"/>
-</feComponentTransfer>
-</filter>
-
-<filter id="Fid">
+<filter id="identity">
 <feComponentTransfer>
   <feFuncR type="identity"/>
   <feFuncG type="identity"/>
@@ -31,7 +23,15 @@ image, text {
 </feComponentTransfer>
 </filter>
 
-<filter id="Fslope">
+<filter id="discrete">
+<feComponentTransfer>
+  <feFuncR type="discrete" tableValues="0 0.2 0.4 0.6 0.8 1"/>
+  <feFuncG type="discrete" tableValues="0 0.2 0.4 0.6 0.8 1"/>
+  <feFuncB type="discrete" tableValues="0 0.2 0.4 0.6 0.8 1"/>
+</feComponentTransfer>
+</filter>
+
+<filter id="slope">
 <feComponentTransfer>
  <feFuncR type="linear" slope="0.5"/>
  <feFuncG type="linear" slope="0.5"/>
@@ -39,7 +39,7 @@ image, text {
 </feComponentTransfer>
 </filter>
 
-<filter id="Fintercept">
+<filter id="intercept">
 <feComponentTransfer>
  <feFuncR type="linear" slope="1.5" intercept="-0.3"/>
  <feFuncG type="linear" slope="1.5" intercept="-0.3"/>
@@ -47,13 +47,13 @@ image, text {
 </feComponentTransfer>
 </filter>
 
-<filter id="F" x="10%" y="10%" width="80%" height="80%">
+<filter id="opacity">
 <feComponentTransfer>
  <feFuncA type="table" tableValues="0 0.25"/>
 </feComponentTransfer>
 </filter>
 
-<filter id="Finvert">
+<filter id="invert">
 <feComponentTransfer>
  <feFuncR type="table" tableValues="1 0"/>
  <feFuncG type="table" tableValues="1 0"/>
@@ -61,7 +61,7 @@ image, text {
 </feComponentTransfer>
 </filter>
 
-<filter id="Fgamma">
+<filter id="gamma">
 <feComponentTransfer>
  <feFuncG type="gamma" amplitude="1" exponent="0.5"/>
 </feComponentTransfer>

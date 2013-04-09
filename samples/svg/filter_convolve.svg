@@ -1,0 +1,54 @@
+<svg width="1100px" height="800px" xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1100 800" >
+
+<defs>
+
+<style><![CDATA[
+
+image {
+    filter: url(#F);
+}
+
+text {
+    font-family: sans-serif;
+    font-size: 80px;
+    font-weight: bold;
+    fill: red;
+    stroke: #fff;
+    stroke-width: 2;
+}
+
+]]></style>
+
+<filter id="identity">
+  <feConvolveMatrix order="3" kernelMatrix="0 0 0 0 1 0 0 0 0"/>
+</filter>
+
+<filter id="sharpen">
+  <feConvolveMatrix order="3" kernelMatrix="1 -1 1 -1 -1 -1 1 -1 1"/>
+</filter>
+
+<filter id="sharpenMore">
+  <feConvolveMatrix order="3" kernelMatrix="1 -1 1 -1 -0.1 -1 1 -1 1"/>
+</filter>
+
+<filter id="emboss">
+  <feConvolveMatrix order="3" kernelMatrix="9 0 0 0 1 0 0 0 -9"/>
+</filter>
+
+<filter id="moat">
+  <feConvolveMatrix order="3" kernelMatrix="-1 -1 -1 -1 7 -1 -1 -1 -1"/>
+</filter>
+
+<filter id="moatMore">
+  <feConvolveMatrix order="5" kernelMatrix="1 1 1 1 1 1 -2 -2 -2 1 1  -2 .01 -2 1 1 -2 -2 -2 1 1 1 1 1 1"/>
+</filter>
+
+
+</defs>
+
+<image x="10" y="10" xlink:href="stock-photo.jpeg" width="1024" height="768"/>
+
+</svg>
+
+

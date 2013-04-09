@@ -14,7 +14,8 @@ available options. It takes a good deal of practice to master the many
 filter effects that are available to you, but hopefully this will help
 you understand what's possible.  It starts by showing how modify color
 values in ways that often correspond to built-in CSS filter functions.
-Then it shows you how to split and merge independent channels
+Then it shows you how to split and merge independent channels to take
+advantage of some of SVG's more unusual filter effects.
 
 ==What are filters?==
 
@@ -41,7 +42,7 @@ come in two flavors:
 This guide does not discuss these more recent CSS custom filters, but
 does show you how to customize your own SVG filters for use in HTML.
 
-==Applying a simple filter (feGaussianBlur)==
+==Applying a simple filter in SVG and HTML (feGaussianBlur)==
 
 Start by placing some text within an SVG graphic:
 
@@ -111,8 +112,8 @@ using the same [[css/functions/url|'''url()''']] function:
 
 <syntaxhighlight lang="css">
 .sidewaysBlur {
-    filter         : url(filters.svg#sideways_blur);
-    -webkit-filter : url(filters.svg#sideways_blur); /* it's a new feature */
+    -webkit-filter : url(filters.svg#sideways_blur);
+    filter         : url(filters.svg#sideways_blur); /* standard in Mozilla */
 }
 </syntaxhighlight>
 
@@ -127,12 +128,12 @@ each pixel. Within the element, nest any combination of
 [[svg/elements/feFuncA|'''feFuncA''']] elements to run different types
 of function over each pixel component value. 
 
-Setting the [[svg/attribute/type|'''type''']] of function to
+Setting the [[svg/attributes/type|'''type''']] of function to
 '''identity''' is equivalent to leaving out the function element
 altogether, keeping the image on the left unchanged.  Setting it to
 '''discrete''' allows you to posterize an image, clustering gradual
 color shifts into solid bands based on the step values specified in
-[[svg/attribute/tableValues|'''tableValues''']]:
+[[svg/attributes/tableValues|'''tableValues''']]:
 
 <div style="display:inline-block">
 
@@ -170,15 +171,15 @@ color shifts into solid bands based on the step values specified in
 
 </div>
 
-Setting the [[svg/attribute/type|'''type''']] to '''linear'''
-multiples the value [[svg/attribute/slope|'''slope''']] value
+Setting the [[svg/attributes/type|'''type''']] to '''linear'''
+multiples the value [[svg/attributes/slope|'''slope''']] value
 (relative to the default '''1'''), then adding an
-[[svg/attribute/intercept|'''intercept''']] value if present.
+[[svg/attributes/intercept|'''intercept''']] value if present.
 
 The first example reproduces the effect of the CSS
 [[css/functions/brightness|'''brightness()''']] function, flattening
 the slope to darken the image. The second increases the slope to
-brighten the image, but then drops all values by the same amount,
+brighten the image, but then drops all values by a fixed amount,
 zeroing out many of them:
 
 <div style="display:inline-block">
@@ -213,9 +214,9 @@ zeroing out many of them:
 
 </div>
 
-Setting the [[svg/attribute/type|'''type''']] to '''table''' lets you
+Setting the [[svg/attributes/type|'''type''']] to '''table''' lets you
 specify your own linear slope based on two
-[[svg/attribute/tableValues|'''tableValues''']].  The first example
+[[svg/attributes/tableValues|'''tableValues''']].  The first example
 behaves like the CSS [[css/functions/opacity|'''opacity()''']]
 function.  The second, specifying a negative slope from 1 to 0,
 behaves like the CSS [[css/functions/invert|'''invert()''']] function:
@@ -250,14 +251,15 @@ behaves like the CSS [[css/functions/invert|'''invert()''']] function:
 
 </div>
 
-Setting the [[svg/attribute/type|'''type''']] to '''gamma''' allows
+Setting the [[svg/attributes/type|'''type''']] to '''gamma''' allows
 you to perform ''gamma correction'', typically to bring up dark
 values. The function applies the following formula to produce a curve:
 ((''amplitude'' &times; ''value''<sup>''exponent''</sup>) +
 ''offset''). The first example brightens the green, and the second
-uses [[svg/attribute/offset|'''offset''']] to bring down the final
-result (the same that [[svg/attribute/intercept|'''intercept''']] does
-for the '''linear''' type):
+uses [[svg/attributes/offset|'''offset''']] to reduce the final result
+across the board (the same that
+[[svg/attributes/intercept|'''intercept''']] does for the '''linear'''
+type):
 
 <div style="display:inline-block">
 
@@ -292,8 +294,8 @@ for the '''linear''' type):
 
 The [[svg/elements/feColorMatrix|'''feColorMatrix''']] element provides
 other useful ways to modify an image's color. With its
-[[svg/attribute/type|'''type''']] set to '''saturate''', reducing the
-[[svg/attribute/values|'''values''']] from 1 produces a grayscale,
+[[svg/attributes/type|'''type''']] set to '''saturate''', reducing the
+[[svg/attributes/values|'''values''']] from 1 produces a grayscale,
 while increasing it makes the image more vivid, just like the
 [[css/functions/grayscale|'''grayscale()''']] and
 [[css/functions/saturate|'''saturate()''']] CSS functions:
@@ -322,12 +324,12 @@ while increasing it makes the image more vivid, just like the
 
 </div>
 
-Setting the [[svg/attribute/type|'''type''']] to '''hueRotate'''
+Setting the [[svg/attributes/type|'''type''']] to '''hueRotate'''
 alters the angle along the color wheel, just like the
 [[css/functions/hue-rotate|'''hue-rotate()''']] CSS function.  Setting
 '''luminanceToAlpha''' (no '''values''' necessary) produces an alpha
-channel from bright pixels, useful in producing image masks and other
-effects described below.
+channel from bright pixels, useful to produce image masks as described
+below.
 
 <div style="display:inline-block">
 
@@ -354,10 +356,10 @@ effects described below.
 </div>
 
 As the name of the [[svg/elements/feColorMatrix|'''feColorMatrix''']]
-suggests, setting the [[svg/attribute/type|'''type''']] to
+suggests, setting the [[svg/attributes/type|'''type''']] to
 '''matrix''' allows you to transform colors yourself. It specifies a
 20-element transform whose rows correspond to red, green, blue, and
-alpha channels. This transform leaves the image unchanged:
+alpha channels. This initial transform leaves the image unchanged:
 
 <div style="display:inline-block">
  1 0 0 0 0
@@ -368,9 +370,9 @@ alpha channels. This transform leaves the image unchanged:
 
 The first example below reproduces the effect of the CSS
 [[css/functions/sepia|'''sepia()''']] function, while the second
-simply reduces green and blue tones. (The
-[[svg/attribute/values|'''values''']] are stacked into a table only in
-the interest of clarity.)
+simply reduces green and blue tones. (In these examples, the
+[[svg/attributes/values|'''values''']] appear stacked into a table
+only in the interest of clarity.)
 
 <div style="display:inline-block">
 
@@ -406,13 +408,119 @@ the interest of clarity.)
 
 </div>
 
-==Splitting and merging: building a drop shadow with feOffset, feFlood, feComposite, and feMerge==
+==Sharpening images with feConvolveMatrix==
+
+The [[svg/elements/feConvolveMatrix|'''feConvolveMatrix''']] effect
+allows you to modify pixels based on the values of their neighbors,
+useful in sharpening details.  In its simplest form, the
+[[svg/attributes/order|'''order''']] attribute declares a 3&times;3
+box, which defines a matrix of 9 table values that must be reflected
+in the [[svg/attributes/kernelMatrix|'''kernelMatrix''']] attribute:
+
+<syntaxhighlight lang="xml">
+<filter id="no_op">
+  <feConvolveMatrix order="3" kernelMatrix="0 0 0 0 1 0 0 0 0"/>
+</filter>
+</syntaxhighlight>
+
+The middle value is the pixel to modify, and the others form a map of
+its immediate neighbors:
+
+ 0 0 0
+ 0 1 0
+ 0 0 0
+
+The relative weight of the neighbors helps calculate the pixel's new
+value.  In this case it's 0 times each adjacent pixel's value, summed
+together along with 1 times the value of the pixel, divided by the sum
+of all the pixel values. So this initial example has no effect on the
+image.
+
+The original image shown on the left is somewhat blurred.  Applying a
+sharpen filter nudges pixels for the higher-contrast edges shown at
+the right:
+
+  1  -1  1 
+ -1  -1 -1 
+  1  -1  1
+
+<div style="display:inline-block">
+
+[[Image:svgf_CVnoop.png|400px]]
+
+</div>
+
+<div style="display:inline-block">
+
+[[Image:svgf_CVsharpen.png|400px]]
+
+</div>
+
+Getting convolve filters to behave predictably takes a bit of
+practice.  The example on the left sharpens the detail more
+dramatically, while the one on the right embosses it diagonally:
+
+<div style="display:inline-block">
+
+  1  -1    1
+ -1  -0.1 -1 
+  1  -1    1
+
+[[Image:svgf_CVsuperSharp.png|400px]]
+
+</div>
+
+<div style="display:inline-block">
+
+ 9  0  0
+ 0  1  0
+ 0  0 -9
+
+[[Image:svgf_CVemboss.png|400px]]
+
+</div>
+
+Convolution filters can also highlight moats around high-contrast
+edges.  The more dramatic texture shown below on the right forms moats
+throughout the image.  It requires an
+[[svg/attributes/order|'''order''']] of 5, which extends the range of
+the calculation to each adjacent neighbor's farthest neighbor.  (As
+shown here, it is converted to a grayscale using the
+'''luminanceToAlpha'''
+[[svg/elements/feColorMatrix|'''feColorMatrix''']] type discussed
+above, and the effect-chaining technique described below.)
+
+<div style="display:inline-block">
+
+ -1 -1 -1
+ -1  7 -1
+ -1 -1 -1
+
+[[Image:svgf_CVedge.png|400px]]
+
+</div>
+
+<div style="display:inline-block">
+
+ 1   1   1   1  1 
+ 1  -2  -2  -2  1 
+ 1  -2  .01 -2  1 
+ 1  -2  -2  -2  1 
+ 1   1   1   1  1
+
+[[Image:svgf_CVsuperEdge.png|400px]]
+
+</div>
+
+==Chaining, splitting and merging effects: building a drop shadow with feOffset, feFlood, feComposite, and feMerge==
 
 Filters allow you to accept various graphic inputs, modify them
-independently, then combine them. This example reproduces the effect
-produced by the CSS [[css/functions/drop-shadow|'''drop-shadow()''']]
-function. Stepping through each line and seeing the results as you go
-may help you build far more complex effects:
+independently of each other, then recombine them. This example
+reproduces the effect produced by the CSS
+[[css/functions/drop-shadow|'''drop-shadow()''']] function. Stepping
+through each line and seeing the results as you go helps you to build
+far more interesting overall results than each effect supplies
+individually:
 
 <syntaxhighlight lang="xml">
 <filter id="css_drop_shadow">
@@ -438,7 +546,7 @@ First we start with an image transparency:
 We've already seen the
 [[svg/elements/feGaussianBlur|'''feGaussianBlur''']] effect in action,
 but in this case it behaves differently.  The optional
-[[svg/attribute/in|'''in''']] specifies the '''SourceAlpha''', or all
+[[svg/attributes/in|'''in''']] specifies the '''SourceAlpha''', or all
 of its non-transparent pixels. The result of that effect, which is
 colored black, is passed to the next
 [[svg/elements/feOffset|'''feOffset''']] effect, which simply moves it
@@ -451,16 +559,16 @@ down and over:
 The [[svg/elements/feFlood|'''feFlood''']] effect simply produces a
 color, specified by its
 [[svg/properties/flood-color|'''flood-color''']] property.  The effect
-is independent of the graphic we've produced so far, doesn't take any
-input from the offset effect, so it renders within the filter's entire
-region:
+is independent of the graphic we've produced so far, and doesn't take
+any input from the offset effect, so it renders within the filter's
+entire region:
 
 [[Image:svgf_dropFlood.png|192px]]
 
 </div><div style="display:inline-block;max-width:280px;padding:12px">
 
-By default, the [[svg/attribute/result|'''result''']] of the flood
-becomes the next effect's [[svg/attribute/in|'''in''']] value, so
+By default, the [[svg/attributes/result|'''result''']] of the flood
+becomes the next effect's [[svg/attributes/in|'''in''']] value, so
 neither of these attributes needs to be explicitly declared here.  The
 [[svg/elements/feComposite|'''feComposite''']] effect applies the
 '''in''' composite operation on the portion of the gray fill that
@@ -480,6 +588,10 @@ which renders over it for the final effect:
 
 </div>
 
+<!--
+==Other merge options: feBlend, feComposite, feImage, feTile==
+-->
+
 ==A warp effect (feMorphology, feTurbulence, feDisplacementMap)==
 
 The next example shows how to combine several filter effects to create
@@ -497,7 +609,6 @@ a strange warping effect:
   </feMerge>
   <feTurbulence type="fractalNoise" baseFrequency="0.017" numOctaves="1" result="warp" />
   <feDisplacementMap xChannelSelector="R" yChannelSelector="G" scale="60" in="text" in2="warp"  />
-  <feGaussianBlur stdDeviation="1 2" />
 </filter>
 </syntaxhighlight>
 
@@ -510,8 +621,8 @@ Start with a bit of text:
 </div><div style="display:inline-block;max-width:280px;padding:12px">
 
 The [[svg/elements/feMorphology|'''feMorphology''']] effect specifies
-a [[svg/attribute/dilate|'''dilate''']] factor to thicken the
-graphic. (Alternately, [[svg/attribute/erode|'''erode''']] would erode
+a [[svg/attributes/dilate|'''dilate''']] factor to thicken the
+graphic. (Alternately, [[svg/attributes/erode|'''erode''']] would erode
 it.)
 
 [[Image:svgf_warpMorph.png|250px]]
@@ -525,69 +636,344 @@ modifies the color, as described in a previous section:
 
 </div><div style="display:inline-block;max-width:280px;padding:12px">
 
-The [[svg/elements/feMerge|'''feMerge''']] combines the modified
-outline with the original letterform:
+The [[svg/elements/feMerge|'''feMerge''']] places the modified
+outline behind the original letterform:
 
 [[Image:svgf_warpCombinedOutline.png|250px]]
 
 </div><div style="display:inline-block;max-width:280px;padding:12px">
 
 The [[svg/elements/feTurbulence|'''feTurbulence''']] effect produces
-graphic noise patterns within which colors form clusters:
+its own graphic noise within which colors form cloud-like patterns:
 
 [[Image:svgf_warpTurbulence.png|250px]]
 
 </div><div style="display:inline-block;max-width:280px;padding:12px">
 
-The [[svg/elements/feDisplacementMap|'''feDisplacementMap''']] effect
-does the heavy lifting. It moves the text's pixels
-([[svg/attribute/in|'''in''']]) based on the pixel values of the noise
-pattern ([[svg/attribute/in2|'''in2''']]).  The
-[[svg/attribute/xChannelSelector|'''xChannelSelector''']] and
-[[svg/attribute/yChannelSelector|'''yChannelSelector''']] specify, for
-each axis, which color component's value ('''R''', '''G''', '''B''',
-'''A''') to use to push the pixels. The
-[[svg/attribute/scale|'''scale''']] sets the overall range of movement.
+The [[svg/elements/feDisplacementMap|'''feDisplacementMap''']]
+produces the final effect:
 
 [[Image:svgf_warpDisplace.png|250px]]
 
-</div><div style="display:inline-block;max-width:280px;padding:12px">
-
-Finally, [[svg/elements/feGaussianBlur|'''feGaussianBlur''']] smoothes
-sharp edges:
-
-[[Image:svgf_warpBlur.png|250px]]
-
 </div>
 
+The displacement effect moves the text's pixels (specified by
+[[svg/attributes/in|'''in''']]) based on the pixel values of the noise
+pattern (specified by [[svg/attributes/in2|'''in2''']]).  The
+[[svg/attributes/xChannelSelector|'''xChannelSelector''']] and
+[[svg/attributes/yChannelSelector|'''yChannelSelector''']] specify, for
+each axis, which color component's value ('''R''', '''G''', '''B''',
+or '''A''') to use to push the pixels. The
+[[svg/attributes/scale|'''scale''']] sets the overall range of
+movement.
 
-<!--
-<div style="display:inline-block">
+==Textures (feTurbulence)==
 
-<syntaxhighlight lang="xml">
-</syntaxhighlight>
-
-[[Image:svgf_CT_.png|400px]]
-
-</div>
--->
-
-<!--
-
-==Bevel effects (feSpecularLighting)==
-
-==(feDiffuseLighting, feDistantLight)==
-
-fePointLight, feSpotLight, lighting-color
+Turbulence is indispensible for grain and weave textures, useful for
+background patterns.  Step through the following example:
 
 <syntaxhighlight lang="xml">
-<filter id="pictureFilter" >
-  <feColorMatrix type="luminanceToAlpha" />
-<feDiffuseLighting diffuseConstant="1" surfaceScale="10" result="diffuse3">
-<feDistantLight elevation="28" azimuth="45" /></feDiffuseLighting>
-<feComposite operator="in" in2="inputTo_3" />
+<filter id="weave" x="0" y="0" width="100%" height="100%">
+ <feTurbulence baseFrequency=".25,.03" numOctaves="3" seed="1"/>
+ <feComponentTransfer result="grain">
+   <feFuncR type="linear" slope="3"/>
+ </feComponentTransfer>
+ <feFlood flood-color="brown"/>
+ <feMerge>
+   <feMergeNode/>
+   <feMergeNode in="grain"/>
+ </feMerge>
 </filter>
 </syntaxhighlight>
+
+<div style="display:inline-block;max-width:200px;padding:12px">
+
+Supplying the [[svg/elements/feTurbulence|'''feTurbulence''']] effect
+with two [[svg/attributes/baseFrequency|'''baseFrequency''']] values
+creates a striped effect:
+
+[[Image:svgf_TBturb.png|180px]]
+
+</div>
+
+<div style="display:inline-block;max-width:200px;padding:12px">
+
+An [[svg/elements/feComponentTransfer|'''feComponentTransfer''']]
+boosts the red values:
+
+[[Image:svgf_TBcomp.png|180px]]
+
+</div>
+
+<div style="display:inline-block;max-width:200px;padding:12px">
+
+An [[svg/elements/feFlood|'''feFlood''']] provides a background color:
+
+[[Image:svgf_TBflood.png|180px]]
+
+</div>
+
+<div style="display:inline-block;max-width:200px;padding:12px">
+
+The final [[svg/elements/feMerge|'''feMerge''']] overlays the pattern:
+
+[[Image:svgf_TBmerge.png|180px]]
+
+</div>
+
+Note the [[svg/elements/filter|'''filter''']] element in the example
+above uses [[svg/attributes/x|'''x''']], [[svg/attributes/y|'''y''']],
+[[svg/attributes/width|'''width''']], and
+[[svg/attributes/height|'''height''']] attributes to specify
+dimensions.  By default, filters operate on a ''region'' that's
+somewhat wider than elements they are applied to, to account for
+offset effects such as the shadow shown above, which extends past the
+graphic's original dimensions. In this example, the weave pattern only
+appears within the graphic's original dimensions.
+
+<div id="light_effect"></div>
+
+==Lighting effects==
+
+Shining a light on a graphic provides additional depth and texture.
+To create a lighting effect, you need to specify three things:
+
+* A light ''color'', specified by the [[svg/properties/lighting-color|'''lighting-color''']] property
+
+* A light ''source'', of which there are three kinds:
+** a ''distant'' light ([[svg/elements/feDistantLight|'''feDistantLight''']]) is arbirtarily far away, and so is specified in terms of its angle from the target. This is the most appropriate way to represent sunlight.
+** a ''point'' light ([[svg/elements/fePointLight|'''fePointLight''']]) emanates from a specific point that is represented as a three-dimensional ''x''/''y''/''z'' coordinate. This is more appropriate when you need perspective, such as relative to a room light.
+** a ''spot'' light ([[svg/elements/feSpotLight|'''feSpotLight''']]) behaves much like a point light, but its beam can be narrowed to a cone, and the light can pivot to other targets.
+
+* A basic ''type'' of light, of which two are available:
+** ''diffuse'' light ([[svg/elements/feDiffuseLighting|'''feDiffuseLighting''']]) indicates indirect light from an outside source.
+** ''specular'' light ([[svg/elements/feSpecularLighting|'''feSpecularLighting''']]) specifies secondary light that bounced from reflective surfaces.
+
+A graphic's alpha channel forms a ''bump map'' that responds to light.
+Transparent values remain flat, while opaque values rise to form peaks
+that are illuminated more prominently.  To illustrate how lighting
+works, this example generates a hilly terrain:
+
+<syntaxhighlight lang="xml">
+<filter id="terrain" x="0" y="0" width="100%" height="100%">
+<feTurbulence baseFrequency=".01" numOctaves="2" seed="10" type="turbulence"/>
+<feColorMatrix type="luminanceToAlpha"/>
+<feComponentTransfer>
+ <feFuncA type="table" tableValues="1 0"/>
+</feComponentTransfer>
+</filter>
+</syntaxhighlight>
+
+<div style="display:inline-block;max-width:280px;padding:12px">
+
+The [[svg/elements/feTurbulence|'''feTurbulence''']] provides a noise
+pattern.  The darker clusters will become hilltops, and the
+surrounding white areas will be valleys:
+
+[[Image:svgf_TERRturb1.png|260px]]
+
+</div><div style="display:inline-block;max-width:280px;padding:12px">
+
+The [[svg/elements/feColorMatrix|'''feColorMatrix''']] element's
+'''luminanceToAlpha''' type converts the brighter colors in the
+valleys to higher alpha values:
+
+[[Image:svgf_TERRturb2.png|260px]]
+
+</div><div style="display:inline-block;max-width:280px;padding:12px">
+
+The [[svg/elements/feComponentTransfer|'''feComponentTransfer''']]
+inverts the alpha channel, so that peaks have higher values and
+valleys have lower values:
+
+[[Image:svgf_TERRturb3.png|260px]]
+
+</div>
+
+To specify the lighting effect, nest the light source element
+([[svg/elements/feDistantLight|'''feDistantLight''']],
+[[svg/elements/fePointLight|'''fePointLight''']],
+[[svg/elements/feSpotLight|'''feSpotLight''']]) within the lighting
+type ([[svg/elements/feDiffuseLighting|'''feDiffuseLighting''']],
+[[svg/elements/feSpecularLighting|'''feSpecularLighting''']]).
+This example specifies a distant light:
+
+<syntaxhighlight lang="xml">
+<feDiffuseLighting lighting-color="brown" surfaceScale="100" diffuseConstant="1">
+  <feDistantLight azimuth="0" elevation="20"/>
+</feDiffuseLighting>
+</syntaxhighlight>
+
+[[Image:svgf_TERRdiff.png]]
+
+The distant light source's [[svg/attributes/azimuth|'''azimuth''']]
+corresponds to a compass angle along the horizon, which lies along the
+plane of the display screen.  The
+[[svg/attributes/elevation|'''elevation''']] specifies the angle from
+the horizon, with 90&deg; facing straight up, or out from the screen.
+
+The diffuse lighting effect's
+[[svg/attributes/surfaceScale|'''surfaceScale''']] sets the maximum
+height of the hilltops. The
+[[svg/attributes/diffuseConstant|'''diffuseConstant''']] sets the
+light's saturation, so increasing it from its default value of 1
+produces sunlight that's brighter than usual.
+
+The corresponding specular lighting effect only produces highlights,
+which can be overlaid on the original scene:
+
+<syntaxhighlight lang="xml">
+<feSpecularLighting lighting-color="brown" surfaceScale="100" specularConstant="1">
+  <feDistantLight azimuth="0" elevation="20" />
+</feSpecularLighting>
+</syntaxhighlight>
+
+[[Image:svgf_TERRspec.png]]
+
+This shows the two effects used in combination, with the
+[[svg/properties/lighting-color|'''lighting-color''']] property
+specified separately in a style sheet. The two lighting effects take
+the same ''terrain'' input, then later composite the ''scene'' and its
+''highlights'':
+
+<syntaxhighlight lang="css">
+.feDiffuseLighting,
+.feSpecularLighting {
+    lighting-color: brown;
+}
+</syntaxhighlight>
+
+<syntaxhighlight lang="xml" highlight="4,7,10,13">
+<filter x="0" y="0" width="100%" height="100%" id="shadow_terrain" primitiveUnits="objectBoundingBox">
+<feTurbulence baseFrequency=".01" numOctaves="2" seed="1" type="turbulence"/>
+<feColorMatrix type="luminanceToAlpha"/>
+<feComponentTransfer result="terrain">
+ <feFuncA type="table" tableValues="1 0"/>
+</feComponentTransfer>
+<feDiffuseLighting surfaceScale="100" in="terrain" result="scene">
+  <feDistantLight azimuth="0" elevation="20"/>
+</feDiffuseLighting>
+<feSpecularLighting surfaceScale="100" in="terrain" result="highlights">
+  <feDistantLight azimuth="90" elevation="20" />
+</feSpecularLighting>
+<feComposite in="scene" in2="highlights" operator="xor"/>
+</filter>
+</syntaxhighlight>
+
+[[Image:svgf_TERRboth.png]]
+
+Setting the filter's
+[[svg/attributes/primitiveUnits|'''primitiveUnits''']] to
+'''objectBoundingBox''' allows you to specify light sources as
+relative percentages, otherwise the default '''userSpaceOnUse''' value
+references the coordinate system in effect when the filter was
+applied.
+
+A point light allows you to place light sources closer to the scene.
+This makes the light appear to hover directly over the graphic:
+
+<syntaxhighlight lang="xml">
+<fePointLight x="50%" y="50%" z="200">
+</syntaxhighlight>
+
+[[Image:svgf_TERRpoint.png]]
+
+A spot light can direct a beam from the light source to a different
+target defined by the [[svg/attributes/pointsAtX|'''pointsAtX''']],
+[[svg/attributes/pointsAtY|'''pointsAtY''']], and
+[[svg/attributes/pointsAtZ|'''pointsAtZ''']] coordinates.  The
+[[svg/attributes/limitingConeAngle|'''limitingConeAngle''']] attribute
+allows you to tightly focus the beam:
+
+<syntaxhighlight lang="xml">
+<feSpotLight x="0" y="100" z="150" pointsAtX="200" pointsAtY="100" pointsAtZ="0" limitingConeAngle="30"/>
+</syntaxhighlight>
+
+[[Image:svgf_TERRspot.png]]
+
+==Beveling (feSpecularLighting)==
+
+Using lighting effects to bevel graphics adds a greater sense of depth
+to the drop-shadow effect seen above.  Step through this example to
+build the effect:
+
+<syntaxhighlight lang="xml">
+<filter id="bevel" filterUnits="userSpaceOnUse">
+  <feGaussianBlur in="SourceAlpha" stdDeviation="4" result="blur"/>
+  <feOffset in="blur" dx="4" dy="4" result="offsetBlur"/>
+  <feSpecularLighting surfaceScale="5" specularConstant=".75"
+      specularExponent="20" lighting-color="#bbbbbb" in="blur"
+      result="highlight">
+    <fePointLight x="-5000" y="-10000" z="20000"/>
+  </feSpecularLighting>
+  <feComposite in="highlight" in2="SourceAlpha" operator="in" result="highlight"/>
+  <feComposite in="SourceGraphic" in2="highlight" operator="arithmetic"
+               k1="0" k2="1" k3="1" k4="0" result="highlightText"/>
+  <feMerge>
+    <feMergeNode in="offsetBlur"/>
+    <feMergeNode in="highlightText"/>
+  </feMerge>
+</filter>
+</syntaxhighlight>
+
+<div style="display:inline-block;max-width:420px;padding:12px">
+
+Start with some text that appears fairly indistinguishable against a
+filled background:
+
+[[Image:svgf_bevelOrig.png]]
+
+</div><div style="display:inline-block;max-width:420px;padding:12px">
+
+The blur pattern is piped to the
+[[svg/elements/feOffset|'''feOffset''']] and stored in ''offsetBlur''
+for use as the drop shadow. It's also stored in ''blur'' for use by
+the lighting effect:
+
+[[Image:svgf_bevelBlur.png]]
+
+</div><div style="display:inline-block;max-width:420px;padding:12px">
+
+The blur not only scatters pixels, but distributes their alpha values
+to form a rounded surface, which the lighting effect highlights:
+
+[[Image:svgf_bevelSpec.png]]
+
+</div><div style="display:inline-block;max-width:420px;padding:12px">
+
+The first [[svg/elements/feComposite|'''feComposite''']] clips the
+blurred edges that fall outside the graphic's original contours,
+available as its '''SourceAlpha''':
+
+[[Image:svgf_bevelCompAlpha.png]]
+
+</div><div style="display:inline-block;max-width:420px;padding:12px">
+
+The second [[svg/elements/feComposite|'''feComposite''']] overlays the
+highlight with the original '''SourceGraphic''':
+
+[[Image:svgf_bevelCompImg.png]]
+
+</div><div style="display:inline-block;max-width:420px;padding:12px">
+
+Finally, the ''offsetBlur'' buffer is merged in to provide a drop
+shadow for additional depth and legibility:
+
+[[Image:svgf_bevelFinal.png]]
+
+</div>
+
+<!--
+
+[[svg/elements/feFoo|'''feFoo''']]
+
+
+
+[[svg/attributes/foo|'''foo''']]
+[[svg/attributes/foo|'''foo''']]
+[[svg/attributes/foo|'''foo''']]
+[[svg/attributes/foo|'''foo''']]
+[[svg/attributes/foo|'''foo''']]
 
 http://www.svgbasics.com/filters1.html
 
@@ -598,11 +984,7 @@ o feTile
 
 o feBlend
 
-o feConvolveMatrix
 
-* feDiffuseLighting
-
-* feSpecularLighting
 
 15.5 Filter effects region
 
@@ -610,9 +992,7 @@ o feConvolveMatrix
 
 15.8 Light source elements and properties
 
-15.13 'feConvolveMatrix'
 15.14 'feDiffuseLighting'
-15.15 'feDisplacementMap'
 
 15.18 'feImage'
 15.23 'feTile'
@@ -625,7 +1005,6 @@ o feConvolveMatrix
 <feDistantLight elevation="28" azimuth="180" /></feDiffuseLighting>
 <feComposite operator="in" in2="inputTo_3" />
 <filter />
-
 
 <filter id="filtersText">
 <feComposite operator="arithmetic" k1="0" k2="1" k3="0" k4="0" in="SourceGraphic" in2="SourceGraphic" result="inputTo_2">
@@ -647,7 +1026,6 @@ o feConvolveMatrix
 <feComposite operator="arithmetic" k2="1" k3="1" in2="inputTo_3" data-filterId="3">
 </feComposite>
 </filter>
-
 
 -->
 

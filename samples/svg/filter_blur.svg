@@ -9,7 +9,7 @@ text, image {
     font-family: sans-serif;
     font-size: 70px;
     fill: red;
-    filter: url(#f);
+    filter: url(#horizontal);
 }
 
 ]]></style>
@@ -24,8 +24,16 @@ text, image {
         repeatCount = "1"
     />
 
-<filter id="f">
-  <feGaussianBlur stdDeviation="10"/>
+<filter id="horizontal">
+  <feGaussianBlur stdDeviation="10,1"/>
+</filter>
+
+<filter id="vertical">
+  <feGaussianBlur stdDeviation="1,10"/>
+</filter>
+
+<filter id="identity">
+  <feGaussianBlur stdDeviation="0"/>
 </filter>
 
 </defs>
