@@ -6,7 +6,7 @@
 <style><![CDATA[
 
 image {
-    filter: url(#F);
+    filter: url(#sharpen);
 }
 
 text {
