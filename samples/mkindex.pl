@@ -23,6 +23,3 @@ $x .= q~</table>~;
 open X, qq~>index.html~;
 
 print X $x;
-
-__DATA__
-

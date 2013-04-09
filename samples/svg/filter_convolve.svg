@@ -42,6 +42,7 @@ text {
 
 <filter id="moatMore">
   <feConvolveMatrix order="5" kernelMatrix="1 1 1 1 1 1 -2 -2 -2 1 1  -2 .01 -2 1 1 -2 -2 -2 1 1 1 1 1 1"/>
+  <feColorMatrix type="luminanceToAlpha"/>
 </filter>
 
 
