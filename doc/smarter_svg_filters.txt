@@ -512,7 +512,7 @@ above, and the effect-chaining technique described below.)
 
 </div>
 
-==Chaining, splitting and merging effects: building a drop shadow with feOffset, feFlood, feComposite, and feMerge==
+==Chaining, splitting and merging effects: building a drop shadow with feOffset, feFlood, and feMerge==
 
 Filters allow you to accept various graphic inputs, modify them
 independently of each other, then recombine them. This example
@@ -588,17 +588,136 @@ which renders over it for the final effect:
 
 </div>
 
-==Other merge options: feBlend, feComposite, feImage, feTile==
+==Other merge and input options: feBlend, feComposite, feImage, feTile==
 
-.
+The [[svg/elements/feMerge|'''feMerge''']] element shown above simply
+places one graphic over another to produce a new filter channel. As an
+alternative, you can use [[svg/elements/feBlend|'''feBlend''']] with
+its [[svg/attributes/mode|'''mode''']] set to '''normal''', which
+combines the [[svg/attributes/in|'''in''']] and
+[[svg/attributes/in2|'''in2''']] channels:
 
-<!--
--->
+<syntaxhighlight lang="xml">
+<feBlend in="SourceGraphic" in2="offsetBlur" mode="normal" />
+</syntaxhighlight>
 
-==A warp effect (feMorphology, feTurbulence, feDisplacementMap)==
+The following shows how [[svg/elements/feBlend|'''feBlend''']]'s other
+modes affect graphics that overlay each other. The '''lighten''' and
+'''darken''' modes simply take the lighter or darker of the two
+pixels:
 
-The next example shows how to combine several filter effects to create
-a strange warping effect:
+<div style="display:inline-block;max-width:200px;padding:10px">
+
+'''normal'''
+
+[[Image:svgf_blendNormal.png|150px]]
+
+</div><div style="display:inline-block;max-width:200px;padding:10px">
+
+'''lighten'''
+
+[[Image:svgf_blendLighten.png|150px]]
+
+</div><div style="display:inline-block;max-width:200px;padding:10px">
+
+'''darken'''
+
+[[Image:svgf_blendDarken.png|150px]]
+
+</div><div style="display:inline-block;max-width:200px;padding:10px">
+
+'''screen'''
+
+[[Image:svgf_blendScreen.png|150px]]
+
+</div><div style="display:inline-block;max-width:200px;padding:10px">
+
+'''multiply'''
+
+[[Image:svgf_blendMultiply.png|150px]]
+
+</div>
+
+Setting the [[svg/elements/feComposite|'''feComposite''']] element's
+[[svg/attributes/operator|'''operator''']] to '''over''' produces the
+same default overlay as [[svg/elements/feMerge|'''feMerge''']]:
+
+<syntaxhighlight lang="xml">
+<feComposite in="SourceGraphic" in2="offsetBlur" operator="over" />
+</syntaxhighlight>
+
+The following shows how its operators behave:
+
+<div style="display:inline-block;max-width:200px;padding:10px">
+
+'''over'''
+
+[[Image:svgf_compOver.png|150px]]
+
+</div><div style="display:inline-block;max-width:200px;padding:10px">
+
+'''out'''
+
+[[Image:svgf_compOut.png|150px]]
+
+</div><div style="display:inline-block;max-width:200px;padding:10px">
+
+'''in'''
+
+[[Image:svgf_compIn.png|150px]]
+
+</div><div style="display:inline-block;max-width:200px;padding:10px">
+
+'''atop'''
+
+[[Image:svgf_compAtop.png|150px]]
+
+</div><div style="display:inline-block;max-width:200px;padding:10px">
+
+'''xor'''
+
+[[Image:svgf_compXor.png|150px]]
+
+</div>
+
+Setting the [[svg/attributes/operator|'''operator''']] to
+'''arithmetic''' allows you to supply your own '''k1'''-'''k4''' table
+values to produce composite blends.  For example, set
+[[svg/attributes/k1|'''k1''']] and [[svg/attributes/k4|'''k4''']] to
+0, then decrease [[svg/attributes/k2|'''k2''']] from 1 while
+increasing [[svg/attributes/k3|'''k3''']] for a cross-fade effect.
+This example makes the [[svg/attributes/in2|'''in2''']] graphic more
+visible:
+
+<syntaxhighlight lang="xml">
+<feComposite in="graphicA" in2="graphicB" operator="arithmetic" k1="0" k2="0.3" k3="0.7" k4="0"/>
+</syntaxhighlight>
+
+[[Image:svgf_compArithmetic.png|150px]]
+
+To import graphics into filter effects as in the examples above and
+below, use the [[svg/elements/feImage|'''feImage''']] element. It
+allows you to import not only raster images as with the
+[[svg/elements/image|'''image''']] element, but any other SVG graphic
+as well. By default, graphics are placed in the center of the filter
+region.  Otherwise, use [[svg/attributes/x|'''x''']],
+[[svg/attributes/y|'''y''']], [[svg/attributes/width|'''width''']],
+and [[svg/attributes/height|'''height''']] attributes to reposition
+and resize them:
+
+<syntaxhighlight lang="xml">
+<feImage xlink:href="img/icon.png" x="100" y="50" width="20%" height="20%" result="icon"/>
+<feTile/>
+<feImage xlink:href="#gradient" result="gradient"/>
+</syntaxhighlight>
+
+The [[svg/elements/feTile|'''feTile''']] element simply allows you to
+repeat imported graphics as a pattern.
+
+==Warping effects (feMorphology, feTurbulence, feDisplacementMap)==
+
+The next example shows how to combine several filter effects to warp
+text:
 
 <syntaxhighlight lang="xml">
 <filter id="warp" >
@@ -660,13 +779,13 @@ produces the final effect:
 
 </div>
 
-The displacement effect moves the text's pixels (specified by
+The displacement effect moves the pixels of the text (specified by
 [[svg/attributes/in|'''in''']]) based on the pixel values of the noise
 pattern (specified by [[svg/attributes/in2|'''in2''']]).  The
 [[svg/attributes/xChannelSelector|'''xChannelSelector''']] and
-[[svg/attributes/yChannelSelector|'''yChannelSelector''']] specify, for
-each axis, which color component's value ('''R''', '''G''', '''B''',
-or '''A''') to use to push the pixels. The
+[[svg/attributes/yChannelSelector|'''yChannelSelector''']] specify,
+for each axis, which color component's value ('''R''', '''G''',
+'''B''', or '''A''') to use to push the pixels, and the
 [[svg/attributes/scale|'''scale''']] sets the overall range of
 movement.
 
@@ -969,6 +1088,10 @@ shadow for additional depth and legibility:
 [[Image:svgf_bevelFinal.png]]
 
 </div>
+
+==Adding graphics (feImage, feTile)==
+
+.
 
 }}
 {{Notes_Section}}
