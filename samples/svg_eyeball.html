@@ -15,6 +15,7 @@
 #eyeball, .eyeball {
     fill       : url(#eyeballFill);
     clip-path  : url(#clipEyelid);
+    filter     : url(#corneaShine);
 }
 
 /* inner eye */
@@ -112,7 +113,7 @@ svg.zoomIn text {
 <body>
 
 <svg
-   viewBox             = "0 0 600 200" 
+   viewBox             = "0 0 600 200"
    preserveAspectRatio = "xMidYMid meet"
    xmlns               = "http://www.w3.org/2000/svg"
    xmlns:xlink         = "http://www.w3.org/1999/xlink"
@@ -185,6 +186,25 @@ svg.zoomIn text {
     <use xlink:href="#eyelids" class="eyelids" />
 </clipPath>
 
+<!-- highlight eyeball -->
+
+<circle id="cornea" cx="100" cy="100" r="50" fill="url(#corneaSurface)"/>
+<radialGradient id="corneaSurface">
+  <stop offset="0%" stop-color="black" stop-opacity="1"/>
+  <stop offset="100%" stop-color="black" stop-opacity="0"/>
+</radialGradient>
+
+<filter
+    id             = "corneaShine"
+    primitiveUnits = "objectBoundingBox"
+>
+  <feImage xlink:href="#cornea" x="16%" y="16%"/>
+  <feSpecularLighting lighting-color="#ffffff" surfaceScale="170" specularConstant="2" result="shine">
+    <feSpotLight x="200" y="-100" z="200" pointsAtX="120" pointsAtY="80" pointsAtZ="50" limitingConeAngle="7"/>
+  </feSpecularLighting>
+  <feComposite in="shine" in2="SourceGraphic" operator="over"/>
+</filter>
+
 <!-- soften eyelashes -->
 
 <filter
@@ -238,6 +258,10 @@ svg.zoomIn text {
   <use xlink:href="#eyelids" class="eyelids" />
   <use xlink:href="#eyeball" class="eyeball" />
   <use xlink:href="#labels"/>
+
+<!--
+  <use xlink:href="#cornea" transform="translate(150,-50)"/>
+-->
 </g>
 
 <g id="eyes">
@@ -292,7 +316,7 @@ function zoomNav(e) {
     animate.setAttribute('from', animate.getAttribute('to'));
     animate.setAttribute('to', tgt.getAttribute('viewBox'));
     // execute animation
-    animate.beginElement();    
+    animate.beginElement();
     svg.classList.toggle(hash.replace(/#/,''));
 //    svg.className = hash.replace(/#/,'');
 }

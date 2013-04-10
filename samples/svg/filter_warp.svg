@@ -9,7 +9,7 @@ image, text {
     font-family: sans-serif;
     font-size: 70px;
     fill: red;
-    filter: url(#warp);
+    filter: url(#bend);
 }
 
 ]]></style>
@@ -28,9 +28,44 @@ image, text {
   <feGaussianBlur stdDeviation="1 2" />
 </filter>
 
+<filter id="bend" x="0" y="0" width="100%" height="100%" data-primitiveUnits="objectBoundingBox">
+  <feImage xlink:href="#G" x="0" y="0" width="100%" height="100%" result="grad"/>
+  <feTile in="grad" x="0" y="0" width="100%" height="100%"/>
+</filter>
+
+<linearGradient id="vGradient" y1="0%" y2="100%" x1="0%" x2="0%" gradientUnits="objectBoundingBox">
+    <stop  offset="0%"   stop-opacity="1" stop-color="green" />
+    <stop  offset="50%" stop-opacity="1" stop-color="red" />
+    <stop  offset="100%" stop-opacity="1" stop-color="green" />
+</linearGradient>
+
 </defs>
 
-<text x="30" y="100">An SVG Filter</text>
+<text x="200" y="200">An SVG Filter</text>
+
+<circle cx="400" cy="100" r="100" filter="url(#bend)"/>
+
+<rect id="G" x="0" y="0" width="100" height="100" fill="url(#vGradient)" />
 
 </svg>
 
+<!--
+<filter id="bend">
+  <feGaussianBlur stdDeviation="1 2" />
+  <feImage xlink:href="#G" x="0" y="0" height="100%" width="100%"/>
+  <feTile/>
+  <feDisplacementMap xChannelSelector="R" yChannelSelector="G" in="text" in2="bend" scale="10" />
+</filter>
+
+<linearGradient id="yGradient" y1="0%" y2="100%" x1="50%" x2="50%" gradientUnits="objectBoundingBox">
+    <stop  offset="25%"   stop-opacity="1" stop-color="red" />
+    <stop  offset="50%"   stop-opacity="1" stop-color="green" />
+    <stop  offset="75%" stop-opacity="1" stop-color="red" />
+</linearGradient>
+
+<radialGradient id="rGradient" y1="0%" y2="100%" x1="50%" x2="50%" gradientUnits="objectBoundingBox">
+    <stop  offset="5%"   stop-opacity="1" stop-color="green" />
+    <stop  offset="50%"   stop-opacity="1" stop-color="red" />
+    <stop  offset="95%" stop-opacity="1" stop-color="green" />
+</radialGradient>
+-->
