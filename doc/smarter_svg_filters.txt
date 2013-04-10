@@ -695,8 +695,8 @@ visible:
 
 [[Image:svgf_compArithmetic.png|150px]]
 
-To import graphics into filter effects as in the examples above and
-below, use the [[svg/elements/feImage|'''feImage''']] element. It
+Use the [[svg/elements/feImage|'''feImage''']] element to import
+graphics into filter effects as in the examples above and below. It
 allows you to import not only raster images as with the
 [[svg/elements/image|'''image''']] element, but any other SVG graphic
 as well. By default, graphics are placed in the center of the filter
@@ -707,8 +707,8 @@ and resize them:
 
 <syntaxhighlight lang="xml">
 <feImage xlink:href="img/icon.png" x="100" y="50" width="20%" height="20%" result="icon"/>
-<feTile/>
 <feImage xlink:href="#gradient" result="gradient"/>
+<feTile/>
 </syntaxhighlight>
 
 The [[svg/elements/feTile|'''feTile''']] element simply allows you to
