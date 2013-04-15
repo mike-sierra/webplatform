@@ -59,7 +59,6 @@
 <a class="animate" id="zoomOverNav" xlink:href="#zoomOver"><text x="200" y="250">zoomOver</text></a>
 <a class="animate" id="zoomOutNav" xlink:href="#zoomOut" style="fill:#000000"><text x="550" y="350">zoomOut</text></a>
 
-
 <script><![CDATA[
 
 var app = new Function();

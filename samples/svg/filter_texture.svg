@@ -1,3 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+
 <svg width="1100px" height="800px" xmlns="http://www.w3.org/2000/svg"
   xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1100 800" >
 
@@ -30,6 +32,29 @@ text {
  <feBlend mode="normal" in="grain" in2="bkgnd"/>
 </filter>
 
+<filter id="turbulent_motion" x="0" y="0" width="100%" height="100%">
+ <feTurbulence baseFrequency="0.03,0.15" numOctaves="3" seed="0">
+
+  <animate
+    attributeType = "XML"
+    attributeName = "seed"
+    from          = "0"
+    to            = "30"
+    dur           = "1s"
+    additive     = "sum"
+    accumulate   = "sum"
+    repeatCount   = "indefinite"
+    fill          = "freeze"
+    delay         = "1s"
+    start         = "click"
+    />
+<!--
+
+-->
+
+ </feTurbulence>
+</filter>
+
 <text id="label0">label0</text>
 
 </defs>
@@ -37,5 +62,3 @@ text {
 <rect x="10" y="10" width="1024" height="768"/>
 
 </svg>
-
-

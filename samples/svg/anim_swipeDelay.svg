@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<svg width="1000px" height="500px" xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1000 500" >
+
+<defs>
+
+<style><![CDATA[
+
+text, image {
+    font-family : sans-serif;
+    font-size   : 70px;
+    fill        : red;
+    font-weight: bold;
+}
+
+]]></style>
+
+<animate
+   id            = "delayed_swipe"
+   attributeName = "x"
+   from          = "1000"
+   to            = "0"
+   begin         = "1s"
+   dur           = "0.5s"
+   fill          = "freeze"
+   xlink:href    = "#tgt"
+/>
+
+</defs>
+
+<g transform="translate(100,0)">
+  <text class="alt" onclick="this.classList.toggle('alt')" id="tgt" x="1000" y="100">An Animated SVG Filter</text>
+</g>
+
+</svg>
+

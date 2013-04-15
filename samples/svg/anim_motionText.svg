@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<svg width="800px" height="800px" xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 800 800" >
+
+<defs>
+
+<style><![CDATA[
+path {
+    cursor: pointer;
+    pointer-events : visibleStroke;
+    fill: none;
+    stroke-width: 10;
+    stroke-opacity: 0.25;
+    stroke: blue;
+    stroke-linecap: round;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    transition: all 0.5s;
+}
+path:hover {
+    stroke         : lightgreen;;
+}
+
+text {
+    font-size: 36px;
+    font-family: Tahoma, sans-serif;
+}
+
+]]></style>
+
+<animate 
+   xlink:href    = "#txtPath" 
+   attributeName = "startOffset"
+   from          = "1000"
+   to            = "-1000"
+   start         = "0s" 
+   dur           = "8s" 
+   repeatCount   = "indefinite"
+/>
+
+</defs>
+
+<text id="txt">
+  <textPath id="txtPath" xlink:href="#shape" startOffset="40%">
+    Animating text along a path
+  </textPath>
+</text>
+
+<path 
+   id="shape" 
+   d="M 100,300 A 1,1 0 0 1 500,300" 
+   pathLength="1000"
+   />
+
+</svg>

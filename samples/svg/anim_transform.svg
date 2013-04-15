@@ -4,8 +4,8 @@
    version           = "1.1" 
    xmlns             = "http://www.w3.org/2000/svg"
    xmlns:xlink       = "http://www.w3.org/1999/xlink"
-   width             = "300px"
-   height            = "300px"
+   width             = "600px"
+   height            = "600px"
    viewBox           = "0 0 300 300"
    enable-background = "new 0 0 300 300"
    xml:space         = "preserve"
@@ -66,7 +66,7 @@ C467.202,305.564,467.768,305.858,468.054,306.428z"/>
 </clipPath>
 
 <g id="tileRects">
-  <rect id="tileRectWhite" x="0"   y="0"   width="10"  height="5"   fill="#000000" />
+  <rect id="tileRectWhite" x="0"   y="0"   width="10"  height="5"   fill="#000000" transform="scale(1)"/>
   <rect id="tileRectBlack" x="0.5" y="0.5" width="9.0" height="4.0" fill="#E1BC9B" />
 </g>
 
@@ -76,7 +76,9 @@ C467.202,305.564,467.768,305.858,468.054,306.428z"/>
 </g>
 
 <g id="tilePatternUnit">
+  <g id="shiftStay" transform="skewX(0)">
   <use xlink:href="#tileSquare" />
+  </g>
   <g id="shiftDown" transform="translate(10,10) rotate(90)">
       <use xlink:href="#tileSquare"/>
   </g>
@@ -87,6 +89,41 @@ C467.202,305.564,467.768,305.858,468.054,306.428z"/>
     <use xlink:href="#tileSquare"/>
   </g>
 </g>
+
+<animateTransform
+   attributeName = "patternTransform"
+   type          = "rotate"
+   from          = "0"
+   to            = "360"
+   begin         = "0s"
+   repeatCount   = "indefinite"
+   dur           = "300s"
+   xlink:href    = "#tilePattern"
+/>
+
+<animateTransform
+   attributeName = "transform"
+   type          = "scale"
+   from          = "1"
+   to            = "1"
+   values        = "1;0.5;1;0;1"
+   begin         = "0s"
+   repeatCount   = "indefinite"
+   dur           = "17s"
+   xlink:href    = "#tileRectWhite"
+/>
+
+<animateTransform
+   attributeName = "transform"
+   type          = "skewX"
+   from          = "0"
+   to            = "0"
+   values        = "0;0;30;0;0;-30;0"
+   begin         = "0s"
+   repeatCount   = "indefinite"
+   dur           = "8s"
+   xlink:href    = "#shiftStay"
+/>
 
 <pattern
    id                    = "tilePattern"

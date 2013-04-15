@@ -129,8 +129,6 @@ C467.202,305.564,467.768,305.858,468.054,306.428z"/>
   <use xlink:href="#shirtShape" />
 </g>
 
-
-
 <use xlink:href="#tilePatternUnit" transform="scale(10) translate(1,1)"/>
 
 </defs>

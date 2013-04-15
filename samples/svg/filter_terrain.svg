@@ -1,3 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+
 <svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1400px" height="800px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 800">
 
 <defs>
@@ -119,7 +121,6 @@ text {
   </fePointLight>
 </feSpecularLighting>
 
-
 <feComposite in="t_diff" in2="t_spec" operator="xor"/>
 </filter>
 
@@ -223,7 +224,6 @@ text {
 <rect x="400" y="400" width="390" height="190" filter="url(#specular_spot)"/>
 <rect x="800" y="400" width="390" height="190" filter="url(#combo_spot)"/>
 <text x="1210" y="500">Spot</text>
-
 
 </g>
 

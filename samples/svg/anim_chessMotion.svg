@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<svg width="1000px" height="1000px" xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="-50 -50 1050 1050" >
+
+<defs>
+
+<style><![CDATA[
+
+]]></style>
+
+<pattern id="chessBoard" x="0" y="0" width="200" height="200"
+   patternContentUnits="userSpaceOnUse" patternUnits="userSpaceOnUse">
+  <rect id="square" x="0" y="0" width="100" height="100" fill="#000"/>
+  <use xlink:href="#square" transform="translate(100,100)"/>
+</pattern>
+
+<animateMotion
+    id         = "animDiag"
+    xlink:href = "#piece"
+    begin      = "piece.click"
+    fill       = "freeze"
+    dur        = "3s"
+    path       = "M 0,0 A 1,1 0 0 1 100,-100 A 1,1 0 0 1 200,-200 A 1,1 0 0 1 300,-300"
+/>
+
+</defs>
+
+<rect id="board" x="0" y="0" width="800" height="800" stroke="#000" stroke-width="6" fill="url(#chessBoard)"/>
+
+<path stroke="red" stroke-width="10" fill="none" id="move3" d="M 150,550 A 1,1 0 0 1 250,450 A 1,1 0 0 1 350,350 A 1,1 0 0 1 450,250"/>
+
+<circle id="piece" fill="red" cx="150" cy="550" r="40"/>
+
+</svg>
+

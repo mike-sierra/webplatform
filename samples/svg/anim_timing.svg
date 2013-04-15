@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<svg width="800px" height="800px" xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="-0.1 -0.1 1.15 1.15" >
+
+<defs>
+
+<style><![CDATA[
+curve {
+    ;
+}
+]]></style>
+
+<marker id="dot" markerWidth="1" markerHeight="1" orient="auto" refX="0.0" refY="0.0">
+<rect x="0" y="0" width="1" height="1" fill="gold"/>
+  <circle cx="0.1" cy="0.1" r="0.1" fill="red"/>
+</marker>
+
+<pattern id="grid" x="0" y="0" width="0.1" height="0.1" patternContentUnits="userSpaceOnUse" 
+         patternUnits="userSpaceOnUse">
+  <rect id="sq" x="0" y="0" width="0.1" height="0.1" fill="none"
+        stroke="cyan" stroke-width="0.005"/>
+</pattern>
+
+</defs>
+
+<rect x="-0.02" y="-0.02" width="1.04" height="1.04" fill="url(#grid)" stroke="black" stroke-width="0.005"/>
+
+<path id="c1" d="M 0,1 L 0.42,1" stroke="#000" stroke-width="0.005" marker-end="url(#dot)" />
+
+<path id="c2" d="M 1,0 L 1,0" stroke="#000" stroke-width="0.005" marker-end="url(#dot)"/>
+
+<path id="curve" d="M 0,1 C 0.42,1 1,0 1,0" stroke="red" stroke-width="0.005" fill="none"/>
+
+<script><![CDATA[
+
+]]></script>
+
+</svg>
+

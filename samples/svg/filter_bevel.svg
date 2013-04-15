@@ -1,3 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+
 <svg width="500px" height="500px" xmlns="http://www.w3.org/2000/svg"
   xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 500 500" >
 
@@ -10,7 +12,7 @@ text, image {
     font-size: 70px;
     font-weight: bold;
     fill: red;
-    filter: url(#bevel);
+    filter: url(#bevel_anim);
 }
 
 feSpecularLighting  {
@@ -25,7 +27,7 @@ feSpecularLighting  {
 
     <filter id="bevel" filterUnits="userSpaceOnUse">
       <feGaussianBlur in="SourceAlpha" stdDeviation="4" result="blur"/>
-      <feOffset in="blur" dx="4" dy="4" result="offsetBlur"/>
+      <feOffset in="blur" dx="-4" dy="0" result="offsetBlur"/>
       <feSpecularLighting surfaceScale="5" specularConstant=".75"
           in="blur" result="specOut" specularExponent="20"
           lighting-color="#bbbbbb" >
@@ -39,6 +41,65 @@ feSpecularLighting  {
         <feMergeNode in="litPaint"/>
       </feMerge>
     </filter>
+
+<filter id="bevel_anim" filterUnits="userSpaceOnUse">
+  <feGaussianBlur in="SourceAlpha" stdDeviation="4" result="blur"/>
+  <feOffset id="shadowEffect" in="blur" dx="4" dy="4" result="offsetBlur"/>
+  <feSpecularLighting id="elevationEffect" surfaceScale="20" specularConstant=".75"
+        in="blur" result="specOut" specularExponent="20" lighting-color="#bbbbbb" >
+    <feDistantLight id="lightAngleEffect" azimuth="0" elevation="30" />
+  </feSpecularLighting>
+  <feComposite in="specOut" in2="SourceAlpha" operator="in" result="specOut"/>
+  <feComposite in="SourceGraphic" in2="specOut" operator="arithmetic" result="litPaint" k1="0" k2="1" k3="1" k4="0" />
+  <feComposite in="litPaint" in2="offsetBlur" operator="over"/>
+</filter>
+
+<animate
+    id            = "elevationAnim"
+    attributeName = "surfaceScale"
+    from          = "0"
+    to            = "0"
+    begin         = "0s"
+    dur           = "5s"
+    values        = "5;20;5"
+    repeatCount   = "indefinite"
+    xlink:href    = "#elevationEffect"
+/>
+
+<animate
+    id            = "lightAngleAnim"
+    attributeName = "azimuth"
+    from          = "0"
+    to            = "360"
+    begin         = "0s"
+    dur           = "10s"
+    repeatCount   = "indefinite"
+    xlink:href    = "#lightAngleEffect"
+/>
+
+<animate
+    id            = "shadowAnimX"
+    attributeName = "dx"
+    from          = "4"
+    to            = "4"
+    begin         = "lightAngleAnim.begin"
+    dur           = "10s"
+    values        = "-4;4;-4"
+    repeatCount   = "indefinite"
+    xlink:href    = "#shadowEffect"
+/>
+
+<animate
+    id            = "shadowAnimY"
+    attributeName = "dy"
+    from          = "0"
+    to            = "0"
+    begin         = "lightAngleAnim.begin"
+    dur           = "10s"
+    values        = "0;-4;0;4;0"
+    repeatCount   = "indefinite"
+    xlink:href    = "#shadowEffect"
+/>
 
 </defs>
 

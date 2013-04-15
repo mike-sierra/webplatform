@@ -934,10 +934,10 @@ This example specifies a distant light:
 [[Image:svgf_TERRdiff.png]]
 
 The distant light source's [[svg/attributes/azimuth|'''azimuth''']]
-corresponds to a compass angle along the horizon, which lies along the
-plane of the display screen.  The
+corresponds to an angle relative to the ''x'' axis, with '''0'''
+starting from the 3:00 position.  The
 [[svg/attributes/elevation|'''elevation''']] specifies the angle from
-the horizon, with 90&deg; facing straight up, or out from the screen.
+the horizon, with 90&deg; facing straight up.
 
 The diffuse lighting effect's
 [[svg/attributes/surfaceScale|'''surfaceScale''']] sets the maximum
