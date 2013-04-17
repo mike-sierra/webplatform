@@ -54,7 +54,7 @@
         18.4.2 Event attributes on graphics and container elements
         18.4.3 Document-level event attributes
         18.4.4 Animation event attributes
--->
+
 
 Interactivity properties:
 * '''pointer-events'''
@@ -81,6 +81,8 @@ Events:
 * '''onbegin'''
 * '''onend'''
 * '''onrepeat'''
+-->
+
 }}
 {{Notes_Section}}
 {{Compatibility_Section
