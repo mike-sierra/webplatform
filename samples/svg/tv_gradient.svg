@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<svg version="1.1" 
+<svg version="1.1"  width="2000px" height="2000px" viewBox="0 0 792 612" 
+     preserveAspectRatio="xMinYMin meet" x="0px" y="0px"
      xmlns="http://www.w3.org/2000/svg"
-     xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-     width="792px" height="612px" viewBox="0 0 792 612"
-     enable-background="new 0 0 792 612" xml:space="preserve" >
+     xmlns:xlink="http://www.w3.org/1999/xlink" enable-background="new
+     0 0 792 612" xml:space="preserve" >
 
 <defs>
 

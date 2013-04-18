@@ -6,11 +6,7 @@
 {{Byline}}
 {{Summary_Section|This guide shows you how to embed images within SVG and apply various graphics effects such as gradients, patterns, clipping paths, and masks.}}
 {{Tutorial
-|Content=
-
-
-
-==Gradients==
+|Content===Gradients==
 
 SVG's support for gradients is similar to CSS's. Two kinds of gradient
 are available: the
@@ -255,16 +251,9 @@ increasing the value to 1.5 magnifies the pattern:
 
 Other transforms allow you to reorient and reshape the pattern. In
 this example, ''scale(1.5) skewY(15) rotate(30)'' boosts the pattern's
-size, shears it slightly into a diamond shape, and spins it. The
-second version performs similar transforms within the repeating tile
-used for the pattern:
+size, shears it slightly into a diamond shape, and spins it:
 
-<div style="display:inline-block">
 [[Image:svg_gfx_pattern_skewrot.png|300px]]
-</div>
-<div style="display:inline-block">
-[[Image:svg_gfx_pattern_skewrot2.png|300px]]
-</div>
 
 [http://letmespellitoutforyou.com/samples/svg/pattern_fill.svg View the SVG file here].
 
@@ -304,80 +293,87 @@ When rendering the graphic to clip, use the
 
 [http://letmespellitoutforyou.com/samples/svg/tv_clip.svg View the SVG file here].
 
-<!--
-    14.3 Clipping paths
-        14.3.1 Introduction
-        14.3.2 The initial clipping path
-        14.3.3 The 'overflow' and 'clip' properties
-        14.3.4 Clip to viewport vs. clip to 'viewBox'
-        14.3.5 Establishing a new clipping path: the 'clipPath' element
-        14.3.6 Clipping paths, geometry, and pointer events
-
-Other properties for visual media:
-* [[svg/properties/clip|'''clip''']], only applicable to outermost svg element.
-* [[svg/properties/clip-path|'''clip-path''']]
-* [[svg/properties/clip-rule|'''clip-rule''']]
-* [[svg/properties/overflow|'''overflow''']], only applicable to elements which establish a new viewport.
-
--->
-
 ==Adding images==
 
+While SVG is designed for vector graphics, it can freely incorporate
+raster graphics via the [[svg/elements/image|'''image''']] element.
+Use [[svg/attributes/x|'''x''']] and [[svg/attributes/y|'''y''']]
+attributes to position an image. Unlike HTML, you need to specify a
+[[svg/attributes/width|'''width''']] and
+[[svg/attributes/height|'''height''']] for an image to appear:
+
+<syntaxhighlight lang="xml" highlight="1">
+<image x="10" y="10" xlink:href="giraffe.png" width="270" height="297"
+       preserveAspectRatio="xMidYMid meet"/>
+</syntaxhighlight>
+
+If the supplied dimensions don't match the underlying data, various
+[[svg/attributes/preserveAspectRatio|'''preserveAspectRatio''']]
+options affect the image's placement.  The '''meet''' keyword fits the
+entire image, while '''slice''' clips it. To position the image, you
+can specify any combination of ''Min'', ''Mid'', and ''Max'', which in
+the examples below match for each axis, but which you can mix
+arbitrarily. For example, '''xMidYMin''' aligns the image at the top,
+and centers it horizontally.  Here are various ways to place a tall
+graphic in a wide image container:
+
+<div style="display:inline-block">
+ xMinYMin meet
+[[Image:xMinYMin_meet.png|300px]]
+</div>
+
+<div style="display:inline-block">
+ xMidYMid meet
+[[Image:xMidYMid_meet.png|300px]]
+</div>
+
+<div style="display:inline-block">
+ xMaxYMax meet
+[[Image:xMaxYMax_meet.png|300px]]
+</div>
+
+<div style="display:inline-block">
+ xMinYMin slice
+[[Image:xMinYMin_slice.png|300px]]
+</div>
+
+<div style="display:inline-block">
+ xMidYMid slice
+[[Image:xMidYMid_slice.png|300px]]
+</div>
+
+<div style="display:inline-block">
+ xMaxYMax slice
+[[Image:xMaxYMax_slice.png|300px]]
+</div>
+
+Images scale depending on the current
+[[svg/attributes/viewBox|'''viewBox''']]. For example, if the SVG
+importing the image appears within a ''viewport'' of 500&times;500
+pixels (as specified by its own [[svg/attributes/width|'''width''']]
+and [[svg/attributes/height|'''height''']]), but its
+[[svg/attributes/viewBox|'''viewBox''']] attribute specifies
+'''0 0 1000 1000''', then the image appears much smaller.
+
+You can also use the [[svg/elements/image|'''image''']] element to
+import SVG graphics:
+
+<syntaxhighlight lang="xml" highlight="1">
+<image xlink:href="face_components.svg#eyes" x="10" y="10" width="300" height="100"/>
+</syntaxhighlight>
+
+[[Image:svg_image_import_svg.png]]
+
+These externally referenced SVG components may animate, but they do
+not preserve any interactive features.
+
 <!--
-    5.7 The 'image' element
--->
 
 ==Applying masks==
 
-<!--
-    14.4 Masking
-    14.5 Object and group opacity: the 'opacity' property
-
 * [[svg/properties/mask|'''mask''']]
 
-* [[svg/properties/stop-opacity|'''stop-opacity''']]
-
-    11.7 Rendering properties
-        11.7.1 Color interpolation properties: 'color-interpolation' and 'color-interpolation-filters'
-        11.7.2 The 'color-rendering' property
-        11.7.3 The 'shape-rendering' property
-        11.7.4 The 'text-rendering' property
-        11.7.5 The 'image-rendering' property
-    11.8 Inheritance of painting properties
-
-* [[svg/properties/image-rendering|'''image-rendering''']]
-* [[svg/properties/shape-rendering|'''shape-rendering''']]
-* [[svg/properties/text-rendering|'''text-rendering''']]
-
-Color and Painting properties:
-
-* [[svg/properties/color-interpolation|'''color-interpolation''']]
-* [[svg/properties/color-interpolation-filters|'''color-interpolation-filters''']]
-* [[svg/properties/color-profile|'''color-profile''']]
-* [[svg/properties/color-rendering|'''color-rendering''']]
-
- 11 Painting: Filling, Stroking and Marker Symbols
-    11.1 Introduction
-    11.2 Specifying paint
-
- 12 Color
-    12.1 Introduction
-    12.2 The 'color' property
-    12.3 Color profile descriptions
-        12.3.1 Overview of color profile descriptions
-        12.3.2 Alternative ways of defining a color profile description
-        12.3.3 The 'color-profile' element
-        12.3.4 The CSS @color-profile rule
-        12.3.5 The 'color-profile' property
-
- 14 Clipping, Masking and Compositing
-    14.2 Simple alpha compositing
-* [[svg/properties/opacity|'''opacity''']]
 -->
-
-==Compositing options==
-
-...
 
 }}
 {{Notes_Section}}

@@ -28,7 +28,7 @@
 <form>
 
 <fieldset>
-<legend>path command</legend>
+<legend style="color:red">choose path command,<br/>then click to add points:</legend>
 <select class="tool">
     <option value="M">M</option>
     <option value="L">L (line to)</option>
@@ -45,7 +45,7 @@
 </fieldset>
 
 <fieldset>
-<legend>arc</legend>
+<legend>arc (settings for "A" command)</legend>
 
 <label>X radius</label>
 <input type="range" id="arcRadX" value="200" min="0" max="500"  onchange="app.arcRadiusX = this.value"/>
@@ -65,7 +65,7 @@
 </fieldset>
 
 <fieldset>
-<legend>fill</legend>
+<legend>fill (applies to interior of path)</legend>
 <label>color</label>
 <input onchange="app.path.setAttribute('fill', this.value)" type="color" value="transparent"/>
 
@@ -77,7 +77,7 @@
 </fieldset>
 
 <fieldset>
-<legend>stroke</legend>
+<legend>stroke  (applies to edge of path)</legend>
 <label>color</label>
 <input onchange="app.path.setAttribute('stroke', this.value)" type="color" value="black"/>
 
@@ -87,6 +87,7 @@
 
 </fieldset>
 
+<!--
 <fieldset>
 <legend>marker reference</legend>
 
@@ -107,7 +108,9 @@
 </select>
 
 </fieldset>
+-->
 
+<!--
 <fieldset>
 <legend>marker element</legend>
 
@@ -145,6 +148,7 @@ onchange="document.querySelector(app.marker).setAttribute('markerHeight', this.v
 
 
 </fieldset>
+-->
 
 </form>
 

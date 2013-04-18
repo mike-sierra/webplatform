@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<svg width="800px" height="800px" xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 800 800" >
+
+<defs>
+
+<style><![CDATA[
+path {
+    cursor: pointer;
+    pointer-events : visibleStroke;
+    fill: none;
+    stroke-width: 10;
+    stroke-opacity: 0.25;
+    stroke: blue;
+    stroke-linecap: round;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    transition: all 0.5s;
+}
+path:hover {
+    stroke         : lightgreen;;
+}
+
+text {
+    font-size: 30px;
+    font-family: Tahoma, sans-serif;
+}
+
+]]></style>
+
+<path id="curve" d="M 100,300 A 1,1 0 0 1 500,300" />
+<text id="textContent">The quick brown fox jumped over the lazy dog.</text>
+
+<animate attributeName="startOffset" start="0s" dur="5s" from="0%" to="100%" repeatCount="indefinite" xlink:href="#txtPath"/>
+
+</defs>
+
+<g  id="stuff">
+<image x="10" y="200" xlink:href="https://www.google.com/images/srpr/logo4w.png" width="500" height="100"/>
+<text>
+  <textPath xlink:href="#curve" startOffset="20%" id="_txtPath">
+    <tref xlink:href="#textContent" />
+  </textPath>
+</text>
+</g>
+
+</svg>
