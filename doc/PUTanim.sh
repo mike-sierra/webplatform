@@ -1,3 +1,4 @@
-/Users/sierra/sandbox/webplatform-tools/wpd edit tutorials/css_animations "`cat tut_animations.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit tutorials/css_transitions "`cat tut_transitions.txt`" -u Sierra
-/Users/sierra/sandbox/webplatform-tools/wpd edit tutorials/css_transforms "`cat tut_transforms.txt`" -u Sierra
+/Users/sierra/sandbox/webplatform-tools/wpd edit css/properties/transition-timing-function  "`cat a_ttim.txt`" -u Sierra
+/Users/sierra/sandbox/webplatform-tools/wpd edit css/properties/animation-timing-function   "`cat a_atim.txt`" -u Sierra
+/Users/sierra/sandbox/webplatform-tools/wpd edit css/functions/steps                        "`cat a_step.txt`" -u Sierra
+/Users/sierra/sandbox/webplatform-tools/wpd edit css/functions/cubic-bezier                 "`cat a_cubic.txt`" -u Sierra

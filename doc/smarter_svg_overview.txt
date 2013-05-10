@@ -1,7 +1,5 @@
 {{Page_Title|SVG grand tour}}
-{{Flags
-|Checked_Out=Yes
-}}
+{{Flags}}
 {{Byline
 |Name=Mike Sierra
 }}

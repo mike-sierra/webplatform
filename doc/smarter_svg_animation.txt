@@ -1,8 +1,5 @@
 {{Page_Title|SVG animation}}
-{{Flags
-|High-level issues=Stub
-|Checked_Out=Yes
-}}
+{{Flags}}
 {{Byline
 |Name=Mike Sierra
 }}

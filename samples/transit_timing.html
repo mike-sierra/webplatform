@@ -1,0 +1,76 @@
+<html>
+<head>
+<title>timing function demo</title>
+
+<style>
+
+body {
+    padding            : 6em;
+    background         : #aaa;
+}
+
+section {
+    border-radius      : 0.5em;
+    background         : #fff;
+    height             : 480px;
+    width              : 320px;
+    padding            : 1.0em;
+    overflow           : hidden;
+}
+
+select {
+    font-family        : Trebuchet MS;
+    font-size          : 90%;
+    -webkit-appearance : none;
+    -moz-appearance    : none;
+    appearance         : none;
+    padding            : 1em;
+    width              : 310px;
+    position           : absolute;
+    -webkit-transition : margin-top 1.0s 0.5s, width 1.0s 1.5s;
+    -moz-transition    : margin-top 1.0s 0.5s, width 1.0s 1.5s;
+    transition         : margin-top 1.0s 0.5s, width 1.0s 1.5s;
+}
+
+.alt {
+    width              : 50px;
+    margin-top         : 400px;
+}
+
+</style>
+
+</head>
+<body>
+
+<section>
+
+<select>
+  <option>linear: cubic-bezier(0,0,1,1)</option>
+  <option>ease: cubic-bezier(0.25,0.1,0.25,1.0)</option>
+  <option>ease-in: cubic-bezier(0.42,0,1.0,1.0)</option>
+  <option>ease-in-out: cubic-bezier(0.42,0,0.58,1.0)</option>
+  <option>ease-out: cubic-bezier(0,0,0.58,1.0)</option>
+  <option>cubic-bezier(0.25,-0.5,0.75,1.5)</option>
+  <option>cubic-bezier(0.5,2.0,0.5,-1.0)</option>
+  <option>cubic-bezier(0.5,3.0,0.5,-2.0)</option>
+  <option>step-start</option>
+  <option>step-end</option>
+  <option>steps(5)</option>
+</select>
+
+</section>
+
+<script>
+ window.onload = function() {
+     document.querySelector('select').addEventListener('change', function(e){
+         var el = e.target;
+         var v = el.value.replace(/.+ /, "");
+         el.classList.toggle('alt');
+         el.style.WebkitTransitionTimingFunction = v;
+         console.log(v);
+     });
+ }
+</script>
+
+</body>
+</html>
