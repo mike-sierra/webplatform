@@ -11,7 +11,7 @@ image, text {
     font-family: sans-serif;
     font-size: 70px;
     fill: red;
-    filter: url(#bend);
+    filter: url(#warp_anim);
 }
 
 ]]></style>
@@ -30,6 +30,24 @@ image, text {
   <feGaussianBlur stdDeviation="1 2" />
 </filter>
 
+<filter id="warp_anim">
+  <feTurbulence id="turb" type="fractalNoise" baseFrequency="0.017" numOctaves="1" result="warp" />
+  <feDisplacementMap id="warp_factor" xChannelSelector="R" yChannelSelector="G" in="SourceGraphic" in2="warp" scale="60" />
+  <feGaussianBlur stdDeviation="1 2" />
+</filter>
+
+<animate
+    id            = "displaceAnim"
+    attributeName = "scale"
+    from          = "0"
+    to            = "60"
+    begin         = "0s"
+    dur           = "1s"
+    values        = "0;100;0"
+    repeatCount   = "indefinite"
+    xlink:href    = "#warp_factor"
+/>
+
 <filter id="bend" x="0" y="0" width="100%" height="100%" data-primitiveUnits="objectBoundingBox">
   <feImage xlink:href="#G" x="0" y="0" width="100%" height="100%" result="grad"/>
   <feTile in="grad" x="0" y="0" width="100%" height="100%"/>
@@ -45,9 +63,13 @@ image, text {
 
 <text x="200" y="200">An SVG Filter</text>
 
+<image xlink:href="stock-photo.jpeg"  x="0" y="0" width="1024" height="768"/>
+
+<!--
 <circle cx="400" cy="100" r="100" filter="url(#bend)"/>
 
 <rect id="G" x="0" y="0" width="100" height="100" fill="url(#vGradient)" />
+-->
 
 </svg>
 
